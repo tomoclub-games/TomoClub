@@ -486,14 +486,6 @@ nav {
 
 .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0) scale(1); }
 
-.dropdown a {
-  display: block; padding: 0.875rem 1.25rem; border-radius: 12px; color: var(--navy); font-weight: 500; transition: var(--transition);
-}
-
-.dropdown a span { color: var(--text-light); }
-
-.dropdown a:hover { background: #F4F7FB; color: var(--teal); }
-
 /* Sections */
 section { padding: 3.5rem 0; position: relative; }
 
