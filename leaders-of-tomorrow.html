@@ -108,7 +108,7 @@
             width: calc(100% - 4rem);
             max-width: 1200px;
             z-index: 1000;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             background: rgba(15, 23, 42, 0.85); /* Dark-mode style glass */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -116,9 +116,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
         .nav-container {
@@ -145,14 +142,24 @@
             color: var(--teal);
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
         .mobile-menu-toggle {
             display: none;
-            background: none;
-            border: none;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
             color: white;
             cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
         }
 
         @media (max-width: 768px) {
@@ -487,17 +494,17 @@
                     <i data-lucide="home" style="width: 18px; height: 18px;"></i>
                     Home
                 </a>
-                <div class="nav-item" style="display: flex; align-items: center;">
-                    <button id="theme-toggle" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
-                        <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
-                        <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
-                    </button>
-                </div>
             </div>
-            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
-                <i data-lucide="menu" id="menu-icon-open"></i>
-                <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
-            </button>
+            <div class="nav-actions">
+                <button id="theme-toggle" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+                </button>
+            </div>
         </div>
     </nav>
 

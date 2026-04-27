@@ -146,7 +146,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#home" class="logo" style="text-decoration: none; font-size: 2rem;">
+            <a href="#home" class="logo" style="text-decoration: none;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
             <div class="nav-links" id="nav-links">
@@ -179,18 +179,17 @@
                         <a href="#guides">Guides & Toolkits</a>
                     </div>
                 </div>
-                <div class="nav-item" style="display: flex; align-items: center; margin-left: 1rem;">
-                    <button id="theme-toggle" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
-                        <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
-                        <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
-                    </button>
-                </div>
                 <!-- Mobile Only Pilot Button -->
                 <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
                     <a href="https://calendly.com/tomoclub/info-call?month=2026-04" target="_blank" class="btn btn-primary" style="width: 100%;">Request a Pilot</a>
                 </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
                 <a href="https://calendly.com/tomoclub/info-call?month=2026-04" target="_blank" class="btn btn-primary desktop-only">Request a Pilot</a>
                 <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i data-lucide="menu" id="menu-icon-open"></i>
