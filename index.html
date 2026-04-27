@@ -149,7 +149,7 @@
             <a href="#home" class="logo" style="text-decoration: none; font-size: 2rem;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <div class="nav-item">
                     <a href="#">Our Programs <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
@@ -185,8 +185,18 @@
                         <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                     </button>
                 </div>
+                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
+                    <a href="https://calendly.com/tomoclub/info-call?month=2026-04" target="_blank" class="btn btn-primary" style="width: 100%;">Request a Pilot</a>
+                </div>
             </div>
-            <a href="https://calendly.com/tomoclub/info-call?month=2026-04" target="_blank" class="btn btn-primary">Request a Pilot</a>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="https://calendly.com/tomoclub/info-call?month=2026-04" target="_blank" class="btn btn-primary desktop-only">Request a Pilot</a>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -249,7 +259,7 @@
         <!-- Impact Strip (LiveSchool Inspired) -->
         <div class="trust-bar animate-on-scroll" style="padding: 4rem 0; border-top: 1px solid transparent; border-bottom: 1px solid transparent; border-image: linear-gradient(to right, transparent, var(--border-color), transparent) 1; background: var(--section-grad-slate);">
             <div class="container">
-                <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; align-items: stretch;">
+                <div class="stats-grid" style="gap: 2rem; max-width: 1100px; margin: 0 auto; align-items: stretch;">
                     <!-- Card 1 -->
                     <div class="stat-item" style="box-shadow: none; background: rgba(42, 180, 184, 0.08); border-radius: 24px; padding: 2.5rem; text-align: left; display: flex; flex-direction: column;">
                         <span class="num counter" data-target="93" style="color: var(--teal); font-size: 5rem; display: flex; align-items: baseline; margin-bottom: 0.5rem; line-height: 1; font-weight: 500; font-family: sans-serif; letter-spacing: -0.05em;">

@@ -108,8 +108,8 @@
             width: calc(100% - 4rem);
             max-width: 1200px;
             z-index: 1000;
-            padding: 0.75rem 1rem 0.75rem 1.5rem;
-            background: rgba(15, 23, 42, 0.8); /* Dark-mode style glass */
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85); /* Dark-mode style glass */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 999px;
@@ -143,6 +143,53 @@
 
         .nav-links a:hover {
             color: var(--teal);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: calc(100% - 2rem);
+                padding: 0.75rem 1.25rem;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                left: 50%;
+                transform: translateX(-50%) translateY(-20px);
+                width: calc(100% - 2rem);
+                max-width: 400px;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                border-radius: 24px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                border: 1px solid rgba(255,255,255,0.1);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+            }
         }
 
         .ebook-grid {
@@ -181,6 +228,16 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            .stat-item:last-child {
+                grid-column: span 2;
+            }
         }
 
         .stat-item h4 {
@@ -425,18 +482,22 @@
             <a href="index.html#home" class="logo" style="text-decoration: none; font-size: 2rem; font-weight: 800;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="index.html#home" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-main); font-weight: 600; padding: 0.6rem 1.2rem; border: 1px solid var(--border-color); border-radius: 999px; transition: var(--transition); background: rgba(255,255,255,0.05);">
                     <i data-lucide="home" style="width: 18px; height: 18px;"></i>
                     Home
                 </a>
-                <div class="nav-item" style="display: flex; align-items: center; margin-left: 1rem;">
+                <div class="nav-item" style="display: flex; align-items: center;">
                     <button id="theme-toggle" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                         <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
                         <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                     </button>
                 </div>
             </div>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu" id="menu-icon-open"></i>
+                <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+            </button>
         </div>
     </nav>
 
@@ -926,6 +987,35 @@
                     banner.style.display = 'none';
                     document.body.classList.remove('has-banner');
                     localStorage.setItem('bannerDismissed_Ebook', 'true');
+                });
+            }
+
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const navLinksContainer = document.getElementById('nav-links');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+
+            if (mobileMenuToggle && navLinksContainer) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    const isActive = navLinksContainer.classList.toggle('active');
+                    
+                    if (menuIconOpen && menuIconClose) {
+                        menuIconOpen.style.display = isActive ? 'none' : 'block';
+                        menuIconClose.style.display = isActive ? 'block' : 'none';
+                    }
+                });
+
+                // Close menu when clicking a link
+                const navLinks = navLinksContainer.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinksContainer.classList.remove('active');
+                        if (menuIconOpen && menuIconClose) {
+                            menuIconOpen.style.display = 'block';
+                            menuIconClose.style.display = 'none';
+                        }
+                    });
                 });
             }
 

@@ -79,6 +79,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Mobile Menu Toggle
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinksContainer = document.getElementById('nav-links');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  if (mobileMenuToggle && navLinksContainer) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isActive = navLinksContainer.classList.toggle('active');
+      
+      if (menuIconOpen && menuIconClose) {
+        menuIconOpen.style.display = isActive ? 'none' : 'block';
+        menuIconClose.style.display = isActive ? 'block' : 'none';
+      }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = navLinksContainer.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinksContainer.classList.remove('active');
+        if (menuIconOpen && menuIconClose) {
+          menuIconOpen.style.display = 'block';
+          menuIconClose.style.display = 'none';
+        }
+      });
+    });
+  }
+
   // Simple Hash Router & SEO Updater
   const pages = document.querySelectorAll('.page');
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
