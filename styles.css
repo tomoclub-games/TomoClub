@@ -648,12 +648,12 @@ body:not(.dark-theme) .team-card-back .detail-item { color: var(--navy); }
 }
 
 .banner-btn {
-  background: var(--gold);
-  color: #0F172A; /* Force dark text regardless of theme */
+  background: #FFFFFF;
+  color: #000000 !important; /* Force pure black text */
   padding: 0.45rem 1.25rem;
   border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800; /* Extra bold */
   text-decoration: none;
   transition: var(--transition);
   display: flex;
@@ -662,10 +662,14 @@ body:not(.dark-theme) .team-card-back .detail-item { color: var(--navy); }
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+.banner-btn i {
+  color: #000000 !important;
+}
+
 .banner-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  background: white;
+  background: var(--gold);
 }
 
 .banner-close {
