@@ -1088,7 +1088,7 @@ footer { background: transparent; border-top: 1px solid transparent; border-imag
   width: max-content;
   gap: 0;
   padding: 1rem 0;
-  animation: scroll-testimonials 40s linear infinite;
+  animation: scroll-testimonials 30s linear infinite;
   will-change: transform;
 }
 
@@ -1101,11 +1101,11 @@ footer { background: transparent; border-top: 1px solid transparent; border-imag
 }
 
 .testimonial-track.fast {
-  animation-duration: 30s;
+  animation-duration: 20s;
 }
 
 .testimonial-track.slow {
-  animation-duration: 55s;
+  animation-duration: 45s;
 }
 
 .testimonial-card {
