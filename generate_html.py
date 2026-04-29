@@ -82,7 +82,7 @@ for u in urls.strip().split('\n'):
 html_str = '            <div class="grid-3">\n'
 for i, vid in enumerate(ids):
     title = f"Podcast Episode {i+1}"
-    html_str += f'''                <a href="podcast-player.html?id={vid}" class="glass-card podcast-card">
+    html_str += f'''                <a href="podcast-player.html?id={vid}" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
                         <img src="https://img.youtube.com/vi/{vid}/hqdefault.jpg" alt="{title}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">

@@ -395,6 +395,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Force navigation for Podcast Cards (Reliability Fix)
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.podcast-card');
+    if (card) {
+      // If it has target="_blank", let the browser handle it
+      if (card.getAttribute('target') === '_blank') return;
+      
+      const href = card.getAttribute('href');
+      if (href && href.includes('podcast-player.html')) {
+        e.preventDefault();
+        window.location.href = href;
+      }
+    }
+  }, true); // Use capture phase
+
   // Theme Toggle Logic
   const themeToggleBtn = document.getElementById('theme-toggle');
 

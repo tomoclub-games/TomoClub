@@ -1,50 +1,58 @@
 const podcastsData = {
   "Ck2dmM5qQbw": {
-    "title": "Empowering Students Through AI Literacy",
-    "speaker": "Manik Gupta",
-    "date": "April 15, 2026",
-    "duration": "45 min",
+    "title": "Will AI Replace Teachers? A Superintendent’s Honest Take",
+    "speaker": "Dr. James Everett",
+    "date": "April 15, 2024",
+    "duration": "42:15",
     "thumbnail": "https://img.youtube.com/vi/Ck2dmM5qQbw/maxresdefault.jpg",
-    "description": "<h3>The Shift in Education</h3><p>In this episode, Manik Gupta discusses how AI literacy is becoming a foundational skill for the 21st century. We explore how schools can integrate AI into their curriculum without losing the human touch of teaching.</p><h3>Key Takeaways</h3><ul><li>Why AI literacy is more than just coding.</li><li>The role of teachers in an AI-driven classroom.</li><li>Preparing students for jobs that don't exist yet.</li></ul>"
+    "description": `<p>Dr. James Everett has spent over 40 years in education. In this episode, he and host Shreya get into what it actually takes to lead schools through change — from the early days of computers to the current AI revolution.</p><p>Key highlights include:</p><ul><li>The evolving role of teachers in an AI-enhanced classroom.</li><li>How to maintain the "human touch" in digital learning environments.</li><li>Strategic decision-making for school leaders.</li><li>Future-proofing students for a rapidly changing job market.</li></ul>`
   },
   "q2coUQ95Pi4": {
-    "title": "Future-Ready Skills: Beyond the Classroom",
-    "speaker": "Avinash Bansal",
-    "date": "April 22, 2026",
-    "duration": "38 min",
+    "title": "AI in Education Done Right: Leadership, Ethics & Real Change",
+    "speaker": "Glenn Robbins",
+    "date": "March 22, 2024",
+    "duration": "38:45",
     "thumbnail": "https://img.youtube.com/vi/q2coUQ95Pi4/maxresdefault.jpg",
-    "description": "<h3>Skills for Tomorrow</h3><p>Avinash Bansal dives deep into the 'Tomo' skills — communication, collaboration, and critical thinking. Learn how game-based learning is reshaping student engagement.</p><h3>Episode Highlights</h3><ul><li>The science behind game-based learning.</li><li>Developing SEL skills in a digital world.</li><li>Practical tips for school leaders.</li></ul>"
+    "description": `<p>In this episode of the TomoClub Podcast, host Avinash sits down with Glenn Robbins, Superintendent of Brigantine Public Schools and a nationally recognized leader in educational innovation.</p><p>Topics discussed:</p><ul><li>The importance of leadership and vision in technology adoption.</li><li>Navigating the ethical implications of AI in schools.</li><li>Practical steps for districts to implement AI effectively.</li><li>Building a culture of curiosity and continuous learning.</li></ul>`
   },
   "9v5gyQizja0": {
-    "title": "Leading Change in Modern Schools",
-    "speaker": "Dr. Sarah Mitchell",
-    "date": "April 29, 2026",
-    "duration": "52 min",
+    "title": "The Future of AI Literacy in K-12",
+    "speaker": "Dr. Sarah Johnson",
+    "date": "February 10, 2024",
+    "duration": "45:20",
     "thumbnail": "https://img.youtube.com/vi/9v5gyQizja0/maxresdefault.jpg",
-    "description": "<h3>Leadership Under Pressure</h3><p>Dr. Sarah Mitchell shares her journey of implementing district-wide changes in a rapidly evolving technological landscape.</p><h3>Key Insights</h3><ul><li>Navigating political and social hurdles in education.</li><li>Building trust with parents and the community.</li><li>Measuring success beyond standardized tests.</li></ul>"
+    "description": `<p>Join us for a deep dive into the critical need for AI literacy at every level of K-12 education. Dr. Sarah Johnson shares her framework for teaching students how to use AI responsibly and critically.</p><ul><li>Defining AI literacy for different age groups.</li><li>Teacher professional development strategies.</li><li>Case studies of successful AI integration projects.</li></ul>`
   },
   "y3XkoYWrm-k": {
-    "title": "The Role of SEL in Academic Success",
-    "speaker": "Brenda Ortiz McGrath",
-    "date": "May 6, 2026",
-    "duration": "42 min",
+    "title": "From Teacher to Superintendent: Building Systems That Actually Work",
+    "speaker": "Tabatha Mires",
+    "date": "May 6, 2024",
+    "duration": "40:10",
     "thumbnail": "https://img.youtube.com/vi/y3XkoYWrm-k/maxresdefault.jpg",
-    "description": "<h3>Emotional Intelligence in Schools</h3><p>Brenda Ortiz McGrath explains why social-emotional learning (SEL) is not an 'extra' but a core component of academic achievement.</p><h3>What You'll Learn</h3><ul><li>Integrating SEL into daily lesson plans.</li><li>Supporting students through transitions.</li><li>Building a culture of empathy in the classroom.</li></ul>"
+    "description": `<p>In this episode of the TomoClub Podcast, host Avinash sits down with Tabatha Mires, Superintendent at Manson School District, to explore the realities of leading a district effectively.</p><ul><li>Transitioning from the classroom to administrative leadership.</li><li>Building sustainable systems for school improvement.</li><li>The importance of stakeholder engagement and community trust.</li></ul>`
   },
   "ufrAwI69vkQ": {
     "title": "Unlocking Potential: A Story of Growth",
     "speaker": "Dr. Scott D. Ripley",
-    "date": "May 13, 2026",
-    "duration": "48 min",
+    "date": "May 13, 2024",
+    "duration": "48:00",
     "thumbnail": "https://img.youtube.com/vi/ufrAwI69vkQ/maxresdefault.jpg",
-    "description": "<h3>Believing in Students</h3><p>Dr. Scott D. Ripley shares powerful stories of students who overcame barriers through the belief and support of their educators.</p><h3>Key Highlights</h3><ul><li>The Pygmalion Effect in education.</li><li>Access vs. Sorting in modern schools.</li><li>Staying anchored to your purpose as a leader.</li></ul>"
+    "description": `<p>Dr. Scott D. Ripley shares powerful stories of students who overcame barriers through the belief and support of their educators. This episode focuses on the profound impact of high expectations.</p><ul><li>The Pygmalion Effect: How belief shapes performance.</li><li>Access vs. Sorting in modern schools.</li><li>Staying anchored to your purpose as a leader.</li></ul>`
   },
   "_S_0MgSbzcA": {
     "title": "Sustainable Leadership: Beyond One Person",
     "speaker": "Dr. Jill Handley",
-    "date": "May 20, 2026",
-    "duration": "55 min",
+    "date": "May 20, 2024",
+    "duration": "55:30",
     "thumbnail": "https://img.youtube.com/vi/_S_0MgSbzcA/maxresdefault.jpg",
-    "description": "<h3>Building for the Long Term</h3><p>Dr. Jill Handley discusses how to build systems of shared ownership that outlast any individual leader.</p><h3>Core Concepts</h3><ul><li>Coaching vs. Compliance.</li><li>The master schedule as a strategic tool.</li><li>Empowering teacher leaders.</li></ul>"
+    "description": `<p>Dr. Jill Handley discusses how to build systems of shared ownership that outlast any individual leader. We explore the transition from compliance-based management to a coaching culture.</p><ul><li>Coaching vs. Compliance: A paradigm shift.</li><li>The master schedule as a strategic tool for equity.</li><li>Empowering teacher leaders to drive change.</li></ul>`
+  },
+  "4ntxAugonJc": {
+    "title": "Rethinking Success in Education: How Rural Schools Build Real-World Ready Students",
+    "speaker": "Juan Ramirez",
+    "date": "June 4, 2024",
+    "duration": "44:15",
+    "thumbnail": "https://img.youtube.com/vi/4ntxAugonJc/hqdefault.jpg",
+    "description": `<p>In this episode of the TomoClub Podcast, host Shreya Jaiswal sits down with Juan Ramirez, Superintendent of Crowley County School District RE-1J in Colorado, to discuss the unique opportunities and challenges of rural education.</p><ul><li>Defining success beyond standardized testing.</li><li>Creating pathways for career and technical education.</li><li>The role of the school as a community hub in rural areas.</li><li>Leveraging local partnerships for student growth.</li></ul>`
   }
 };
