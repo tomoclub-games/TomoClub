@@ -604,7 +604,18 @@ document.addEventListener('DOMContentLoaded', () => {
           body: sheetData
         });
 
-        // Success - Data has been sent to the Google Sheet
+        // 2. Submit to Vercel API (Backup & Emails)
+        try {
+          await fetch('/api/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+        } catch (vErr) {
+          console.warn('Backup Vercel API failed:', vErr);
+        }
+
+        // Success - Data has been sent
         mainSignupForm.style.display = 'none';
         signupSuccessView.style.display = 'block';
         if (typeof lucide !== 'undefined') lucide.createIcons();

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwFuKr-0GwdBfPylk7pmIhcbQX401Qye5t61ZsrjfbQ6TUToblKfX-l2bzv5DAFKuxc/exec';
+  const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzz2VpoSdbCDsfGo4-3O6KnnjsEHUaMHuCCUN0KsQyBatGz_EMc-xdFC5FnvlKBWb40/exec';
   const ADMIN_EMAIL = 'info@tomoclub.org'; // Default admin email
 
   try {
@@ -22,12 +22,11 @@ export default async function handler(req, res) {
     const googleSheetPromise = fetch(GOOGLE_SHEET_WEBHOOK, {
       method: 'POST',
       body: new URLSearchParams({
-        firstName: name,
+        name: name,
         email: email,
         phone: phone || '',
         message: message || '',
-        source: 'Vercel Signup Form',
-        sheetName: 'Sheet 2' // As per existing logic in script.js
+        source: 'Vercel Signup Form'
       })
     }).catch(err => console.error('Google Sheets Error:', err));
 
