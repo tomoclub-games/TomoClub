@@ -14,197 +14,304 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="styles.css?v=18">
     <style>
-        .podcast-hero {
-            padding-top: 160px;
-            padding-bottom: 4rem;
-            background: var(--section-grad-slate);
+        :root {
+            --podcast-teal: #2AB4B8;
+            --podcast-navy: #0F172A;
+            --podcast-border: rgba(15, 23, 42, 0.08);
         }
-        .player-container {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #000;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 3rem;
-            border: 1px solid var(--card-border);
+
+        body {
+            background-color: #FAFBFC;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(42, 180, 184, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(253, 198, 45, 0.03) 0px, transparent 50%);
         }
-        .episode-meta {
+
+        /* Pill Navigation */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 4rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-radius: 999px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
             display: flex;
             gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
         }
-        .meta-item {
-            display: flex;
+
+        .nav-item a {
+            color: #94A3B8;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: #FFFFFF;
+        }
+
+        .podcast-hero {
+            padding-top: 180px;
+            padding-bottom: 6rem;
+        }
+
+        .back-link {
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
+            color: var(--podcast-teal);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        .episode-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--podcast-navy);
+            letter-spacing: -0.04em;
+        }
+
+        .episode-meta-bar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--podcast-border);
+            display: inline-flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+        }
+
+        .meta-unit {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
             color: var(--text-muted);
             font-weight: 500;
         }
-        .meta-item i {
-            color: var(--teal);
-            width: 18px;
-            height: 18px;
+
+        .meta-unit i {
+            color: var(--podcast-teal);
+            width: 20px;
+            height: 20px;
         }
-        .episode-content {
+
+        .meta-unit strong {
+            color: var(--podcast-navy);
+            font-weight: 700;
+        }
+
+        .meta-separator {
+            width: 1px;
+            height: 24px;
+            background: rgba(15, 23, 42, 0.1);
+        }
+
+        .player-wrapper {
+            background: #000;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.3);
+            aspect-ratio: 16/9;
+            margin-bottom: 5rem;
+            border: 8px solid white;
+        }
+
+        .content-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 5rem;
             align-items: start;
-            margin-top: 2rem;
         }
-        .description-section {
-            background: var(--surface);
-            padding: 3rem;
-            border-radius: 32px;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--shadow-sm);
+
+        .description-card {
+            background: white;
+            padding: 4rem;
+            border-radius: 40px;
+            border: 1px solid var(--podcast-border);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
         }
-        @media (max-width: 992px) {
-            .episode-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            .episode-meta {
-                flex-direction: column;
-                align-items: flex-start !important;
-                width: 100% !important;
-            }
-            .episode-meta div[style*="width: 1px"] {
-                display: none;
-            }
-            .description-section {
-                padding: 1.5rem;
-            }
+
+        .description-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
         }
-        .description-body h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: var(--navy);
+
+        .description-header i {
+            color: var(--podcast-teal);
+            width: 32px;
+            height: 32px;
         }
-        .description-body p {
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        .description-body ul {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-        }
-        .description-body li {
-            margin-bottom: 0.75rem;
-            color: var(--text-muted);
-        }
-        .sidebar-card {
+
+        .sidebar-cta {
+            background: var(--podcast-teal);
+            color: white;
+            padding: 3.5rem;
+            border-radius: 40px;
             position: sticky;
-            top: 120px;
+            top: 140px;
+            box-shadow: 0 30px 60px -15px rgba(42, 180, 184, 0.3);
+            text-align: center;
+        }
+
+        .sidebar-cta h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .sidebar-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar-cta .btn-white {
+            background: white;
+            color: var(--podcast-teal);
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .episode-title { font-size: 3rem; }
+            .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .sidebar-cta { position: static; }
+        }
+
+        @media (max-width: 768px) {
+            .episode-title { font-size: 2.5rem; }
+            .episode-meta-bar { flex-direction: column; align-items: flex-start; width: 100%; }
+            .meta-separator { display: none; }
+            .description-card { padding: 2rem; }
+            nav { width: calc(100% - 2rem); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <div class="container nav-container">
-            <a href="index.html#home" class="logo" style="text-decoration: none;">
-                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
-            </a>
-            <div class="nav-links" id="nav-links">
-                <div class="nav-item"><a href="index.html#home">Home</a></div>
-                <div class="nav-item"><a href="index.html#about">About Us</a></div>
-                <div class="nav-item"><a href="index.html#podcast" class="active">Podcast</a></div>
-                <div class="nav-item"><a href="index.html#signup" class="btn btn-primary desktop-only" style="color: white !important;">Request a Pilot</a></div>
-            </div>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
-                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
-                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
-                </button>
-            </div>
+        <a href="index.html#home" class="logo" style="text-decoration: none;">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="index.html#home">Home</a></div>
+            <div class="nav-item"><a href="index.html#about">About Us</a></div>
+            <div class="nav-item"><a href="index.html#podcast" class="active">Podcast</a></div>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html#signup" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--teal);">Request a Pilot</a>
         </div>
     </nav>
 
-    <main>
+    <main class="container">
         <section class="podcast-hero">
-            <div class="container">
-                <a href="index.html#podcast" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; margin-bottom: 2rem; transition: transform 0.3s ease;">
-                    <i data-lucide="arrow-left" style="width: 18px;"></i> Back to All Episodes
-                </a>
-                <h1 id="episode-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Loading Episode...</h1>
+            <a href="index.html#podcast" class="back-link">
+                <i data-lucide="arrow-left"></i> Back to All Episodes
+            </a>
+            
+            <h1 id="episode-title" class="episode-title">Loading Episode...</h1>
+            
+            <div class="episode-meta-bar">
+                <div class="meta-unit">
+                    <i data-lucide="user"></i> <strong>Speaker:</strong> <span id="episode-speaker">Speaker Name</span>
+                </div>
+                <div class="meta-separator"></div>
+                <div class="meta-unit">
+                    <i data-lucide="calendar"></i> <strong>Date:</strong> <span id="episode-date">Date</span>
+                </div>
+                <div class="meta-separator"></div>
+                <div class="meta-unit">
+                    <i data-lucide="clock"></i> <strong>Duration:</strong> <span id="episode-duration">Duration</span>
+                </div>
+            </div>
+
+            <div class="player-wrapper">
+                <iframe id="podcast-iframe" src="" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="content-grid">
+                <div class="description-card">
+                    <h2 class="description-header">
+                        <i data-lucide="info"></i> Detailed Episode Description
+                    </h2>
+                    <div class="description-body" id="episode-description">
+                        <!-- Content populated by JS -->
+                    </div>
+                </div>
                 
-                <div class="episode-meta" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 20px; border: 1px solid var(--card-border); display: inline-flex; width: auto; margin-bottom: 3rem;">
-                    <div class="meta-item">
-                        <i data-lucide="user"></i> <strong style="color: var(--navy); margin-right: 0.25rem;">Speaker:</strong> <span id="episode-speaker">Speaker Name</span>
+                <aside>
+                    <div class="sidebar-cta">
+                        <h3>Ready to bring Tomo to your school?</h3>
+                        <p>Join 14+ states and 10+ countries in building future-ready students.</p>
+                        <a href="index.html#signup" class="btn btn-white">
+                            Request a Pilot <i data-lucide="arrow-right"></i>
+                        </a>
                     </div>
-                    <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 1rem;"></div>
-                    <div class="meta-item">
-                        <i data-lucide="calendar"></i> <strong style="color: var(--navy); margin-right: 0.25rem;">Date:</strong> <span id="episode-date">Date</span>
-                    </div>
-                    <div style="width: 1px; height: 24px; background: var(--border-color); margin: 0 1rem;"></div>
-                    <div class="meta-item">
-                        <i data-lucide="clock"></i> <strong style="color: var(--navy); margin-right: 0.25rem;">Duration:</strong> <span id="episode-duration">Duration</span>
-                    </div>
-                </div>
-
-                <div class="player-container">
-                    <iframe id="podcast-iframe" src="" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <div class="episode-content">
-                    <div class="description-section">
-                        <h2 style="font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem;">
-                            <i data-lucide="info" style="color: var(--teal);"></i> Detailed Episode Description
-                        </h2>
-                        <div class="description-body" id="episode-description">
-                            <!-- Content populated by JS -->
-                        </div>
-                    </div>
-                    
-                    <aside class="sidebar-card">
-                        <div class="glass-card" style="padding: 2.5rem; background: var(--card-grad-teal); border: 1px solid rgba(42, 180, 184, 0.2);">
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Ready to bring Tomo to your school?</h3>
-                            <p style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.8;">Join 14+ states and 10+ countries in building future-ready students.</p>
-                            <a href="index.html#signup" class="btn btn-primary" style="width: 100%; background: var(--teal); border: none;">Request a Pilot <i data-lucide="arrow-right"></i></a>
-                        </div>
-                    </aside>
-                </div>
+                </aside>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer style="margin-top: 5rem;">
-        <div class="container">
-            <div class="footer-bottom" style="border-top: 1px solid var(--border-color); padding: 3rem 0; text-align: center;">
-                <p>&copy; 2026 TomoClub. All rights reserved.</p>
-            </div>
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--podcast-border);">
+        <div class="container text-center">
+            <p style="color: var(--text-light); font-size: 0.9rem;">&copy; 2026 TomoClub. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
     <script src="podcasts_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             
-            // Get episode ID from URL
             const urlParams = new URLSearchParams(window.location.search);
             const episodeId = urlParams.get('id');
             
             if (episodeId) {
-                // Get data or defaults
                 const data = podcastsData[episodeId] || {
                     "title": `Podcast Episode`,
                     "speaker": "TomoClub Team",
                     "date": "2026",
                     "duration": "TBD",
-                    "description": "<h3>Episode Overview</h3><p>In this episode, we dive into the latest trends in education, AI literacy, and future-ready skills. Stay tuned for more insights from the TomoClub team.</p>"
+                    "description": "<p>In this episode, we dive into the latest trends in education, AI literacy, and future-ready skills. Stay tuned for more insights from the TomoClub team.</p>"
                 };
                 
-                // Update Page Content
                 document.getElementById('page-title').textContent = `${data.title} | TomoClub Podcast`;
                 document.getElementById('episode-title').textContent = data.title;
                 document.getElementById('episode-speaker').textContent = data.speaker;
@@ -212,35 +319,12 @@
                 document.getElementById('episode-duration').textContent = data.duration;
                 document.getElementById('episode-description').innerHTML = data.description;
                 
-                // Set Iframe Src
                 const origin = window.location.origin;
                 document.getElementById('podcast-iframe').src = `https://www.youtube-nocookie.com/embed/${episodeId}?rel=0&enablejsapi=1&origin=${encodeURIComponent(origin)}`;
             } else {
-                // Handle missing ID
                 document.getElementById('episode-title').textContent = "Episode Not Specified";
                 document.getElementById('episode-description').innerHTML = "<p>Please select a podcast episode to listen to.</p><a href='index.html#podcast' class='btn btn-secondary'>View All Episodes</a>";
             }
-
-            // Simple Theme Toggle (minimal for this page)
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const updateIcons = () => {
-                const isDark = document.body.classList.contains('dark-theme');
-                document.querySelector('.theme-icon-moon').style.display = isDark ? 'none' : 'block';
-                document.querySelector('.theme-icon-sun').style.display = isDark ? 'block' : 'none';
-            };
-
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
-                updateIcons();
-            }
-
-            themeToggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-                const isDark = document.body.classList.contains('dark-theme');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                updateIcons();
-            });
         });
     </script>
 </body>
