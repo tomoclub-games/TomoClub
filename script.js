@@ -604,24 +604,12 @@ document.addEventListener('DOMContentLoaded', () => {
           body: sheetData
         });
 
-        // 2. Submit to Vercel API (Backup)
-        try {
-          await fetch('/api/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-        } catch (vErr) {
-          console.warn('Backup Vercel API failed:', vErr);
-        }
-
-        // Success - Since we sent to Google Sheets (mode: no-cors), we treat it as success
+        // Success - Data has been sent to the Google Sheet
         mainSignupForm.style.display = 'none';
         signupSuccessView.style.display = 'block';
         if (typeof lucide !== 'undefined') lucide.createIcons();
       } catch (error) {
         console.error('Signup Error:', error);
-        // If it's just the Vercel API failing but we expect it to work, show error
         // But if Sheets is the priority, we might treat it as success.
         // Given the request, we'll keep the error display.
         
