@@ -1261,41 +1261,40 @@ body.dark-theme .quote-card-navy p {
     margin-bottom: 0.5rem;
 }
 
-/* Responsive adjustments */
+/* ====================================================================
+   COMPREHENSIVE RESPONSIVE SYSTEM
+   Breakpoints: 1200px (large tablet/laptop), 992px (tablet landscape), 
+                768px (tablet portrait), 480px (mobile), 360px (small mobile)
+   ==================================================================== */
+
+/* --- Large Tablet / Small Laptop --- */
 @media (max-width: 1200px) {
   .container { max-width: 95%; }
-  h1 { font-size: 4rem; }
+  h1 { font-size: 3.75rem; }
+  h2 { font-size: 2.75rem; }
 }
 
+/* --- Tablet Landscape --- */
 @media (max-width: 992px) {
-  h1 { font-size: 3.25rem; }
-  h2 { font-size: 2.5rem; }
-  .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .hero { min-height: auto; padding-top: 140px; padding-bottom: 4rem; }
-}
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.25rem; }
+  h3 { font-size: 1.6rem; }
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-  p { font-size: 1rem; }
+  .grid-2 { grid-template-columns: 1fr; gap: 2.5rem; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  
+  .hero { min-height: auto; padding-top: 130px; padding-bottom: 3rem; }
+  .hero p { font-size: 1.1rem; }
+
   section { padding: 3rem 0; }
-  .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .footer-logo { margin: 0 auto 1.5rem; }
-  .social-links { justify-content: center; }
-  .glass-card { padding: 1.5rem; border-radius: 24px; }
-  .modal-content { padding: 1.5rem; width: 95%; }
-  .btn { padding: 0.75rem 1.5rem; width: 100%; }
-  .hero { padding-top: 120px; }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-  .grid-4 { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .social-proof-micro { 
-    flex-direction: column; 
-    text-align: center; 
-    gap: 1.5rem; 
-    padding-top: 2rem;
+
+  /* Social proof bar — stack vertically */
+  .social-proof-micro {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
   }
   .social-proof-micro > div {
     border-right: none !important;
@@ -1303,17 +1302,319 @@ body.dark-theme .quote-card-navy p {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1rem;
     width: 100%;
+    text-align: center !important;
   }
   .social-proof-micro > div:last-child {
     border-bottom: none;
   }
+
+  /* Stats — reduce counters */
+  .stat-item .num { font-size: 3.5rem !important; }
+  .stat-item .num span:last-child { font-size: 2.5rem !important; }
 }
 
+/* --- Tablet Portrait / Mobile Breakpoint --- */
+@media (max-width: 768px) {
+  /* Typography */
+  h1 { font-size: 2.25rem; letter-spacing: -0.03em; }
+  h2 { font-size: 1.85rem; }
+  h3 { font-size: 1.35rem; }
+  h4 { font-size: 1.1rem; }
+  p { font-size: 0.95rem; }
+
+  /* Utility to hide line breaks on mobile for cleaner text flow */
+  br { content: ''; }
+  br::after { content: ' '; }
+  h1 br, h2 br { display: none; }
+  
+  .container { padding: 0 1.25rem; }
+  section { padding: 2.5rem 0; }
+  .section-header { margin-bottom: 2.5rem !important; }
+  .section-header h2 { margin-bottom: 1rem !important; }
+  .section-header p { font-size: 0.95rem !important; }
+
+  /* Hero */
+  .hero { padding-top: 110px; padding-bottom: 2rem; }
+  .hero p { font-size: 1rem; margin-bottom: 1.5rem; }
+  .hero .animate-on-scroll[style*="display: flex"][style*="gap"] {
+    flex-wrap: wrap;
+  }
+  .hero .social-proof-micro {
+    margin-top: 2.5rem !important;
+  }
+
+  /* Grids */
+  .grid-2 { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .grid-3 { grid-template-columns: 1fr; gap: 1.25rem; }
+  .grid-4 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-5 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .grid-6 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .stat-item { padding: 1.5rem !important; border-radius: 20px !important; }
+  .stat-item .num { font-size: 3rem !important; }
+  .stat-item .num span:last-child { font-size: 2.25rem !important; }
+  .stat-item .label { font-size: 1rem !important; margin-bottom: 1.5rem !important; }
+
+  /* Cards */
+  .glass-card { padding: 1.5rem; border-radius: 20px; }
+  .glass-card:hover { transform: none; } /* Disable hover lift on touch devices */
+  .program-card { padding: 1.75rem; }
+  .program-card .icon { width: 52px; height: 52px; border-radius: 16px; margin-bottom: 1.25rem; }
+
+  /* Podcast cards */
+  .podcast-card { padding: 1.25rem; }
+
+  /* Buttons - touch-friendly */
+  .btn { 
+    padding: 0.875rem 1.5rem; 
+    width: 100%; 
+    font-size: 0.95rem;
+    min-height: 48px; /* iOS touch target */
+  }
+
+  /* Image wrappers */
+  .image-wrapper { border-radius: 20px; }
+  .image-wrapper:hover { transform: none; }
+  .image-wrapper:hover img { transform: none; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+  .footer-logo { margin: 0 auto 1.5rem; }
+  .social-links { justify-content: center; }
+  footer { padding: 3rem 0 2rem; margin-top: 2rem; }
+
+  /* Modals — full-screen on mobile */
+  .modal-content { 
+    padding: 1.5rem; 
+    width: 96%; 
+    max-width: 96%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 24px;
+  }
+  .modal-close { top: 1rem; right: 1rem; }
+
+  /* Forms */
+  .form-group { margin-bottom: 1.25rem; }
+  .form-control { padding: 0.75rem 1rem; font-size: 1rem; min-height: 48px; }
+
+  /* FAQ */
+  .faq-question { font-size: 1.05rem; gap: 1rem; }
+  .faq-question i { width: 28px; height: 28px; flex-shrink: 0; }
+  .faq-answer { font-size: 0.95rem; }
+  .faq-item.active .faq-answer { margin-top: 1rem; }
+  .faq-item { padding: 1.25rem 0; }
+
+  /* Testimonial cards — responsive width */
+  .testimonial-card { 
+    width: 300px; 
+    padding: 1.75rem; 
+    border-radius: 20px; 
+    margin-right: 1rem; 
+  }
+  .testimonial-card p { font-size: 0.95rem; margin-bottom: 1.25rem; }
+  .testimonial-card p::before { font-size: 3rem; top: -1rem; }
+  .testimonial-card .author-name { font-size: 0.95rem; }
+  .testimonial-card .author-title { font-size: 0.8rem; }
+
+  /* Logo marquee — smaller logos */
+  .logo-track { gap: 2.5rem; padding-right: 2.5rem; }
+  .logo-track img { height: 50px; max-width: 140px; }
+
+  /* Team flip cards — touch-friendly */
+  .team-card { 
+    height: 400px; 
+    aspect-ratio: auto; 
+  }
+  .team-card-overlay { padding: 2rem 1.5rem 1.5rem; }
+  .team-card-overlay h3 { font-size: 1.5rem; }
+  .team-card-overlay p { font-size: 0.95rem; }
+  .team-card-back { padding: 1.25rem; }
+  .team-card-back h3 { font-size: 1.15rem; }
+  .team-card-back .bio { font-size: 0.85rem; line-height: 1.45; margin-bottom: 1rem; }
+  .team-card-back .detail-item { font-size: 0.8rem; margin-bottom: 0.5rem; }
+  .team-card-back .role { font-size: 0.7rem; margin-bottom: 0.75rem; }
+  .team-social-links { padding-top: 1rem; gap: 0.75rem; }
+
+  /* Announcement banner */
+  .banner-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 2.5rem;
+  }
+  .banner-text { font-size: 0.8rem; line-height: 1.4; }
+  .banner-btn { font-size: 0.8rem; padding: 0.4rem 1rem; }
+  body.has-banner nav { top: 6rem; }
+  body.has-banner nav.scrolled { top: 5.5rem; }
+
+  /* Floating CTA */
+  .floating-cta { 
+    bottom: 1rem; 
+    left: 1rem; 
+    right: 1rem; 
+    width: calc(100% - 2rem); 
+    justify-content: center; 
+  }
+
+  /* Article body in modal */
+  .article-body h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+  .article-body p { font-size: 0.95rem; line-height: 1.65; }
+  .article-body ul { font-size: 0.95rem; padding-left: 1.25rem; }
+
+  /* Quote cards */
+  .quote-card-navy { padding: 1.5rem; border-radius: 16px; }
+
+  /* Reduce animation intensity on mobile for performance */
+  .animate-on-scroll { 
+    transform: translateY(20px); 
+  }
+
+  /* Implementation promise / large text sections */
+  .hero h1 { word-break: break-word; }
+}
+
+/* --- Mobile Phones --- */
 @media (max-width: 480px) {
-  h1 { font-size: 2.2rem; }
-  .badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
-  .stat-item .num { font-size: 3.5rem; }
-  .stat-item .num span:last-child { font-size: 2.5rem !important; }
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.6rem; }
+  h3 { font-size: 1.2rem; }
+
+  .container { padding: 0 1rem; }
+
+  .hero { padding-top: 100px; }
+
+  /* Badges */
+  .badge { font-size: 0.7rem; padding: 0.35rem 0.85rem; margin-bottom: 1.25rem; }
+
+  /* Stats — tighter on small phones */
+  .stat-item .num { font-size: 2.75rem !important; }
+  .stat-item .num span:last-child { font-size: 2rem !important; }
+  .stat-item .label { font-size: 0.9rem !important; }
+  .stat-item { padding: 1.25rem !important; }
+
+  /* Grids — single column everything */
+  .grid-4 { grid-template-columns: 1fr; gap: 0.75rem; }
+  .grid-5 { grid-template-columns: 1fr; gap: 0.75rem; }
+  .grid-6 { grid-template-columns: 1fr; gap: 0.75rem; }
+
+  /* Cards — more compact */
+  .glass-card { padding: 1.25rem; border-radius: 16px; }
+  .program-card { padding: 1.25rem; }
+
+  /* Testimonial cards — fit screen width */
+  .testimonial-card { width: 270px; padding: 1.5rem; }
+  .testimonial-card p { font-size: 0.9rem; }
+
+  /* Team cards */
+  .team-card { height: 360px; }
+  .team-card-back { padding: 1rem; }
+  .team-card-back h3 { font-size: 1.05rem; }
+  .team-card-back .bio { font-size: 0.8rem; }
+
+  /* Buttons */
+  .btn { font-size: 0.9rem; padding: 0.75rem 1.25rem; }
+
+  /* Footer */
+  footer { padding: 2.5rem 0 1.5rem; }
+  .footer-links h4 { font-size: 1rem; margin-bottom: 1rem; }
+  .footer-links a { font-size: 0.9rem; }
+  .footer-bottom { font-size: 0.8rem; padding-top: 1.5rem; }
+
+  /* Nav adjustments */
+  nav { 
+    width: calc(100% - 1.5rem); 
+    padding: 0.4rem 0.75rem; 
+    top: 0.75rem; 
+  }
+  nav.scrolled { top: 0.5rem; padding: 0.35rem 0.75rem; }
+  .logo { font-size: 1.3rem; }
+
+  .nav-links {
+    top: 4.5rem;
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  /* Modal — nearly full-screen */
+  .modal-content { 
+    width: 100%; 
+    max-width: 100%; 
+    border-radius: 20px 20px 0 0; 
+    max-height: 92vh;
+    margin-bottom: 0;
+  }
+
+  /* Social links */
+  .social-links a { width: 42px; height: 42px; }
+  .social-links svg, .social-links i { width: 18px !important; height: 18px !important; }
+
+  /* Podcast cards */
+  .podcast-card h3 { font-size: 1.15rem !important; }
+  .podcast-card p { font-size: 0.85rem !important; }
+
+  /* Section padding tightening */
+  section { padding: 2rem 0; }
+  .section-header { margin-bottom: 2rem !important; }
+
+  /* Logo marquee */
+  .logo-track { gap: 2rem; padding-right: 2rem; }
+  .logo-track img { height: 40px; max-width: 120px; }
+
+  /* FAQ */
+  .faq-question { font-size: 0.95rem; }
+}
+
+/* --- Very Small Phones (e.g. iPhone SE) --- */
+@media (max-width: 360px) {
+  h1 { font-size: 1.65rem; }
+  h2 { font-size: 1.45rem; }
+  .container { padding: 0 0.75rem; }
+  .btn { padding: 0.7rem 1rem; font-size: 0.85rem; }
+  .testimonial-card { width: 250px; padding: 1.25rem; }
+  .team-card { height: 320px; }
+  nav { width: calc(100% - 1rem); padding: 0.35rem 0.5rem; }
+  .logo { font-size: 1.15rem; }
+}
+
+/* --- Touch Device Optimizations --- */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover transforms on touch to prevent stuck states */
+  .glass-card:hover { transform: none; box-shadow: var(--shadow-md); }
+  .glass-card:hover::before { opacity: 0; }
+  .image-wrapper:hover { transform: none; }
+  .image-wrapper:hover img { transform: none; }
+  .btn-primary:hover { transform: none; }
+  .btn-primary:hover i { transform: none; }
+  
+  /* Active states for touch feedback instead */
+  .glass-card:active { transform: scale(0.98); }
+  .btn:active { transform: scale(0.97); }
+  .image-wrapper:active { transform: scale(0.99); }
+
+  /* Team flip card — use tap (flipped class) instead of hover */
+  .team-container:hover .team-card { transform: none; }
+  .team-card.flipped { transform: rotateY(180deg); }
+  
+  /* Testimonial marquee — don't pause on touch since there's no hover */
+  .testimonial-track:hover { animation-play-state: running; }
+}
+
+/* --- Landscape phone mode --- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { padding-top: 80px; min-height: auto; padding-bottom: 2rem; }
+  .hero h1 { font-size: 1.75rem; }
+  .hero p { font-size: 0.9rem; margin-bottom: 1rem; }
+  nav { top: 0.5rem; }
+  .modal-content { max-height: 85vh; }
+}
+
+/* --- Print Optimization --- */
+@media print {
+  nav, .floating-cta, .announcement-banner, .mobile-menu-toggle { display: none !important; }
+  .page { display: block !important; opacity: 1 !important; transform: none !important; }
+  .animate-on-scroll { opacity: 1 !important; transform: none !important; }
 }
 
 /* Social Proof Micro */
