@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
         message: `${formData.get('message')}${formData.get('message_extra') ? ' | Notes: ' + formData.get('message_extra') : ''}`
       };
 
-      const submitBtn = mainSignupForm.querySelector('button');
+      const submitBtn = mainSignupForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
       // UI Loading State
@@ -597,24 +597,21 @@ document.addEventListener('DOMContentLoaded', () => {
           body: formData
         });
 
-        // 2. Submit to Vercel API (Original Logic)
-        const response = await fetch('/api/signup', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          // Success
-          mainSignupForm.style.display = 'none';
-          signupSuccessView.style.display = 'block';
-          if (typeof lucide !== 'undefined') lucide.createIcons();
-        } else {
-          // If Vercel fails but Sheets works (mode: no-cors), we might still want to show success 
-          // or at least handle the error gracefully.
-          const result = await response.json();
-          throw new Error(result.error || 'Something went wrong.');
+        // 2. Submit to Vercel API (Backup - wrap in try/catch to avoid blocking success if it fails)
+        try {
+          await fetch('/api/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+        } catch (vErr) {
+          console.warn('Backup Vercel API failed:', vErr);
         }
+
+        // Success - Since we sent to Google Sheets (mode: no-cors), we treat it as success
+        mainSignupForm.style.display = 'none';
+        signupSuccessView.style.display = 'block';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
       } catch (error) {
         console.error('Signup Error:', error);
         // If it's just the Vercel API failing but we expect it to work, show error
