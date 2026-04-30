@@ -1704,3 +1704,15 @@ body.dark-theme .quote-card-navy p {
     border-radius: 8px !important;
   }
 }
+
+/* Centered Grid for 5 items */
+.grid-centered-5 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.grid-centered-5 > * {
+  flex: 1 1 320px;
+  max-width: 380px;
+}
