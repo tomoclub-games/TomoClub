@@ -363,35 +363,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Podcast Progressive Disclosure
-  const podcastCards = document.querySelectorAll('.podcast-card');
-  if (podcastCards.length > 12) {
-    const gridContainer = podcastCards[0].closest('.grid-3');
+  // Podcast Search, Filter and Progressive Disclosure
+  const podcastSearch = document.getElementById('podcast-search');
+  const podcastFilter = document.getElementById('podcast-filter');
+  const podcastGrid = document.getElementById('podcast-grid');
+  
+  if (podcastGrid) {
+    const allPodcastCards = Array.from(podcastGrid.querySelectorAll('.podcast-card'));
+    let currentlyVisibleCount = 12;
     
-    podcastCards.forEach((card, index) => {
-      if (index > 11) {
-        card.style.setProperty('display', 'none', 'important');
-      }
-    });
-
-    const loadMoreBtn = document.createElement('button');
-    loadMoreBtn.className = 'btn btn-secondary';
-    loadMoreBtn.innerHTML = 'Load More Episodes <i data-lucide="chevron-down"></i>';
-    
+    // Create Load More Button
     const btnContainer = document.createElement('div');
     btnContainer.style.textAlign = 'center';
     btnContainer.style.marginTop = '2rem';
     btnContainer.style.gridColumn = '1 / -1';
+    btnContainer.className = 'podcast-load-more-container';
     
+    const loadMoreBtn = document.createElement('button');
+    loadMoreBtn.className = 'btn btn-secondary';
+    loadMoreBtn.innerHTML = 'Load More Episodes <i data-lucide="chevron-down"></i>';
     btnContainer.appendChild(loadMoreBtn);
-    gridContainer.appendChild(btnContainer);
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-
-    loadMoreBtn.addEventListener('click', () => {
-      podcastCards.forEach(card => {
-        card.style.setProperty('display', 'flex', 'important');
+    
+    const updatePodcasts = () => {
+      const searchTerm = podcastSearch ? podcastSearch.value.toLowerCase() : '';
+      const sortOrder = podcastFilter ? podcastFilter.value : 'latest';
+      
+      let filteredCards = allPodcastCards.filter(card => {
+        const text = card.textContent.toLowerCase();
+        return text.includes(searchTerm);
       });
-      btnContainer.style.display = 'none';
+      
+      filteredCards.sort((a, b) => {
+        const textA = a.querySelector('div[style*="font-size: 0.75rem;"] span:first-child')?.textContent || '';
+        const textB = b.querySelector('div[style*="font-size: 0.75rem;"] span:first-child')?.textContent || '';
+        const numA = parseInt(textA.replace(/\D/g, '')) || 0;
+        const numB = parseInt(textB.replace(/\D/g, '')) || 0;
+        return sortOrder === 'latest' ? numB - numA : numA - numB;
+      });
+      
+      // Clear grid
+      allPodcastCards.forEach(card => {
+        card.style.setProperty('display', 'none', 'important');
+      });
+      if (btnContainer.parentNode) {
+        btnContainer.parentNode.removeChild(btnContainer);
+      }
+      
+      // Append in sorted order
+      filteredCards.forEach(card => podcastGrid.appendChild(card));
+      
+      // Show up to currentlyVisibleCount
+      filteredCards.forEach((card, index) => {
+        if (index < currentlyVisibleCount) {
+          card.style.setProperty('display', 'flex', 'important');
+        }
+      });
+      
+      // Add Load More button if needed
+      if (filteredCards.length > currentlyVisibleCount) {
+        podcastGrid.appendChild(btnContainer);
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+    };
+    
+    // Initialize
+    if (podcastFilter) podcastFilter.value = 'latest'; // Default to latest
+    updatePodcasts();
+    
+    // Event Listeners
+    if (podcastSearch) {
+      podcastSearch.addEventListener('input', () => {
+        currentlyVisibleCount = 12; // reset count on search
+        updatePodcasts();
+      });
+    }
+    
+    if (podcastFilter) {
+      podcastFilter.addEventListener('change', () => {
+        currentlyVisibleCount = 12; // reset count on sort
+        updatePodcasts();
+      });
+    }
+    
+    loadMoreBtn.addEventListener('click', () => {
+      currentlyVisibleCount += 12;
+      updatePodcasts();
     });
   }
 
