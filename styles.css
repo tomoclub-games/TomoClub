@@ -1089,7 +1089,7 @@ footer { background: transparent; border-top: 1px solid transparent; border-imag
   width: max-content;
   gap: 0;
   padding: 1rem 0;
-  animation: scroll-testimonials 30s linear infinite;
+  animation: scroll-testimonials 40s linear infinite;
 }
 
 .testimonial-track:hover {
