@@ -394,10 +394,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
       filteredCards.sort((a, b) => {
-        const textA = a.querySelector('div[style*="font-size: 0.75rem;"] span:first-child')?.textContent || '';
-        const textB = b.querySelector('div[style*="font-size: 0.75rem;"] span:first-child')?.textContent || '';
-        const numA = parseInt(textA.replace(/\D/g, '')) || 0;
-        const numB = parseInt(textB.replace(/\D/g, '')) || 0;
+        const matchA = a.textContent.match(/Episode\s+(\d+)/i);
+        const matchB = b.textContent.match(/Episode\s+(\d+)/i);
+        const numA = matchA ? parseInt(matchA[1], 10) : 0;
+        const numB = matchB ? parseInt(matchB[1], 10) : 0;
         return sortOrder === 'latest' ? numB - numA : numA - numB;
       });
       
