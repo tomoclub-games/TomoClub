@@ -3909,6 +3909,25 @@
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
             }
         });
     </script>

@@ -65,6 +65,25 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('has-banner');
       // Ensure icons are created for the banner
       if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
     }
 
     closeBannerBtn.addEventListener('click', () => {
@@ -421,6 +440,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filteredCards.length > currentlyVisibleCount) {
         podcastGrid.appendChild(btnContainer);
         if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
       }
     };
     
@@ -559,6 +597,25 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         if (typeof lucide !== 'undefined') lucide.createIcons();
 
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
+
         try {
           // 1. Submit to Google Sheets (Resources/Old Sheet)
           await fetch(RESOURCE_WEBHOOK, {
@@ -655,6 +712,25 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = 'Sending Request... <i data-lucide="loader" class="spin"></i>';
       submitBtn.disabled = true;
       if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
       
       signupMsgContainer.style.display = 'none';
 
@@ -689,6 +765,25 @@ document.addEventListener('DOMContentLoaded', () => {
         mainSignupForm.style.display = 'none';
         signupSuccessView.style.display = 'block';
         if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
       } catch (error) {
         console.error('Signup Error:', error);
         // But if Sheets is the priority, we might treat it as success.
@@ -703,6 +798,25 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
       }
     });
   }

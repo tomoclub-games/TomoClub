@@ -1730,3 +1730,80 @@ body.dark-theme .quote-card-navy p {
     transform: translateY(6px);
   }
 }
+
+
+/* --- MOBILE OPTIMIZATION FIXES --- */
+
+@media (max-width: 768px) {
+  /* Typography */
+  h1 { font-size: 2.75rem !important; }
+  h2 { font-size: 2.25rem !important; }
+  h3 { font-size: 1.5rem !important; }
+  
+  /* Layout Spacing */
+  section { padding: 4rem 0 !important; }
+  .container { padding: 0 1.5rem !important; }
+  
+  /* Hero Section */
+  .hero { padding-top: 120px !important; text-align: center; }
+  .hero-actions { flex-direction: column; gap: 1rem; }
+  .hero-actions .btn { width: 100%; }
+  
+  /* Grid Systems */
+  .grid-2, .grid-3, .grid-4, .grid-centered-5, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .grid-centered-5 > * {
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+  
+  /* LearnEdge Cards */
+  .glass-card { padding: 2rem !important; }
+  
+  /* Stats Grid */
+  .stats-grid { grid-template-columns: 1fr !important; }
+  
+  /* Buttons */
+  .btn { width: 100%; padding: 0.8rem 1.5rem !important; }
+  
+  /* Navigation Fixes */
+  nav { width: calc(100% - 2rem) !important; top: 1rem !important; }
+  .nav-container { padding: 0 !important; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.25rem !important; }
+  h2 { font-size: 1.85rem !important; }
+}
+
+
+/* Additional Specific Mobile Fixes */
+@media (max-width: 768px) {
+  .podcast-controls { 
+    flex-direction: column !important; 
+    align-items: stretch !important; 
+    gap: 1.5rem !important; 
+    padding: 1rem !important;
+  }
+  .search-box { min-width: 100% !important; }
+  .filter-box { 
+    width: 100% !important; 
+    justify-content: space-between !important; 
+  }
+  .filter-box select { flex: 1 !important; }
+  
+  /* Episode Titles and Content */
+  .episode-title { font-size: 2rem !important; }
+  .content-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  
+  /* Footer adjustments */
+  .footer-grid { text-align: center !important; }
+  .footer-logo { margin: 0 auto 2rem !important; }
+  .social-links { justify-content: center !important; }
+  
+  /* Hide excessive decorative elements on mobile */
+  .hero::after { display: none !important; }
+}

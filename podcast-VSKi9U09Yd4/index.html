@@ -255,7 +255,7 @@
         <a href="../#home" class="logo" style="text-decoration: none;">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
-        <div class="nav-links">
+        <div class="nav-links" id="nav-links">
             <div class="nav-item"><a href="../#home">Home</a></div>
             <div class="nav-item"><a href="../#about">About Us</a></div>
             <div class="nav-item"><a href="../#podcast" class="active">Podcast</a></div>
@@ -266,7 +266,12 @@
                 <i data-lucide="moon" class="theme-icon-moon"></i>
                 <i data-lucide="sun" class="theme-icon-sun" style="display: none;"></i>
             </button>
-        </div>
+        
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+                </button>
+    </div>
     </nav>
 
     <main class="container">
@@ -328,6 +333,41 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
+
+            // Mobile Dropdown Toggle
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const dropdown = item.querySelector('.dropdown');
+                if (link && dropdown) {
+                    link.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            const isOpen = dropdown.style.maxHeight === '500px';
+                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
+                            const icon = link.querySelector('i');
+                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+    
+
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const navLinksContainer = document.getElementById('nav-links');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+
+            if (mobileMenuToggle && navLinksContainer) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    const isActive = navLinksContainer.classList.toggle('active');
+                    if (menuIconOpen && menuIconClose) {
+                        menuIconOpen.style.display = isActive ? 'none' : 'block';
+                        menuIconClose.style.display = isActive ? 'block' : 'none';
+                    }
+                });
+            }
+    
             const themeToggleBtn = document.getElementById('theme-toggle');
             if (themeToggleBtn) {
                 const updateIcons = () => {
