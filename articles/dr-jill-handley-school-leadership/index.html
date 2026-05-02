@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Dr. Jill Handley Is Fixing What’s Broken in School Leadership">
+    <title>How Dr. Jill Handley Is Fixing What’s Broken in School Leadership | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">March 30, 2026</span>
+                </div>
+                <h1 class="article-title">How Dr. Jill Handley Is Fixing What’s Broken in School Leadership</h1>
+                <img src="../images/dr-jill-handley-school-leadership-cover.jpg" alt="How Dr. Jill Handley Is Fixing What’s Broken in School Leadership" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h3>The master schedule was the first move</h3><p>Before any new curriculum, before any new initiative, Handley redesigned the master schedule. Common planning time built in for grade-level teams. Protected Tier 1 instructional blocks. Intervention woven into the day rather than piled on after it.“Without a schedule that protects collaboration, intervention time, and coaching cycles, none of the other work is sustainable,” she says.</p><p>### Data became a team sport</p><p>MAP data stopped living only with the principal. PLCs became real working sessions – disciplined, focused on specific questions: what are students mastering, what aren’t they, and what’s the team doing about it before next week?</p><p>Students tracked their own growth targets. Teachers aligned instructional strategies to those targets and got regular, actionable feedback on whether their choices were actually working.Growth was built into the daily rhythm of the school.</p><p>### Coaching replaced compliance</p><p>Handley developed what she called Individualized Professional Development – a coaching cycle built around observation, feedback, collaborative planning, and follow-up. High expectations for instruction were paired with high support for getting there.</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/dr-jill-handley-school-leadership-img-1.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><p>Teachers knew what strong instruction looked like. They also knew they’d receive real coaching to reach it, not just the expectation hanging over them. Over time, that built collective efficacy. Staff could see the direct connection between their instructional decisions and student growth.</p><h3>Why leading a district is a different job</h3><p>Moving from principal to Assistant Superintendent is where a lot of strong building leaders quietly lose their footing. The feedback loops that made them effective, seeing impact quickly, staying close to instruction, knowing every teacher by name, those compress or disappear entirely at the district level.Handley is candid about the adjustment. At the building level, you implement. At the district level, you create coherence. And the instinct to do the first one when you’ve been hired for the second is a real trap.</p><p>The mindset shift she describes is worth sitting with: leaders, like teachers, are at varying stages of development. Good district leadership has to differentiate for building leaders the same way good instruction differentiates for students. That meant listening first. Observing. Understanding what was already in place before pushing on anything.</p><p>“I spent significant time learning the landscape,” she says, “identifying both short-term levers that could produce immediate impact and longer-term structural shifts that would strengthen outcomes over time.”</p><p>She brought the habit of scanning across multiple schools and asking where alignment was quietly breaking down, where gaps in student experience were being created by silos that didn’t need to exist, where clarity was missing in ways that made everyone’s job harder than it needed to be.Her goal was never to replace what was working. It was to find where the connective tissue between things was weak – and reinforce it.</p><h3>Building for the students who get left out</h3><p>In her current role leading the Office of Multilingual Learners, Handley is running the same structural playbook – this time on behalf of a student that too many school systems still treat as peripheral.Her framework runs on three pillars. Each one has to be in place. None of them works without the others.</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/dr-jill-handley-school-leadership-img-2.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><ul><li>Vision: “If leaders see students only through a deficit lens, systems will reflect that.” When multilingualism gets framed as an asset instead of a deficiency – when cultural diversity is treated as strength – it changes what gets scheduled, how instruction gets designed, what professional development gets funded, who gets access to advanced coursework. Belief isn’t soft. It’s structural. It determines what gets built.</li><li>Systems: Strong Tier 1 instruction with language supports embedded. Real collaboration structures between general education and ML staff. Accountability measures that track access and outcomes – not just test scores at year’s end, but whether students have a genuine pathway through the full academic program of the school. “It’s not enough to say we value multilingual learners; we must build structures that demonstrate that commitment.”</li><li>Leadership capacit: Helping building leaders examine their data through an equity lens, notice patterns in discipline and access to advanced coursework, and lead inclusive schools with both skill and intention. “Supporting leaders in this work requires both clarity and courage.” Clarity because the work has to be specific and concrete. Courage because it means naming patterns that are uncomfortable to name.</li></ul><h3>What schools are getting wrong about AI</h3><p>“School and district leaders should be thinking less about the tool itself and more about the conditions surrounding its use.”</p><p>AI can do real things. It can support differentiated instruction in ways that used to be logistically impossible. It can handle administrative load, give faster feedback, expand access to information. Used with intention, it genuinely helps. But it can’t build trust. It can’t create belonging. It can’t do the relationship work that determines whether any of the rest of it actually sticks.Her concern is equity, specifically, what happens when AI gets rolled out without asking who it serves and who it leaves behind. The students and schools that already have less will fall further behind if implementation happens without intentional design. District leaders need to provide professional learning, ethical frameworks, and guardrails before rolling anything out, not after.</p><p>The integration question she’s asking isn’t which tool? Does this serve the learning goals we already have, or does it become another initiative layered on top of everything we haven’t finished yet?</p><p>#### AI should serve learning. Not drive it.</p><h3>What she's actually trying to leave behind</h3><p>There’s a sentence Dr. Handley returns to again and again: leadership should not require constant sacrifice to be effective.</p><p>It sounds like a wellness slogan until you understand what it’s really arguing. When leadership concentrates on one person, when the principal is the answer to every question, the backstop for every breakdown, the keeper of every thread, the system is fragile. Not because that person isn’t exceptional. Because no one can sustain that indefinitely. And because that model doesn’t build anything that outlasts them.</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/dr-jill-handley-school-leadership-img-3.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><p>What she’s built, across every role in 30 years, is something different: shared ownership. Systems clear enough that people understand their responsibilities. Coaching is real enough that high expectations are actually achievable. Recognition consistent enough that people feel seen rather than managed.She also hosts Be The Leader You Deserve and co-authored What Can I Take Off Your Plate, both rooted in the same conviction her school leadership was. Growing other leaders isn’t extra credit. It’s the main job. The leaders you develop are the system’s ability to sustain itself after you’ve moved on.</p><p>“Sustainable leadership,” she says, “is not measured by how much you carry, but by how many others you empower to lead alongside you.”</p><p>When people look back on her work years from now, she hopes they say she led with integrity, that her words and her actions matched. That she held high expectations out of genuine belief in people, not out of pressure. That she left every space stronger, more aligned, more hopeful than she found it.</p><p>Not because she was still there holding it together. Because the people inside it felt equipped to carry it forward themselves.</p><h3>Why TomoClub Is Sharing This Story</h3><p>At TomoClub, we believe the future of education isn’t shaped by flashy reforms. It’s shaped inside schools by leaders who quietly build systems, strengthen trust, and respond to real challenges with intention.</p><p>The Education Hall exists to surface these stories. Dr. Handley’s career spans three decades of exactly that: leading Title I schools with limited resources, navigating the often-disorienting shift from building to district leadership, and advocating for multilingual learners inside systems that weren’t originally built with them in mind. These are the realities most schools live with every day, and they deserve to be talked about honestly.Dr. Jill Handley’s work at Jefferson County Public Schools reflects a kind of leadership that rarely makes headlines. Steady. Systems-driven. Relentlessly people-first. The kind that understands that before you can improve outcomes, you have to build the structures that make improvement possible – and that those structures only hold when the people inside them feel valued, coached, and trusted to carry the work forward. That kind of leadership is exactly what education needs right now.</p><p>Tisya brings a growth lens to education-focused conversations and enjoys sharing ideas through writing.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="back-link">
+                <i data-lucide="arrow-left"></i> Back to Education Hall
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>

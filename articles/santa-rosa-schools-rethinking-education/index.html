@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Santa Rosa Schools Are Rethinking Education Today">
+    <title>How Santa Rosa Schools Are Rethinking Education Today | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">School Leadership</span>
+                    <span class="article-date">February 11, 2026</span>
+                </div>
+                <h1 class="article-title">How Santa Rosa Schools Are Rethinking Education Today</h1>
+                <img src="../images/santa-rosa-schools-rethinking-education-cover.jpg" alt="How Santa Rosa Schools Are Rethinking Education Today" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h3>Growing Up Inside the System He Now Leads</h3><p>Martin didn’t step into leadership as an outsider. He went to school in the same community he now serves. After college, he returned to teach second grade, later moved into high school classrooms, coached sports, became a principal, and eventually took on the superintendent role.</p><p>Seven years into the position, he is now considered a veteran in New Mexico, where the average superintendent tenure is just over two years.</p><p>That continuity has shaped how change happens in Santa Rosa. When Martin introduces new ideas, they are grounded in shared history and deep understanding of the community. Innovation doesn’t feel imposed. It feels connected to the district’s identity.</p><h3>Why the Current Education Model Feels Out of Sync</h3><p>Martin doesn’t believe students or teachers are failing the system. He believes the system itself has fallen behind.</p><p>Students today are growing up immersed in technology. They’re using AI, search engines, and digital tools as a natural part of learning and daily life. Schools, however, are still structured around models built for a time when information was scarce and memorization was essential.</p><p>Martin sees his role as a bridge – between students who are growing up as digital natives and systems that were built for a very different era. He often finds himself translating between classrooms and policy, between educators who are cautious about change and students who already live in a technology-driven world. That ability to move between perspectives has shaped how innovation takes root in Santa Rosa.</p><p>“We don’t need schools to be places that just deliver information anymore,” Martin explains. “We need them to teach students how to think.”</p><p>That mismatch – between how students learn and how schools measure learning – is where many of today’s challenges begin.</p><h3>How Schools Can Better Prepare Students for the Future</h3><p>At Santa Rosa Consolidated Schools, future readiness is not framed as a single program or initiative. It is guided by three clear priorities.</p><p>### 1. Using AI as a Learning Tool</p><p>AI is often treated with suspicion in schools, largely because of concerns around cheating. Martin takes a different approach.“Students are going to use AI whether we like it or not,” he says. “The responsibility of schools is to teach them how to use it thoughtfully.”</p><p>In Santa Rosa, AI is positioned as a tool that supports critical thinking, exploration, and efficiency.</p><p>Teachers are encouraged to use it to personalize learning and reduce administrative load, allowing them to focus more on instruction and relationships.</p><p>### 2. Expanding Career and Technical Pathways</p><p>For many years, college readiness dominated the definition of success in K–12 education. Martin believes that narrow focus overlooked both student interests and workforce realities.</p><p>Santa Rosa has expanded career and technical education (CTE) and work-based learning opportunities so students can explore multiple post-graduation paths. Today, nearly 75% of juniors and seniors participate in internships or hands-on career programs, including welding, construction, culinary arts, healthcare, and other trades.</p><p>Beyond technical skills, students develop habits that employers value – communication, reliability, and initiative. In one case, a recent graduate outperformed adult candidates during a professional interview, largely due to her prior internship experience.</p><p>### 3. Strengthening Foundations Through Relevance</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/santa-rosa-schools-rethinking-education-img-1.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><p>Martin is clear that foundational skills like reading, writing, and math remain essential. What needs to change is how students experience them.</p><p>When students understand how academic concepts connect to real-world applications, engagement increases. Geometry becomes meaningful in construction. Math matters in culinary budgeting. Literacy supports communication in professional settings.</p><p>“When students see the purpose behind what they’re learning,” Martin says, “their motivation changes.”</p><p>### When Policy Is Far from the Classroom</p><p>Martin also points out that many of today’s accountability decisions are made far from classrooms. As a former president of New Mexico’s Superintendent Association, he has seen how difficult it can be to align policy with the realities of modern learning—especially when those shaping the rules are even further removed from today’s technology and classroom environments.</p><p>### Why Growth Matters More Than Benchmarks</p><p>Martin often reflects on how students spend more than a decade inside a highly supported school system, surrounded by teachers, counselors, and resources – and then, almost overnight, that support disappears when they graduate.</p><p>Helping students understand growth, self-reflection, and responsibility before that moment, he believes, is just as important as any academic benchmark.</p><p>“The real comparison should be a student against their own growth,” he explains, “not against a single fixed benchmark.”</p><p>### Innovation in a Small, Rural District</p><p>Santa Rosa is a small, rural district with limited resources. That reality has required creative problem-solving.</p><p>The district brings in industry professionals as part-time instructors, combines teaching roles with district operational needs, and builds partnerships with the local community. These approaches make it possible to offer robust programs without the scale or funding of larger districts.</p><p>According to Martin, once meaningful programs are established, interest follows. Community members want to contribute when they see clear purpose and impact.</p><h3>Lessons for School Leaders Everywhere</h3><ul><li>Innovation does not require large budgets</li><li>Rural districts can lead meaningful change</li><li>Academic rigor and relevance are not opposites</li><li>Trust and continuity enable faster progress</li></ul><h3>Why TomoClub Is Sharing This Story</h3><p>At TomoClub, we believe the future of education will be shaped by people working inside schools – leaders and educators who are willing to question what no longer works and thoughtfully adapt to what students actually need today.</p><p>Tomo Spotlight: Innovations in Education exists to highlight these stories. Not ideal scenarios or polished case studies, but real work happening in real districts, often with limited resources and complex constraints.</p><p>Martin Madrid’s story reflects the kind of leadership we believe matters most right now – grounded in community, focused on relevance, and willing to rethink long-held assumptions about what school is for.</p><p>This series is our way of learning from practitioners who quietly shape what comes next for education!</p><p>Tisya brings a growth lens to education-focused conversations and enjoys sharing ideas through writing.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="back-link">
+                <i data-lucide="arrow-left"></i> Back to Education Hall
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why TomoClub Exists – And the Side of Education Innovation We Don’t See">
+    <title>Why TomoClub Exists – And the Side of Education Innovation We Don’t See | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Innovation</span>
+                    <span class="article-date">February 11, 2026</span>
+                </div>
+                <h1 class="article-title">Why TomoClub Exists – And the Side of Education Innovation We Don’t See</h1>
+                <img src="../images/why-tomoclub-exists-cover.jpg" alt="Why TomoClub Exists – And the Side of Education Innovation We Don’t See" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h3>Why We’re Creating The Innovation Hall</h3><p>The Innovation Hall exists because of that gap.</p><p>Not because there aren’t enough people doing good work in education, but because the work itself often goes unnoticed. We hear about outcomes and initiatives, but rarely about the mindset that shaped them or the trade-offs that made them possible.</p><p>Innovation in education is often imagined as something bold or disruptive. In practice, it’s usually quieter than that. It happens inside systems that are accountable, political, and understandably risk-aware. From the outside, progress can look slow or incremental, even when meaningful shifts are happening beneath the surface.</p><p>The Innovation Hall is our attempt to make that quieter work visible.</p><p>It isn’t an awards list or a ranking. And it isn’t about celebrating personalities. It’s about decisions and context. About what was tried, what didn’t work the first time, and what eventually moved things forward anyway.</p><h3>Why This First Story Starts With TomoClub</h3><p>If we’re asking others to be open about their thinking, it feels important to start there ourselves.</p><p>So the first story in The Innovation Hall focuses on TomoClub. Not as a founder spotlight or a polished origin story, but as a way to make our own assumptions visible before turning the lens outward.</p><p>TomoClub didn’t begin with a product idea. It began with a frustration that kept surfacing across different conversations and contexts. Schools were working hard, but not always preparing students for the world they were stepping into.</p><p>That frustration shaped how TomoClub thinks about learning, skills, and systems. And it’s also why The Innovation Hall exists in the first place.</p><h3>A Company That Started With Frustration, Not a Solution</h3><p>We believe schools are doing a decent job preparing students for assessments. But it is far less consistent when it comes to preparing them for decision-making, collaboration, uncertainty, or change. (we see them as super important life skills!)</p><p>This wasn’t about people not caring. Most educators were doing their best within systems designed to be careful and slow to change. Safety mattered.Accountability mattered. But adaptability often came last.</p><p>At some point, this stopped being just an observation for us. We started thinking about the kind of education we would want for our own kids and realized we weren’t fully comfortable with what the system currently prioritized.</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/why-tomoclub-exists-img-1.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><p>A conversation with a close friend pushed the thinking further: if this feels broken, why keep talking about it instead of trying something?</p><p>That question became the starting point for TomoClub – not with a solution, but with a decision to step in and engage more honestly.</p><h3>Two Founders, Two Schooling Journeys, One Conclusion</h3><p>When we talk about why TomoClub exists, this is usually where the conversation lands.</p><p>Our co-founder, Manik, almost always starts by laughing about how he went to 7 schools in his childhood.</p><p>“I studied across seven different schools, boards, and systems,” he says. “Everything kept changing – the syllabus, the rules, the expectations.” What didn’t change much was the role of the teacher. “If the teacher was good, the system worked. If they weren’t, it didn’t really matter which board it was.”</p><p>That experience shaped how Manik looks at education today.</p><p>“At some point, I stopped seeing education as a syllabus problem,” he says. “It’s a system problem. People, incentives, and design choices matter more than we like to admit.”</p><p>Our other co-founder, Avinash Bansal’s story usually follows right after, partly because it’s the complete opposite.</p><p>“I went to one school my entire life,” he says. “One Catholic school. Very structured. Very disciplined. Academically, it did exactly what it was supposed to do.” Exams weren’t the issue. “I was prepared for tests. That part was fine.”</p><p>But when the conversation shifts, his tone does too.“Most of my confidence, communication, and self-awareness came much later,” Avinash says. “College societies. Competitions. Early entrepreneurship. Being thrown into situations where you have to figure things out.”</p><p>What kept standing out to us was how often these two very different stories landed in the same place. Manik saw how much a system could vary depending on who was teaching. Avinash saw how much a system could miss even when it was working well.</p><p>Different paths. Same realization. School prepares you to be assessed. Life asks you to decide, collaborate, adapt, and keep learning when there’s no answer key.</p></p><div style="text-align: center; margin: 2rem 0;"><img src="../images/why-tomoclub-exists-img-2.jpg" style="max-width: 100%; border-radius: 8px;" /></div><p></p><h3>Why TomoClub Focused on Skills, Not Syllabi</h3><ul><li>learning how to learn</li><li>problem-solving and critical thinking</li><li>collaboration and communication</li><li>decision-making under uncertainty</li></ul><h3>What Working With Schools Taught Us About Innovation</h3><p>As we began working more closely with schools, another reality became clear.</p><p>Most schools weren’t ignoring skills like collaboration, decision-making, or self-awareness. They were just struggling to fit them in. In many places, these skills were squeezed into a 15-minute advisory period, expected to be “embedded” across other subjects, or delivered through recorded videos students barely engaged with. On paper, the box was checked. In practice, the learning rarely stuck.</p><p>This wasn’t because schools didn’t care. Every decision carries weight, and risk isn’t theoretical. Trying something new competes with timetables, exams, parent expectations, and the very real fear of breaking what already works.</p><p>Innovation also competes with urgency. There is always something more immediate to deal with. Trust matters more than ideas, and agreement doesn’t always translate into action.</p><p>That’s when an important distinction became clear to us. Believing in innovation is one thing. Implementing it, inside real systems with real constraints, is something else entirely.</p><h3>Why AI Literacy Became the Entry Point</h3><ul><li>No parent consent required</li><li>Built-in PD days</li><li>Clear urgency</li><li>Immediate relevance</li></ul><h3>What We’re Still Figuring Out</h3><p>To be honest, we don’t have this all figured out. And the more time we spend working with schools, the more aware we are of how complicated change actually is.</p><p>We’re still learning what it really takes for schools to change at scale. How to introduce new ideas without losing trust along the way. How to measure learning that actually matters, not just what’s easiest to track. And how to move with some urgency without pushing systems faster than they can realistically move.</p><p>That uncertainty isn’t something we try to smooth over. It’s part of the process, and it shows up in our work every day.</p><p>The Innovation Hall comes from that same place.</p><p>As we’ve been building TomoClub, it’s become pretty clear that we’re not the only ones asking these questions. Across schools and communities, educators are quietly figuring things out, testing ideas, and making thoughtful changes without much attention or applause.</p><p>The Innovation Hall is simply our way of learning alongside them. It’s a space to share real attempts, focus on what actually got implemented, and talk honestly about what worked, what didn’t, and why. This first story sets the lens. The next ones will turn it outward, toward others working toward the same goal, one practical step at a time.</p><p>Tisya brings a growth lens to education-focused conversations and enjoys sharing ideas through writing.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="back-link">
+                <i data-lucide="arrow-left"></i> Back to Education Hall
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
