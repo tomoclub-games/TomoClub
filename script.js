@@ -133,6 +133,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Theme Toggle Logic
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.body.classList.add('dark-theme');
+    }
+
+    const updateIcons = () => {
+      const isDark = document.body.classList.contains('dark-theme');
+      const moonIcons = document.querySelectorAll('.theme-icon-moon');
+      const sunIcons = document.querySelectorAll('.theme-icon-sun');
+      moonIcons.forEach(icon => icon.style.display = isDark ? 'none' : 'block');
+      sunIcons.forEach(icon => icon.style.display = isDark ? 'block' : 'none');
+    };
+    updateIcons();
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+      updateIcons();
+    });
+  }
+
   // Navigation Background on Scroll
   const nav = document.querySelector('nav');
   if (nav) {
@@ -252,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         observer.unobserve(statsSection);
       }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
     observer.observe(statsSection);
   }
 
