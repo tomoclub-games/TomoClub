@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" id="meta-desc" content="TomoClub is the K–12 implementation partner for AI literacy and future-ready skills. Built, delivered, and supported for real classrooms, real teachers, and real students. Serving 14+ US states and 10+ countries.">
+    <meta name="description" id="meta-description" content="TomoClub is the K–12 implementation partner for AI literacy and future-ready skills. Built, delivered, and supported for real classrooms, real teachers, and real students. Serving 14+ US states and 10+ countries.">
     <meta name="keywords" content="AI Literacy, K-12 Education, Future-Ready Skills, Game-Based Learning, Teacher PD, AI Curriculum, School Leadership, SEL, EdTech Implementation Partner">
     <meta name="author" content="TomoClub">
-    <link rel="canonical" href="https://www.tomoclub.org/">
+    <link rel="canonical" id="canonical-link" href="https://www.tomoclub.org/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.tomoclub.org/">
+    <meta property="og:url" id="og-url" content="https://www.tomoclub.org/">
     <meta property="og:title" id="og-title" content="AI Literacy and Future-Ready Skills for K–12 Schools | TomoClub">
-    <meta property="og:description" id="og-desc" content="TomoClub is the K–12 implementation partner for AI literacy and human skills. We build it with you, train your teachers, and stay in it with you.">
+    <meta property="og:description" id="og-description" content="TomoClub is the K–12 implementation partner for AI literacy and human skills. We build it with you, train your teachers, and stay in it with you.">
     <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
 
     <!-- Twitter -->
@@ -30,7 +30,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#2ab4b8">
 
-    <title>AI Literacy & Future-Ready Skills for K–12 Schools | TomoClub Implementation Partner</title>
+    <title id="page-title">AI Literacy & Future-Ready Skills for K–12 Schools | TomoClub Implementation Partner</title>
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -125,7 +125,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=21">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.4/build/js/intlTelInput.min.js"></script>
     <style>
@@ -310,7 +310,7 @@
     </nav>
 
     <!-- PAGE: HOME -->
-    <div id="home" class="page active">
+    <div id="home" class="page active faded-in">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container" style="position: relative; z-index: 2;">
@@ -3734,34 +3734,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-    <script src="script.js?v=20"></script>
-    <script>
-        // Robust icon initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-
-            // Mobile Dropdown Toggle
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                const dropdown = item.querySelector('.dropdown');
-                if (link && dropdown) {
-                    link.addEventListener('click', (e) => {
-                        if (window.innerWidth <= 768) {
-                            e.preventDefault();
-                            const isOpen = dropdown.style.maxHeight === '500px';
-                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
-                            const icon = link.querySelector('i');
-                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-                        }
-                    });
-                }
-            });
-    
-            }
-        });
-    </script>
+    <script src="script.js?v=21"></script>
 </body>
 </html>
 

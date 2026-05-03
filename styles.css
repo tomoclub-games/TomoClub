@@ -961,7 +961,11 @@ body.has-banner nav.scrolled {
   transition: opacity 0.5s ease, 
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
 }
-.page.active { display: block; }
+.page.active { 
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 .page.faded-in { 
   opacity: 1; 
   transform: translateY(0); 
