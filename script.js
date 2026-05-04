@@ -241,6 +241,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   observeElements();
 
+  // FAQ Accordion Logic
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+
   // Team Card Flip Listener
   document.addEventListener('click', (e) => {
     const card = e.target.closest('.team-card');
