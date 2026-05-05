@@ -1764,7 +1764,6 @@ body.dark-theme .quote-card-navy p {
   }
 }
 
-
 /* --- MOBILE OPTIMIZATION FIXES --- */
 
 @media (max-width: 768px) {
@@ -1776,21 +1775,29 @@ body.dark-theme .quote-card-navy p {
   /* Layout Spacing */
   section { padding: 4rem 0 !important; }
   .container { padding: 0 1.5rem !important; }
-  
+
   /* Hero Section */
   .hero { padding-top: 120px !important; text-align: center; }
   .hero-actions { flex-direction: column; gap: 1rem; }
   .hero-actions .btn { width: 100%; }
   
   /* Grid Systems */
-  .grid-2, .grid-3, .grid-4, .grid-centered-5, .footer-grid {
+  .grid-2, .grid-3, .grid-4, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
   
-  .grid-centered-5 > * {
+  .grid-centered-5, .deck-row-top, .deck-row-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .grid-centered-5 > *, .deck-row-top > *, .deck-row-bottom > * {
     max-width: 100% !important;
-    flex: 1 1 100% !important;
+    width: 100% !important;
+    flex: 1 1 auto !important;
   }
   
   /* LearnEdge Cards */
@@ -1805,16 +1812,7 @@ body.dark-theme .quote-card-navy p {
   /* Navigation Fixes */
   nav { width: calc(100% - 2rem) !important; top: 1rem !important; }
   .nav-container { padding: 0 !important; }
-}
 
-@media (max-width: 480px) {
-  h1 { font-size: 2.25rem !important; }
-  h2 { font-size: 1.85rem !important; }
-}
-
-
-/* Additional Specific Mobile Fixes */
-@media (max-width: 768px) {
   .podcast-controls { 
     flex-direction: column !important; 
     align-items: stretch !important; 
@@ -1841,6 +1839,11 @@ body.dark-theme .quote-card-navy p {
   .hero::after { display: none !important; }
 }
 
+@media (max-width: 480px) {
+  h1 { font-size: 2.25rem !important; }
+  h2 { font-size: 1.85rem !important; }
+}
+
 /* Team Card Mobile Fixes */
 @media (max-width: 768px) {
   .team-card {
@@ -1852,6 +1855,12 @@ body.dark-theme .quote-card-navy p {
   }
 }
 
+/* Table Responsiveness */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+}
 
 /* AI Literacy Hero - Image Inspired */
 .ai-literacy-hero { background: #020617; min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 0 80px; color: white; }
@@ -1874,5 +1883,15 @@ body.dark-theme .quote-card-navy p {
 .ai-literacy-hero .hero-image-container img { width: 100%; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); mask-image: linear-gradient(to right, black 80%, transparent 100%); }
 @media (max-width: 992px) { .ai-literacy-hero h1 { font-size: 3.5rem; } .ai-literacy-hero .features-grid { grid-template-columns: repeat(3, 1fr); } .ai-literacy-hero .hero-image-container { display: none; } }
 
-
 @media (max-width: 768px) { .ai-literacy-hero .features-grid { grid-template-columns: repeat(2, 1fr); } .ai-literacy-hero .pill-box { flex-direction: column; text-align: center; gap: 1rem; margin: 0 auto; } .ai-literacy-hero .feature-item span { font-size: 0.65rem; } }
+
+/* Signup Section Tweaks */
+.signup-card {
+  padding: 4rem;
+}
+
+@media (max-width: 768px) {
+  .signup-card {
+    padding: 2rem !important;
+  }
+}
