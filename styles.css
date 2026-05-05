@@ -581,6 +581,22 @@ section { padding: 3.5rem 0; position: relative; }
 /* Grid Layouts */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+
+/* Olympic Rings Layout */
+.olympic-rings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.olympic-rings > div {
+  flex: 1 1 350px;
+  max-width: 380px;
+}
+
 .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
 @media (max-width: 1200px) {
