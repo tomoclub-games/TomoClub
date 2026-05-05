@@ -605,9 +605,7 @@ section { padding: 3.5rem 0; position: relative; }
 
 @media (min-width: 1024px) {
   .deck-row-bottom {
-    margin-top: -2.5rem;
-    position: relative;
-    z-index: 2;
+    margin-top: 0;
   }
 }
 
