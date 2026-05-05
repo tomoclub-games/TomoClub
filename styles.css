@@ -582,20 +582,30 @@ section { padding: 3.5rem 0; position: relative; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
 
-/* Olympic Rings Layout */
+/* Olympic Rings / 3-2 Deck Layout */
 .olympic-rings {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem 0;
 }
 
 .olympic-rings > div {
-  flex: 1 1 350px;
-  max-width: 380px;
+  flex: 0 1 350px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+@media (min-width: 1024px) {
+  .olympic-rings > div:nth-child(n+4) {
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+}
+
 
 .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
