@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Sending...';
 
-      try {
+        try {
         const formData = new FormData(mainSignupForm);
         await fetch(SIGNUP_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
         mainSignupForm.style.display = 'none';
@@ -323,5 +323,92 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = originalText;
       }
     });
+  }
+
+  // --- Download Modal Logic ---
+  const downloadModal = document.getElementById('download-modal');
+  const downloadButtons = document.querySelectorAll('.open-download-modal');
+  const closeDownloadBtn = document.getElementById('close-download-btn');
+  const toolkitForm = document.getElementById('toolkit-download-form');
+  const successMsg = document.getElementById('download-success-msg');
+  const manualDownloadLink = document.getElementById('manual-download-link');
+  const modalTitle = document.getElementById('modal-download-title');
+  const formToolkitName = document.getElementById('form-toolkit-name');
+
+  if (downloadModal && downloadButtons.length > 0) {
+    downloadButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const fileName = btn.getAttribute('data-file');
+        const title = btn.getAttribute('data-title');
+        
+        if (modalTitle) modalTitle.textContent = title;
+        if (formToolkitName) formToolkitName.value = title;
+        
+        // Store filename for download
+        downloadModal.setAttribute('data-current-file', fileName);
+        
+        downloadModal.classList.add('active');
+        if (toolkitForm) toolkitForm.style.display = 'block';
+        if (successMsg) successMsg.style.display = 'none';
+      });
+    });
+
+    if (closeDownloadBtn) {
+      closeDownloadBtn.addEventListener('click', () => {
+        downloadModal.classList.remove('active');
+      });
+    }
+
+    downloadModal.addEventListener('click', (e) => {
+      if (e.target === downloadModal) {
+        downloadModal.classList.remove('active');
+      }
+    });
+
+    if (toolkitForm) {
+      toolkitForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = toolkitForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.innerHTML : 'Get My Guide';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Preparing download...';
+        }
+
+        try {
+          const formData = new FormData(toolkitForm);
+          // Send to webhook
+          await fetch(RESOURCE_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
+          
+          const fileName = downloadModal.getAttribute('data-current-file');
+          const downloadUrl = `toolkits/${fileName}`;
+          
+          // Show success message
+          toolkitForm.style.display = 'none';
+          if (successMsg) successMsg.style.display = 'block';
+          if (manualDownloadLink) {
+            manualDownloadLink.href = downloadUrl;
+            manualDownloadLink.setAttribute('download', fileName);
+          }
+          
+          // Trigger automatic download
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        } catch (err) {
+          console.error('Download form error:', err);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        }
+      });
+    }
   }
 });
