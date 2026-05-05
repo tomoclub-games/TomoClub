@@ -499,6 +499,8 @@
                 <div class="glass-card" style="padding: 1rem; max-width: 1000px; border-radius: 32px; box-shadow: var(--shadow-lg);">
                     <div style="position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; background: #000;">
                         <iframe src="https://drive.google.com/file/d/1qN0d5LWSywVxDAfmoZ5wAT_upysHoMf4/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <!-- Overlay to block and hide the pop-out button -->
+                        <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: #000; z-index: 10;"></div>
                     </div>
                 </div>
             </div>
@@ -3673,8 +3675,10 @@
     <!-- Video Modal -->
     <div id="video-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; align-items: center; justify-content: center; flex-direction: column;">
         <button id="close-modal" style="position: absolute; top: 2rem; right: 2rem; background: transparent; border: none; color: white; cursor: pointer;"><i data-lucide="x" style="width: 32px; height: 32px;"></i></button>
-        <div style="width: 90%; max-width: 1000px; aspect-ratio: 16/9; background: #000;">
+        <div style="position: relative; width: 90%; max-width: 1000px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;">
             <iframe id="video-iframe" src="" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- Overlay to block and hide the pop-out button in modal -->
+            <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: #000; z-index: 10;"></div>
         </div>
     </div>
 
