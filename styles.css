@@ -582,24 +582,29 @@ section { padding: 3.5rem 0; position: relative; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
 
-/* Olympic Rings / 3-2 Deck Layout */
-.olympic-rings {
+/* Forced 3-2 Deck Layout */
+.deck-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.deck-row-top, .deck-row-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
+  gap: 1.5rem;
 }
 
-.olympic-rings > div {
-  flex: 0 1 350px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.deck-row-top > div, .deck-row-bottom > div {
+  flex: 1 1 320px;
+  max-width: 380px;
 }
 
 @media (min-width: 1024px) {
-  .olympic-rings > div:nth-child(n+4) {
+  .deck-row-bottom {
     margin-top: -2.5rem;
     position: relative;
     z-index: 2;
