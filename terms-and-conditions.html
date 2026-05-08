@@ -26,6 +26,13 @@
             border-radius: 24px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-md);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .policy-content.visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
         .policy-content h1 {
             font-size: 3rem;
@@ -367,6 +374,18 @@
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.body.classList.add('dark-theme');
         }
+
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll, .policy-content').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
