@@ -118,12 +118,18 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
+            <a href="/" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
-            <a href="index.html" class="nav-home-btn">
-                <i data-lucide="home"></i> Back to Home
-            </a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <a href="/" class="nav-home-btn">
+                    <i data-lucide="home"></i> Back to Home
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -403,8 +409,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 TomoClub. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem;">
-                    <a href="privacy-policy.html" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
-                    <a href="terms-and-conditions.html" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                    <a href="privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
                 </div>
             </div>
         </div>
@@ -414,22 +420,31 @@
     <script>
         lucide.createIcons();
         
-        // Dark theme detection
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const updateIcons = () => {
+            const isDark = document.body.classList.contains('dark-theme');
+            document.querySelectorAll('.theme-icon-moon').forEach(icon => icon.style.display = isDark ? 'none' : 'block');
+            document.querySelectorAll('.theme-icon-sun').forEach(icon => icon.style.display = isDark ? 'block' : 'none');
+        };
+
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.body.classList.add('dark-theme');
+            updateIcons();
         }
 
-        // Simple Intersection Observer for scroll animations
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateIcons();
+        });
 
-        document.querySelectorAll('.animate-on-scroll, .policy-content').forEach(el => observer.observe(el));
+        // Clean URL (remove .html from address bar)
+        if (window.location.pathname.endsWith('.html')) {
+            const newPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState(null, '', newPath + window.location.hash);
+        }
     </script>
 </body>
 </html>
