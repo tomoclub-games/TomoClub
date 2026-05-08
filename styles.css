@@ -317,6 +317,35 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+.btn-white-pill {
+  background: #FFFFFF !important;
+  color: #020617 !important;
+  padding: 1.25rem 3.5rem !important;
+  font-weight: 800 !important;
+  font-size: 1.25rem !important;
+  border-radius: 999px !important;
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-white-pill:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(255, 255, 255, 0.15);
+  background: #F8FAFC !important;
+}
+
+.btn-white-pill i {
+  background: #020617 !important;
+  color: #FFFFFF !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 6px !important;
+}
+
+.btn-white-pill:hover i {
+  transform: translateX(4px) scale(1.1);
+}
+
 /* Floating Pill Navigation - Aesthetic Refinement */
 nav {
   position: fixed;
