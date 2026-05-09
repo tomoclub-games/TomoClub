@@ -4157,22 +4157,103 @@
             <div style="width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;">
                 <!-- Brevo Form Start -->
                 <style>
+                  /* Reset and Font Fixes */
+                  #pilot-modal * { font-family: var(--font-family) !important; }
+                  
                   :where(.sib-form-message-panel) { display: none; }
-                  #sib-container input::placeholder, #sib-container textarea::placeholder { color: #ccd1d2; }
-                  #sib-container a { color: #2BB2FC; }
-                  .sib-form { background: #f8fafc !important; }
-                  #sib-container { border: none !important; box-shadow: none !important; width: 100% !important; max-width: 100% !important; background: transparent !important; }
+                  #sib-container input::placeholder, #sib-container textarea::placeholder { color: var(--text-light) !important; }
+                  #sib-container a { color: var(--teal) !important; }
+                  
+                  /* Form Container Fixes */
+                  .sib-form { background: #FFFFFF !important; padding: 2rem 0 !important; }
+                  #sib-container { 
+                    border: none !important; 
+                    box-shadow: none !important; 
+                    width: 100% !important; 
+                    max-width: 100% !important; 
+                    background: transparent !important; 
+                    padding: 0 !important;
+                  }
+                  
+                  /* Label and Input Fixes */
+                  .sib-form .entry__label { 
+                    color: var(--navy) !important; 
+                    font-weight: 700 !important; 
+                    font-size: 0.9rem !important; 
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.05em !important;
+                    margin-bottom: 0.75rem !important;
+                    display: block !important;
+                  }
+                  
+                  .sib-form .input { 
+                    width: 100% !important; 
+                    padding: 0.875rem 1.25rem !important; 
+                    border: 1px solid var(--border-color) !important; 
+                    border-radius: 12px !important; 
+                    font-size: 1rem !important; 
+                    color: var(--navy) !important; 
+                    transition: var(--transition) !important;
+                    background: var(--surface) !important;
+                    box-shadow: none !important;
+                    height: auto !important;
+                  }
+                  
+                  .sib-form .input:focus { 
+                    border-color: var(--teal) !important; 
+                    box-shadow: 0 0 0 4px rgba(42, 180, 184, 0.1) !important; 
+                    outline: none !important;
+                  }
+
+                  /* Button Fixes */
+                  .sib-form-block__button {
+                    background-color: var(--teal) !important;
+                    color: white !important;
+                    border-radius: 999px !important;
+                    padding: 1rem 3rem !important;
+                    font-weight: 800 !important;
+                    font-size: 1.1rem !important;
+                    letter-spacing: 0.02em !important;
+                    transition: var(--transition) !important;
+                    width: 100% !important;
+                    cursor: pointer !important;
+                    box-shadow: 0 10px 20px rgba(42, 180, 184, 0.2) !important;
+                  }
+                  
+                  .sib-form-block__button:hover {
+                    background-color: var(--navy) !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2) !important;
+                  }
+
+                  /* Checkbox Fixes */
+                  .sib-form .entry__choice label {
+                    color: var(--text-muted) !important;
+                    font-size: 0.9rem !important;
+                    cursor: pointer !important;
+                    display: flex !important;
+                    align-items: flex-start !important;
+                    gap: 0.75rem !important;
+                  }
+                  
+                  .sib-form .input_replaced {
+                    width: 20px !important;
+                    height: 20px !important;
+                    margin: 0 !important;
+                    accent-color: var(--teal) !important;
+                  }
                 </style>
                 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
-                <div class="sib-form" style="text-align: center; padding: 2rem 0;">
+                <div class="sib-form">
                   <div id="sib-form-container" class="sib-form-container">
-                    <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px; max-width:540px; margin: 0 auto 1rem;">
+                    <!-- Messages -->
+                    <div id="error-message" class="sib-form-message-panel" style="font-family:inherit; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
                       <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                         <span class="sib-form-message-panel__inner-text">Your request could not be saved. Please try again.</span>
                       </div>
                     </div>
-                    <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px; max-width:540px; margin: 0 auto 1rem;">
+                    <div id="success-message" class="sib-form-message-panel" style="font-family:inherit; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
                       <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                         <span class="sib-form-message-panel__inner-text">A member of our team will contact you shortly!</span>
                       </div>
@@ -4180,120 +4261,119 @@
 
                     <div id="sib-container" class="sib-container--large sib-container--vertical">
                       <form id="sib-form" method="POST" action="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" data-type="subscription">
-                        <div style="padding: 8px 0;">
+                        <div style="padding: 0 0 1.5rem;">
                           <div class="sib-form-block sib-image-form-block" style="text-align: center">
-                            <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 250px; height: auto;" alt="TomoClub" />
+                            <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 220px; height: auto;" alt="TomoClub" />
                           </div>
                         </div>
 
-                        <div style="padding: 8px 0;">
-                          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:24px; font-weight:700; text-align:center; color:#20b2aa;">
+                        <div style="padding: 0 0 0.5rem;">
+                          <div class="sib-form-block" style="font-size:24px; font-weight:800; text-align:center; color:var(--navy);">
                             <p>Interested in TomoClub Programs?</p>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 0;">
-                          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:center; color:#d4a017;">
+                        <div style="padding: 0 0 2rem;">
+                          <div class="sib-form-block" style="font-size:16px; text-align:center; color:var(--text-muted);">
                             <div class="sib-text-form-block">
-                              <p><strong>Fill the form below!</strong></p>
-                              <p><strong>A Tomo team member will get in touch within 48hrs.</strong></p>
+                              <p>Fill the form below and we'll get in touch within 48hrs.</p>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="FIRSTNAME" data-required="*">FIRST NAME</label>
+                              <label class="entry__label" for="FIRSTNAME" data-required="*">FIRST NAME</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" required placeholder="Jane" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="LASTNAME" data-required="*">LAST NAME</label>
+                              <label class="entry__label" for="LASTNAME" data-required="*">LAST NAME</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME" autocomplete="off" required placeholder="Doe" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="EMAIL" data-required="*">WORK EMAIL</label>
+                              <label class="entry__label" for="EMAIL" data-required="*">WORK EMAIL</label>
                               <div class="entry__field">
-                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" required placeholder="jane@school.org" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="name" data-required="*">SCHOOL OR DISTRICT NAME</label>
+                              <label class="entry__label" for="name" data-required="*">SCHOOL OR DISTRICT NAME</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" required placeholder="Lincoln High" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="industry" data-required="*">STATE</label>
+                              <label class="entry__label" for="industry" data-required="*">STATE</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" required placeholder="California" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="JOB_TITLE" data-required="*">ROLE</label>
+                              <label class="entry__label" for="JOB_TITLE" data-required="*">ROLE</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" required placeholder="Principal" />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 1.25rem;">
                           <div class="sib-input sib-form-block">
                             <div class="form__entry entry_block">
-                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="MESSAGE">Enter your MESSAGE</label>
+                              <label class="entry__label" for="MESSAGE">Any specific requests?</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" placeholder="Tell us more..." />
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 8px 2rem;">
+                        <div style="padding: 0 2.5rem 2rem;">
                           <div class="sib-optin sib-form-block">
                             <div class="form__entry entry_mcq">
                               <div class="entry__choice">
-                                <label style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
-                                  <input type="checkbox" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required style="margin-top: 0.25rem;" />
-                                  <span style="font-size: 14px; color: #3C4858; text-align: left;">I agree for TomoClub to contact me with their offers. T&C Apply</span>
+                                <label>
+                                  <input type="checkbox" class="input_replaced" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required />
+                                  <span>I agree for TomoClub to contact me with their offers. T&C Apply</span>
                                 </label>
                               </div>
                             </div>
                           </div>
                         </div>
 
-                        <div style="padding: 2rem 2rem;">
+                        <div style="padding: 0 2.5rem 2rem;">
                           <div class="sib-form-block" style="text-align: center">
-                            <button class="sib-form-block__button" style="font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:center; color:#ffffff; background-color:#1f7990; border-width:0px; border-radius:13px; padding: 1rem 3rem; cursor: pointer; width: 100%;" type="submit">SUBMIT</button>
+                            <button class="sib-form-block__button" type="submit">SUBMIT REQUEST</button>
                           </div>
                         </div>
 
