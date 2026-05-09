@@ -411,4 +411,35 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // --- Pilot Modal Logic ---
+  const pilotModal = document.getElementById('pilot-modal');
+  const openPilotBtns = document.querySelectorAll('.open-pilot-modal');
+  const closePilotBtn = document.getElementById('close-pilot-btn');
+  const pilotIframe = document.getElementById('pilot-iframe');
+  const pilotFormUrl = 'https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==';
+
+  if (pilotModal && openPilotBtns.length > 0) {
+    openPilotBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (pilotIframe && !pilotIframe.src) {
+          pilotIframe.src = pilotFormUrl;
+        }
+        pilotModal.classList.add('active');
+      });
+    });
+
+    if (closePilotBtn) {
+      closePilotBtn.addEventListener('click', () => {
+        pilotModal.classList.remove('active');
+      });
+    }
+
+    pilotModal.addEventListener('click', (e) => {
+      if (e.target === pilotModal) {
+        pilotModal.classList.remove('active');
+      }
+    });
+  }
 });
