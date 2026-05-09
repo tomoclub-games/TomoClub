@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
           await fetch(RESOURCE_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
           
           const fileName = downloadModal.getAttribute('data-current-file');
-          const downloadUrl = `toolkits/${fileName}`;
+          const downloadUrl = fileName.includes('/') ? fileName : `toolkits/${fileName}`;
           
           // Show success message
           toolkitForm.style.display = 'none';
