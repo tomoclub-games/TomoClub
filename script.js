@@ -423,10 +423,15 @@ document.addEventListener('DOMContentLoaded', () => {
     openPilotBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (pilotIframe && !pilotIframe.src) {
-          pilotIframe.src = pilotFormUrl;
-        }
         pilotModal.classList.add('active');
+        
+        // Reset form if success message is visible
+        const formContainer = document.getElementById('pilot-form-container');
+        const successMsg = document.getElementById('pilot-success-msg');
+        if (formContainer && successMsg) {
+          formContainer.style.display = 'block';
+          successMsg.style.display = 'none';
+        }
       });
     });
 
@@ -441,5 +446,40 @@ document.addEventListener('DOMContentLoaded', () => {
         pilotModal.classList.remove('active');
       }
     });
+
+    // Form Submission Handling
+    const pilotForm = document.getElementById('pilot-signup-form');
+    if (pilotForm) {
+      pilotForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = pilotForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+
+        try {
+          const formData = new FormData(pilotForm);
+          
+          // Collect checkbox values
+          const grades = [];
+          pilotForm.querySelectorAll('input[name="grades"]:checked').forEach(cb => {
+            grades.push(cb.value);
+          });
+          formData.set('grades', grades.join(', '));
+
+          await fetch(SIGNUP_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
+          
+          const formContainer = document.getElementById('pilot-form-container');
+          const successMsg = document.getElementById('pilot-success-msg');
+          if (formContainer) formContainer.style.display = 'none';
+          if (successMsg) successMsg.style.display = 'block';
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        } catch (err) {
+          console.error('Pilot signup error:', err);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+    }
   }
 });
