@@ -4151,33 +4151,29 @@
 
     <!-- Pilot Modal -->
     <div id="pilot-modal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 650px; padding: 0; overflow: hidden; height: 90vh; background: #fff; border-radius: 24px;">
-            <button class="modal-close" id="close-pilot-btn" style="position: absolute; top: 1rem; right: 1rem; z-index: 1000; background: rgba(0,0,0,0.1); color: #000;"><i data-lucide="x"></i></button>
-            
-            <div style="width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;">
-                <!-- Brevo Form Start -->
+        <div class="modal-content" style="max-width: 650px; padding: 0; overflow: hidden; height: 90vh; backgrou                <!-- Brevo Form Start -->
                 <style>
                   /* Reset and Font Fixes */
                   #pilot-modal * { font-family: var(--font-family) !important; }
                   
                   :where(.sib-form-message-panel) { display: none; }
-                  #sib-container input::placeholder, #sib-container textarea::placeholder { color: var(--text-light) !important; }
-                  #sib-container a { color: var(--teal) !important; }
+                  #sib-container input::placeholder, #sib-container textarea::placeholder { color: #94A3B8 !important; }
+                  #sib-container a { color: #2AB4B8 !important; }
                   
-                  /* Form Container Fixes */
+                  /* Form Container Fixes - Force Light Mode aesthetic for clarity */
                   .sib-form { background: #FFFFFF !important; padding: 2rem 0 !important; }
                   #sib-container { 
                     border: none !important; 
                     box-shadow: none !important; 
                     width: 100% !important; 
                     max-width: 100% !important; 
-                    background: transparent !important; 
+                    background: #FFFFFF !important; 
                     padding: 0 !important;
                   }
                   
-                  /* Label and Input Fixes */
+                  /* Label and Input Fixes - Absolute Colors for Contrast */
                   .sib-form .entry__label { 
-                    color: var(--navy) !important; 
+                    color: #0F172A !important; /* Always dark slate */
                     font-weight: 700 !important; 
                     font-size: 0.9rem !important; 
                     text-transform: uppercase !important;
@@ -4189,25 +4185,26 @@
                   .sib-form .input { 
                     width: 100% !important; 
                     padding: 0.875rem 1.25rem !important; 
-                    border: 1px solid var(--border-color) !important; 
+                    border: 1px solid #E2E8F0 !important; 
                     border-radius: 12px !important; 
                     font-size: 1rem !important; 
-                    color: var(--navy) !important; 
+                    color: #0F172A !important; /* Always dark text */
                     transition: var(--transition) !important;
-                    background: var(--surface) !important;
+                    background: #F8FAFC !important; /* Light background */
                     box-shadow: none !important;
                     height: auto !important;
                   }
                   
                   .sib-form .input:focus { 
-                    border-color: var(--teal) !important; 
+                    border-color: #2AB4B8 !important; 
                     box-shadow: 0 0 0 4px rgba(42, 180, 184, 0.1) !important; 
                     outline: none !important;
+                    background: #FFFFFF !important;
                   }
 
                   /* Button Fixes */
                   .sib-form-block__button {
-                    background-color: var(--teal) !important;
+                    background-color: #2AB4B8 !important;
                     color: white !important;
                     border-radius: 999px !important;
                     padding: 1rem 3rem !important;
@@ -4221,14 +4218,14 @@
                   }
                   
                   .sib-form-block__button:hover {
-                    background-color: var(--navy) !important;
+                    background-color: #0F172A !important;
                     transform: translateY(-2px) !important;
                     box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2) !important;
                   }
 
                   /* Checkbox Fixes */
                   .sib-form .entry__choice label {
-                    color: var(--text-muted) !important;
+                    color: #475569 !important;
                     font-size: 0.9rem !important;
                     cursor: pointer !important;
                     display: flex !important;
@@ -4240,7 +4237,13 @@
                     width: 20px !important;
                     height: 20px !important;
                     margin: 0 !important;
-                    accent-color: var(--teal) !important;
+                    accent-color: #2AB4B8 !important;
+                  }
+
+                  /* Responsive adjustments */
+                  @media (max-width: 768px) {
+                    .sib-form { padding: 1rem 0 !important; }
+                    .sib-form-block { padding-left: 1rem !important; padding-right: 1rem !important; }
                   }
                 </style>
                 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
@@ -4263,18 +4266,18 @@
                       <form id="sib-form" method="POST" action="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" data-type="subscription">
                         <div style="padding: 0 0 1.5rem;">
                           <div class="sib-form-block sib-image-form-block" style="text-align: center">
-                            <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 220px; height: auto;" alt="TomoClub" />
+                            <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 200px; height: auto;" alt="TomoClub" />
                           </div>
                         </div>
 
                         <div style="padding: 0 0 0.5rem;">
-                          <div class="sib-form-block" style="font-size:24px; font-weight:800; text-align:center; color:var(--navy);">
+                          <div class="sib-form-block" style="font-size:24px; font-weight:800; text-align:center; color:#0F172A;">
                             <p>Interested in TomoClub Programs?</p>
                           </div>
                         </div>
 
                         <div style="padding: 0 0 2rem;">
-                          <div class="sib-form-block" style="font-size:16px; text-align:center; color:var(--text-muted);">
+                          <div class="sib-form-block" style="font-size:16px; text-align:center; color:#475569;">
                             <div class="sib-text-form-block">
                               <p>Fill the form below and we'll get in touch within 48hrs.</p>
                             </div>
@@ -4383,7 +4386,6 @@
                     </div>
                   </div>
                 </div>
-
                 <script>
                   window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
                   window.LOCALE = 'en';
