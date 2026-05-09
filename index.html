@@ -4257,28 +4257,48 @@
                     box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2) !important;
                   }
 
-                  /* Checkbox Fixes */
+                  /* Checkbox Visibility Force */
+                  #pilot-modal .entry__choice {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    gap: 12px !important;
+                    margin-top: 0.5rem !important;
+                  }
+
+                  #pilot-modal input[type="checkbox"] {
+                    display: inline-block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    width: 20px !important;
+                    height: 20px !important;
+                    min-width: 20px !important;
+                    min-height: 20px !important;
+                    margin: 0 !important;
+                    cursor: pointer !important;
+                    appearance: auto !important;
+                    -webkit-appearance: auto !important;
+                    border: 2px solid #CBD5E1 !important;
+                    accent-color: #2AB4B8 !important;
+                    position: relative !important;
+                    left: 0 !important;
+                    top: 0 !important;
+                    z-index: 10 !important;
+                  }
+
                   #pilot-modal .entry__choice label {
                     color: #475569 !important;
                     font-size: 0.9rem !important;
                     cursor: pointer !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    gap: 0.75rem !important;
+                    display: inline !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
                     text-align: left !important;
                   }
-                  
-                  #pilot-modal .input_replaced {
-                    appearance: checkbox !important;
-                    -webkit-appearance: checkbox !important;
-                    width: 18px !important;
-                    height: 18px !important;
-                    margin: 0 !important;
-                    accent-color: #2AB4B8 !important;
-                    flex-shrink: 0 !important;
-                    cursor: pointer !important;
-                    opacity: 1 !important;
-                    position: static !important;
+
+                  #pilot-modal .entry__choice label span {
+                    display: inline !important;
+                    color: inherit !important;
                   }
 
                   /* Mandatory Asterisk */
