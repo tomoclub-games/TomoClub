@@ -4151,84 +4151,180 @@
 
     <!-- Pilot Modal -->
     <div id="pilot-modal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 600px; text-align: left; padding: 2.5rem; max-height: 90vh; overflow-y: auto;">
-            <button class="modal-close" id="close-pilot-btn"><i data-lucide="x"></i></button>
+        <div class="modal-content" style="max-width: 650px; padding: 0; overflow: hidden; height: 90vh; background: #fff; border-radius: 24px;">
+            <button class="modal-close" id="close-pilot-btn" style="position: absolute; top: 1rem; right: 1rem; z-index: 1000; background: rgba(0,0,0,0.1); color: #000;"><i data-lucide="x"></i></button>
             
-            <div id="pilot-form-container">
-                <div style="margin-bottom: 2rem;">
-                    <span class="badge" style="background: rgba(42, 180, 184, 0.08); color: var(--teal); border-color: rgba(42, 180, 184, 0.15); margin-bottom: 1rem;">Request a Pilot</span>
-                    <h3 style="margin-bottom: 0.5rem; font-size: 1.75rem;">Bring TomoClub to your school</h3>
-                    <p style="font-size: 0.95rem; color: var(--text-muted);">Fill out the form below and our team will get in touch within 48 hours to design your pilot.</p>
+            <div style="width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+                <!-- Brevo Form Start -->
+                <style>
+                  :where(.sib-form-message-panel) { display: none; }
+                  #sib-container input::placeholder, #sib-container textarea::placeholder { color: #ccd1d2; }
+                  #sib-container a { color: #2BB2FC; }
+                  .sib-form { background: #f8fafc !important; }
+                  #sib-container { border: none !important; box-shadow: none !important; width: 100% !important; max-width: 100% !important; background: transparent !important; }
+                </style>
+                <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+                <div class="sib-form" style="text-align: center; padding: 2rem 0;">
+                  <div id="sib-form-container" class="sib-form-container">
+                    <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px; max-width:540px; margin: 0 auto 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text">Your request could not be saved. Please try again.</span>
+                      </div>
+                    </div>
+                    <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px; max-width:540px; margin: 0 auto 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text">A member of our team will contact you shortly!</span>
+                      </div>
+                    </div>
+
+                    <div id="sib-container" class="sib-container--large sib-container--vertical">
+                      <form id="sib-form" method="POST" action="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" data-type="subscription">
+                        <div style="padding: 8px 0;">
+                          <div class="sib-form-block sib-image-form-block" style="text-align: center">
+                            <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 250px; height: auto;" alt="TomoClub" />
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 0;">
+                          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:24px; font-weight:700; text-align:center; color:#20b2aa;">
+                            <p>Interested in TomoClub Programs?</p>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 0;">
+                          <div class="sib-form-block" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:center; color:#d4a017;">
+                            <div class="sib-text-form-block">
+                              <p><strong>Fill the form below!</strong></p>
+                              <p><strong>A Tomo team member will get in touch within 48hrs.</strong></p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="FIRSTNAME" data-required="*">FIRST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="LASTNAME" data-required="*">LAST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="EMAIL" data-required="*">WORK EMAIL</label>
+                              <div class="entry__field">
+                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="name" data-required="*">SCHOOL OR DISTRICT NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="industry" data-required="*">STATE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="JOB_TITLE" data-required="*">ROLE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" required style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" style="font-weight: 700; text-align: left; display: block; margin-bottom: 0.5rem;" for="MESSAGE">Enter your MESSAGE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" style="width: 100%; padding: 0.75rem; border: 1px solid #C0CCD9; border-radius: 8px;" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 8px 2rem;">
+                          <div class="sib-optin sib-form-block">
+                            <div class="form__entry entry_mcq">
+                              <div class="entry__choice">
+                                <label style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
+                                  <input type="checkbox" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required style="margin-top: 0.25rem;" />
+                                  <span style="font-size: 14px; color: #3C4858; text-align: left;">I agree for TomoClub to contact me with their offers. T&C Apply</span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 2rem 2rem;">
+                          <div class="sib-form-block" style="text-align: center">
+                            <button class="sib-form-block__button" style="font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:center; color:#ffffff; background-color:#1f7990; border-width:0px; border-radius:13px; padding: 1rem 3rem; cursor: pointer; width: 100%;" type="submit">SUBMIT</button>
+                          </div>
+                        </div>
+
+                        <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none">
+                        <input type="hidden" name="locale" value="en">
+                      </form>
+                    </div>
+                  </div>
                 </div>
 
-                <form id="pilot-signup-form" class="animate-on-scroll visible">
-                    <input type="hidden" name="source" value="Pilot Request Modal">
-                    <input type="hidden" name="sheetName" value="Sheet 1">
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">First Name</label>
-                            <input type="text" name="firstName" class="form-control" placeholder="Jane" required>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">Last Name</label>
-                            <input type="text" name="lastName" class="form-control" placeholder="Doe" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Work Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="jane@school.org" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" id="pilot-phone" name="phone" class="form-control" required>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">Job Title</label>
-                            <input type="text" name="jobTitle" class="form-control" placeholder="Principal" required>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">School Name</label>
-                            <input type="text" name="schoolName" class="form-control" placeholder="Lincoln High" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Grade Levels of Interest</label>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; margin-top: 0.5rem;">
-                            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; color: var(--text-main);">
-                                <input type="checkbox" name="grades" value="Grades 3-5" style="width: 18px; height: 18px; accent-color: var(--teal);"> Grades 3–5
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; color: var(--text-main);">
-                                <input type="checkbox" name="grades" value="Grades 6-8" style="width: 18px; height: 18px; accent-color: var(--teal);"> Grades 6–8
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor: pointer; color: var(--text-main);">
-                                <input type="checkbox" name="grades" value="Grades 9-12" style="width: 18px; height: 18px; accent-color: var(--teal);"> Grades 9–12
-                            </label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-                        Submit Request <i data-lucide="send"></i>
-                    </button>
-                    
-                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1.25rem; text-align: center;">
-                        I agree for TomoClub to contact me with their offers. T&C Apply
-                    </p>
-                </form>
-            </div>
-
-            <div id="pilot-success-msg" style="display: none; text-align: center; padding: 2rem 0;">
-                <div style="width: 80px; height: 80px; background: rgba(42, 180, 184, 0.1); color: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
-                    <i data-lucide="check" style="width: 40px; height: 40px;"></i>
-                </div>
-                <h3 style="margin-bottom: 1rem;">Request Received!</h3>
-                <p style="color: var(--text-muted); line-height: 1.6;">Thank you for your interest. A Tomo team member will get in touch with you within 48 hours.</p>
-                <button class="btn btn-secondary" style="margin-top: 2rem;" onclick="document.getElementById('pilot-modal').classList.remove('active')">Close</button>
+                <script>
+                  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+                  window.LOCALE = 'en';
+                  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+                  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_DATE = "Please enter a valid date";
+                  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+                  window.translation = {
+                    common: {
+                      selectedList: '{quantity} list selected',
+                      selectedLists: '{quantity} lists selected',
+                      selectedOption: '{quantity} selected',
+                      selectedOptions: '{quantity} selected',
+                    }
+                  };
+                  var AUTOHIDE = Boolean(0);
+                </script>
+                <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+                <!-- Brevo Form End -->
             </div>
         </div>
     </div>
