@@ -4263,17 +4263,28 @@
                     font-size: 0.9rem !important;
                     cursor: pointer !important;
                     display: flex !important;
-                    align-items: flex-start !important;
+                    align-items: center !important;
                     gap: 0.75rem !important;
                     text-align: left !important;
                   }
                   
                   #pilot-modal .input_replaced {
-                    width: 20px !important;
-                    height: 20px !important;
+                    appearance: checkbox !important;
+                    -webkit-appearance: checkbox !important;
+                    width: 18px !important;
+                    height: 18px !important;
                     margin: 0 !important;
                     accent-color: #2AB4B8 !important;
                     flex-shrink: 0 !important;
+                    cursor: pointer !important;
+                    opacity: 1 !important;
+                    position: static !important;
+                  }
+
+                  /* Mandatory Asterisk */
+                  #pilot-modal .entry__label::after {
+                    content: " *";
+                    color: #EF4444 !important;
                   }
                 </style>
                 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
@@ -4377,7 +4388,7 @@
                             <div class="form__entry entry_block">
                               <label class="entry__label" for="MESSAGE">Any specific requests?</label>
                               <div class="entry__field">
-                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" placeholder="Tell us more..." />
+                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" required placeholder="Tell us more about your needs..." />
                               </div>
                             </div>
                           </div>
@@ -4389,7 +4400,7 @@
                               <div class="entry__choice">
                                 <label>
                                   <input type="checkbox" class="input_replaced" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required />
-                                  <span>I agree for TomoClub to contact me with their offers. T&C Apply</span>
+                                  <span>I agree for TomoClub to contact me. <span style="font-size: 0.75rem; color: #64748B !important;">(Mandatory)</span></span>
                                 </label>
                               </div>
                             </div>
