@@ -1103,11 +1103,14 @@
                     btn.disabled = true;
 
                     try {
-                        // 1. Submit to Google Sheets (Backup)
-                        await fetch(GOOGLE_SHEET_WEBHOOK, {
+                        // 1. Submit to Centralized API Proxy
+                        const data = Object.fromEntries(formData.entries());
+                        data.type = (formId === 'bottom-form') ? 'newsletter' : 'ebook_request';
+                        
+                        await fetch('/api/signup', {
                             method: 'POST',
-                            mode: 'no-cors',
-                            body: formData
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
                         });
                         
                         // 2. Submit to Brevo (Automated Email Delivery)
