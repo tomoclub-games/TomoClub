@@ -35,10 +35,5 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/privacy", "destination": "/privacy-policy.html" },
-    { "source": "/terms", "destination": "/terms-and-conditions.html" },
-    { "source": "/contact", "destination": "/contact-us.html" }
-  ]
+  "trailingSlash": false
 }
