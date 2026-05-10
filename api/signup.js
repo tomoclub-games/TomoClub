@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   // 3. Secrets Management
   // IMPORTANT: Move these to Vercel Project Settings > Environment Variables
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const NEWSLETTER_WEBHOOK = process.env.NEWSLETTER_WEBHOOK || 'https://script.google.com/macros/s/AKfycbzq2UnL5kLJiDGMW4CzMAY-RKuajQjtZGkMyn_dVqLOvpkKS97yNdoArInHBBMCJKfSxw/exec';
+  const NEWSLETTER_WEBHOOK = process.env.NEWSLETTER_WEBHOOK || 'https://script.google.com/macros/s/AKfycby88nsArmY2s_siury-sC0THaWzDfRmZTnYik0WUQnOd-hYRN1BiTypH8uK76AbHInUxw/exec';
   const SIGNUP_WEBHOOK = process.env.SIGNUP_WEBHOOK || 'https://script.google.com/macros/s/AKfycbzz2VpoSdbCDsfGo4-3O6KnnjsEHUaMHuCCUN0KsQyBatGz_EMc-xdFC5FnvlKBWb40/exec';
   const RESOURCE_WEBHOOK = process.env.RESOURCE_WEBHOOK || 'https://script.google.com/macros/s/AKfycbwFuKr-0GwdBfPylk7pmIhcbQX401Qye5t61ZsrjfbQ6TUToblKfX-l2bzv5DAFKuxc/exec';
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'info@tomoclub.org';

@@ -7,6 +7,7 @@
  * 5. Choose 'Web App'.
  * 6. Set 'Who has access' to 'Anyone'.
  * 7. Click 'Deploy' and copy the 'Web App URL'.
+ * Deployed URL: https://script.google.com/macros/s/AKfycby88nsArmY2s_siury-sC0THaWzDfRmZTnYik0WUQnOd-hYRN1BiTypH8uK76AbHInUxw/exec
  */
 
 function doPost(e) {
