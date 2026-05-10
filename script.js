@@ -340,6 +340,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Home Newsletter Form
+  const homeNewsletterForm = document.getElementById('home-newsletter-form');
+  const homeNewsletterSuccess = document.getElementById('home-newsletter-success');
+  if (homeNewsletterForm) {
+    homeNewsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = homeNewsletterForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Joining...';
+
+      try {
+        const formData = new FormData(homeNewsletterForm);
+        const data = Object.fromEntries(formData.entries());
+        data.type = 'newsletter';
+        data.source = 'Homepage Newsletter Section';
+        
+        await fetch('/api/signup', { 
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        homeNewsletterForm.style.display = 'none';
+        if (homeNewsletterSuccess) homeNewsletterSuccess.style.display = 'block';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } catch (err) {
+        console.error('Newsletter error:', err);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+
   // --- Download Modal Logic ---
   const downloadModal = document.getElementById('download-modal');
   const downloadButtons = document.querySelectorAll('.open-download-modal');
