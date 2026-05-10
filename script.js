@@ -45,10 +45,17 @@ const seoData = {
   }
 };
 
-const SIGNUP_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzz2VpoSdbCDsfGo4-3O6KnnjsEHUaMHuCCUN0KsQyBatGz_EMc-xdFC5FnvlKBWb40/exec';
-const RESOURCE_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwFuKr-0GwdBfPylk7pmIhcbQX401Qye5t61ZsrjfbQ6TUToblKfX-l2bzv5DAFKuxc/exec';
+// Security Helper: Lightweight sanitization
+function sanitizeHTML(html) {
+  if (typeof DOMPurify !== 'undefined') {
+    return DOMPurify.sanitize(html);
+  }
+  // Fallback if DOMPurify fails to load (removes script tags)
+  return html.replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gim, "");
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ... existing code ...
   // --- 1. Routing & Visibility (Priority) ---
   const pages = document.querySelectorAll('.page');
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -313,7 +320,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
         const formData = new FormData(mainSignupForm);
-        await fetch(SIGNUP_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
+        const data = Object.fromEntries(formData.entries());
+        data.type = 'signup';
+        
+        await fetch('/api/signup', { 
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
         mainSignupForm.style.display = 'none';
         if (signupSuccessView) signupSuccessView.style.display = 'block';
         if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -378,8 +393,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
           const formData = new FormData(toolkitForm);
-          // Send to webhook
-          await fetch(RESOURCE_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
+          const data = Object.fromEntries(formData.entries());
+          data.type = 'resource';
+          data.toolkitName = downloadModal.getAttribute('data-current-file'); // Re-ensure toolkit name
+
+          // Send to secure proxy
+          await fetch('/api/signup', { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
           
           const fileName = downloadModal.getAttribute('data-current-file');
           const downloadUrl = fileName.includes('/') ? fileName : `toolkits/${fileName}`;
@@ -459,15 +482,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
           const formData = new FormData(pilotForm);
-          
-          // Collect checkbox values
-          const grades = [];
-          pilotForm.querySelectorAll('input[name="grades"]:checked').forEach(cb => {
-            grades.push(cb.value);
-          });
-          formData.set('grades', grades.join(', '));
+          const data = Object.fromEntries(formData.entries());
+          data.type = 'pilot'; // Or 'signup' if you prefer unified
 
-          await fetch(SIGNUP_WEBHOOK, { method: 'POST', mode: 'no-cors', body: formData });
+          await fetch('/api/signup', { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
           
           const formContainer = document.getElementById('pilot-form-container');
           const successMsg = document.getElementById('pilot-success-msg');
