@@ -35,5 +35,11 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/privacy-policy", "destination": "/privacy-policy/index.html" },
+    { "source": "/terms-and-conditions", "destination": "/terms-and-conditions/index.html" },
+    { "source": "/contact-us", "destination": "/contact-us/index.html" },
+    { "source": "/schedule", "destination": "/schedule/index.html" }
+  ]
 }
