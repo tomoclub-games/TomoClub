@@ -96,7 +96,7 @@ for i, vid in enumerate(ids):
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">{title}</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>\n'''
 html_str += '            </div>'
 

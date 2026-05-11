@@ -272,8 +272,8 @@ html_template = """<!DOCTYPE html>
         </div>
 
         <div class="back-nav">
-            <a href="../../#education-hall" class="back-link">
-                <i data-lucide="arrow-left"></i> Back to Education Hall
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
             </a>
         </div>
     </article>
