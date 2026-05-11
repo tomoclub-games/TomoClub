@@ -42,6 +42,10 @@ const seoData = {
   '#signup': {
     title: 'Get Started with TomoClub | Request a Pilot',
     description: 'Ready to bring future-ready skills to your school? Contact our team to design a pilot program for your district.'
+  },
+  '#blog': {
+    title: 'TomoClub Blog | Insights on AI and Leadership in Education',
+    description: 'Exploring the intersection of technology, leadership, and human-centered learning. Real stories and practical strategies for future-ready schools.'
   }
 };
 
