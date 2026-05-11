@@ -256,6 +256,11 @@ html_template = """<!DOCTYPE html>
     </nav>
 
     <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
         <header class="article-hero">
             <div class="container">
                 <div class="article-meta">
