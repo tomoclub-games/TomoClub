@@ -1,13 +1,23 @@
-<!DOCTYPE html>
+with open('podcast-player.html', 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+
+# I'll just rewrite the whole file with the correct content because it's messed up now.
+# Actually, I'll find where it went wrong.
+
+# Let's see the current content.
+# Wait, I'll just use a template to fix it if I can.
+# Actually, I'll just write the correct content back based on my previous view.
+
+new_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Listen to: Podcast Episode 61 - TomoClub Podcast">
+    <meta name="description" id="meta-desc" content="Listen to the TomoClub Podcast - Real conversations about AI literacy, future-ready skills, and school leadership.">
     <meta name="author" content="TomoClub">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <title>The Power of School Climate – Insights from Dr. Teresa Hill, Superintendent | TomoClub Podcast</title>
+    <title id="page-title">Podcast Episode | TomoClub</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEGGQ2ZDMT"></script>
@@ -23,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../styles.css?v=21">
+    <link rel="stylesheet" href="styles.css?v=21">
     <style>
         :root {
             --podcast-teal: #2AB4B8;
@@ -38,6 +48,7 @@
                 radial-gradient(at 100% 0%, rgba(253, 198, 45, 0.03) 0px, transparent 50%);
         }
 
+        /* Pill Navigation */
         nav {
             position: fixed;
             top: 1.5rem;
@@ -69,7 +80,6 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: color 0.3s ease;
-            text-decoration: none;
         }
 
         .nav-item a:hover, .nav-item a.active {
@@ -90,7 +100,6 @@
             margin-bottom: 2.5rem;
             font-size: 1rem;
             transition: transform 0.3s ease;
-            text-decoration: none;
         }
 
         .back-link:hover {
@@ -186,10 +195,6 @@
             height: 32px;
         }
 
-        .description-body p { margin-bottom: 1.5rem; line-height: 1.7; color: #1e293b; }
-        .description-body ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
-        .description-body li { margin-bottom: 0.75rem; color: #475569; }
-
         .sidebar-cta {
             background: var(--podcast-teal);
             color: white;
@@ -221,14 +226,6 @@
             padding: 1.25rem;
             font-size: 1.1rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
         }
 
         @media (max-width: 1024px) {
@@ -244,69 +241,47 @@
             .description-card { padding: 2rem; }
             nav { width: calc(100% - 2rem); }
         }
-
-        body.dark-theme {
-            background-color: #0F172A;
-            background-image: none;
-            color: #F1F5F9;
-        }
-        body.dark-theme .episode-title { color: white; }
-        body.dark-theme .description-card { background: #1E293B; border-color: rgba(255,255,255,0.05); }
-        body.dark-theme .description-header { color: white; }
-        body.dark-theme .description-body p { color: #CBD5E1; }
-        body.dark-theme .description-body li { color: #94A3B8; }
-        body.dark-theme .episode-meta-bar { background: rgba(30, 41, 59, 0.7); border-color: rgba(255,255,255,0.1); }
-        body.dark-theme .meta-unit strong { color: white; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="../#home" class="logo" style="text-decoration: none;">
+        <a href="index.html#home" class="logo" style="text-decoration: none;">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
-        <div class="nav-links" id="nav-links">
-            <div class="nav-item"><a href="../#home">Home</a></div>
-            <div class="nav-item"><a href="../#about">About Us</a></div>
-            <div class="nav-item"><a href="../#podcast" class="active">Podcast</a></div>
+        <div class="nav-links">
+            <div class="nav-item"><a href="index.html#home">Home</a></div>
+            <div class="nav-item"><a href="index.html#about">About Us</a></div>
+            <div class="nav-item"><a href="index.html#podcast" class="active">Podcast</a></div>
         </div>
         <div class="nav-actions">
-            <a href="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--teal); border: none; color: white; border-radius: 999px; font-weight: 700; text-decoration: none;">Request a Pilot</a>
-            <button id="theme-toggle" style="background: none; border: none; color: #94A3B8; cursor: pointer; margin-left: 1rem;">
-                <i data-lucide="moon" class="theme-icon-moon"></i>
-                <i data-lucide="sun" class="theme-icon-sun" style="display: none;"></i>
-            </button>
-        
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <i data-lucide="menu" id="menu-icon-open"></i>
-                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
-                </button>
-    </div>
+            <a href="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--teal); border: none; color: white; border-radius: 999px; font-weight: 700; text-decoration: none;">Request a Pilot</a>
+        </div>
     </nav>
 
     <main class="container">
         <section class="podcast-hero">
-                        <a href="../#podcast" class="btn btn-secondary btn-view-more">
+            <a href="index.html#podcast" class="btn btn-secondary btn-view-more">
                 <i data-lucide="arrow-left"></i> View More
             </a>
             
-            <h1 class="episode-title">The Power of School Climate – Insights from Dr. Teresa Hill, Superintendent</h1>
+            <h1 id="episode-title" class="episode-title">Loading Episode...</h1>
             
             <div class="episode-meta-bar">
                 <div class="meta-unit">
-                    <i data-lucide="user"></i> <strong>Speaker:</strong> <span>TomoClub Guest</span>
+                    <i data-lucide="user"></i> <strong>Speaker:</strong> <span id="episode-speaker">Speaker Name</span>
                 </div>
                 <div class="meta-separator"></div>
                 <div class="meta-unit">
-                    <i data-lucide="calendar"></i> <strong>Date:</strong> <span>June 09, 2025</span>
+                    <i data-lucide="calendar"></i> <strong>Date:</strong> <span id="episode-date">Date</span>
                 </div>
                 <div class="meta-separator"></div>
                 <div class="meta-unit">
-                    <i data-lucide="clock"></i> <strong>Duration:</strong> <span>43:08</span>
+                    <i data-lucide="clock"></i> <strong>Duration:</strong> <span id="episode-duration">Duration</span>
                 </div>
             </div>
 
             <div class="player-wrapper">
-                <iframe src="https://www.youtube-nocookie.com/embed/4WQ06l2wCnY?rel=0" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="podcast-iframe" src="" style="width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div class="content-grid">
@@ -314,8 +289,8 @@
                     <h2 class="description-header">
                         <i data-lucide="info"></i> Detailed Episode Description
                     </h2>
-                    <div class="description-body">
-                        <p>Explore deep insights into the future of education and AI literacy in this episode of the TomoClub Podcast.</p>
+                    <div class="description-body" id="episode-description">
+                        <!-- Content populated by JS -->
                     </div>
                 </div>
                 
@@ -323,77 +298,81 @@
                     <div class="sidebar-cta">
                         <h3>Ready to bring Tomo to your school?</h3>
                         <p>Join 14+ states and 10+ countries in building future-ready students.</p>
-                        <a href="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                        <a href="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" target="_blank" class="btn btn-white" style="background: white; color: var(--podcast-teal); width: 100%; padding: 1.25rem; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: none; border-radius: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
                             Request a Pilot <i data-lucide="arrow-right"></i>
                         </a>
                     </div>
                 </aside>
-            
-            <div style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;">
-                <a href="../#podcast" class="btn btn-secondary btn-view-more">
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="index.html#podcast" class="btn btn-secondary btn-view-more">
                     <i data-lucide="arrow-left"></i> View More
                 </a>
-            </div></div>
+            </div>
         </section>
     </main>
 
-    <footer style="padding: 4rem 0; border-top: 1px solid var(--podcast-border); text-align: center;">
-        <div class="container">
-            <p style="color: #94A3B8; font-size: 0.9rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--podcast-border);">
+        <div class="container text-center">
+            <p style="color: var(--text-light); font-size: 0.9rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
+                    <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script src="podcasts_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-
-            // Mobile Dropdown Toggle
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                const dropdown = item.querySelector('.dropdown');
-                if (link && dropdown) {
-                    link.addEventListener('click', (e) => {
-                        if (window.innerWidth <= 768) {
-                            e.preventDefault();
-                            const isOpen = dropdown.style.maxHeight === '500px';
-                            dropdown.style.maxHeight = isOpen ? '0' : '500px';
-                            const icon = link.querySelector('i');
-                            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
-                        }
-                    });
-                }
-            });
-    
-
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const navLinksContainer = document.getElementById('nav-links');
-            const menuIconOpen = document.getElementById('menu-icon-open');
-            const menuIconClose = document.getElementById('menu-icon-close');
-
-            if (mobileMenuToggle && navLinksContainer) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    const isActive = navLinksContainer.classList.toggle('active');
-                    if (menuIconOpen && menuIconClose) {
-                        menuIconOpen.style.display = isActive ? 'none' : 'block';
-                        menuIconClose.style.display = isActive ? 'block' : 'none';
-                    }
-                });
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const episodeId = urlParams.get('id');
+            
+            if (episodeId) {
+                const data = podcastsData[episodeId] || {
+                    "title": `Podcast Episode`,
+                    "speaker": "TomoClub Team",
+                    "date": "2026",
+                    "duration": "TBD",
+                    "description": "<p>In this episode, we dive into the latest trends in education, AI literacy, and future-ready skills. Stay tuned for more insights from the TomoClub team.</p>"
+                };
+                
+                document.getElementById('page-title').textContent = `${data.title} | TomoClub Podcast`;
+                document.getElementById('episode-title').textContent = data.title;
+                document.getElementById('episode-speaker').textContent = data.speaker;
+                document.getElementById('episode-date').textContent = data.date;
+                document.getElementById('episode-duration').textContent = data.duration;
+                document.getElementById('episode-description').innerHTML = data.description;
+                
+                const origin = window.location.origin;
+                document.getElementById('podcast-iframe').src = `https://www.youtube-nocookie.com/embed/${episodeId}?rel=0&enablejsapi=1&origin=${encodeURIComponent(origin)}`;
+            } else {
+                document.getElementById('episode-title').textContent = "Episode Not Specified";
+                document.getElementById('episode-description').innerHTML = "<p>Please select a podcast episode to listen to.</p><a href='index.html#podcast' class='btn btn-secondary'>View All Episodes</a>";
             }
-    
+
+            // Theme Toggle Logic
             const themeToggleBtn = document.getElementById('theme-toggle');
             if (themeToggleBtn) {
                 const updateIcons = () => {
                     const isDark = document.body.classList.contains('dark-theme');
-                    const moon = document.querySelector('.theme-icon-moon');
-                    const sun = document.querySelector('.theme-icon-sun');
-                    if (moon) moon.style.display = isDark ? 'none' : 'block';
-                    if (sun) sun.style.display = isDark ? 'block' : 'none';
+                    const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
+                    const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
+                    if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+                    if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
                 };
+
                 const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark') { document.body.classList.add('dark-theme'); }
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                }
                 updateIcons();
+
                 themeToggleBtn.addEventListener('click', () => {
                     document.body.classList.toggle('dark-theme');
                     const isDark = document.body.classList.contains('dark-theme');
@@ -405,9 +384,7 @@
     </script>
 </body>
 </html>
+"""
 
-
-
-
-
-
+with open('podcast-player.html', 'w', encoding='utf-8') as f:
+    f.write(new_content)
