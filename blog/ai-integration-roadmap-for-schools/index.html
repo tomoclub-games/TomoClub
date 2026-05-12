@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to Create an AI Integration Roadmap for Your School - A step-by-step guide for school leaders.">
+    <title>AI Integration Roadmap for Schools | TomoClub Blog</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 60px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 0;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .article-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .cta-box {
+            background: var(--card-grad-teal);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            margin: 3rem 0;
+        }
+
+        .example-box {
+            background: rgba(42, 180, 184, 0.05);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--teal);
+            margin: 2rem 0;
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --navy: #f8fafc;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item"><a href="../../#blog">Blog</a></div>
+                <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">May 12, 2026</span>
+                </div>
+                <h1 class="article-title">How to Create an AI Integration Roadmap for Your School</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="lead" style="font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 3rem; line-height: 1.5;">
+                Discover a clear, actionable process for schools to integrate AI with purpose – by aligning goals, upskilling staff, selecting the right tools, and building a future-ready learning culture.
+            </p>
+
+            <p>Preparing a school for AI is not about buying expensive software or chasing trends. It’s about building a clear, practical, step-by-step roadmap that helps teachers, students, and administrators use AI purposefully and safely. In the U.S., forward-thinking school leaders are already adopting structured AI roadmaps to guide professional development, classroom innovation, and long-term planning. This guide breaks down six practical sections—each with strategies, tools, and real examples you can start using immediately.</p>
+
+            <h2>1. Start With an AI Readiness Assessment</h2>
+            <p>Before leaders bring AI into classrooms, they must understand their school’s current capacity—teacher skills, available devices, digital policy, and curriculum alignment.</p>
+            
+            <h3>What School Leaders Should Do</h3>
+            <ul>
+                <li>Conduct a staff survey on teacher comfort levels with tools like ChatGPT, Diffit, and Eduaide.ai.</li>
+                <li>Review existing digital citizenship and data privacy policies.</li>
+                <li>Audit the school’s hardware and connectivity limitations.</li>
+                <li>Identify subjects or grade levels with the highest AI integration potential.</li>
+            </ul>
+
+            <div class="example-box">
+                <h4 style="margin-top: 0; color: var(--teal);">Real U.S. School Example</h4>
+                <p style="margin-bottom: 0;">A principal in Austin, Texas surveyed 48 teachers and discovered that 70% wanted AI for grading support but only 20% understood prompt writing. This helped the school prioritize training.</p>
+            </div>
+
+            <h2>2. Build a Clear Vision and Purpose for AI</h2>
+            <p>A school’s AI adoption must be intentional, not experimental.</p>
+            
+            <h3>Steps School Leaders Can Take</h3>
+            <ul>
+                <li><strong>Write a two-sentence school AI mission:</strong> Example: “We use AI to reduce teacher workload, personalize learning, and build future-ready student skills.”</li>
+                <li><strong>Identify 3–5 priority goals:</strong> (ex: lesson planning, behavior management, student support).</li>
+                <li><strong>Share vision documents:</strong> Maintain transparency with staff, parents, and school boards.</li>
+            </ul>
+
+            <div class="example-box">
+                <h4 style="margin-top: 0; color: var(--teal);">Real Example</h4>
+                <p style="margin-bottom: 0;">A school district in Ohio created a statement: “AI will be used to improve teacher efficiency by 20% while maintaining student privacy and academic integrity.” This guided all purchasing and PD decisions.</p>
+            </div>
+
+            <h2>3. Start Small: Pilot AI Programs in 1–2 Departments</h2>
+            <p>Rather than school-wide chaos, successful leaders begin with small pilots that allow testing, feedback, and refinement.</p>
+            
+            <h3>How to Launch a Smart Pilot</h3>
+            <ul>
+                <li>Choose two departments—example: English and Social Studies or STEAM and Counseling.</li>
+                <li>Define the scope: lesson planning, grading support, formative assessments, or parent communication.</li>
+                <li>Select 5–10 volunteer teachers and track progress for 6–8 weeks.</li>
+            </ul>
+
+            <div class="cta-box" style="border-left: 6px solid var(--teal);">
+                <h4 style="margin-bottom: 1rem; color: var(--teal);">Real U.S. Example: Result</h4>
+                <p>A middle school in New Jersey ran an 8-week AI pilot for lesson planning using tools like Diffit and ChatGPT. The results were clear:</p>
+                <ul>
+                    <li>Teachers saved 4–6 hours per week</li>
+                    <li>32% increase in small-group teaching time</li>
+                    <li>Teachers reported less burnout</li>
+                </ul>
+            </div>
+
+            <h2>4. Create a Teacher Training and Certification Path</h2>
+            <p>AI will only be used properly if teachers receive structured, hands-on training.</p>
+            
+            <ul>
+                <li><strong>Level 1:</strong> Basics of AI & prompt writing</li>
+                <li><strong>Level 2:</strong> AI for teaching tasks</li>
+                <li><strong>Level 3:</strong> Advanced integration & student projects</li>
+            </ul>
+            
+            <p>Offer micro-credentials or certificates for completion, and host monthly practice labs where teachers bring real lesson challenges.</p>
+
+            <h2>5. Build Policies for Safety, Privacy & Integrity</h2>
+            <p>Schools must protect students while embracing innovation.</p>
+            
+            <ul>
+                <li>Guidelines for ethical student use of AI</li>
+                <li>Data privacy rules (FERPA-aligned)</li>
+                <li>Rules for AI-generated content in assignments</li>
+                <li>Banned vs allowed AI tools</li>
+                <li>Teacher responsibilities for verifying accuracy (AI is not 100% correct)</li>
+            </ul>
+
+            <div class="example-box">
+                <h4 style="margin-top: 0; color: var(--teal);">Real Example</h4>
+                <p style="margin-bottom: 0;">A school in San Diego introduced a “Responsible AI Use” syllabus section for every class. It explains what AI tools students may use and what counts as plagiarism.</p>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>Creating an AI roadmap is not a technical task—it’s a leadership task. With readiness assessments, small pilots, strong training structures, and clear policies, school leaders can create an environment where AI becomes a trusted assistant instead of a distraction.</p>
+            
+            <div style="background: rgba(42, 180, 184, 0.05); padding: 2.5rem; border-radius: 20px; border-left: 4px solid var(--teal); margin: 3rem 0;">
+                <p style="margin-bottom: 0; font-weight: 500;">At TomoClub, we believe in helping schools bridge the gap between innovation and practice by exploring responsible ways to bring AI into classrooms. Our focus is on empowering educators with tools, strategies, and community-driven insights to create meaningful impact.</p>
+            </div>
+            
+            <p>Schools that adopt structured AI plans today will be the ones that prepare teachers and students for the future. Explore more on student leadership and teaching strategies to see how holistic approaches complement AI adoption.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
