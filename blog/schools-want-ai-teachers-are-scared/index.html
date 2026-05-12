@@ -4,132 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schools Want AI, Teachers Are Scared: How Leaders Can Bridge the Trust Gap | TomoClub Blog</title>
-    <meta name="description" content="Discover practical AI approaches that help teachers save time and teach more creatively by building trust before expecting adoption.">
+    <meta name="description" content="Discover practical AI approaches that help teachers save time and teach more creatively – by reducing admin work, enhancing lesson ideas, and supporting student engagement">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Schools Want AI, Teachers Are Scared: How Leaders Can Bridge the Trust Gap">
     <meta property="og:description" content="Discover practical AI approaches that help teachers save time and teach more creatively.">
     <meta property="og:image" content="../images/ai-trust-gap.png">
     
-    <link rel="stylesheet" href="../../styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
     
     <style>
         :root {
-            --article-max-width: 800px;
+            --article-max-width: 850px;
         }
 
         body {
-            background-color: var(--background);
-            color: var(--navy);
+            background-color: var(--bg-main);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
         .article-hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(to bottom, rgba(42, 180, 184, 0.05), transparent);
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
             text-align: center;
         }
 
         .article-meta {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            align-items: center;
+            gap: 1.5rem;
             font-size: 0.9rem;
             font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        .article-category {
-            color: var(--teal);
-        }
-
-        .article-date {
-            color: var(--text-muted);
-        }
-
         .article-title {
-            font-size: 3rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             line-height: 1.1;
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--navy);
         }
 
         .article-cover {
             width: 100%;
-            max-width: 1000px;
-            height: 500px;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
             object-fit: cover;
-            border-radius: 24px;
-            margin: 2rem auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 32px;
+            margin: 0 auto;
+            display: block;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
         }
 
         .article-content {
             max-width: var(--article-max-width);
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-            font-size: 1.15rem;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
         }
 
         .article-content h2 {
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
             color: var(--navy);
+            font-weight: 700;
         }
 
         .article-content h3 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem;
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
             color: var(--navy);
+            font-weight: 700;
         }
 
         .article-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
+            margin-bottom: 1.75rem;
         }
 
         .article-content ul, .article-content ol {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             padding-left: 1.5rem;
         }
 
         .article-content li {
-            margin-bottom: 0.75rem;
-            color: var(--text-muted);
+            margin-bottom: 1rem;
         }
 
         .back-nav {
             max-width: var(--article-max-width);
-            margin: 2rem auto 4rem;
+            margin: 4rem auto;
             padding: 0 1.5rem;
         }
 
         .cta-box {
             background: var(--surface);
             border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            border-radius: 20px;
-            margin: 3rem 0;
+            padding: 3rem;
+            border-radius: 24px;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
             .article-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             .article-cover {
-                height: 300px;
+                border-radius: 16px;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none; /* Simplify for mobile in this view */
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <nav>
         <a href="../../" class="logo">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
@@ -141,10 +205,11 @@
 
     <article>
         <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
-            <a href="../../#blog" class="btn btn-secondary btn-view-more">
-                <i data-lucide="arrow-left"></i> View More
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
+
         <header class="article-hero">
             <div class="container">
                 <div class="article-meta">
@@ -152,12 +217,14 @@
                     <span class="article-date">May 11, 2026</span>
                 </div>
                 <h1 class="article-title">Schools Want AI, Teachers Are Scared: How Leaders Can Bridge the Trust Gap</h1>
-                <img src="../images/ai-trust-gap.png" alt="Schools Want AI, Teachers Are Scared" class="article-cover">
+                <div class="image-wrapper" style="max-width: 1100px; margin: 0 auto; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-xl);">
+                    <img src="../images/ai-trust-gap.png" alt="Schools Want AI, Teachers Are Scared" class="article-cover" style="width: 100%; height: auto; display: block;">
+                </div>
             </div>
         </header>
 
         <div class="article-content">
-            <p class="lead" style="font-size: 1.4rem; font-weight: 500; color: var(--navy); margin-bottom: 2.5rem;">
+            <p class="lead" style="font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 3rem; line-height: 1.5;">
                 Discover practical AI approaches that help teachers save time and teach more creatively – by reducing admin work, enhancing lesson ideas, and supporting student engagement
             </p>
 
@@ -166,46 +233,49 @@
             <h2>1. Start With Low-Risk, High-Impact AI Tasks Teachers Already Struggle With</h2>
             <p>Most teachers fear AI because they assume it will be used for high-stakes decisions. But trust grows when leaders start with simple, low-risk tasks that save time, such as:</p>
             
-            <h3>Practical Examples Schools Can Implement</h3>
-            <ul>
-                <li><strong>Weekly newsletter creation using ChatGPT or Claude:</strong> Teachers can input bullet points (“field trip Friday,” “parent reminders,” “homework updates”), and the tool formats it professionally in seconds.</li>
-                <li><strong>Rubric drafting using Google’s NotebookLM:</strong> Teachers upload past rubrics and get improved versions aligned with grade-level expectations.</li>
-                <li><strong>Brainstorming lesson ideas using Perplexity’s free educator mode:</strong> Great for teachers who struggle with creating engaging hooks or differentiation ideas.</li>
-                <li><strong>Instant rewriting of instructions for clarity or reading level using Microsoft Copilot:</strong> Useful for multilingual classrooms.</li>
-            </ul>
+            <div style="background: var(--card-grad-teal); padding: 3rem; border-radius: 24px; border: 1px solid var(--border-color); margin: 3rem 0;">
+                <h3 style="margin-top: 0;">Practical Examples Schools Can Implement</h3>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>Weekly newsletter creation using ChatGPT or Claude:</strong> Teachers can input bullet points (“field trip Friday,” “parent reminders,” “homework updates”), and the tool formats it professionally in seconds.</li>
+                    <li><strong>Rubric drafting using Google’s NotebookLM:</strong> Teachers upload past rubrics and get improved versions aligned with grade-level expectations.</li>
+                    <li><strong>Brainstorming lesson ideas using Perplexity’s free educator mode:</strong> Great for teachers who struggle with creating engaging hooks or differentiation ideas.</li>
+                    <li><strong>Instant rewriting of instructions for clarity or reading level using Microsoft Copilot:</strong> Useful for multilingual classrooms.</li>
+                </ul>
+            </div>
             
-            <div class="cta-box">
-                <h4 style="margin-bottom: 1rem; color: var(--teal);">Why This Builds Trust</h4>
-                <p style="margin-bottom: 0;">Teachers see AI as a helper, not a judge. It removes tedious tasks rather than evaluating teaching quality.</p>
+            <div class="cta-box" style="border-left: 6px solid var(--teal);">
+                <h4 style="margin-bottom: 1rem; color: var(--teal); font-size: 1.25rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Why This Builds Trust</h4>
+                <p style="margin-bottom: 0; font-size: 1.1rem;">Teachers see AI as a helper, not a judge. It removes tedious tasks rather than evaluating teaching quality.</p>
             </div>
 
             <h2>2. Make AI Training Hands-On, Not Theory-Based</h2>
             <p>The fastest way to remove fear is to let teachers use AI in real scenarios with their own work.</p>
             
-            <h3>Practical Training Structure for US Schools</h3>
-            <ol>
-                <li><strong>15-minute demonstration of a tool:</strong> (e.g., generating accommodations)</li>
-                <li><strong>15 minutes of hands-on practice:</strong> with teachers using their own materials</li>
-                <li><strong>10 minutes of peer-sharing:</strong> (“What worked for you?”)</li>
-                <li><strong>5 minutes of Q&A:</strong> about risks, ethics, and boundaries</li>
-            </ol>
+            <div style="background: var(--surface); border: 1px solid var(--border-color); padding: 3rem; border-radius: 24px; margin: 3rem 0;">
+                <h3 style="margin-top: 0;">Practical Training Structure for US Schools</h3>
+                <ol style="margin-bottom: 0;">
+                    <li><strong>15-minute demonstration of a tool:</strong> (e.g., generating accommodations)</li>
+                    <li><strong>15 minutes of hands-on practice:</strong> with teachers using their own materials</li>
+                    <li><strong>10 minutes of peer-sharing:</strong> (“What worked for you?”)</li>
+                    <li><strong>5 minutes of Q&A:</strong> about risks, ethics, and boundaries</li>
+                </ol>
+            </div>
             
-            <p>This approach matches the structure used by innovative PD programs like <a href="../../#pd" style="color: var(--teal); font-weight: 600;">TomoClub’s AI Professional Development Program</a>—a 5-hour hands-on course that shows teachers exactly how to use free AI tools for lesson planning, grading, communication, and personalization. Leaders can explore the program through this link embedded naturally here: <a href="../../#pd" style="color: var(--teal); font-weight: 600;">TomoClub’s AI Professional Development Program</a>.</p>
+            <p>This approach matches the structure used by innovative PD programs like <a href="../../#pd" style="color: var(--teal); font-weight: 700; text-decoration: underline;">TomoClub’s AI Professional Development Program</a>—a 5-hour hands-on course that shows teachers exactly how to use free AI tools for lesson planning, grading, communication, and personalization. Leaders can explore the program through this link embedded naturally here: <a href="../../#pd" style="color: var(--teal); font-weight: 700;">TomoClub’s AI Professional Development Program</a>.</p>
 
-            <div style="background: rgba(42, 180, 184, 0.05); padding: 2rem; border-radius: 16px; border-left: 4px solid var(--teal); margin: 2rem 0;">
-                <h4 style="margin-bottom: 0.5rem;">Real Example</h4>
+            <div style="background: rgba(42, 180, 184, 0.05); padding: 2.5rem; border-radius: 20px; border-left: 4px solid var(--teal); margin: 3rem 0;">
+                <h4 style="margin-bottom: 0.5rem; color: var(--navy); font-weight: 800;">Real Example</h4>
                 <p style="margin-bottom: 0;">A middle school in Texas trained teachers to use AI to generate differentiated formative assessments. Within weeks, teachers reported saving 3–4 hours per week, drastically shifting their attitude toward AI.</p>
             </div>
 
             <h2>3. Provide Clear AI Guardrails So Nothing Feels “Unsafe”</h2>
             <p>Teachers are often unclear about: what data they can input, which tools are approved, what counts as cheating, and how much students should rely on AI. A leader must make expectations explicit.</p>
             
-            <h3>US-Focused, Practical Guardrails</h3>
-            <ul>
-                <li>No student PII in non-district tools (FERPA compliance)</li>
-                <li>Only approved platforms (e.g., Microsoft Copilot for EDU, Khanmigo, SchoolAI)</li>
-                <li>AI can assist with ideas, not provide final grades</li>
-                <li>Students must submit thinking steps, not just answers</li>
+            <ul class="check-list" style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;"><i data-lucide="check-circle" style="color: var(--teal); flex-shrink: 0; margin-top: 0.2rem;"></i> <span>No student PII in non-district tools (FERPA compliance)</span></li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;"><i data-lucide="check-circle" style="color: var(--teal); flex-shrink: 0; margin-top: 0.2rem;"></i> <span>Only approved platforms (e.g., Microsoft Copilot for EDU, Khanmigo, SchoolAI)</span></li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;"><i data-lucide="check-circle" style="color: var(--teal); flex-shrink: 0; margin-top: 0.2rem;"></i> <span>AI can assist with ideas, not provide final grades</span></li>
+                <li style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start;"><i data-lucide="check-circle" style="color: var(--teal); flex-shrink: 0; margin-top: 0.2rem;"></i> <span>Students must submit thinking steps, not just answers</span></li>
             </ul>
             
             <p><strong>Example from a California District:</strong> Teachers were hesitant to use AI until the district released a one-page “AI Safety Checklist.” Fear instantly dropped because expectations became transparent.</p>
@@ -213,18 +283,26 @@
             <h2>4. Show Teachers Real Success Stories From Within Their Own School</h2>
             <p>Teachers trust what they see, not what they’re told. Leaders should create a simple “AI wins” workflow:</p>
             
-            <h3>How to Do This Month by Month</h3>
-            <ul>
-                <li><strong>Week 1-3:</strong> Ask 3 teachers per week to share an example of how AI saved them time.</li>
-                <li><strong>Week 4:</strong> Turn these into a short “AI in Action” email or staff meeting slide.</li>
-                <li><strong>Ongoing:</strong> Highlight the teachers (never the tool) so it feels peer-driven.</li>
-            </ul>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                <div style="background: var(--card-grad-slate); padding: 2rem; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--teal); margin-bottom: 1rem;">Month 1-3</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Ask 3 teachers per week to share an example of how AI saved them time.</p>
+                </div>
+                <div style="background: var(--card-grad-slate); padding: 2rem; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--gold); margin-bottom: 1rem;">Month 4</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Turn these into a short “AI in Action” email or staff meeting slide.</p>
+                </div>
+                <div style="background: var(--card-grad-slate); padding: 2rem; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--crimson); margin-bottom: 1rem;">Ongoing</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Highlight the teachers (never the tool) so it feels peer-driven.</p>
+                </div>
+            </div>
 
             <h3>Examples Leaders Can Share</h3>
-            <ul>
-                <li>A special education teacher used AI to create behavior charts instantly.</li>
-                <li>An English teacher used AI to rewrite instructions at a Grade 4 reading level.</li>
-                <li>A math teacher used AI to produce multiple versions of problem sets.</li>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--border-color);">A special education teacher used AI to create behavior charts instantly.</li>
+                <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--border-color);">An English teacher used AI to rewrite instructions at a Grade 4 reading level.</li>
+                <li style="margin-bottom: 1rem; padding-left: 1.5rem; border-left: 3px solid var(--border-color);">A math teacher used AI to produce multiple versions of problem sets.</li>
             </ul>
             
             <p>Trust grows when teachers see their colleagues succeeding—not just administrators recommending tools.</p>
@@ -232,57 +310,54 @@
             <h2>5. Create AI Collaborator Teams Instead of Top-Down Mandates</h2>
             <p>Instead of requiring every teacher to adopt AI at once, choose a pilot team of volunteers who will explore tools first, document what works, and share best practices.</p>
             
-            <h3>How to Build a Pilot Team</h3>
-            <ul>
-                <li>Weekly 20-minute huddles</li>
-                <li>8–10 teachers from different grade levels</li>
-                <li>A shared Google Drive folder of AI-generated examples</li>
-                <li>One showcase meeting after 6 weeks</li>
-            </ul>
-
             <div class="cta-box">
-                <h4 style="margin-bottom: 1rem;">Why This Works</h4>
+                <h4 style="margin-bottom: 1rem; color: var(--navy); font-weight: 800;">Why This Works</h4>
                 <p style="margin-bottom: 0;">AI becomes a collaborative culture—not a compliance task. Teachers feel ownership, not pressure.</p>
             </div>
 
             <p><strong>Real Example:</strong> A school in Ohio improved teacher AI adoption by 60% simply by forming “AI Peer Coaches” who helped other teachers informally.</p>
 
             <h2>6. Add Student AI Literacy Programs to Reduce Teacher Workload</h2>
-            <p>Students who understand AI use it responsibly—reducing cheating, misuse, and tech fear. Programs like <a href="../../#future-ready" style="color: var(--teal); font-weight: 600;">TomoClub’s AI Literacy & Life Skills Program</a> help Grades 3–12 build AI understanding through practical activities, teamwork, real-world decision-making, and project-based work. When students understand AI:</p>
+            <p>Students who understand AI use it responsibly—reducing cheating, misuse, and tech fear. Programs like <a href="../../#future-ready" style="color: var(--teal); font-weight: 700;">TomoClub’s AI Literacy & Life Skills Program</a> help Grades 3–12 build AI understanding through practical activities, teamwork, real-world decision-making, and project-based work.</p>
             
-            <ul>
-                <li>Teachers don’t have to police misuse every day.</li>
-                <li>AI becomes a joint responsibility—not the teacher’s alone.</li>
-                <li>Classroom trust improves because expectations are aligned.</li>
-            </ul>
+            <div style="background: var(--card-grad-gold); padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(253, 198, 45, 0.2); margin: 3rem 0;">
+                <h4 style="margin-bottom: 1.5rem; color: #D97706;">When students understand AI:</h4>
+                <ul style="margin-bottom: 0;">
+                    <li>Teachers don’t have to police misuse every day.</li>
+                    <li>AI becomes a joint responsibility—not the teacher’s alone.</li>
+                    <li>Classroom trust improves because expectations are aligned.</li>
+                </ul>
+            </div>
 
             <p><strong>Example:</strong> A Florida middle school introduced an AI literacy module. Teachers reported that students became more intentional, reducing AI misuse by 40% within two months.</p>
 
             <h2>Conclusion - Trust Comes Before Technology</h2>
-            <p>If AI is introduced responsibly, teachers begin to see it not as a threat but as a lifeline. The goal is not faster adoption—it is safer, supported, confident adoption. Schools that bridge the trust gap do three things well:</p>
+            <p>If AI is introduced responsibly, teachers begin to see it not as a threat but as a lifeline. The goal is not faster adoption—it is safer, supported, confident adoption. Schools that bridge the trust gap do three things well: <strong>Start small</strong>, <strong>provide practical training</strong>, and <strong>show teachers that AI is here to support them</strong>.</p>
             
-            <ol>
-                <li>Start small</li>
-                <li>Provide practical, hands-on training</li>
-                <li>Show teachers that AI is here to support—not replace—them</li>
-            </ol>
-            
-            <p>With the right approach, AI becomes a shared opportunity instead of a source of fear. At TomoClub, we believe in helping schools bridge the gap between innovation and practice by exploring responsible ways to bring AI into classrooms. Our focus is on empowering educators with tools, strategies, and community-driven insights to create meaningful impact. Explore more on student leadership and teaching strategies to see how holistic approaches complement AI adoption.</p>
+            <p>With the right approach, AI becomes a shared opportunity instead of a source of fear. At TomoClub, we believe in helping schools bridge the gap between innovation and practice. Our focus is on empowering educators with tools, strategies, and community-driven insights to create meaningful impact.</p>
         </div>
 
         <div class="back-nav">
-            <a href="../../#blog" class="btn btn-secondary btn-view-more">
-                <i data-lucide="arrow-left"></i> View More
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
     </article>
 
-    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
-        <div class="container text-center">
-            <div class="logo" style="margin-bottom: 2rem;">
-                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
             </div>
-            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
         </div>
     </footer>
 
@@ -290,7 +365,7 @@
     <script>
         lucide.createIcons();
         
-        // Simple Theme Check
+        // Theme Management
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-theme');
         }
