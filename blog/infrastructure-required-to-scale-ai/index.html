@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What Infrastructure is Required to Scale AI in School Networks? Learn about high-speed broadband, secure cloud systems, and teacher training.">
+    <title>Scaling AI Infrastructure in Schools | TomoClub Blog</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 60px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 0;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .article-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .cta-box {
+            background: var(--card-grad-teal);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            margin: 3rem 0;
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --navy: #f8fafc;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-item"><a href="../../#blog">Blog</a></div>
+                <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Technology</span>
+                </div>
+                <h1 class="article-title">What Infrastructure is Required to Scale AI in School Networks?</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="lead" style="font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 3rem; line-height: 1.5;">
+                Artificial intelligence is growing fast in schools, but scaling it across whole networks requires more than just new tools. Schools need strong systems—from connectivity to security—to make AI work for everyone.
+            </p>
+
+            <p>Without a solid foundation, AI adoption can feel more like a challenge than a benefit. To move beyond the pilot phase and achieve district-wide impact, school leaders must prioritize infrastructure investments that are both secure and scalable.</p>
+
+            <h2>Building a Strong Internet Backbone</h2>
+            <p>AI cannot function without reliable internet. A weak connection means slow tools and frustrated classrooms. Scaling AI requires schools to prioritize connectivity first.</p>
+            <ul>
+                <li><strong>High-speed broadband:</strong> Smooth access to AI platforms without delays.</li>
+                <li><strong>Strong Wi-Fi coverage:</strong> Ensure every classroom is AI-ready.</li>
+                <li><strong>Cloud-based learning:</strong> Tools run seamlessly across the network.</li>
+                <li><strong>Equity in access:</strong> Bridging the digital divide for rural schools.</li>
+            </ul>
+
+            <h2>Modern Devices for Classrooms</h2>
+            <p>Even the best AI tools won’t work if devices are too old. Schools must provide updated hardware that can handle modern web applications.</p>
+            <ul>
+                <li><strong>Updated laptops and tablets:</strong> Allow smooth use of interactive AI apps.</li>
+                <li><strong>Smartboards and projectors:</strong> Make learning more collaborative.</li>
+                <li><strong>Powerful servers:</strong> Support large-scale AI systems effectively where needed.</li>
+                <li><strong>Device sharing policies:</strong> Ensure equal access for all students.</li>
+            </ul>
+
+            <h2>Secure and Scalable Cloud Systems</h2>
+            <p>Scaling AI depends on handling large amounts of data safely. Cloud platforms reduce costs while keeping systems flexible and responsive.</p>
+            <ul>
+                <li><strong>Safe data storage:</strong> Student records protected in the cloud.</li>
+                <li><strong>Remote access:</strong> Teachers can use AI tools from anywhere.</li>
+                <li><strong>Automatic updates:</strong> New features roll out without disruption.</li>
+                <li><strong>Scalability:</strong> Platforms expand as school needs grow.</li>
+            </ul>
+
+            <h2>Protecting Data and Privacy</h2>
+            <p>AI in schools requires careful handling of sensitive student information. Protecting this data is essential for trust and safety.</p>
+            <ul>
+                <li><strong>Data encryption:</strong> Keeps sensitive information secure from breaches.</li>
+                <li><strong>Teacher awareness:</strong> Staff learn to manage data responsibly.</li>
+                <li><strong>Parental clarity:</strong> Families understand how data is used.</li>
+                <li><strong>Cybersecurity:</strong> Keeping systems safe from evolving attacks.</li>
+            </ul>
+
+            <h2>Supporting Teachers with Training</h2>
+            <p>No infrastructure plan is complete without teachers. They need the training and confidence to use AI effectively in their daily practice.</p>
+            <ul>
+                <li><strong>Professional workshops:</strong> Build confidence in using AI tools.</li>
+                <li><strong>Ethics training:</strong> Encourage responsible and fair AI use.</li>
+                <li><strong>Support desks:</strong> Resolve technical problems quickly to maintain momentum.</li>
+                <li><strong>Teacher leadership:</strong> Staff lead innovation, not just follow it.</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3 style="margin-top: 0; color: var(--navy);">Scale with Confidence</h3>
+                <p>At TomoClub.org, we help schools bridge the gap between AI and practice by focusing on safe, practical adoption. Explore how our systems make district-wide AI adoption more effective.</p>
+                <p style="margin-bottom: 0;"><a href="../../" style="color: var(--teal); font-weight: 700;">Learn more about our Implementation Support &rarr;</a></p>
+            </div>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
