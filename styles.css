@@ -1099,7 +1099,7 @@ footer { background: transparent; border-top: 1px solid transparent; border-imag
   width: max-content;
   gap: 4rem;
   padding-right: 4rem; /* Match the gap for a seamless loop */
-  animation: scroll-marquee 10s linear infinite;
+  animation: scroll-marquee 17s linear infinite;
   align-items: center;
 }
 
