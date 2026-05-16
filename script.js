@@ -46,6 +46,10 @@ const seoData = {
   '#blog': {
     title: 'TomoClub Blog | Insights on AI and Leadership in Education',
     description: 'Exploring the intersection of technology, leadership, and human-centered learning. Real stories and practical strategies for future-ready schools.'
+  },
+  'blog/why-schools-should-train-teachers-in-ai-literacy/': {
+    title: 'Why Schools Should Train Teachers in AI Literacy | TomoClub Blog',
+    description: 'Discover Why Schools Should Train Teachers in AI Literacy by Building Confidence, Reducing Workload, and Preparing Educators to Guide Students in a Tech-Driven Future'
   }
 };
 
