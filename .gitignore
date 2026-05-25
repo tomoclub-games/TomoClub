@@ -1,0 +1,5 @@
+# Ignore scratch folder containing local development/verification utilities
+scratch/
+
+# Ignore documentation sources
+for_parents.docx
