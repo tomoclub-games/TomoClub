@@ -2086,7 +2086,7 @@
             <button class="spy-btn" onclick="scrollToSection('programs', this)">Programs</button>
             <button class="spy-btn" onclick="scrollToSection('sessions', this)">Inside Class</button>
             <button class="spy-btn" onclick="scrollToSection('reports', this)">Report Cards</button>
-            <button class="spy-btn" onclick="scrollToSection('coaches', this)">Coaches</button>
+
             <button class="spy-btn" onclick="scrollToSection('faq', this)">FAQ</button>
         </div>
     </div>
@@ -2759,48 +2759,7 @@
         </div>
     </section>
 
-    <!-- SECTION 10: COACHES SECTION -->
-    <section class="coaches-section" id="coaches">
-        <div class="container">
-            <h2 class="text-center">Trained by experts, not algorithms</h2>
-            
-            <div class="coaches-grid">
-                
-                <!-- Coach 1 -->
-                <div class="parent-coach-card">
-                    <div class="coach-avatar-box skills">CD</div>
-                    <div class="coach-name">Chelsea Dean</div>
-                    <div class="coach-role skills">Psychologist &middot; Educator &middot; Teach For India</div>
-                    <div class="coach-bio">Leads Life Skills curriculum. Works across schools in India and the US.</div>
-                </div>
 
-                <!-- Coach 2 -->
-                <div class="parent-coach-card">
-                    <div class="coach-avatar-box skills">DB</div>
-                    <div class="coach-name">Debbie Brockett</div>
-                    <div class="coach-role skills">Former Superintendent &middot; McMinnville & Clark County</div>
-                    <div class="coach-bio">Advisory board. 30 years building programs that actually change outcomes.</div>
-                </div>
-
-                <!-- Coach 3 -->
-                <div class="parent-coach-card">
-                    <div class="coach-avatar-box ai">AI</div>
-                    <div class="coach-name">AI Lab Coaches</div>
-                    <div class="coach-role ai">CS &middot; Data Science &middot; AI Ethics</div>
-                    <div class="coach-bio">Demo real AI tools live. Trained on bias, ethics, privacy curriculum.</div>
-                </div>
-
-                <!-- Coach 4 -->
-                <div class="parent-coach-card">
-                    <div class="coach-avatar-box skills">LS</div>
-                    <div class="coach-name">Life Skills Coaches</div>
-                    <div class="coach-role skills">Education &middot; Game Design &middot; Psychology</div>
-                    <div class="coach-bio">Comfortable with productive silence. Draw out the quietest voice in the room.</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
 
     <!-- SECTION 11: FAQ SECTION -->
     <section class="faq-section" id="faq">
@@ -3735,7 +3694,7 @@
 
         // Scroll spy active tab trigger based on viewport position
         window.addEventListener('scroll', () => {
-            const sections = ['overview', 'quiz', 'programs', 'sessions', 'reports', 'coaches', 'faq'];
+            const sections = ['overview', 'quiz', 'programs', 'sessions', 'reports', 'faq'];
             let current = 'overview';
             
             sections.forEach(sec => {
