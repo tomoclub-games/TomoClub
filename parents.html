@@ -2048,14 +2048,13 @@
     
     <!-- Main Navigation (Parents Page Version) -->
     <nav>
-        <div class="nav-container">
-            <a href="/" class="logo" style="text-decoration: none;">
+        <div class="container nav-container">
+            <a href="/#home" class="logo" style="text-decoration: none;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
-            <!-- Desktop menu links matching restructuring plan -->
-            <div class="nav-links desktop-only" id="nav-links">
+            <div class="nav-links" id="nav-links">
                 <div class="nav-item">
-                    <a href="#">For schools <i class="ti ti-chevron-down" style="font-size: 14px;"></i></a>
+                    <a href="#">For schools <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
                         <a href="/#ai-literacy">
                             <strong>AI Literacy Curriculum</strong>
@@ -2075,7 +2074,7 @@
                 <div class="nav-item"><a href="/#about">About Us</a></div>
                 <div class="nav-item"><a href="/#results">Results</a></div>
                 <div class="nav-item">
-                    <a href="#">Resources <i class="ti ti-chevron-down" style="font-size: 14px;"></i></a>
+                    <a href="#">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
                         <a href="/#education-hall">Educational Hall</a>
                         <a href="/#blog">Blog</a>
@@ -2084,17 +2083,21 @@
                         <a href="leaders-of-tomorrow/">Leaders of Tomorrow Ebook</a>
                     </div>
                 </div>
+                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
+                    <a href="#"  class="btn btn-primary open-pilot-modal" style="width: 100%;">Request a Pilot</a>
+                </div>
             </div>
-
+            
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                    <i class="ti ti-moon theme-icon-moon"></i>
-                    <i class="ti ti-sun theme-icon-sun" style="display: none;"></i>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                 </button>
-                <a href="mailto:info@tomoclub.com?subject=TomoClub%20Parent%20Login%20Inquiry" class="btn-parents-ghost desktop-only" style="padding: 6px 16px; font-size: 13px; border-radius: 999px;">Log in</a>
-                <a href="#quiz" class="btn-parents-primary" style="padding: 6px 16px; font-size: 13px; border-radius: 999px;">Request a Pilot</a>
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" style="border: none; background: transparent; cursor: pointer; display: none;">
-                    <i class="ti ti-menu-2" style="font-size: 24px;"></i>
+                <a href="#"  class="btn btn-primary desktop-only open-pilot-modal">Request a Pilot</a>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
                 </button>
             </div>
         </div>
@@ -2908,56 +2911,382 @@
 
     <!-- SECTION 13: FOOTER (EXACT MATCH TO INDEX.HTML) -->
     <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" class="logo footer-logo" style="text-decoration: none;">
-                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
-                </a>
-                <p class="footer-brand-desc">The leading K–12 implementation partner for AI literacy and human skills, serving schools across 14+ US states and 10+ countries.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/#home" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
+                        <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                    </a>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
+                        <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <span style="display: block; font-weight: 700; color: var(--navy);">Call Us</span>
+                                <a href="tel:+16505478082" style="color: var(--text-muted);">+1 650 547-8082</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="mail" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <a href="mailto:info@tomoclub.org" style="color: var(--text-muted);">info@tomoclub.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Location</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="map-pin" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <span style="color: var(--text-muted); line-height: 1.4;">4197 Tuller Road, Dublin,<br>OHIO 43017, USA</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
+                        <li><a href="/#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div>
-                <h4 class="footer-col-title">Programs</h4>
-                <ul class="footer-links-list">
-                    <li class="footer-link-item"><a href="/#ai-literacy">AI Literacy (6-12)</a></li>
-                    <li class="footer-link-item"><a href="/#future-ready">Future-Ready Skills (3-12)</a></li>
-                    <li class="footer-link-item"><a href="/#pd">AI Fundamentals PD</a></li>
-                    <li class="footer-link-item"><a href="/parents">Parent Programs</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="footer-col-title">Resources</h4>
-                <ul class="footer-links-list">
-                    <li class="footer-link-item"><a href="/#education-hall">Educational Hall</a></li>
-                    <li class="footer-link-item"><a href="/#blog">Blog</a></li>
-                    <li class="footer-link-item"><a href="/#podcast">Podcast</a></li>
-                    <li class="footer-link-item"><a href="/#guides">Guides & Toolkits</a></li>
-                    <li class="footer-link-item"><a href="leaders-of-tomorrow/">Leaders of Tomorrow Ebook</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="footer-col-title">Contact</h4>
-                <ul class="footer-links-list">
-                    <li class="footer-link-item"><a href="mailto:info@tomoclub.org">info@tomoclub.com</a></li>
-                    <li class="footer-link-item"><a href="tel:+16505478082">+1 (650) 547-8082</a></li>
-                    <li class="footer-link-item"><a href="/">www.tomoclub.org</a></li>
-                    <li class="footer-link-item"><a href="/#about">About Us</a></li>
-                    <li class="footer-link-item"><a href="/#results">Results</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom-parents">
-            <span class="copyright-text">&copy; 2026 TomoClub. All rights reserved.</span>
-            <div class="footer-bottom-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms-and-conditions">Terms of Use</a>
-                <a href="/privacy-policy">Cookie Policy</a>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TomoClub. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
+                    <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <div id="pilot-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 650px !important; padding: 0 !important; overflow: hidden !important; height: 90vh !important; background: #FFFFFF !important; border-radius: 24px !important; border: 1px solid #E2E8F0 !important;">
+            <button class="modal-close" id="close-pilot-btn" style="position: absolute; top: 1rem; right: 1rem; z-index: 1000; background: #F8FAFC; color: #0F172A; border: 1px solid #E2E8F0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i data-lucide="x"></i></button>
+            
+            <div style="width: 100% !important; height: 100% !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; background: #FFFFFF !important;">
+                <!-- Brevo Form Start -->
+                <style>
+                  /* Reset and Global Font Fixes for Modal */
+                  #pilot-modal, #pilot-modal * { 
+                    font-family: 'Outfit', sans-serif !important; 
+                    box-sizing: border-box !important;
+                  }
+                  
+                  /* Force all text to be dark in this modal */
+                  #pilot-modal p, 
+                  #pilot-modal span, 
+                  #pilot-modal label, 
+                  #pilot-modal div:not(.sib-form-message-panel) { 
+                    color: #0F172A !important; 
+                  }
+                  
+                  /* Hide message panels by default */
+                  #pilot-modal .sib-form-message-panel { 
+                    display: none !important; 
+                  }
+                  
+                  /* Show them when they are active (Brevo script handles this) */
+                  #pilot-modal .sib-form-message-panel--active {
+                    display: block !important;
+                  }
+
+                  #sib-container input::placeholder, 
+                  #sib-container textarea::placeholder { 
+                    color: #94A3B8 !important; 
+                  }
+                  
+                  /* Form Container Fixes */
+                  #pilot-modal .sib-form { 
+                    background: #FFFFFF !important; 
+                    padding: 3rem 0 !important; 
+                    margin: 0 !important;
+                  }
+                  
+                  #pilot-modal #sib-container { 
+                    border: none !important; 
+                    box-shadow: none !important; 
+                    width: 100% !important; 
+                    max-width: 100% !important; 
+                    background: #FFFFFF !important; 
+                    padding: 0 !important;
+                  }
+                  
+                  /* Label and Input Styling */
+                  #pilot-modal .entry__label { 
+                    color: #0F172A !important; 
+                    font-weight: 700 !important; 
+                    font-size: 0.85rem !important; 
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.05em !important;
+                    margin-bottom: 0.5rem !important;
+                    display: block !important;
+                    text-align: left !important;
+                  }
+                  
+                  #pilot-modal .input { 
+                    width: 100% !important; 
+                    padding: 0.875rem 1.25rem !important; 
+                    border: 1px solid #E2E8F0 !important; 
+                    border-radius: 12px !important; 
+                    font-size: 1rem !important; 
+                    color: #0F172A !important; 
+                    background: #F8FAFC !important; 
+                    transition: all 0.3s ease !important;
+                    height: auto !important;
+                    box-shadow: none !important;
+                  }
+                  
+                  #pilot-modal .input:focus { 
+                    border-color: #2AB4B8 !important; 
+                    box-shadow: 0 0 0 4px rgba(42, 180, 184, 0.1) !important; 
+                    outline: none !important;
+                    background: #FFFFFF !important;
+                  }
+
+                  /* Button Fixes */
+                  #pilot-modal .sib-form-block__button {
+                    background-color: #2AB4B8 !important;
+                    color: #FFFFFF !important;
+                    border-radius: 999px !important;
+                    padding: 1.1rem 3rem !important;
+                    font-weight: 800 !important;
+                    font-size: 1.1rem !important;
+                    letter-spacing: 0.02em !important;
+                    transition: all 0.3s ease !important;
+                    width: 100% !important;
+                    cursor: pointer !important;
+                    border: none !important;
+                    margin-top: 1rem !important;
+                    box-shadow: 0 10px 20px rgba(42, 180, 184, 0.2) !important;
+                  }
+                  
+                  #pilot-modal .sib-form-block__button:hover {
+                    background-color: #0F172A !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2) !important;
+                  }
+
+                  /* Checkbox Visibility Force */
+                  #pilot-modal .entry__choice {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    gap: 12px !important;
+                    margin-top: 0.5rem !important;
+                  }
+
+                  #pilot-modal input[type="checkbox"] {
+                    display: inline-block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    width: 20px !important;
+                    height: 20px !important;
+                    min-width: 20px !important;
+                    min-height: 20px !important;
+                    margin: 0 !important;
+                    cursor: pointer !important;
+                    appearance: auto !important;
+                    -webkit-appearance: auto !important;
+                    border: 2px solid #CBD5E1 !important;
+                    accent-color: #2AB4B8 !important;
+                    position: relative !important;
+                    left: 0 !important;
+                    top: 0 !important;
+                    z-index: 10 !important;
+                  }
+
+                  #pilot-modal .entry__choice label {
+                    color: #475569 !important;
+                    font-size: 0.9rem !important;
+                    cursor: pointer !important;
+                    display: inline !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    text-align: left !important;
+                  }
+
+                  #pilot-modal .entry__choice label span {
+                    display: inline !important;
+                    color: inherit !important;
+                  }
+
+                  /* Mandatory Asterisk */
+                  #pilot-modal .entry__label::after {
+                    content: " *";
+                    color: #EF4444 !important;
+                  }
+                </style>
+                <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+                <div class="sib-form">
+                  <div id="sib-form-container" class="sib-form-container">
+                    <!-- Messages (Hidden by default via CSS above) -->
+                    <div id="error-message" class="sib-form-message-panel" style="background-color:#ffeded; border-color:#ff4949; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text" style="color:#661d1d !important;">Your request could not be saved. Please try again.</span>
+                      </div>
+                    </div>
+                    <div id="success-message" class="sib-form-message-panel" style="background-color:#e7faf0; border-color:#13ce66; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text" style="color:#085229 !important;">A member of our team will contact you shortly!</span>
+                      </div>
+                    </div>
+
+                    <div id="sib-container" class="sib-container--large sib-container--vertical">
+                      <form id="sib-form" method="POST" action="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" data-type="subscription">
+                        <div style="padding: 0 0 1rem; text-align: center;">
+                          <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 180px; height: auto;" alt="TomoClub" />
+                        </div>
+
+                        <div style="padding: 0 0 0.5rem; text-align: center;">
+                          <h3 style="font-size:24px; font-weight:800; color:#0F172A; margin: 0;">Interested in TomoClub?</h3>
+                        </div>
+
+                        <div style="padding: 0 0 2rem; text-align: center;">
+                          <p style="font-size:16px; color:#475569; margin: 0;">Fill the form below and we'll get in touch.</p>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="FIRSTNAME">FIRST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" required placeholder="Jane" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="LASTNAME">LAST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME" autocomplete="off" required placeholder="Doe" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="EMAIL">WORK EMAIL</label>
+                              <div class="entry__field">
+                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" required placeholder="jane@school.org" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="name">SCHOOL OR DISTRICT NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" required placeholder="Lincoln High" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="industry">STATE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" required placeholder="California" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="JOB_TITLE">ROLE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" required placeholder="Principal" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="MESSAGE">Any specific requests?</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" required placeholder="Tell us more about your needs..." />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 2rem;">
+                          <div class="sib-optin sib-form-block">
+                            <div class="form__entry entry_mcq">
+                              <div class="entry__choice">
+                                <label>
+                                  <input type="checkbox" class="input_replaced" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required />
+                                  <span>I agree for TomoClub to contact me. <span style="font-size: 0.75rem; color: #64748B !important;">(Mandatory)</span></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 2rem;">
+                          <div class="sib-form-block" style="text-align: center">
+                            <button class="sib-form-block__button" type="submit">SUBMIT REQUEST</button>
+                          </div>
+                        </div>
+
+                        <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none">
+                        <input type="hidden" name="locale" value="en">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+                  window.LOCALE = 'en';
+                  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+                  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_DATE = "Please enter a valid date";
+                  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+                  window.translation = {
+                    common: {
+                      selectedList: '{quantity} list selected',
+                      selectedLists: '{quantity} lists selected',
+                      selectedOption: '{quantity} selected',
+                      selectedOptions: '{quantity} selected',
+                    }
+                  };
+                  var AUTOHIDE = Boolean(0);
+                </script>
+                <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+                <!-- Brevo Form End -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
 
     <!-- INTERACTIVE JAVASCRIPT BEHAVIOR -->
     <script>
@@ -3164,13 +3493,19 @@
             });
         });
 
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
         // Theme Toggle Javascript Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         if (themeToggleBtn) {
-            const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
-            const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
-            
             const updateThemeUI = (isDark) => {
+                const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
+                const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
                 if (isDark) {
                     document.body.classList.add('dark-theme');
                     document.documentElement.classList.add('dark-theme');
@@ -3198,13 +3533,15 @@
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const navLinksContainer = document.getElementById('nav-links');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
         
         if (mobileMenuToggle && navLinksContainer) {
             mobileMenuToggle.addEventListener('click', () => {
                 const isActive = navLinksContainer.classList.toggle('active');
-                const menuIcon = mobileMenuToggle.querySelector('i');
-                if (menuIcon) {
-                    menuIcon.className = isActive ? 'ti ti-x' : 'ti ti-menu-2';
+                if (menuIconOpen && menuIconClose) {
+                    menuIconOpen.style.display = isActive ? 'none' : 'block';
+                    menuIconClose.style.display = isActive ? 'block' : 'none';
                 }
             });
             
@@ -3218,15 +3555,52 @@
                         e.preventDefault();
                         const isOpen = dropdown.style.display === 'block';
                         dropdown.style.display = isOpen ? 'none' : 'block';
-                        const icon = link.querySelector('i');
+                        const icon = link.querySelector('i') || link.querySelector('svg');
                         if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
                     } else {
                         // Regular link click
                         navLinksContainer.classList.remove('active');
-                        const menuIcon = mobileMenuToggle.querySelector('i');
-                        if (menuIcon) menuIcon.className = 'ti ti-menu-2';
+                        if (menuIconOpen && menuIconClose) {
+                            menuIconOpen.style.display = 'block';
+                            menuIconClose.style.display = 'none';
+                        }
                     }
                 });
+            });
+        }
+
+        // Pilot Modal Interaction
+        const pilotModal = document.getElementById('pilot-modal');
+        const openPilotBtns = document.querySelectorAll('.open-pilot-modal');
+        const closePilotBtn = document.getElementById('close-pilot-btn');
+        
+        if (pilotModal && openPilotBtns.length > 0) {
+            openPilotBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    pilotModal.classList.add('active');
+                    
+                    // Reset success/error panel state if needed
+                    const successMessage = document.getElementById('success-message');
+                    const errorMessage = document.getElementById('error-message');
+                    const sibContainer = document.getElementById('sib-container');
+                    
+                    if (successMessage) successMessage.classList.remove('sib-form-message-panel--active');
+                    if (errorMessage) errorMessage.classList.remove('sib-form-message-panel--active');
+                    if (sibContainer) sibContainer.style.display = 'block';
+                });
+            });
+            
+            if (closePilotBtn) {
+                closePilotBtn.addEventListener('click', () => {
+                    pilotModal.classList.remove('active');
+                });
+            }
+            
+            pilotModal.addEventListener('click', (e) => {
+                if (e.target === pilotModal) {
+                    pilotModal.classList.remove('active');
+                }
             });
         }
     </script>
