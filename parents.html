@@ -2140,22 +2140,22 @@
             <div class="stat-cards-grid">
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
-                    <div class="num">9.2/10</div>
+                    <div class="num stat-count" data-target="9.2" data-suffix="/10" data-float="true">0.0/10</div>
                     <div class="label">Student session rating</div>
                 </div>
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-yellow);"></div>
-                    <div class="num">1:8</div>
+                    <div class="num stat-count" data-target="8" data-prefix="1:">1:0</div>
                     <div class="label">Coach-to-student ratio</div>
                 </div>
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-rose);"></div>
-                    <div class="num">85%</div>
+                    <div class="num stat-count" data-target="85" data-suffix="%">0%</div>
                     <div class="label">Fewer behaviour issues</div>
                 </div>
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
-                    <div class="num">12+</div>
+                    <div class="num stat-count" data-target="12" data-suffix="+">0+</div>
                     <div class="label">Countries &middot; school-tested</div>
                 </div>
             </div>
@@ -2167,19 +2167,19 @@
         <div class="container">
             <div class="trust-stats-row">
                 <div class="trust-stat-item">
-                    <div class="num">10,000+</div>
+                    <div class="num stat-count" data-target="10000" data-comma="true" data-suffix="+">0+</div>
                     <div class="label">students reached</div>
                 </div>
                 <div class="trust-stat-item">
-                    <div class="num">97%</div>
+                    <div class="num stat-count" data-target="97" data-suffix="%">0%</div>
                     <div class="label">engagement rate</div>
                 </div>
                 <div class="trust-stat-item">
-                    <div class="num">92%</div>
+                    <div class="num stat-count" data-target="92" data-suffix="%">0%</div>
                     <div class="label">AI confidence increase</div>
                 </div>
                 <div class="trust-stat-item">
-                    <div class="num">100%</div>
+                    <div class="num stat-count" data-target="100" data-suffix="%">0%</div>
                     <div class="label">skills applied in 3 months</div>
                 </div>
             </div>
@@ -3540,15 +3540,26 @@
         // Count-up animation for stat numbers
         (function() {
             function animateCount(el) {
-                const target = parseInt(el.dataset.target, 10);
+                const target = parseFloat(el.dataset.target);
                 const suffix = el.dataset.suffix || '';
+                const prefix = el.dataset.prefix || '';
+                const isFloat = el.dataset.float === 'true';
+                const formatComma = el.dataset.comma === 'true';
                 const duration = 1200;
                 const start = performance.now();
                 const easeOut = t => 1 - Math.pow(1 - t, 3);
                 function step(now) {
                     const elapsed = Math.min((now - start) / duration, 1);
-                    const value = Math.round(easeOut(elapsed) * target);
-                    el.textContent = value + suffix;
+                    let value = easeOut(elapsed) * target;
+                    if (!isFloat) {
+                        value = Math.round(value);
+                        if (formatComma) {
+                            value = value.toLocaleString();
+                        }
+                    } else {
+                        value = value.toFixed(1);
+                    }
+                    el.textContent = prefix + value + suffix;
                     if (elapsed < 1) requestAnimationFrame(step);
                 }
                 requestAnimationFrame(step);
