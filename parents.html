@@ -29,10 +29,71 @@
     <!-- Shared Stylesheet -->
     <link rel="stylesheet" href="styles.css?v=21">
 
+    <script>
+        // Immediately detect and apply theme preferences
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+            }
+        })();
+    </script>
+
     <style>
         /* Specific parent page overrides based on the handoff doc design tokens */
         :root {
-            /* Force dark variables matching the spec */
+            /* Light theme (default) */
+            --bg-main: #FAFBFC;
+            --surface-alt: #F1F5F9;
+            --surface: #FFFFFF;
+            --surface-2: #E2E8F0;
+            --text-primary: #0F172A;
+            --text-muted: #475569;
+            --text-dim: #94A3B8;
+            
+            --brand-cyan: #2AB4B8;
+            --brand-cyan-dark: #1E8F93;
+            --brand-rose: #B44A5A;
+            --brand-rose-dark: #8A2F3D;
+            --brand-yellow: #E8C84A;
+            
+            --border-color: #E2E8F0;
+            --card-border: rgba(15, 23, 42, 0.05);
+            --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            --nav-bg: rgba(250, 251, 252, 0.92);
+            --nav-border: rgba(15, 23, 42, 0.08);
+            --nav-text: #475569;
+            --nav-text-active: #0F172A;
+            --shadow-nav: 0 4px 20px rgba(15, 23, 42, 0.05);
+            
+            --quiz-option-bg: #FFFFFF;
+            --quiz-option-border: #E2E8F0;
+            --quiz-option-hover-bg: #F8FAFC;
+            
+            --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.08), transparent 70%);
+            
+            --banner-bg-ai: linear-gradient(135deg, #F0FAFA, #D2F5F5);
+            --banner-bg-skills: linear-gradient(135deg, #FFF5F7, #FFDBE2);
+            
+            --promise-text-ai: var(--brand-cyan-dark);
+            --promise-text-skills: var(--brand-rose-dark);
+            
+            --panel-bg-ai: linear-gradient(135deg, #F0FAFA, #DDF6F6);
+            --panel-bg-skills: linear-gradient(135deg, #FFF5F7, #FFE3E7);
+            --panel-text-color: var(--text-primary);
+            --panel-desc-color: var(--text-muted);
+            --panel-fineprint-color: var(--text-dim);
+            --btn-panel-bg: var(--surface-alt);
+            --btn-panel-hover-bg: var(--surface-2);
+            --btn-panel-text: var(--text-primary);
+        }
+
+        body.dark-theme {
+            /* Dark theme overrides */
             --bg-main: #0A0E14;
             --surface-alt: #0F1420;
             --surface: #161C28;
@@ -41,11 +102,35 @@
             --text-muted: #8A96A8;
             --text-dim: #4A5568;
             
-            --brand-cyan: #2AB4B8;
-            --brand-cyan-dark: #1E8F93;
-            --brand-rose: #B44A5A;
-            --brand-rose-dark: #8A2F3D;
-            --brand-yellow: #E8C84A;
+            --border-color: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.05);
+            
+            --nav-bg: rgba(10, 14, 20, 0.92);
+            --nav-border: rgba(255, 255, 255, 0.07);
+            --nav-text: #8A96A8;
+            --nav-text-active: #F0F4F8;
+            --shadow-nav: 0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            --quiz-option-bg: #161C28;
+            --quiz-option-border: rgba(255, 255, 255, 0.07);
+            --quiz-option-hover-bg: #1C2436;
+            
+            --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.15), transparent 70%);
+            
+            --banner-bg-ai: linear-gradient(135deg, #051A1C, #0A2E30);
+            --banner-bg-skills: linear-gradient(135deg, #1A0508, #2E0F18);
+            
+            --promise-text-ai: #7DD8DA;
+            --promise-text-skills: #D4697A;
+            
+            --panel-bg-ai: linear-gradient(135deg, #051F22, #0A3538);
+            --panel-bg-skills: linear-gradient(135deg, #1A060B, #2E1018);
+            --panel-text-color: #FFFFFF;
+            --panel-desc-color: rgba(255, 255, 255, 0.7);
+            --panel-fineprint-color: rgba(255, 255, 255, 0.4);
+            --btn-panel-bg: #FFFFFF;
+            --btn-panel-hover-bg: rgba(255, 255, 255, 0.95);
+            --btn-panel-text: #020617;
         }
 
         body {
@@ -1733,12 +1818,229 @@
             .footer-bottom-parents { flex-direction: column; text-align: center; }
             nav { width: calc(100% - 2rem) !important; top: 1rem !important; left: 50% !important; border-radius: 999px !important; height: auto !important; padding: 0.75rem 1.5rem !important; }
             .scroll-spy-bar { top: 78px; }
-            .nav-links { display: none; }
-            .nav-actions { display: flex; }
+            .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+            
+            /* Mobile Navbar Links Drawer */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--surface);
+                border: 1px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 20px 20px;
+                padding: 1.5rem;
+                gap: 1.25rem;
+                z-index: 499;
+                box-shadow: var(--shadow-nav);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                width: 100%;
+                text-align: left;
+            }
+            
+            .nav-item a {
+                justify-content: space-between;
+                padding: 8px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                box-shadow: none !important;
+                background: var(--surface-alt) !important;
+                padding-left: 1rem !important;
+                margin-top: 0.5rem;
+                border: none !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+            }
         }
 
         @media (max-width: 480px) {
             .coaches-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- Theme and Micro-interactions Overrides --- */
+        .equation-pill-container,
+        .parent-stat-card,
+        .parents-trust-bar,
+        .quiz-container,
+        .quiz-section,
+        .quiz-option-btn,
+        .quiz-escape-hatch,
+        .escape-input,
+        .programs-section,
+        .parent-program-card,
+        .programs-switch-note,
+        .why-now-section,
+        .why-now-card,
+        .why-now-attribution,
+        .sessions-section,
+        .session-track-card,
+        .session-track-header,
+        .proof-section,
+        .proof-card,
+        .proof-quote-box,
+        .reports-section,
+        .report-card-mockup,
+        .report-mockup-header,
+        .coaches-section,
+        .parent-coach-card,
+        .faq-section,
+        .parents-faq-item,
+        .cta-trial-panel,
+        footer,
+        .footer-bottom-parents {
+            border-color: var(--border-color) !important;
+        }
+
+        /* Responsive Auto Grids */
+        .stat-cards-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+        }
+        .programs-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+        }
+        .why-now-grid, .sessions-grid, .proof-grid, .reports-grid, .cta-panels-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        }
+
+        /* Hero glow */
+        .parents-hero-glow {
+            background: var(--hero-glow) !important;
+        }
+
+        /* Progress dot active state */
+        .progress-dot.current {
+            background-color: var(--text-dim) !important;
+        }
+
+        /* Quiz options transitions and variables */
+        .quiz-option-btn {
+            background-color: var(--quiz-option-bg) !important;
+            border-color: var(--quiz-option-border) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .quiz-option-btn:hover {
+            background-color: var(--quiz-option-hover-bg) !important;
+            border-color: var(--brand-cyan) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--card-border);
+        }
+        .quiz-option-btn.selected {
+            background-color: rgba(42, 180, 184, 0.15) !important;
+            border-color: var(--brand-cyan) !important;
+        }
+
+        /* Program banner themes */
+        .program-card-banner.ai {
+            background: var(--banner-bg-ai) !important;
+        }
+        .program-card-banner.skills {
+            background: var(--banner-bg-skills) !important;
+        }
+        .program-card-promise-box.ai {
+            color: var(--promise-text-ai) !important;
+        }
+        .program-card-promise-box.skills {
+            color: var(--promise-text-skills) !important;
+        }
+
+        /* CTA Panels variables styling */
+        .cta-trial-panel.ai {
+            background: var(--panel-bg-ai) !important;
+        }
+        .cta-trial-panel.skills {
+            background: var(--panel-bg-skills) !important;
+        }
+        .cta-panel-title {
+            color: var(--panel-text-color) !important;
+        }
+        .cta-panel-desc {
+            color: var(--panel-desc-color) !important;
+        }
+        .panel-fineprint {
+            color: var(--panel-fineprint-color) !important;
+        }
+        .btn-panel-action {
+            background-color: var(--btn-panel-bg) !important;
+            color: var(--btn-panel-text) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .btn-panel-action:hover {
+            background-color: var(--btn-panel-hover-bg) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px var(--card-border) !important;
+        }
+
+        /* Cards micro-animations */
+        .parent-program-card, .parent-stat-card, .why-now-card, .proof-card, .report-card-mockup, .parent-coach-card {
+            transition: var(--transition-smooth) !important;
+        }
+        .parent-program-card:hover, .parent-stat-card:hover, .why-now-card:hover, .proof-card:hover, .report-card-mockup:hover, .parent-coach-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 10px 25px var(--card-border) !important;
+        }
+
+        /* Navbar & Scroll Spy transitions */
+        nav {
+            background: var(--nav-bg) !important;
+            border-color: var(--nav-border) !important;
+            box-shadow: var(--shadow-nav) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .nav-item a {
+            color: var(--nav-text) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .nav-item a:hover, .nav-item.active a {
+            color: var(--nav-text-active) !important;
+        }
+        .mobile-menu-toggle {
+            color: var(--text-primary) !important;
+        }
+
+        /* Theme Toggle Button Style */
+        .theme-toggle-btn {
+            background: var(--surface) !important;
+            border: 1px solid var(--border-color) !important;
+            cursor: pointer;
+            color: var(--text-primary) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50% !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .theme-toggle-btn:hover {
+            background: var(--surface-alt) !important;
+            transform: scale(1.05);
+        }
+        .theme-toggle-btn i {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle-btn:hover i {
+            transform: rotate(20deg);
         }
     </style>
 </head>
@@ -1785,9 +2087,13 @@
             </div>
 
             <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="ti ti-moon theme-icon-moon"></i>
+                    <i class="ti ti-sun theme-icon-sun" style="display: none;"></i>
+                </button>
                 <a href="mailto:info@tomoclub.com?subject=TomoClub%20Parent%20Login%20Inquiry" class="btn-parents-ghost desktop-only" style="padding: 6px 16px; font-size: 13px; border-radius: 999px;">Log in</a>
                 <a href="#quiz" class="btn-parents-primary" style="padding: 6px 16px; font-size: 13px; border-radius: 999px;">Request a Pilot</a>
-                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" style="border: none; background: transparent; cursor: pointer; color: white; display: none;">
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" style="border: none; background: transparent; cursor: pointer; display: none;">
                     <i class="ti ti-menu-2" style="font-size: 24px;"></i>
                 </button>
             </div>
@@ -2857,6 +3163,72 @@
                 }
             });
         });
+
+        // Theme Toggle Javascript Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
+            const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
+            
+            const updateThemeUI = (isDark) => {
+                if (isDark) {
+                    document.body.classList.add('dark-theme');
+                    document.documentElement.classList.add('dark-theme');
+                    if (moonIcon) moonIcon.style.display = 'none';
+                    if (sunIcon) sunIcon.style.display = 'block';
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    document.documentElement.classList.remove('dark-theme');
+                    if (moonIcon) moonIcon.style.display = 'block';
+                    if (sunIcon) sunIcon.style.display = 'none';
+                }
+            };
+
+            // Initial UI sync based on class applied in head
+            updateThemeUI(document.documentElement.classList.contains('dark-theme'));
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark-theme');
+                document.documentElement.classList.toggle('dark-theme', isDark);
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeUI(isDark);
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinksContainer = document.getElementById('nav-links');
+        
+        if (mobileMenuToggle && navLinksContainer) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isActive = navLinksContainer.classList.toggle('active');
+                const menuIcon = mobileMenuToggle.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.className = isActive ? 'ti ti-x' : 'ti ti-menu-2';
+                }
+            });
+            
+            // Close menu when links are clicked
+            const links = navLinksContainer.querySelectorAll('.nav-item > a');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const dropdown = link.parentElement.querySelector('.dropdown');
+                    if (dropdown && window.innerWidth <= 720) {
+                        // Dropdown click on mobile
+                        e.preventDefault();
+                        const isOpen = dropdown.style.display === 'block';
+                        dropdown.style.display = isOpen ? 'none' : 'block';
+                        const icon = link.querySelector('i');
+                        if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                    } else {
+                        // Regular link click
+                        navLinksContainer.classList.remove('active');
+                        const menuIcon = mobileMenuToggle.querySelector('i');
+                        if (menuIcon) menuIcon.className = 'ti ti-menu-2';
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html>
