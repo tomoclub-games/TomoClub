@@ -184,9 +184,9 @@
             max-width: 1200px !important;
             height: 64px !important;
             border-radius: 0 0 12px 12px !important;
-            border: 1px solid rgba(255, 255, 255, 0.07) !important;
+            border: 1px solid var(--border-color) !important;
             border-top: none !important;
-            background: rgba(10, 14, 20, 0.92) !important;
+            background: var(--nav-bg) !important;
             backdrop-filter: blur(12px) !important;
             -webkit-backdrop-filter: blur(12px) !important;
             z-index: 500 !important;
@@ -224,7 +224,7 @@
 
         .dropdown {
             background: var(--surface-2) !important;
-            border: 1px solid rgba(255, 255, 255, 0.07) !important;
+            border: 1px solid var(--border-color) !important;
             border-radius: 12px !important;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
         }
@@ -237,7 +237,7 @@
             width: 100%;
             height: 48px;
             background-color: var(--surface-alt);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
             z-index: 400;
             display: flex;
             justify-content: center;
@@ -316,7 +316,7 @@
             display: inline-flex;
             align-items: center;
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 100px;
             padding: 6px 18px;
             gap: 8px;
@@ -402,7 +402,7 @@
 
         .btn-parents-ghost {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             color: var(--text-primary);
             border-radius: 100px;
             padding: 12px 24px;
@@ -428,7 +428,7 @@
 
         .parent-stat-card {
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.5rem;
             position: relative;
@@ -466,8 +466,8 @@
         .parents-trust-bar {
             background-color: var(--surface-alt);
             padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             margin: 3rem 0;
         }
 
@@ -505,7 +505,7 @@
         .quiz-section {
             background-color: var(--surface-alt);
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .quiz-eyebrow {
@@ -522,7 +522,7 @@
             max-width: 600px;
             margin: 3rem auto 0;
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 18px;
             padding: 2.5rem;
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
@@ -583,7 +583,7 @@
             display: flex;
             align-items: center;
             background-color: var(--surface-2);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 0.85rem 1.1rem;
             color: var(--text-primary);
@@ -717,7 +717,7 @@
         /* Quiz Escape Hatch */
         .quiz-escape-hatch {
             margin-top: 2.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border-color);
             padding-top: 1.5rem;
             text-align: left;
         }
@@ -737,7 +737,7 @@
         .escape-input {
             flex-grow: 1;
             background-color: var(--surface-2);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 8px 12px;
             color: var(--text-primary);
@@ -781,7 +781,7 @@
         /* Core Product Section */
         .programs-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .programs-grid {
@@ -793,7 +793,7 @@
 
         .parent-program-card {
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 18px;
             overflow: hidden;
             display: flex;
@@ -970,7 +970,7 @@
             align-items: center;
             justify-content: space-between;
             margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border-color);
             padding-top: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -995,7 +995,7 @@
 
         .price-badge-inr {
             background-color: var(--surface-alt);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 11px;
             font-weight: 500;
@@ -1042,7 +1042,7 @@
         /* Switch note */
         .programs-switch-note {
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1rem;
             max-width: 750px;
@@ -1067,7 +1067,7 @@
         /* Why Now Section */
         .why-now-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -1173,7 +1173,7 @@
         /* Sessions Walkthrough Section */
         .sessions-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .sessions-grid {
@@ -1185,7 +1185,7 @@
 
         .session-track-card {
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 2.5rem;
         }
@@ -1195,7 +1195,7 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1rem;
         }
 
@@ -1283,7 +1283,7 @@
         /* Proof Section */
         .proof-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .proof-grid {
@@ -1340,7 +1340,7 @@
         }
 
         .proof-quote-box {
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border-color);
             padding-top: 1rem;
             font-size: 13px;
             font-weight: 300;
@@ -1360,7 +1360,7 @@
         /* Parent Report Mockups Section */
         .reports-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .reports-grid {
@@ -1372,7 +1372,7 @@
 
         .report-card-mockup {
             background-color: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
             display: flex;
@@ -1382,7 +1382,7 @@
 
         .report-mockup-header {
             padding: 0.9rem 1.2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1456,7 +1456,7 @@
         /* Coaches Section */
         .coaches-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .coaches-grid {
@@ -1468,7 +1468,7 @@
 
         .parent-coach-card {
             background-color: var(--surface-alt);
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.5rem;
             text-align: left;
@@ -1536,7 +1536,7 @@
         /* FAQ Accordion Section */
         .faq-section {
             padding: 5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .faq-accordion-container {
@@ -1547,7 +1547,7 @@
         }
 
         .parents-faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid var(--border-color);
             padding: 1.25rem 0;
             display: flex;
             flex-direction: column;
@@ -1607,7 +1607,7 @@
         }
 
         .cta-trial-panel {
-            border: 1px solid rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-color);
             border-radius: 18px;
             overflow: hidden;
             padding: 3rem 2.5rem;
@@ -1707,7 +1707,7 @@
         /* Footer exact match dark variables styling */
         footer {
             background-color: var(--surface-alt) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+            border-top: 1px solid var(--border-color) !important;
             padding: 3.5rem 2.5rem 2rem !important;
             margin-top: 3rem;
         }
@@ -1763,7 +1763,7 @@
         }
 
         .footer-bottom-parents {
-            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-top: 1px solid var(--border-color);
             margin-top: 1.75rem;
             padding-top: 1.25rem;
             display: flex;
@@ -2045,6 +2045,19 @@
     </style>
 </head>
 <body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+                document.documentElement.classList.remove('dark-theme');
+            }
+        })();
+    </script>
     
     <!-- Main Navigation (Parents Page Version) -->
     <nav>
@@ -3487,23 +3500,18 @@
             const spyBtns = document.querySelectorAll('.spy-btn');
             spyBtns.forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.getAttribute('onclick').includes(current)) {
+                const onClickAttr = btn.getAttribute('onclick');
+                if (onClickAttr && onClickAttr.includes(current)) {
                     btn.classList.add('active');
                 }
             });
         });
 
-        // Initialize Lucide Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-        });
-
         // Theme Toggle Javascript Logic
+        let updateThemeUI = (isDark) => {};
         const themeToggleBtn = document.getElementById('theme-toggle');
         if (themeToggleBtn) {
-            const updateThemeUI = (isDark) => {
+            updateThemeUI = (isDark) => {
                 const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
                 const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
                 if (isDark) {
@@ -3529,6 +3537,15 @@
                 updateThemeUI(isDark);
             });
         }
+
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            // Update theme UI icons after Lucide replaces them
+            updateThemeUI(document.documentElement.classList.contains('dark-theme'));
+        });
 
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
