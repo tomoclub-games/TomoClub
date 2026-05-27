@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Liam Dawson's 90-Day Rule Is Changing the Way Districts Trust Their Leaders">
+    <title>How Liam Dawson's 90-Day Rule Is Changing the Way Districts Trust Their Leaders | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Liam Dawson's 90-Day Rule Is Changing the Way Districts Trust Their Leaders | TomoClub Education Hall">
+    <meta property="og:description" content="A Minnesota superintendent on why the first 90 days should have nothing to do with strategy, what actually happens when you stop adding programs and start aligning them, and the three-phrase philosophy that keeps his entire district pointed in the same direction.">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Liam Dawson's 90-Day Rule Is Changing the Way Districts Trust Their Leaders | TomoClub Education Hall">
+    <meta name="twitter:description" content="A Minnesota superintendent on why the first 90 days should have nothing to do with strategy, what actually happens when you stop adding programs and start aligning them, and the three-phrase philosophy that keeps his entire district pointed in the same direction.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">May 27, 2026</span>
+                </div>
+                <h1 class="article-title">How Liam Dawson's 90-Day Rule Is Changing the Way Districts Trust Their Leaders</h1>
+                <img src="../images/article-11-liam.png" alt="Liam Dawson" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><strong>LEADERSHIP IN PRACTICE | SUPERINTENDENT SPOTLIGHT</strong></p>
+            <p><em>A Minnesota superintendent on why the first 90 days should have nothing to do with strategy, what actually happens when you stop adding programs and start aligning them, and the three-phrase philosophy that keeps his entire district pointed in the same direction.</em></p>
+            <p><strong>FEATURING Liam Dawson</strong> | Superintendent, St. James Public Schools ISD#840</p>
+
+            <p>New programs every semester, making committees for everything, and strategic plans that fill binders nobody opens make a district look impressive and busy on paper.</p>
+            <p>Liam Dawson has seen that version. And he's spent years doing something harder.</p>
+            <p>As Superintendent of St. James Public Schools ISD#840 in Minnesota, Dawson has built his leadership around a deceptively simple idea that, before you can improve anything, you have to understand what's already there.</p>
+            <p>The data and the org chart matter. But also the actual texture of the place: what people believe, what they're worried about, and what they've stopped saying out loud.</p>
+            <p>That sounds obvious. But in a world where superintendents are under constant pressure to show results fast, it takes real discipline to slow down long enough to really listen.</p>
+
+            <h3>The Road From Classroom to Central Office</h3>
+            <p>Dawson didn't start in a central office. His journey began in the classroom, and he spent years as a building principal, including leading Northside Elementary through the Minnesota School of Excellence process. That experience shaped the way he thinks about change.</p>
+            <p>"As a building principal, I learned that the most impactful change happens closest to the classroom. Through strong relationships, high expectations, and clarity of purpose."</p>
+            <p>It's something he had to learn: that you can have a great vision for a school and still fail if the people inside the building don't share it. Or don't understand what they're supposed to do differently on Monday morning.</p>
+            <p>When he moved into the superintendent role, the challenge got bigger. Now he wasn't thinking about one school. He was thinking about how decisions around staffing, finance, curriculum, and community engagement all connect to what happens for kids in classrooms. And how to make those connections real, not just conceptual.</p>
+            <p>His guiding philosophy took shape around three phrases: Listen Deeply. Lead Purposefully. Grow Together.</p>
+
+            <h3>He Listened for 90 Days Before He Changed a Thing</h3>
+            <p>When Dawson steps into a new district, his first move isn't a strategic plan. It's listening sessions.</p>
+            <p>Days 1 through 30: he talks to staff, students, families, and community partners. He reviews data and past initiatives. He's not trying to fix anything yet. He's trying to understand what he's actually dealing with, because the stated problem and the real problem are usually different.</p>
+            <p>Then, between days 30 and 60, patterns start to emerge. What's working, what's been broken for a while, and what everyone knows but is hesitant to say clearly. That's when he starts communicating those themes back out, not as solutions, but to show people he actually heard them.</p>
+            <p>"Listening builds credibility. Early, focused action builds momentum."</p>
+            <p>The early action, when it comes, is targeted. A few focused areas are tied to instruction, culture, or communication. A few things, done with intention.</p>
+            <p>This matters because district change efforts fail constantly, and usually not because the ideas are bad, but because people never bought in. The change was announced, not built. Dawson's 90-day approach is partly about gathering information. But it's really about earning the right to lead.</p>
+
+            <h3>What Student-Centered Actually Means When It Costs Something</h3>
+            <p>This past winter, two students at St. James wanted to participate in gymnastics. The program cost didn't make financial sense for just two athletes. The easy call would've been to say no.</p>
+            <p>Instead, Dawson did what he always does. He listened first, understood the priorities, and looked at what was non-negotiable. Then his team started exploring whether a cooperative agreement with surrounding districts could make it work.</p>
+            <p>It came together faster than expected. And Dawson is the first to admit the communication could've been smoother, given the rushed timeline. But the students got to compete.</p>
+            <p>"The key was being clear, transparent, and remaining student-centered."</p>
+            <p>That story might seem small. But it illustrates something that runs through everything he does: the process isn't bureaucratic cover. It's how you make sure the decision actually reflects what the district is supposed to stand for.</p>
+            <p>The same thinking applied to literacy at Northside. When reading scores were inconsistent across classrooms, the instinct for many leaders would be to add something like a new program, another intervention layer. Dawson's team did the opposite. They looked at what was already there and asked whether it was actually aligned.</p>
+            <p>The answer was no.</p>
+            <p>So they focused on three things. High-quality instructional materials, consistent instructional practices, and targeted professional development. They built common assessments to track progress and embedded coaching directly into the schedule, not added on top of all the existing workload.</p>
+            <p>"The key was not adding more. It was aligning what we already had into a coherent system."</p>
+            <p>Early literacy proficiency went up. Variability between classrooms went down, all because things that already existed finally talked to each other.</p>
+
+            <h3>Coffee Hour With the Superintendent</h3>
+            <p>What stands out about Dawson is not just the talk about community engagement, but the structure he built to show for it.</p>
+            <p>Community Saints and Sips is a monthly coffee hour with the Superintendent, low-key, open to anyone. It's not a town hall or a press event. Just a chance for community members to sit down with the person running their school district and actually talk.</p>
+            <p>The format sounds simple, but the intent behind it is serious. Dawson uses these conversations the same way he uses staff one-on-ones and student feedback: as a foundation for decision-making. A way to keep hearing what he might otherwise miss once you're far enough up the org chart.</p>
+            <p>Inside the buildings, there's something equally concrete. Every Wednesday, teacher teams get 90 minutes of protected collaborative planning time. No interruptions, no competing priorities. That's when they look at student work together and figure out what to do next. </p>
+            <p>"Growth is not top-down. It's collective and continuous."</p>
+            <p>That could sound like something you put on a motivational poster. But when you see the structures he's built around it, the weekly planning time, the building and district leadership teams, the community coffee hours, it becomes clear he actually means it.</p>
+            <p>There's even a 10th Grade Chefs program where students partner with the school's Food Service provider to select, order, and create the lunch menu at the middle-high school. Each group throughout the trimester gets a turn preparing a meal for their classmates. That kind of thing doesn't happen by accident. It happens when a leader is genuinely looking for ways to give students real ownership.</p>
+
+            <h3>The One Area Where He's Choosing to Go Slow</h3>
+            <p>Ask Dawson about artificial intelligence in schools, and his honest answer is that the district hasn't figured it out yet.</p>
+            <p>And that's intentional.</p>
+            <p>"This is an area our district is being intentional with. So that we don't rush to make a decision. This one will take time to formulate before implementation."</p>
+            <p>In an era when districts are scrambling to announce AI policies, that kind of patience is rarer than it should be.</p>
+            <p>His framework is straightforward. AI in teaching could mean more personalization and efficiency, but only with strong instructional frameworks and clear guardrails around it. AI in leadership could mean better data analysis and decision support.</p>
+            <p>For students, the real question isn't about the tools at all. It's about the skills they'll need to understand it better. Critical thinking, adaptability, and ethical judgment.</p>
+            <p>"The goal is not to chase technology, but to leverage it to enhance learning and opportunity. AI should not be utilized as a crutch."</p>
+            <p>What he's describing is the same approach he applies to everything else. Start with purpose, figure out the professional learning, set clear guidelines, and then implement. The schools that rush AI because it's the next big thing will face the same problems they've faced with every previous wave of innovation. Implementation without infrastructure, change without clarity.</p>
+
+            <h3>This Is What Patient Leadership Does</h3>
+            <p>Big announcements, bold pivots, and visible drama are glamorous for some leaders. And there are kinds of leaders who quietly build things that hold.</p>
+            <p>Liam Dawson is the latter.</p>
+            <p>His work at St. James ISD#840 isn't about chasing the next idea. It's about getting the fundamentals right and then protecting them. Making sure teachers have time to collaborate. That the community has a seat at the table. And the two kids who want to do gymnastics actually get to compete.</p>
+            <p>The 90-day listening approach, the literacy realignment, the cooperative athletics agreement, and the patient approach to AI, none of it is accidental. It all comes back to a system of values that's been stress-tested across roles, schools, and years.</p>
+            <p>"When you listen deeply, you uncover the real work. When you lead purposefully, you create clarity. And when you grow together, you sustain impact."</p>
+            <p>That's not a three-part formula. It's a description of how change actually works in schools. Slowly, through relationships, and with a lot of patience.</p>
+
+            <h3>Why TomoClub Is Sharing This Story</h3>
+            <p>At TomoClub, we believe the future of education isn't built by announcements. It's built inside school systems by leaders who do the quiet, careful work of alignment, and who keep students at the center even when it's inconvenient.</p>
+            <p>Liam Dawson's work at St. James Public Schools ISD#840 reflects a kind of leadership that rarely makes the news. Patient. Systems-driven. Genuinely community-rooted. The kind that understands that before you can improve outcomes, you have to align what's already there, and that building shared understanding isn't a soft skill, it's the actual job. That kind of leadership is exactly what education needs right now.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
