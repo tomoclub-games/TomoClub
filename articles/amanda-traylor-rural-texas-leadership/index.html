@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District">
+    <title>How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District | TomoClub Education Hall">
+    <meta property="og:description" content="How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District | TomoClub Education Hall">
+    <meta name="twitter:description" content="How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">May 27, 2026</span>
+                </div>
+                <h1 class="article-title">How Amanda Traylor Is Rebuilding What Leadership Looks Like in a Rural Texas District</h1>
+                <img src="../images/article-7-amanda.png" alt="Amanda Traylor in a classroom" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>There is a version of educational leadership that sounds impressive in a press release. It has a strategic vision, transformational outcomes, and stakeholder alignment.</p>
+            <p>But then there's the reality of running a small, rural district in Texas, where you see your staff at church, run into parents at the post office, and where every decision ends up on the desks of just five people, with everyone knowing each other's business.</p>
+            <p>Amanda Traylor lives in this world. Her leadership is clear-eyed, consistent, and surprisingly unglamorous, which says more about what true school leadership requires than most frameworks ever could.</p>
+            
+            <h3>A New Role Without a Heads-up</h3>
+            <p>When Amanda first stepped into the superintendent role, the biggest problem wasn't a budget gap or a curriculum issue. It was culture. Specifically, a culture in which a small group of people had become comfortable controlling decisions, influencing outcomes, and, at times, making others feel that staying quiet was the safer choice.</p>
+            <p>That kind of thing is hard to name. Harder to confront. But she knew that nothing else could change until that did.</p>
+            <p>"Before we could move forward strategically, we had to reset expectations," she says. "I've always operated under a simple motto: work hard and be nice to people. It sounds straightforward, but it sets a clear standard. We are here to put in the work for students every single day, and we will treat one another with professionalism and respect as we do so. Both matter equally."</p>
+            <p>That meant honest conversations and making clear that influence in this district would come from contribution, not control. And in some cases, it meant making difficult staffing decisions. Those decisions weren't personal. They were about protecting the people who'd been sidelined, the ones who'd quietly stopped raising their hands.</p>
+            <p>There was a reset period. It required steadiness and consistency to get through it. But once alignment took hold, the shift was real. Morale improved. Collaboration followed. Not because of pressure, but because people felt safe enough to show up.</p>
+
+            <h3>What "Building Together" Actually Means</h3>
+            <p>One of the things Amanda changed early was how decisions got made. Not just what decisions, but the process around them.</p>
+            <p>She stopped presenting finished plans. Started building them with people instead.</p>
+            <p>"In a 1A district, people don't just want to know what the decision is, they want to understand why," she explains. "When we began clearly communicating the reasoning behind major initiatives, we saw trust grow. Even when people didn't fully agree, they understood the direction and the purpose."</p>
+            <p>When her district was developing a new strategic plan, they didn't draft it in a conference room and roll it out. They surveyed everyone: staff, parents, students, and community members. Asked what they cared about and what they wanted graduates of the district to leave with. Then they built the mission and vision from those answers.</p>
+            <p>"Listening to every voice creates ownership," she says. "When people can see themselves in the mission, alignment follows naturally."</p>
+            <p>It's simple, yet uncommon. Most leaders recognize they should take this step but often avoid it because it feels slow, chaotic, and unproductive. Amanda chose to embrace the slow, chaotic process because she believed it was worth the effort.</p>
+
+            <h3>Two Questions They Ask Before Every Decision</h3>
+            <p>In a small district, you can't do everything. Capacity is finite. People already wear three hats. So when something new comes up: a grant opportunity, a new initiative, a policy shift, Amanda's team runs it through two questions.</p>
+            <p>Is this truly best for students? Does this support the people doing the work?</p>
+            <p>Both matter. Neither overrides the other.</p>
+            <p>"Not every initiative serves the same purpose. The key is recognizing the impact on both groups before moving forward," she says. "If an initiative demands significant time and energy from our teachers or administrators, we have to be clear about the return on that investment."</p>
+            <p>She points to the Texas Incentive Allotment as a real example. Implementing TIA required a lot of paperwork, systems alignment, and administrative monitoring. She knew it would stretch her team. But once they determined it would meaningfully reward effective teaching and invest directly in staff, they committed to it. And then adjusted responsibilities to make it work, rather than just adding it to an already full plate.</p>
+            <p>The logic is simple: say yes to the right things. Say no to the rest. When everyone shares ownership of that filter, you get focus instead of fatigue.</p>
+
+            <h3>Where AI Actually Fits In (And Where It Doesn't)</h3>
+            <p>Amanda is honest that AI is still a new territory for her district. They're learning as they go. But the lens they're using to evaluate it is the same lens they use for everything else.</p>
+            <p>"Work smarter, not harder," she says. "We are not interested in adopting tools simply because they are trending. Any technology, including AI, must serve a clear purpose."</p>
+            <p>So what does that look like in practice? Tasks like meeting notes, conference transcripts, drafting emails, and creating visuals for campus events. Things that used to eat up hours after a long day.</p>
+            <p>"Tasks that once required extended time after hours can now be streamlined, allowing us to focus more energy on people rather than paperwork."</p>
+            <p>Teachers are starting to explore it in the classroom too. Generating activities tied to a specific standard, building presentations from their input, and giving students writing feedback in real time. The guardrail is clear: students produce their own original work. But having something that acts like a patient tutor, flagging patterns, and modeling improvement? That's useful in a district where one teacher often manages lots of kids at once.</p>
+            <p>Amanda believes finding the balance is key. AI doesn't replace good teaching and strong leadership. When used thoughtfully, it buys back time. And in a small district where everyone is already stretched, that matters.</p>
+
+            <h3>What She'd Actually Tell Other Leaders</h3>
+            <p>When asked what she'd pass on to someone stepping into a new district, Amanda doesn't lead with strategy. She leads with patience.</p>
+            <p>"It can be tempting to make immediate, sweeping changes to demonstrate momentum. But lasting change requires trust, and trust takes time. Your first year should be about learning the culture, building relationships, and establishing credibility."</p>
+            <p>And then, once trust is there, keep building it. Not through speeches, but through keeping your word. Through showing up the same way every day, whether it's going well or not.</p>
+            <p>She also pushes back gently on the idea that leadership is about having the answers. What she's found is that the right answer usually already exists somewhere in the room. The job is to ask the question and actually listen to what comes back.</p>
+            <p>"When you listen intentionally, build trust first, and anchor decisions in a shared vision, progress becomes both meaningful and durable."</p>
+
+            <h3>What This Kind of Leadership Actually Looks Like</h3>
+            <p>There's no secret playbook or proprietary framework Amanda is working from. Just a clear standard she holds herself and her team to, applied with consistency every single day.</p>
+            <p>Work hard. Be nice to people. Explain your reasoning. Ask before you announce. Make the tough calls when you have to, and don't make them personal. Plan even when you're buried in today.</p>
+            <p>In a world full of big ideas about educational transformation, there's something worth stopping on in what Amanda Traylor is doing in a small Texas district. She's not waiting for the perfect conditions. She's building them, slowly, with the people in front of her.</p>
+
+            <h3>Why TomoClub Is Sharing This Story</h3>
+            <p>At TomoClub, we believe the future of education isn't shaped by big-stage reforms. It's shaped inside schools. By leaders who are steady when things are messy, who ask the hard questions, and who build systems people actually trust.</p>
+            <p>The Education Hall exists to surface these stories. The kind that includes culture resets, difficult staffing decisions, and learning to use AI one meeting note at a time. These are the realities most districts are living in, and they deserve to be shared honestly.</p>
+            <p>Amanda Traylor's leadership in her district reflects a kind of work that often goes unnoticed. Which understands that before you improve outcomes, you have to earn the trust of the people doing the work every day. And that kind of leadership is exactly what education needs right now.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
