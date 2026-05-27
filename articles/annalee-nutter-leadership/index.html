@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Annalee Nutter's Honest Work Led Her to an Unplanned Leadership Role">
+    <title>How Annalee Nutter's Honest Work Led Her to an Unplanned Leadership Role | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-crimson);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(220, 53, 69, 0.1);
+            color: var(--crimson);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--crimson);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Annalee Nutter's Honest Work Led Her to an Unplanned Leadership Role | TomoClub Education Hall">
+    <meta property="og:description" content="Annalee Nutter never planned to become a Superintendent. But that journey built a leader who, when Fort McMurray faced a full city evacuation from wildfire, then floods, then COVID, didn't collapse under it.">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Annalee Nutter's Honest Work Led Her to an Unplanned Leadership Role | TomoClub Education Hall">
+    <meta name="twitter:description" content="Annalee Nutter never planned to become a Superintendent. But that journey built a leader who, when Fort McMurray faced a full city evacuation from wildfire, then floods, then COVID, didn't collapse under it.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">May 27, 2026</span>
+                </div>
+                <h1 class="article-title">How Annalee Nutter's Honest Work Led Her to an Unplanned Leadership Role</h1>
+                <img src="../images/article-10-annalee.png" alt="Annalee Nutter" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><strong>LEADERSHIP IN PRACTICE | SUPERINTENDENT SPOTLIGHT</strong></p>
+            <p><strong>FEATURING Annalee Nutter</strong> | Superintendent, Fort McMurray Public School District | Fort McMurray, Alberta</p>
+
+            <p>Annalee Nutter never planned to become a Superintendent. She started out teaching in a northern Indigenous community in Saskatchewan. A decade of that, then a reserve, then Grade 1 and 2 classrooms in Fort McMurray, Alberta. No grand ambitions. No five-year plan pointing toward the top job. Just a teacher who kept saying yes when someone knocked on her door.</p>
+            <p>But that journey built a leader who, when Fort McMurray faced a full city evacuation from wildfire, then floods, then COVID, then the deaths of two colleagues, then two employee strikes back to back, didn't collapse under it. She built. She listened. She created structures that hadn't existed before and made sure the people in her system felt seen when it all happened.</p>
+            <p>Annalee is now the Superintendent of Fort McMurray Public School District, and the way she leads is inseparable from the city she leads in. Fort McMurray is the kind of place that tests everything. And the school district she runs reflects someone who learned pretty early that relationships are the only thing that holds a system together when everything else is on fire, sometimes literally.</p>
+
+            <h3>She Never Planned Any of This</h3>
+            <p>For the first 13 or 14 years of her career, Annalee was focused on one thing: getting better in the classroom.</p>
+            <p>She trained in Understanding by Design, became an instructional coach, and spent years working with students across grade levels in communities that most teachers never see. From teaching on a reserve in central Saskatchewan to working with diverse learners in the north. It wasn't a resume-building exercise. It was just the work.</p>
+            <p>"I never had aspirations to become a school administrator, let alone a Superintendent. But I was taught never to let an opportunity pass by. And opportunity knocked on my door several times. Each time, I said, 'Okay, I'll try it.'"</p>
+            <p>That openness of saying yes before you feel ready shaped everything that came after. Vice Principal to Principal to Assistant Superintendent to Superintendent. Each step was handed to her by mentors who saw something she didn't see in herself.</p>
+            <p>She's been deliberate about naming that. The women who showed her that leadership wasn't only for men. The male leaders who built relationships in ways that stuck with her. The mentors early in her career who offered feedback that pushed her forward.</p>
+            <p>"Without their encouragement and feedback, I question whether I would have moved in the direction of school leadership."</p>
+            <p>What she pulled from watching all those leaders wasn't a management framework. It was simpler than that. You need to be a good listener. You need to be present. You need to lead with empathy and consistency. Without those things, trust doesn't form. And without trust, nothing moves.</p>
+            <p>That's the lens she carries into everything.</p>
+
+            <h3>What a Decade of Things That Weren't Supposed to Happen Does to a Leader</h3>
+            <p>Fort McMurray is not an easy place to lead.</p>
+            <p>In 2016, the entire city was evacuated due to a wildfire. 88,000 people gone overnight. Then a major flood. Then a minor flood. Two more smaller fires. COVID. The unexpected deaths of two fellow leaders. And in Annalee's recent years as Superintendent, two employee strikes back-to-back.</p>
+            <p>"If I have learned anything in my roles as a Leader, it is to expect the unexpected. Anything can happen and it usually does."</p>
+            <p>She didn't just learn resilience from this. Annalee's insight goes further. The thing she noticed is that not everyone bounces back the same way. Some people are wired for it. Others aren't. A school system that ignores that difference is going to keep losing people.</p>
+            <p>"I learned that trauma takes its toll and getting things back to 'normal' is a challenge. We bounced back better each time, we were more flexible and more knowledgeable. But not everyone is as resilient as the next."</p>
+            <p>So she focused on building a wellness infrastructure. Something developed with staff, not for them. That distinction matters to her. She'll say it more than once.</p>
+            <p>Then came the labour disruption. Reduced staffing. Difficult decisions around keeping schools safe and functional. Competing priorities. And on top of all that, misinformation was spread on social media, including personal attacks aimed directly at her.</p>
+            <p>The thing about that moment wasn't the criticism. Leaders get criticized. It was the decision about how to respond when things became personal, when incomplete information was circulating, and when people in the community were already stretched and scared.</p>
+            <p>She chose consistency over reaction and transparent communication. Key messages were pushed out to school leaders so everyone was saying the same thing. A firm, steady focus on student well-being.</p>
+            <p>"I learned the importance of remaining calm and measured, particularly when situations become personal. Trust is built through consistency, empathy, and a clear focus on what is best for students."</p>
+            <p>She didn't learn that from a leadership course. She learned it here, in this city, in real time.</p>
+
+            <h3>What It Actually Means to Build With People, Not For Them</h3>
+            <p>Fort McMurray is more diverse per capita than Toronto. That's not a figure you'd expect from a northern Alberta city, but it's true. It's a community built by people who came from everywhere, and the schools reflect that.</p>
+            <p>When George Floyd was killed in 2020, a group led a Black Lives Matter march in Fort McMurray and came to the school district with a question: What are you actually doing to address the diversity in your schools?</p>
+            <p>Annalee processed what followed carefully. There was already meaningful work happening, but it was scattered. Every school was doing something different. No shared approach. The Board wanted an audit, a real assessment of what existed and what was missing.</p>
+            <p>The audit became a system. A "We Belong" advisory committee was established. Policy was written. Staff and students were educated. A dedicated staff member was hired to lead the work. Schools were supported in purchasing materials. And any time a community event touched on human rights, racism, or discrimination, the district tried to be visibly present with students and staff showing up, not just watching.</p>
+            <p>"We have seen a lot of success, but we know this is hard work and will take some time to make changes. Currently, we are piloting a reporting tool at two schools so students can share concerns about racism and discrimination through an online tool."</p>
+            <p>But "We Belong" is just one piece of how Annalee built listening into the structure of the district. When she stepped into the Superintendent role, she created the first-ever Superintendent's Advisory Group of Students, meeting three times a year to hear directly what was working and what wasn't. She runs a parallel Educators' Advisory Group on the same schedule. And she established an Elders' Council to keep Indigenous perspectives at the table.</p>
+            <p>Four advisory groups, built intentionally for actual input that shapes decisions.</p>
+            <p>The most vivid example of what that investment looks like in practice is the Land-Based Learning Camps program. Annalee connected with Elders and Knowledge Keepers in the community, secured grants to cover costs, and created overnight camps where students in grades 10 to 12 can earn one to two credits while learning from Elders on the land. Traditional skills. Indigenous culture. Cooking. Survival. Connection to something older than the school system.</p>
+            <p>The program now runs three times a year for senior students, with additional seasonal day camps for grades 3 to 9.</p>
+            <p>The feedback has been unlike anything a test score can measure. Students described the loss of culture in their families and what it meant to get even a piece of it back. The mental health impact of people saying it genuinely helped. A demand that far outpaces availability.</p>
+            <p>Fort McMurray Public has a very high school completion rate for First Nations, Métis, and Inuit students. Annalee won't point to one cause for that. But she doesn't pretend the Land-Based Learning Camps have nothing to do with it either.</p>
+
+            <h3>What Actually Keeps Teachers in Fort McMurray</h3>
+            <p>Recruiting and retaining teachers in a northern city is its own challenge. Annalee is refreshingly direct about how the district approaches it.</p>
+            <p>The salary is competitive, and there's a cost-of-living allowance that adds roughly $1,000 per month on top of the grid. The recruitment team travels to universities across the country, looking for not just individual teachers but couples, people who might put down roots rather than treat Fort McMurray as a stopover.</p>
+            <p>But the thing Annalee talks about with real pride is the professional learning structure. The district has 13 Professional Learning Fridays built into the calendar every year. Thirteen dedicated Fridays of collaborative time, structured around school and division priorities, where teachers work together at the school level, across grade teams, or across the whole division.</p>
+            <p>"We love to share this information when we are out recruiting, because this does not happen everywhere."</p>
+            <p>New teachers get even more scaffolding. The day before school starts, they come in to learn about the division. Each new teacher is matched with a veteran teacher at their school and, where possible, a mentor from another school who teaches the same grade. They get three release days to meet, observe each other in classrooms, and figure out how to work together. The mentors receive actual training on what to expect.</p>
+            <p>It's a lot. And it reflects something Annalee has believed since her early career as an instructional coach: professional development isn't a reward. It's what makes the job sustainable.</p>
+            <p>She also never turned down a request backed by data, research, or evidence of impact. Robotics programs. Environmental studies. Arts initiatives. Things that started as one teacher's idea and grew into something the whole system could point to. "Innovating new programs or processes often leads to others," she says, "and these are all missed opportunities for our students if we don't at least try them."</p>
+
+            <h3>Thirty Years of Saying Yes</h3>
+            <p>There's a version of Annalee Nutter's story that focuses on her résumé. Teacher to instructional coach to administrator to Superintendent. A clean arc with promotions at each step.</p>
+            <p>But that version misses the point.</p>
+            <p>What she actually built over 30-plus years, in communities that tested her in ways most educators never face, is a way of leading rooted in something unglamorous: showing up, listening, being consistent, and trusting that relationships compound over time the same way debt does.</p>
+            <p>Fort McMurray is not the easiest place to stake a career. It's remote. It's been through things. It keeps asking more of the people who stay.</p>
+            <p>And the school district Annalee leads reflects someone who understood that before you can move a system forward, you have to know what's holding people back. Not just in theory. In the specific. The specific student who doesn't feel like they belong. The specific teacher who needs a mentor, not a manual. The specific community member who just wants to know the Superintendent is listening.</p>
+            <p>That's the work. Most of it is invisible. All of it is necessary.</p>
+
+            <h3>Why TomoClub Is Sharing This Story</h3>
+            <p>At TomoClub, we believe the future of education isn't built by flashy reforms or bold announcements. It's built inside schools and districts by leaders who stay when the pressure is real, who listen before they act, and who build structures that outlast the crises that test them.</p>
+            <p>Annalee Nutter's work at Fort McMurray Public School District reflects a kind of leadership that often goes unrecognized. Grounded. Relational. Quietly persistent. The kind that understands that before you improve outcomes, you have to build trust and that trust only comes from being consistent when it costs you something. That kind of leadership is exactly what education needs right now.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
