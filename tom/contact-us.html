@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot.">
+    <title>Contact Us | TomoClub</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEGGQ2ZDMT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEGGQ2ZDMT');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css?v=21">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .contact-container {
+            padding: 120px 0 80px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-content {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 1rem 0;
+        }
+        .contact-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        .contact-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-iframe-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            height: 1200px; /* High enough to avoid double scrollbars on the form */
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Floating Pill Nav */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 4rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-radius: 999px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-home-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #0F172A;
+            font-weight: 700;
+            padding: 0.6rem 1.2rem;
+            background: #FFFFFF;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-home-btn:hover {
+            background: #F1F5F9;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-header h1 {
+                font-size: 2.25rem;
+            }
+            .contact-content {
+                padding: 1rem;
+                border-radius: 16px;
+            }
+            .form-iframe-wrapper {
+                height: 1500px; /* More height for mobile stacked fields */
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us | TomoClub">
+    <meta property="og:description" content="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot.">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us | TomoClub">
+    <meta name="twitter:description" content="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <a href="/" class="nav-home-btn">
+                    <i data-lucide="home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-container container">
+        <div class="contact-content">
+            <div class="contact-header">
+                <h1>Contact Us</h1>
+                <p>Have a question or want to explore a pilot for your school? Fill out the form below and our team will get back to you within 24 hours.</p>
+            </div>
+            
+            <div class="form-iframe-wrapper">
+                <iframe 
+                    src="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" 
+                    title="Contact Form"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/index.html" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
+                        <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                    </a>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <span style="display: block; font-weight: 700; color: var(--navy);">Call Us</span>
+                                <a href="tel:+16505478082" style="color: var(--text-muted);">+1 650 547-8082</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="mail" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <a href="mailto:info@tomoclub.org" style="color: var(--text-muted);">info@tomoclub.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Location</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="map-pin" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <span style="color: var(--text-muted); line-height: 1.4;">4197 Tuller Road, Dublin,<br>OHIO 43017, USA</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/index.html#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
+                        <li><a href="/index.html#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/index.html#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TomoClub. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
+                    <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const updateIcons = () => {
+            const isDark = document.body.classList.contains('dark-theme');
+            document.querySelectorAll('.theme-icon-moon').forEach(icon => icon.style.display = isDark ? 'none' : 'block');
+            document.querySelectorAll('.theme-icon-sun').forEach(icon => icon.style.display = isDark ? 'block' : 'none');
+        };
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark-theme');
+            updateIcons();
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateIcons();
+        });
+
+        // Clean URL (remove .html from address bar)
+        if (window.location.pathname.endsWith('.html')) {
+            const newPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState(null, '', newPath + window.location.hash);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

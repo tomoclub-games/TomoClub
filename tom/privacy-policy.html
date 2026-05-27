@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TomoClub Privacy Policy. Learn how we collect, use, and protect your data.">
+    <title>Privacy Policy | TomoClub</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEGGQ2ZDMT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEGGQ2ZDMT');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css?v=21">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .policy-container {
+            padding: 120px 0 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .policy-content {
+            background: var(--surface);
+            padding: 4rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+        }
+        .policy-content h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .policy-content h2 {
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+            border-left: 4px solid var(--teal);
+            padding-left: 1rem;
+        }
+        .policy-content h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        .policy-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .policy-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .policy-content li {
+            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+        }
+        .last-updated {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Floating Pill Nav */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 4rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-radius: 999px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-home-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #0F172A;
+            font-weight: 700;
+            padding: 0.6rem 1.2rem;
+            background: #FFFFFF;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-home-btn:hover {
+            background: #F1F5F9;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .policy-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | TomoClub">
+    <meta property="og:description" content="TomoClub Privacy Policy. Learn how we collect, use, and protect your data.">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy | TomoClub">
+    <meta name="twitter:description" content="TomoClub Privacy Policy. Learn how we collect, use, and protect your data.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <a href="/" class="nav-home-btn">
+                    <i data-lucide="home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="policy-container container">
+        <div class="policy-content">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Effective Date: May 5, 2026 | Last Updated: May 5, 2026</p>
+            
+            <p>This Privacy Policy describes how Tomorrow Innovations Inc. ("TomoClub," "we," "us," or "our") collects, uses, discloses, and protects information about you when you visit our website at <a href="https://www.tomoclub.org">www.tomoclub.org</a> (the "Website"), purchase our products or services, or interact with our communications. We are committed to protecting your privacy and handling your personal data responsibly and transparently.</p>
+            
+            <p><strong>BY USING THE WEBSITE, YOU CONSENT TO THE DATA PRACTICES DESCRIBED IN THIS PRIVACY POLICY. IF YOU DO NOT AGREE, PLEASE DISCONTINUE USE OF THE WEBSITE.</strong></p>
+
+            <h2>1. INFORMATION WE COLLECT</h2>
+            
+            <h3>1.1 Information You Provide Directly</h3>
+            <p>We collect information you provide voluntarily when you interact with our Website, including when you:</p>
+            <ul>
+                <li>Subscribe to our email newsletter or marketing list — we collect your name and email address;</li>
+                <li>Make a purchase — we collect billing name, billing address, email address, and payment information (processed and stored by our payment processor; TomoClub does not store full payment card data);</li>
+                <li>Complete a contact form or inquiry — we collect your name, email address, and message content;</li>
+                <li>Register for a webinar, event, or workshop — we collect registration details including name, email, school or institution affiliation;</li>
+                <li>Communicate with us via email — we collect the content of those communications.</li>
+            </ul>
+
+            <h3>1.2 Information Collected Automatically</h3>
+            <p>When you visit the Website, certain information is automatically collected through cookies, web beacons, and similar tracking technologies, including:</p>
+            <ul>
+                <li>IP address and general geographic location (country, state, city);</li>
+                <li>Browser type and version, operating system, and device type;</li>
+                <li>Pages visited, time spent on pages, and navigation patterns;</li>
+                <li>Referring URL (the website that directed you to ours);</li>
+                <li>Date and time of your visit;</li>
+                <li>Clicks, scroll depth, and other engagement metrics;</li>
+                <li>Advertising interactions and conversion events (via Meta/Facebook Pixel).</li>
+            </ul>
+
+            <h3>1.3 Information from Third Parties</h3>
+            <p>We may receive information about you from third-party sources, including advertising platforms and analytics providers, which may be combined with information we already hold about you. We may also receive information from schools or institutions that purchase our products on behalf of educators or students.</p>
+
+            <h3>1.4 Children Under 13</h3>
+            <p>The Website is not directed toward children under 13, and we do not knowingly collect personal information directly from children under 13. Our educational products may be used by students (including minors) as end-users, but all personal data is provided by adults — parents, guardians, or educational institutions — on their behalf. If you are a parent or guardian and believe your child has provided personal data to us without your consent, please Connect immediately at <a href="mailto:info@tomoclub.org">info@tomoclub.org</a> and we will delete such data promptly.</p>
+
+            <h2>2. HOW WE USE YOUR INFORMATION</h2>
+            <p>We use the information we collect for the following purposes:</p>
+
+            <h3>2.1 To Operate and Deliver Services</h3>
+            <ul>
+                <li>Process and fulfill purchases, memberships, and one-time product orders;</li>
+                <li>Deliver purchased digital products, ebooks, and course materials;</li>
+                <li>Manage event and webinar registrations;</li>
+                <li>Respond to inquiries, support requests, and communications;</li>
+                <li>Send transactional emails (order confirmations, receipts, delivery notices).</li>
+            </ul>
+
+            <h3>2.2 To Communicate with You</h3>
+            <ul>
+                <li>Send email newsletters, educational content, announcements, and promotional materials (with your consent or as permitted by law);</li>
+                <li>Notify you of changes to our products, services, or these policies;</li>
+                <li>Send invitations to events, webinars, and community activities.</li>
+            </ul>
+
+            <h3>2.3 To Improve Our Services</h3>
+            <ul>
+                <li>Analyze Website usage and traffic patterns via Google Analytics;</li>
+                <li>Understand user preferences and behavior to improve content and user experience;</li>
+                <li>Conduct market research and measure the effectiveness of marketing campaigns;</li>
+                <li>Develop and test new features, products, and services.</li>
+            </ul>
+
+            <h3>2.4 For Marketing and Advertising</h3>
+            <ul>
+                <li>Serve targeted advertisements via Meta (Facebook) Pixel and similar tools;</li>
+                <li>Measure and optimize the performance of our advertising campaigns;</li>
+                <li>Retarget Website visitors with relevant advertisements on third-party platforms.</li>
+            </ul>
+
+            <h3>2.5 For Legal and Compliance Purposes</h3>
+            <ul>
+                <li>Comply with applicable laws, regulations, and legal obligations;</li>
+                <li>Enforce our Terms and Conditions and other agreements;</li>
+                <li>Detect, prevent, and investigate fraud, abuse, and security incidents;</li>
+                <li>Respond to lawful requests from courts, law enforcement, and regulatory authorities.</li>
+            </ul>
+
+            <h2>3. LEGAL BASES FOR PROCESSING (U.S. PRIVACY LAW)</h2>
+            <p>Under applicable U.S. privacy laws, our processing of your personal information is based on one or more of the following:</p>
+            <ul>
+                <li>Contractual necessity — processing required to fulfill your purchase or deliver requested services;</li>
+                <li>Legitimate interests — processing for analytics, security, fraud prevention, and business operations where our interests are not overridden by your rights;</li>
+                <li>Consent — processing for marketing emails and non-essential cookies, where we have obtained your consent;</li>
+                <li>Legal obligation — processing required to comply with applicable law.</li>
+            </ul>
+
+            <h2>4. COOKIES AND TRACKING TECHNOLOGIES</h2>
+            <h3>4.1 What Are Cookies</h3>
+            <p>Cookies are small text files placed on your device when you visit a website. We use cookies and similar technologies (web beacons, pixels, local storage) to enhance your experience, analyze usage, and serve targeted advertising.</p>
+
+            <h3>4.2 Types of Cookies We Use</h3>
+            <ul>
+                <li>Essential Cookies — Required for the Website to function. These cannot be disabled.</li>
+                <li>Analytics Cookies — Used by Google Analytics to collect aggregated data about Website traffic and user behavior to help us improve our Website.</li>
+                <li>Marketing and Advertising Cookies — Used by Meta/Facebook Pixel to track conversions, build advertising audiences, and measure the effectiveness of our ads.</li>
+                <li>Functional Cookies — Used to remember your preferences and settings.</li>
+            </ul>
+
+            <h3>4.3 Your Cookie Choices</h3>
+            <p>You may control or disable cookies through your browser settings. Please note that disabling certain cookies may impact the functionality of the Website. You may also opt out of Google Analytics tracking by installing the Google Analytics Opt-out Browser Add-on available at tools.google.com/dlpage/gaoptout. To opt out of Meta advertising cookies, visit your Facebook Ad Preferences.</p>
+            <p>By continuing to use our Website after being presented with this Privacy Policy, you consent to our use of non-essential cookies. You may withdraw your consent at any time by adjusting your browser settings or contacting us.</p>
+
+            <h2>5. HOW WE SHARE YOUR INFORMATION</h2>
+            <p>We do not sell your personal information. We may share your information with third parties only in the following circumstances:</p>
+
+            <h3>5.1 Service Providers</h3>
+            <p>We share data with trusted third-party service providers who assist us in operating the Website and delivering Services, strictly for the purposes described in this Policy:</p>
+            <ul>
+                <li>Google Analytics — website usage analytics (Google LLC, USA);</li>
+                <li>Meta / Facebook Pixel — advertising and conversion tracking (Meta Platforms, Inc., USA);</li>
+                <li>Brevo (formerly Sendinblue) — email marketing and transactional email delivery;</li>
+                <li>Mailchimp (Intuit Inc.) — email newsletter management and distribution;</li>
+                <li>Zoho Corporation — CRM, business operations, and customer management;</li>
+                <li>Payment processor(s) — secure payment processing (specific processor disclosed at checkout).</li>
+            </ul>
+            <p>All service providers are contractually obligated to use your data only as necessary to perform services for us and in compliance with applicable law.</p>
+
+            <h3>5.2 Business Transfers</h3>
+            <p>In the event of a merger, acquisition, sale of all or substantially all of our assets, reorganization, or bankruptcy, your personal information may be transferred to the successor entity. We will notify you of any such transfer and any material changes to this Privacy Policy.</p>
+
+            <h3>5.3 Legal Compliance and Protection</h3>
+            <p>We may disclose your information to third parties when we believe in good faith that disclosure is necessary to:</p>
+            <ul>
+                <li>Comply with a subpoena, court order, legal obligation, or lawful government request;</li>
+                <li>Protect and defend the rights, property, or safety of TomoClub, our users, or the public;</li>
+                <li>Investigate or prevent fraud, abuse, or security incidents;</li>
+                <li>Enforce our Terms and Conditions.</li>
+            </ul>
+
+            <h3>5.4 Aggregated and De-Identified Data</h3>
+            <p>We may share aggregated or de-identified data that cannot reasonably be used to identify you with third parties for research, analytics, or business purposes.</p>
+
+            <h2>6. DATA RETENTION</h2>
+            <p>We retain personal information only for as long as necessary to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law. Specifically:</p>
+            <ul>
+                <li>Email marketing data is retained until you unsubscribe or request deletion;</li>
+                <li>Purchase and transaction records are retained for a minimum of seven (7) years for accounting, tax, and legal compliance purposes;</li>
+                <li>Analytics data collected via Google Analytics is retained per Google's standard data retention settings, which we configure to 26 months;</li>
+                <li>Inquiry and communication records are retained for three (3) years from the date of last communication;</li>
+                <li>Cookie data is retained in accordance with individual cookie lifespans disclosed in cookie settings.</li>
+            </ul>
+            <p>Upon expiration of the applicable retention period, we securely delete or anonymize personal information.</p>
+
+            <h2>7. DATA SECURITY</h2>
+            <p>TomoClub implements commercially reasonable administrative, technical, and physical safeguards designed to protect your personal information against unauthorized access, disclosure, alteration, or destruction. These measures include:</p>
+            <ul>
+                <li>SSL/TLS encryption for data transmitted between your browser and the Website;</li>
+                <li>Restricted access to personal data on a need-to-know basis;</li>
+                <li>Use of PCI-compliant payment processors for all financial transactions;</li>
+                <li>Regular assessment of security practices and procedures.</li>
+            </ul>
+            <p>However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information, we cannot guarantee absolute security. In the event of a data breach that creates a risk of harm to you, we will notify you as required by applicable law.</p>
+
+            <h2>8. YOUR PRIVACY RIGHTS</h2>
+            <h3>8.1 All Users</h3>
+            <p>Regardless of your location, you have the following rights with respect to your personal information:</p>
+            <ul>
+                <li>Access — You may request a copy of the personal information we hold about you;</li>
+                <li>Correction — You may request correction of inaccurate or incomplete personal information;</li>
+                <li>Deletion — You may request deletion of your personal information, subject to legal obligations and legitimate business needs;</li>
+                <li>Opt-Out of Marketing — You may unsubscribe from marketing emails at any time via the "unsubscribe" link or by contacting <a href="mailto:info@tomoclub.org">info@tomoclub.org</a>;</li>
+                <li>Withdraw Consent — Where processing is based on consent, you may withdraw consent at any time without affecting the lawfulness of prior processing.</li>
+            </ul>
+
+            <h3>8.2 California Residents — CCPA/CPRA Rights</h3>
+            <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), including:</p>
+            <ul>
+                <li>Right to Know — The right to know what personal information we collect, use, disclose, and sell;</li>
+                <li>Right to Delete — The right to request deletion of your personal information;</li>
+                <li>Right to Correct — The right to request correction of inaccurate personal information;</li>
+                <li>Right to Opt-Out of Sale/Sharing — We do not sell personal information. We do share data with advertising partners (e.g., Meta Pixel) which may constitute "sharing" under CPRA. You may opt out by contacting us;</li>
+                <li>Right to Limit Use of Sensitive Personal Information — You may direct us to limit the use of sensitive personal information;</li>
+                <li>Right to Non-Discrimination — We will not discriminate against you for exercising your CCPA/CPRA rights.</li>
+            </ul>
+            <p>To submit a verifiable consumer request under the CCPA/CPRA, Connect at <a href="mailto:info@tomoclub.org">info@tomoclub.org</a> with "California Privacy Request" in the subject line. We will respond within 45 days, with a possible extension of an additional 45 days when reasonably necessary.</p>
+
+            <h3>8.3 Virginia, Colorado, Connecticut, Texas, and Other State Residents</h3>
+            <p>Residents of Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), Texas (TDPSA), and other states with comprehensive privacy laws may have rights similar to those described above, including rights of access, correction, deletion, portability, and opt-out of targeted advertising. To exercise any such rights, Connect at <a href="mailto:info@tomoclub.org">info@tomoclub.org</a>.</p>
+
+            <h3>8.4 How to Submit a Request</h3>
+            <p>To exercise any of your privacy rights, please Connect at <a href="mailto:info@tomoclub.org">info@tomoclub.org</a>. We may need to verify your identity before processing your request. We will not charge a fee for processing your request unless your request is excessive, repetitive, or manifestly unfounded.</p>
+
+            <h2>9. EMAIL MARKETING AND COMMUNICATIONS</h2>
+            <p>With your consent or as otherwise permitted by applicable law, we send marketing emails, newsletters, educational updates, product announcements, and promotional content using Brevo and Mailchimp. Each marketing email includes a clearly visible "unsubscribe" link. You may opt out of marketing communications at any time by:</p>
+            <ul>
+                <li>Clicking the "unsubscribe" or "manage preferences" link in any marketing email;</li>
+                <li>Emailing <a href="mailto:info@tomoclub.org">info@tomoclub.org</a> with your opt-out request.</li>
+            </ul>
+            <p>Please allow up to ten (10) business days to process your opt-out request. Even after opting out of marketing communications, you may continue to receive transactional or service-related emails necessary to fulfill your purchase or provide the Services.</p>
+
+            <h2>10. THIRD-PARTY ADVERTISING AND ANALYTICS</h2>
+            <h3>10.1 Google Analytics</h3>
+            <p>We use Google Analytics, a web analytics service provided by Google LLC. Google Analytics uses cookies to collect information about how visitors use our Website. This information is transmitted to and stored on Google's servers in the United States. Google uses this information to evaluate Website usage and compile reports. Google may also transfer this information to third parties when required by law or where such third parties process the information on Google's behalf. You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on at <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>.</p>
+
+            <h3>10.2 Meta / Facebook Pixel</h3>
+            <p>We use the Meta Pixel (formerly Facebook Pixel), a code placed on our Website that allows us to measure the effectiveness of our advertising, build audiences for future ads, and retarget visitors on Meta's platforms (Facebook, Instagram). The Pixel collects data including your IP address, browser information, and actions taken on our Website. This data is processed by Meta Platforms, Inc. under Meta's Privacy Policy. You may opt out of Meta's targeted advertising through your Facebook Ad Preferences at <a href="https://www.facebook.com/adpreferences" target="_blank">www.facebook.com/adpreferences</a>.</p>
+
+            <h2>11. INTERNATIONAL VISITORS</h2>
+            <p>The Website is operated from the United States. If you access the Website from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States, where data protection laws may differ from those in your country. By using the Website, you consent to the transfer and processing of your information in the United States. TomoClub does not specifically target users in the European Economic Area (EEA) or the United Kingdom, and we make no representation that the Website is governed by or operated in compliance with the laws of any nation other than the United States.</p>
+
+            <h2>12. DO NOT TRACK</h2>
+            <p>Some browsers include a "Do Not Track" (DNT) feature that signals to websites that you do not want your online activities tracked. Our Website does not currently respond to DNT signals. We will update this Policy if we implement a mechanism that responds to DNT signals in the future.</p>
+
+            <h2>13. LINKS TO THIRD-PARTY WEBSITES</h2>
+            <p>Our Website may contain links to third-party websites, social media platforms, or resources. This Privacy Policy applies only to information collected by our Website. We are not responsible for the privacy practices of third-party websites and encourage you to read their privacy policies before providing any personal information.</p>
+
+            <h2>14. CHANGES TO THIS PRIVACY POLICY</h2>
+            <p>We reserve the right to update or modify this Privacy Policy at any time. When we make material changes, we will update the "Last Updated" date at the top of this Policy and, where appropriate, notify you by email or by posting a prominent notice on the Website. Your continued use of the Website after any such changes constitutes your acceptance of the updated Privacy Policy. We encourage you to review this Policy periodically.</p>
+
+            <h2>15. Connect</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact our Privacy team:</p>
+            <p>
+                <strong>Tomorrow Innovations Inc.</strong><br>
+                Attn: Privacy — Data Compliance<br>
+                4197 Tuller Road, Dublin, Ohio 43017, USA<br>
+                Email: <a href="mailto:info@tomoclub.org">info@tomoclub.org</a><br>
+                Website: <a href="https://www.tomoclub.org">www.tomoclub.org</a>
+            </p>
+            <p>We will respond to all privacy-related inquiries within thirty (30) days of receipt.</p>
+            
+            <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 4rem;">&copy; 2026 Tomorrow Innovations Inc. All rights reserved. This document is the proprietary legal property of Tomorrow Innovations Inc. and may not be reproduced without written permission.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/index.html" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
+                        <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                    </a>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <span style="display: block; font-weight: 700; color: var(--navy);">Call Us</span>
+                                <a href="tel:+16505478082" style="color: var(--text-muted);">+1 650 547-8082</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="mail" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <a href="mailto:info@tomoclub.org" style="color: var(--text-muted);">info@tomoclub.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Location</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="map-pin" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <span style="color: var(--text-muted); line-height: 1.4;">4197 Tuller Road, Dublin,<br>OHIO 43017, USA</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/index.html#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
+                        <li><a href="/index.html#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/index.html#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TomoClub. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
+                    <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const updateIcons = () => {
+            const isDark = document.body.classList.contains('dark-theme');
+            document.querySelectorAll('.theme-icon-moon').forEach(icon => icon.style.display = isDark ? 'none' : 'block');
+            document.querySelectorAll('.theme-icon-sun').forEach(icon => icon.style.display = isDark ? 'block' : 'none');
+        };
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.body.classList.add('dark-theme');
+            updateIcons();
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateIcons();
+        });
+
+        // Clean URL (remove .html from address bar)
+        if (window.location.pathname.endsWith('.html')) {
+            const newPath = window.location.pathname.replace('.html', '');
+            window.history.replaceState(null, '', newPath + window.location.hash);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

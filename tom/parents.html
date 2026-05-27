@@ -1,0 +1,3882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TomoClub — Future Readiness Programs for Grades 3–8. AI Literacy and critical life skills live cohort programs designed to build confidence, leadership, and ethical reasoning.">
+    <title>TomoClub — Future Readiness Programs for Grades 3–8</title>
+    <link rel="canonical" href="https://www.tomoclub.org/parents">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TomoClub — Future Readiness Programs for Grades 3–8">
+    <meta property="og:description" content="AI Literacy and critical life skills live cohort programs designed to build confidence, leadership, and ethical reasoning.">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TomoClub — Future Readiness Programs for Grades 3–8">
+    <meta name="twitter:description" content="AI Literacy and critical life skills live cohort programs designed to build confidence, leadership, and ethical reasoning.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- Shared Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=21">
+
+    <script>
+        // Immediately detect and apply theme preferences
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+            }
+        })();
+    </script>
+
+    <style>
+        /* Specific parent page overrides based on the handoff doc design tokens */
+        :root {
+            /* Light theme (default) */
+            --bg-main: #FAFBFC;
+            --surface-alt: #F1F5F9;
+            --surface: #FFFFFF;
+            --surface-2: #E2E8F0;
+            --text-primary: #0F172A;
+            --text-muted: #475569;
+            --text-dim: #94A3B8;
+            
+            --brand-cyan: #2AB4B8;
+            --brand-cyan-dark: #1E8F93;
+            --brand-rose: #B44A5A;
+            --brand-rose-dark: #8A2F3D;
+            --brand-yellow: #E8C84A;
+            
+            --border-color: #E2E8F0;
+            --card-border: rgba(15, 23, 42, 0.05);
+            --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            
+            --nav-bg: rgba(250, 251, 252, 0.92);
+            --nav-border: rgba(15, 23, 42, 0.08);
+            --nav-text: #475569;
+            --nav-text-active: #0F172A;
+            --shadow-nav: 0 4px 20px rgba(15, 23, 42, 0.05);
+            
+            --quiz-option-bg: #FFFFFF;
+            --quiz-option-border: #E2E8F0;
+            --quiz-option-hover-bg: #F8FAFC;
+            
+            --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.08), transparent 70%);
+            
+            --banner-bg-ai: linear-gradient(135deg, #F0FAFA, #D2F5F5);
+            --banner-bg-skills: linear-gradient(135deg, #FFF5F7, #FFDBE2);
+            
+            --promise-text-ai: var(--brand-cyan-dark);
+            --promise-text-skills: var(--brand-rose-dark);
+            
+            --panel-bg-ai: linear-gradient(135deg, #F0FAFA, #DDF6F6);
+            --panel-bg-skills: linear-gradient(135deg, #FFF5F7, #FFE3E7);
+            --panel-text-color: var(--text-primary);
+            --panel-desc-color: var(--text-muted);
+            --panel-fineprint-color: var(--text-dim);
+            --btn-panel-bg: var(--surface-alt);
+            --btn-panel-hover-bg: var(--surface-2);
+            --btn-panel-text: var(--text-primary);
+        }
+
+        body.dark-theme {
+            /* Dark theme overrides */
+            --bg-main: #0A0E14;
+            --surface-alt: #0F1420;
+            --surface: #161C28;
+            --surface-2: #1C2436;
+            --text-primary: #F0F4F8;
+            --text-muted: #8A96A8;
+            --text-dim: #4A5568;
+            
+            --border-color: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.05);
+            
+            --nav-bg: rgba(10, 14, 20, 0.92);
+            --nav-border: rgba(255, 255, 255, 0.07);
+            --nav-text: #8A96A8;
+            --nav-text-active: #F0F4F8;
+            --shadow-nav: 0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            --quiz-option-bg: #161C28;
+            --quiz-option-border: rgba(255, 255, 255, 0.07);
+            --quiz-option-hover-bg: #1C2436;
+            
+            --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.15), transparent 70%);
+            
+            --banner-bg-ai: linear-gradient(135deg, #051A1C, #0A2E30);
+            --banner-bg-skills: linear-gradient(135deg, #1A0508, #2E0F18);
+            
+            --promise-text-ai: #7DD8DA;
+            --promise-text-skills: #D4697A;
+            
+            --panel-bg-ai: linear-gradient(135deg, #051F22, #0A3538);
+            --panel-bg-skills: linear-gradient(135deg, #1A060B, #2E1018);
+            --panel-text-color: #FFFFFF;
+            --panel-desc-color: rgba(255, 255, 255, 0.7);
+            --panel-fineprint-color: rgba(255, 255, 255, 0.4);
+            --btn-panel-bg: #FFFFFF;
+            --btn-panel-hover-bg: rgba(255, 255, 255, 0.95);
+            --btn-panel-text: #020617;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            /* Grid overlay */
+            background-image: repeating-linear-gradient(rgba(42, 180, 184, 0.03) 0px, rgba(42, 180, 184, 0.03) 1px, transparent 1px, transparent 56px),
+                              repeating-linear-gradient(90deg, rgba(42, 180, 184, 0.03) 0px, rgba(42, 180, 184, 0.03) 1px, transparent 1px, transparent 56px) !important;
+            background-size: 56px 56px !important;
+        }
+
+        h1, h2, h3, h4, h5, h6, .btn, input, select, textarea {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+        }
+
+        h1 {
+            font-size: 52px !important;
+            font-weight: 700 !important;
+            letter-spacing: -1.5px !important;
+            color: var(--text-primary) !important;
+        }
+
+        h2 {
+            font-size: 30px !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.3px !important;
+            color: var(--text-primary) !important;
+        }
+
+        h3 {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: var(--text-primary) !important;
+        }
+
+        p {
+            color: var(--text-muted) !important;
+            font-size: 15px !important;
+            font-weight: 400 !important;
+            line-height: 1.6 !important;
+        }
+
+
+
+
+        /* Scroll Spy Sub-Nav */
+        .scroll-spy-bar {
+            position: sticky;
+            top: 96px;
+            width: 100%;
+            height: 48px;
+            background-color: var(--surface-alt);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 400;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .scroll-spy-bar::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .scroll-spy-links {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 1.5rem;
+            justify-content: center;
+        }
+
+        .spy-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .spy-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .spy-btn.active {
+            background-color: var(--brand-cyan);
+            color: #FFFFFF;
+        }
+
+        /* Hero and Glow Section */
+        .parents-hero-wrapper {
+            position: relative;
+            padding-top: 60px;
+            overflow: hidden;
+        }
+
+        .parents-hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 450px;
+            background: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.08), transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .parents-hero {
+            padding: 5rem 0 3rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .highlight-cyan {
+            color: var(--brand-cyan);
+        }
+
+        /* Equation Pill */
+        .equation-pill-container {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+            padding: 6px 18px;
+            gap: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .eq-badge {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .eq-badge.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .eq-badge.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .eq-equal {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .eq-result {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Hero Meta — clean dark stat cards */
+        .hero-meta-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15,23,42,0.55);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 1.25rem 2rem;
+            min-width: 150px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-meta-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        /* Light theme override */
+        body:not(.dark-theme) .hero-meta-item {
+            background: rgba(255,255,255,0.7);
+            border-color: rgba(15,23,42,0.08);
+        }
+
+        /* Hero Buttons */
+        .hero-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .btn-parents-primary {
+            background-color: var(--brand-cyan);
+            color: #FFFFFF;
+            border-radius: 100px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-parents-primary:hover {
+            background-color: var(--brand-cyan-dark);
+        }
+
+        .btn-parents-ghost {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 100px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-parents-ghost:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Stat Cards */
+        .stat-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .parent-stat-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 120px;
+        }
+
+        .stat-card-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .parent-stat-card .num {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .parent-stat-card .label {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Trust Bar */
+        .parents-trust-bar {
+            background-color: var(--surface-alt);
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin: 3rem 0;
+        }
+
+        .trust-stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+
+        .trust-stat-item {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 200px;
+            text-align: center;
+        }
+
+        .trust-stat-item .num {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--brand-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-stat-item .label {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Quiz Section */
+        .quiz-section {
+            background-color: var(--surface-alt);
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quiz-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--brand-cyan);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .progress-dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: var(--surface-2);
+            transition: background-color 0.3s ease;
+        }
+
+        .progress-dot.current {
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .progress-dot.completed {
+            background-color: var(--brand-cyan);
+        }
+
+        .quiz-step-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-step-card.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quiz-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option-btn {
+            display: flex;
+            align-items: center;
+            background-color: var(--surface-2);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.85rem 1.1rem;
+            color: var(--text-primary);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            gap: 1rem;
+        }
+
+        .quiz-option-btn:hover {
+            border-color: var(--brand-cyan);
+            background-color: rgba(42, 180, 184, 0.12);
+        }
+
+        .quiz-option-btn.selected {
+            border-color: var(--brand-cyan);
+            background-color: rgba(42, 180, 184, 0.12);
+        }
+
+        .quiz-option-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--surface-alt);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .quiz-option-btn.selected .quiz-option-icon {
+            background-color: rgba(42, 180, 184, 0.2);
+            color: var(--brand-cyan);
+        }
+
+        .quiz-option-text {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Quiz Results Styling */
+        .quiz-result-card {
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .quiz-result-card.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .result-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .result-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-btn-trial {
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #FFFFFF;
+            transition: opacity 0.2s ease;
+        }
+
+        .result-btn-trial:hover {
+            opacity: 0.9;
+        }
+
+        .result-btn-trial.ai {
+            background-color: var(--brand-cyan);
+        }
+
+        .result-btn-trial.skills {
+            background-color: var(--brand-rose);
+        }
+
+        .result-restart-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .result-restart-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Quiz Escape Hatch */
+        .quiz-escape-hatch {
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            text-align: left;
+        }
+
+        .escape-prompt {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .escape-input-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .escape-input {
+            flex-grow: 1;
+            background-color: var(--surface-2);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: var(--text-primary);
+            font-size: 13px;
+        }
+
+        .escape-input::placeholder {
+            color: var(--text-dim);
+        }
+
+        .escape-input:focus {
+            outline: none;
+            border-color: var(--brand-cyan);
+        }
+
+        .escape-submit-btn {
+            background-color: rgba(42, 180, 184, 0.12);
+            border: none;
+            color: var(--brand-cyan);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .escape-submit-btn:hover {
+            background-color: var(--brand-cyan);
+            color: #FFFFFF;
+        }
+
+        .escape-confirmation {
+            display: none;
+            margin-top: 0.75rem;
+            font-size: 12px;
+            color: var(--brand-cyan);
+            font-weight: 500;
+        }
+
+        /* Core Product Section */
+        .programs-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .parent-program-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .parent-program-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .program-card-accent-bar {
+            height: 3px;
+            width: 100%;
+        }
+
+        .program-card-accent-bar.ai {
+            background: linear-gradient(90deg, var(--brand-cyan), #4DD8DB);
+        }
+
+        .program-card-accent-bar.skills {
+            background: linear-gradient(90deg, var(--brand-rose), #D4697A);
+        }
+
+        .program-card-banner {
+            height: 86px;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card-banner.ai {
+            background: linear-gradient(135deg, #051A1C, #0A2E30);
+        }
+
+        .program-card-banner.skills {
+            background: linear-gradient(135deg, #1A0508, #2E0F18);
+        }
+
+        .program-banner-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            z-index: 2;
+        }
+
+        .program-banner-icon-box.ai {
+            background-color: rgba(42, 180, 184, 0.2);
+            color: var(--brand-cyan);
+        }
+
+        .program-banner-icon-box.skills {
+            background-color: rgba(180, 74, 90, 0.2);
+            color: var(--brand-rose);
+        }
+
+        /* SVG Patterns in Banners */
+        .banner-pattern-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .program-card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .program-card-tag {
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .program-card-tag.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .program-card-tag.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .program-card-hook {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0.25rem 0 1.25rem;
+        }
+
+        .program-card-promise-box {
+            border-left: 2px solid;
+            padding: 0.75rem 1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-size: 13px;
+            line-height: 1.5;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .program-card-promise-box.ai {
+            background-color: rgba(42, 180, 184, 0.08);
+            border-color: var(--brand-cyan);
+            color: #7DD8DA;
+        }
+
+        .program-card-promise-box.skills {
+            background-color: rgba(180, 74, 90, 0.08);
+            border-color: var(--brand-rose);
+            color: #D4697A;
+        }
+
+        .program-pointers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+        }
+
+        .program-pointer-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .program-pointer-icon-box {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .program-pointer-icon-box.ai {
+            color: var(--brand-cyan);
+        }
+
+        .program-pointer-icon-box.skills {
+            color: var(--brand-rose);
+        }
+
+        .program-pointer-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .program-pointer-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .program-pricing-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-digits {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-num {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .price-period {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .price-badge-inr {
+            background-color: var(--surface-alt);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .btn-parents-card-cta {
+            width: 100%;
+            text-align: center;
+            border-radius: 100px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
+            color: #FFFFFF;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-parents-card-cta.ai {
+            background-color: var(--brand-cyan);
+        }
+
+        .btn-parents-card-cta.ai:hover {
+            background-color: var(--brand-cyan-dark);
+        }
+
+        .btn-parents-card-cta.skills {
+            background-color: var(--brand-rose);
+        }
+
+        .btn-parents-card-cta.skills:hover {
+            background-color: var(--brand-rose-dark);
+        }
+
+        .program-card-fineprint {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 300;
+            color: var(--text-dim);
+            margin-top: 0.75rem;
+        }
+
+        /* Switch note */
+        .programs-switch-note {
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .programs-switch-note i {
+            color: var(--brand-cyan);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Why Now Section */
+        .why-now-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .why-now-glow-left {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(42, 180, 184, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .why-now-glow-right {
+            position: absolute;
+            bottom: 20%;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 74, 90, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .why-now-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-now-card {
+            background-color: var(--surface);
+            border: 1px solid;
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .why-now-card.ai {
+            border-color: rgba(42, 180, 184, 0.2);
+        }
+
+        .why-now-card.skills {
+            border-color: rgba(180, 74, 90, 0.2);
+        }
+
+        .why-now-card h3 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-now-stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-now-stat-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .why-now-stat-pill {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            flex-shrink: 0;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .why-now-stat-pill.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .why-now-stat-pill.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .why-now-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .why-now-attribution {
+            font-size: 11px;
+            font-style: italic;
+            opacity: 0.6;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 0.75rem;
+            margin-top: auto;
+        }
+
+        /* Sessions Walkthrough Section */
+        .sessions-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .session-track-card {
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .session-track-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .track-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+
+        .track-dot.ai {
+            background-color: var(--brand-cyan);
+        }
+
+        .track-dot.skills {
+            background-color: var(--brand-rose);
+        }
+
+        .track-name {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .track-name.ai {
+            color: var(--brand-cyan);
+        }
+
+        .track-name.skills {
+            color: var(--brand-rose);
+        }
+
+        .session-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .session-step-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .session-step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .session-step-num.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .session-step-num.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .session-step-content-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .session-step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .session-step-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Proof Section */
+        .proof-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .proof-card {
+            background-color: var(--surface);
+            border: 1px solid;
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .proof-card.ai {
+            border-color: rgba(42, 180, 184, 0.2);
+        }
+
+        .proof-card.skills {
+            border-color: rgba(180, 74, 90, 0.2);
+        }
+
+        .proof-stats-deck {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .proof-stat-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .proof-stat-row .num {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+            min-width: 90px;
+            flex-shrink: 0;
+        }
+
+        .proof-stat-row .label {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .proof-quote-box {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            font-size: 13px;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .proof-quote-attribution {
+            font-size: 11px;
+            color: var(--text-muted);
+            opacity: 0.6;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Parent Report Mockups Section */
+        .reports-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .report-card-mockup {
+            background-color: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .report-mockup-header {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-header-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .report-header-meta {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .report-mockup-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .report-row-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .report-row-icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .report-row-icon-box.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .report-row-icon-box.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .report-row-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-row-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .report-row-value {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Coaches Section */
+        .coaches-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .coaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .parent-coach-card {
+            background-color: var(--surface-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            min-height: 220px;
+            height: 100%;
+        }
+
+        .coach-avatar-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .coach-avatar-box.ai {
+            background-color: rgba(42, 180, 184, 0.12);
+            color: var(--brand-cyan);
+        }
+
+        .coach-avatar-box.skills {
+            background-color: rgba(180, 74, 90, 0.12);
+            color: var(--brand-rose);
+        }
+
+        .coach-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .coach-role {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .coach-role.ai {
+            color: var(--brand-cyan) !important;
+            font-weight: 500;
+        }
+
+        .coach-role.skills {
+            color: var(--brand-rose) !important;
+            font-weight: 500;
+        }
+
+        .coach-bio {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-accordion-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .parents-faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 0;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .parents-faq-question-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .parents-faq-question {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .parents-faq-chevron {
+            color: var(--text-muted);
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .parents-faq-item.open .parents-faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .parents-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.3s ease;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .parents-faq-item.open .parents-faq-answer {
+            margin-top: 1rem;
+            max-height: 500px; /* high enough to reveal paragraph */
+        }
+
+        /* Split CTA Card Section */
+        .cta-trials-section {
+            padding: 6rem 0 5rem;
+            position: relative;
+        }
+
+        .cta-panels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-trial-panel {
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-trial-panel.ai {
+            background: linear-gradient(135deg, #051F22, #0A3538);
+        }
+
+        .cta-trial-panel.skills {
+            background: linear-gradient(135deg, #1A060B, #2E1018);
+        }
+
+        .cta-panel-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-panel-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .cta-trial-panel.ai .cta-panel-desc {
+            color: rgba(180, 230, 232, 0.65);
+        }
+
+        .cta-trial-panel.skills .cta-panel-desc {
+            color: rgba(232, 180, 190, 0.65);
+        }
+
+        .btn-panel-action {
+            background-color: #FFFFFF;
+            border-radius: 100px;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-panel-action:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        .cta-trial-panel.ai .btn-panel-action {
+            color: #0A3538;
+        }
+
+        .cta-trial-panel.skills .btn-panel-action {
+            color: #2E1018;
+        }
+
+        .panel-fineprint {
+            font-size: 11px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .cta-trial-panel.ai .panel-fineprint {
+            color: rgba(180, 230, 232, 0.4);
+        }
+
+        .cta-trial-panel.skills .panel-fineprint {
+            color: rgba(232, 180, 190, 0.4);
+        }
+
+        .cta-contact-row {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .cta-contact-row a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .cta-contact-row a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer — match index.html exactly */
+        footer {
+            background: var(--surface-alt) !important;
+            border-top: 1px solid var(--border-color) !important;
+            padding: 4rem 2.5rem 2rem !important;
+        }
+
+        footer .footer-grid {
+            display: grid !important;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr !important;
+            gap: 2.5rem !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+        }
+
+        footer .footer-logo {
+            font-size: 2rem !important;
+            text-decoration: none !important;
+        }
+
+        footer p {
+            font-size: 0.875rem !important;
+            color: var(--text-muted) !important;
+            margin-top: 1rem !important;
+            line-height: 1.6 !important;
+        }
+
+        footer .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        footer .social-links a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        footer .social-links a:hover {
+            color: var(--brand-cyan);
+        }
+
+        footer .footer-links h4 {
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.08em !important;
+            text-transform: uppercase !important;
+            color: var(--text-primary) !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        footer .footer-links ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        footer .footer-links ul li {
+            margin-bottom: 0.75rem !important;
+        }
+
+        footer .footer-links ul li a {
+            font-size: 0.9rem !important;
+            color: var(--text-muted) !important;
+            transition: color 0.2s ease !important;
+            text-decoration: none !important;
+        }
+
+        footer .footer-links ul li a:hover {
+            color: var(--text-primary) !important;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid var(--border-color) !important;
+            margin-top: 2rem !important;
+            padding-top: 1.5rem !important;
+            text-align: center !important;
+        }
+
+        footer .footer-bottom p {
+            font-size: 0.85rem !important;
+            color: var(--text-dim) !important;
+        }
+
+        @media (max-width: 768px) {
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer .footer-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 720px) {
+            h1 { font-size: 38px !important; }
+            h2 { font-size: 24px !important; }
+            .scroll-spy-links { justify-content: flex-start; }
+            .hero-cta-buttons { flex-direction: column; align-items: center; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
+            .hero-cta-buttons a, .hero-cta-buttons button { width: 100%; text-align: center; }
+            .stat-cards-grid { grid-template-columns: 1fr; }
+            .trust-stats-row { flex-direction: column; gap: 1.5rem; }
+            .programs-grid { grid-template-columns: 1fr; }
+            .why-now-grid { grid-template-columns: 1fr; }
+            .sessions-grid { grid-template-columns: 1fr; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .reports-grid { grid-template-columns: 1fr; }
+            .coaches-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-panels-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid .social-links { justify-content: center; }
+            .footer-links ul li { justify-content: center; text-align: center; }
+            .footer-bottom-parents { flex-direction: column; text-align: center; }
+            nav { width: calc(100% - 2rem) !important; top: 1rem !important; left: 50% !important; border-radius: 999px !important; height: auto !important; padding: 0.75rem 1.5rem !important; }
+            .parents-hero { padding-top: 160px !important; }
+            .scroll-spy-bar { top: 78px; }
+            .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+            .blog-podcast-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+            .newsletter-box { padding: 2.5rem 1.5rem !important; }
+            .newsletter-form { flex-direction: column !important; background: transparent !important; border: none !important; padding: 0 !important; }
+            .newsletter-form input { background: var(--surface-alt) !important; border: 1px solid var(--border-color) !important; margin-bottom: 0.5rem; width: 100%; }
+            .newsletter-form button { width: 100%; }
+            
+            /* Mobile Navbar Links Drawer */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                transform: none !important;
+                background-color: var(--surface);
+                border: 1px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 20px 20px;
+                padding: 1.5rem;
+                gap: 1.25rem;
+                z-index: 499;
+                box-shadow: var(--shadow-nav);
+            }
+            
+            .nav-links.active {
+                display: flex;
+                transform: none !important;
+            }
+            
+            .nav-item {
+                width: 100%;
+                text-align: left;
+            }
+            
+            .nav-item a {
+                justify-content: space-between;
+                padding: 8px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: block;
+                box-shadow: none !important;
+                background: var(--surface-alt) !important;
+                padding-left: 1rem !important;
+                margin-top: 0.5rem;
+                border: none !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coaches-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- Theme and Micro-interactions Overrides --- */
+        .equation-pill-container,
+        .parent-stat-card,
+        .parents-trust-bar,
+        .quiz-container,
+        .quiz-section,
+        .quiz-option-btn,
+        .quiz-escape-hatch,
+        .escape-input,
+        .programs-section,
+        .parent-program-card,
+        .programs-switch-note,
+        .why-now-section,
+        .why-now-card,
+        .why-now-attribution,
+        .sessions-section,
+        .session-track-card,
+        .session-track-header,
+        .proof-section,
+        .proof-card,
+        .proof-quote-box,
+        .reports-section,
+        .report-card-mockup,
+        .report-mockup-header,
+        .coaches-section,
+        .parent-coach-card,
+        .faq-section,
+        .parents-faq-item,
+        .cta-trial-panel,
+        footer,
+        .footer-bottom-parents {
+            border-color: var(--border-color) !important;
+        }
+
+        /* Responsive Auto Grids */
+        .stat-cards-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+        }
+        .programs-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+        }
+        .why-now-grid, .sessions-grid, .proof-grid, .reports-grid, .cta-panels-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        }
+
+        /* Hero glow */
+        .parents-hero-glow {
+            background: var(--hero-glow) !important;
+        }
+
+        /* Progress dot active state */
+        .progress-dot.current {
+            background-color: var(--text-dim) !important;
+        }
+
+        /* Quiz options transitions and variables */
+        .quiz-option-btn {
+            background-color: var(--quiz-option-bg) !important;
+            border-color: var(--quiz-option-border) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .quiz-option-btn:hover {
+            background-color: var(--quiz-option-hover-bg) !important;
+            border-color: var(--brand-cyan) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--card-border);
+        }
+        .quiz-option-btn.selected {
+            background-color: rgba(42, 180, 184, 0.15) !important;
+            border-color: var(--brand-cyan) !important;
+        }
+
+        /* Program banner themes */
+        .program-card-banner.ai {
+            background: var(--banner-bg-ai) !important;
+        }
+        .program-card-banner.skills {
+            background: var(--banner-bg-skills) !important;
+        }
+        .program-card-promise-box.ai {
+            color: var(--promise-text-ai) !important;
+        }
+        .program-card-promise-box.skills {
+            color: var(--promise-text-skills) !important;
+        }
+
+        /* CTA Panels variables styling */
+        .cta-trial-panel.ai {
+            background: var(--panel-bg-ai) !important;
+        }
+        .cta-trial-panel.skills {
+            background: var(--panel-bg-skills) !important;
+        }
+        .cta-panel-title {
+            color: var(--panel-text-color) !important;
+        }
+        .cta-panel-desc {
+            color: var(--panel-desc-color) !important;
+        }
+        .panel-fineprint {
+            color: var(--panel-fineprint-color) !important;
+        }
+        .btn-panel-action {
+            background-color: var(--btn-panel-bg) !important;
+            color: var(--btn-panel-text) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .btn-panel-action:hover {
+            background-color: var(--btn-panel-hover-bg) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px var(--card-border) !important;
+        }
+
+        /* Cards micro-animations */
+        .parent-program-card, .parent-stat-card, .why-now-card, .proof-card, .report-card-mockup, .parent-coach-card {
+            transition: var(--transition-smooth) !important;
+        }
+        .parent-program-card:hover, .parent-stat-card:hover, .why-now-card:hover, .proof-card:hover, .report-card-mockup:hover, .parent-coach-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 10px 25px var(--card-border) !important;
+        }
+
+        /* Navbar & Scroll Spy transitions */
+        nav {
+            background: var(--nav-bg) !important;
+            border-color: var(--nav-border) !important;
+            box-shadow: var(--shadow-nav) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .nav-item a {
+            color: var(--nav-text) !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .nav-item a:hover, .nav-item.active a {
+            color: var(--nav-text-active) !important;
+        }
+        @media (min-width: 721px) {
+            .nav-item .dropdown a {
+                color: #FFFFFF !important;
+            }
+        }
+        .mobile-menu-toggle {
+            color: var(--text-primary) !important;
+        }
+
+        /* Theme Toggle Button Style */
+        .theme-toggle-btn {
+            background: var(--surface) !important;
+            border: 1px solid var(--border-color) !important;
+            cursor: pointer;
+            color: var(--text-primary) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50% !important;
+            transition: var(--transition-smooth) !important;
+        }
+        .theme-toggle-btn:hover {
+            background: var(--surface-alt) !important;
+            transform: scale(1.05);
+        }
+        .theme-toggle-btn i {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle-btn:hover i {
+            transform: rotate(20deg);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+                document.documentElement.classList.remove('dark-theme');
+            }
+        })();
+    </script>
+    
+    <!-- Main Navigation (Parents Page Version) -->
+    <nav>
+        <div class="container nav-container">
+            <a href="/#home" class="logo" style="text-decoration: none;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <div class="nav-item">
+                    <a href="#">For schools <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <div class="dropdown">
+                        <a href="/#ai-literacy">
+                            <strong>AI Literacy Curriculum</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 6–12</span>
+                        </a>
+                        <a href="/#future-ready">
+                            <strong>Future-Ready Skills</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 3–12</span>
+                        </a>
+                        <a href="/#pd">
+                            <strong>AI Fundamentals PD</strong>
+                            <span style="display:block; font-size:0.8rem;">For Teachers</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item active"><a href="/parents">For Parents</a></div>
+                <div class="nav-item"><a href="/#about">About Us</a></div>
+                <div class="nav-item"><a href="/#results">Results</a></div>
+                <div class="nav-item">
+                    <a href="#">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <div class="dropdown">
+                        <a href="/#education-hall">Educational Hall</a>
+                        <a href="/#blog">Blog</a>
+                        <a href="/#podcast">Podcast: Play & Learn</a>
+                        <a href="/#guides">Guides & Toolkits</a>
+                        <a href="leaders-of-tomorrow/">Leaders of Tomorrow Ebook</a>
+                    </div>
+                </div>
+                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
+                    <a href="#" class="btn btn-primary open-pilot-modal" style="width: 100%;">Request a Pilot</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <a href="#" class="btn btn-primary desktop-only open-pilot-modal">Request a Pilot</a>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Parents Page Wrapper -->
+    <div class="parents-hero-wrapper" id="overview">
+        <div class="parents-hero-glow"></div>
+        
+        <!-- SECTION 2: HERO -->
+        <section class="container parents-hero">
+            <h1>Build the child <br><span class="highlight-cyan">AI can't replace.</span></h1>
+            <p style="margin: 1.5rem auto 1rem; max-width: 600px;">Live cohort classes for Grades 3–8. Two programs. One goal.</p>
+            
+            <div class="equation-pill-container">
+                <span class="eq-badge ai">AI Literacy</span>
+                <span class="eq-equal">+</span>
+                <span class="eq-badge skills">Life Skills</span>
+                <span class="eq-equal">=</span>
+                <span class="eq-result">Future Readiness</span>
+            </div>
+
+            <div class="hero-meta-row">
+                <div class="hero-meta-item">
+                    <i data-lucide="users" style="color:var(--brand-cyan);width:24px;height:24px;margin-bottom:0.5rem;"></i>
+                    <span class="stat-count" data-target="8" data-suffix="" style="font-size:2rem;font-weight:800;color:var(--text-primary);line-height:1;">0</span>
+                    <span style="font-size:11px;color:var(--text-muted);font-weight:500;letter-spacing:0.5px;margin-top:0.35rem;">students per cohort</span>
+                </div>
+                <div class="hero-meta-item">
+                    <i data-lucide="video" style="color:var(--brand-cyan);width:24px;height:24px;margin-bottom:0.5rem;"></i>
+                    <span style="font-size:2rem;font-weight:800;color:var(--text-primary);line-height:1;">Live</span>
+                    <span style="font-size:11px;color:var(--text-muted);font-weight:500;letter-spacing:0.5px;margin-top:0.35rem;">instructor-led</span>
+                </div>
+                <div class="hero-meta-item">
+                    <i data-lucide="book-open" style="color:var(--brand-cyan);width:24px;height:24px;margin-bottom:0.5rem;"></i>
+                    <span style="font-size:2rem;font-weight:800;color:var(--text-primary);line-height:1;">3–8</span>
+                    <span style="font-size:11px;color:var(--text-muted);font-weight:500;letter-spacing:0.5px;margin-top:0.35rem;">Grades</span>
+                </div>
+                <div class="hero-meta-item">
+                    <i data-lucide="globe" style="color:var(--brand-cyan);width:24px;height:24px;margin-bottom:0.5rem;"></i>
+                    <span class="stat-count" data-target="3" data-suffix="+" style="font-size:2rem;font-weight:800;color:var(--text-primary);line-height:1;">0</span>
+                    <span style="font-size:11px;color:var(--text-muted);font-weight:500;letter-spacing:0.5px;margin-top:0.35rem;">India &middot; SEA &middot; US</span>
+                </div>
+            </div>
+
+            <div class="hero-cta-buttons">
+                <a href="#quiz" class="btn-parents-primary" onclick="scrollToQuiz(event)">Which program fits my child? &rarr;</a>
+                <a href="#programs" class="btn-parents-ghost" onclick="scrollToPrograms(event)">Book free trial</a>
+            </div>
+
+            <!-- Floating Stat Cards -->
+            <div class="stat-cards-grid">
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
+                    <div class="num stat-count" data-target="9.2" data-suffix="/10" data-float="true">0.0/10</div>
+                    <div class="label">Student session rating</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-yellow);"></div>
+                    <div class="num stat-count" data-target="8" data-prefix="1:">1:0</div>
+                    <div class="label">Coach-to-student ratio</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-rose);"></div>
+                    <div class="num stat-count" data-target="85" data-suffix="%">0%</div>
+                    <div class="label">Fewer behaviour issues</div>
+                </div>
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
+                    <div class="num stat-count" data-target="12" data-suffix="+">0+</div>
+                    <div class="label">Countries &middot; school-tested</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SECTION 3: TRUST BAR -->
+    <div class="parents-trust-bar">
+        <div class="container">
+            <div class="trust-stats-row">
+                <div class="trust-stat-item">
+                    <div class="num stat-count" data-target="10000" data-comma="true" data-suffix="+">0+</div>
+                    <div class="label">students reached</div>
+                </div>
+                <div class="trust-stat-item">
+                    <div class="num stat-count" data-target="97" data-suffix="%">0%</div>
+                    <div class="label">engagement rate</div>
+                </div>
+                <div class="trust-stat-item">
+                    <div class="num stat-count" data-target="92" data-suffix="%">0%</div>
+                    <div class="label">AI confidence increase</div>
+                </div>
+                <div class="trust-stat-item">
+                    <div class="num stat-count" data-target="100" data-suffix="%">0%</div>
+                    <div class="label">skills applied in 3 months</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEL VIDEO SECTION: See Life Skills session in action -->
+    <section style="padding: 4rem 0; border-bottom: 1px solid var(--border-color); background: var(--surface-alt);">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:2.5rem;">
+                <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:var(--brand-rose);text-transform:uppercase;margin-bottom:0.5rem;">Watch It Live</div>
+                <h2 style="margin-bottom:0.75rem;">See Life Skills <span style="color:var(--brand-rose);">session in action</span></h2>
+                <p style="max-width:560px;margin:0 auto;font-size:15px;">Watch a real Tomo Life Skills session — how coaches run games, spark discussions, and turn gameplay into real growth for your child.</p>
+            </div>
+            <div style="max-width:820px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.25);border:1px solid var(--border-color);position:relative;">
+                <div style="position:relative;padding-bottom:56.25%;height:0;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/tuk-BgOKe6o" 
+                        title="Tomo Life Skills session in action" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    </iframe>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem;">
+                <a href="mailto:info@tomoclub.com?subject=Book%20a%20Free%20Trial&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" 
+                   style="display:inline-flex;align-items:center;gap:8px;background:var(--brand-rose);color:#fff;border-radius:100px;padding:12px 28px;font-weight:600;font-size:14px;text-decoration:none;transition:opacity 0.2s ease;"
+                   onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                    Book a Free Trial &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE QUIZ -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-eyebrow">3-Question Check</div>
+            <h2 class="text-center">Which program fits your child?</h2>
+            <p class="text-center" style="margin-top: 0.5rem;">30 seconds. No right or wrong answers.</p>
+
+            <div class="quiz-container">
+                <div class="progress-dots">
+                    <div class="progress-dot current" id="dot-1"></div>
+                    <div class="progress-dot" id="dot-2"></div>
+                    <div class="progress-dot" id="dot-3"></div>
+                </div>
+
+                <!-- Q1 -->
+                <div class="quiz-step-card active" id="quiz-step-1">
+                    <div class="quiz-question">After school, my child usually...</div>
+                    <div class="quiz-options">
+                        <button class="quiz-option-btn" onclick="selectOption(1, 'A')">
+                            <span class="quiz-option-icon">A</span>
+                            <span class="quiz-option-text">Heads straight to a screen — YouTube, games, or AI tools...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(1, 'B')">
+                            <span class="quiz-option-icon">B</span>
+                            <span class="quiz-option-text">Wants to talk or be around people — but sometimes struggles...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(1, 'C')">
+                            <span class="quiz-option-icon">C</span>
+                            <span class="quiz-option-text">Bit of both — depends on the day</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-step-card" id="quiz-step-2">
+                    <div class="quiz-question">What worries me more as a parent...</div>
+                    <div class="quiz-options">
+                        <button class="quiz-option-btn" onclick="selectOption(2, 'A')">
+                            <span class="quiz-option-icon">A</span>
+                            <span class="quiz-option-text">My child believes everything they see online...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(2, 'B')">
+                            <span class="quiz-option-icon">B</span>
+                            <span class="quiz-option-text">My child either goes quiet in a group or gets frustrated fast...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(2, 'C')">
+                            <span class="quiz-option-icon">C</span>
+                            <span class="quiz-option-text">Honestly, both are real concerns</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-step-card" id="quiz-step-3">
+                    <div class="quiz-question">In 5 years, I most want my child to be...</div>
+                    <div class="quiz-options">
+                        <button class="quiz-option-btn" onclick="selectOption(3, 'A')">
+                            <span class="quiz-option-icon">A</span>
+                            <span class="quiz-option-text">Someone who builds things, solves problems...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(3, 'B')">
+                            <span class="quiz-option-icon">B</span>
+                            <span class="quiz-option-text">Someone who can walk into any room...</span>
+                        </button>
+                        <button class="quiz-option-btn" onclick="selectOption(3, 'C')">
+                            <span class="quiz-option-icon">C</span>
+                            <span class="quiz-option-text">Both — I genuinely can't choose</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Results -->
+                <div class="quiz-result-card" id="quiz-result">
+                    <span class="result-badge" id="result-badge-el">Tomo AI Lab</span>
+                    <div class="result-title" id="result-title-el">We recommend Tomo AI Lab</div>
+                    <div class="result-desc" id="result-desc-el">Based on your choices, your child would benefit from learning to create, direct, and critically examine AI technologies rather than just scrolling passively.</div>
+                    
+                    <div class="result-actions">
+                        <a href="mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20Tomo%20AI%20Lab%20for%20my%20child.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%20(Grades%203-8)%3A%20%0D%0ARegion%20(India%2FSEA%2FUS)%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you%20!" class="result-btn-trial ai" id="result-primary-cta">Book free AI Lab trial &rarr;</a>
+                        <a href="#programs" class="btn-parents-ghost" style="padding: 10px 20px; font-size: 13px;" onclick="scrollToPrograms(event)">See the program</a>
+                    </div>
+                    
+                    <span class="result-restart-link" onclick="restartQuiz()">Restart quiz</span>
+                </div>
+
+                <!-- Escape Hatch contact box -->
+                <div class="quiz-escape-hatch">
+                    <div class="escape-prompt">Your child's situation is more specific? Describe it — we'll find the right fit, even if it's not one of our programs.</div>
+                    <form id="escape-hatch-form" onsubmit="submitEscapeHatch(event)">
+                        <div class="escape-input-row">
+                            <input type="text" class="escape-input" id="escape-text" placeholder="e.g. my child is very shy and also obsessed with Minecraft..." required>
+                            <button type="submit" class="escape-submit-btn" id="escape-submit-btn">Send &rarr;</button>
+                        </div>
+                    </form>
+                    <div class="escape-confirmation" id="escape-confirm">Got it — we'll reply within 24 hours with an honest recommendation.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CORE PRODUCT CARDS -->
+    <section class="programs-section" id="programs">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="equation-pill-container" style="margin: 0 auto 1.5rem;">
+                    <span class="eq-badge ai">AI Literacy</span>
+                    <span class="eq-equal">+</span>
+                    <span class="eq-badge skills">Life Skills</span>
+                    <span class="eq-equal">=</span>
+                    <span class="eq-result">Future Readiness</span>
+                </div>
+                <h2>Two programs. Pick one to start.</h2>
+                <p style="margin-top: 0.5rem; font-size: 16px !important;">Not sure after the quiz? <strong>Book a free trial for both</strong> — then decide.</p>
+            </div>
+
+            <div class="programs-grid">
+                
+                <!-- Tomo AI Lab Card -->
+                <div class="parent-program-card">
+                    <div class="program-card-accent-bar ai"></div>
+                    <div class="program-card-banner ai">
+                        <svg class="banner-pattern-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M10,10 H90 V90 H10 Z M20,20 V80 H80 V20 Z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                            <circle cx="30" cy="30" r="2" fill="currentColor"/>
+                            <circle cx="70" cy="30" r="2" fill="currentColor"/>
+                            <circle cx="30" cy="70" r="2" fill="currentColor"/>
+                            <circle cx="70" cy="70" r="2" fill="currentColor"/>
+                            <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="0.5"/>
+                            <line x1="30" y1="30" x2="30" y2="70" stroke="currentColor" stroke-width="0.5"/>
+                        </svg>
+                        <div class="program-banner-icon-box ai">
+                            <i data-lucide="cpu"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card-content">
+                        <span class="program-card-tag ai">AI LITERACY</span>
+                        <h3>Tomo AI Lab</h3>
+                        <div class="program-card-hook">Create. Build. Question. Not just scroll.</div>
+                        
+                        <div class="program-card-promise-box ai">
+                            "Your child won't just consume what AI makes — they'll question it, direct it, and build something real with it."
+                        </div>
+
+                        <div class="program-pointers-list">
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box ai"><i data-lucide="brush"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Create with AI — stories, images, ideas</div>
+                                    <div class="program-pointer-desc">Their creativity leads. AI is just the tool.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box ai"><i data-lucide="wrench"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Build a real project every term</div>
+                                    <div class="program-pointer-desc">Capstone prototype — designed, built, presented by them.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box ai"><i data-lucide="eye"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Spot when AI is wrong — bias, fakes, hallucinations</div>
+                                    <div class="program-pointer-desc">What most adults miss. Your child will catch it.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box ai"><i data-lucide="shield"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Own their data and privacy</div>
+                                    <div class="program-pointer-desc">Practical habits, not just theory.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-pricing-box">
+                            <div class="price-digits">
+                                <span class="price-num">$99</span>
+                                <span class="price-period">/month &middot; 8 sessions</span>
+                            </div>
+                            <span class="price-badge-inr">&#8377;4,999/mo</span>
+                        </div>
+                        
+                        <a href="mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20AI%20Lab.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" class="btn-parents-card-cta ai">Book a Free Trial &rarr;</a>
+                        <div class="program-card-fineprint">No commitment &middot; Cancel anytime &middot; Trial is free</div>
+                    </div>
+                </div>
+
+                <!-- Tomo Life Skills Card -->
+                <div class="parent-program-card">
+                    <div class="program-card-accent-bar skills"></div>
+                    <div class="program-card-banner skills">
+                        <svg class="banner-pattern-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <circle cx="30" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                            <circle cx="70" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                            <path d="M30,60 C40,75 60,75 70,60" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        </svg>
+                        <div class="program-banner-icon-box skills">
+                            <i data-lucide="users"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card-content">
+                        <span class="program-card-tag skills">LIFE SKILLS</span>
+                        <h3>Tomo Life Skills</h3>
+                        <div class="program-card-hook">Speak up. Lead. Handle anything.</div>
+                        
+                        <div class="program-card-promise-box skills">
+                            "In 12 weeks, your child will speak confidently in groups, disagree without shutting down, and lead without being asked."
+                        </div>
+
+                        <div class="program-pointers-list">
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box skills"><i data-lucide="mic"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Find their voice — even in a group</div>
+                                    <div class="program-pointer-desc">Quiet kids grow the fastest here.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box skills"><i data-lucide="puzzle"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Handle conflict without shutting down</div>
+                                    <div class="program-pointer-desc">Safe practice. Real disagreements. Real growth.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box skills"><i data-lucide="crown"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Lead under pressure — not just when it's easy</div>
+                                    <div class="program-pointer-desc">Games create real decisions. Debrief makes it stick.</div>
+                                </div>
+                            </div>
+                            <div class="program-pointer-item">
+                                <div class="program-pointer-icon-box skills"><i data-lucide="heart-handshake"></i></div>
+                                <div class="program-pointer-content">
+                                    <div class="program-pointer-title">Build real friendships across 12 weeks</div>
+                                    <div class="program-pointer-desc">Same 8 kids every session — a real team, not strangers.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-pricing-box">
+                            <div class="price-digits">
+                                <span class="price-num">$99</span>
+                                <span class="price-period">/month &middot; 8 sessions</span>
+                            </div>
+                            <span class="price-badge-inr">&#8377;4,999/mo</span>
+                        </div>
+                        
+                        <a href="mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20Life%20Skills&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20Life%20Skills.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" class="btn-parents-card-cta skills">Book a Free Trial &rarr;</a>
+                        <div class="program-card-fineprint">No commitment &middot; Cancel anytime &middot; Trial is free</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Comparison Note -->
+            <div class="programs-switch-note">
+                <i data-lucide="arrow-right-left"></i>
+                Same price. Same cohort size. Same quality. Pick one — switch after 12 weeks if you want.
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: WHY NOW SECTION -->
+    <section class="why-now-section">
+        <div class="why-now-glow-left"></div>
+        <div class="why-now-glow-right"></div>
+        <div class="container">
+            <h2 class="text-center">Why each program matters now</h2>
+            
+            <div class="why-now-grid">
+                
+                <!-- AI Lab Why Now -->
+                <div class="why-now-card ai">
+                    <div>
+                        <h3>AI is in your child's school. Are they ready to question it?</h3>
+                        <div class="why-now-stats-list">
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill ai">80% of parents</span>
+                                <span class="why-now-stat-label">are worried about safe classroom AI integration</span>
+                            </div>
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill ai">35% of parents</span>
+                                <span class="why-now-stat-label">have talked to their child about online trust/bias</span>
+                            </div>
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill ai">50% of schools</span>
+                                <span class="why-now-stat-label">teach no computer science or digital safety curricula</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-now-attribution">&mdash; EdSource/UCLA, May 2026</div>
+                </div>
+
+                <!-- Life Skills Why Now -->
+                <div class="why-now-card skills">
+                    <div>
+                        <h3>School teaches what to know. Not how to lead, speak, or disagree.</h3>
+                        <div class="why-now-stats-list">
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill skills">85% fewer</span>
+                                <span class="why-now-stat-label">behaviour referrals reported by schools with our program</span>
+                            </div>
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill skills">ELA & Math lifts</span>
+                                <span class="why-now-stat-label">measured after improving students' focus and social skills</span>
+                            </div>
+                            <div class="why-now-stat-row">
+                                <span class="why-now-stat-pill skills">97% engagement</span>
+                                <span class="why-now-stat-label">sustained across group strategic gameplay cohorts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-now-attribution">&mdash; EdSource/UCLA, May 2026</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: SESSIONS (INSIDE A 60-MINUTE CLASS) -->
+    <section class="sessions-section" id="sessions">
+        <div class="container">
+            <h2 class="text-center">Inside a 60-Minute Class</h2>
+            <p class="text-center" style="margin-top: 0.5rem;">Staged progressions designed to engage and check understanding every minute.</p>
+
+            <div class="sessions-grid">
+                
+                <!-- AI Lab Sessions -->
+                <div class="session-track-card">
+                    <div class="session-track-header">
+                        <span class="track-dot ai"></span>
+                        <span class="track-name ai">Tomo AI Lab</span>
+                    </div>
+                    
+                    <div class="session-steps-list">
+                        <div class="session-step-item">
+                            <span class="session-step-num ai">1</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Concept spark (10 min)</span>
+                                <span class="session-step-desc">Bias, hallucinations, data privacy — one focused idea per session.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num ai">2</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">AI lab (25 min)</span>
+                                <span class="session-step-desc">Kids prompt real AI tools, test limits, compare outputs. Hands-on.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num ai">3</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Ethics discussion (10 min)</span>
+                                <span class="session-step-desc">One real dilemma. Kids argue, vote, defend. Coach facilitates.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num ai">4</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Reflection (15 min)</span>
+                                <span class="session-step-desc">Each child shares a takeaway — goes into the parent report.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Life Skills Sessions -->
+                <div class="session-track-card">
+                    <div class="session-track-header">
+                        <span class="track-dot skills"></span>
+                        <span class="track-name skills">Tomo Life Skills</span>
+                    </div>
+
+                    <div class="session-steps-list">
+                        <div class="session-step-item">
+                            <span class="session-step-num skills">1</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Warm-up (5 min)</span>
+                                <span class="session-step-desc">One quick question. Every child speaks in the first 90 seconds.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num skills">2</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Skill frame (10 min)</span>
+                                <span class="session-step-desc">Today's skill — collaboration, conflict, leadership — with a real anchor.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num skills">3</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Challenge game (30 min)</span>
+                                <span class="session-step-desc">Multiplayer team challenge. Kids reveal more in games than classrooms.</span>
+                            </div>
+                        </div>
+                        <div class="session-step-item">
+                            <span class="session-step-num skills">4</span>
+                            <div class="session-step-content-box">
+                                <span class="session-step-title">Coach debrief (15 min)</span>
+                                <span class="session-step-desc">Game &rarr; real life. Kids name their own patterns out loud.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: PROOF SECTION -->
+    <section class="proof-section">
+        <div class="container">
+            <h2 class="text-center">School-Tested Numbers</h2>
+            
+            <div class="proof-grid">
+                
+                <!-- AI Lab Proof -->
+                <div class="proof-card ai">
+                    <div class="proof-stats-deck">
+                        <div class="proof-stat-row">
+                            <span class="num">9.2/10</span>
+                            <span class="label">Session rating &mdash; Amity School District AI program</span>
+                        </div>
+                        <div class="proof-stat-row">
+                            <span class="num">92%</span>
+                            <span class="label">Students more confident with AI after 8 weeks</span>
+                        </div>
+                        <div class="proof-stat-row">
+                            <span class="num">100%</span>
+                            <span class="label">Students applied AI skills within 3 months</span>
+                        </div>
+                    </div>
+                    
+                    <div class="proof-quote-box">
+                        "AI is a smart tool — but it makes your brain slower if you rely on it too much."
+                        <span class="proof-quote-attribution">&mdash; 10th grader, Amity School District</span>
+                    </div>
+                </div>
+
+                <!-- Life Skills Proof -->
+                <div class="proof-card skills">
+                    <div class="proof-stats-deck">
+                        <div class="proof-stat-row">
+                            <span class="num">97%</span>
+                            <span class="label">High engagement across all Life Skills school cohorts</span>
+                        </div>
+                        <div class="proof-stat-row">
+                            <span class="num">85%</span>
+                            <span class="label">Fewer behaviour referrals in schools running the program</span>
+                        </div>
+                        <div class="proof-stat-row">
+                            <span class="num">+ve</span>
+                            <span class="label">ELA & Math score lift &mdash; Waseca Public Schools</span>
+                        </div>
+                    </div>
+                    
+                    <div class="proof-quote-box">
+                        "I've seen the 'too cool' students transform into collaborative leaders."
+                        <span class="proof-quote-attribution">&mdash; Natasha Bessimier, Counselor, Lone Star School District</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: PARENT REPORT CARDS -->
+    <section class="reports-section" id="reports">
+        <div class="container">
+            <h2 class="text-center">Personalized weekly parent report cards</h2>
+            <p class="text-center" style="margin-top: 0.5rem;">See how they think, communicate, and apply skills in real time.</p>
+
+            <div class="reports-grid">
+                
+                <!-- AI Lab Report Mockup -->
+                <div class="report-card-mockup">
+                    <div class="report-mockup-header">
+                        <span class="report-header-title">AI Lab &middot; Session 4</span>
+                        <span class="report-header-meta">Aarav &middot; Grade 6</span>
+                    </div>
+                    <div class="report-mockup-body">
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box ai"><i data-lucide="lightbulb"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">What he explored</span>
+                                <span class="report-row-value">Tested three prompts — spotted the hallucination in v2, flagged the bias in v3.</span>
+                            </div>
+                        </div>
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box ai"><i data-lucide="message-circle"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">His reflection</span>
+                                <span class="report-row-value">"AI is smart — but it makes your brain slower if you rely on it too much."</span>
+                            </div>
+                        </div>
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box ai"><i data-lucide="trending-up"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">Coach note</span>
+                                <span class="report-row-value">Asked the best question of the session. He thinks before he speaks now.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Life Skills Report Mockup -->
+                <div class="report-card-mockup">
+                    <div class="report-mockup-header">
+                        <span class="report-header-title">Life Skills &middot; Session 4</span>
+                        <span class="report-header-meta">Priya &middot; Grade 5</span>
+                    </div>
+                    <div class="report-mockup-body">
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box skills"><i data-lucide="users"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">What she practised</span>
+                                <span class="report-row-value">Led her team through a disagreement — named the conflict, suggested a vote.</span>
+                            </div>
+                        </div>
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box skills"><i data-lucide="heart"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">Peer shout-out</span>
+                                <span class="report-row-value">Two teammates named Priya as the person who helped most this session.</span>
+                            </div>
+                        </div>
+                        <div class="report-row-item">
+                            <div class="report-row-icon-box skills"><i data-lucide="clipboard-list"></i></div>
+                            <div class="report-row-content">
+                                <span class="report-row-label">Coach note</span>
+                                <span class="report-row-value">Six weeks ago she wouldn't speak unless called on. Ask her how she stepped in.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: ADVISORY TEAM -->
+    <section class="advisory-section" id="advisory">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 3rem;">Advisory Board</h2>
+            <div class="grid-4" style="margin-bottom: 2rem;">
+                <!-- Al Lewis -->
+                <div class="team-container">
+                    <div class="team-card" onclick="this.classList.toggle('flipped')">
+                        <div class="team-card-front">
+                            <img src="./assets/team/Al_Lewis.png?v=3" alt="Dr. Al Lewis">
+                            <div class="team-card-overlay">
+                                <h3>Dr. Al Lewis</h3>
+                                <p>Strategic Advisor</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h3>Dr. Al Lewis</h3>
+                            <p class="role">Strategic Advisor</p>
+                            <p class="bio">Servant leader. Student-first superintendent. Innovation through people.</p>
+                            <div class="detail-item"><strong>Nickname</strong> The Coach</div>
+                            <div class="detail-item"><strong>Superpower</strong> Turning Schools Around</div>
+                            <div class="detail-item"><strong>Interests</strong> Youth ice hockey, history, stargazing</div>
+                            <div class="team-social-links">
+                                <a href="https://www.linkedin.com/in/al-lewis-supt/" target="_blank"><i data-lucide="linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Melvin -->
+                <div class="team-container">
+                    <div class="team-card" onclick="this.classList.toggle('flipped')">
+                        <div class="team-card-front">
+                            <img src="./assets/team/Melvin.png?v=3" alt="Dr. Melvin J. Brown">
+                            <div class="team-card-overlay">
+                                <h3>Dr. Melvin J. Brown</h3>
+                                <p>Strategic Advisor</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h3>Dr. Melvin J. Brown</h3>
+                            <p class="role">Strategic Advisor</p>
+                            <p class="bio">Superintendent in Residence. Author. Equity advocate. Career-connected learning champion.</p>
+                            <div class="detail-item"><strong>Nickname</strong> The Catalyst</div>
+                            <div class="detail-item"><strong>Superpower</strong> Dismantling Barriers at Scale</div>
+                            <div class="detail-item"><strong>Interests</strong> Writing, community events, mentoring leaders</div>
+                            <div class="team-social-links">
+                                <a href="https://www.linkedin.com/in/melvin-j-brown-ed-d-620b847/" target="_blank"><i data-lucide="linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Debbie -->
+                <div class="team-container">
+                    <div class="team-card" onclick="this.classList.toggle('flipped')">
+                        <div class="team-card-front">
+                            <img src="./assets/team/Debbie.jpg?v=3" alt="Dr. Debbie Brockett">
+                            <div class="team-card-overlay">
+                                <h3>Dr. Debbie Brockett</h3>
+                                <p>Strategic Advisor</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h3>Dr. Debbie Brockett</h3>
+                            <p class="role">Strategic Advisor</p>
+                            <p class="bio">Closes achievement gaps. Drives instructional transformation. Builds future-ready systems.</p>
+                            <div class="detail-item"><strong>Nickname</strong> The Strategist</div>
+                            <div class="detail-item"><strong>Superpower</strong> Aligning Systems for Equity</div>
+                            <div class="detail-item"><strong>Interests</strong> Policy research, mentoring leaders, reflective walks</div>
+                            <div class="team-social-links">
+                                <a href="https://www.linkedin.com/in/debbie-brockett/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chelsea -->
+                <div class="team-container">
+                    <div class="team-card" onclick="this.classList.toggle('flipped')">
+                        <div class="team-card-front">
+                            <img src="./assets/team/Chelsea.png?v=4" alt="Chelsea Dean">
+                            <div class="team-card-overlay">
+                                <h3>Chelsea Dean</h3>
+                                <p>Director of Curriculum</p>
+                            </div>
+                        </div>
+                        <div class="team-card-back">
+                            <h3>Chelsea Dean</h3>
+                            <p class="role">Director of Curriculum</p>
+                            <p class="bio">Educator, Counselor. Loves creating and building things that focus on impact.</p>
+                            <div class="detail-item"><strong>Nickname</strong> Toddles</div>
+                            <div class="detail-item"><strong>Superpower</strong> Empathy</div>
+                            <div class="detail-item"><strong>Interests</strong> Crocheting, Baking, Random fact finding</div>
+                            <div class="team-social-links">
+                                <a href="https://www.linkedin.com/in/chelsea-dean/" target="_blank"><i data-lucide="linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: FAQ SECTION -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            
+            <div class="faq-accordion-container">
+                
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">Can my child do both programs at once?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        Yes, they can, but we usually recommend starting with one program (either Tomo AI Lab or Tomo Life Skills) to allow your child to fully engage with their weekly cohort and build consistent habits. Once they complete a 12-week term, they can easily switch to the other track.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">What grades are covered?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        Our parent-led cohort programs cover Grades 3–8. We group children into peer-appropriate cohorts (typically Grades 3–5 and Grades 6–8) so they work and discuss with peers of similar ages and developmental stages.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">How is this different from Synthesis Teams?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        While both programs use strategic, game-based learning, TomoClub is uniquely focused on K-12 implementation that blends critical future-ready human skills (like leadership, active listening, and conflict resolution) with practical AI literacy. Our instructors are trained to facilitate deep reflective debriefs that bridge what students do in game challenges to real-life situations and school performance.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">What does the free trial include?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        The free trial includes one full 60-minute live session with a real coach and a small cohort of peers (up to 8 students). It's a risk-free way for your child to experience the gameplay and collaboration firsthand, and for you to receive their very first parent session report. No credit card is required.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">Is pricing per child or per family?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        Pricing is per child (monthly subscription of $99 / ₹4,999). This covers their dedicated slot in a weekly 8-student cohort, live coaching, access to all platform tools, and personalized weekly parent report cards.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">What device does my child need?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        Your child needs a laptop or desktop computer with a working webcam, microphone, and a stable internet connection. Because our sessions are highly interactive and involve strategic multiplayer games, tablets and mobile phones are not supported.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">My child's school uses AI tools — isn't that enough?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        Most schools that use AI tools focus on productivity (like generating text or correcting code). Tomo AI Lab focuses on critical thinking, ethical analysis, understanding bias, data privacy, and detecting hallucinations. We teach kids how to *question* and *direct* AI, not just consume it.
+                    </div>
+                </div>
+
+                <div class="parents-faq-item" onclick="toggleFaq(this)">
+                    <div class="parents-faq-question-row">
+                        <span class="parents-faq-question">Are sessions recorded?</span>
+                        <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
+                    </div>
+                    <div class="parents-faq-answer">
+                        For student privacy and to encourage active, uninhibited participation in discussions, we do not record student video/audio. However, our coaches take detailed session notes on each student's progress and contributions to compile your weekly parent report cards.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- NEWSLETTER SUBSCRIPTION SECTION -->
+    <section style="padding: 5rem 0; border-bottom: 1px solid var(--border-color); background: var(--bg-main);">
+        <div class="container">
+            <div class="newsletter-box" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 28px; padding: 3.5rem 3rem; max-width: 720px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.08);">
+                <!-- decorative glows -->
+                <div style="position:absolute;top:-80px;right:-80px;width:220px;height:220px;background:radial-gradient(circle,rgba(42,180,184,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+                <div style="position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(180,74,90,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+                <div style="position:relative;z-index:1;">
+                    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(42,180,184,0.1);color:var(--brand-cyan);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem;">Weekly Insights</div>
+                    <h2 style="font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.2;margin-bottom:1rem;color:var(--text-primary);">Stay ahead of the <span style="color:var(--brand-cyan);">AI curve.</span></h2>
+                    <p style="color:var(--text-muted);font-size:15px;margin-bottom:2rem;line-height:1.6;">Parenting tips, AI literacy updates, and classroom insights delivered every Sunday. Join 2,500+ parents and educators.</p>
+                    <form id="parents-newsletter-form" class="newsletter-form" onsubmit="handleParentsNewsletter(event)" style="display:flex;gap:0.75rem;max-width:460px;margin:0 auto;background:var(--surface-alt);padding:0.4rem;border-radius:100px;border:1px solid var(--border-color);">
+                        <input type="email" name="email" placeholder="Enter your email address" required style="flex:1;min-width:0;padding:0.75rem 1.25rem;border:none;background:transparent;color:var(--text-primary);font-size:14px;outline:none;border-radius:100px;">
+                        <button type="submit" style="background:var(--brand-cyan);color:#fff;border:none;border-radius:100px;padding:0.75rem 1.5rem;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap;transition:background 0.2s ease;" onmouseover="this.style.background='var(--brand-cyan-dark)'" onmouseout="this.style.background='var(--brand-cyan)'">Subscribe</button>
+                    </form>
+                    <div id="parents-newsletter-success" style="display:none;margin-top:1.5rem;padding:1rem;background:rgba(42,180,184,0.08);border-radius:12px;border:1px solid rgba(42,180,184,0.2);">
+                        <p style="color:var(--brand-cyan);font-weight:600;margin:0;">&#10003; Welcome! Check your inbox for our latest edition.</p>
+                    </div>
+                    <p style="font-size:12px;color:var(--text-dim);margin-top:1.25rem;">No spam. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- READ BLOGS + PODCAST SECTION -->
+    <section style="padding: 5rem 0; border-bottom: 1px solid var(--border-color); background: var(--surface-alt);">
+        <div class="container">
+            <div class="blog-podcast-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+
+                <!-- Blogs Column -->
+                <div>
+                    <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:var(--brand-cyan);text-transform:uppercase;margin-bottom:0.75rem;">For Parents</div>
+                    <h2 style="font-size:24px;margin-bottom:0.5rem;">Read Our Blog</h2>
+                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;">Research-backed insights on raising future-ready kids in an AI-first world.</p>
+
+                    <div style="display:flex;flex-direction:column;gap:1rem;">
+                        <a href="/blog/how-can-schools-cultivate-leadership-skills-in-students/" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(42,180,184,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="file-text" style="color:var(--brand-cyan);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">How Can Schools Cultivate Leadership Skills in Students?</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Leadership &middot; 5 min read</div>
+                            </div>
+                        </a>
+
+                        <a href="/blog/how-life-skills-can-boost-academic-performance/" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(180,74,90,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="file-text" style="color:var(--brand-rose);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">How Life Skills Can Boost Academic Performance</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Life Skills &middot; 6 min read</div>
+                            </div>
+                        </a>
+
+                        <a href="/blog/how-game-based-learning-develops-essential-life-skills/" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(42,180,184,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="file-text" style="color:var(--brand-cyan);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">How Game-Based Learning Develops Essential Life Skills</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Pedagogy &middot; 5 min read</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="margin-top:1.5rem;">
+                        <a href="/#blog" style="display:inline-flex;align-items:center;gap:6px;color:var(--brand-cyan);font-weight:600;font-size:14px;text-decoration:none;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+                            Read all blogs <i data-lucide="arrow-right" style="width:15px;height:15px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Podcast Column -->
+                <div>
+                    <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:var(--brand-rose);text-transform:uppercase;margin-bottom:0.75rem;">Play &amp; Learn</div>
+                    <h2 style="font-size:24px;margin-bottom:0.5rem;">Listen to Our Podcast</h2>
+                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;">Conversations with educators, superintendents, and parents on the future of K&ndash;12 education.</p>
+
+                    <div style="display:flex;flex-direction:column;gap:1rem;">
+                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(180,74,90,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="mic" style="color:var(--brand-rose);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">AI in K&ndash;12: What Parents Need to Know</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Episode &middot; Play &amp; Learn Podcast</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(42,180,184,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="mic" style="color:var(--brand-cyan);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Game-Based Learning: Why It Works for Every Child</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Episode &middot; Play &amp; Learn Podcast</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                            <div style="width:40px;height:40px;background:rgba(180,74,90,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <i data-lucide="mic" style="color:var(--brand-rose);width:18px;height:18px;margin:auto;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Raising Resilient Kids in an AI-Driven World</div>
+                                <div style="font-size:12px;color:var(--text-muted);">Episode &middot; Play &amp; Learn Podcast</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="margin-top:1.5rem;">
+                        <a href="/#podcast" style="display:inline-flex;align-items:center;gap:6px;color:var(--brand-rose);font-weight:600;font-size:14px;text-decoration:none;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+                            Browse all episodes <i data-lucide="arrow-right" style="width:15px;height:15px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: SPLIT CTA SECTION -->
+    <section class="cta-trials-section">
+        <div class="container">
+            <div class="cta-panels-grid">
+                
+                <!-- AI Lab Panel -->
+                <div class="cta-trial-panel ai">
+                    <div>
+                        <div class="cta-panel-title">Tomo AI Lab</div>
+                        <div class="cta-panel-desc">For the child curious about technology — and the parent who wants them ahead of AI, not behind it.</div>
+                    </div>
+                    <div>
+                        <a href="mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20AI%20Lab.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" class="btn-panel-action">Book AI Lab trial &rarr;</a>
+                        <div class="panel-fineprint">Grades 3–8 &middot; $99/mo &middot; &#8377;4,999/mo</div>
+                    </div>
+                </div>
+
+                <!-- Life Skills Panel -->
+                <div class="cta-trial-panel skills">
+                    <div>
+                        <div class="cta-panel-title">Tomo Life Skills</div>
+                        <div class="cta-panel-desc">For the child who needs their voice — and the parent who knows confidence can't come from a textbook.</div>
+                    </div>
+                    <div>
+                        <a href="mailto:info@tomoclub.com?subject=Book%20a%20Free%20Trial%20%E2%80%94%20Tomo%20Life%20Skills&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20Life%20Skills.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" class="btn-panel-action">Book a Free Trial &rarr;</a>
+                        <div class="panel-fineprint">Grades 3–8 &middot; $99/mo &middot; &#8377;4,999/mo</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cta-contact-row">
+                Or reach us &middot; <a href="mailto:info@tomoclub.com">info@tomoclub.com</a> &middot; <a href="tel:+16505478082">+1 (650) 547-8082</a> &middot; <a href="/">tomoclub.org</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 13: FOOTER (EXACT MATCH TO INDEX.HTML) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="/#home" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
+                        <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                    </a>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
+                        <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <span style="display: block; font-weight: 700; color: var(--navy);">Call Us</span>
+                                <a href="tel:+16505478082" style="color: var(--text-muted);">+1 650 547-8082</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="mail" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <div>
+                                <a href="mailto:info@tomoclub.org" style="color: var(--text-muted);">info@tomoclub.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Location</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+                            <i data-lucide="map-pin" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
+                            <span style="color: var(--text-muted); line-height: 1.4;">4197 Tuller Road, Dublin,<br>OHIO 43017, USA</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Programs</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="/#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
+                        <li><a href="/#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TomoClub. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
+                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
+                    <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="pilot-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 650px !important; padding: 0 !important; overflow: hidden !important; height: 90vh !important; background: #FFFFFF !important; border-radius: 24px !important; border: 1px solid #E2E8F0 !important;">
+            <button class="modal-close" id="close-pilot-btn" style="position: absolute; top: 1rem; right: 1rem; z-index: 1000; background: #F8FAFC; color: #0F172A; border: 1px solid #E2E8F0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i data-lucide="x"></i></button>
+            
+            <div style="width: 100% !important; height: 100% !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; background: #FFFFFF !important;">
+                <!-- Brevo Form Start -->
+                <style>
+                  /* Reset and Global Font Fixes for Modal */
+                  #pilot-modal, #pilot-modal * { 
+                    font-family: 'Outfit', sans-serif !important; 
+                    box-sizing: border-box !important;
+                  }
+                  
+                  /* Force all text to be dark in this modal */
+                  #pilot-modal p, 
+                  #pilot-modal span, 
+                  #pilot-modal label, 
+                  #pilot-modal div:not(.sib-form-message-panel) { 
+                    color: #0F172A !important; 
+                  }
+                  
+                  /* Hide message panels by default */
+                  #pilot-modal .sib-form-message-panel { 
+                    display: none !important; 
+                  }
+                  
+                  /* Show them when they are active (Brevo script handles this) */
+                  #pilot-modal .sib-form-message-panel--active {
+                    display: block !important;
+                  }
+
+                  #sib-container input::placeholder, 
+                  #sib-container textarea::placeholder { 
+                    color: #94A3B8 !important; 
+                  }
+                  
+                  /* Form Container Fixes */
+                  #pilot-modal .sib-form { 
+                    background: #FFFFFF !important; 
+                    padding: 3rem 0 !important; 
+                    margin: 0 !important;
+                  }
+                  
+                  #pilot-modal #sib-container { 
+                    border: none !important; 
+                    box-shadow: none !important; 
+                    width: 100% !important; 
+                    max-width: 100% !important; 
+                    background: #FFFFFF !important; 
+                    padding: 0 !important;
+                  }
+                  
+                  /* Label and Input Styling */
+                  #pilot-modal .entry__label { 
+                    color: #0F172A !important; 
+                    font-weight: 700 !important; 
+                    font-size: 0.85rem !important; 
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.05em !important;
+                    margin-bottom: 0.5rem !important;
+                    display: block !important;
+                    text-align: left !important;
+                  }
+                  
+                  #pilot-modal .input { 
+                    width: 100% !important; 
+                    padding: 0.875rem 1.25rem !important; 
+                    border: 1px solid #E2E8F0 !important; 
+                    border-radius: 12px !important; 
+                    font-size: 1rem !important; 
+                    color: #0F172A !important; 
+                    background: #F8FAFC !important; 
+                    transition: all 0.3s ease !important;
+                    height: auto !important;
+                    box-shadow: none !important;
+                  }
+                  
+                  #pilot-modal .input:focus { 
+                    border-color: #2AB4B8 !important; 
+                    box-shadow: 0 0 0 4px rgba(42, 180, 184, 0.1) !important; 
+                    outline: none !important;
+                    background: #FFFFFF !important;
+                  }
+
+                  /* Button Fixes */
+                  #pilot-modal .sib-form-block__button {
+                    background-color: #2AB4B8 !important;
+                    color: #FFFFFF !important;
+                    border-radius: 999px !important;
+                    padding: 1.1rem 3rem !important;
+                    font-weight: 800 !important;
+                    font-size: 1.1rem !important;
+                    letter-spacing: 0.02em !important;
+                    transition: all 0.3s ease !important;
+                    width: 100% !important;
+                    cursor: pointer !important;
+                    border: none !important;
+                    margin-top: 1rem !important;
+                    box-shadow: 0 10px 20px rgba(42, 180, 184, 0.2) !important;
+                  }
+                  
+                  #pilot-modal .sib-form-block__button:hover {
+                    background-color: #0F172A !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2) !important;
+                  }
+
+                  /* Checkbox Visibility Force */
+                  #pilot-modal .entry__choice {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    gap: 12px !important;
+                    margin-top: 0.5rem !important;
+                  }
+
+                  #pilot-modal input[type="checkbox"] {
+                    display: inline-block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    width: 20px !important;
+                    height: 20px !important;
+                    min-width: 20px !important;
+                    min-height: 20px !important;
+                    margin: 0 !important;
+                    cursor: pointer !important;
+                    appearance: auto !important;
+                    -webkit-appearance: auto !important;
+                    border: 2px solid #CBD5E1 !important;
+                    accent-color: #2AB4B8 !important;
+                    position: relative !important;
+                    left: 0 !important;
+                    top: 0 !important;
+                    z-index: 10 !important;
+                  }
+
+                  #pilot-modal .entry__choice label {
+                    color: #475569 !important;
+                    font-size: 0.9rem !important;
+                    cursor: pointer !important;
+                    display: inline !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    text-align: left !important;
+                  }
+
+                  #pilot-modal .entry__choice label span {
+                    display: inline !important;
+                    color: inherit !important;
+                  }
+
+                  /* Mandatory Asterisk */
+                  #pilot-modal .entry__label::after {
+                    content: " *";
+                    color: #EF4444 !important;
+                  }
+                </style>
+                <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+                <div class="sib-form">
+                  <div id="sib-form-container" class="sib-form-container">
+                    <!-- Messages (Hidden by default via CSS above) -->
+                    <div id="error-message" class="sib-form-message-panel" style="background-color:#ffeded; border-color:#ff4949; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text" style="color:#661d1d !important;">Your request could not be saved. Please try again.</span>
+                      </div>
+                    </div>
+                    <div id="success-message" class="sib-form-message-panel" style="background-color:#e7faf0; border-color:#13ce66; border-radius:12px; max-width:540px; margin: 0 auto 1.5rem; padding: 1rem;">
+                      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                        <span class="sib-form-message-panel__inner-text" style="color:#085229 !important;">A member of our team will contact you shortly!</span>
+                      </div>
+                    </div>
+
+                    <div id="sib-container" class="sib-container--large sib-container--vertical">
+                      <form id="sib-form" method="POST" action="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" data-type="subscription">
+                        <div style="padding: 0 0 1rem; text-align: center;">
+                          <img src="https://img.mailinblue.com/11113119/images/content_library/original/69fe0e32c0930e7c61563b25.png" style="width: 180px; height: auto;" alt="TomoClub" />
+                        </div>
+
+                        <div style="padding: 0 0 0.5rem; text-align: center;">
+                          <h3 style="font-size:24px; font-weight:800; color:#0F172A; margin: 0;">Interested in TomoClub?</h3>
+                        </div>
+
+                        <div style="padding: 0 0 2rem; text-align: center;">
+                          <p style="font-size:16px; color:#475569; margin: 0;">Fill the form below and we'll get in touch.</p>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="FIRSTNAME">FIRST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME" autocomplete="off" required placeholder="Jane" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="LASTNAME">LAST NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME" autocomplete="off" required placeholder="Doe" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="EMAIL">WORK EMAIL</label>
+                              <div class="entry__field">
+                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" required placeholder="jane@school.org" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="name">SCHOOL OR DISTRICT NAME</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" required placeholder="Lincoln High" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="industry">STATE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" required placeholder="California" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="JOB_TITLE">ROLE</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" required placeholder="Principal" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 1.25rem;">
+                          <div class="sib-input sib-form-block">
+                            <div class="form__entry entry_block">
+                              <label class="entry__label" for="MESSAGE">Any specific requests?</label>
+                              <div class="entry__field">
+                                <input class="input" maxlength="200" type="text" id="MESSAGE" name="MESSAGE" autocomplete="off" required placeholder="Tell us more about your needs..." />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 2rem;">
+                          <div class="sib-optin sib-form-block">
+                            <div class="form__entry entry_mcq">
+                              <div class="entry__choice">
+                                <label>
+                                  <input type="checkbox" class="input_replaced" value="1" id="FORM_CONSENT" name="FORM_CONSENT" required />
+                                  <span>I agree for TomoClub to contact me. <span style="font-size: 0.75rem; color: #64748B !important;">(Mandatory)</span></span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="padding: 0 2.5rem 2rem;">
+                          <div class="sib-form-block" style="text-align: center">
+                            <button class="sib-form-block__button" type="submit">SUBMIT REQUEST</button>
+                          </div>
+                        </div>
+
+                        <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none">
+                        <input type="hidden" name="locale" value="en">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+                  window.LOCALE = 'en';
+                  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+                  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+                  window.INVALID_DATE = "Please enter a valid date";
+                  window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+                  window.translation = {
+                    common: {
+                      selectedList: '{quantity} list selected',
+                      selectedLists: '{quantity} lists selected',
+                      selectedOption: '{quantity} selected',
+                      selectedOptions: '{quantity} selected',
+                    }
+                  };
+                  var AUTOHIDE = Boolean(0);
+                </script>
+                <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+                <!-- Brevo Form End -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+    <!-- INTERACTIVE JAVASCRIPT BEHAVIOR -->
+    <script>
+        // Smooth scrolling for Scroll Spy Links
+        function scrollToSection(id, btn) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Update active button state
+                const spyBtns = document.querySelectorAll('.spy-btn');
+                spyBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+        }
+
+        function scrollToQuiz(e) {
+            e.preventDefault();
+            const quizEl = document.getElementById('quiz');
+            if (quizEl) {
+                quizEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // update scrollspy active state
+                const spyBtns = document.querySelectorAll('.spy-btn');
+                spyBtns.forEach(b => {
+                    b.classList.remove('active');
+                    if (b.textContent === 'Quiz') b.classList.add('active');
+                });
+            }
+        }
+
+        function scrollToPrograms(e) {
+            e.preventDefault();
+            const progEl = document.getElementById('programs');
+            if (progEl) {
+                progEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // update scrollspy active state
+                const spyBtns = document.querySelectorAll('.spy-btn');
+                spyBtns.forEach(b => {
+                    b.classList.remove('active');
+                    if (b.textContent === 'Programs') b.classList.add('active');
+                });
+            }
+        }
+
+        // Count-up animation for stat numbers
+        (function() {
+            function animateCount(el) {
+                const target = parseFloat(el.dataset.target);
+                const suffix = el.dataset.suffix || '';
+                const prefix = el.dataset.prefix || '';
+                const isFloat = el.dataset.float === 'true';
+                const formatComma = el.dataset.comma === 'true';
+                const duration = 1200;
+                const start = performance.now();
+                const easeOut = t => 1 - Math.pow(1 - t, 3);
+                function step(now) {
+                    const elapsed = Math.min((now - start) / duration, 1);
+                    let value = easeOut(elapsed) * target;
+                    if (!isFloat) {
+                        value = Math.round(value);
+                        if (formatComma) {
+                            value = value.toLocaleString();
+                        }
+                    } else {
+                        value = value.toFixed(1);
+                    }
+                    el.textContent = prefix + value + suffix;
+                    if (elapsed < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCount(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.stat-count').forEach(el => observer.observe(el));
+        })();
+
+        // Parents Newsletter Form Handler
+        function handleParentsNewsletter(e) {
+            e.preventDefault();
+            const form = document.getElementById('parents-newsletter-form');
+            const successMsg = document.getElementById('parents-newsletter-success');
+            if (form && successMsg) {
+                const emailInput = form.querySelector('input[type="email"]');
+                if (emailInput && emailInput.value) {
+                    fetch('https://script.google.com/macros/s/AKfycbxzZn3tSOq9vRQq8QmVwh6poxIHRU-gQjaTSqLk2Gf_bHlnBmxdCGdM-NHuqHOJoC4/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: emailInput.value, source: 'parents-newsletter' })
+                    }).catch(() => {});
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                }
+            }
+        }
+
+        // Quiz Interactive Script
+        let quizAnswers = { A: 0, B: 0, C: 0 };
+
+        let currentStep = 1;
+
+        function selectOption(step, option) {
+            // Add visual selection class to clicked option
+            const stepEl = document.getElementById(`quiz-step-${step}`);
+            const optionsBtns = stepEl.querySelectorAll('.quiz-option-btn');
+            optionsBtns.forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.querySelector('.quiz-option-icon').textContent === option) {
+                    btn.classList.add('selected');
+                }
+            });
+
+            // Set state
+            quizAnswers[option] = (quizAnswers[option] || 0) + 1;
+
+            // Mark dot completed
+            const dot = document.getElementById(`dot-${step}`);
+            if (dot) {
+                dot.classList.add('completed');
+                dot.classList.remove('current');
+            }
+
+            // Stagger delay for next slide transition (280ms)
+            setTimeout(() => {
+                if (step < 3) {
+                    stepEl.classList.remove('active');
+                    currentStep = step + 1;
+                    const nextStepEl = document.getElementById(`quiz-step-${currentStep}`);
+                    nextStepEl.classList.add('active');
+                    
+                    const nextDot = document.getElementById(`dot-${currentStep}`);
+                    if (nextDot) nextDot.classList.add('current');
+                } else {
+                    // Tallies score majority
+                    showQuizResults();
+                }
+            }, 280);
+        }
+
+        function showQuizResults() {
+            // Hide Q3 card
+            document.getElementById('quiz-step-3').classList.remove('active');
+            
+            // Calculate majority
+            const resultBadge = document.getElementById('result-badge-el');
+            const resultTitle = document.getElementById('result-title-el');
+            const resultDesc = document.getElementById('result-desc-el');
+            const resultCta = document.getElementById('result-primary-cta');
+
+            if (quizAnswers['A'] >= 2) {
+                // Recommend AI Lab
+                resultBadge.textContent = 'AI Literacy';
+                resultBadge.style.backgroundColor = 'rgba(42, 180, 184, 0.12)';
+                resultBadge.style.color = 'var(--brand-cyan)';
+                
+                resultTitle.textContent = 'We recommend Tomo AI Lab';
+                resultDesc.textContent = 'Your child heads straight to tech or internet content. In Tomo AI Lab, they will transition from passive scrolling to active creation, ethical reasoning, and building real projects with AI.';
+                
+                resultCta.textContent = 'Book free AI Lab trial →';
+                resultCta.className = 'result-btn-trial ai';
+                resultCta.href = "mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20AI%20Lab.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!";
+            } else if (quizAnswers['B'] >= 2) {
+                // Recommend Life Skills
+                resultBadge.textContent = 'Life Skills';
+                resultBadge.style.backgroundColor = 'rgba(180, 74, 90, 0.12)';
+                resultBadge.style.color = 'var(--brand-rose)';
+                
+                resultTitle.textContent = 'We recommend Tomo Life Skills';
+                resultDesc.textContent = 'Your child values collaboration and peers but sometimes struggles to find their voice or handle group dynamics. Tomo Life Skills focuses on speaking confidently, managing conflict constructively, and leading.';
+                
+                resultCta.textContent = 'Book free Life Skills trial →';
+                resultCta.className = 'result-btn-trial skills';
+                resultCta.href = "mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20Life%20Skills&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20Life%20Skills.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!";
+            } else {
+                // Mixed result
+                resultBadge.textContent = 'Double Fit';
+                resultBadge.style.backgroundColor = 'rgba(232, 198, 45, 0.12)';
+                resultBadge.style.color = 'var(--brand-yellow)';
+                
+                resultTitle.textContent = 'Your child is a double fit!';
+                resultDesc.textContent = 'They show strong interests in both technology exploration and peer collaboration. We recommend trying both trial sessions to see which format fits best, or starting with AI Lab and switching later.';
+                
+                resultCta.textContent = 'Book trials for both →';
+                resultCta.className = 'result-btn-trial ai';
+                resultCta.href = "mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab%20and%20Life%20Skills&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20free%20trials%20for%20my%20child%20for%20both%20Tomo%20AI%20Lab%20and%20Tomo%20Life%20Skills%20cohorts.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!";
+            }
+
+            // Show results block
+            document.getElementById('quiz-result').classList.add('active');
+        }
+
+        function restartQuiz() {
+            // Reset state
+            quizAnswers = { A: 0, B: 0, C: 0 };
+            currentStep = 1;
+
+            // Reset dots
+            document.getElementById('dot-1').className = 'progress-dot current';
+            document.getElementById('dot-2').className = 'progress-dot';
+            document.getElementById('dot-3').className = 'progress-dot';
+
+            // Reset selected states
+            document.querySelectorAll('.quiz-option-btn').forEach(btn => btn.classList.remove('selected'));
+
+            // Show Q1, Hide Results
+            document.getElementById('quiz-result').classList.remove('active');
+            document.getElementById('quiz-step-1').classList.add('active');
+        }
+
+        // Quiz Escape Hatch submission
+        function submitEscapeHatch(e) {
+            e.preventDefault();
+            const textInput = document.getElementById('escape-text');
+            const submitBtn = document.getElementById('escape-submit-btn');
+            
+            // Disable input and button
+            textInput.disabled = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sent';
+            submitBtn.style.opacity = 0.5;
+
+            // Show confirmation
+            document.getElementById('escape-confirm').style.display = 'block';
+
+            // In production, wire this to info@tomoclub.com or Zoho CRM
+            console.log("Escape Hatch Submission:", textInput.value);
+        }
+
+        // FAQ Accordion Toggle
+        function toggleFaq(item) {
+            // Toggle open class
+            item.classList.toggle('open');
+        }
+
+        // Scroll spy active tab trigger based on viewport position
+        window.addEventListener('scroll', () => {
+            const sections = ['overview', 'quiz', 'programs', 'sessions', 'reports', 'faq'];
+            let current = 'overview';
+            
+            sections.forEach(sec => {
+                const el = document.getElementById(sec);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    // If the section top is above the middle of screen
+                    if (rect.top <= 150) {
+                        current = sec;
+                    }
+                }
+            });
+
+            // Update spy buttons active state
+            const spyBtns = document.querySelectorAll('.spy-btn');
+            spyBtns.forEach(btn => {
+                btn.classList.remove('active');
+                const onClickAttr = btn.getAttribute('onclick');
+                if (onClickAttr && onClickAttr.includes(current)) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Theme Toggle Javascript Logic
+        let updateThemeUI = (isDark) => {};
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        if (themeToggleBtn) {
+            updateThemeUI = (isDark) => {
+                const moonIcon = themeToggleBtn.querySelector('.theme-icon-moon');
+                const sunIcon = themeToggleBtn.querySelector('.theme-icon-sun');
+                if (isDark) {
+                    document.body.classList.add('dark-theme');
+                    document.documentElement.classList.add('dark-theme');
+                    if (moonIcon) moonIcon.style.display = 'none';
+                    if (sunIcon) sunIcon.style.display = 'block';
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    document.documentElement.classList.remove('dark-theme');
+                    if (moonIcon) moonIcon.style.display = 'block';
+                    if (sunIcon) sunIcon.style.display = 'none';
+                }
+            };
+
+            // Initial UI sync based on class applied in head
+            updateThemeUI(document.documentElement.classList.contains('dark-theme'));
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('dark-theme');
+                document.documentElement.classList.toggle('dark-theme', isDark);
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeUI(isDark);
+            });
+        }
+
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            // Update theme UI icons after Lucide replaces them
+            updateThemeUI(document.documentElement.classList.contains('dark-theme'));
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinksContainer = document.getElementById('nav-links');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+        
+        if (mobileMenuToggle && navLinksContainer) {
+            mobileMenuToggle.addEventListener('click', () => {
+                const isActive = navLinksContainer.classList.toggle('active');
+                if (menuIconOpen && menuIconClose) {
+                    menuIconOpen.style.display = isActive ? 'none' : 'block';
+                    menuIconClose.style.display = isActive ? 'block' : 'none';
+                }
+            });
+            
+            // Close menu when links are clicked
+            const links = navLinksContainer.querySelectorAll('.nav-item > a');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const dropdown = link.parentElement.querySelector('.dropdown');
+                    if (dropdown && window.innerWidth <= 720) {
+                        // Dropdown click on mobile
+                        e.preventDefault();
+                        const isOpen = dropdown.style.display === 'block';
+                        dropdown.style.display = isOpen ? 'none' : 'block';
+                        const icon = link.querySelector('i') || link.querySelector('svg');
+                        if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                    } else {
+                        // Regular link click
+                        navLinksContainer.classList.remove('active');
+                        if (menuIconOpen && menuIconClose) {
+                            menuIconOpen.style.display = 'block';
+                            menuIconClose.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        }
+
+        // Pilot Modal Interaction
+        const pilotModal = document.getElementById('pilot-modal');
+        const openPilotBtns = document.querySelectorAll('.open-pilot-modal');
+        const closePilotBtn = document.getElementById('close-pilot-btn');
+        
+        if (pilotModal && openPilotBtns.length > 0) {
+            openPilotBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    pilotModal.classList.add('active');
+                    
+                    // Reset success/error panel state if needed
+                    const successMessage = document.getElementById('success-message');
+                    const errorMessage = document.getElementById('error-message');
+                    const sibContainer = document.getElementById('sib-container');
+                    
+                    if (successMessage) successMessage.classList.remove('sib-form-message-panel--active');
+                    if (errorMessage) errorMessage.classList.remove('sib-form-message-panel--active');
+                    if (sibContainer) sibContainer.style.display = 'block';
+                });
+            });
+            
+            if (closePilotBtn) {
+                closePilotBtn.addEventListener('click', () => {
+                    pilotModal.classList.remove('active');
+                });
+            }
+            
+            pilotModal.addEventListener('click', (e) => {
+                if (e.target === pilotModal) {
+                    pilotModal.classList.remove('active');
+                }
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+</body>
+</html>
