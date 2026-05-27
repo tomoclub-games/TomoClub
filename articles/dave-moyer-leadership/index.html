@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway">
+    <title>How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway | TomoClub Education Hall">
+    <meta property="og:description" content="How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway | TomoClub Education Hall">
+    <meta name="twitter:description" content="How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">May 27, 2026</span>
+                </div>
+                <h1 class="article-title">How Dave Moyer Leads Districts That Have Seen Everything, And Gets Them Moving Anyway</h1>
+                <img src="../images/article-8-dave.png" alt="Dave Moyer" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>This isn't your typical leadership story, with a framework and a plan.</p>
+            <p>Dave Moyer's story started with a knife search.</p>
+            <p>First hour of his first day as an assistant high school principal, having never done any of this before, he had to conduct two searches, one for a knife, one for drugs, and handle a suspension for a special education student who got into a fight, all before lunch.</p>
+            <p>His first day as a high school principal? Teachers picketing on the front sidewalk. First Cabinet meeting as a superintendent? They were reviewing strike plans. A few months into that same job, Wisconsin Governor Walker signed Act 10, dismantling union bargaining rights and sending thousands of protestors to the Capitol in Madison.</p>
+            <p>"I've seen a lot," he says. "With that said, every time I think that I've seen it all, there is something new."</p>
+            <p>That's the thing about Dave Moyer. He's not leading from theory. He's leading from four decades of being thrown into situations that would make most people walk out the door, and figuring out how to move forward anyway. What he's built from all of it is a leadership philosophy that is blunt, deeply human, and surprisingly consistent, no matter the size or shape of the district.</p>
+
+            <h3>The Coaching Instinct That Changed How He Leads</h3>
+            <p>Before Dave was a superintendent, before he was a principal, he was a coach. And the mindset he developed on the field is the one he still uses in the district office.</p>
+            <p>In baseball, no player dominates all five skill areas — running, hitting, hitting with power, throwing, and fielding. Nobody does all of it. The coach's job is to build a nine-man lineup that makes the most of what each player actually brings. Cover the gaps, elevate the strengths, and win as a team.</p>
+            <p>"In education, we become too obsessed with remediating weaknesses and not enough time building on strengths," he says. "I think that I am pretty good at building teams and maximizing the strengths of the people on my team."</p>
+            <p>That sounds simple. But watch how it plays out in practice. When Dave builds a district leadership team, the first thing he looks for is a principal’s experience. Not just any background, but specifically that one. Because if you haven't been a building principal, he believes you genuinely cannot see what you need to see when you're making decisions that affect those buildings.</p>
+            <p>"If you have missed that step in your career, it is very hard to truly see the big picture on important issues," he says. "When you are supervising principals or programs that are in their buildings and don't understand their world, it can be problematic. I have seen this repeatedly."</p>
+            <p>He hires to fill a lineup. Everyone needs to have been on the field.</p>
+
+            <h3>The Decision That Got Him Death Threats</h3>
+            <p>Some leadership stories are about vision and strategy. Some are about doing something you knew was right and absorbing what came with it.</p>
+            <p>When Dave was superintendent in a district on the Mississippi River in Illinois, he looked at three elementary schools and made a call most leaders would have avoided. The plan: close the oldest school and a two-section elementary, build a Future-Focused school on the remaining site, and use the boundary changes to create something that didn't exist yet: a dual-language Spanish immersion program.</p>
+            <p>The two-section school they were closing was 90% Latino and Hispanic. Only half the students who attended it eventually graduated from high school. The new structure, he believed, would give those kids a real shot. Better programming. More access. A different trajectory.</p>
+            <p>The community didn't see it that way. Not at first.</p>
+            <p>"Neighborhood schools in urban areas are the lifeblood of those communities, and this decision was not without opposition," he says. They sold the property to a church, which converted it into a true community center — preserving something real for the neighborhood. But in the meantime, Dave received death threats. He had police escorts out of meetings.</p>
+            <p>All of it, for what he describes as "one of the best comprehensive plans that I have been a part of, or, to be a bit bold, possibly seen in my career as a superintendent."</p>
+            <p>"It's the way it goes."</p>
+            <p>That line isn't bitterness. It's just experience. He's been around long enough to know that the right call and the popular call aren't always the same call.</p>
+
+            <h3>"You're the District" — How He Manages Principals</h3>
+            <p>One of the clearest things Dave has figured out across multiple districts is this: principals who blame the district office for their building's problems are a symptom of a leadership failure, not a staffing one. And he won't let it slide.</p>
+            <p>"When the narrative is 'the district office this' and 'the district office that' — it's a problem," he says. "Guess what. We're the district. You're the district."</p>
+            <p>His framework is what PLC practitioners call loose-tight leadership. The non-negotiables are clear: board priorities, district goals, the overall direction. But inside that? Principals own their school improvement plans. They own student growth. They own how their staff meetings run and what feedback looks like in their buildings.</p>
+            <p>"You have to give them the autonomy to lead this work consistent with the nuances of their buildings. If you don't, you only give them ammunition to abdicate their responsibility to the district office."</p>
+            <p>He's also honest about what he's walked into most places. Principals who were hired to manage buildings, not improve them. People who never fully understood what learning alongside their staff was supposed to mean. So he doesn't just talk about PLCs — he runs every administrator meeting as one. Whatever he wants principals to do in their buildings, he models at the district level first.</p>
+            <p>There's another thing he won't do. He refuses to use the word "initiative." Teachers have been conditioned to hear it as a threat. One more thing stacked on top of everything else. "Most school districts add without taking away," he says. "That is NOT fair to teachers or good for students." If he wants something to actually take root, he has to help people see how it connects to what they're already doing — not how it's being added on top of it.</p>
+
+            <h3>On AI: "It's Not Going Away"</h3>
+            <p>Dave isn't someone who gets swept up in hype. He's seen enough trends come and go to know the difference between a real shift and noise. And on AI, he's pretty clear: it's a real shift.</p>
+            <p>"It is everywhere outside of school and will be part of life for the foreseeable future. It needs to be part of schools as well."</p>
+            <p>In his district, they're using it for the stuff that makes the most immediate sense — lesson planning, IEPs, communications, data analysis, presentations. Practical applications. Time savers. His team is learning it, getting more comfortable with it, building it into the workflow.</p>
+            <p>But the part he's most interested in isn't what AI can do for adults. It's what it can do for students. And what students need to know to use it well. His suggested framework for schools is a red-yellow-green system: no AI, AI for certain purposes, and go for it. Simple categories. Clear expectations. Students learn to ask better questions, edit the output, verify what they're getting.</p>
+            <p>"I am a fan of keeping things simple. All technological breakthroughs have had pros and cons. We need to have our eyes open, but we should not create hysteria."</p>
+            <p>That's about as level-headed a take as you'll find. No panic. No uncritical enthusiasm. Just someone who's seen enough change to know that the question is never whether to engage — it's how.</p>
+
+            <h3>What He'd Actually Tell Someone Who Wants His Job</h3>
+            <p>Dave's advice to aspiring superintendents isn't about leadership models or vision statements. It's more direct than that.</p>
+            <p>Read. Constantly. He gets daily updates from McKinsey. He pays attention to what's happening outside of education specifically because that's where most real innovation originates. "Sometimes people get to a certain point in their career and, for some mystifying reason, stop reading. You have to keep learning. The learning never stops."</p>
+            <p>Don't stay in one place your whole career waiting for the right opening. Go somewhere else. See something different. The insular view of what a school can be is one of education's biggest problems, and it usually starts with leaders who never left the district they started in.</p>
+            <p>Don't skip the principalship. He says this plainly and means it. There's no clean substitute for having done that job.</p>
+            <p>And then this, which might be the most honest thing he says: "Boards will make or break you. I have a good Board right now. That has not always been the case. You cannot do anything without a good and supportive Board."</p>
+            <p>No spin on that one. Just the truth.</p>
+
+            <h3>The Thing That's Stayed Consistent</h3>
+            <p>Across all the districts. All the strike plans and protests and contested school closures and police escorts. All of it.</p>
+            <p>What's stayed constant for Dave Moyer is the same thing that started in the dugout. Figure out what people do well. Put them where it counts. Don't waste time trying to turn a power hitter into a speedster. Build the lineup that wins.</p>
+            <p>In a field that has a tendency to chase every new idea while leaving the fundamentals of good human leadership behind, that's a more radical stance than it sounds.</p>
+
+            <h3>Why TomoClub Is Sharing This Story</h3>
+            <p>At TomoClub, we believe the leaders worth learning from aren't always the ones with the cleanest narratives. Sometimes it's the ones who've been through things most people haven't — and came out the other side with something real to say.</p>
+            <p>The Education Hall exists to surface exactly these kinds of stories. The ones that include death threats and police escorts. The ones where doing the right thing meant doing the unpopular thing and holding steady anyway. These aren't cautionary tales. They're what sustained leadership under real pressure actually looks like.</p>
+            <p>Dave Moyer's career reflects a kind of leadership that doesn't get enough attention. Experienced. Unsparing. Deeply principled. The kind that understands you have to be present before people trust you, you have to model the work before you can expect it, and you have to know your lineup before you can build a team. That's what education needs — and that's exactly why his story belongs here.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
