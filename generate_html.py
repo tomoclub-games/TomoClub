@@ -71,7 +71,28 @@ https://youtu.be/0CBZNnrR9rU?si=nQ0vS8sSKMh3C0Vv
 https://youtu.be/407fVfMFzfs?si=cuWr-6oJOxlobaaC
 https://youtu.be/gUJKauNF7Kc?si=QTE0D0bxQz135cDu
 https://youtu.be/K9azt3MD9bk?si=7kMqBSeYFvxLhyNc
-https://youtu.be/4WQ06l2wCnY?si=N97uV8ON9YPdQm6z"""
+https://youtu.be/4WQ06l2wCnY?si=N97uV8ON9YPdQm6z
+https://youtu.be/4DXGEIsQjFI
+https://youtu.be/Y2CXz0cO7Ew
+https://youtu.be/DKYbEM1Hmqw
+https://youtu.be/-amEwzzrmf8
+https://youtu.be/BQTZxLWm8pE
+https://youtu.be/SICAlWePP1I
+https://youtu.be/T3kkXiTYeFM
+https://youtu.be/UmOrxumbVjE
+https://youtu.be/WlqUlrw0sZA
+https://youtu.be/lslJPs8hxBQ
+https://youtu.be/4kiwEPBLyeY
+https://youtu.be/pDcK0JcHLKs
+https://youtu.be/ZGAGd-nUbxk
+https://youtu.be/OXQvNbMklkU
+https://youtu.be/Oyu7DcaKCVM
+https://youtu.be/pUUxNLOPrK8
+https://youtu.be/V-nR2T6iBTc
+https://youtu.be/u0AJJQ5iXSc
+https://youtu.be/2aZPyQnE0e8
+https://youtu.be/JNQ6ME7RSnw
+https://youtu.be/cur8l7SnLbA?si=-YrFubb5RaA8Vd8s"""
 
 ids = []
 for u in urls.strip().split('\n'):

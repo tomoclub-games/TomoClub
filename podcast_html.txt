@@ -13,7 +13,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 1</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=q2coUQ95Pi4" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -29,7 +29,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 2</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=9v5gyQizja0" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -45,7 +45,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 3</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=y3XkoYWrm-k" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -61,7 +61,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 4</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ufrAwI69vkQ" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -77,7 +77,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 5</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=_S_0MgSbzcA" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -93,7 +93,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 6</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=4ntxAugonJc" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -109,7 +109,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 7</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=AIR78As4llw" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -125,7 +125,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 8</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=vdd36Zv0PFU" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -141,7 +141,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 9</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=Ssl3PWmxDNE" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -157,7 +157,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 10</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=PnRw4kJChsA" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -173,7 +173,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 11</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=LD5IEDFMzKQ" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -189,7 +189,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 12</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=qrPCMZ8l3Ls" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -205,7 +205,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 13</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=QAzwEa6rvYE" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -221,7 +221,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 14</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=uDbLPgA5FwQ" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -237,7 +237,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 15</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=d7OuyapkjxM" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -253,7 +253,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 16</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=0uldNjeiYd8" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -269,7 +269,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 17</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=JnmpPJqs7W4" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -285,7 +285,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 18</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=eTd20elHtX8" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -301,7 +301,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 19</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=8n5WpDHBQaQ" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -317,7 +317,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 20</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=HYNz3bwBN-0" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -333,7 +333,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 21</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=WH0IP_TGK4Q" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -349,7 +349,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 22</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=IA5cVq7_mnU" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -365,7 +365,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 23</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=80JfnUmTN0c" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -381,7 +381,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 24</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ejOUS0CR8UU" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -397,7 +397,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 25</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=lW5kOONfyGs" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -413,7 +413,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 26</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=_VlbI5H_sik" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -429,7 +429,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 27</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=RGSyXtdxi_Y" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -445,7 +445,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 28</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=wGIsmKCXfHo" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -461,7 +461,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 29</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=yHib0dq_TgI" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -477,7 +477,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 30</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=5Zf3WsHjRPI" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -493,7 +493,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 31</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=1odKoT0EqHo" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -509,7 +509,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 32</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=NccW-8En6ik" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -525,7 +525,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 33</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=X7V2Y4RsbGc" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -541,7 +541,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 34</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=jK5zCCCnrDg" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -557,7 +557,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 35</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=q5Ls6EgAIkA" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -573,7 +573,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 36</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=Ods_wkb814w" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -589,7 +589,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 37</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ldUGHBTjPI4" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -605,7 +605,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 38</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=-cC4GuLZNkk" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -621,7 +621,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 39</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=d0Eu0gwD1ew" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -637,7 +637,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 40</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=7IjKEjiNM6I" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -653,7 +653,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 41</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ZmJDkue_Hz8" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -669,7 +669,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 42</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ptFz-eSBcIg" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -685,7 +685,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 43</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=IEKf_0dyAyE" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -701,7 +701,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 44</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=yuc1Tq-DvOQ" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -717,7 +717,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 45</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=1ka5IcQWozU" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -733,7 +733,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 46</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=bwKW0V0C8FE" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -749,7 +749,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 47</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=4WD00uB_Tvo" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -765,7 +765,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 48</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=N4x-Oo-rGIA" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -781,7 +781,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 49</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=4vfGi_b_vUg" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -797,7 +797,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 50</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=keYxOj3ze4c" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -813,7 +813,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 51</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=_GgY5MaeSMs" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -829,7 +829,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 52</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=23iP8g3WMlw" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -845,7 +845,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 53</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=PTdyGCElXww" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -861,7 +861,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 54</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=MqgUKdV3_7M" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -877,7 +877,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 55</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=GNvbrb_WGJA" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -893,7 +893,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 56</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=T6OjPsz0Kz0" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -909,7 +909,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 57</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=VSKi9U09Yd4" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -925,7 +925,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 58</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=ObxdIPh8RD8" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -941,7 +941,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 59</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=9djRZOrfkg4" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -957,7 +957,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 60</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=DF13AIpK-tY" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -973,7 +973,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 61</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=SnDdvnKHGEc" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -989,7 +989,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 62</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=fQ1F6sGhwH0" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1005,7 +1005,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 63</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=0CBZNnrR9rU" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1021,7 +1021,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 64</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=407fVfMFzfs" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1037,7 +1037,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 65</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=gUJKauNF7Kc" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1053,7 +1053,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 66</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=K9azt3MD9bk" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1069,7 +1069,7 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 67</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
                 <a href="podcast-player.html?id=4WQ06l2wCnY" target="_blank" class="glass-card podcast-card">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
@@ -1085,6 +1085,342 @@
                     </div>
                     <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 68</h3>
                     <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
-                    <span style="font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.5rem;">Listen Now <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=4DXGEIsQjFI" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/4DXGEIsQjFI/hqdefault.jpg" alt="Podcast Episode 69" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 69</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 69</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=Y2CXz0cO7Ew" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/Y2CXz0cO7Ew/hqdefault.jpg" alt="Podcast Episode 70" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 70</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 70</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=DKYbEM1Hmqw" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/DKYbEM1Hmqw/hqdefault.jpg" alt="Podcast Episode 71" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 71</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 71</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=-amEwzzrmf8" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/-amEwzzrmf8/hqdefault.jpg" alt="Podcast Episode 72" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 72</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 72</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=BQTZxLWm8pE" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/BQTZxLWm8pE/hqdefault.jpg" alt="Podcast Episode 73" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 73</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 73</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=SICAlWePP1I" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/SICAlWePP1I/hqdefault.jpg" alt="Podcast Episode 74" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 74</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 74</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=T3kkXiTYeFM" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/T3kkXiTYeFM/hqdefault.jpg" alt="Podcast Episode 75" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 75</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 75</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=UmOrxumbVjE" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/UmOrxumbVjE/hqdefault.jpg" alt="Podcast Episode 76" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 76</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 76</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=WlqUlrw0sZA" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/WlqUlrw0sZA/hqdefault.jpg" alt="Podcast Episode 77" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 77</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 77</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=lslJPs8hxBQ" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/lslJPs8hxBQ/hqdefault.jpg" alt="Podcast Episode 78" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 78</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 78</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=4kiwEPBLyeY" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/4kiwEPBLyeY/hqdefault.jpg" alt="Podcast Episode 79" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 79</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 79</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=pDcK0JcHLKs" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/pDcK0JcHLKs/hqdefault.jpg" alt="Podcast Episode 80" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 80</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 80</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=ZGAGd-nUbxk" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/ZGAGd-nUbxk/hqdefault.jpg" alt="Podcast Episode 81" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 81</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 81</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=OXQvNbMklkU" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/OXQvNbMklkU/hqdefault.jpg" alt="Podcast Episode 82" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 82</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 82</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=Oyu7DcaKCVM" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/Oyu7DcaKCVM/hqdefault.jpg" alt="Podcast Episode 83" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 83</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 83</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=pUUxNLOPrK8" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/pUUxNLOPrK8/hqdefault.jpg" alt="Podcast Episode 84" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 84</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 84</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=V-nR2T6iBTc" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/V-nR2T6iBTc/hqdefault.jpg" alt="Podcast Episode 85" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 85</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 85</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=u0AJJQ5iXSc" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/u0AJJQ5iXSc/hqdefault.jpg" alt="Podcast Episode 86" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 86</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 86</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=2aZPyQnE0e8" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/2aZPyQnE0e8/hqdefault.jpg" alt="Podcast Episode 87" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 87</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 87</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=JNQ6ME7RSnw" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/JNQ6ME7RSnw/hqdefault.jpg" alt="Podcast Episode 88" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 88</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 88</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
+                </a>
+                <a href="podcast-player.html?id=cur8l7SnLbA" target="_blank" class="glass-card podcast-card">
+                    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+                        <img src="https://img.youtube.com/vi/cur8l7SnLbA/hqdefault.jpg" alt="Podcast Episode 89" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="play-circle" style="color: white; width: 48px; height: 48px; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.75rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        <span>Episode 89</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 0.75rem;">Podcast Episode 89</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5;">Explore deep insights into the future of education and AI literacy.</p>
+                    <span class="btn btn-secondary" style="margin-top: auto; padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start;">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i></span>
                 </a>
             </div>

@@ -22,7 +22,7 @@ for p in podcasts:
         display_date = 'Unknown Date'
         timestamp = 0
         
-    html_str += f'''                <a href="podcast-{vid}.html" class="glass-card podcast-card" data-timestamp="{timestamp}">
+    html_str += f'''                <a href="podcast-player.html?id={vid}" class="glass-card podcast-card" data-timestamp="{timestamp}">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
                         <img src="https://img.youtube.com/vi/{vid}/hqdefault.jpg" alt="{title}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
