@@ -1750,7 +1750,11 @@
 
         @media (max-width: 768px) {
             footer .footer-grid {
-                grid-template-columns: 1fr 1fr !important;
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+            footer .social-links {
+                justify-content: center !important;
             }
         }
 
@@ -2137,6 +2141,7 @@
             <div class="hero-cta-buttons">
                 <a href="#quiz" class="btn-parents-primary" onclick="scrollToQuiz(event)">Which program fits my child? &rarr;</a>
                 <a href="#programs" class="btn-parents-ghost" onclick="scrollToPrograms(event)">Book free trial</a>
+                <a href="#programs" class="btn-parents-ghost" onclick="scrollToPrograms(event)">Know More</a>
             </div>
 
             <!-- Floating Stat Cards -->
@@ -2154,7 +2159,7 @@
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-rose);"></div>
                     <div class="num stat-count" data-target="85" data-suffix="%">0%</div>
-                    <div class="label">Fewer behaviour issues</div>
+                    <div class="label">Increase in student competency (Leadership, EI)</div>
                 </div>
                 <div class="parent-stat-card">
                     <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
@@ -2168,20 +2173,24 @@
     <!-- SECTION 3: TRUST BAR -->
     <div class="parents-trust-bar">
         <div class="container">
-            <div class="trust-stats-row">
-                <div class="trust-stat-item">
+            <div class="stat-cards-grid">
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-cyan);"></div>
                     <div class="num stat-count" data-target="10000" data-comma="true" data-suffix="+">0+</div>
                     <div class="label">students reached</div>
                 </div>
-                <div class="trust-stat-item">
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-yellow);"></div>
                     <div class="num stat-count" data-target="97" data-suffix="%">0%</div>
                     <div class="label">engagement rate</div>
                 </div>
-                <div class="trust-stat-item">
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-rose);"></div>
                     <div class="num stat-count" data-target="92" data-suffix="%">0%</div>
                     <div class="label">AI confidence increase</div>
                 </div>
-                <div class="trust-stat-item">
+                <div class="parent-stat-card">
+                    <div class="stat-card-stripe" style="background-color: var(--brand-cyan-dark);"></div>
                     <div class="num stat-count" data-target="100" data-suffix="%">0%</div>
                     <div class="label">skills applied in 3 months</div>
                 </div>
@@ -2297,7 +2306,7 @@
                     <div class="result-desc" id="result-desc-el">Based on your choices, your child would benefit from learning to create, direct, and critically examine AI technologies rather than just scrolling passively.</div>
                     
                     <div class="result-actions">
-                        <a href="mailto:info@tomoclub.com?subject=Free%20trial%20%E2%80%94%20Tomo%20AI%20Lab&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20request%20a%20free%20trial%20for%20Tomo%20AI%20Lab%20for%20my%20child.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%20(Grades%203-8)%3A%20%0D%0ARegion%20(India%2FSEA%2FUS)%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you%20!" class="result-btn-trial ai" id="result-primary-cta">Book free AI Lab trial &rarr;</a>
+                        <a href="https://calendly.com/tomoclubdemo/tomo-ai-lab-trial" target="_blank" rel="noopener noreferrer" class="result-btn-trial ai" id="result-primary-cta">Book free AI Lab trial &rarr;</a>
                         <a href="#programs" class="btn-parents-ghost" style="padding: 10px 20px; font-size: 13px;" onclick="scrollToPrograms(event)">See the program</a>
                     </div>
                     
@@ -2374,7 +2383,7 @@
                             <div class="program-pointer-item">
                                 <div class="program-pointer-icon-box ai"><i data-lucide="wrench"></i></div>
                                 <div class="program-pointer-content">
-                                    <div class="program-pointer-title">Build a real project every term</div>
+                                    <div class="program-pointer-title">Build a Project within 8 weeks</div>
                                     <div class="program-pointer-desc">Capstone prototype — designed, built, presented by them.</div>
                                 </div>
                             </div>
@@ -2435,7 +2444,7 @@
                                 <div class="program-pointer-icon-box skills"><i data-lucide="mic"></i></div>
                                 <div class="program-pointer-content">
                                     <div class="program-pointer-title">Find their voice — even in a group</div>
-                                    <div class="program-pointer-desc">Quiet kids grow the fastest here.</div>
+                                    <div class="program-pointer-desc">Quiet children grow the fastest here.</div>
                                 </div>
                             </div>
                             <div class="program-pointer-item">
@@ -2456,7 +2465,7 @@
                                 <div class="program-pointer-icon-box skills"><i data-lucide="heart-handshake"></i></div>
                                 <div class="program-pointer-content">
                                     <div class="program-pointer-title">Build real friendships across 12 weeks</div>
-                                    <div class="program-pointer-desc">Same 8 kids every session — a real team, not strangers.</div>
+                                    <div class="program-pointer-desc">Same 8 children every session — a real team, not strangers.</div>
                                 </div>
                             </div>
                         </div>
@@ -2496,11 +2505,11 @@
                 <!-- AI Lab Why Now -->
                 <div class="why-now-card ai">
                     <div>
-                        <h3>AI is in your child's school. Are they ready to question it?</h3>
+                        <h3>AI is All around us</h3>
                         <div class="why-now-stats-list">
                             <div class="why-now-stat-row">
                                 <span class="why-now-stat-pill ai">80% of parents</span>
-                                <span class="why-now-stat-label">are worried about safe classroom AI integration</span>
+                                <span class="why-now-stat-label">are uncertain about what skills matter in the future</span>
                             </div>
                             <div class="why-now-stat-row">
                                 <span class="why-now-stat-pill ai">35% of parents</span>
@@ -2508,7 +2517,7 @@
                             </div>
                             <div class="why-now-stat-row">
                                 <span class="why-now-stat-pill ai">50% of schools</span>
-                                <span class="why-now-stat-label">teach no computer science or digital safety curricula</span>
+                                <span class="why-now-stat-label">don't teach digital and cyber safety</span>
                             </div>
                         </div>
                     </div>
@@ -2568,14 +2577,14 @@
                             <span class="session-step-num ai">2</span>
                             <div class="session-step-content-box">
                                 <span class="session-step-title">AI lab (25 min)</span>
-                                <span class="session-step-desc">Kids prompt real AI tools, test limits, compare outputs. Hands-on.</span>
+                                <span class="session-step-desc">Children use Group activities, games and prompt real AI tools to understand how AI works.</span>
                             </div>
                         </div>
                         <div class="session-step-item">
                             <span class="session-step-num ai">3</span>
                             <div class="session-step-content-box">
                                 <span class="session-step-title">Ethics discussion (10 min)</span>
-                                <span class="session-step-desc">One real dilemma. Kids argue, vote, defend. Coach facilitates.</span>
+                                <span class="session-step-desc">One real dilemma. Children argue, vote, defend. Coach facilitates.</span>
                             </div>
                         </div>
                         <div class="session-step-item">
@@ -2614,14 +2623,14 @@
                             <span class="session-step-num skills">3</span>
                             <div class="session-step-content-box">
                                 <span class="session-step-title">Challenge game (30 min)</span>
-                                <span class="session-step-desc">Multiplayer team challenge. Kids reveal more in games than classrooms.</span>
+                                <span class="session-step-desc">Multiplayer team challenge. Children reveal more in games than classrooms.</span>
                             </div>
                         </div>
                         <div class="session-step-item">
                             <span class="session-step-num skills">4</span>
                             <div class="session-step-content-box">
                                 <span class="session-step-title">Coach debrief (15 min)</span>
-                                <span class="session-step-desc">Game &rarr; real life. Kids name their own patterns out loud.</span>
+                                <span class="session-step-desc">Game &rarr; real life. Children name their own patterns out loud.</span>
                             </div>
                         </div>
                     </div>
@@ -2669,8 +2678,8 @@
                             <span class="label">High engagement across all Life Skills school cohorts</span>
                         </div>
                         <div class="proof-stat-row">
-                            <span class="num">85%</span>
-                            <span class="label">Fewer behaviour referrals in schools running the program</span>
+                            <span class="num">80%</span>
+                            <span class="label">Increase in student competency (Leadership, EI)</span>
                         </div>
                         <div class="proof-stat-row">
                             <span class="num">+ve</span>
@@ -2939,7 +2948,7 @@
                         <i data-lucide="chevron-down" class="parents-faq-chevron"></i>
                     </div>
                     <div class="parents-faq-answer">
-                        Most schools that use AI tools focus on productivity (like generating text or correcting code). Tomo AI Lab focuses on critical thinking, ethical analysis, understanding bias, data privacy, and detecting hallucinations. We teach kids how to *question* and *direct* AI, not just consume it.
+                        Most schools that use AI tools focus on productivity (like generating text or correcting code). Tomo AI Lab focuses on critical thinking, ethical analysis, understanding bias, data privacy, and detecting hallucinations. We teach children how to *question* and *direct* AI, not just consume it.
                     </div>
                 </div>
 
@@ -2992,7 +3001,7 @@
                 <div>
                     <div style="font-size:11px;font-weight:600;letter-spacing:2px;color:var(--brand-cyan);text-transform:uppercase;margin-bottom:0.75rem;">For Parents</div>
                     <h2 style="font-size:24px;margin-bottom:0.5rem;">Read Our Blog</h2>
-                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;">Research-backed insights on raising future-ready kids in an AI-first world.</p>
+                    <p style="font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;">Research-backed insights on raising future-ready children in an AI-first world.</p>
 
                     <div style="display:flex;flex-direction:column;gap:1rem;">
                         <a href="/blog/how-can-schools-cultivate-leadership-skills-in-students/" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
@@ -3040,7 +3049,7 @@
                     <p style="font-size:14px;color:var(--text-muted);margin-bottom:2rem;line-height:1.6;">Conversations with educators, superintendents, and parents on the future of K&ndash;12 education.</p>
 
                     <div style="display:flex;flex-direction:column;gap:1rem;">
-                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                        <a href="https://www.youtube.com/watch?v=gUJKauNF7Kc" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
                             <div style="width:40px;height:40px;background:rgba(180,74,90,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                 <i data-lucide="mic" style="color:var(--brand-rose);width:18px;height:18px;margin:auto;"></i>
                             </div>
@@ -3050,7 +3059,7 @@
                             </div>
                         </a>
 
-                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                        <a href="https://www.youtube.com/watch?v=XW77-D37Jng" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
                             <div style="width:40px;height:40px;background:rgba(42,180,184,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                 <i data-lucide="mic" style="color:var(--brand-cyan);width:18px;height:18px;margin:auto;"></i>
                             </div>
@@ -3060,12 +3069,12 @@
                             </div>
                         </a>
 
-                        <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
+                        <a href="https://www.youtube.com/watch?v=TfHPHYLwehE" target="_blank" rel="noopener noreferrer" style="display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--surface);border:1px solid var(--border-color);border-radius:12px;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='none';this.style.boxShadow='none';">
                             <div style="width:40px;height:40px;background:rgba(180,74,90,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                                 <i data-lucide="mic" style="color:var(--brand-rose);width:18px;height:18px;margin:auto;"></i>
                             </div>
                             <div>
-                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Raising Resilient Kids in an AI-Driven World</div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Raising Resilient Children in an AI-Driven World</div>
                                 <div style="font-size:12px;color:var(--text-muted);">Episode &middot; Play &amp; Learn Podcast</div>
                             </div>
                         </a>
@@ -3106,7 +3115,7 @@
                         <div class="cta-panel-desc">For the child who needs their voice — and the parent who knows confidence can't come from a textbook.</div>
                     </div>
                     <div>
-                        <a href="mailto:info@tomoclub.com?subject=Book%20a%20Free%20Trial%20%E2%80%94%20Tomo%20Life%20Skills&body=Hi%20TomoClub%20Team%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20a%20free%20trial%20for%20my%20child%20for%20Tomo%20Life%20Skills.%0D%0A%0D%0AChild's%20Name%3A%20%0D%0AGrade%3A%20%0D%0ARegion%3A%20%0D%0APreferred%20Days%20and%20Time%3A%20%0D%0A%0D%0AThank%20you!" class="btn-panel-action">Book a Free Trial &rarr;</a>
+                        <a href="https://calendly.com/tomoclubdemo/life-skills" target="_blank" rel="noopener noreferrer" class="btn-panel-action">Book a Free Trial &rarr;</a>
                         <div class="panel-fineprint">Grades 3–8 &middot; $99/mo &middot; &#8377;4,999/mo</div>
                     </div>
                 </div>
@@ -3132,25 +3141,14 @@
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
                         <a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" title="X (Twitter)"><i data-lucide="twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Contact Us</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
-                            <i data-lucide="phone" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
-                            <div>
-                                <span style="display: block; font-weight: 700; color: var(--navy);">Call Us</span>
-                                <a href="tel:+16505478082" style="color: var(--text-muted);">+1 650 547-8082</a>
-                            </div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
-                            <i data-lucide="mail" style="width: 18px; color: var(--teal); flex-shrink: 0;"></i>
-                            <div>
-                                <a href="mailto:info@tomoclub.org" style="color: var(--text-muted);">info@tomoclub.org</a>
-                            </div>
-                        </li>
-                    </ul>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">Have questions or need additional information?</p>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.75rem;">Send us an email at: <a href="mailto:info@tomoclub.org" style="color: var(--teal);">info@tomoclub.org</a>. Or DM us on our social channels.</p>
+                    <a href="/contact-us.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); border-radius: 100px; padding: 6px 16px; transition: all 0.2s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">Contact Us Form &rarr;</a>
                 </div>
                 <div class="footer-links">
                     <h4>Our Location</h4>
