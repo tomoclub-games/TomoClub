@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear">
+    <title>Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear | TomoClub Education Hall">
+    <meta property="og:description" content="Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear">
+    <meta property="og:image" content="https://www.tomoclub.org/assets/og-image.png">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear | TomoClub Education Hall">
+    <meta name="twitter:description" content="Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear">
+    <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">June 1, 2026</span>
+                </div>
+                <h1 class="article-title">Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear</h1>
+                <img src="../../articles/images/derek-fialkiewicz.png" alt="Derek Fialkiewicz" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><strong>LEADERSHIP IN PRACTICE | SUPERINTENDENT SPOTLIGHT</strong></p>
+            <p>An Oregon superintendent on why fear is the real obstacle in most schools, what he assesses before he looks at a single data point, how he turned non-proficient seniors into students doing Calculus, and what it means to lead with transparency when everything's on the line.</p>
+            <p><strong>FEATURING Derek Fialkiewicz, Superintendent, Corbett School District</strong></p>
+            <p>When Derek Fialkiewicz walks into a struggling school, he doesn’t ask "What are the test scores?" or "Where's the budget shortfall?" Just: "Are people happy?"</p>
+            <p>It sounds too simple. Maybe even a little naive. But for Derek, Superintendent of Corbett School District in Oregon, it's the most diagnostic question a leader can ask. Because in his experience, happiness and respect aren't soft goals. They're the conditions that make everything else possible.</p>
+            <p>His track record backs this up. He's turned around schools in inner-city Las Vegas and rural Oregon. He's moved a two-star school to five stars. He's put students who were written off into Calculus. And his explanation for how he did it stems from the same thing: before you can change what students do, you have to change what adults feel safe doing.</p>
+
+            <h3>Failure is Useful Data</h3>
+            <p>Most school improvement conversations start with data. What do the scores say? What programs are we missing? What curriculum needs updating?</p>
+            <p>Derek starts somewhere different. He starts with fear.</p>
+            <p>"When teachers are afraid to make mistakes, that fear travels straight down to the kids."</p>
+            <p>And he's watched it happen over and over again. Schools where the culture is so punitive, grade-obsessed, and built around catching people out that nobody tries anything new. Everyone plays it safe, teachers and students alike.</p>
+            <p>He calls it systemic risk-aversion. And he argues that you can't fix it with a new program. You fix it by becoming the kind of leader who protects people when they try something that doesn't work.</p>
+
+            <h3>What That Actually Looks Like in Practice</h3>
+            <p>Derek redefined what teacher observations were for. Instead of watching a teacher to evaluate their technique, he watched students. Were they engaged? Were they confused? Were they doing anything at all? And he asked teachers to try something during this observation. If it fails, that's useful data.</p>
+            <p>The shift sounds small, but it’s not. When a superintendent walks into a classroom and says, "I want you to take a risk in front of me," the whole relationship between leadership and teaching changes. Suddenly, the observation isn't a performance review. It's a collaboration.</p>
+
+            <h3>Private Correction, Public Respect</h3>
+            <p>When Derek takes over a school or district, he gives himself 60 days before drawing any conclusions. Three things get his attention first.</p>
+            <p>Safety: physical and psychological. Is this a place where people feel okay? Can students focus? Can teachers be honest? This is baseline. Nothing else works without it.</p>
+            <p>Then student interaction. How do kids treat each other? Is there respect in the hallways, or is there a constant low-level tension that everyone's used to ignoring?</p>
+            <p>The adult interaction. How do staff relate to their students, and to each other?</p>
+            <p>He learned the importance of that last one the hard way. Early in his career, working in Las Vegas, he publicly called out a student over a headphone policy. The student escalated immediately. A police officer pulled Derek aside afterward and gave him the line that he remembers ever since: "If you want someone to do something for you, pull them aside. You confront them in public, they're going to save face."</p>
+            <p>He never forgot it. Private correction, public respect. It became a non-negotiable.</p>
+
+            <h3>The Journey From Two Stars to Five</h3>
+            <p>When Derek talks about turning a school around, he doesn't lead with the curriculum changes or the assessment data. He leads with belief.</p>
+            <p>At one school, he inherited a senior math class full of students who'd been labeled non-proficient. They'd been told, in every way schools tell you things without saying them out loud, that they weren't math people. Derek walked in and told them they were going to pass every day, consistently. It’s what was expected of them.</p>
+            <p>97% of them passed.</p>
+            <p>"Success is self-perpetuating. Once students experience it, they want more of it."</p>
+
+            <h3>The Structural Changes That Made Belief Possible</h3>
+            <p>But belief alone doesn't move numbers. It needs structure behind it. Here's what Derek actually changed:</p>
+            <p>He removed low-level tracks. Every student went into accelerated classes. Eighth graders took Algebra. The students who'd been sitting in remedial tracks ended up in Calculus in high school. They didn’t suddenly become different students, but the ceiling was lifted.</p>
+            <p>He brought in project-based learning. It wasn’t a pilot program or an elective option, but applied school-wide. Students built things, solved real problems, and connected learning to something they could actually see and touch.</p>
+            <p>He put whiteboards on all four walls. This one is small but specific and worth stealing. When every wall is a workspace, every student is working simultaneously. The teacher moves to the center of the room, watches the process, and gives real-time feedback. No one's waiting for a graded paper to come back two weeks later. The feedback is immediate. The learning is visible.</p>
+            <p>He modeled the behavior he expected. If there was litter on the ground, he picked it up. If he wanted teachers to take risks, he took risks himself. This matters more than most leaders acknowledge.</p>
+
+            <h3>Make Mistakes and Admit To Them</h3>
+            <p>Derek doesn't talk about leadership like it's clean. There are two stories he tells that stand out.</p>
+            <p>The first is financial. He inherited a budget situation in one district where mid-year payroll was genuinely at risk. His response was what he calls "daggers and transparency". He cut nearly half the administrative staff, made one painful cut to a music position, then held community meeting after community meeting where people could ask him anything. He answered every hard question honestly.</p>
+            <p>"I called them daggers. Any dagger you want to throw at me, throw it."</p>
+            <p>Trust didn't collapse. It rebuilt. Because people could see he wasn't hiding.</p>
+            <p>The second story is smaller but just as memorable. During COVID, Derek announced a new retake policy to parents before he'd cleared it with teachers. He realized immediately it was wrong. So he recorded a video from his car, sent it to staff, and admitted: “I screwed up. I should have talked to you first.”</p>
+            <p>That kind of leadership isn't comfortable. But it's the kind that keeps institutions intact when things go sideways.</p>
+
+            <h3>Before It Was Calculators, Now It’s AI</h3>
+            <p>Derek sees AI the way he saw calculators in the 90s. When calculators became standard, teachers panicked that students would stop learning math. What actually happened was that students stopped doing arithmetic by hand and started doing actual mathematics.</p>
+            <p>He thinks AI is the same move.</p>
+            <p>The teachers in his orbit are already using it in ways that feel genuinely useful: turning lesson notes into songs students actually remember, generating work samples at different quality levels so students can see what "good" looks like before they start, scanning writing for specific feedback on tone or theme instead of vague comments in the margin.</p>
+            <p>None of this replaces teaching. It offloads the rote parts so the human parts can breathe.</p>
+
+            <h3>What This All Points To</h3>
+            <p>Derek Fialkiewicz has worked in under-resourced schools, wealthy schools, rural districts, and urban ones. The specifics change. The throughline doesn't.</p>
+            <p>Make it safe to try. Make people feel seen. Believe in students before they believe in themselves. And be honest, especially when it costs you something.</p>
+            <p>These aren't inspirational slogans. They're operational choices. The kind that show up in how you run a teacher observation, how you handle a budget crisis, how you respond the morning after you made a call you shouldn't have made.</p>
+            <p>The schools that are actually moving aren't doing it because they found the right program. They're doing it because someone at the top decided that fear wasn't going to be the organizing principle anymore.</p>
+
+            <h3>Why TomoClub Is Sharing This Story</h3>
+            <p>At TomoClub, we believe the future of education isn't built by big reforms or expensive initiatives. It's built by leaders who do the harder, quieter work, creating the conditions where teachers can actually teach and students can actually learn.</p>
+            <p>Derek Fialkiewicz's work across Las Vegas and Oregon reflects a kind of leadership that rarely gets the attention it deserves. Steady. Direct. Student-first. The kind that understands you can't improve outcomes without first removing the fear that stops people from trying. And that kind of leadership is exactly what education needs more of right now.</p>
+            <p>Follow TomoClub for stories from leaders doing the real work in real schools.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary btn-view-more">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
