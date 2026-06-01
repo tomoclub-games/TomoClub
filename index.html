@@ -2010,8 +2010,24 @@
             </div>
         </section>
 
+        <section class="container" style="margin-bottom: 2rem;">
+            <div class="article-controls" style="display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
+                <div class="search-box" style="flex: 1; min-width: 250px; position: relative;">
+                    <i data-lucide="search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); width: 20px; height: 20px;"></i>
+                    <input type="text" id="article-search" placeholder="Search articles by title..." style="width: 100%; padding: 0.8rem 1rem 0.8rem 3rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-main); color: var(--text-main); font-family: inherit; font-size: 1rem; transition: var(--transition);">
+                </div>
+                <div class="filter-box" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <label for="article-filter" style="color: var(--text-main); font-weight: 500;"><i data-lucide="filter" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 0.25rem;"></i> Sort By:</label>
+                    <select id="article-filter" style="padding: 0.8rem 2.5rem 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-main); color: var(--text-main); font-family: inherit; font-size: 1rem; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394A3B8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 0.7rem top 50%; background-size: 0.65rem auto;">
+                        <option value="latest" selected>Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
         <section class="container" style="margin-bottom: 4rem;">
-            <div class="grid-3 animate-on-scroll">
+            <div class="grid-3 animate-on-scroll" id="articles-grid">
                 <a href="articles/why-tomoclub-exists/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;">
                     <div style="background: var(--card-grad-teal); height: 100%; display: flex; flex-direction: column;">
                         <img src="articles/images/article-1-founders.png" alt="Why TomoClub Exists" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">

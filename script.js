@@ -546,4 +546,87 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // --- Article Filtering (Educational Hall) ---
+  const articleSearch = document.getElementById('article-search');
+  const articleFilter = document.getElementById('article-filter');
+  const articlesGrid = document.getElementById('articles-grid');
+
+  if (articleSearch && articleFilter && articlesGrid) {
+    const articles = Array.from(articlesGrid.children);
+    articles.forEach((article, index) => {
+      article.setAttribute('data-timestamp', index + 1);
+    });
+
+    function filterArticles() {
+      const query = articleSearch.value.toLowerCase();
+      const sortOrder = articleFilter.value;
+      
+      let visibleArticles = [];
+
+      articles.forEach(article => {
+        const titleEl = article.querySelector('.article-title');
+        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+        
+        if (title.includes(query)) {
+          article.style.display = 'block';
+          visibleArticles.push(article);
+        } else {
+          article.style.display = 'none';
+        }
+      });
+
+      visibleArticles.sort((a, b) => {
+        const timeA = parseInt(a.getAttribute('data-timestamp'));
+        const timeB = parseInt(b.getAttribute('data-timestamp'));
+        return sortOrder === 'latest' ? timeB - timeA : timeA - timeB;
+      });
+
+      visibleArticles.forEach(article => articlesGrid.appendChild(article));
+    }
+
+    articleSearch.addEventListener('input', filterArticles);
+    articleFilter.addEventListener('change', filterArticles);
+    filterArticles();
+  }
+
+  // --- Podcast Filtering ---
+  const podcastSearch = document.getElementById('podcast-search');
+  const podcastFilter = document.getElementById('podcast-filter');
+  const podcastGrid = document.getElementById('podcast-grid');
+
+  if (podcastSearch && podcastFilter && podcastGrid) {
+    const podcasts = Array.from(podcastGrid.children);
+
+    function filterPodcasts() {
+      const query = podcastSearch.value.toLowerCase();
+      const sortOrder = podcastFilter.value;
+
+      let visiblePodcasts = [];
+
+      podcasts.forEach(podcast => {
+        const titleEl = podcast.querySelector('h3');
+        const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+        
+        if (title.includes(query)) {
+          podcast.style.display = 'block';
+          visiblePodcasts.push(podcast);
+        } else {
+          podcast.style.display = 'none';
+        }
+      });
+
+      visiblePodcasts.sort((a, b) => {
+        const timeA = parseInt(a.getAttribute('data-timestamp') || 0);
+        const timeB = parseInt(b.getAttribute('data-timestamp') || 0);
+        return sortOrder === 'latest' ? timeB - timeA : timeA - timeB;
+      });
+
+      visiblePodcasts.forEach(podcast => podcastGrid.appendChild(podcast));
+    }
+
+    podcastSearch.addEventListener('input', filterPodcasts);
+    podcastFilter.addEventListener('change', filterPodcasts);
+    filterPodcasts();
+  }
 });
