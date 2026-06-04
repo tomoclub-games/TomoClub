@@ -45,102 +45,72 @@
     <style>
         /* Specific parent page overrides based on the handoff doc design tokens */
         :root {
-            /* Light theme (default) */
-            --bg-main: #FAFBFC;
-            --surface-alt: #F1F5F9;
-            --surface: #FFFFFF;
+            /* Map specific variables to global theme variables */
+            --surface-alt: var(--surface-hover);
             --surface-2: #E2E8F0;
-            --text-primary: #0F172A;
-            --text-muted: #475569;
-            --text-dim: #94A3B8;
+            --text-primary: var(--text-main);
+            --text-dim: var(--text-light);
             
-            --brand-cyan: #2AB4B8;
+            --brand-cyan: var(--teal);
             --brand-cyan-dark: #1E8F93;
-            --brand-rose: #B44A5A;
+            --brand-rose: var(--crimson);
             --brand-rose-dark: #8A2F3D;
-            --brand-yellow: #E8C84A;
+            --brand-yellow: var(--gold);
             
-            --border-color: #E2E8F0;
-            --card-border: rgba(15, 23, 42, 0.05);
             --transition-smooth: var(--transition);
             
-            --nav-bg: rgba(250, 251, 252, 0.92);
-            --nav-border: rgba(15, 23, 42, 0.08);
-            --nav-text: #475569;
-            --nav-text-active: #0F172A;
-            --shadow-nav: 0 4px 20px rgba(15, 23, 42, 0.05);
-            
-            --quiz-option-bg: #FFFFFF;
-            --quiz-option-border: #E2E8F0;
-            --quiz-option-hover-bg: #F8FAFC;
+            --quiz-option-bg: var(--surface);
+            --quiz-option-border: var(--border-color);
+            --quiz-option-hover-bg: var(--surface-hover);
             
             --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.08), transparent 70%);
             
-            --banner-bg-ai: linear-gradient(135deg, #F0FAFA, #D2F5F5);
-            --banner-bg-skills: linear-gradient(135deg, #FFF5F7, #FFDBE2);
+            --banner-bg-ai: linear-gradient(135deg, rgba(42,180,184,0.1), rgba(42,180,184,0.05));
+            --banner-bg-skills: linear-gradient(135deg, rgba(179,65,88,0.1), rgba(179,65,88,0.05));
             
-            --promise-text-ai: var(--brand-cyan-dark);
-            --promise-text-skills: var(--brand-rose-dark);
+            --promise-text-ai: var(--teal);
+            --promise-text-skills: var(--crimson);
             
-            --panel-bg-ai: linear-gradient(135deg, #F0FAFA, #DDF6F6);
-            --panel-bg-skills: linear-gradient(135deg, #FFF5F7, #FFE3E7);
-            --panel-text-color: var(--text-primary);
+            --panel-bg-ai: linear-gradient(135deg, rgba(42,180,184,0.08), rgba(42,180,184,0.02));
+            --panel-bg-skills: linear-gradient(135deg, rgba(179,65,88,0.08), rgba(179,65,88,0.02));
+            --panel-text-color: var(--text-main);
             --panel-desc-color: var(--text-muted);
-            --panel-fineprint-color: var(--text-dim);
-            --btn-panel-bg: var(--surface-alt);
-            --btn-panel-hover-bg: var(--surface-2);
-            --btn-panel-text: var(--text-primary);
+            --panel-fineprint-color: var(--text-light);
+            --btn-panel-bg: var(--surface);
+            --btn-panel-hover-bg: var(--surface-hover);
+            --btn-panel-text: var(--text-main);
         }
 
         body.dark-theme {
-            /* Dark theme overrides */
-            --bg-main: #0A0E14;
-            --surface-alt: #0F1420;
-            --surface: #161C28;
+            /* Map dark theme overrides to global dark theme */
+            --surface-alt: var(--surface-hover);
             --surface-2: #1C2436;
-            --text-primary: #F0F4F8;
-            --text-muted: #8A96A8;
-            --text-dim: #4A5568;
+            --text-primary: var(--text-main);
+            --text-dim: var(--text-light);
             
-            --border-color: rgba(255, 255, 255, 0.07);
-            --card-border: rgba(255, 255, 255, 0.05);
-            
-            --nav-bg: rgba(10, 14, 20, 0.92);
-            --nav-border: rgba(255, 255, 255, 0.07);
-            --nav-text: #8A96A8;
-            --nav-text-active: #F0F4F8;
-            --shadow-nav: 0 10px 30px rgba(0, 0, 0, 0.5);
-            
-            --quiz-option-bg: #161C28;
-            --quiz-option-border: rgba(255, 255, 255, 0.07);
-            --quiz-option-hover-bg: #1C2436;
+            --quiz-option-bg: var(--surface);
+            --quiz-option-border: var(--border-color);
+            --quiz-option-hover-bg: var(--surface-hover);
             
             --hero-glow: radial-gradient(ellipse at center, rgba(42, 180, 184, 0.15), transparent 70%);
             
-            --banner-bg-ai: linear-gradient(135deg, #051A1C, #0A2E30);
-            --banner-bg-skills: linear-gradient(135deg, #1A0508, #2E0F18);
+            --banner-bg-ai: linear-gradient(135deg, rgba(42,180,184,0.15), rgba(42,180,184,0.05));
+            --banner-bg-skills: linear-gradient(135deg, rgba(179,65,88,0.15), rgba(179,65,88,0.05));
             
-            --promise-text-ai: #7DD8DA;
-            --promise-text-skills: #D4697A;
+            --promise-text-ai: var(--teal);
+            --promise-text-skills: var(--crimson);
             
-            --panel-bg-ai: linear-gradient(135deg, #051F22, #0A3538);
-            --panel-bg-skills: linear-gradient(135deg, #1A060B, #2E1018);
-            --panel-text-color: #FFFFFF;
-            --panel-desc-color: rgba(255, 255, 255, 0.7);
-            --panel-fineprint-color: rgba(255, 255, 255, 0.4);
-            --btn-panel-bg: #FFFFFF;
-            --btn-panel-hover-bg: rgba(255, 255, 255, 0.95);
-            --btn-panel-text: #020617;
+            --panel-bg-ai: linear-gradient(135deg, rgba(42,180,184,0.1), rgba(42,180,184,0.02));
+            --panel-bg-skills: linear-gradient(135deg, rgba(179,65,88,0.1), rgba(179,65,88,0.02));
+            --panel-text-color: var(--text-main);
+            --panel-desc-color: var(--text-muted);
+            --panel-fineprint-color: var(--text-light);
+            --btn-panel-bg: var(--surface);
+            --btn-panel-hover-bg: var(--surface-hover);
+            --btn-panel-text: var(--text-main);
         }
 
-        body {
-            background-color: var(--bg-main) !important;
-            color: var(--text-primary) !important;
-            /* Grid overlay */
-            background-image: repeating-linear-gradient(rgba(42, 180, 184, 0.03) 0px, rgba(42, 180, 184, 0.03) 1px, transparent 1px, transparent 56px),
-                              repeating-linear-gradient(90deg, rgba(42, 180, 184, 0.03) 0px, rgba(42, 180, 184, 0.03) 1px, transparent 1px, transparent 56px) !important;
-            background-size: 56px 56px !important;
-        }
+
 
         /* Removed typography overrides to ensure uniform font sizing and coloring with styles.css */
 
