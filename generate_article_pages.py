@@ -60,7 +60,7 @@ article_metadata = {
         "date": "June 4, 2026",
         "category": "Leadership",
         "slug": "piper-bognar-van-dyke-leadership",
-        "cover": "Piper Bognar.png"
+        "cover": "piper-new.png"
     }
 }
 
@@ -337,6 +337,8 @@ for art_id, meta in article_metadata.items():
     # Download and localise cover image
     cover_ext = meta['cover'].split('.')[-1]
     cover_local_name = f"{slug}-cover.{cover_ext}"
+    if meta['cover'] == "piper-new.png":
+        cover_local_name = "piper-new.png"
     cover_local_path = f"articles/images/{cover_local_name}"
     download_image(meta['cover'], cover_local_path)
     
