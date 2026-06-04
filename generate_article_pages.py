@@ -349,7 +349,7 @@ for art_id, meta in article_metadata.items():
         local_name = f"{slug}-img-{i+1}.{ext}"
         local_path = f"articles/images/{local_name}"
         if download_image(img_url, local_path):
-            content_html = content_html.replace(img_url, f"../images/{local_name}")
+            content_html = content_html.replace(img_url, f"../../articles/images/{local_name}")
     
     # Create the index.html for the article
     final_html = html_template.format(
@@ -357,7 +357,7 @@ for art_id, meta in article_metadata.items():
         description=meta['title'],
         category=meta['category'],
         date=meta['date'],
-        cover_local=f"../images/{cover_local_name}",
+        cover_local=f"../../articles/images/{cover_local_name}",
         cover_local_name=cover_local_name,
         slug=slug,
         content=content_html
