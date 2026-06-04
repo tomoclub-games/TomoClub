@@ -54,6 +54,13 @@ article_metadata = {
         "category": "Resilience",
         "slug": "michael-mai-great-meadows-resilience",
         "cover": "https://www.tomoclub.org/wp-content/uploads/2026/04/Untitled-800-x-500-px.jpg"
+    },
+    "article_7": {
+        "title": "How Van Dyke's Superintendent Built Trust in a District That Couldn't Afford to Lose Any",
+        "date": "June 1, 2026",
+        "category": "Leadership",
+        "slug": "piper-bognar-van-dyke-leadership",
+        "cover": "Piper Bognar.png"
     }
 }
 
@@ -84,6 +91,20 @@ html_template = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{description}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{title} | TomoClub Education Hall">
+    <meta property="og:description" content="{description}">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}/">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{title} | TomoClub Education Hall">
+    <meta name="twitter:description" content="{description}">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
+
     <title>{title} | TomoClub Education Hall</title>
     
     <!-- Google Fonts -->
@@ -335,6 +356,8 @@ for art_id, meta in article_metadata.items():
         category=meta['category'],
         date=meta['date'],
         cover_local=f"../images/{cover_local_name}",
+        cover_local_name=cover_local_name,
+        slug=slug,
         content=content_html
     )
     
