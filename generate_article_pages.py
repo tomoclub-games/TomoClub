@@ -57,7 +57,7 @@ article_metadata = {
     },
     "article_7": {
         "title": "How Van Dyke's Superintendent Built Trust in a District That Couldn't Afford to Lose Any",
-        "date": "June 1, 2026",
+        "date": "June 4, 2026",
         "category": "Leadership",
         "slug": "piper-bognar-van-dyke-leadership",
         "cover": "Piper Bognar.png"
