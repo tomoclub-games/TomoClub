@@ -606,10 +606,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       podcasts.forEach(podcast => {
         const titleEl = podcast.querySelector('h3');
+        const speakerEl = podcast.querySelector('p');
         const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+        const speaker = speakerEl ? speakerEl.textContent.toLowerCase() : '';
         
-        if (title.includes(query)) {
-          podcast.style.display = 'block';
+        if (title.includes(query) || speaker.includes(query)) {
+          podcast.style.display = '';
           visiblePodcasts.push(podcast);
         } else {
           podcast.style.display = 'none';
