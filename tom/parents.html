@@ -2960,30 +2960,6 @@
 
 
 
-    <!-- NEWSLETTER SUBSCRIPTION SECTION -->
-    <section style="padding: 5rem 0; border-bottom: 1px solid var(--border-color); background: var(--bg-main);">
-        <div class="container">
-            <div class="newsletter-box" style="background: var(--surface); border: 1px solid var(--border-color); border-radius: 28px; padding: 3.5rem 3rem; max-width: 720px; margin: 0 auto; text-align: center; position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.08);">
-                <!-- decorative glows -->
-                <div style="position:absolute;top:-80px;right:-80px;width:220px;height:220px;background:radial-gradient(circle,rgba(42,180,184,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
-                <div style="position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(180,74,90,0.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
-                <div style="position:relative;z-index:1;">
-                    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(42,180,184,0.1);color:var(--brand-cyan);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem;">Weekly Insights</div>
-                    <h2 style="font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.2;margin-bottom:1rem;color:var(--text-primary);">Stay ahead of the <span style="color:var(--brand-cyan);">AI curve.</span></h2>
-                    <p style="color:var(--text-muted);font-size:15px;margin-bottom:2rem;line-height:1.6;">Parenting tips, AI literacy updates, and classroom insights delivered every Sunday. Join 2,500+ parents and educators.</p>
-                    <form id="parents-newsletter-form" class="newsletter-form" onsubmit="handleParentsNewsletter(event)" style="display:flex;gap:0.75rem;max-width:460px;margin:0 auto;background:var(--surface-alt);padding:0.4rem;border-radius:100px;border:1px solid var(--border-color);">
-                        <input type="email" name="email" placeholder="Enter your email address" required style="flex:1;min-width:0;padding:0.75rem 1.25rem;border:none;background:transparent;color:var(--text-primary);font-size:14px;outline:none;border-radius:100px;">
-                        <button type="submit" style="background:var(--brand-cyan);color:#fff;border:none;border-radius:100px;padding:0.75rem 1.5rem;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap;transition:background 0.2s ease;" onmouseover="this.style.background='var(--brand-cyan-dark)'" onmouseout="this.style.background='var(--brand-cyan)'">Subscribe</button>
-                    </form>
-                    <div id="parents-newsletter-success" style="display:none;margin-top:1.5rem;padding:1rem;background:rgba(42,180,184,0.08);border-radius:12px;border:1px solid rgba(42,180,184,0.2);">
-                        <p style="color:var(--brand-cyan);font-weight:600;margin:0;">&#10003; Welcome! Check your inbox for our latest edition.</p>
-                    </div>
-                    <p style="font-size:12px;color:var(--text-dim);margin-top:1.25rem;">No spam. Unsubscribe anytime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- READ BLOGS + PODCAST SECTION -->
     <section style="padding: 5rem 0; border-bottom: 1px solid var(--border-color); background: var(--surface-alt);">
         <div class="container">
@@ -3114,8 +3090,47 @@
 
             </div>
 
-            <div class="cta-contact-row">
-                Or reach us &middot; <a href="mailto:info@tomoclub.com">info@tomoclub.com</a> &middot; <a href="tel:+16505478082">+1 (650) 547-8082</a> &middot; <a href="/">tomoclub.org</a>
+        </div>
+    </section>
+
+    
+
+            
+    <!-- NEWSLETTER & CONTACT SECTION -->
+    <section style="padding: 6rem 0; background: var(--bg-main);">
+        <div class="container">
+            <div class="glass-card animate-on-scroll" style="padding: 5rem 3rem; background: var(--card-grad-slate); border-radius: 48px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-2xl);">
+                <!-- Decorative background elements -->
+                <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(42, 180, 184, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(179, 65, 88, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+                
+                <div style="max-width: 700px; position: relative; z-index: 1;">
+                    <span class="badge" style="margin-bottom: 1.5rem; background: rgba(42, 180, 184, 0.1); color: var(--teal);">Weekly Insights</span>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--navy);">Stay ahead of the <span class="text-gradient">AI curve.</span></h2>
+                    <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; line-height: 1.6;">Parenting tips, AI literacy updates, and classroom insights delivered every Sunday. Join 2,500+ parents and educators.</p>
+                    
+                    <form id="parents-newsletter-form-bottom" class="newsletter-form" onsubmit="handleParentsNewsletter(event)" style="display: flex; gap: 1rem; width: 100%; max-width: 550px; margin: 0 auto; flex-wrap: wrap; background: var(--surface); padding: 0.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+                        <input type="email" name="email" placeholder="Enter your email address" required 
+                            style="flex: 1; min-width: 250px; padding: 1rem 1.5rem; border-radius: 16px; border: none; background: transparent; color: var(--text-main); font-size: 1.1rem; outline: none;">
+                        <button type="submit" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 16px; font-weight: 700; display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-md);">
+                            Subscribe <i data-lucide="send" style="width: 20px; height: 20px;"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="parents-newsletter-success-bottom" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(42, 180, 184, 0.05); border-radius: 24px; border: 1px solid rgba(42, 180, 184, 0.2);">
+                        <div style="width: 56px; height: 56px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <i data-lucide="check" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Welcome!</h4>
+                        <p style="color: var(--text-muted);">Check your inbox for our latest edition.</p>
+                    </div>
+
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1);">
+                        <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.25rem;">Have questions or need additional information?</h4>
+                        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem;">Send us an email at: <a href="mailto:info@tomoclub.org" style="color: var(--teal); text-decoration: none; font-weight: 600;">info@tomoclub.org</a>. Or DM us on our social channels.</p>
+                        <a href="/contact-us.html" class="btn btn-secondary" style="border-radius: 100px; padding: 0.5rem 1.5rem;">Contact Us Form &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -3125,7 +3140,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="/#home" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
+                    <a href="#home" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
                         <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
                     </a>
                     <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
@@ -3165,9 +3180,9 @@
                 <div class="footer-links">
                     <h4>Programs</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li><a href="/#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
-                        <li><a href="/#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
-                        <li><a href="/#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                        <li><a href="#ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
+                        <li><a href="#future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="#pd" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
                     </ul>
                 </div>
             </div>
