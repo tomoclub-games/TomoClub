@@ -3662,6 +3662,19 @@
             const textInput = document.getElementById('escape-text');
             const submitBtn = document.getElementById('escape-submit-btn');
             
+            if (textInput && textInput.value) {
+                fetch('https://script.google.com/macros/s/AKfycbxzZn3tSOq9vRQq8QmVwh6poxIHRU-gQjaTSqLk2Gf_bHlnBmxdCGdM-NHuqHOJoC4/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email: textInput.value, 
+                        source: 'Quiz Escape Hatch',
+                        role: `Answers - A:${quizAnswers.A}, B:${quizAnswers.B}, C:${quizAnswers.C}`
+                    })
+                }).catch(() => {});
+            }
+
             // Disable input and button
             textInput.disabled = true;
             submitBtn.disabled = true;
