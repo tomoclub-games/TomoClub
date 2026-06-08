@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What Chris Parker Learned About Leading Technology When the Budget Says No">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="What Chris Parker Learned About Leading Technology When the Budget Says No | TomoClub Education Hall">
+    <meta property="og:description" content="What Chris Parker Learned About Leading Technology When the Budget Says No">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/Chris.png">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/chris-parker-technology-leadership/">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Chris Parker Learned About Leading Technology When the Budget Says No | TomoClub Education Hall">
+    <meta name="twitter:description" content="What Chris Parker Learned About Leading Technology When the Budget Says No">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/Chris.png">
+
+    <title>What Chris Parker Learned About Leading Technology When the Budget Says No | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Technology Leadership</span>
+                    <span class="article-date">June 8, 2026</span>
+                </div>
+                <h1 class="article-title">What Chris Parker Learned About Leading Technology When the Budget Says No</h1>
+                <img src="../../articles/images/Chris.png" alt="What Chris Parker Learned About Leading Technology When the Budget Says No" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="article-meta-info" style="color: var(--teal); font-weight: bold; text-transform: uppercase;">LEADERSHIP IN PRACTICE | SUPERINTENDENT SPOTLIGHT</p><p>Chris Parker is the Director of Technology at Gateway Regional School District in Western Massachusetts. With more than two decades in K-12 ed-tech, he's built 1:1 programs, led district-wide COVID transitions, shaped state-level AI policy, and developed teacher training systems that outlasted him in every room he left.</p><p>Technology leadership looks flashy from the outside. New tools announced at staff days, device carts rolled in with fanfare, a pilot program for this, a committee for that.</p><p>And then there's Chris Parker's version, which goes beyond that. The one where you spend six quiet years building infrastructure, training teachers, handing off ownership, and designing backup plans, so that when a global pandemic shuts down every school in Massachusetts, your district keeps moving.</p><p>Chris didn't do it because he saw COVID coming. He did it because he'd learned, through years of working from the ground up, that you build technology systems for the moments you didn’t see coming.</p><h3>From Restaurant Management to K-12 Technology</h3><p>Chris Parker didn't start in education.</p><p>He spent a decade in restaurant management before going back to school for a degree in computer electronics. That background matters more than it sounds. Running a restaurant teaches you how to operate under pressure, manage those who are tired and stressed, keep things moving when something breaks mid-service, and adapt when the plan stops working.</p><p>He carried that learning into his first ed-tech job as a lead technician at a private high school. Five years there. Then, a move to a K-12 public district as a senior technician. Eight more years.</p><p>"Those eight years were transformational. K-12 technology became less of a nicety and more of a necessity."</p><p>The shift had a specific trigger. Massachusetts introduced online state-mandated testing, and suddenly, districts couldn't treat devices as optional extras. You needed them. You needed the infrastructure. You needed teachers and students who could actually use them. The state had just handed everyone a deadline, and most districts were scrambling.</p><p>Chris watched this unfold from inside the machine. And instead of waiting for someone to hand him a plan, he started building one.</p><h3>When "Shiny" Isn't a Strategy</h3><p>When Chris moved into the Technology Coordinator role at Gateway Regional, he faced what most ed-tech leaders face: too many requests, not enough budget, and a lot of enthusiasm for the newest thing without much clarity about why.</p><p>Teachers wanted iPads. Vendors were pitching platforms. Everyone had heard about something that worked somewhere else.</p><p>His response was always the same question: What are you trying to achieve?</p><p>"This sent most home to think.”</p><p>Some came back with real answers. Most didn't. The ones who did got support. The ones who just wanted the shiny thing didn't get it, and that was intentional.</p><p>Working backwards from outcomes is how Chris approaches every technology decision. It sounds obvious. In practice, almost nobody does it. Schools buy platforms that never get used, adopt tools that don't connect to any real learning goal, and spend budget on things that look impressive in a demo.</p><p>The test Chris applies is simple: does this tool actually support our goal, or is it just new? If you can't answer that, you're not ready to buy it. And a lot of the time, you already have what you need.</p><h3>The 6-Year Payoff That Arrived With COVID</h3><p>Chris built Gateway's first regional K-12 1:1 program in Western Massachusetts. But the rollout itself wasn't the challenge.</p><p>The challenge was making it stick.</p><p>Training was one piece. But training has a shelf life. You run a session, people learn something, a few weeks pass, and without continued support, it starts to fade. Chris knew that. So rather than positioning himself as the permanent trainer, he built a teacher-led Technology Committee that ran monthly sessions and distributed the expertise across the school.</p><p>"I soon realized I could not maintain the levels needed for constant growth.”</p><p>That move is easy to underestimate. It's a leader recognizing that their own limitations are a design problem and then solving for it. The system he created didn't depend on him being everywhere at once. It depended on teachers who already knew what worked, sharing it with the people sitting next to them.</p><p>By the time March 2020 arrived and every school in Massachusetts closed, Gateway was ready. Not because of anything they scrambled to do in the final days before shutdown. Because of everything that had been built in the six years before.</p><p>"While this was a huge victory, the celebration was short-lived as new challenges arose."</p><p>He states it almost flatly. That's Chris. He avoids self-congratulation. For him, the important aspect is that COVID wasn't the main story; the six years of preparation were.</p><h3>The Recklessness of Ignoring AI</h3><p>Chris spent two and a half years on the Massachusetts AI Task Force, helping shape statewide policies and guidelines for AI adoption in schools. He's been in this conversation longer and at a higher level than most district technology directors.</p><p>His take on where schools need to go isn't soft.</p><p>"Any educator who is not thinking about how to use AI in their classroom, as well as start teaching students how to use AI, is, frankly, careless and reckless."</p><p>He's not trying to be provocative. He just means it. Every student currently in a K-12 classroom will spend their adult lives in a world shaped by AI. If schools aren't building that into the curriculum, they're leaving kids unprepared. It's the same as skipping math.</p><p>But Chris is practical about how to get there. His approach with teachers: don't lecture them about AI being important. Put them in a real scenario that they deal with every day. Note how long it takes without AI. Then solve it again with AI. The time difference does the convincing.</p><p>"I have yet to meet an educator who has too much free time. So any way to efficiently save time is a win."</p><p>On the policy side, he's specific about what good AI planning looks like. "We will roll out AI by 2027" means nothing. It's a date with no direction. "We will achieve 75% student proficiency in AI by [date] as evidenced by [specific measure]" is a goal. One you can track, share, improve on, and hold people accountable to.</p><p>The fear piece of teachers worrying that AI will replace them, Chris deals with it head-on. It won't. AI is a tool. The job is figuring out where it actually reduces the painful parts of the work, where it opens up new possibilities for teachers who never knew they existed. That's the conversation he keeps pushing schools toward.</p><h3>What Two Decades Actually Taught Him</h3><p>If you ask Chris for advice, he'll give you three things.</p><p>Accountability. Not just for your team, but for yourself. Set goals, make them public, then actually assess them. When the team fails, you fail. Finger-pointing wastes everyone's time and solves nothing.</p><p>Communication. Clear, on time, and not excessive. Over-communicating is its own problem. But lack of communication almost always gets read as lack of care.</p><p>And the third one is the one he means most: assume you know nothing about everything. Every project has a technology component if you ask enough questions. Don't assume something has nothing to do with you. Ask: "What does this need from technology?" You'll be surprised how often the answer is something that should have involved you from the start.</p><p>His advice to anyone early in an ed-tech career is just as direct. Get into classrooms. You can't lead from your office. Talk to students, teachers, and aides. Learn something new every day for fifteen minutes minimum, on something you're actually curious about. And take care of yourself, because you can't pour from an empty glass. Your staff doesn't respect you for being the last to leave. They respect you for making the most of the time you're there.</p><p>He also comes from a family of educators. His father was a college professor, his mother a high school home economics teacher, and his wife an elementary teacher.</p><p>He didn't set out to be in education. But he's been building things that last inside it for over twenty years.</p><h3>Why TomoClub Is Sharing This Story</h3><p>At TomoClub, we believe the future of education isn't shaped by flashy reforms. It's shaped inside schools by leaders who quietly build systems, strengthen trust, and respond to real challenges with intention.</p><p>Chris Parker's work at Gateway Regional exemplifies a type of leadership that frequently goes unnoticed. His approach is patient, practical, and designed for longevity. He understands that before modernizing a school, it is essential to identify its actual needs and create systems that continue to function effectively, even in his absence. This kind of leadership is precisely what education requires at this moment.</p><p>Follow TomoClub for stories from leaders doing the real work in real schools.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>

@@ -61,6 +61,13 @@ article_metadata = {
         "category": "Leadership",
         "slug": "piper-bognar-van-dyke-leadership",
         "cover": "piper-new.png"
+    },
+    "article_8": {
+        "title": "What Chris Parker Learned About Leading Technology When the Budget Says No",
+        "date": "June 8, 2026",
+        "category": "Technology Leadership",
+        "slug": "chris-parker-technology-leadership",
+        "cover": "Chris.png"
     }
 }
 
@@ -337,8 +344,8 @@ for art_id, meta in article_metadata.items():
     # Download and localise cover image
     cover_ext = meta['cover'].split('.')[-1]
     cover_local_name = f"{slug}-cover.{cover_ext}"
-    if meta['cover'] == "piper-new.png":
-        cover_local_name = "piper-new.png"
+    if meta['cover'] in ["piper-new.png", "Chris.png"]:
+        cover_local_name = meta['cover']
     cover_local_path = f"articles/images/{cover_local_name}"
     download_image(meta['cover'], cover_local_path)
     
