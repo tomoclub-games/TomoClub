@@ -316,6 +316,46 @@
             border-color: rgba(255, 255, 255, 0.15);
         }
 
+        .btn-parents-gold {
+            background-color: var(--gold);
+            color: #111111;
+            border-radius: 100px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-parents-gold:hover {
+            opacity: 0.9;
+        }
+
+        .btn-parents-crimson {
+            background-color: var(--crimson);
+            color: #FFFFFF;
+            border-radius: 100px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-parents-crimson:hover {
+            opacity: 0.9;
+        }
+
         /* Stat Cards */
         .stat-cards-grid {
             display: grid;
@@ -2085,8 +2125,8 @@
 
             <div class="hero-cta-buttons">
                 <a href="#quiz" class="btn-parents-primary" onclick="scrollToQuiz(event)">Which program fits my child? &rarr;</a>
-                <a href="https://calendly.com/tomoclubdemo" target="_blank" rel="noopener noreferrer" class="btn-parents-ghost">Book free trial</a>
-                <a href="#programs" class="btn-parents-ghost" onclick="scrollToPrograms(event)">Know More</a>
+                <a href="https://calendly.com/tomoclubdemo" target="_blank" rel="noopener noreferrer" class="btn-parents-gold">Book free trial</a>
+                <a href="#programs" class="btn-parents-crimson" onclick="scrollToPrograms(event)">Know More</a>
             </div>
 
             <!-- Floating Stat Cards -->
