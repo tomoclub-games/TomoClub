@@ -1,0 +1,381 @@
+import os
+import shutil
+
+source_img = r'c:\Users\JANMEJAY\Desktop\tom\shane.png'
+dest_img = r'c:\Users\JANMEJAY\Desktop\tom\articles\images\shane.png'
+if os.path.exists(source_img):
+    os.makedirs(os.path.dirname(dest_img), exist_ok=True)
+    shutil.copy2(source_img, dest_img)
+
+html_template = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{description}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{title} | TomoClub Education Hall">
+    <meta property="og:description" content="{description}">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}/">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{title} | TomoClub Education Hall">
+    <meta name="twitter:description" content="{description}">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
+
+    <title>{title} | TomoClub Education Hall</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {{
+            background: var(--bg-main);
+            color: var(--text-main);
+        }}
+
+        .article-hero {{
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }}
+
+        .article-meta {{
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }}
+
+        .article-category {{
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }}
+
+        .article-title {{
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }}
+
+        .article-cover {{
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }}
+
+        .article-content {{
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }}
+
+        .article-content h3 {{
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }}
+
+        .article-content p {{
+            margin-bottom: 1.5rem;
+        }}
+
+        .article-content ul {{
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }}
+
+        .article-content li {{
+            margin-bottom: 0.75rem;
+        }}
+
+        .back-nav {{
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }}
+
+        .back-link {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }}
+
+        .back-link:hover {{
+            transform: translateX(-5px);
+        }}
+
+        /* Navigation Style matching Main Site */
+        nav {{
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+
+        .nav-links {{
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }}
+
+        .nav-item a {{
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }}
+
+        .nav-item a:hover {{
+            color: #fff;
+        }}
+
+        .logo {{
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }}
+
+        /* Dark Theme Support */
+        body.dark-theme {{
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">{category}</span>
+                    <span class="article-date">{date}</span>
+                </div>
+                <h1 class="article-title">{title}</h1>
+                <img src="{cover_local}" alt="{title}" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            {content}
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Simple Theme Check
+        if (localStorage.getItem('theme') === 'dark') {{
+            document.body.classList.add('dark-theme');
+        }}
+    </script>
+</body>
+</html>
+"""
+
+content = """<h3>LEADERSHIP IN PRACTICE | SUPERINTENDENT SPOTLIGHT</h3>
+<p>A Wyoming superintendent on what an afternoon in his office changed about why he does this work, why he handed students a seat at the school board table, and how project-based learning became the answer to a question his board had been asking for years.</p>
+<p>FEATURING Shane Ogden, Superintendent, Park County School District #16</p>
+<p>Shane Ogden has spent more than two decades in education as a teacher, assistant principal, principal, and now superintendent of Park County School District #16 in Wyoming. Over the past nine years, he's led a district-wide shift to project-based learning, put students on school board committees, and built a culture that teachers genuinely don't want to leave. This is how he got there.</p>
+
+<h3>The Backstory to His Philosophy</h3>
+<p>Most leaders can tell you their philosophy. Not all of them can tell you exactly when it formed.</p>
+<p>For Shane Ogden, it wasn't a conference keynote or a graduate school lecture. It was an afternoon in his office as an assistant principal when law enforcement walked in to arrest a young man he'd been working with all year.</p>
+<p>The man had been in the wrong place at the wrong time. He was in the car when his brother-in-law robbed a convenience store and was charged as an accomplice. When they put him in handcuffs, he started crying and leaned in to hug Ogden.</p>
+<p>Ogden was crying too.</p>
+<p>"At that moment, I remember thinking that the chances of him ever fully getting out of the system weren't very good. That moment really changed me. It reinforced my belief that public education is the great equalizer in our country."</p>
+<p>That belief became the frame for everything that followed. Students first, adults second. Not as a slogan, but as an actual filter for every decision he makes.</p>
+<p>It wasn't the only thing that shaped him. Earlier in his career, a principal noticed something in a young teacher named Shane Ogden and gave him a seat on the school's character education committee. He still remembers how that felt.</p>
+<p>"I remember feeling really humbled by that opportunity. Someone believed in me and trusted me with something important, and I wanted to make sure I honored that trust."</p>
+<p>The pattern he noticed was that being trusted before you've fully earned it tends to make you rise to meet it. He carries that forward now. Trust people first and see what they do with it.</p>
+
+<h3>The Mentorship Lesson He Carries</h3>
+<p>His time as an assistant principal gave him more than that one hard moment. His principal, Dr. James McCoy, had a particular way of handling mistakes.</p>
+<p>When Ogden mishandled a student situation early in the role, Dr. McCoy didn't write him up. He sat down with him and started asking questions. He wasn’t confronting him, just asking questions that kept pushing a little deeper with each answer.</p>
+<p>"He would say that life is a growing experience and that if we're not learning, we're becoming static."</p>
+<p>The conversation never felt punitive. It felt like someone genuinely invested in him. That's the template Ogden runs on now. When someone on his team gets something wrong, his first instinct is to coach rather than discipline. Assume good intentions. Find the path forward from there.</p>
+<p>"I try to instill confidence in the people I work with and look for the good in situations, even when they require hard work to make right."</p>
+<p>It's a simple but uncommon philosophy.</p>
+
+<h3>Why They Chose People Over Equipment</h3>
+<p>When federal relief funds came through during COVID, many districts did the obvious thing of buying equipment, materials, and more stuff.</p>
+<p>Park County School District #16 had a different conversation.</p>
+<p>"We realized we didn't need more stuff. What we really needed was to grow."</p>
+<p>So they invested in teachers. It wasn’t any mandated compliance training, but professional development that teachers actually wanted. They gave educators space to explore what they were passionate about as educators. And they redesigned the evaluation process at the same time, shifting the focus from proving you're doing your job to improving how you do it.</p>
+<p>Teachers now move through a three-year cycle that encourages them to try new approaches, take thoughtful risks, and gather evidence about what's actually working. The goal is innovation, not inspection.</p>
+<p>They also did something practical by combining sick leave and personal leave into a single paid-time-off structure. It’s a small but significant signal that we trust you to manage your own time like a professional.</p>
+<p>The result is a district with remarkably low turnover, even in a rural area where salaries are often lower than in larger districts, and recruiting can be difficult.</p>
+<p>"While it can be difficult to recruit people initially, once teachers come here and experience the environment we've built, many of them want to stay."</p>
+<p>Culture is doing the work that a salary can't fully cover.</p>
+<p>Supporting teachers also meant removing structural barriers and not just cultural ones. When the district started shifting learning toward competencies and skills, the traditional Carnegie Unit became a problem. That model is built on seat time, and teachers trying to design learning around what students could actually do kept running into a system still counting minutes in a classroom.</p>
+<p>Ogden's response wasn't to ask teachers to work around it. He joined a Wyoming statewide committee to figure out what existing policy actually allowed.</p>
+<p>"In the end, we discovered that much of what we wanted to do was already allowed; we just needed a document of clarification so districts could move forward with confidence."</p>
+<p>This policy-level work doesn't get talked about much, but it's what makes classroom-level change actually stick.</p>
+
+<h3>How Genius Hour Grew Into Something Bigger</h3>
+<p>When Ogden became superintendent, the school board handed him a clear challenge: bring creativity, critical thinking, problem-solving, and communication back into classrooms. Those skills had been crowded out. They wanted them back.</p>
+<p>He started small. Genius Hour came first. Dedicated time at every grade level for students to pursue their own interests, build things, and explore ideas. The response was faster than expected.</p>
+<p>"Some of them told us it was the first time they actually enjoyed school."</p>
+<p>That feedback opened a door. The district started sending teachers across the country to visit programs doing something genuinely different, CAPS programs, and schools deeply embedded in project-based learning. When those teachers came back, they said the same thing: these were the schools they'd want to work in and the schools they'd want their own kids to attend.</p>
+<p>That sealed the direction.</p>
+<p>Today, PBL runs across the district. Students work on projects tied to real problems and real audiences. They present their thinking, collaborate, and apply what they've learned to things that matter. Teachers facilitate rather than deliver content. It's a different kind of classroom.</p>
+<p>And Ogden will tell you it didn't happen cleanly.</p>
+<p>"We probably moved faster than we should have. We took more of a 'rip the Band-Aid off' approach."</p>
+<p>That created anxiety. Students, parents, and teachers needed time to understand what was changing and why. His response was to open the doors, literally. He invited families and community members into classrooms to see what was actually happening, and he asked them to be honest about what they liked and what they didn't.</p>
+<p>Those conversations were impactful. Some of the most skeptical people early on became the strongest advocates later. Because they were included and their concerns were addressed instead of being explained away.</p>
+<p>"Change works best when people feel heard and when they know their input actually matters."</p>
+
+<h3>When Students Started Running the Committees</h3>
+<p>The part of Ogden's story that many districts haven't tried is what happened when students stopped being the subject of conversations and started being part of them.</p>
+<p>Park County School District #16 created a student representative position on the school board. Students serve on committees. They give regular, honest feedback on their learning experience.</p>
+<p>One moment stands out. High school students approached the administration and explained that constant academic pressure without any breaks was affecting them. They asked for a short period in the afternoon to decompress.</p>
+<p>The district listened. They created a brief recess period for high schoolers.</p>
+<p>It was a small change that led to bigger ones. Adjustments to schedules, to graduation requirements, and to how learning time is structured. Right now, two committees made up of students and parents are presenting recommendations directly to the school board. One group has been working on graduation requirements. The other has been discussing the school schedule. These recommendations are coming from the people who spend most of their day at the school.</p>
+<p>"When communities feel like their voices matter and their input leads to real decisions, trust grows naturally."</p>
+<p>Too often, Ogden says, students are the ones most affected by decisions in education but least involved in the conversations about them. He's been intentional about changing that.</p>
+
+<h3>His Advice for Someone Just Starting Out</h3>
+<p>More than two decades in, Ogden doesn't sugarcoat what the job requires. When he talks to aspiring leaders, three things come up every time.</p>
+<p>Build relationships with other leaders who understand the weight of the work. Find a district that genuinely shares your values about teaching and learning. And never lose sight of who all of this is for.</p>
+<p>"Always keep students at the center of your decisions. When leaders focus on what students truly need in order to grow and succeed, it helps guide difficult choices and brings clarity to complex situations."</p>
+<p>He also talks about trust. It’s not a goal that you reach but something that you tend to every day.</p>
+<p>"Building trust is not something that happens once. It is something that has to be nurtured every day."</p>
+<p>Early in his career, he sometimes moved too fast toward the change without making sure people felt carried along with it. That lesson was hard-won. Now he spends more time making sure people feel heard and valued before decisions move forward. According to him, it’s just the right way to lead.</p>
+
+<h3>Why He's Not Worried About AI</h3>
+<p>Ogden sees the rise of AI as something that actually reinforces the direction his district has already been heading.</p>
+<p>For years, a lot of school assignments have been built around recall. Looking up information, gathering facts, and writing them back. AI can do that almost instantly now. Rather than treating that as a threat, he sees it as pressure to do what PBL was already pushing toward: deeper thinking, real problems, authentic work.</p>
+<p>"When students are engaged in meaningful projects, they are creating, designing, collaborating, and presenting. Those kinds of experiences require human thinking and human interaction. AI can support the process by helping students research ideas, test possibilities, or organize their thinking, but it cannot replace the creativity and problem-solving that comes from students working through complex challenges together."</p>
+<p>For teachers and leaders, he thinks AI has real potential to free up time. It can help analyze data, generate lesson ideas, and support differentiated instruction so that teachers can spend more time doing what matters most. Building relationships and guiding students through work that's difficult.</p>
+<p>His take on how schools should handle it is straightforward. Teach students to use it responsibly rather than trying to block it.</p>
+<p>"Just like calculators or the internet before it, AI will become a tool that students will use throughout their lives. Our responsibility as educators is to help them understand how to use that tool ethically, thoughtfully, and in ways that strengthen their ability to think rather than replace it."</p>
+
+<h3>The Vision He's Still Working Toward</h3>
+<p>Ogden's vision for Park County's future isn't complicated. He wants students to leave school genuinely life-ready, capable of thinking critically, solving problems, working with others, and navigating whatever comes at them.</p>
+<p>Project-based learning, elevated student voice, and teachers who feel trusted enough to take risks aren't separate initiatives. They're parts of the same idea. That school can be a place where students feel known, challenged, and invested in. Where learning has a real purpose, and students can see it.</p>
+<p>"If we can create learning environments where students are engaged in meaningful work, supported by caring adults, and given the opportunity to develop the skills they need to navigate life's challenges, then we are fulfilling the true purpose of education."</p>
+<p>After 20-plus years, that's still the thing driving him.</p>
+
+<h3>Why TomoClub Is Sharing This Story</h3>
+<p>At TomoClub, we believe the future of education lies in the hands of those who put student welfare first. It's shaped inside schools by leaders who quietly build systems, strengthen trust, and respond to real challenges with intention.</p>
+<p>His work at Park County School District #16 reflects leadership that often goes unnoticed. Patient. Relationship-first. Genuinely student-centered. The kind that understands that before you transform a school system, you build trust with the people inside it, students, teachers, families, and community members alike. That kind of leadership is exactly what education needs right now.</p>
+"""
+
+slug = "shane-ogden-superintendent"
+title = "Why This Superintendent Trusts Students to Redesign Their Own School"
+
+article_html = html_template.format(
+    title=title,
+    description=title,
+    category="School Leadership",
+    date="June 19, 2026",
+    cover_local="../../articles/images/shane.png",
+    cover_local_name="shane.png",
+    slug=slug,
+    content=content
+)
+
+os.makedirs(fr'c:\Users\JANMEJAY\Desktop\tom\articles\{slug}', exist_ok=True)
+with open(fr'c:\Users\JANMEJAY\Desktop\tom\articles\{slug}\index.html', 'w', encoding='utf-8') as f:
+    f.write(article_html)
+
+# Read index.html
+with open(r'c:\Users\JANMEJAY\Desktop\tom\index.html', 'r', encoding='utf-8') as f:
+    index_content = f.read()
+
+new_card = f'''
+                <a href="articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+                    <div style="background: var(--card-grad-teal); height: 100%; display: flex; flex-direction: column;">
+                        <img src="articles/images/shane.png" alt="Shane Ogden" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
+                        <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+                            
+                            <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;" class="article-title">{title}</h3>
+                            <span class="btn btn-secondary btn-read-more">Read More <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+'''
+
+target_string = '<div class="grid-3 animate-on-scroll" id="articles-grid">'
+if target_string in index_content:
+    index_content = index_content.replace(target_string, target_string + new_card)
+
+with open(r'c:\Users\JANMEJAY\Desktop\tom\index.html', 'w', encoding='utf-8') as f:
+    f.write(index_content)
+
+print('Added article and updated index.html')
