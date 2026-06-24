@@ -1,4 +1,140 @@
 const podcastsData = {
+  "UesB3hNbBsI": {
+    "title": "Building a Staff-First Culture in Special Education",
+    "speaker": "The Learning Shift #30",
+    "date": "June 23, 2026",
+    "duration": "37:10",
+    "thumbnail": "https://img.youtube.com/vi/UesB3hNbBsI/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "pHnEhrZrT3g": {
+    "title": "What Schools Don&#39;t Know About AI: Legal Risks, Student Data &amp; Policy",
+    "speaker": "The Learning Shift #29",
+    "date": "June 19, 2026",
+    "duration": "28:50",
+    "thumbnail": "https://img.youtube.com/vi/pHnEhrZrT3g/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "t1ojzIOFNLc": {
+    "title": "The Superintendent Who Started in a Casino",
+    "speaker": "The Learning Shift #28",
+    "date": "June 16, 2026",
+    "duration": "30:35",
+    "thumbnail": "https://img.youtube.com/vi/t1ojzIOFNLc/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "zH2JsK7owp4": {
+    "title": "Breaking Down Silos: A Superintendent&#39;s Guide to Systems Thinking",
+    "speaker": "The Learning Shift #27",
+    "date": "June 12, 2026",
+    "duration": "43:44",
+    "thumbnail": "https://img.youtube.com/vi/zH2JsK7owp4/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "589QcaM0a4Y": {
+    "title": "Don&#39;t Let the Chaos Stop You From Leading",
+    "speaker": "The Learning Shift #26",
+    "date": "June 09, 2026",
+    "duration": "41:02",
+    "thumbnail": "https://img.youtube.com/vi/589QcaM0a4Y/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "W6t5X6ime3Y": {
+    "title": "He Banned Cell Phones. Then Kids Started Passing Notes Again.",
+    "speaker": "The Learning Shift #25",
+    "date": "June 08, 2026",
+    "duration": "55:31",
+    "thumbnail": "https://img.youtube.com/vi/W6t5X6ime3Y/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "zUExeOv5QXc": {
+    "title": "Why Your Kid Won&#39;t Take Your Advice But Will Listen to the Coach",
+    "speaker": "The Learning Shift #24",
+    "date": "June 05, 2026",
+    "duration": "50:25",
+    "thumbnail": "https://img.youtube.com/vi/zUExeOv5QXc/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "B2qYBT52aRA": {
+    "title": "If AI Can Complete Your Assignment, Change the Assignment",
+    "speaker": "The Learning Shift #23",
+    "date": "June 04, 2026",
+    "duration": "42:12",
+    "thumbnail": "https://img.youtube.com/vi/B2qYBT52aRA/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "HTI1p5UeC-w": {
+    "title": "Can&#39;t Pay Teachers More? Here&#39;s What Actually Keeps Them",
+    "speaker": "The Learning Shift #22",
+    "date": "June 03, 2026",
+    "duration": "28:03",
+    "thumbnail": "https://img.youtube.com/vi/HTI1p5UeC-w/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "myKtFA46z0M": {
+    "title": "When Kids Belong, You Don&#39;t Need Classroom Management",
+    "speaker": "The Learning Shift #21",
+    "date": "June 02, 2026",
+    "duration": "44:44",
+    "thumbnail": "https://img.youtube.com/vi/myKtFA46z0M/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "1CLyRZy4jo8": {
+    "title": "The Superintendent Who Uses AI as a Tone Checker",
+    "speaker": "The Learning Shift #20",
+    "date": "June 01, 2026",
+    "duration": "23:08",
+    "thumbnail": "https://img.youtube.com/vi/1CLyRZy4jo8/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "tPPtOHt2cKk": {
+    "title": "When AI Does All the Thinking, Where&#39;s Your Voice?",
+    "speaker": "The Learning Shift #19",
+    "date": "May 29, 2026",
+    "duration": "56:44",
+    "thumbnail": "https://img.youtube.com/vi/tPPtOHt2cKk/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "rC6JkijcUVM": {
+    "title": "The Superintendent Who Runs His School Like a Tech Startup",
+    "speaker": "The Learning Shift #18",
+    "date": "May 28, 2026",
+    "duration": "47:18",
+    "thumbnail": "https://img.youtube.com/vi/rC6JkijcUVM/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "SgopEJ1k-bM": {
+    "title": "The School Going Back to Pen and Paper While Everyone Else Rushes Into AI",
+    "speaker": "The Learning Shift #17",
+    "date": "May 27, 2026",
+    "duration": "34:58",
+    "thumbnail": "https://img.youtube.com/vi/SgopEJ1k-bM/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "Mb4IFyetTBs": {
+    "title": "What Happens to Kids the System Can&#39;t Figure Out",
+    "speaker": "The Learning Shift #16",
+    "date": "May 26, 2026",
+    "duration": "67:27",
+    "thumbnail": "https://img.youtube.com/vi/Mb4IFyetTBs/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "PQXAZxNlrZ4": {
+    "title": "The Feedback That Sounds Right But Harms Teachers",
+    "speaker": "The Learning Shift #15",
+    "date": "May 25, 2026",
+    "duration": "26:32",
+    "thumbnail": "https://img.youtube.com/vi/PQXAZxNlrZ4/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
+  "lV1Aho8vthg": {
+    "title": "Why Elementary Is the Right Place to Start With AI",
+    "speaker": "The Learning Shift #15",
+    "date": "May 22, 2026",
+    "duration": "46:16",
+    "thumbnail": "https://img.youtube.com/vi/lV1Aho8vthg/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
+  },
   "cur8l7SnLbA": {
     "title": "Why Teachers Feel Guilty When AI Saves Them Time",
     "speaker": "The Learning Shift #14",
