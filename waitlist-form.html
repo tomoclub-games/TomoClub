@@ -10,5 +10,28 @@
   </head>
   <body>
     <iframe data-tally-src="https://tally.so/r/gDgLeN?transparentBackground=1" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="Waitlist"></iframe>
+  
+    <script>
+      // Automatically pass all query parameters to the Tally form
+      document.addEventListener('DOMContentLoaded', function() {
+        const iframe = document.querySelector('iframe');
+        if(iframe) {
+            const originalSrc = iframe.getAttribute('data-tally-src') || iframe.src;
+            const url = new URL(originalSrc, window.location.origin);
+            const params = new URLSearchParams(window.location.search);
+            
+            // Tally sometimes expects 'pageUrl' or similar for the website page
+            params.set('pageUrl', window.location.href);
+            
+            for (const [key, value] of params.entries()) {
+                url.searchParams.set(key, value);
+            }
+            
+            iframe.setAttribute('data-tally-src', url.toString());
+            // also update src directly in case embed.js has already run or doesn't run
+            iframe.src = url.toString();
+        }
+      });
+    </script>
   </body>
 </html>
