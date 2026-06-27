@@ -304,7 +304,7 @@
                 </div>
                 <!-- Mobile Only Pilot Button -->
                 <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
-                    <a href="#"  class="btn btn-primary open-pilot-modal" style="width: 100%;">Request a Pilot</a>
+                    <a href="/contact-us" class="btn btn-primary" style="width: 100%;">Contact Us</a>
                 </div>
             </div>
             
@@ -313,7 +313,7 @@
                     <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
                     <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                 </button>
-                <a href="#"  class="btn btn-primary desktop-only open-pilot-modal">Request a Pilot</a>
+                <a href="/contact-us" class="btn btn-primary desktop-only">Contact Us</a>
                 <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i data-lucide="menu" id="menu-icon-open"></i>
                     <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
@@ -339,7 +339,7 @@
                     We build it with you, train your teachers, and stay in it with you — not just at the start.
                 </p>
                 <div class="animate-on-scroll" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
-                    <a href="#"  class="btn btn-primary open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                    <a href="/contact-us" class="btn btn-primary">Contact Us <i data-lucide="arrow-right"></i></a>
                     <a href="/parents" class="btn btn-secondary">Go to parents program <i data-lucide="arrow-right"></i></a>
                 </div>
                 <div class="social-proof-micro animate-on-scroll" style="margin-top: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto; text-align: left;">
@@ -581,35 +581,19 @@
         <!-- Newsletter Signup Section -->
         <section id="homepage-newsletter" style="padding: 6rem 0; background: var(--bg-main);">
             <div class="container">
-                <div class="glass-card animate-on-scroll" style="padding: 5rem 3rem; background: var(--card-grad-slate); border-radius: 48px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-2xl);">
+                <div class="glass-card animate-on-scroll" style="padding: 4rem 3rem; background: var(--card-grad-slate); border-radius: 48px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-2xl);">
                     <!-- Decorative background elements -->
                     <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(42, 180, 184, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
                     <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(179, 65, 88, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
                     
-                    <div style="max-width: 700px; position: relative; z-index: 1;">
-                        <span class="badge" style="margin-bottom: 1.5rem; background: rgba(42, 180, 184, 0.1); color: var(--teal);">Weekly Insights</span>
+                    <div style="max-width: 700px; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center;">
+                        <span class="badge" style="margin-bottom: 1.5rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
                         <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--navy);">Join 2,500+ educators leading the <span class="text-gradient">AI shift.</span></h2>
                         <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; line-height: 1.6;">Insights on AI pedagogy, curated classroom resources, and school leadership strategies delivered to your inbox every Sunday.</p>
                         
-                        <form id="home-newsletter-form" style="display: flex; gap: 1rem; width: 100%; max-width: 550px; margin: 0 auto; flex-wrap: wrap; background: var(--surface); padding: 0.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
-                            <input type="email" name="email" placeholder="Enter your work email" required 
-                                style="flex: 1; min-width: 250px; padding: 1rem 1.5rem; border-radius: 16px; border: none; background: transparent; color: var(--text-main); font-size: 1.1rem; outline: none;">
-                            <button type="submit" class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 16px; font-weight: 700; display: flex; align-items: center; gap: 0.75rem; box-shadow: var(--shadow-md);">
-                                Subscribe <i data-lucide="send" style="width: 20px; height: 20px;"></i>
-                            </button>
-                        </form>
-                        
-                        <div id="home-newsletter-success" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(42, 180, 184, 0.05); border-radius: 24px; border: 1px solid rgba(42, 180, 184, 0.2);">
-                            <div style="width: 56px; height: 56px; background: var(--teal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-                                <i data-lucide="check" style="width: 28px; height: 28px;"></i>
-                            </div>
-                            <h4 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Welcome to the community!</h4>
-                            <p style="color: var(--text-muted);">Check your inbox for our latest edition.</p>
+                        <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                            <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
                         </div>
-                        
-                        <p style="font-size: 0.9rem; color: #64748B; margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                            <i data-lucide="shield-check" style="width: 16px; height: 16px; color: var(--teal);"></i> No spam. Just high-signal AI literacy.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -911,7 +895,7 @@
                         </div>
                         
                         <div style="margin-top: 3rem;">
-                            <a href="#"  class="btn btn-primary open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                            <a href="/contact-us" class="btn btn-primary">Contact Us <i data-lucide="arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="hero-image-container animate-on-scroll" style="transition-delay: 0.2s;">
@@ -1302,7 +1286,7 @@
                 </div>
 
                 <div class="text-center" style="margin-top: 4rem;">
-                    <a href="#"  class="btn btn-white-pill open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                    <a href="/contact-us" class="btn btn-white-pill">Contact Us <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -1351,7 +1335,7 @@
                         </div>
                         
                         <div style="margin-top: 3rem;">
-                            <a href="#"  class="btn btn-primary open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                            <a href="/contact-us" class="btn btn-primary">Contact Us <i data-lucide="arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="hero-image-container animate-on-scroll" style="transition-delay: 0.2s;">
@@ -1587,7 +1571,7 @@
                     </div>
                 </div>
                 <div class="text-center" style="margin-top: 4rem;">
-                    <a href="#"  class="btn btn-primary open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                    <a href="/contact-us" class="btn btn-primary">Contact Us <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -1629,7 +1613,7 @@
                         </div>
                         
                         <div style="margin-top: 3rem;">
-                            <a href="#"  class="btn btn-primary open-pilot-modal"><i data-lucide="calendar" style="margin-right: 0.5rem;"></i> Book a PD Session</a>
+                            <a href="/contact-us" class="btn btn-primary"><i data-lucide="calendar" style="margin-right: 0.5rem;"></i> Book a PD Session</a>
                         </div>
                     </div>
                     <div class="hero-image-container animate-on-scroll" style="transition-delay: 0.2s;">
@@ -1787,83 +1771,188 @@
             <div class="container animate-on-scroll">
                 <div class="text-center" style="margin-bottom: 3.5rem;">
                     <span class="badge" style="background: rgba(179, 65, 88, 0.08); color: var(--crimson); border-color: rgba(179, 65, 88, 0.15);">The Curriculum</span>
-                    <h2 style="font-size: 3.5rem; margin-top: 1rem;">The 6-Modules <span class="text-gradient">Roadmap.</span></h2>
-                    <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">7 Hours. 6 Modules. Personalized to your teachers' needs post AI readiness survey. Immediate Application.</p>
+                    <h2 style="font-size: 3.5rem; margin-top: 1rem;">The <span class="text-gradient">Content Road Map.</span></h2>
+                    <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">Personalized to your teachers' needs post AI readiness survey. Immediate Application.</p>
                 </div>
                 
-                <div class="glass-card" style="padding: 0; overflow: hidden; border: 1px solid var(--border-color);">
-                    <div class="table-responsive" style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
-                            <thead>
-                                <tr style="background: rgba(15, 23, 42, 0.02); border-bottom: 1px solid var(--border-color);">
-                                    <th style="padding: 2rem; font-weight: 700; color: var(--navy); width: 20%;">Module</th>
-                                    <th style="padding: 2rem; font-weight: 700; color: var(--navy); width: 25%;">Focus</th>
-                                    <th style="padding: 2rem; font-weight: 700; color: var(--navy);">Details & Objectives</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--border-color);">
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--teal);">
-                                            <span style="width: 32px; height: 32px; background: rgba(42,180,184,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">1</span>
-                                            Awareness
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Foundations of AI</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Introduces AI in a safe, non-intimidating sandbox environment. Addresses common misconceptions and builds confidence.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border-color);">
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--gold);">
-                                            <span style="width: 32px; height: 32px; background: rgba(253,198,45,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">2</span>
-                                            Efficiency
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Smart Workflows & Time Savings</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn smart prompting to create lesson plans, quizzes, and differentiated content. Automates tasks to save 8+ hours per week.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border-color);">
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--crimson);">
-                                            <span style="width: 32px; height: 32px; background: rgba(179,65,88,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">3</span>
-                                            Ethics & Assessment
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Responsible Use & Academic Integrity</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Focuses on ethical use, identifying bias and "hallucinations." Provides strategies to prevent misuse and maintain academic integrity.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border-color);">
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--navy);">
-                                            <span style="width: 32px; height: 32px; background: rgba(15,23,42,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">4</span>
-                                            Personalization
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Differentiated Instruction</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn how AI can instantly customize assignments for diverse learners, supporting English language learners, advanced students, and students with learning differences.</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--border-color);">
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: #6366F1;">
-                                            <span style="width: 32px; height: 32px; background: rgba(99, 102, 241, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">5</span>
-                                            Advanced Integration
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Subject-Specific AI</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Deep dive into specialized tools for Math, ELA, Science, and Arts. Moving beyond general chatbots to subject-optimized AI workflows.</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 2.5rem 2rem;">
-                                        <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: #8B5CF6;">
-                                            <span style="width: 32px; height: 32px; background: rgba(139, 92, 246, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">6</span>
-                                            Leadership & Policy
-                                        </span>
-                                    </td>
-                                    <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Long-term AI Strategy</td>
-                                    <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Developing district-wide AI policies, community communication strategies, and ensuring sustainable, ethical AI adoption for the future.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div style="margin-bottom: 5rem;">
+                    <h3 style="font-size: 2rem; color: var(--navy); margin-bottom: 2rem; text-align: center;">Level 1: AI PD Fundamentals</h3>
+                    <div class="glass-card" style="padding: 0; overflow: hidden; border: 1px solid var(--border-color);">
+                        <div class="table-responsive" style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
+                                <thead>
+                                    <tr style="background: rgba(15, 23, 42, 0.02); border-bottom: 1px solid var(--border-color);">
+                                        <th style="padding: 2rem; font-weight: 700; color: var(--navy); width: 20%;">Module</th>
+                                        <th style="padding: 2rem; font-weight: 700; color: var(--navy); width: 25%;">Focus</th>
+                                        <th style="padding: 2rem; font-weight: 700; color: var(--navy);">Details & Objectives</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 2.5rem 2rem;">
+                                            <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--teal);">
+                                                <span style="width: 32px; height: 32px; background: rgba(42,180,184,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">1</span>
+                                                Awareness
+                                            </span>
+                                        </td>
+                                        <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Foundations of AI</td>
+                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Introduces AI in a safe, non-intimidating sandbox environment. Addresses common misconceptions and builds confidence.</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 2.5rem 2rem;">
+                                            <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--gold);">
+                                                <span style="width: 32px; height: 32px; background: rgba(253,198,45,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">2</span>
+                                                Efficiency
+                                            </span>
+                                        </td>
+                                        <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Smart Workflows & Time Savings</td>
+                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn smart prompting to create lesson plans, quizzes, and differentiated content. Automates tasks to save 8+ hours per week.</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 2.5rem 2rem;">
+                                            <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--crimson);">
+                                                <span style="width: 32px; height: 32px; background: rgba(179,65,88,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">3</span>
+                                                Ethics & Assessment
+                                            </span>
+                                        </td>
+                                        <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Responsible Use & Academic Integrity</td>
+                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Focuses on ethical use, identifying bias and "hallucinations." Provides strategies to prevent misuse and maintain academic integrity.</td>
+                                    </tr>
+                                    <tr style="border-bottom: none;">
+                                        <td style="padding: 2.5rem 2rem;">
+                                            <span style="display: flex; align-items: center; gap: 0.75rem; font-weight: 700; color: var(--navy);">
+                                                <span style="width: 32px; height: 32px; background: rgba(15,23,42,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center;">4</span>
+                                                Personalization
+                                            </span>
+                                        </td>
+                                        <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Differentiated Instruction</td>
+                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn how AI can instantly customize assignments for diverse learners, supporting English language learners, advanced students, and students with learning differences.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 5rem; margin-bottom: 2rem; border-top: 1px solid var(--border-color); padding-top: 5rem;">
+                    <div class="text-center" style="margin-bottom: 3.5rem;">
+                        <span class="badge" style="background: rgba(42, 180, 184, 0.08); color: var(--teal); border-color: rgba(42, 180, 184, 0.15);">The Next Level</span>
+                        <h2 style="font-size: 3.5rem; margin-top: 1rem;">Level 2: AI PD <span class="text-gradient">Advanced.</span></h2>
+                        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; margin-bottom: 3rem;">Level 2 equips your staff to move from AI awareness to AI authorship — building real tools, workflows, and confidence. Every module is hands-on, school-relevant, and immediately actionable. No coding background required.</p>
+                    </div>
+
+                    <div class="grid-2" style="gap: 2.5rem; max-width: 1100px; margin: 0 auto;">
+                        <!-- Module 5 -->
+                        <div class="glass-card" style="padding: 2.5rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--teal); background: var(--card-grad-teal);">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                    <span style="font-weight: 700; color: var(--teal); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
+                                        <span style="width: 28px; height: 28px; background: rgba(42,180,184,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">5</span>
+                                        Module 5
+                                    </span>
+                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); background: var(--surface); padding: 4px 12px; border-radius: 999px;">60 min</span>
+                                </div>
+                                <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">AI for Deep Research & Sense-Making</h3>
+                                <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Research vs search — how AI synthesises while Google retrieves</li>
+                                        <li>NotebookLM advanced — multi-doc querying across curriculum & standards</li>
+                                    </ul>
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Gemini Deep Research — multi-step synthesis with report output</li>
+                                        <li>Trust & verification — when to follow, when to challenge AI outputs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="border-top: 1px solid rgba(15,23,42,0.06); padding-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; text-align: left;">
+                                <strong style="color: var(--teal); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">Tools</strong>
+                                NotebookLM &middot; Perplexity &middot; Gemini Deep Research &middot; Claude Projects
+                            </div>
+                        </div>
+
+                        <!-- Module 6 -->
+                        <div class="glass-card" style="padding: 2.5rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--gold); background: var(--card-grad-gold);">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                    <span style="font-weight: 700; color: var(--gold); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
+                                        <span style="width: 28px; height: 28px; background: rgba(253,198,45,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">6</span>
+                                        Module 6
+                                    </span>
+                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); background: var(--surface); padding: 4px 12px; border-radius: 999px;">90 min</span>
+                                </div>
+                                <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Understanding & Building AI Agents</h3>
+                                <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">What agents actually are — beyond chatbots: memory, tools, autonomous action</li>
+                                        <li>Agent anatomy — trigger &rarr; perceive &rarr; decide &rarr; act &rarr; loop</li>
+                                    </ul>
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Gemini in Sheets — sidebar AI, formula generation, plain-English analysis</li>
+                                        <li>Ethics of autonomy — what agents should never decide alone</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="border-top: 1px solid rgba(15,23,42,0.06); padding-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; text-align: left;">
+                                <strong style="color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">Tools</strong>
+                                Gemini in Sheets &middot; Gemini in Docs &middot; Google AppScript + AI &middot; Zapier
+                            </div>
+                        </div>
+
+                        <!-- Module 7 -->
+                        <div class="glass-card" style="padding: 2.5rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--crimson); background: var(--card-grad-crimson);">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                    <span style="font-weight: 700; color: var(--crimson); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
+                                        <span style="width: 28px; height: 28px; background: rgba(179,65,88,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">7</span>
+                                        Module 7
+                                    </span>
+                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); background: var(--surface); padding: 4px 12px; border-radius: 999px;">90 min</span>
+                                </div>
+                                <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Designing AI Workflows</h3>
+                                <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Workflow vs agent — one task vs a chain of connected tasks</li>
+                                        <li>Chaining LLMs — output of prompt 1 becomes input of prompt 2</li>
+                                    </ul>
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Branching logic — if/else decisions inside a pipeline</li>
+                                        <li>Human-in-the-loop checkpoints — designing for trust, not speed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="border-top: 1px solid rgba(15,23,42,0.06); padding-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; text-align: left;">
+                                <strong style="color: var(--crimson); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">Tools</strong>
+                                Make.com &middot; Google AppScript &middot; Gemini in Sheets &middot; n8n (optional)
+                            </div>
+                        </div>
+
+                        <!-- Module 8 -->
+                        <div class="glass-card" style="padding: 2.5rem; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--navy); background: var(--card-grad-slate);">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                    <span style="font-weight: 700; color: var(--navy); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
+                                        <span style="width: 28px; height: 28px; background: rgba(15,23,42,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">8</span>
+                                        Module 8
+                                    </span>
+                                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); background: var(--surface); padding: 4px 12px; border-radius: 999px;">75 min + 15 min wrap</span>
+                                </div>
+                                <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Building Apps Without Code</h3>
+                                <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">What makes a good teacher-built app — one job, zero training needed</li>
+                                        <li>Bolt.new — describe your app in plain English, get a prototype in minutes</li>
+                                    </ul>
+                                    <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                                        <li style="margin-bottom: 0.75rem;">Glide — turn a Google Sheet into a mobile app, free for educators</li>
+                                        <li>Connecting S5-S8: knowledge base + agent + workflow = app backend</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="border-top: 1px solid rgba(15,23,42,0.06); padding-top: 1.25rem; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; text-align: left;">
+                                <strong style="color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">Tools</strong>
+                                Bolt.new &middot; Glide (free for edu) &middot; Google Sites + AppScript &middot; Gamma
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1978,7 +2067,7 @@
                     </div>
                 </div>
                 <div class="text-center" style="margin-top: 4rem;">
-                    <a href="#"  class="btn btn-primary open-pilot-modal">Book a PD Session <i data-lucide="arrow-right"></i></a>
+                    <a href="/contact-us" class="btn btn-primary">Book a PD Session <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -4368,7 +4457,7 @@
                     <div class="faq-question">What does TomoClub cost? <i data-lucide="chevron-down"></i></div>
                     <div class="faq-answer">
                         <p>Pricing is customized based on the program, number of students and teachers, engagement length, and level of support.</p>
-                        <a href="#"  class="btn btn-secondary open-pilot-modal" style="margin-top: 1rem; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Get a Proposal</a>
+                        <a href="/contact-us" class="btn btn-secondary" style="margin-top: 1rem; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Get a Proposal</a>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -4379,7 +4468,7 @@
                     <div class="faq-question">Do you work with international schools? <i data-lucide="chevron-down"></i></div>
                     <div class="faq-answer">
                         <p>Yes. TomoClub currently operates in 10+ countries. Programs are delivered in English as standard, with localization options available for specific markets.</p>
-                        <a href="#"  class="btn btn-secondary open-pilot-modal" style="margin-top: 1rem; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Start the Conversation</a>
+                        <a href="/contact-us" class="btn btn-secondary" style="margin-top: 1rem; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Start the Conversation</a>
                     </div>
                 </div>
             </div>
@@ -4903,7 +4992,7 @@
                 </div>
 
                 <div class="text-center" style="margin-top: 5rem;">
-                    <a href="#"  class="btn btn-secondary open-pilot-modal">Talk to Our Team</a>
+                    <a href="/contact-us" class="btn btn-secondary">Talk to Our Team</a>
                 </div>
             </div>
         </section>
@@ -4966,6 +5055,17 @@
                 </div>
 
                 <div class="grid-3">
+                    <a href="blog/ai-implementation-in-k12-schools/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+                        <div style="background: var(--card-grad-gold); height: 100%; display: flex; flex-direction: column;">
+                            <img src="blog/ai-implementation-in-k12-schools/hero.png" alt="Blog Post" style="width: 100%; height: 200px; object-fit: cover;">
+                            <div style="padding: 2rem 2rem 2rem; display: flex; flex-direction: column; flex-grow: 1;">
+                                <span style="font-size: 0.85rem; color: #D97706; font-weight: 600; text-transform: uppercase;">AI in Education</span>
+                                <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;">AI Implementation in K-12 Schools: Why AI Literacy Must Come Before AI Tools</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">AI is changing how schools teach and learn. Discover why building AI literacy before adopting tools leads to stronger, more sustainable implementation.</p>
+                                <span class="btn btn-secondary btn-read-more" style="margin-top: auto;">Read More <i data-lucide="arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </a>
                     <a href="blog/ai-implementation-in-k12-schools/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                         <div style="background: var(--card-grad-gold); height: 100%; display: flex; flex-direction: column;">
                             <img src="blog/ai-implementation-in-k12-schools/hero.png" alt="Blog Post" style="width: 100%; height: 200px; object-fit: cover;">
@@ -5368,7 +5468,7 @@
                 <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">The fastest way to know if TomoClub is the right fit is a real conversation. We will learn about your school, share what has worked for districts like yours, and design a pilot that fits your context and budget.</p>
                 <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.15rem; color: #94A3B8; font-weight: 500;">No pressure. No one-size-fits-all pitch.</p>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-                    <a href="#"  class="btn btn-primary open-pilot-modal" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Request a Pilot <i data-lucide="arrow-right"></i></a>
+                    <a href="/contact-us" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Contact Us <i data-lucide="arrow-right"></i></a>
                     <a href="#faqs" style="color: var(--teal); text-decoration: none; font-weight: 500;">Already have questions? Browse our FAQs &rarr;</a>
                 </div>
             </div>
@@ -5388,6 +5488,7 @@
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
                         <a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" title="X (Twitter)" style="display: inline-flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -5755,7 +5856,7 @@
     </div>
 
     <!-- Contextual Floating CTA -->
-    <a href="#"  id="floating-cta" class="btn btn-primary floating-cta open-pilot-modal">Request a Pilot <i data-lucide="arrow-right"></i></a>
+    <a href="/contact-us" id="floating-cta" class="btn btn-primary floating-cta">Contact Us <i data-lucide="arrow-right"></i></a>
 
     <!-- Video Modal -->
     <div id="video-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; align-items: center; justify-content: center; flex-direction: column;">

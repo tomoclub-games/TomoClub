@@ -2272,15 +2272,10 @@
                 </div>
 
                 <!-- Escape Hatch contact box -->
-                <div class="quiz-escape-hatch">
-                    <div class="escape-prompt">Your child's situation is more specific? Describe it — we'll find the right fit, even if it's not one of our programs.</div>
-                    <form id="escape-hatch-form" onsubmit="submitEscapeHatch(event)">
-                        <div class="escape-input-row">
-                            <input type="email" class="escape-input" id="escape-text" placeholder="enter email" required>
-                            <button type="submit" class="escape-submit-btn" id="escape-submit-btn">Send &rarr;</button>
-                        </div>
-                    </form>
-                    <div class="escape-confirmation" id="escape-confirm">Got it — we'll reply within 24 hours with an honest recommendation.</div>
+                <div class="quiz-escape-hatch" style="text-align: center;">
+                    <div class="escape-prompt">Is your child’s requirement specific? Submit a request using the form.</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">A member of our team will reach out to schedule a consultation.</p>
+                    <a href="/contact-us" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="border-radius: 100px; padding: 0.75rem 2rem; font-weight: 600; text-decoration: none; border: 1px solid var(--teal); color: var(--teal); transition: all 0.2s ease; display: inline-flex;" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">Contact Us &rarr;</a>
                 </div>
             </div>
         </div>
@@ -2308,7 +2303,7 @@
                 <div class="parent-program-card">
                     <div class="program-card-accent-bar ai"></div>
                     <div class="program-card-banner ai">
-                        <img src="tomo%20AI%20LAB.jpg" alt="Tomo AI Lab" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; opacity: 1;">
+                        <img src="tomo_ai_lab_thumb.jpg" alt="Tomo AI Lab" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; opacity: 1;">
                         <div class="program-banner-icon-box ai">
                             <i data-lucide="cpu"></i>
                         </div>
@@ -2356,13 +2351,14 @@
 
                         <div class="program-pricing-box">
                             <div class="price-digits">
+                                <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 0.5rem; font-weight: 500;">$199</span>
                                 <span class="price-num">$99</span>
                                 <span class="price-period">/month &middot; 8 sessions</span>
                             </div>
-                            <span class="price-badge-inr">&#8377;4,999/mo</span>
+                            <span class="price-badge-inr"><span style="text-decoration: line-through; opacity: 0.6; margin-right: 0.5rem;">&#8377;7,999</span>&#8377;4,999/mo</span>
                         </div>
                         
-                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-parents-card-cta ai">Join Waitlist &rarr;</a>
+                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-parents-card-cta ai">Signup for Waitlist &rarr;</a>
                         <div class="program-card-fineprint">No commitment &middot; Cancel anytime &middot; Trial is free</div>
                     </div>
                 </div>
@@ -2371,7 +2367,7 @@
                 <div class="parent-program-card">
                     <div class="program-card-accent-bar skills"></div>
                     <div class="program-card-banner skills">
-                        <img src="tomo%20LIFE%20SKILLS.jpg" alt="Tomo Life Skills" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; opacity: 1;">
+                        <img src="tomo_life_skills_thumb.jpg" alt="Tomo Life Skills" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; opacity: 1;">
                         <div class="program-banner-icon-box skills">
                             <i data-lucide="users"></i>
                         </div>
@@ -2419,13 +2415,14 @@
 
                         <div class="program-pricing-box">
                             <div class="price-digits">
+                                <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 0.5rem; font-weight: 500;">$199</span>
                                 <span class="price-num">$99</span>
                                 <span class="price-period">/month &middot; 8 sessions</span>
                             </div>
-                            <span class="price-badge-inr">&#8377;4,999/mo</span>
+                            <span class="price-badge-inr"><span style="text-decoration: line-through; opacity: 0.6; margin-right: 0.5rem;">&#8377;7,999</span>&#8377;4,999/mo</span>
                         </div>
                         
-                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-parents-card-cta skills">Join Waitlist &rarr;</a>
+                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-parents-card-cta skills">Signup for Waitlist &rarr;</a>
                         <div class="program-card-fineprint">No commitment &middot; Cancel anytime &middot; Trial is free</div>
                     </div>
                 </div>
@@ -2587,6 +2584,10 @@
                     </div>
                 </div>
 
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-parents-card-cta ai" style="display: inline-flex; align-items: center; justify-content: center; width: auto; padding: 18px 45px; font-size: 1.35rem; font-weight: 700; border-radius: 100px; box-shadow: var(--shadow-lg); text-decoration: none;">Signup for Waitlist &rarr;</a>
             </div>
         </div>
     </section>
@@ -3030,8 +3031,8 @@
                         <div class="cta-panel-desc">For the child curious about technology — and the parent who wants them ahead of AI, not behind it.</div>
                     </div>
                     <div>
-                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-panel-action">Join Waitlist &rarr;</a>
-                        <div class="panel-fineprint">Grades 3–8 &middot; $99/mo &middot; &#8377;4,999/mo</div>
+                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-panel-action">Signup for Waitlist &rarr;</a>
+                        <div class="panel-fineprint">Grades 3–8 &middot; <span style="text-decoration: line-through; opacity: 0.6;">$199</span> $99/mo &middot; <span style="text-decoration: line-through; opacity: 0.6;">&#8377;7,999</span> &#8377;4,999/mo</div>
                     </div>
                 </div>
 
@@ -3042,8 +3043,8 @@
                         <div class="cta-panel-desc">For the child who needs their voice — and the parent who knows confidence can't come from a textbook.</div>
                     </div>
                     <div>
-                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-panel-action">Join Waitlist &rarr;</a>
-                        <div class="panel-fineprint">Grades 3–8 &middot; $99/mo &middot; &#8377;4,999/mo</div>
+                        <a href="/waitlist-form" target="_blank" rel="noopener noreferrer" class="btn-panel-action">Signup for Waitlist &rarr;</a>
+                        <div class="panel-fineprint">Grades 3–8 &middot; <span style="text-decoration: line-through; opacity: 0.6;">$199</span> $99/mo &middot; <span style="text-decoration: line-through; opacity: 0.6;">&#8377;7,999</span> &#8377;4,999/mo</div>
                     </div>
                 </div>
 
@@ -3060,8 +3061,22 @@
         <div class="container">
             <div class="glass-card" style="padding: 3rem 2rem; background: var(--surface); border-radius: 24px; border: 1px solid var(--border-color); text-align: center; box-shadow: var(--shadow-md); max-width: 800px; margin: 0 auto;">
                 <h4 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.5rem;">Have questions or need additional information?</h4>
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Send us an email at: <a href="mailto:info@tomoclub.org" style="color: var(--teal); text-decoration: none; font-weight: 600;">info@tomoclub.org</a>. Or DM us on our social channels.</p>
-                <a href="/contact-us.html" class="btn btn-secondary" style="border-radius: 100px; padding: 0.75rem 2rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--teal); color: var(--teal); text-decoration: none; transition: all 0.2s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">Contact Us Form &rarr;</a>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Send us an email at: <a href="mailto:info@tomoclub.org" style="color: var(--teal); text-decoration: none; font-weight: 600;">info@tomoclub.org</a> Or DM us on our social channels.</p>
+                <a href="/contact-us" class="btn btn-secondary" style="border-radius: 100px; padding: 0.75rem 2rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--teal); color: var(--teal); text-decoration: none; transition: all 0.2s ease;" onmouseover="this.style.background='var(--teal)';this.style.color='#fff';" onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -3079,6 +3094,7 @@
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
                         <a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" title="X (Twitter)" style="display: inline-flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                     </div>
                 </div>
                 <div class="footer-links">

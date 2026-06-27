@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover How AI Can Help School Leaders Make Smarter Decisions by Using Practical Tools, Data Insights, and Strategies that Empower Educators and Drive Real Impact.">
     <title>How AI Can Help School Leaders Make Smarter Decisions | TomoClub Blog</title>
+    <meta name="description" content="Discover How AI Can Help School Leaders Make Smarter Decisions by Using Practical Tools, Data Insights, and Strategies that Empower Educators and Drive Real Impact.">
     
+    <!-- Open Graph -->
+                
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../../styles.css?v=21">
+    
     <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
         body {
-            background: var(--bg-main);
+            background-color: var(--bg-main);
             color: var(--text-main);
+            line-height: 1.6;
         }
 
         .article-hero {
-            padding: 160px 0 60px;
+            padding: 160px 0 80px;
             background: var(--hero-glow-teal);
             text-align: center;
         }
 
         .article-meta {
+            margin-bottom: 2rem;
             display: flex;
-            gap: 1.5rem;
             justify-content: center;
             align-items: center;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             color: var(--text-muted);
-            font-weight: 500;
         }
 
         .article-category {
@@ -39,26 +48,39 @@
             color: var(--teal);
             padding: 0.4rem 1rem;
             border-radius: 999px;
-            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .article-title {
             font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
             line-height: 1.1;
             max-width: 1000px;
-            margin: 0 auto 2rem;
-            font-weight: 800;
+            margin-left: auto;
+            margin-right: auto;
             color: var(--navy);
         }
 
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            margin: 0 auto;
+            display: block;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+        }
+
         .article-content {
-            max-width: 800px;
+            max-width: var(--article-max-width);
             margin: 5rem auto;
             padding: 0 1.5rem;
+            font-size: 1.2rem;
             line-height: 1.8;
-            font-size: 1.15rem;
             color: var(--text-main);
         }
 
@@ -66,61 +88,42 @@
             font-size: 2.25rem;
             margin: 4rem 0 1.5rem;
             color: var(--navy);
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            font-weight: 700;
         }
 
         .article-content h3 {
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem;
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
             color: var(--navy);
             font-weight: 700;
         }
 
         .article-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .article-content ul, .article-content ol {
             margin-bottom: 2.5rem;
-            padding-left: 0;
+            padding-left: 1.5rem;
         }
 
         .article-content li {
             margin-bottom: 1rem;
-            position: relative;
-            padding-left: 1.5rem;
-            list-style: none;
-        }
-
-        .article-content li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: bold;
         }
 
         .back-nav {
-            max-width: 800px;
+            max-width: var(--article-max-width);
             margin: 4rem auto;
             padding: 0 1.5rem;
         }
 
         .cta-box {
-            background: var(--card-grad-teal);
+            background: var(--surface);
+            border: 1px solid var(--border-color);
             padding: 3rem;
             border-radius: 24px;
-            border: 1px solid var(--border-color);
-            margin: 3rem 0;
-        }
-
-        .example-box {
-            background: rgba(42, 180, 184, 0.05);
-            padding: 2rem;
-            border-radius: 16px;
-            border-left: 4px solid var(--teal);
-            margin: 2rem 0;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-md);
         }
 
         /* Navigation Style matching Main Site */
@@ -169,34 +172,19 @@
             color: #fff;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        /* Dark Theme Support */
-        body.dark-theme {
-            --bg-main: #020617;
-            --text-main: #f1f5f9;
-            --navy: #f8fafc;
-            --border-color: rgba(255,255,255,0.1);
-        }
-
         @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            .article-cover {
+                border-radius: 16px;
+            }
             nav {
                 width: calc(100% - 1rem);
                 padding: 0.5rem 1rem;
             }
             .nav-links {
-                display: none;
+                display: none; /* Simplify for mobile in this view */
             }
         }
     </style>
@@ -205,33 +193,40 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="How AI Can Help School Leaders Make Smarter Decisions | TomoClub Blog">
     <meta property="og:description" content="Discover How AI Can Help School Leaders Make Smarter Decisions by Using Practical Tools, Data Insights, and Strategies that Empower Educators and Drive Real Impact.">
-    <meta property="og:image" content="https://www.tomoclub.org/blog/how-ai-can-help-school-leaders-make-smarter-decisions/hero.png">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/how-ai-is-changing-school-management/hero.png">
     <meta property="og:site_name" content="TomoClub">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How AI Can Help School Leaders Make Smarter Decisions | TomoClub Blog">
     <meta name="twitter:description" content="Discover How AI Can Help School Leaders Make Smarter Decisions by Using Practical Tools, Data Insights, and Strategies that Empower Educators and Drive Real Impact.">
-    <meta name="twitter:image" content="https://www.tomoclub.org/blog/how-ai-can-help-school-leaders-make-smarter-decisions/hero.png">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/how-ai-is-changing-school-management/hero.png">
 </head>
 <body>
     <nav>
         <div class="container nav-container">
             <a href="../../" class="logo">
-                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
-            </a>
-            <div class="nav-links">
-                <div class="nav-item"><a href="../../#blog">Blog</a></div>
-                <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
-            </div>
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="/contact-us" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Contact Us</a></div>
+        </div>
         </div>
     </nav>
 
     <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
         <header class="article-hero">
             <div class="container">
                 <div class="article-meta">
                     <span class="article-category">Leadership</span>
+                    
                 </div>
                 <h1 class="article-title">How AI Can Help School Leaders Make Smarter Decisions</h1>
             </div>
@@ -280,6 +275,20 @@
         </div>
     </article>
 
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
         <div class="container">
             <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
@@ -291,6 +300,9 @@
                     <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
                     <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
                     <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem; align-items: center;">
+                    <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                 </div>
                 <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
             </div>
