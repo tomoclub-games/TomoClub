@@ -1,4 +1,12 @@
 const podcastsData = {
+  "9JX63pKV0U4": {
+    "title": "Leading a Remote Native American School: Culture, AI & Chronic Absenteeism | The Learning Shift #32",
+    "speaker": "Marilou Areno",
+    "date": "June 30, 2026",
+    "duration": "29:46",
+    "thumbnail": "https://img.youtube.com/vi/9JX63pKV0U4/maxresdefault.jpg",
+    "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down with Marilou Areno to explore the realities of leading effectively.</p>"
+  },
   "UesB3hNbBsI": {
     "title": "Building a Staff-First Culture in Special Education",
     "speaker": "The Learning Shift #30",
@@ -8,7 +16,7 @@ const podcastsData = {
     "description": "<p>In this episode of the TomoClub Podcast, host Shreya sits down to explore the realities of leading effectively.</p>"
   },
   "pHnEhrZrT3g": {
-    "title": "What Schools Don&#39;t Know About AI: Legal Risks, Student Data &amp; Policy",
+    "title": "What Schools Don't Know About AI: Legal Risks, Student Data & Policy",
     "speaker": "The Learning Shift #29",
     "date": "June 19, 2026",
     "duration": "28:50",

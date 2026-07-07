@@ -3,3 +3,7 @@ scratch/
 
 # Ignore documentation sources
 for_parents.docx
+
+# Python build artifacts
+__pycache__/
+*.pyc

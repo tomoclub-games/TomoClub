@@ -92,7 +92,8 @@ https://youtu.be/V-nR2T6iBTc
 https://youtu.be/u0AJJQ5iXSc
 https://youtu.be/2aZPyQnE0e8
 https://youtu.be/JNQ6ME7RSnw
-https://youtu.be/cur8l7SnLbA?si=-YrFubb5RaA8Vd8s"""
+https://youtu.be/cur8l7SnLbA?si=-YrFubb5RaA8Vd8s
+https://youtu.be/9JX63pKV0U4?si=BcMjzHjKDBNaR68e"""
 
 ids = []
 for u in urls.strip().split('\n'):
@@ -121,5 +122,5 @@ for i, vid in enumerate(ids):
                 </a>\n'''
 html_str += '            </div>'
 
-with open('podcast_html.txt', 'w') as f:
+with open('podcast_html.txt', 'w', encoding='utf-8') as f:
     f.write(html_str)
