@@ -1,8 +1,8 @@
 import os
 import shutil
 
-source_img = r'c:\Users\JANMEJAY\Desktop\tom\Brad.png'
-dest_img = r'c:\Users\JANMEJAY\Desktop\tom\articles\images\Brad.png'
+source_img = r'c:\Users\JANMEJAY\Desktop\tom\Brad.jpg'
+dest_img = r'c:\Users\JANMEJAY\Desktop\tom\articles\images\Brad.jpg'
 if os.path.exists(source_img):
     os.makedirs(os.path.dirname(dest_img), exist_ok=True)
     shutil.copy2(source_img, dest_img)
@@ -329,8 +329,8 @@ article_html = html_template.format(
     description=title,
     category="School Leadership",
     date="June 22, 2026",
-    cover_local="../../articles/images/Brad.png",
-    cover_local_name="Brad.png",
+    cover_local="../../articles/images/Brad.jpg",
+    cover_local_name="Brad.jpg",
     slug=slug,
     content=content
 )
@@ -346,7 +346,7 @@ with open(r'c:\Users\JANMEJAY\Desktop\tom\index.html', 'r', encoding='utf-8') as
 new_card = f'''
                 <a href="articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                     <div style="background: var(--card-grad-teal); height: 100%; display: flex; flex-direction: column;">
-                        <img src="articles/images/Brad.png" alt="Brad Winterod" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
+                        <img src="articles/images/Brad.jpg" alt="Brad Winterod" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
                         <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
                             
                             <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;" class="article-title">{title}</h3>

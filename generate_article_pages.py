@@ -25,7 +25,7 @@ article_metadata = {
         "date": "July 2, 2026",
         "category": "School Leadership",
         "slug": "what-36-years-in-education-taught-one-rural-superintendent",
-        "cover": "articles/images/Brad_Johnson.png"
+        "cover": "articles/images/Brad_Johnson.jpg"
     },
     "article_1": {
         "title": "Why TomoClub Exists – And the Side of Education Innovation We Don’t See",
@@ -74,14 +74,14 @@ article_metadata = {
         "date": "June 4, 2026",
         "category": "Leadership",
         "slug": "piper-bognar-van-dyke-leadership",
-        "cover": "piper-new.png"
+        "cover": "piper-new.jpg"
     },
     "article_8": {
         "title": "What Chris Parker Learned About Leading Technology When the Budget Says No",
         "date": "June 8, 2026",
         "category": "Technology Leadership",
         "slug": "chris-parker-technology-leadership",
-        "cover": "Chris.png"
+        "cover": "Chris.jpg"
     }
 }
 
@@ -375,7 +375,7 @@ for art_id, meta in article_metadata.items():
     # Download and localise cover image
     cover_ext = meta['cover'].split('.')[-1]
     cover_local_name = f"{slug}-cover.{cover_ext}"
-    if meta['cover'] in ["piper-new.png", "Chris.png"]:
+    if meta['cover'] in ["piper-new.jpg", "Chris.jpg"]:
         cover_local_name = meta['cover']
     cover_local_path = f"articles/images/{cover_local_name}"
     download_image(meta['cover'], cover_local_path)
