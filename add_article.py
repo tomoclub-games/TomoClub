@@ -42,6 +42,8 @@ import re
 import subprocess
 import sys
 
+from pdf_image_utils import extract_pdf_images  # noqa: F401 -- re-exported for callers
+
 
 def normalize_content(html: str) -> str:
     """Collapse a multi-line content file into the single-line style used
@@ -434,9 +436,11 @@ def main():
         sys.exit(1)
 
     content_html = args.content
+    content_file_dir = None
     if args.content_file:
         with open(args.content_file, encoding='utf-8') as f:
             content_html = f.read()
+        content_file_dir = os.path.dirname(os.path.abspath(args.content_file))
     content_html = normalize_content(content_html)
 
     slug = args.slug or slugify(args.title)
@@ -465,7 +469,18 @@ def main():
         ext = img_url.split('.')[-1].split('?')[0]
         local_name = f"{slug}-img-{i + 1}.{ext}"
         local_path = f"articles/images/{local_name}"
-        if download_image(img_url, local_path):
+        # Bare filenames (no scheme, no slash) are treated as sitting next
+        # to --content-file -- e.g. images pulled out of a source PDF with
+        # pdf_image_utils.extract_pdf_images(). Resolve against that
+        # directory before falling back to download_image's cwd-relative
+        # and URL handling.
+        source = img_url
+        if (content_file_dir and not img_url.startswith(('http://', 'https://'))
+                and '/' not in img_url):
+            candidate = os.path.join(content_file_dir, img_url)
+            if os.path.exists(candidate):
+                source = candidate
+        if download_image(source, local_path):
             content_html = content_html.replace(img_url, f"../../articles/images/{local_name}")
 
     final_html = HTML_TEMPLATE.format(
