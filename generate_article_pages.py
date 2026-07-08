@@ -13,6 +13,13 @@ articles = json.loads(json_str)
 
 # Article metadata (matching index.html)
 article_metadata = {
+    "article_11": {
+        "title": "Ten Miles Deep: A Lesson in Rural School Leadership from Edison's Dave Eastin",
+        "date": "July 9, 2026",
+        "category": "Leadership",
+        "slug": "dave-eastin-rural-leadership",
+        "cover": "articles/images/Dave_Eastin.jpg"
+    },
     "article_10": {
         "title": "What Wade Stanford Learned by Doing Every Job in a School District First",
         "date": "July 6, 2026",
