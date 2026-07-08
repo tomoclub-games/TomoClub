@@ -437,13 +437,22 @@ def main():
         print("Failed to obtain cover image; aborting.")
         sys.exit(1)
 
+    # NOTE: all rewritten src values below are root-relative ("/blog/<slug>/...")
+    # rather than bare filenames. Bare filenames resolve against the CURRENT
+    # DIRECTORY of the page URL -- which is only "/blog/<slug>/" if the page
+    # is actually served/loaded with a trailing slash. Static hosts don't all
+    # guarantee that for directory-style routes, and when they don't, a bare
+    # filename resolves one level too high (e.g. "/blog/<slug>" without a
+    # trailing slash treats "<slug>" as a file, so "foo.jpg" resolves to
+    # "/blog/foo.jpg" -- a 404). Root-relative paths sidestep this entirely.
+    # This bit us in production for the first post that used this script.
     img_tags = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content_html)
     for i, img_src in enumerate(img_tags):
         if img_src.startswith('http://') or img_src.startswith('https://'):
             ext = img_src.split('.')[-1].split('?')[0]
             local_name = f"{slug}-img-{i + 1}.{ext}"
             if download_image(img_src, f"{post_dir}/{local_name}"):
-                content_html = content_html.replace(img_src, local_name)
+                content_html = content_html.replace(img_src, f"/blog/{slug}/{local_name}")
             else:
                 print(f"  WARNING: could not download {img_src}; left as-is in content.")
         elif not os.path.isabs(img_src) and '/' not in img_src:
@@ -458,6 +467,7 @@ def main():
                     if not os.path.exists(dst):
                         with open(candidate, 'rb') as s, open(dst, 'wb') as d:
                             d.write(s.read())
+                    content_html = content_html.replace(img_src, f"/blog/{slug}/{img_src}")
                     break
             else:
                 print(f"  WARNING: content references local image '{img_src}' but it wasn't found next to --content-file.")
