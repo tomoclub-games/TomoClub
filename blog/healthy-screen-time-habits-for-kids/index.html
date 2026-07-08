@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Screen-Time Habits for Kids: 5 Practical Tips for Parents | TomoClub Blog</title>
+    <meta name="description" content="Healthy screen-time habits require much more than setting time limits. Explore these 5 Practical Tips to help your child build balance, critical thinking, and intentional technology use.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+
+    <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--navy);
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            margin: 0 auto;
+            display: block;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: var(--article-max-width);
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.75rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+        }
+
+        .back-nav {
+            max-width: var(--article-max-width);
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .cta-box {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            padding: 3rem;
+            border-radius: 24px;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .reflect-box {
+            background: rgba(42, 180, 184, 0.08);
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--navy);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            .article-cover {
+                border-radius: 16px;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none; /* Simplify for mobile in this view */
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Healthy Screen-Time Habits for Kids: 5 Practical Tips for Parents | TomoClub Blog">
+    <meta property="og:description" content="Healthy screen-time habits require much more than setting time limits. Explore these 5 Practical Tips to help your child build balance, critical thinking, and intentional technology use.">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/healthy-screen-time-habits-for-kids/hero.jpeg">
+    <meta property="og:site_name" content="TomoClub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Healthy Screen-Time Habits for Kids: 5 Practical Tips for Parents | TomoClub Blog">
+    <meta name="twitter:description" content="Healthy screen-time habits require much more than setting time limits. Explore these 5 Practical Tips to help your child build balance, critical thinking, and intentional technology use.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/healthy-screen-time-habits-for-kids/hero.jpeg">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Parenting</span>
+                    <span>July 8, 2026</span>
+                </div>
+                <h1 class="article-title">Healthy Screen-Time Habits for Kids: 5 Practical Tips for Parents</h1>
+            </div>
+        </header>
+
+        <div class="container" style="margin-bottom: 4rem;">
+            <img loading="lazy" src="hero.jpeg" alt="Healthy Screen-Time Habits for Kids" class="article-cover">
+        </div>
+
+        <div class="article-content">
+
+            <p class="lead" style="font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 3rem; line-height: 1.5;">
+                Healthy screen-time habits require much more than setting time limits. Explore these 5 practical tips to help your child build balance, critical thinking, and intentional technology use.
+            </p>
+
+            <p>You're standing in the car line after school, waiting impatiently amidst the slow-moving traffic, when you spot your kid heading towards you. Before you even start the car engine to move, you hear two sounds at once: the thudding of the backpack on the floorboard, followed by, <em>"Can I have my phone?"</em></p>
+            <p>In your already frustrated state, such a demand might fluster you, and you might wonder, <em>Why is my child always on the phone?</em> But before you lash out at your child with questions, we ask you for a mental reframe:</p>
+
+            <div class="reflect-box">
+                Not, <em>is this too much screen time?</em><br>
+                But <em>what is the screen time training my child to do?</em>
+            </div>
+
+            <p>Switch your question this way, and you will enter a world where, rather than trying to completely restrict your child's tech usage, you teach them how to distinguish passive "Screen Time" from mindful and creative "Skill Time." This helps build healthy technology habits in the long term.</p>
+            <p>This blog will explore 5 practical tips that you can use to make your child a future-ready, intentional, and thoughtful user of technology.</p>
+
+            <h2>1. Ask What the Screen Time is Training Your Child To Do</h2>
+            <p>When it comes to daily screen media time per day, the statistics are becoming increasingly grim, with the daily average for tweens (8-12 years) coming to five and a half hours per day. While your first instinct might be to panic and wish that your child doesn't become a part of this sample, the smarter thing to do is to understand that not all Screen Time is the same.</p>
+            <p>TomoClub's Screen-Time Quality Map can be quite handy in sorting this distinction. You need to think in terms of the 5 Cs:</p>
+            <ul>
+                <li><strong>Consume:</strong> Watching videos or scrolling through apps passively/driven by an algorithm.</li>
+                <li><strong>Create:</strong> Creating something, whether it is a story, designing a website, coding, or editing videos.</li>
+                <li><strong>Connect:</strong> Talking with friends, attending a class, or participating in a multi-person session to learn and communicate.</li>
+                <li><strong>Coordinate:</strong> Collaborating with others to solve a problem together or discussing/debating things.</li>
+                <li><strong>Collapse:</strong> Stop using screens mindlessly when feeling emotionally dysregulated or stuck.</li>
+            </ul>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <img loading="lazy" src="the-5-cs-of-screen-time.jpeg" style="max-width: 100%; border-radius: 8px;" alt="The 5 Cs of Screen Time: TomoClub's Screen-Time Quality Map" />
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.75rem;">Not all Screen Time is the same: TomoClub's Screen-Time Quality Map</p>
+            </div>
+
+            <p>So the next time you see your child sitting in front of the screen, first try to understand what activity they are engaged in and what skill they are learning from it. Because completely restricting screen interaction in today's tech-driven world is a myth. The goal then becomes to monitor your kids' screen activity to prompt informed, balanced technology use, not to take away their freedom.</p>
+
+            <div class="reflect-box">
+                Pause and Reflect: What activity is my child engaging in while using the phone/laptop/iPad?
+            </div>
+
+            <h2>2. Help Your Child Build Agency, Not Just Follow Rules</h2>
+            <p>Now that you have nailed the distinction between mindful digital engagement and useless scrolling, the next step is to help your child build Digital Agency, rather than setting restrictive rules that they do not understand.</p>
+            <p>Decades of psychological research, specifically Self-Determination Theory, show that strict compliance doesn't build lasting habits. When children turn off screens only because they fear punishment, it isn't teaching them self-control; it's like a child working on his classwork just because the teacher is monitoring them.</p>
+            <p>To turn a rule into a lifelong habit, children need a sense of autonomy. They need the agency to understand why they are closing an app and the opportunity to make that choice themselves. This can be achieved by training them right from early tech exposure to ask questions like:</p>
+            <ul>
+                <li><em>Why am I opening this app?</em></li>
+                <li><em>What do I want to accomplish?</em></li>
+                <li><em>When am I done using an app?</em></li>
+            </ul>
+            <p>When they learn to treat their digital actions as meaningful and goal-directed rather than a thoughtless stroll, they will self-regulate in the long run. You won't have to worry about teaching them healthy screen-time habits; they will develop naturally.</p>
+            <p>Your job as a parent then becomes to ensure consistency in their thinking, rather than punishing their actions.</p>
+
+            <div class="reflect-box">
+                Pause and Reflect: Does my child know why they are using their device right now, or are they just passing time?
+            </div>
+
+            <h2>3. Replace Screen-Time Battles with Better Conversations</h2>
+            <p>Your child loses in a game and screams at the screen. Your first instinct might be to lecture them or confiscate the device. But what if you treated this moment as a window into their emotional patterns instead of a battleground?</p>
+            <p>Shifting from policing to coaching starts with curiosity. Instead of asking defensive questions like, "Why are you always on your phone?" try using TomoClub's 5-Minute Debrief after they finish gaming, streaming, or using AI tools:</p>
+            <ul>
+                <li><strong>Step 1: Ask for a tour.</strong> "Show me what you were doing. I won't interrupt for two minutes."</li>
+                <li><strong>Step 2: Ask for the goal.</strong> "What were you trying to do there?"</li>
+                <li><strong>Step 3: Ask for the decision point.</strong> "Where did you have to make a choice?"</li>
+                <li><strong>Step 4: Ask for the emotional pattern.</strong> "When did you feel frustrated, excited, or proud?"</li>
+                <li><strong>Step 5: Ask for a transfer.</strong> "Where else does this happen in real life?"</li>
+            </ul>
+            <p>When your child reacts intensely to a digital setback, the lesson isn't that technology is bad. The lesson is helping them look inward and determine how they react when something doesn't go their way, both emotionally and physically.</p>
+            <p>Here, a screen can reveal your child's emotional patterns faster than a lecture ever will. By replacing the battle with a soft, structured conversation, you help them build real-world self-awareness.</p>
+
+            <div class="reflect-box">
+                Pause and Reflect: Am I using screen-time conflicts to punish my child, or to understand how they handle frustration?
+            </div>
+
+            <h2>4. Ask Them to Question Their Digital World</h2>
+            <p>Your child's feed, just like yours, is flooded with an endless stream of content carefully sorted by algorithms. But just like in the physical world, simply because something crosses their path doesn't mean it deserves their attention.</p>
+            <p>Social media platforms, video sites, and digital feeds run on the "attention economy." Behind every screen is a highly advanced algorithm that acts like a digital matchmaker. It tracks every pause, click, and swipe to solve a single puzzle: <em>What will keep this user on the screen for one more minute?</em></p>
+            <p>Children often assume their feed is just a random assortment of popular videos, not realizing that algorithms are specifically designed to capture attention, and do not always support learning.</p>
+            <p>Healthy technology habits, therefore, have to include an understanding of how technology can sometimes influence us to do things that aren't the most beneficial for us.</p>
+            <p>You can build this critical thinking by practicing a simplified Algorithm Autopsy. Occasionally, sit down and explore your child's feed together. Instead of judging what they are watching, act as a curious investigator and ask these questions:</p>
+            <ul>
+                <li><em>Why do you think this keeps appearing?</em></li>
+                <li><em>What does this app want you to click next?</em></li>
+                <li><em>How does this content make you feel?</em></li>
+                <li><em>Is this helping you learn, create, or simply keeping you hooked to keep watching?</em></li>
+            </ul>
+            <p>By making them think about how the content actually ends up on their screen, you empower your child to step out of the endless scroll. They stop being passive consumers and start developing the digital judgment required to navigate the internet safely and intentionally.</p>
+
+            <div class="reflect-box">
+                Pause and Reflect: When was the last time we looked at what the algorithm is feeding my child, rather than just how long they've been scrolling?
+            </div>
+
+            <h2>5. Teach Children to Think Before They Use AI</h2>
+            <p>From school assignments to life decisions and day-to-day inquiries, children have started relying on AI in multiple ways. It serves as a teacher, a counselor, a guide, and a friend. Therefore, when considering your child's digital well-being, skipping over AI literacy is no longer an option.</p>
+            <p>The goal here is to teach your child to pause and think before they turn to AI, ensuring they don't use it in ways that erode their critical thinking and creativity. One Superintendent shared a fantastic example of healthy AI usage: a Grade 4 student compared his own essay with one produced by AI. By evaluating what made the AI version different, whether it was advanced vocabulary, structural flow, or deeper examples, he only brought in AI to supplement his ideas and present them in a better way, and not replace them.</p>
+            <p>To make this mindset shift simple for your child to practice at home, use TomoClub's AI Thinking Rule:</p>
+
+            <div class="reflect-box" style="font-style: normal; font-weight: 700; text-align: center; font-size: 1.3rem;">
+                My Thought &rarr; AI &rarr; My Judgment
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <img loading="lazy" src="ai-thinking-rule.jpeg" style="max-width: 100%; border-radius: 8px;" alt="Teach Children to Think Before They Use AI: TomoClub's AI Thinking Rule" />
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.75rem;">Teach Children To Think Before They Use AI: Try TomoClub's AI Thinking Rule</p>
+            </div>
+
+            <p>In this framework, AI is only introduced after the initial brainpower has been spent. It should be used exclusively to evaluate ideas, identify missing blind spots, and offer creative suggestions, not replace original thinking.</p>
+
+            <div class="reflect-box">
+                Pause and Reflect: Is my child using AI to skip the hard thinking process, or to improve the ideas they've already brainstormed?
+            </div>
+
+            <p><strong>Bring AI Literacy Home:</strong> Navigating the fast-moving world of artificial intelligence can feel overwhelming for any parent. If you want to help your child build a true digital agency and master skills that make them future-ready, explore how TomoClub helps kids become curious, critical, and careful users of AI who can actually build something original.</p>
+            <p>If these tips seemed a bit too overwhelming to you, do not worry, we've got you covered! Managing your kid's screen time doesn't have to be a stressful task you spend days brooding over. It can be set into motion through small steps, every day.</p>
+            <p>Try a fun, 7-day screen-time reset challenge that involves the entire family in building sustainable habits that advance your child's mental well-being. The goal isn't perfection; it is simply to spark awareness and better conversations. Here is a sneak peek at your week:</p>
+            <ul>
+                <li><strong>Day 1: The Observation Day.</strong> Notice yesterday's screen habits without passing judgment.</li>
+                <li><strong>Day 2: The Co-Pilot Phase.</strong> Ask your child for a two-minute tour of their favourite app.</li>
+                <li><strong>Day 3: The Focus Shift.</strong> Turn off one digital distraction, like push notifications on a specific device.</li>
+                <li><strong>Day 4: The Algorithm Autopsy.</strong> Discuss what an app is encouraging them to do.</li>
+                <li><strong>Day 5: The Creator Mode.</strong> Create something before consuming content.</li>
+                <li><strong>Day 6: The AI Check-In.</strong> Practice the AI Thinking Rule together on a homework question or random curiosity.</li>
+                <li><strong>Day 7: The Review.</strong> Hold a short Family Tech Check-In. Ask: What helped you this week? What distracted you? What should we keep doing? What should we change?</li>
+            </ul>
+
+            <h2>Conclusion: Moving From Screen Time to Skill Time</h2>
+            <p>At the end of the day, managing kids' screen time cannot be done by frantically counting the number of hours a child spends on a device. It should be about what that screen time amounts to. Quality screen time is defined in terms of the skills, ability for judgement, and agency that it allows your child.</p>
+            <p>Your goal as a parent isn't to raise children who never touch screens; that is simply not a reality in today's world. It is to raise children who know how to think, question, create, communicate, and make intentional decisions with the technology in their hands. That is how we successfully move from passive screen time to powerful skill time.</p>
+            <p>If you are ready to help your child build those essential skills, <a href="../../#signup">explore TomoClub's programs &rarr;</a>. Let's continue the journey together!</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <p><strong>How do I start building healthy screen time habits for kids if they are already used to unlimited scrolling?</strong><br>
+            Do not try to cut off all devices overnight; that only leads to tech battles. Start by changing what they do on the screen rather than focusing solely on the timer. Use the 7-Day Screen-Time Reset to introduce small, gradual shifts as a family, like making dinner time completely device-free.</p>
+
+            <p><strong>My child uses ChatGPT for schoolwork. How do I know if it is helping or hurting their learning?</strong><br>
+            AI becomes a problem when it replaces your child's critical thinking and does the work for them. Introduce the AI Thinking Rule (My Thought &rarr; AI &rarr; My Judgment) to ensure they use AI as a brainstorming partner, not the originator of ideas. AI literacy works best when parents and schools are on the same page.</p>
+
+            <p><strong>Is video gaming considered "bad" screen time?</strong><br>
+            Not necessarily. According to TomoClub's Screen-Time Quality Map, there is a massive difference between passively watching gaming videos (Consume) and actively building worlds in Minecraft or coding a game (Create). Active, problem-solving games qualify as "Skill Time" rather than mindless distraction.</p>
+            <br><br>
+
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
