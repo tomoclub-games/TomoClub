@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Leaders of Tomorrow | Free Ebook by 15 School Leaders | TomoClub" description="Download the free Leaders of Tomorrow ebook — 15 real school leaders share what it takes to lead future-ready schools in an AI world. 400+ combined years. Free during launch week." path="/ebook">
+        <section class="hero" style="min-height: 60vh;">
+            <div class="container text-center">
+                <span class="badge animate-on-scroll" style="background: rgba(212, 160, 23, 0.1); color: var(--secondary); border-color: rgba(212, 160, 23, 0.2);">Free Ebook</span>
+                <h1 class="animate-on-scroll" style="margin-bottom: 2rem;">
+                    What does it really take to lead a <br>future-ready school?
+                </h1>
+                <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto;">
+                    Download the free Leaders of Tomorrow ebook — 15 real school leaders share what it takes to lead future-ready schools in an AI world. 400+ combined years. Free during launch week.
+                </p>
+                <div class="animate-on-scroll" style="margin-top: 2rem;">
+                    <a href="/leaders-of-tomorrow" class="btn btn-primary" style="background: var(--crimson); color: white;">Get the Ebook Free</a>
+                </div>
+            </div>
+        </section>
+        
+        <script type="application/ld+json" is:inline>
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Book",
+              "name": "Leaders of Tomorrow",
+              "author": {
+                "@type": "Organization",
+                "name": "TomoClub"
+              },
+              "bookFormat": "https://schema.org/EBook",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "Event",
+              "name": "Leaders of Tomorrow Ebook Launch Live",
+              "startDate": "2026-05-01T10:00:00-05:00",
+              "location": {
+                "@type": "VirtualLocation",
+                "url": "https://linkedin.com/company/tomoclub"
+              },
+              "organizer": {
+                "@type": "Organization",
+                "name": "TomoClub"
+              }
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "Is the Leaders of Tomorrow ebook free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, it is completely free during launch week."
+                }
+              }]
+            }
+          ]
+        }
+        </script>
+</Layout>

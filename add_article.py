@@ -19,16 +19,22 @@ Notes:
       defaults to --title.
 
 What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
-    1. Creates articles/<slug>/ and renders its index.html using the same
-       master template as generate_article_pages.py.
+    1. Creates public/articles/<slug>/ and renders its index.html using the
+       same master template as generate_article_pages.py. This is raw static
+       HTML served as-is by Astro's public/ passthrough, not an Astro page.
     2. Downloads the cover image (and any external images referenced in the
-       content) into articles/images/, localizing paths in the content.
-    3. Adds an entry to articlesData in articles_data.js.
+       content) into public/articles/images/, localizing paths in the content.
+    3. Adds an entry to articlesData in public/articles_data.js.
     4. Adds an entry to article_metadata in generate_article_pages.py
        (kept as a historical record; this script does not invoke that
        script's full-batch regeneration, which would touch every article
        folder at once).
-    5. Appends a new card at the END of #articles-grid in index.html.
+    5. Appends a new card at the END of #articles-grid in
+       src/pages/education-hall.astro (the site's real index.html was
+       replaced by an Astro site during the astro-migration branch work;
+       education-hall.astro is the equivalent hub page and is still a
+       static, hand-maintained card list, not collection-driven, as of
+       Phase 1 of that migration).
        This is deliberate, not arbitrary: script.js sorts the Education
        Hall grid by DOM position (data-timestamp = index in the DOM), and
        "Newest First" is the default sort -- so the newest article must be
@@ -107,7 +113,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../styles.css?v=21">
+    <link rel="stylesheet" href="/styles.css">
     <style>
         body {{
             background: var(--bg-main);
@@ -343,7 +349,7 @@ def next_article_key(articles_data_js: str) -> str:
 
 
 def update_articles_data_js(art_key, content_html):
-    path = 'articles_data.js'
+    path = 'public/articles_data.js'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
@@ -390,17 +396,17 @@ def update_generate_article_pages_py(art_key, title, date, category, slug, cover
 
 
 def update_index_html_card(slug, title, alt, cover_local_name, gradient):
-    path = 'index.html'
+    path = 'src/pages/education-hall.astro'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
-    if f'href="articles/{slug}/"' in content:
-        print(f"  index.html already has a card for {slug}, skipping.")
+    if f'href="/articles/{slug}/"' in content:
+        print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                <a href="articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                <a href="/articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                     <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
-                        <img src="articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
+                        <img src="/articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
                         <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
                             <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;" class="article-title">{title}</h3>
                             <span class="btn btn-secondary btn-read-more">Read More <i data-lucide="arrow-right"></i></span>
@@ -415,7 +421,7 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
     content = content[:grid_end] + card + content[grid_end:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print("  Appended new card at end of index.html #articles-grid (displays first under 'Newest First')")
+    print(f"  Appended new card at end of {path} #articles-grid (displays first under 'Newest First')")
 
 
 def main():
@@ -446,17 +452,17 @@ def main():
     slug = args.slug or slugify(args.title)
     alt = args.alt or args.title
 
-    article_dir = f"articles/{slug}"
+    article_dir = f"public/articles/{slug}"
     if os.path.exists(article_dir):
-        print(f"articles/{slug}/ already exists. Choose a different --slug or remove it first.")
+        print(f"public/articles/{slug}/ already exists. Choose a different --slug or remove it first.")
         sys.exit(1)
 
     os.makedirs(article_dir, exist_ok=True)
-    os.makedirs('articles/images', exist_ok=True)
+    os.makedirs('public/articles/images', exist_ok=True)
 
     cover_ext = args.cover.split('.')[-1].split('?')[0]
     cover_local_name = f"{slug}-cover.{cover_ext}"
-    cover_local_path = f"articles/images/{cover_local_name}"
+    cover_local_path = f"public/articles/images/{cover_local_name}"
     print(f"Cover image -> {cover_local_path}")
     if not download_image(args.cover, cover_local_path):
         print("Failed to obtain cover image; aborting.")
@@ -468,7 +474,7 @@ def main():
             continue
         ext = img_url.split('.')[-1].split('?')[0]
         local_name = f"{slug}-img-{i + 1}.{ext}"
-        local_path = f"articles/images/{local_name}"
+        local_path = f"public/articles/images/{local_name}"
         # Bare filenames (no scheme, no slash) are treated as sitting next
         # to --content-file -- e.g. images pulled out of a source PDF with
         # pdf_image_utils.extract_pdf_images(). Resolve against that
@@ -497,15 +503,15 @@ def main():
         f.write(final_html)
     print(f"Rendered {article_dir}/index.html")
 
-    with open('articles_data.js', encoding='utf-8') as f:
+    with open('public/articles_data.js', encoding='utf-8') as f:
         art_key = next_article_key(f.read())
     print(f"Article key: {art_key}")
 
     update_articles_data_js(art_key, content_html)
     update_generate_article_pages_py(art_key, args.title, args.date, args.category, slug, args.cover)
 
-    with open('index.html', encoding='utf-8') as f:
-        existing_cards = len(re.findall(r'href="articles/', f.read()))
+    with open('src/pages/education-hall.astro', encoding='utf-8') as f:
+        existing_cards = len(re.findall(r'href="/articles/', f.read()))
     gradient = args.gradient or GRADIENTS[existing_cards % len(GRADIENTS)]
     update_index_html_card(slug, args.title, alt, cover_local_name, gradient)
 

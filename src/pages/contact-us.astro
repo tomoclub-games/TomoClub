@@ -1,0 +1,60 @@
+---
+import MinimalLayout from '../layouts/MinimalLayout.astro';
+---
+<MinimalLayout
+  title="Contact Us | TomoClub"
+  description="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot."
+  path="/contact-us"
+>
+    <div class="contact-container container">
+        <div class="contact-content" style="background: #ffffff; color: #0F172A; border: 1px solid #E2E8F0;">
+            <div class="contact-header">
+                <h1 style="color: #0F172A;">Contact Us</h1>
+                <p style="color: #475569;">Have a question or want to explore a pilot for your school? Fill out the form below and our team will get back to you within 24 hours.</p>
+            </div>
+
+            <div class="form-iframe-wrapper">
+                <iframe
+                    data-tally-src="https://tally.so/r/yPgo9X?transparentBackground=1"
+                    title="Contact Form"
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script slot="scripts-extra" is:inline>
+        // Automatically pass all query parameters to the Tally form iframe
+        const tallyIframe = document.querySelector('iframe[data-tally-src]');
+        if(tallyIframe) {
+            const originalSrc = tallyIframe.getAttribute('data-tally-src') || tallyIframe.src;
+            const url = new URL(originalSrc, window.location.origin);
+            const params = new URLSearchParams(window.location.search);
+            params.set('pageUrl', window.location.href);
+            for (const [key, value] of params.entries()) {
+                url.searchParams.set(key, value);
+            }
+            tallyIframe.setAttribute('data-tally-src', url.toString());
+            tallyIframe.src = url.toString();
+        }
+    </script>
+</MinimalLayout>

@@ -1,0 +1,192 @@
+---
+import '../styles/global.css';
+import AnnouncementBanner from '../components/AnnouncementBanner.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import GlobalModals from '../components/GlobalModals.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+}
+
+const { title, description, path, ogImage = 'https://www.tomoclub.org/assets/og-image.png' } = Astro.props;
+const canonicalUrl = new URL(path, 'https://www.tomoclub.org').toString();
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={description}>
+    <meta name="keywords" content="AI Literacy, K-12 Education, Future-Ready Skills, Game-Based Learning, Teacher PD, AI Curriculum, School Leadership, SEL, Education Implementation Partner">
+    <meta name="author" content="TomoClub">
+    <link rel="canonical" href={canonicalUrl}>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2ab4b8">
+
+    <title>{title}</title>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "TomoClub",
+          "url": "https://www.tomoclub.org",
+          "logo": "https://www.tomoclub.org/assets/og-image.png",
+          "sameAs": [
+            "https://www.linkedin.com/company/tomoclub",
+            "https://twitter.com/tomoclub",
+            "https://www.youtube.com/@tomoclubedu",
+            "https://www.instagram.com/tomoclub_edu"
+          ],
+          "description": "TomoClub is the leading K–12 implementation partner for AI literacy and future-ready skills, serving schools across 14+ US states and 10+ countries.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4197 Tuller Road",
+            "addressLocality": "Dublin",
+            "addressRegion": "OH",
+            "postalCode": "43017",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "name": "TomoClub",
+          "url": "https://www.tomoclub.org",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.tomoclub.org/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "AI Literacy Curriculum",
+          "provider": { "@type": "Organization", "name": "TomoClub" },
+          "description": "Standards-aligned AI literacy curriculum for middle and high school students.",
+          "audience": { "@type": "Audience", "audienceType": "Grades 6-12 students" }
+        },
+        {
+          "@type": "Service",
+          "name": "Future-Ready Skills Program",
+          "provider": { "@type": "Organization", "name": "TomoClub" },
+          "description": "Game-based learning program developing communication, collaboration, and problem-solving.",
+          "audience": { "@type": "Audience", "audienceType": "Grades 3-12 students" }
+        },
+        {
+          "@type": "Service",
+          "name": "AI Fundamentals PD",
+          "provider": { "@type": "Organization", "name": "TomoClub" },
+          "description": "Professional development for teachers to build confidence with AI tools and ethics.",
+          "audience": { "@type": "Audience", "audienceType": "K-12 Teachers" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does TomoClub actually do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "TomoClub is a K–12 education implementation partner providing AI Literacy Curriculum, Future-Ready Skills Programs, and AI PD for teachers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What grade levels do your programs cover?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our programs cover Grades 3–12, including specialized tracks for middle and high school."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the curriculum standards-aligned?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our AI Literacy Curriculum is aligned to AI4K12, ISTE, CASEL, and UNESCO standards."
+              }
+            }
+          ]
+        }
+      ]
+    })} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FEGGQ2ZDMT"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEGGQ2ZDMT');
+    </script>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:site_name" content="TomoClub">
+    <meta property="og:url" content={canonicalUrl}>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImage}>
+</head>
+<body>
+    <script is:inline>
+      (function() {
+        var savedTheme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.body.classList.add('dark-theme');
+        }
+      })();
+    </script>
+
+    <AnnouncementBanner />
+    <Nav />
+
+    <slot />
+
+    <!-- Global CTA (appears on all pages) -->
+    <section style="padding: 6rem 0;">
+        <div class="container">
+            <div class="glass-card" style="text-align: center; padding: 5rem 2rem; background: #0F172A; color: white; border-radius: 32px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);">
+                <h2 style="margin-bottom: 1.5rem; color: white; font-size: 2.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">See what a future-ready school looks like in <span class="highlight-teal" style="color: white; z-index: 1;">your district.</span></h2>
+                <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">The fastest way to know if TomoClub is the right fit is a real conversation. We will learn about your school, share what has worked for districts like yours, and design a pilot that fits your context and budget.</p>
+                <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.15rem; color: #94A3B8; font-weight: 500;">No pressure. No one-size-fits-all pitch.</p>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+                    <a href="/contact-us" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Contact Us <i data-lucide="arrow-right"></i></a>
+                    <a href="/faqs" style="color: var(--teal); text-decoration: none; font-weight: 500;">Already have questions? Browse our FAQs &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+    <GlobalModals />
+
+    <!-- Scripts -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script is:inline src="/script.js"></script>
+</body>
+</html>

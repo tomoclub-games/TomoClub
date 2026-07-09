@@ -7,13 +7,17 @@ Usage:
 What it does (all steps are duplicate-safe / idempotent -- safe to re-run):
     1. Fetches the real title + duration for JUST this one video from YouTube
        (does NOT re-fetch the whole back-catalog -- avoids 429 rate limits).
-    2. Adds the entry to podcasts_data.js (used by podcast-player.html).
-    3. Adds/updates the entry in podcast_data.json (the metadata cache).
+    2. Adds the entry to public/podcasts_data.js (used by podcast-player.html).
+    3. Adds/updates the entry in public/podcast_data.json (the metadata cache).
     4. Appends the URL to generate_html.py's `urls` list (historical record).
     5. Appends the tuple to update_js_metadata.py's `new_podcasts` list (historical record).
-    6. Inserts a new card at the TOP of the #podcast-grid in index.html, using
-       the exact same template as the live cards (not the generic placeholder
-       template that generate_html.py produces).
+    6. Inserts a new card at the TOP of the #podcast-grid in
+       src/pages/podcast.astro (the site's real index.html was replaced by
+       an Astro site during the astro-migration branch work; podcast.astro
+       is the equivalent hub page and is still a static, hand-maintained
+       card list, not collection-driven, as of Phase 1 of that migration),
+       using the exact same template as the live cards (not the generic
+       placeholder template that generate_html.py produces).
 
 It deliberately does NOT run fetch_podcasts.py or generate_html.py's grid
 rebuild -- that pipeline re-fetches all ~100 videos (triggers YouTube rate
@@ -73,7 +77,7 @@ def fetch_video_metadata(vid: str, retries: int = 3) -> dict:
 
 
 def update_podcasts_data_js(vid, title, speaker, date_display, duration):
-    path = 'podcasts_data.js'
+    path = 'public/podcasts_data.js'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
@@ -99,7 +103,7 @@ def update_podcasts_data_js(vid, title, speaker, date_display, duration):
 
 
 def update_podcast_data_json(vid, title, date_str, duration):
-    path = 'podcast_data.json'
+    path = 'public/podcast_data.json'
     with open(path, encoding='utf-8') as f:
         data = json.load(f)
 
@@ -152,15 +156,15 @@ def update_js_metadata_py(vid, speaker, date_display):
 
 
 def update_index_html(vid, title, date_abbrev, duration, timestamp):
-    path = 'index.html'
+    path = 'src/pages/podcast.astro'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
     if f'id={vid}"' in content:
-        print(f"  index.html already has a card for {vid}, skipping.")
+        print(f"  {path} already has a card for {vid}, skipping.")
         return
 
-    card = f'''                <a href="podcast-player.html?id={vid}" class="glass-card podcast-card" data-timestamp="{timestamp}">
+    card = f'''                <a href="/podcast-player.html?id={vid}" class="glass-card podcast-card" data-timestamp="{timestamp}">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
                         <img src="https://img.youtube.com/vi/{vid}/hqdefault.jpg" alt="{title}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
@@ -182,7 +186,7 @@ def update_index_html(vid, title, date_abbrev, duration, timestamp):
     content = content[:idx] + card + content[idx:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print("  Inserted new card at top of index.html podcast grid")
+    print(f"  Inserted new card at top of {path} podcast grid")
 
 
 def main():

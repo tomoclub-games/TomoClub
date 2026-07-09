@@ -53,35 +53,5 @@
     }
   ],
   "cleanUrls": false,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/parents",
-      "destination": "/parents.html"
-    },
-    {
-      "source": "/privacy-policy",
-      "destination": "/privacy-policy.html"
-    },
-    {
-      "source": "/terms-and-conditions",
-      "destination": "/terms-and-conditions.html"
-    },
-    {
-      "source": "/contact-us",
-      "destination": "/contact-us.html"
-    },
-    {
-      "source": "/schedule",
-      "destination": "/schedule.html"
-    },
-    {
-      "source": "/contact-form",
-      "destination": "/contact-form.html"
-    },
-    {
-      "source": "/waitlist-form",
-      "destination": "/waitlist-form.html"
-    }
-  ]
+  "trailingSlash": false
 }

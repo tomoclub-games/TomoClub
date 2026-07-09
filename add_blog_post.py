@@ -108,7 +108,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../styles.css?v=21">
+    <link rel="stylesheet" href="/styles.css">
 
     <style>
         :root {{
@@ -286,19 +286,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="../../" class="logo">
+            <a href="/" class="logo">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
         <div class="nav-links">
-            <div class="nav-item"><a href="../../#blog">Blog</a></div>
-            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+            <div class="nav-item"><a href="/blog">Blog</a></div>
+            <div class="nav-item"><a href="/" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
         </div>
         </div>
     </nav>
 
     <article>
         <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
-            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+            <a href="/blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
                 <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
@@ -318,7 +318,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
 
         <div class="back-nav">
-            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+            <a href="/blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
                 <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
@@ -327,14 +327,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
         <div class="container">
             <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
-                <a href="../../" class="logo">
+                <a href="/" class="logo">
                     <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
                 </a>
                 <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem;">
-                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
-                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
-                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                    <a href="/blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="/pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="/future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
                 </div>
                 <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
             </div>
@@ -366,17 +366,17 @@ GRADIENTS = [
 
 
 def update_index_html_card(slug, title, description, category, cover_local_name, gradient, color):
-    path = 'index.html'
+    path = 'src/pages/blog.astro'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
-    if f'href="blog/{slug}/"' in content:
-        print(f"  index.html already has a card for {slug}, skipping.")
+    if f'href="/blog/{slug}/"' in content:
+        print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                    <a href="blog/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                    <a href="/blog/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                         <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
-                            <img loading="lazy" src="blog/{slug}/{cover_local_name}" alt="{title}" style="width: 100%; height: 200px; object-fit: cover;">
+                            <img loading="lazy" src="/blog/{slug}/{cover_local_name}" alt="{title}" style="width: 100%; height: 200px; object-fit: cover;">
                             <div style="padding: 2rem 2rem 2rem; display: flex; flex-direction: column; flex-grow: 1;">
                                 <span style="font-size: 0.85rem; color: {color}; font-weight: 600; text-transform: uppercase;">{category}</span>
                                 <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;">{title}</h3>
@@ -386,14 +386,13 @@ def update_index_html_card(slug, title, description, category, cover_local_name,
                         </div>
                     </a>
 '''
-    blog_section_start = content.index('id="blog"')
     marker = '<div class="grid-3">'
-    grid_marker_idx = content.index(marker, blog_section_start)
+    grid_marker_idx = content.index(marker)
     insert_at = grid_marker_idx + len(marker) + 1  # +1 for the trailing newline
     content = content[:insert_at] + card + content[insert_at:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print("  Inserted new card at TOP of index.html #blog grid (displays first -- grid has no JS sort)")
+    print(f"  Inserted new card at TOP of {path} #blog grid (displays first -- grid has no JS sort)")
 
 
 def main():
@@ -422,9 +421,9 @@ def main():
 
     slug = args.slug or slugify(args.title)
 
-    post_dir = f"blog/{slug}"
+    post_dir = f"public/blog/{slug}"
     if os.path.exists(post_dir):
-        print(f"blog/{slug}/ already exists. Choose a different --slug or remove it first.")
+        print(f"public/blog/{slug}/ already exists. Choose a different --slug or remove it first.")
         sys.exit(1)
 
     os.makedirs(post_dir, exist_ok=True)
@@ -484,10 +483,8 @@ def main():
         f.write(final_html)
     print(f"Rendered {post_dir}/index.html")
 
-    with open('index.html', encoding='utf-8') as f:
-        blog_content = f.read()
-        blog_section = blog_content[blog_content.index('id="blog"'):]
-        existing_cards = len(re.findall(r'href="blog/', blog_section))
+    with open('src/pages/blog.astro', encoding='utf-8') as f:
+        existing_cards = len(re.findall(r'href="/blog/', f.read()))
     if args.gradient:
         gradient, color = next(g for g in GRADIENTS if g[0] == args.gradient)
     else:
