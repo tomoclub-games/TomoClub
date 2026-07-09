@@ -185,8 +185,16 @@ const canonicalUrl = new URL(path, 'https://www.tomoclub.org').toString();
     <GlobalModals />
 
     <!-- Scripts -->
-    <script is:inline src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
     <script is:inline src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script is:inline>
+      // Render icons (nav chevrons, theme toggle sun/moon, etc.) as soon as
+      // lucide itself is available -- don't make them wait on dompurify or
+      // script.js to also finish loading first. This is a real MPA now (full
+      // page navigation, not the old SPA), so this runs fresh on every nav;
+      // without this, icons visibly flash blank on every page change.
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
     <script is:inline src="/script.js"></script>
 </body>
 </html>
