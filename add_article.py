@@ -29,16 +29,18 @@ What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
        (kept as a historical record; this script does not invoke that
        script's full-batch regeneration, which would touch every article
        folder at once).
-    5. Appends a new card at the END of #articles-grid in
+    5. Inserts a new card at the TOP of #articles-grid in
        src/pages/education-hall.astro (the site's real index.html was
        replaced by an Astro site during the astro-migration branch work;
        education-hall.astro is the equivalent hub page and is still a
        static, hand-maintained card list, not collection-driven, as of
        Phase 1 of that migration).
-       This is deliberate, not arbitrary: script.js sorts the Education
-       Hall grid by DOM position (data-timestamp = index in the DOM), and
-       "Newest First" is the default sort -- so the newest article must be
-       the LAST card in the DOM to display first on page load.
+       This is deliberate, not arbitrary: cards are authored newest-first
+       in the DOM so the static markup already matches script.js's default
+       "Newest First" sort -- if the newest card weren't first in the DOM,
+       the on-load JS re-sort would visibly reorder the grid after first
+       paint (a real, user-reported flash-of-wrong-order bug fixed on the
+       astro-migration branch). Don't move insertion back to the end.
 """
 
 import argparse
@@ -404,7 +406,8 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
         print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                <a href="/articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''
+                <a href="/articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                     <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
                         <img src="/articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
                         <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
@@ -413,15 +416,13 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
                         </div>
                     </div>
                 </a>
-
 '''
-    marker = '<div class="grid-3 animate-on-scroll" id="articles-grid">'
+    marker = '<div class="grid-3" id="articles-grid">'
     grid_start = content.index(marker) + len(marker)
-    grid_end = content.index('</div>\n        </section>', grid_start)
-    content = content[:grid_end] + card + content[grid_end:]
+    content = content[:grid_start] + card + content[grid_start:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"  Appended new card at end of {path} #articles-grid (displays first under 'Newest First')")
+    print(f"  Inserted new card at TOP of {path} #articles-grid (displays first -- cards are authored newest-first in the DOM)")
 
 
 def main():

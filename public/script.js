@@ -119,31 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Intersection Observer for scroll animations
-  function observeElements() {
-    let delayCounter = 0;
-    let timeout;
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.transitionDelay = `${delayCounter * 120}ms`;
-          entry.target.classList.add('visible');
-          delayCounter++; 
-          clearTimeout(timeout);
-          timeout = setTimeout(() => { delayCounter = 0; }, 100);
-          setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500 + (delayCounter * 120));
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
-
-    document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
-      observer.observe(el);
-    });
-  }
-  observeElements();
-
   // FAQ Accordion Logic
   document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
@@ -442,8 +417,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (articleSearch && articleFilter && articlesGrid) {
     const articles = Array.from(articlesGrid.children);
+    // Cards are authored newest-first in the DOM (matching the default
+    // "Newest First" sort) so the initial page load never has to visibly
+    // reorder them -- so the highest timestamp goes to the FIRST card here,
+    // not the last.
     articles.forEach((article, index) => {
-      article.setAttribute('data-timestamp', index + 1);
+      article.setAttribute('data-timestamp', articles.length - index);
     });
 
     function filterArticles() {
@@ -519,4 +498,33 @@ document.addEventListener('DOMContentLoaded', () => {
     podcastFilter.addEventListener('change', filterPodcasts);
     filterPodcasts();
   }
+
+  // Intersection Observer for scroll animations
+  // (runs after the article/podcast filtering above, since those reorder
+  // cards via appendChild -- observing before that reorder lets the
+  // initial intersection check race the DOM move, leaving cards stuck
+  // invisible until the next scroll re-triggers it)
+  function observeElements() {
+    let delayCounter = 0;
+    let timeout;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${delayCounter * 120}ms`;
+          entry.target.classList.add('visible');
+          delayCounter++;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => { delayCounter = 0; }, 100);
+          setTimeout(() => { entry.target.style.transitionDelay = '0ms'; }, 1500 + (delayCounter * 120));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
+
+    document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
+      observer.observe(el);
+    });
+  }
+  observeElements();
 });
