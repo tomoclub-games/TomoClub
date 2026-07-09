@@ -2,7 +2,7 @@
 ---
 <nav>
     <div class="nav-container">
-        <a href="/" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
+        <a href="/" class="logo" style="text-decoration: none;">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
         <div style="display: flex; align-items: center; gap: 1rem;">
@@ -18,26 +18,13 @@
 </nav>
 
 <style>
-    /* Floating Pill Nav */
-    nav {
-        position: fixed;
-        top: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 4rem);
-        max-width: 1200px;
-        z-index: 1000;
-        padding: 0.75rem 1.5rem;
-        background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(24px) saturate(180%);
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
-        border-radius: 999px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
-                    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
+    /* Base "nav" positioning/background/blur/scrolled-state styles come
+       from the shared global.css (identical floating-pill-nav rule used by
+       every other page) -- don't redeclare them here. A page-scoped
+       duplicate of that rule used to sit here and, due to equal CSS
+       specificity plus cascade order, silently won over global.css's
+       nav.scrolled state, so the nav never visibly shrank on scroll on
+       any page using this component even once the JS toggle was added. */
     .nav-container {
         display: flex;
         width: 100%;

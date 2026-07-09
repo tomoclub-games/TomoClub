@@ -77,7 +77,7 @@
     <style>
         /* Hero styling to match dark theme background but with local overrides */
         .ebook-hero {
-            padding: 5rem 0 4rem;
+            padding: 120px 0 4rem;
             background: var(--bg-main);
             color: var(--text-main);
             position: relative;
@@ -527,7 +527,7 @@
 
     <nav>
         <div class="container nav-container">
-            <a href="/" class="logo" style="text-decoration: none; font-size: 2rem; font-weight: 800;">
+            <a href="/" class="logo" style="text-decoration: none;">
                 <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
             </a>
             <div class="nav-links" id="nav-links">
@@ -1104,6 +1104,19 @@
                 const isDark = document.body.classList.contains('dark-theme');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 updateIcons();
+            });
+        }
+
+        // Navigation Background on Scroll (matches the shared script.js
+        // behavior used on every other page)
+        const leadersNav = document.querySelector('nav');
+        if (leadersNav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    leadersNav.classList.add('scrolled');
+                } else {
+                    leadersNav.classList.remove('scrolled');
+                }
             });
         }
 

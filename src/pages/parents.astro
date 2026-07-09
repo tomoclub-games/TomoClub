@@ -1963,16 +1963,15 @@ import Footer from '../components/Footer.astro';
         /* Navbar & Scroll Spy transitions */
         nav {
             background: var(--nav-bg) !important;
-            border-color: var(--nav-border) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
             box-shadow: var(--shadow-nav) !important;
             transition: var(--transition-smooth) !important;
         }
         .nav-item a {
-            color: var(--nav-text) !important;
             transition: var(--transition-smooth) !important;
         }
         .nav-item a:hover, .nav-item.active a {
-            color: var(--nav-text-active) !important;
+            color: #FFFFFF !important;
         }
         @media (min-width: 721px) {
             .nav-item .dropdown a {
@@ -1988,7 +1987,7 @@ import Footer from '../components/Footer.astro';
             background: var(--surface) !important;
             border: 1px solid var(--border-color) !important;
             cursor: pointer;
-            color: var(--text-primary) !important;
+            color: var(--navy) !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -3654,6 +3653,21 @@ import Footer from '../components/Footer.astro';
         function toggleFaq(item) {
             // Toggle open class
             item.classList.toggle('open');
+        }
+
+        // Navigation Background on Scroll (matches the shared script.js
+        // behavior used on every other page -- this page has its own
+        // independent script and was missing this, so the navbar never
+        // shrunk/changed on scroll here unlike everywhere else on the site)
+        const parentsNav = document.querySelector('nav');
+        if (parentsNav) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    parentsNav.classList.add('scrolled');
+                } else {
+                    parentsNav.classList.remove('scrolled');
+                }
+            });
         }
 
         // Scroll spy active tab trigger based on viewport position

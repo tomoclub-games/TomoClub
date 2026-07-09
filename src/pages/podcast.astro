@@ -11,6 +11,27 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
+        <script is:inline>
+          // Reveal the hero immediately -- it's always above the fold, so it
+          // shouldn't wait on IntersectionObserver + parsing this page's ~70
+          // podcast cards before it can appear (a real, user-reported issue:
+          // the shared observer in script.js only runs after the WHOLE page
+          // finishes parsing and DOMContentLoaded fires). Placed right after
+          // the hero markup and before the heavy grid below, so at this
+          // point in parsing only the hero's elements exist yet.
+          // The double rAF matters: adding .visible in the very same tick as
+          // the initial opacity:0 paint gives the browser nothing to
+          // transition FROM, so the CSS transition never plays -- it just
+          // jumps straight to the end state. Waiting two animation frames
+          // guarantees the browser has actually painted the "before" state
+          // first, so the transition to .visible plays properly.
+          const heroEls = document.querySelectorAll('.animate-on-scroll');
+          heroEls.forEach((el, i) => { el.style.transitionDelay = `${i * 120}ms`; });
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            heroEls.forEach(el => el.classList.add('visible'));
+          }));
+        </script>
+
         <section class="container" style="margin-bottom: 2rem;">
             <div class="podcast-controls" style="display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; background: var(--surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-md);">
                 <div class="search-box" style="flex: 1; min-width: 250px; position: relative;">

@@ -5,10 +5,33 @@ import Layout from '../layouts/Layout.astro';
         <section style="padding: 10rem 0 6rem; background: var(--bg-main);">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 5rem;">
-                    <span style="color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; display: block; margin-bottom: 1rem;">Insights & Perspectives</span>
-                    <h2 class="text-gradient" style="font-size: 3.5rem; margin-bottom: 1.5rem;">TomoClub Blog</h2>
-                    <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Exploring the intersection of technology, leadership, and human-centered learning.</p>
+                    <span class="animate-on-scroll" style="color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; display: block; margin-bottom: 1rem;">Insights & Perspectives</span>
+                    <h2 class="text-gradient animate-on-scroll" style="font-size: 3.5rem; margin-bottom: 1.5rem;">TomoClub Blog</h2>
+                    <p class="animate-on-scroll" style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Exploring the intersection of technology, leadership, and human-centered learning.</p>
                 </div>
+
+                <script is:inline>
+                  // Reveal the hero immediately -- it's always above the fold,
+                  // so it shouldn't wait on IntersectionObserver + parsing the
+                  // rest of this page's cards before it can appear (a real,
+                  // user-reported issue on larger pages: the shared observer
+                  // in script.js only runs after the WHOLE page finishes
+                  // parsing and DOMContentLoaded fires). Placed right after
+                  // the hero markup and before the heavy grid below, so at
+                  // this point in parsing only the hero's elements exist yet.
+                  // The double rAF matters: adding .visible in the very same
+                  // tick as the initial opacity:0 paint gives the browser
+                  // nothing to transition FROM, so the CSS transition never
+                  // plays -- it just jumps straight to the end state. Waiting
+                  // two animation frames guarantees the browser has actually
+                  // painted the "before" state first, so the transition to
+                  // .visible plays properly.
+                  const heroEls = document.querySelectorAll('.animate-on-scroll');
+                  heroEls.forEach((el, i) => { el.style.transitionDelay = `${i * 120}ms`; });
+                  requestAnimationFrame(() => requestAnimationFrame(() => {
+                    heroEls.forEach(el => el.classList.add('visible'));
+                  }));
+                </script>
 
                 <div class="grid-3">
                     <a href="/blog/healthy-screen-time-habits-for-kids/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
