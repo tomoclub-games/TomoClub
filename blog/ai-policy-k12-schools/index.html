@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Policies in K-12 Schools: What School Leaders Should Consider Before Implementation | TomoClub Blog</title>
+    <meta name="description" content="Most states now publish AI guidance, yet most educators say their district's policy isn't clear. What school leaders should consider before implementation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+
+    <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: var(--article-max-width);
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.75rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+        }
+
+        .back-nav {
+            max-width: var(--article-max-width);
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .reflect-box {
+            background: rgba(42, 180, 184, 0.08);
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--navy);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Policies in K-12 Schools: What School Leaders Should Consider Before Implementation | TomoClub Blog">
+    <meta property="og:description" content="Most states now publish AI guidance, yet most educators say their district's policy isn't clear. What school leaders should consider before implementation.">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/ai-policy-k12-schools/hero.jpeg">
+    <meta property="og:site_name" content="TomoClub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Policies in K-12 Schools: What School Leaders Should Consider Before Implementation | TomoClub Blog">
+    <meta name="twitter:description" content="Most states now publish AI guidance, yet most educators say their district's policy isn't clear. What school leaders should consider before implementation.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/ai-policy-k12-schools/hero.jpeg">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+
+                </div>
+                <h1 class="article-title">AI Policies in K-12 Schools: What School Leaders Should Consider Before Implementation</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+<p class="lead" style="font-size: 1.5rem; font-weight: 600; color: var(--navy); margin-bottom: 3rem; line-height: 1.5;">
+    Most states now publish AI guidance, yet most educators say their district's policy isn't clear. Here's what school leaders should consider before implementation.
+</p>
+
+<p>Half of the year has already gone by, and with each passing day, AI occupies more and more of our daily routine. Ask a high-school teacher and the answer you receive won't be any different.</p>
+<p>And yet, at the district level, the stats don't quite reflect that. We have large-scale rollouts that stall, AI tools that arrive full of promises but begin to gather dust past the six-month mark.</p>
+<p>While willingness on the part of the teachers might seem to be the obvious bottleneck, it isn't. They are already using AI &ndash; as compared to 34% of teachers who use AI (December 2023), the percentage has now gone up to 61% (July 2026), reports EdWeek.</p>
+<p>The problem is clarity.</p>
+<p>In a Gallup/Walton Family Foundation Survey of 2,069 teachers, 82% said that they had received no formal guidance on how to apply AI tools to their work. They are using the technology without understanding what good usage looks like.</p>
+<p>You may think that we just need to write an AI Policy. But that is already there; guidance, frameworks, checklists, and worksheets exist in abundance. Yet, most educators still say that their district's policy hasn't been made clear to them.</p>
+<p>This leads us to an uncomfortable contradiction, that "guidance" and "policy" are not the same thing.</p>
+<p>If you are a School Leader wondering how to close the gap between the policy written on paper and what happens in the classroom on a Tuesday, this blog is for you.</p>
+
+<h2>1. Guidance Is Not the Same as Clarity</h2>
+<p>In 2024, only a handful of states had issued AI guidance for schools, but today, most have. Whether it is Alabama, California, Connecticut, or other states, a school leader looking for an AI Policy for K-12 Schools is not short of options; they are spoiled for them.</p>
+<p>You might think that once you frame the AI Policy, clarity for educators in your district would automatically follow. However, despite all the worksheets, readiness checklists, and maturity tools that organizations like TeachAI, ISTE, CoSN, and the ILO Group have published, almost 60% of educators in an EdWeek survey in December 2025 reported that their district's AI Policy was clear, neither to them nor to the students. So if guidance were the cure, years of it would have produced clarity by now.</p>
+<p>This isn't to say that the material is bad; it is careful, researched, detailed, and asks all the right questions. But these questions, which live inside paperwork, need to be answered in a school building. And when a document gives the framework or poses questions alone, it cannot do the answering.</p>
+<p>That is the whole difference between guidance and clarity, where guidance is what's available to a district, and clarity is what a teacher feels when a student hands in something that might be AI-written. If they simply don't understand what the limits are, what is good or bad usage, or worse, don't feel like they were stakeholders while framing policy at all, expecting it to succeed would most probably lead to failure.</p>
+
+<div class="reflect-box">
+    Pause and Reflect: Has our policy been read by the people it governs, or only approved by the people who own it?
+</div>
+
+<h2>2. Know What Your Policy Is For</h2>
+<p>Before you start worrying about whether your policy will work or not, or assess the effectiveness of a pre-existing one, you need to ask a blunter question: What is the policy for?</p>
+<p>Most AI policies for school districts are written to protect the district from risk, to lay down what is not allowed. Expecting the same document to also inform a teacher who has to actively handle generative AI in classrooms, having a list of restrictions is simply not feasible.</p>
+<p>It might help to name the level at which your district's policy lives. The point isn't to claim the distinction is new; it will just help you locate your own document.</p>
+
+<div style="text-align: center; margin: 2rem 0;">
+    <img loading="lazy" src="/blog/ai-policy-k12-schools/guardrails-guidance-growth-table.jpeg" style="max-width: 100%; border-radius: 8px;" alt="Evaluate what level your AI policy is written at: Guardrails, Guidance, or Growth" />
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.75rem;">Evaluate what level your AI Policy is written at: Guardrails, Guidance, or Growth</p>
+</div>
+
+<p>While guardrails are the real and necessary job, they only set the tone. Guidance is what's useful for a teacher, but only if they have the room to act on it.</p>
+<p>Growth is the level that matters most for classrooms, but it is also the one that most AI Policies miss. Most districts write guardrails and hope for growth.</p>
+<p>Naming the level you've actually written is the first honest step, which then opens space for actually addressing and working on the limitations.</p>
+
+<div class="reflect-box">
+    Pause and Reflect: Which level is our AI Policy written at, and which level did we think we were writing?
+</div>
+
+<h2>3. Know Who Each Version Is For</h2>
+<p>Now that you know that the same school AI guidelines cannot do all jobs, it only makes sense to also reason that the same document cannot speak to four different audiences with different jobs &ndash; a school board, a teacher, a fourteen-year-old, and an anxious parent. A single policy that tries to serve all of them will serve none of them well.</p>
+<p>The fix is, <em>One Policy, Three Derivatives</em>. The AI Policy for the school board should cover governance, liability, and risk in detail. The Staff version, useful for educators, should cover worked examples by subject and anticipate day-to-day questions such as disclosure, transparency, etc. The student and family version should be in plain, simple language, devoid of jargon, and be focused on alleviating the worries and answering common questions about the policy's impact, limitations, and expectations.</p>
+
+<div style="text-align: center; margin: 2rem 0;">
+    <img loading="lazy" src="/blog/ai-policy-k12-schools/one-policy-three-derivatives.jpeg" style="max-width: 100%; border-radius: 8px;" alt="One Policy: Three Derivatives, each speaks to a different audience &ndash; Board, Staff, Students and parents" />
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.75rem;">One Policy: Three Derivatives, each speaks to a different audience</p>
+</div>
+
+<p>This doesn't mean you change the policy; you just translate it, suited to a different audience. This is what distinguishes an exemplary AI policy for K-12 schools from a normal one and maximises its effectiveness.</p>
+
+<h2>4. Ask What Happens to a Teacher Who Gets It Wrong</h2>
+<p>A question that policy templates rarely ask, and one which implementation often turns on, is: what happens to a teacher who gets it wrong? And the honest answer to this is what determines what the real policy is.</p>
+<p>You have to understand that a teacher won't experiment with an unfamiliar tool if a mistake is too expensive. Adoption can only come through in an environment of high trust, not suspicion and punishment. One principal that we interviewed advocates allowing teachers the room to try new things. She phrases it quite perfectly: they should have the "grace and space to fail forward." Her staff took up AI tools she introduced largely because the cost of getting it wrong was survivable.</p>
+<p>Wade Stanford, a retired superintendent, echoes the same instinct from the other chair. He believes in hiring great people to work closely with students and then subtly stepping out of the way to let them lead.</p>
+<p>Such space and freedom for your educators is what'll make all the difference between a policy that's followed and one that's filed, between responsible AI use in schools becoming ordinary practice or remaining a paragraph no one acts on.</p>
+<p>If you wish to build more confidence and adaptability in your educators when it comes to AI adoption, TomoClub's AI PD for Teachers might just be the right start for you.</p>
+
+<div class="reflect-box">
+    Pause and Reflect: If a teacher used AI badly next week, what would happen to them?
+</div>
+
+<h2>5. Route It Through Something That Already Exists</h2>
+<p>There's a familiar way good ideas die in schools. A well-researched initiative is handed to teachers who are already stretched thin, and it becomes "one more thing" on an overflowing plate, and by spring, it quietly disappears. The next year, you might try something new, and the cycle repeats.</p>
+<p>The way out isn't to introduce AI as yet another standalone initiative, but to route it through the structures that already exist &ndash; planning cycles, the professional-learning calendar, and the curriculum review scheduled throughout the year. When AI arrives as part of the work rather than on top of it, it has a far better chance of surviving.</p>
+<p>This isn't just our observation. Oregon's Department of Education guidance recommends that districts align their AI guidance to existing policies, mission, and values rather than drafting a brand-new policy from scratch. The goal isn't more paperwork; it's fewer, better-integrated systems.</p>
+<p>The leaders we spoke to didn't bolt AI on as a separate programme either; the tools that actually stuck were the ones folded into routines teachers were already using.</p>
+<p>For a district still working out how to approach implementing AI in K-12 without burning its staff out, that's the single most transferable move. Rather than building a parallel structure, integrate AI into the one you already have.</p>
+
+<div class="reflect-box">
+    Pause and Reflect: Are we adding AI to teachers' plates, or into their existing routines?
+</div>
+
+<h2>6. Define What Students Should Be Able To Do</h2>
+<p>For students, a policy stating prohibitions merely teaches them what they're not allowed to do. It tells them nothing about what they should do or what responsible AI usage looks like.</p>
+<p>The harder, and far more useful, question that your school AI guidelines need to address is, what should a student actually be able to <em>do</em> in a world where these tools are everywhere? Evaluate an AI output. Catch it when it's confidently wrong. Know when not to reach for it at all.</p>
+<p>One rural superintendent we interviewed explained the goal quite simply: students need the ability to comprehend the world around them in an AI universe. This way, the policy moves towards achieving a curricular aim, rather than only securing compliance, which teaches nothing.</p>
+<p>It also changes how we think about assessment. If an assignment can be completed start-to-finish by a machine, it was probably measuring the wrong thing to begin with.</p>
+<p>Building genuine AI literacy for students &ndash; the ability to think with these tools and to judge them, not just avoid them &ndash; is a part of an AI policy for K-12 schools that no guardrails document can ever reach. And it's the part that will matter the most five years from now.</p>
+
+<div class="reflect-box">
+    Pause and Reflect: What should a student be able to do by using AI that they couldn't do earlier?
+</div>
+
+<p>To make things easier for you, we have compiled a list of six meaningful questions that you could sit down and work out before your AI policy for K-12 Schools goes to the board. It will give you an entryway into important questions and offer a leeway into well-informed discussions.</p>
+<ul>
+    <li>Which level is this policy written at: guardrails, guidance, or growth?</li>
+    <li>Who is each version of this document for?</li>
+    <li>What happens to a teacher who makes an honest mistake with AI?</li>
+    <li>Which existing system will this run through, so it isn't one more thing?</li>
+    <li>What should students be able to do by the end of the year?</li>
+    <li>Who reviews this, and when?</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>A policy sets a floor. It establishes what isn't permitted, what has to be disclosed, what data must be protected, and, frankly, it should. That work is real and necessary. What a policy cannot do on its own is produce teachers who use AI thoughtfully or students who think critically with it.</p>
+<p>Those things come from the conditions around the document, not the document itself. It then becomes important to ask questions like &ndash; whether teachers have the trust and the room to try, whether the policy runs through systems that already exist instead of adding to the pile, and whether anyone has said out loud what students should be able to do, not just what they can't.</p>
+<p>The districts that handle this well won't be the ones with the best-drafted policies. They'll be the ones who asked what would have to be true for a policy to actually work, and then go on to build those conditions.</p>
+<p>So when it comes to AI policy for K-12 schools, the drafting, it seems, turns out to be the easier part. If you're working on building that capability in your own schools, so that students don't just avoid AI but learn to think and decide with it, that's exactly the work we do at TomoClub.</p>
+<p>If you are ready to close the gap between policy and practice in your district, <a href="../../#signup">bring TomoClub to your school &rarr;</a>.</p>
+
+<h2>Frequently Asked Questions</h2>
+<p><strong>What should an AI policy for K-12 schools actually include?</strong><br>
+A minimum of three layers. Guardrails cover what isn't allowed &ndash; things like data privacy, age limits, academic integrity, and approved tools. Guidance covers what good use looks like, with disclosure norms and worked examples by subject. Growth covers what students should be able to do, from evaluating AI outputs to knowing when not to use them. Most districts write only the first layer. The stronger policies reach the second and third.</p>
+
+<p><strong>Why do teachers say their district's AI policy isn't clear, even when one exists?</strong><br>
+Because there could be a gap between what's written on paper and what the teacher understands. Guidance is what's available in the policy; clarity is what a teacher feels in the moment they have to make a call. Clarity usually breaks down when teachers aren't involved in shaping the policy, when the limits aren't spelled out in practical terms.</p>
+
+<p><strong>Should we ban generative AI in classrooms instead?</strong><br>
+A ban is a decision about students, and it tends to teach them only what's forbidden, not what to do instead. Most current school AI guidelines move away from blanket prohibition and toward responsible AI use in schools, because the more useful goal is capability: helping students judge AI output, catch its errors, and know when to rely on their own thinking.</p>
+
+<p><strong>How do we start implementing AI in K-12 without overwhelming teachers?</strong><br>
+Route it through systems that already exist rather than adding a separate initiative. Fold AI into your current planning cycles, professional learning, and curriculum review so it arrives as part of the work, not on top of it. Pair that with a culture where an honest mistake isn't punished, and adoption tends to follow.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
