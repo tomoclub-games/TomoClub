@@ -41,9 +41,17 @@ Adds one new Education Hall article using `add_article.py` at the repo root, a h
 
 4. **Verify the diff is minimal**: `git diff --stat` should show small additive changes only (`index.html` ~12 lines, `articles_data.js` ~1 line, `generate_article_pages.py` ~7 lines) plus new files under `articles/<slug>/` and `articles/images/`. If a slug collides with an existing directory, the script aborts before writing anything — pick a different `--slug`.
 
-5. **Preview locally before committing** — same local-server routine as the podcast skill: check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill any and start one fresh instance if needed), then have the user open `http://localhost:8000/index.html#education-hall` (hard-refresh) and `http://localhost:8000/articles/<slug>/` to confirm the card and full article render correctly.
+5. **Set up a local preview and hand the user a link.** Check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill any and start one fresh instance if needed), then give the user both links directly: `http://localhost:8000/index.html#education-hall` and `http://localhost:8000/articles/<slug>/` (mention they may need to hard-refresh).
 
-6. **Ask before committing/pushing.** Don't `git add`/`git commit`/`git push` without explicit confirmation. Stage only the files this workflow touched — check `git status` first for unrelated in-progress work, never `git add -A` blindly.
+6. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/template/card as needed — re-run `add_article.py` is only safe if nothing was staged yet (see Troubleshooting for re-run hazards); for small tweaks after the fact, edit `articles/<slug>/index.html`, `articles_data.js`, and the card in `index.html` directly instead of re-running the script.
+
+7. **Once the user is satisfied, clean up.** Kill the local server process you started (`taskkill //F //PID <pid>` on Windows) and delete any scratch content file you wrote (e.g. `new_article_content.html` in the scratchpad dir). Also delete the staging source files: the source PDF/doc (e.g. `articles/documents/<Name>.pdf`) and the original uploaded cover image (e.g. `articles/images/<Name>.png`) — `add_article.py` already copied the cover into `articles/images/<slug>-cover.<ext>`, so the original upload is redundant. Don't delete the generated `articles/<slug>/` folder or the `-cover.*` file.
+
+8. **Verify the diff is minimal** (see step 4 above), then stage only the files this workflow touched — check `git status` first for unrelated in-progress work, never `git add -A` blindly.
+
+9. **Commit with a simple message matching the site's convention**: `Added new article <Author Name>` (e.g. `Added new article Sharon Pepukayi`) — check `git log --oneline` for recent examples of this exact style. No body needed.
+
+10. **Ask the user if they want to push the commit — explain that pushing is what makes the change go live on the actual website**, not just this local commit. Don't push without explicit confirmation. If they confirm, `git push` (to the current branch's tracked remote — check `git status`/`git branch -vv` first if it's not already tracking one).
 
 ## Troubleshooting
 

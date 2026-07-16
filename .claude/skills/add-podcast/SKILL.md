@@ -31,15 +31,23 @@ Adds one new podcast episode to the site using `add_podcast_episode.py` at the r
    ```
    Expect small, additive diffs only: `index.html` (~16 lines), `podcasts_data.js` (~8 lines), `podcast_data.json` (~6 lines), `generate_html.py` (~1 line), `update_js_metadata.py` (~1 line). If any file shows hundreds of changed lines, stop — something went wrong (see Troubleshooting).
 
-4. **Preview locally before committing.** Check if a local server is already running on port 8000:
+4. **Set up a local preview and hand the user the links.** Check if a local server is already running on port 8000:
    ```bash
    netstat -ano | grep ":8000.*LISTENING"
    ```
    If nothing is listening, start one from the repo root: `python -m http.server 8000` (run in background). If something IS listening, check how many PIDs — if more than one process is bound to the same port, kill all of them first (`taskkill //PID <pid> //F`) and start a single fresh instance. Two processes silently bound to the same port is what caused stale content to be served during the first episode upload.
 
-   Have the user open (or open via WebFetch/browser) `http://localhost:8000/index.html#podcast` and `http://localhost:8000/podcast-player.html?id=VIDEO_ID` to confirm the new episode shows with the correct title, speaker, date, and duration. Tell them to hard-refresh (Ctrl+Shift+R) since browsers cache aggressively.
+   Give the user both links directly: `http://localhost:8000/index.html#podcast` and `http://localhost:8000/podcast-player.html?id=VIDEO_ID`, and mention they should hard-refresh (Ctrl+Shift+R) since browsers cache aggressively.
 
-5. **Ask before committing/pushing.** Don't `git add`/`git commit`/`git push` without explicit confirmation — publishing is a user decision. If they confirm, stage only the files touched by this workflow (never `git add -A` blindly — check `git status` first for unrelated in-progress work).
+5. **Ask if the preview looks good or needs changes** — correct title, speaker, date, duration. Don't move past this until the user confirms. Loop back to fixing the entry as needed.
+
+6. **Once the user is satisfied, clean up.** Kill the local server process you started — no staging source files to remove for podcasts (the script only takes a URL).
+
+7. **Stage only the files this workflow touched** — never `git add -A` blindly; check `git status` first for unrelated in-progress work.
+
+8. **Commit with a simple message matching the site's convention**: `Added new podcast <Title>` — check `git log --oneline` for recent examples of this style used across content types. No body needed.
+
+9. **Ask the user if they want to push the commit — explain that pushing is what makes the change go live on the actual website**, not just this local commit. Don't push without explicit confirmation. If they confirm, `git push` (to the current branch's tracked remote — check `git status`/`git branch -vv` first if it's not already tracking one).
 
 ## Why not the old pipeline
 

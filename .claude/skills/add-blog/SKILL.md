@@ -57,13 +57,19 @@ Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root
    - Inserts a new card at the **top** of `#blog`'s `grid-3` in `index.html`, auto-rotating the gradient/category-badge color between gold (`#D97706`), teal (`var(--teal)`), and slate (`var(--navy)`) based on how many blog cards already exist.
    - Is duplicate-safe: aborts before writing anything if `blog/<slug>/` already exists; re-running with a slug that already has a homepage card skips that step.
 
-5. **Clean up staging files.** If the user dropped the source PDF/image into `blog/documents/` or `blog/images/` before this workflow ran, those are staging/inbox locations, not the published location -- the real assets now live in `blog/<slug>/`. Leaving the originals behind creates orphaned clutter (this already happened once: `blog/images/ai-trust-gap.png` was left behind after an early post's hero image was swapped out, and is unused as of 2026-07). **Ask the user before deleting** (per the standing rule about destructive actions), but recommend removing the now-duplicated staging copies.
+5. **Verify the diff is minimal**: `git diff --stat` should show `index.html` (~11-13 lines) plus new files under `blog/<slug>/`. If `index.html` shows hundreds of changed lines, stop -- something went wrong (e.g. the `id="blog"` marker moved and the insertion landed in the wrong section).
 
-6. **Verify the diff is minimal**: `git diff --stat` should show `index.html` (~11-13 lines) plus new files under `blog/<slug>/`. If `index.html` shows hundreds of changed lines, stop -- something went wrong (e.g. the `id="blog"` marker moved and the insertion landed in the wrong section).
+6. **Set up a local preview and hand the user a link.** Check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill and restart a single instance if needed), then give the user both links directly: `http://localhost:8000/index.html#blog` and `http://localhost:8000/blog/<slug>/` (mention they may need to hard-refresh).
 
-7. **Preview locally before committing** -- same routine as the other content skills: check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill and restart a single instance if needed), then open `http://localhost:8000/index.html#blog` (hard-refresh) and `http://localhost:8000/blog/<slug>/` to confirm the card and full post render correctly, including any embedded images.
+7. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/card as needed.
 
-8. **Ask before committing/pushing.** Don't `git add`/`git commit`/`git push` without explicit confirmation. Stage only the files this workflow touched -- check `git status` first for unrelated in-progress work, never `git add -A` blindly.
+8. **Once the user is satisfied, clean up.** Kill the local server process you started and delete any scratch content file you wrote. Also clean up staging files: if the user dropped the source PDF/image into `blog/documents/` or `blog/images/` before this workflow ran, those are staging/inbox locations, not the published location -- the real assets now live in `blog/<slug>/`. Leaving the originals behind creates orphaned clutter (this already happened once: `blog/images/ai-trust-gap.png` was left behind after an early post's hero image was swapped out, and is unused as of 2026-07). Delete the now-duplicated staging copies.
+
+9. **Stage only the files this workflow touched** -- check `git status` first for unrelated in-progress work, never `git add -A` blindly.
+
+10. **Commit with a simple message matching the site's convention**: `Added new blog <Title>` (e.g. `Added new blog AI Policies in K12 schools`) -- check `git log --oneline` for recent examples of this exact style. No body needed.
+
+11. **Ask the user if they want to push the commit -- explain that pushing is what makes the change go live on the actual website**, not just this local commit. Don't push without explicit confirmation. If they confirm, `git push` (to the current branch's tracked remote -- check `git status`/`git branch -vv` first if it's not already tracking one).
 
 ## Troubleshooting
 
