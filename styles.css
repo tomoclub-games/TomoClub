@@ -768,7 +768,11 @@ section { padding: 3.5rem 0; position: relative; }
     text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow-y: auto; /* Handle long bios on mobile */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge legacy */
 }
+
+.team-card-back::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 /* Light Mode Back Card Adjustment */
 body:not(.dark-theme) .team-card-back {
