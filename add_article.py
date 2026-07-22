@@ -180,6 +180,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin-bottom: 1.5rem;
         }}
 
+        .article-content a {{
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }}
+
+        .article-content a:hover {{
+            color: var(--navy);
+        }}
+
         .article-content ul {{
             margin-bottom: 2rem;
             padding-left: 1.5rem;

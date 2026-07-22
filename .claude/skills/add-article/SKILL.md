@@ -21,6 +21,18 @@ Adds one new Education Hall article using `add_article.py` at the repo root, a h
      python pdf_image_utils.py path/to/source.pdf /path/to/scratch/dir
      ```
      This dumps every embedded image as `page<N>-img<i>.<ext>` with page numbers and dimensions (requires `pip install pymupdf` — install it if missing). **Review each one with the Read tool before using it** — not every embedded image is real content (some are logos, textures, or decorative elements). Rename the useful ones descriptively in the same directory, then reference them in your content HTML with a bare filename (e.g. `<img src="the-5-cs-of-screen-time.jpeg" .../>`) in one of the centered image blocks above. `add_article.py` resolves bare filenames against the directory `--content-file` lives in, so keep the content file and the chosen images in the same folder.
+   - **If the source is a PDF, also extract its hyperlinks — don't let them get silently dropped.** PDFs (especially Google Docs exports) commonly carry hyperlinked citations, article references, and CTAs as link annotations that read as ordinary black text once flattened to plain text or a rendered image — easy to transcribe as prose and lose entirely. Pull them with PyMuPDF:
+     ```python
+     import fitz
+     doc = fitz.open("path/to/source.pdf")
+     for pno in range(len(doc)):
+         for l in doc[pno].get_links():
+             rect = l.get("from")
+             text = doc[pno].get_textbox(rect) if rect else ""
+             print(pno + 1, repr(text.strip()), "->", l.get("uri"))
+     ```
+     Match each anchor text to where it lands in your content and wrap it in `<a href="...">`. For links to another page on this same site (e.g. another `tomoclub.org/articles/<slug>`), use a relative path (`../<slug>/`) instead of the absolute URL.
+   - **Body links need to visibly stand out, not just be clickable.** The site's global `a` rule (`styles.css`) sets link color equal to body text with no underline, so an in-content `<a>` is invisible against surrounding `<p>` text unless overridden. `add_article.py`'s `HTML_TEMPLATE` ships a `.article-content a` rule (teal, underlined, bold, navy on hover) for exactly this reason — don't remove it. If hand-editing an already-rendered `articles/<slug>/index.html` instead of going through the script, confirm that rule is present in its inline `<style>` block; add it if missing (e.g. the article predates this fix).
    - Optional: `--slug` (auto-derived from title if omitted), `--alt` (image alt text, defaults to title), `--gradient` (teal/gold/crimson/slate homepage card background; auto-rotates if omitted).
 
 2. **Write the content to a file** (e.g. `new_article_content.html` in the repo root, or the scratchpad directory), then run:
@@ -62,3 +74,4 @@ Adds one new Education Hall article using `add_article.py` at the repo root, a h
 - **A local image reference in content doesn't get picked up**: `add_article.py` only auto-resolves *bare filenames* (no `http://`, no `/`) that exist next to `--content-file`. If the content HTML references a path with a slash, or the image lives elsewhere, move it next to the content file or fix the path before running the script.
 - **The embedded HTML_TEMPLATE in `add_article.py` can go stale.** It was copied from `generate_article_pages.py`, but the live site's article template evolves over time (e.g. the "Contact Us" nav link was dropped in favor of "Request a Pilot"; as of July 2026 every article carries a Substack newsletter section and an X.com footer link, both now baked into `HTML_TEMPLATE`). Before trusting the template, diff it against the *most recently added* article (check `git log --diff-filter=A -- 'articles/*/index.html'` for the latest one), not just any existing article — older ones may reflect older conventions. If it's drifted, fix `HTML_TEMPLATE` in `add_article.py` first, then regenerate.
 - **A handful of older articles were missing the newsletter section / X.com link entirely** (added by hand before those blocks existed on the site) and were backfilled in bulk on 2026-07-06. If you spot another article missing either block, insert them right before `</article>`→`<footer>` and inside the footer's `<div class="container text-center">` respectively — copy the exact markup from a recent article like `chris-parker-technology-leadership/index.html`.
+- **Body links rendered but look identical to plain text**: means `.article-content a` is missing from that article's inline `<style>` block — add it (see the collect-inputs step above) rather than styling each `<a>` individually.

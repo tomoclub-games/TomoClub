@@ -185,6 +185,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin-bottom: 1.75rem;
         }}
 
+        .article-content a {{
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }}
+
+        .article-content a:hover {{
+            color: var(--navy);
+        }}
+
         .article-content ul, .article-content ol {{
             margin-bottom: 2.5rem;
             padding-left: 1.5rem;

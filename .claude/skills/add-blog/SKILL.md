@@ -33,7 +33,19 @@ Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root
    ```
    This dumps every embedded image as `page<N>-img<i>.<ext>` and prints their page numbers and dimensions. **Review each one with the Read tool** (view it) before using it -- not every embedded image is worth keeping (some PDFs embed background textures, logos, or decorative elements as separate XObjects). Only reference the ones that are genuinely content (e.g. an infographic that supports the text). Rename the useful ones to something descriptive in the same directory (e.g. `the-5-cs-of-screen-time.jpeg`) so the content HTML and the final published filename stay readable.
 
-3. **Write the content to a file** in the same directory as any extracted images (so bare-filename `<img src="...">` references resolve), matching the site's format: `<h2>` section headers, `<p>` paragraphs, `<ul><li>` lists, and centered image blocks:
+3. **If the source is a PDF, extract its hyperlinks too, not just its images.** PDFs (especially ones drafted in Google Docs) commonly carry hyperlinked citations, article references, and CTAs as link annotations that don't show up as visibly different text when the PDF is just read/rendered as an image -- they're easy to miss and drop silently. Pull them with PyMuPDF:
+   ```python
+   import fitz
+   doc = fitz.open("path/to/source.pdf")
+   for pno in range(len(doc)):
+       for l in doc[pno].get_links():
+           rect = l.get("from")
+           text = doc[pno].get_textbox(rect) if rect else ""
+           print(pno + 1, repr(text.strip()), "->", l.get("uri"))
+   ```
+   Match each returned anchor text to where it appears in your content and wrap it in `<a href="...">`. For links to `tomoclub.org/articles/<slug>` or other pages on this same site, use a relative path (`../../articles/<slug>/`) instead of the absolute URL so it doesn't leave the site unnecessarily.
+
+4. **Write the content to a file** in the same directory as any extracted images (so bare-filename `<img src="...">` references resolve), matching the site's format: `<h2>` section headers, `<p>` paragraphs, `<ul><li>` lists, and centered image blocks:
    ```html
    <div style="text-align: center; margin: 2rem 0;">
        <img src="the-5-cs-of-screen-time.jpeg" style="max-width: 100%; border-radius: 8px;" alt="..." />
@@ -41,8 +53,9 @@ Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root
    </div>
    ```
    Copy the structure of the most recently published post (check `git log --diff-filter=A --oneline -- 'blog/*/index.html'` for the latest) for exact conventions -- e.g. `blog/ai-implementation-in-k12-schools/index.html` had a "Back to Blog" nav link above the header, an FAQ section at the end, and a `<p class="lead">` intro. The template also ships a `.reflect-box` CSS class (a highlighted callout box) useful for "pause and reflect" / pull-quote style callouts if the content calls for it.
+   - **Body links need to visibly stand out, not just be clickable.** The site's global `a` rule (`styles.css`) sets link color equal to body text with no underline, so an in-content `<a>` is invisible against surrounding `<p>` text unless overridden. `add_blog_post.py`'s `HTML_TEMPLATE` already ships a `.article-content a` rule (teal, underlined, bold, navy on hover) for exactly this reason -- don't remove it. If you're hand-editing an already-rendered `blog/<slug>/index.html` instead of going through the script, confirm that rule is present in its inline `<style>` block; if it's missing (e.g. the post predates this fix), add it.
 
-4. **Run the script**:
+5. **Run the script**:
    ```bash
    python add_blog_post.py --title "Healthy Screen-Time Habits for Kids" \
      --category "Parenting" \
@@ -57,19 +70,19 @@ Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root
    - Inserts a new card at the **top** of `#blog`'s `grid-3` in `index.html`, auto-rotating the gradient/category-badge color between gold (`#D97706`), teal (`var(--teal)`), and slate (`var(--navy)`) based on how many blog cards already exist.
    - Is duplicate-safe: aborts before writing anything if `blog/<slug>/` already exists; re-running with a slug that already has a homepage card skips that step.
 
-5. **Verify the diff is minimal**: `git diff --stat` should show `index.html` (~11-13 lines) plus new files under `blog/<slug>/`. If `index.html` shows hundreds of changed lines, stop -- something went wrong (e.g. the `id="blog"` marker moved and the insertion landed in the wrong section).
+6. **Verify the diff is minimal**: `git diff --stat` should show `index.html` (~11-13 lines) plus new files under `blog/<slug>/`. If `index.html` shows hundreds of changed lines, stop -- something went wrong (e.g. the `id="blog"` marker moved and the insertion landed in the wrong section).
 
-6. **Set up a local preview and hand the user a link.** Check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill and restart a single instance if needed), then give the user both links directly: `http://localhost:8000/index.html#blog` and `http://localhost:8000/blog/<slug>/` (mention they may need to hard-refresh).
+7. **Set up a local preview and hand the user a link.** Check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill and restart a single instance if needed), then give the user both links directly: `http://localhost:8000/index.html#blog` and `http://localhost:8000/blog/<slug>/` (mention they may need to hard-refresh).
 
-7. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/card as needed.
+8. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/card as needed.
 
-8. **Once the user is satisfied, clean up.** Kill the local server process you started and delete any scratch content file you wrote. Also clean up staging files: if the user dropped the source PDF/image into `blog/documents/` or `blog/images/` before this workflow ran, those are staging/inbox locations, not the published location -- the real assets now live in `blog/<slug>/`. Leaving the originals behind creates orphaned clutter (this already happened once: `blog/images/ai-trust-gap.png` was left behind after an early post's hero image was swapped out, and is unused as of 2026-07). Delete the now-duplicated staging copies.
+9. **Once the user is satisfied, clean up.** Kill the local server process you started and delete any scratch content file you wrote. Also clean up staging files: if the user dropped the source PDF/image into `blog/documents/` or `blog/images/` before this workflow ran, those are staging/inbox locations, not the published location -- the real assets now live in `blog/<slug>/`. Leaving the originals behind creates orphaned clutter (this already happened once: `blog/images/ai-trust-gap.png` was left behind after an early post's hero image was swapped out, and is unused as of 2026-07). Delete the now-duplicated staging copies.
 
-9. **Stage only the files this workflow touched** -- check `git status` first for unrelated in-progress work, never `git add -A` blindly.
+10. **Stage only the files this workflow touched** -- check `git status` first for unrelated in-progress work, never `git add -A` blindly.
 
-10. **Commit with a simple message matching the site's convention**: `Added new blog <Title>` (e.g. `Added new blog AI Policies in K12 schools`) -- check `git log --oneline` for recent examples of this exact style. No body needed.
+11. **Commit with a simple message matching the site's convention**: `Added new blog <Title>` (e.g. `Added new blog AI Policies in K12 schools`) -- check `git log --oneline` for recent examples of this exact style. No body needed.
 
-11. **Ask the user if they want to push the commit -- explain that pushing is what makes the change go live on the actual website**, not just this local commit. Don't push without explicit confirmation. If they confirm, `git push` (to the current branch's tracked remote -- check `git status`/`git branch -vv` first if it's not already tracking one).
+12. **Ask the user if they want to push the commit -- explain that pushing is what makes the change go live on the actual website**, not just this local commit. Don't push without explicit confirmation. If they confirm, `git push` (to the current branch's tracked remote -- check `git status`/`git branch -vv` first if it's not already tracking one).
 
 ## Troubleshooting
 
@@ -79,3 +92,5 @@ Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root
 - **Card lands in the wrong spot / wrong section**: `update_index_html_card()` finds the FIRST `<div class="grid-3">` after `id="blog"` in `index.html`. If a homepage redesign adds another `grid-3` before the blog one, or nests the blog cards differently, the insertion point in `add_blog_post.py` will need updating.
 - **PDF has no extractable images**: `pdf_image_utils.py` only pulls images embedded as PDF XObjects. A PDF where a "graphic" is actually rendered from vector/text content won't yield anything -- there's nothing to extract in that case; describe it in prose instead or ask the user for the original graphic file.
 - **`pip install pymupdf` fails or isn't wanted**: PDF image extraction is optional -- if it's unavailable, just read the PDF's text content (the Read tool already handles that) and write text-only content; skip embedded images.
+- **Multiple `python`/`pip` installs on the same machine resolve to different interpreters**: if `pip install pymupdf` silently no-ops or installs into an environment `python` doesn't see, check `(Get-Command python).Source` vs `(Get-Command pip).Source` (PowerShell) -- if they point at different install directories, either use that specific interpreter directly (e.g. `py -3.11 script.py`) or `python -m pip install pymupdf` so the install target matches the interpreter that will run the script.
+- **Body links rendered but look identical to plain text**: means `.article-content a` is missing from that post's inline `<style>` block (see step 4) -- add it rather than adding `style="color: ..."` to each individual `<a>`, so hover state and future edits stay consistent.
