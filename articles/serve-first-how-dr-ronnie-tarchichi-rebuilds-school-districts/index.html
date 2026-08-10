@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts | TomoClub Education Hall">
+    <meta property="og:description" content="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts-cover.jpeg">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts/">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts | TomoClub Education Hall">
+    <meta name="twitter:description" content="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts-cover.jpeg">
+
+    <title>Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts | TomoClub Education Hall</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">School Leadership</span>
+                    <span class="article-date">August 10, 2026</span>
+                </div>
+                <h1 class="article-title">Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts</h1>
+                <img src="../../articles/images/serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts-cover.jpeg" alt="Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>Dr. Ronnie Tarchichi started cooking in his parents' restaurant when he was fifteen. That was 1996. He was still working as the head cook there in 2021, twenty-five years later, having kept the job through his years teaching chemistry, supervising a vocational high school, and running school districts. He credits his mother and father with teaching him how to cook, how to serve others, and, in his own words, how ‘to love.’</p> <p>He includes those twenty-five years in his professional record, right alongside the doctorates. Today, he is in his thirteenth year as a superintendent and leads the Delanco Township School District in New Jersey. It is his fourth district. Each of the four arrived in his hands in some kind of trouble.</p> <p>Taking a look at his career will tell us the story of a school leader whose success lay in treating his job as ‘service’ in the truest sense.</p> <h3>The Districts That Needed Someone</h3> <p>When Dr. Tarchichi came to Woodlynne in 2013, the state had placed the district under priority status. Woodlynne is small and densely packed, a walking district running on a $13 million budget. It had no business office of its own and no custodial services. He restored both. The new business office was then shared with Merchantville and Magnolia, an arrangement that brought thousands of dollars of revenue into Woodlynne instead of draining it.</p> <p>The bigger problem was what Woodlynne's children were and were not being taught. A student could pass through the middle school grades without ever meeting the math that high school would assume they already knew. So he reworked that sequence. Sixth graders began taking pre-algebra. Seventh and eighth graders took algebra, which meant geometry would be waiting for them freshman year rather than ambushing them.</p> <p>He aligned the science curriculum to the Next Generation Science Standards so that earth, biological, and physical science each got real time in the schedule. New social studies courses appeared across all three middle school grades, and language arts made room for Shakespeare and test prep.</p> <p>Getting all of that into a school day required more hours than the day had, so he moved the schools onto block scheduling. He changed the start and end times. He arranged busing so that middle schoolers in a walking district could still play sports in Collingswood. And when children needed academic support beyond all of it, he taught Saturday School himself.</p> <p>The state's monitoring caught up with the change. Between 2014 and 2015, Woodlynne's QSAC scores climbed in every category. Instruction jumped from 23 to 76 percent. Governance rose from 46 to 86 percent, and personnel improved from 60 to a perfect 100 percent. Eighth grade science proficiency nearly doubled, from 45 to 84 percent. By the time he left in 2016, the district was in good standing with the state.</p> <p>Pennsauken presented a completely different scale of problem. Enrollment had hit an all-time low in a district serving more than 5,300 students and 950 staff members on a $172 million budget. He spent the next eight years designing and implementing interventions to turn the district around.</p> <p>He passed a $36 million bond referendum by a three-to-one margin, which paid for full-day pre-K for township residents, a magnet high school, security vestibules in every building, and new science laboratories and classrooms at the middle school. He restructured the grade configuration across the whole district, moving children through P-3, 4-5, 6-8, and 9-12 buildings to better match their academic and social growth.</p> <p>In a move that made education more inclusive, he opened the Burling Alternative High School for students with behavioral disabilities. Pennsauken started seeing a rise in enrollments for the first time in over a decade.</p> <p>Then, in 2024, he made an unusual move. He left Pennsauken to take charge of the Mary A. Dobbins School, a single school for children with intellectual, behavioral, and developmental disabilities that needed rebuilding from the inside out.</p> <h3>What He Did at Dobbins</h3> <p>His year at Dobbins shows how he balances technical administration with understanding the differential needs of the students. He wrote the behavior modification plan for the students and also redid the curriculum for every content area, academic and vocational alike. He built a workable master schedule and a credit recovery system for students sitting far below where they needed to be. Traditional testing had never served many of these children, so he introduced portfolio assessments and project-based learning in its place.</p> <p>Then there is the prom.</p> <p>The Mary A. Dobbins School had existed for years without ever holding one. Its students, children with intellectual and developmental disabilities, had watched that particular rite of passage belong to everybody else. In his single year there, Dr. Tarchichi gave them one. It was the first in the school's history, and he followed it with a graduation celebration for every student.</p> <p>He also held a book fair where children went home with reading regardless of what their families could pay, and established a ‘Breakfast with Santa’, wearing the red suit himself.</p> <p>The two sets of decisions which might seem like inhabiting different worlds come together for Tarchichi. A leader who writes behavior plans and credit recovery frameworks is handling the technical mechanics of special education. A leader who notices that a group of teenagers has never had a prom is doing something else, and the second thing is much harder to teach, and what sets him apart.</p> <h3>A School Reopens in Delanco</h3> <p>In June 2024, Delanco Township closed the Walnut Street School. The district could not afford to keep the building open, and so a town lost a school.</p> <p>Dr. Tarchichi arrived the following year, and reopening it became his first major act. The money came from an arrangement that did two jobs at once: a lease agreement with the YALE School that brought $300,000 into Delanco while creating educational options for students with disabilities. The doors were opened once again.</p> <p>It takes a lot of empathy to bring in differential interventions that suit a wide range of students. He rewrote the master schedule so that general education and special education coursework both worked. New curricula followed, aligned with state standards, across ELL, math, reading and language arts, science, social studies, and health and physical education for grades K through 8.</p> <p>One of his most interesting interventions was the ‘Dragon's Den,’ free after-school tutoring in math and language arts, open to every student in the district. Cross country, girls volleyball, chess, and robotics arrived alongside it, and pancake breakfasts and turkey trots gave families a reason to come inside the building.</p> <p>These additions gave families more reasons to walk through the doors.</p> <h3>Trades in Every Building</h3> <p>At Dobbins, some of the students spent part of their week at the First Assembly of God Church in Salem County, working construction. Not a simulation of construction, and not a worksheet about construction. Dr. Tarchichi arranged a work-release job so that young people whose schooling had mostly happened inside one small building could log real hours on a real site and see their own work standing there at the end of the day.</p> <p>That instinct followed him throughout his tenure. In his first year at Pennsauken, he opened automotive, carpentry, cosmetology, and culinary arts programs, and over the years that followed added electrical construction, welding, and criminal justice. In the coming years he even added programs like a nationally accredited Air Force JROTC, backed by partnerships at Camden County College and Rowan College of Burlington County.</p> <p>At Dobbins, he built cosmetology, culinary arts, and carpentry for secondary students with disabilities. At Delanco, he installed the same three as electives for middle schoolers.</p> <p>Dr. Tarchichi holds instructional certifications in culinary arts, biology, chemistry, physics, health and physical education, driver's education, and teaching students with disabilities, and there is no reason why his students should not have a chance to build a similarly wide array of skills.</p> <p>Career and technical education is frequently reserved for older teenagers who are not heading to college. He keeps putting it in front of twelve-year-olds, alternative school students, and children with developmental disabilities instead, which makes skilled work an early and open door rather than a track assigned to some children and not others.</p> <h3>The Expertise Behind It</h3> <p>When it comes to knowledge, they say there is never enough. While running these districts as the Superintendent, Tarchichi continuously sought to expand his expertise and skills. His profile would strangely read like someone who has perhaps too many credentials to his name, more than a couple of Master's and two doctorates. But beyond this strangeness lies the conviction of a man who has never stopped learning.</p> <p>After the educational leadership doctorate at Rowan came a PhD from Temple in special education, finished in 2020, in the middle of his Pennsauken years and the pandemic. Two master's degrees, in special education and in learning disabilities, sit alongside earlier ones in biomedical science and biology. His research focused on writing to learn strategies for students with specific learning disabilities. Something which he has visibly brought into the roles he took on in the future.</p> <p>That academic interest turns up in what the districts contain. Pennsauken gained an autism program, an 18 to 21 transition program, three special services supervisors covering different grade bands, and a director and coordinator of student services. Delanco gained an inclusion program for all students with disabilities, special education services addressing social and emotional learning, and a full SEL curriculum aimed at reducing bullying. While at Dobbins, he set out to rebuild things entirely.</p> <p>For a superintendent whose track record includes bond referendums, ROD grants, asphalt grants and lease purchase agreements, an unusual share of the work is aimed at the students most systems find easiest to ignore and struggle the hardest to retain. This can only come from a person willing to take on the challenges and understand the complications to build sustainable interventions in a complicated landscape.</p> <h3>What He Says He Brings</h3> <p>Asked to describe his own strengths, Tarchichi lists creative thinking, problem solving, long range planning, and the ability to communicate with a diverse population. He talks about being visible and approachable, about the necessity of a rapport with teachers, board members and parents. He wants, in his words, to establish an educational culture and educational program conducive to ‘student learning, socialization and achievement.’</p> <p>That is accurate as far as it goes, though it undersells the more distinctive thing about him. His ability to step into seemingly untenable environments and identify what matters the most. At Woodlynne he brought back the business office and custodial services. At Pennsauken, he reopened the Burling Alternative High School for students with behavioral disabilities. At Dobbins, he made the book fair accessible for all students and built a band and prom for students who never had one.</p> <p>His magic touch seems to lie in restoring and building things communities have lost, and he seems to understand that a school district's credibility is built out of exactly those things — the small, visible, restored ones, plus the willingness to teach Saturday School yourself when it is what the students need.</p> <p>At Delanco, where he's only been for a year, he has already reopened a closed school. Given the momentum and conviction that has driven his extraordinary career until now, we probably won't find him slowing down anytime soon.</p> <h3>Why TomoClub Shares This Story</h3> <p>At TomoClub, we spend a lot of time thinking about what school leadership looks like beneath the official job titles. We look at how the values a person forms long before their first administrative role end up shaping the daily experience of thousands of children.</p> <p>Dr. Tarchichi is one answer to that question. The teenager who started cooking in his family's restaurant and stayed at it for a quarter of a century grew into an educator who has spent thirteen years walking into struggling districts and leaving them stronger than he found them.</p> <p>The Education Hall series exists to gather more accounts like his, from the superintendents and principals doing this work, so that other leaders have something honest to learn from.</p> <p>Read the full Education Hall series, and if you are building a school where children learn to think, adapt, and lead, come talk to us. Book a call with us!</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>

@@ -13,6 +13,13 @@ articles = json.loads(json_str)
 
 # Article metadata (matching index.html)
 article_metadata = {
+    "article_13": {
+        "title": "Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts",
+        "date": "August 10, 2026",
+        "category": "School Leadership",
+        "slug": "serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts",
+        "cover": "articles/images/serve-first-how-dr-ronnie-tarchichi-rebuilds-school-districts-cover.jpeg"
+    },
     "article_12": {
         "title": "People Over Programs: Sharon Pepukayi on People-First School Leadership",
         "date": "July 16, 2026",
