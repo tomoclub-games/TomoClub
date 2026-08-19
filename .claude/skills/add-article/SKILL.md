@@ -8,6 +8,17 @@ tools: Bash, Read, Edit, Grep
 
 Adds one new Education Hall article using `add_article.py` at the repo root, a hardened helper script built after the original guide's pipeline (`generate_article_pages.py`) was found to only track 8 of the ~19 articles actually live on the site — most had been added by hand directly into `articles/<slug>/` without ever being registered in `articles_data.js` or `article_metadata`.
 
+## Content fidelity to the source document
+
+Convert the source as close to 1:1 as possible -- don't let normal editorial instincts (paraphrasing, restructuring, "improving" layout) creep in.
+
+- **Never summarize or paraphrase the source body text. Use the exact wording, verbatim.** This is not "close enough" -- word choice, sentence order, and phrasing are the user's, not a first draft to be rewritten. The description/meta-teaser (which is explicitly asked for separately) is the one exception; the article/post body itself must match the doc word-for-word.
+- **Preserve the source's line breaks.** A sentence-level line break in the doc is structural signal (a new beat, a deliberate pause, a new list item), not filler to merge into flowing prose. Don't silently reflow multiple source lines into one paragraph.
+- **Every bold span in the source needs an explicit `<strong>` in the output.** Do a dedicated pass just for this -- skimming for bold while reading for content is how spans get missed (e.g. a bolded term like "AI literacy curriculum for schools" silently dropped to plain text). Check the source text specifically for bold runs before calling the content pass done.
+- **Reproduce the source's actual layout for callouts/boxes**, don't redesign it. If the doc has a callout as "label + one sentence," render it as label + one sentence -- not a bulleted/stacked reformat that "reads better." The user already specified the formatting by writing it that way; match the doc, not your own instinct for what looks better.
+- **Replicate tables, not just prose.** If the source has a table, render it as a real `<table>` (`<thead>`/`<tbody>`, `<th>`/`<td>`) matching the source's rows and columns -- don't flatten it into a bulleted list or paragraph. There's no sitewide table CSS yet (only a `.table-responsive` overflow wrapper in `styles.css`), so wrap the table in `<div class="table-responsive">` and give the `<table>` inline styles matching the article's look (border, padding, header row background) -- check the most recently published article with a table for the convention if one exists, otherwise style it consistent with the surrounding `.article-content` typography.
+- **Confirm rendering visually before calling an article done**, not just via a clean `git diff`. A clean diff proves the HTML is well-formed, not that it renders correctly -- CSS/template bugs (e.g. `<li>` text picking up a different color than sibling `<p>` text) only show up in an actual screenshot/browser render. Take one before the first "this is done" claim, not only after being told twice.
+
 ## Steps
 
 1. **Collect inputs** from the user if not already given:
