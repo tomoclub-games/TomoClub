@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Literacy in Schools: Students Are Using AI, But Are They AI Literate? | TomoClub Blog</title>
+    <meta name="description" content="Students are using AI, but are they AI literate? Discover how K-12 school leaders can build critical AI judgment, ethics, and literacy across schools.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+
+    <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: var(--article-max-width);
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.75rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .back-nav {
+            max-width: var(--article-max-width);
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .reflect-box {
+            background: rgba(42, 180, 184, 0.08);
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--navy);
+        }
+
+        .reflect-box strong {
+            display: block;
+            font-style: normal;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content .kw {
+            background: rgba(42, 180, 184, 0.18);
+            padding: 0.05em 0.35em;
+            border-radius: 4px;
+            font-style: normal;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0 2.5rem;
+            font-size: 1.05rem;
+        }
+
+        .article-content th, .article-content td {
+            border: 1px solid var(--border-color);
+            padding: 0.9rem 1.1rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .article-content th {
+            background: rgba(42, 180, 184, 0.08);
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Literacy in Schools: Students Are Using AI, But Are They AI Literate? | TomoClub Blog">
+    <meta property="og:description" content="Students are using AI, but are they AI literate? Discover how K-12 school leaders can build critical AI judgment, ethics, and literacy across schools.">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/ai-literacy-in-schools-students-are-using-ai-but-are-they-ai-literate/hero.png">
+    <meta property="og:site_name" content="TomoClub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Literacy in Schools: Students Are Using AI, But Are They AI Literate? | TomoClub Blog">
+    <meta name="twitter:description" content="Students are using AI, but are they AI literate? Discover how K-12 school leaders can build critical AI judgment, ethics, and literacy across schools.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/ai-literacy-in-schools-students-are-using-ai-but-are-they-ai-literate/hero.png">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">AI in Education</span>
+
+                </div>
+                <h1 class="article-title">AI Literacy in Schools: Students Are Using AI, But Are They AI Literate?</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+<p class="lead">Walk into almost any middle or high school classroom today, and you will see students interacting with generative AI as naturally as they use a search engine or smartphone. They use ChatGPT to draft essay outlines, Claude to summarize hundred-page historical documents, and specialized AI tools to debug code or brainstorm ideas in seconds. Research indicates that over 85% of students have actively used generative AI tools for schoolwork.</p>
+
+<p>Because students execute these digital tasks with such effortless speed, it is tempting for school leaders to assume that their student body is well-prepared for an AI-driven future.</p>
+
+<p>However, this assumption is in fact shaped by a deeper misconception &mdash; <strong>school leaders often mistake AI fluency for AI literacy.</strong></p>
+
+<p>Students are undeniably <em>fluent</em> &mdash; they know how to execute prompts, speed up task completion, and use AI to bypass cognitive friction. Yet, when evaluated closely, the vast majority remain fundamentally <em>illiterate</em> regarding bias detection, ethical boundaries, source verification, and independent critical thinking.</p>
+
+<p>How effective can banning AI in this case be? Hardly at all. A mandated ban would just prompt students to adopt secretive strategies. And if we are talking about quality, simply teaching "prompt engineering," the buzzword these days, would be equally inadequate as it treats generative AI as a mere software program rather than a complex cognitive partner.</p>
+
+<p>To bridge this gap, K&ndash;12 leaders must pivot from reactive policing to proactive, institutional AI literacy.</p>
+
+<p>Let us look at an operational framework that can help your students build AI literacy.</p>
+
+<h2>1. The Fluency vs. Literacy Paradox: Why Tool Usage Isn't Competence</h2>
+
+<p>To build an effective <strong>AI literacy curriculum for schools</strong>, you first need to understand the distinction between AI fluency and AI literacy.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Dimension</th>
+            <th>AI Fluency (Tool Execution)</th>
+            <th>AI Literacy (Critical Judgment)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Primary Focus</strong></td>
+            <td>Speed, output generation, and task completion.</td>
+            <td>Deep evaluation, source verification, and ethical reasoning.</td>
+        </tr>
+        <tr>
+            <td><strong>Student Role</strong></td>
+            <td>Passive consumer or operator following prompt templates.</td>
+            <td>Active director, evaluator, and ethical decision-maker.</td>
+        </tr>
+        <tr>
+            <td><strong>Cognitive Process</strong></td>
+            <td>Outsourcing thinking to bypass struggle.</td>
+            <td>Engaging in dialogue with AI while retaining ownership of thought.</td>
+        </tr>
+        <tr>
+            <td><strong>Reaction to Error</strong></td>
+            <td>Unquestioningly copying hallucinated or biased outputs.</td>
+            <td>Cross-examining outputs, spotting bias, and fact-checking against primary sources.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>If the table seems a little too abstract, imagine this: a student prompts an LLM to write a five-paragraph history essay and turns it in verbatim. Here, they are demonstrating very high fluency but zero literacy.</p>
+
+<p>Conversely, when a student uses an AI model to generate conflicting historical perspectives, cross-references those claims against peer-reviewed primary sources, spots systemic bias in the algorithm's training data, and writes an original synthesis &mdash; that is <strong class="kw">generative AI literacy for students</strong>.</p>
+
+<div class="reflect-box"><strong>Easy to Remember Rule of Thumb:</strong>Think first. Use AI second. Judge always.</div>
+
+<p>Cultivating this would require more than AI detection software or disciplinary honor codes which penalize students. Genuine AI readiness in students requires a shift in focus from policing the final product to building student capacity for judgment and critical thinking.</p>
+
+<h2>2. Operationalizing the 8 Dimensions of K&ndash;12 Student AI Readiness</h2>
+
+<p>Academic research, such as <a href="https://www.sciencedirect.com/science/article/pii/S2666920X26000123" target="_blank" rel="noopener">Feng &amp; Carolus's</a> comprehensive 8-dimension framework for K&ndash;12 AI literacy, demonstrates that true readiness encompasses far more than computer science concepts. It spans technical, cognitive, affective, and ethical domains.</p>
+
+<p>To make these academic dimensions operational across grade bands, district leadership could embed these eight capabilities across three tiers categorized by grade level.</p>
+
+<h3>Grade-Wise Implementation Blueprint</h3>
+
+<h3>1. Elementary School (Grades K&ndash;5): Human Curiosity vs. Machine Rules</h3>
+<ul>
+    <li><strong>Core Focus:</strong> Distinguish between human intelligence (empathy, lived experience, feelings) and machine rules (pattern recognition, data inputs).</li>
+    <li><strong>Key Dimensions:</strong> Basic AI awareness, foundational ethics (privacy/safety), and human-AI distinction.</li>
+    <li><strong>Classroom Application:</strong> Students analyze simple classification systems (e.g., how an image-recognition tool categorizes animals) and discuss why machines make mistakes that humans wouldn't.</li>
+</ul>
+
+<h3>2. Middle School (Grades 6&ndash;8): Process Verification &amp; Bias Identification</h3>
+<ul>
+    <li><strong>Core Focus:</strong> Identifying algorithmic bias, recognizing "hallucinations," and maintaining cognitive ownership during research and writing.</li>
+    <li><strong>Key Dimensions:</strong> Critical thinking capacity, GenAI competency, cognitive-affective readiness, and awareness of AI's limitations.</li>
+    <li><strong>Classroom Application:</strong> Students complete "Break the AI" challenges, purposefully prompting tools on niche subjects to spot factually incorrect outputs and document the model's blind spots.</li>
+</ul>
+
+<h3>3. High School (Grades 9&ndash;12): Algorithmic Governance &amp; Career Integration</h3>
+<ul>
+    <li><strong>Core Focus:</strong> Ethical reasoning, intellectual property, societal impact, and evaluating AI as a co-creator in professional disciplines.</li>
+    <li><strong>Key Dimensions:</strong> Career preparation, societal and ethical impact of using AI, advanced AI judgment, and technical knowledge.</li>
+    <li><strong>Classroom Application:</strong> Students conduct algorithmic audits on real-world datasets (e.g., loan applications or hiring algorithms), identifying how biases are replicated by AI in evaluation, and proposing policy solutions to rectify such errors.</li>
+</ul>
+
+<h2>3. The Three Pillars of Institutional AI Literacy</h2>
+
+<p>Now that we know the focus areas for building AI literacy across K&ndash;12, the next challenge is integrating it into the institutional framework &mdash; or simply put, bringing AI literacy to the classroom without overwhelming teachers or students.</p>
+
+<p>You can begin by focusing on these three pillars:</p>
+
+<h3>Pillar 1: Keep Students in the Driver's Seat</h3>
+<p>If students immediately use AI the second an assignment gets difficult, they lose their independent problem-solving skills. The goal is to keep them thinking for themselves.</p>
+<ul>
+    <li><strong>The Strategy:</strong> Ask students to treat AI as a debate partner, not an answer key.</li>
+    <li><strong>Practical Example:</strong> Have them pitch their original ideas to an AI chatbot and ask the AI to find holes in their logic. The student then has to actively defend their idea or improve it based on the feedback, as per their own judgment.</li>
+</ul>
+
+<h3>Pillar 2: Grade the Process, Not Just the Product</h3>
+<p>When a five-paragraph essay can be generated in three seconds, grading only the final paper doesn't tell you if the student actually learned anything.</p>
+<ul>
+    <li><strong>The Strategy:</strong> Reward the thinking that happens before the final draft is submitted, not just the paper that comes out.</li>
+    <li><strong>Practical Example:</strong> Flip your grading scale. Make the final essay worth 30% of the grade, and reserve the other 70% for the student's "process log" &mdash; a document, a video, anything showing how they fact-checked the AI, corrected its mistakes, and improved the output.</li>
+</ul>
+
+<h3>Pillar 3: Mix AI Literacy Into Every Subject</h3>
+<p>AI literacy is not a niche skill meant only for an elective computer science lab. It is a critical thinking tool that belongs in every academic subject.</p>
+<ul>
+    <li><strong>English:</strong> Compare an AI-written poem to a human-written poem to spot the differences in real human emotion and voice.</li>
+    <li><strong>History:</strong> Have students test how an AI changes its summary of a controversial historical event just by changing a few words in the prompt.</li>
+    <li><strong>Science/Math:</strong> Ask an AI to analyze a set of data, then have students find the mathematical mistakes or missing variables in the AI's logic.</li>
+</ul>
+
+<h2>4. Redesigning Classroom Assessment: From Output Policing to Process Mastery</h2>
+
+<p>Relying on AI detection software creates a punitive culture that damages student trust without actually building any real skills. Furthermore, commercial AI detectors are notoriously unreliable, frequently producing false positives that disproportionately penalize English Language Learners (ELL) and students with highly structured writing styles.</p>
+
+<p>To fix this, district leaders need to guide faculty away from trying to catch AI usage and toward designing more intentional assessments. The traditional assessment model &mdash; giving a prompt, expecting independent writing, and solely grading the final submitted essay &mdash; simply doesn't work anymore.</p>
+
+<p>An AI-literate assessment flips the script. It starts with human ideation, allows for an iterative dialogue with AI tools, demands strict source verification, and finishes with an oral defense or a detailed process log.</p>
+
+<p>These unique assessment strategies can change the way you look at student assessment outcomes:</p>
+
+<ul>
+    <li><strong>The Socratic Defense:</strong> Let students use AI tools to research and outline their arguments, but base their final assessment on a live Socratic seminar, peer debate, or teacher interview where they must defend their ideas without any digital aids.</li>
+    <li><strong>The "Reverse-Engineered" Output:</strong> Give students an AI-generated essay that intentionally contains subtle factual errors, biased premises, and logical fallacies. Challenge them to fact-check, redline, and rewrite the piece using real primary sources.</li>
+    <li><strong>The Prompt-to-Final Product Audit Trail:</strong> Have students submit a digital portfolio alongside their final draft, including their original draft, their exact AI prompt history, and a reflection on what AI suggestions they accepted versus rejected.</li>
+    <li><strong>The Comparative Analysis:</strong> Ask students to write an assignment entirely on their own, then run the exact same prompt through an AI model. They then write a comparative meta-analysis evaluating the differences in tone, depth, accuracy, and personal perspective between the two.</li>
+</ul>
+
+<h2>5. A Leadership Roadmap: Implementing District-Wide AI Literacy</h2>
+
+<p>Introducing a sustainable <span class="kw">AI literacy framework</span> doesn't have to overwhelm your teachers or break the budget. District leaders can follow a straightforward, continuous approach to scale this smoothly across schools.</p>
+
+<p>Start by auditing your current district policy and language. Move away from restrictive warnings and broad bans. Instead, rewrite your guidelines to focus on providing clear guidance for transparent AI disclosure, protecting student data privacy, and redefining academic integrity as mastery of the learning process.</p>
+
+<p>Once your policy is clear, deliver professional development that actually focuses on "AI judgment." Skip the basic training sessions on software features or "the 10 best prompts." Instead, train educators on how to redesign their assessments, conduct process audits, and maintain their students' independent cognitive agency in the classroom.</p>
+
+<p>TomoClub's <a href="../../#pd">AI Fundamentals PD</a> is specifically tailored with practical, hands-on skills to help your teachers build AI use efficiency that helps them do what it should &mdash; save time.</p>
+
+<p>But introducing it as a brand-new, standalone initiative is a fast track to long-term fatigue. Instead, integrate it with the periodic reviews, refresher courses, or digital citizenship programs which already exist.</p>
+
+<p>As Texas principal <a href="../../articles/lauren-bolack-leadership/">Lauren Bolack</a> notes, "integrating new initiatives into the systems teachers are already using, rather than launching something completely separate, is essential for preventing teacher burnout."</p>
+
+<p>Finally, bring your community into the conversation. Establish student and parent advisory panels to involve them directly in policy and curriculum design. Forming student AI councils gives administrators an honest, immediate look at how these tools are actually being used, which helps you stay ahead of emerging trends while simultaneously demystifying AI for parents and community board members.</p>
+
+<h2>Conclusion: Building the Next Generation of Ethical AI Directors</h2>
+
+<p>Publishing an AI safety policy or purchasing software licenses does not equal preparing students for an AI-integrated workforce.</p>
+
+<p>If our schools only teach students how to prompt AI to get quick answers, we prepare them to be passive operators easily replaced by the next technological iteration.</p>
+
+<p>However, when we teach students how to cross-examine algorithmic output, identify hidden systemic bias, verify claims against ground truth, and maintain their own creative and cognitive voice, we build true <span class="kw">student AI literacy,</span> the skills that count for the future.</p>
+
+<p>A policy sets the boundaries, but an intentional AI literacy framework builds human capacity. School leaders who act today will ensure their students graduate not merely as fluent consumers of technology, but as ethical, critical, and articulate directors of it.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>1. How can school leaders distinguish between basic tool fluency and true AI literacy for students?</h3>
+<p>Basic tool fluency focuses on speed, prompt templates, and generating quick answers. In contrast, <span class="kw">AI literacy for students</span> centers on critical evaluation, bias detection, and ethical reasoning. When auditing district policies, school leaders should examine whether guidelines focus on controlling final outputs or developing <span class="kw">AI judgment vs tool use</span>. True <span class="kw">student AI readiness</span> means learners can spot model hallucinations, verify factual accuracy, and know when independent human thought is required.</p>
+
+<h3>2. How can teachers assess learning when students use generative AI tools?</h3>
+<p>Instead of relying on unreliable detection software, <span class="kw">teachers teaching AI literacy to students</span> should shift assessment away from final output and toward process verification. Focus on grading prompt logs, source-verification sheets, and live oral defenses. This approach builds <span class="kw">generative AI literacy for students</span> and strengthens <span class="kw">critical thinking and AI in schools</span> by requiring learners to defend their reasoning without digital assistance.</p>
+
+<h3>3. How can districts implement an AI literacy framework in K&ndash;12 without adding new classes?</h3>
+<p>An effective <span class="kw">AI literacy framework K-12</span> strategy embeds judgment skills into existing subjects like humanities, STEM, and the social sciences. Rather than creating a standalone computer lab module, weave <span class="kw">ethical AI use in K-12 education</span> into current digital citizenship programs and core subject standards. This ensures an <span class="kw">AI literacy curriculum for schools</span> enhances daily instruction without overwhelming teachers.</p>
+
+<h3>4. What self-reflection steps build strong AI literacy skills for students?</h3>
+<p>To cultivate <span class="kw">AI literacy in schools,</span> educators should guide students to ask three key self-reflection questions whenever they interact with AI tools:</p>
+<ul>
+    <li><strong>Before prompting:</strong> What are my own initial thoughts and hypotheses on this topic before I ask the machine?</li>
+    <li><strong>While reviewing outputs:</strong> Which claims sound generic, lack verified citations, or make unsupported assumptions?</li>
+    <li><strong>Before submission:</strong> Can I explain and defend every line of this work to my teacher without relying on a device?</li>
+</ul>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
