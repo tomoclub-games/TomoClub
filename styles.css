@@ -1006,6 +1006,80 @@ body.has-banner nav.scrolled {
   }
 }
 
+/* TAICY Ticker Banner */
+.taicy-ticker-banner {
+  display: none; /* Hidden by default, shown via JS */
+  position: relative;
+  z-index: 1100;
+  background: #FDCE00;
+  color: #1B1611;
+  border-bottom: 2px solid #1B1611;
+  overflow: hidden;
+  animation: bannerSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.taicy-ticker-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.taicy-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: taicyTick 22s linear infinite;
+}
+
+.taicy-ticker-banner:hover .taicy-ticker-track {
+  animation-play-state: paused;
+}
+
+.taicy-ticker-chunk {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 12px 13px;
+  flex: none;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.taicy-ticker-chunk .st {
+  color: #AC3D57;
+  font-size: 12px;
+}
+
+@keyframes taicyTick {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taicy-ticker-track { animation: none; }
+}
+
+body.has-taicy-banner nav {
+  top: 4.5rem;
+}
+
+body.has-taicy-banner nav.scrolled {
+  top: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .taicy-ticker-chunk {
+    font-size: 12px;
+    gap: 18px;
+  }
+  body.has-taicy-banner nav {
+    top: 6.5rem;
+  }
+}
+
 /* Responsive FAQ */
 .faq-item { border-bottom: 1px solid var(--border-color); padding: 1.75rem 0; }
 .faq-question { display: flex; justify-content: space-between; align-items: center; font-size: 1.25rem; font-weight: 600; cursor: pointer; color: var(--navy); transition: var(--transition); letter-spacing: -0.02em; }

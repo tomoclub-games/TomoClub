@@ -148,6 +148,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // TAICY Ticker Banner Logic
+  const taicyBanner = document.getElementById('taicy-ticker-banner');
+  const taicyTickerTrack = document.getElementById('taicy-ticker-track');
+
+  if (taicyBanner && taicyTickerTrack) {
+    const today = new Date();
+    const startDate = new Date('2026-08-21T00:00:00');
+    const endDate = new Date('2026-09-20T23:59:59');
+
+    if (today >= startDate && today <= endDate) {
+      taicyBanner.style.display = 'block';
+      document.body.classList.add('has-taicy-banner');
+
+      // The -50% loop animation is only seamless with an EVEN number of
+      // identical copies. Duplicate the chunk up to the nearest even count
+      // that covers 2x the viewport width, so there's never a gap on wide
+      // screens, then set the animation duration so scroll speed stays
+      // constant regardless of how many copies were needed.
+      const chunk = taicyTickerTrack.firstElementChild;
+      const chunkWidth = chunk.getBoundingClientRect().width;
+      const targetWidth = window.innerWidth * 2;
+      let copies = Math.max(2, Math.ceil(targetWidth / chunkWidth));
+      if (copies % 2 !== 0) copies += 1;
+
+      for (let i = 1; i < copies; i++) {
+        taicyTickerTrack.appendChild(chunk.cloneNode(true));
+      }
+
+      const pxPerSecond = 70;
+      const duration = (copies / 2) * chunkWidth / pxPerSecond;
+      taicyTickerTrack.style.animationDuration = duration + 's';
+    }
+  }
+
   // Theme Toggle Logic
   const themeToggleBtn = document.getElementById('theme-toggle');
   if (themeToggleBtn) {

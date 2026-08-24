@@ -124,7 +124,10 @@
       gtag('config', 'G-FEGGQ2ZDMT');
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=21">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=25">
     <style>
         .section-header {
             display: flex !important;
@@ -221,6 +224,22 @@
         </button>
     </div>
 
+    <!-- TAICY Ticker Banner -->
+    <div id="taicy-ticker-banner" class="taicy-ticker-banner">
+        <a href="taicy/" class="taicy-ticker-link" aria-label="Learn more about TAICY">
+            <div class="taicy-ticker-track" id="taicy-ticker-track">
+                <div class="taicy-ticker-chunk">
+                    <span>TAICY</span><span class="st">★</span>
+                    <span>TomoClub AI Innovation Challenge for Youth</span><span class="st">★</span>
+                    <span>Ages 8–15</span><span class="st">★</span>
+                    <span>Open globally</span><span class="st">★</span>
+                    <span>Applications close Sep 20</span><span class="st">★</span>
+                    <span>Apply Now</span><span class="st">★</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
@@ -258,6 +277,7 @@
                         <a href="leaders-of-tomorrow/">Leaders of Tomorrow Ebook</a>
                     </div>
                 </div>
+                <div class="nav-item"><a href="taicy/">TAICY</a></div>
                 <!-- Mobile Only Pilot Button -->
                 <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
                     <a href="/contact-us" class="btn btn-primary" style="width: 100%;">Contact Us</a>
@@ -384,6 +404,33 @@
                 </div>
             </div>
         </div>
+
+        <!-- STEM.org Accreditation -->
+        <section style="padding: 6rem 0; background: var(--section-grad-teal); border-top: 1px solid transparent; border-bottom: 1px solid transparent; border-image: linear-gradient(to right, transparent, var(--border-color), transparent) 1;">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>STEM.org <span class="text-gradient">Accredited.</span></h2>
+                    <p>TomoClub's programs are formally accredited and top-rated by STEM.org, the leading independent authority on STEM education quality.</p>
+                </div>
+                <div class="grid-3 animate-on-scroll">
+                    <a href="https://blockchain.stem.org/6e6c3b55-d452-4dd0-a726-7b76185b20a4" target="_blank" rel="noopener" class="glass-card program-card" style="text-decoration: none; align-items: center; justify-content: center; text-align: center;">
+                        <img src="assets/stem-accredited-badge.png" alt="STEM.org Accredited Educational Experience" width="220" height="220" loading="lazy" style="width: 220px; height: 220px; margin: 0 auto 1.5rem;">
+                        <h3 style="color: var(--text-main); font-size: 1.15rem; line-height: 1.3; min-height: 3rem; display: flex; align-items: center; justify-content: center;">STEM.org Accredited™</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.5; flex-grow: 0; margin-bottom: 0;">A verified trustmark for program quality.<br>Tap to view the credential.</p>
+                    </a>
+                    <a href="https://blockchain.stem.org/62393e2c-7cc4-4603-aaab-b63d818a448a" target="_blank" rel="noopener" class="glass-card program-card" style="text-decoration: none; align-items: center; justify-content: center; text-align: center;">
+                        <img src="assets/stem-best-in-stem-badge.png" alt="Best In STEM Distinction" width="220" height="220" loading="lazy" style="width: 220px; height: 220px; margin: 0 auto 1.5rem;">
+                        <h3 style="color: var(--text-main); font-size: 1.15rem; line-height: 1.3; min-height: 3rem; display: flex; align-items: center; justify-content: center;">Best In STEM™ Distinction</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.5; flex-grow: 0; margin-bottom: 0;">Top 5% Award Seal, scoring 95+ on the official STEM.org rubric.<br>Tap to view the credential.</p>
+                    </a>
+                    <div class="glass-card program-card" style="align-items: center; justify-content: center; text-align: center;">
+                        <img src="assets/certified-master-trainers.png" alt="STEM.org Certified Educational Instructor" width="220" height="220" loading="lazy" style="width: 220px; height: 220px; margin: 0 auto 1.5rem;">
+                        <h3 style="color: var(--text-main); font-size: 1.15rem; line-height: 1.3; min-height: 3rem; display: flex; align-items: center; justify-content: center;">STEM.org Certified™<br>Master Trainers</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.5; flex-grow: 0; margin-bottom: 0;">Our facilitators are STEM.org Certified<br>Educational Instructors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Problem Section -->
         <section>
@@ -6073,7 +6120,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-    <script src="script.js?v=21"></script>
+    <script src="script.js?v=23"></script>
 </body>
 </html>
 
