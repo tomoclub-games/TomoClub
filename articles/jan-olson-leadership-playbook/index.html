@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Preparing Students for 2057: The Leadership Playbook of Jan Olson">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Preparing Students for 2057: The Leadership Playbook of Jan Olson | TomoClub Education Hall">
+    <meta property="og:description" content="Preparing Students for 2057: The Leadership Playbook of Jan Olson">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/jan-olson-leadership-playbook-cover.jpeg">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/jan-olson-leadership-playbook/">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Preparing Students for 2057: The Leadership Playbook of Jan Olson | TomoClub Education Hall">
+    <meta name="twitter:description" content="Preparing Students for 2057: The Leadership Playbook of Jan Olson">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/jan-olson-leadership-playbook-cover.jpeg">
+
+    <title>Preparing Students for 2057: The Leadership Playbook of Jan Olson | TomoClub Education Hall</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">August 27, 2026</span>
+                </div>
+                <h1 class="article-title">Preparing Students for 2057: The Leadership Playbook of Jan Olson</h1>
+                <img src="../../articles/images/jan-olson-leadership-playbook-cover.jpeg" alt="Preparing Students for 2057: The Leadership Playbook of Jan Olson" class="article-cover">
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>Ask Jan Olson which single experience shaped him most as a leader, and he politely refuses to pick one. After more than thirty years in education, he says, all of them did. Ask him for three lessons he would give a struggling school leader, and his response instead leads to a roadmap, consisting of a number of steps that he's tried and tested over many years, and which according to him has helped him maintain his momentum, whether one is leading a school or an entire system.</p> <p>We will get to the roadmap later. First, it is worth noticing what those two refusals reveal. Olson does not trust tidy answers, and he has earned the right to be picky about them. He is currently a superintendent with the Yukon Department of Education, based in Whitehorse, Canada.</p> <p>Before that, his career took him through classrooms and leadership roles in Alberta and Ontario, a posting in China, years as a provincial math coach, major curriculum projects, and a stint advising executives and boards on governance and strategy. Across all of it, one belief has stayed constant- nobody in education has it all figured out, and the leaders who pretend to are the problem.</p> <h3>"The Smartest Person in the Room Is the Room"</h3> <p>Olson says there are two ways to lead. A "lead knower" believes that the leader should have all the answers. He calls that approach antiquated, because, obviously, no one can know everything about everything.</p> <p>A "lead learner", the second type he describes, starts from the opposite assumption- the room is full of intelligent, capable people, and the leader's job is to think with them. "Side by side, the leader and their staff can puzzle through problems together," as he puts it. His shorthand for it is an expression he loves to quote- "the smartest person in the room is the room."</p> <p>This lesson came to him early on in his own career. As a young teacher, he worked through his problems alone behind a closed classroom door, afraid that anyone who saw him struggling would think he was incompetent. It was only later that he discovered that the experienced teachers down the hall were quietly struggling with similar (but not the same) problems. That discovery changed how he approaches struggles one encounters whether as a teacher, a principal, or a superintendent.</p> <p>He now believes that teachers talking together about their practice makes the single highest-yield strategy for improving student outcomes. He extends the same habit to every level- principals learning from principals, and superintendents from superintendents.</p> <p>Even the "bad leaders" contributed to his experience and philosophy. To conceptualise this, he borrows the Frayer model, a classroom tool that defines a concept through examples and non-examples. The poor leaders he worked under were his non-examples, as in he would never want to be like them.</p> <h3>"Zoom In, Zoom Out"</h3> <p>Great system leaders, in Olson's view, have mastered the art of changing altitudes when looking at problems. Fundamentally, a principal has to understand the whole school, but a great one would also be able to come down and understand a single classroom, as well as a struggling child inside it. The higher you rise, the harder it becomes to move between those views. But the best leaders never lose the ability to zoom all the way in.</p> <p>He takes this idea one step further, and it is the boldest thing he says. When a system finds a gap in student learning, the question is never just about students. If students are missing a skill, their teachers may need training in how to teach it. If teachers need that training, their principals may need help providing it. And if principals need that help, then the superintendent must learn how to give it. In his words, student learning is a proxy for teacher learning, teacher learning is a proxy for principal learning, and principal learning is a proxy for superintendent learning. Follow the chain far enough and it reaches his own desk, while many leaders would not be comfortable with this sequence, he sits with it comfortably.</p> <h3>Good Pedagogy is Good Pedagogy, Regardless of Grade or Subject</h3> <p>Earlier in his career, Olson led a curriculum development team with an ambitious mandate- to create the "best curriculum in the world." The project put him in conversation with education systems across North America, Europe, Australia and New Zealand. Many leaders would return from that kind of tour promoting some brilliant model they found abroad, but he returned with a warning instead.</p> <p>"There is no silver bullet," he says. "There is no resource out there that is the panacea or saviour for increasing student outcomes." When money is tight and time is short, schools often make the mistake of buying programs which are trending, hoping that it'll do the job, but in Olson's experience, it never does.</p> <p>What improves outcomes, he argues, is something far less glamorous- good teaching, done consistently. Good pedagogy is good pedagogy, regardless of grade or subject. The evidence for what works already exists, and he points to researcher John Hattie, whose analysis of thousands of studies ranks teaching strategies by how strongly they improve student results. He urges school leaders to pay close attention to the research on these proven practices and fit them into their own curriculum, and get professionals working on hard problems together. A line from math educator Dan Meyer, which Olson quotes succinctly captures the spirit of this suggestion, "no easy problem was ever worth solving."</p> <h3>Read Every Plan First</h3> <p>Olson's most practical insight is about ownership. Top-down rules, he says, are almost always doomed to failure. An initiative survives only if the people who must carry it out feel it belongs to them, and he tells a story about building that feeling across an entire school board.</p> <p>In Ontario, every school board writes a board improvement plan, and each principal then writes a school plan to match it. That is the traditional order, and it has a predictable flaw: teachers feel no connection to a board plan they had no part in creating. So on one senior leadership team, Olson and his colleagues flipped the sequence. Schools went first. Every school wrote its own improvement plan, with a maximum of three goals. The senior team then read every plan, found the common threads, and wrote three goals for the whole board based on what the schools had said.</p> <p>The result was a shorter, sharper plan. More importantly, every educator who contributed directly now had a plan which had their own, recognisable ideas built into it.</p> <p>Communication also needs to run through the same loop, in Olson's view. His years advising boards and executives taught him that educators often speak to government officials the same way they speak to each other, full of jargon and acronyms, and lose their audience completely.</p> <p>"Know your audience", he says, is not just a rule for teaching children. It applies to adults as well, and matters quite a lot. When leaders do not explain their work clearly, they leave blanks, and people fill those blanks with their own stories, or incomplete information. "We must always be in a position to set the narrative rather than reacting to something that is not true."</p> <h3>An Autopsy and a Physical</h3> <p>Every leader who drives change inevitably hits this particular moment sometime in their career- the results dip, spreading doubts, and people start calling for the initiative to be scrapped. Instead of looking at such an occurrence with panic and doubt, Olson considers that dip to be one of the most predictable events in education.</p> <p>After a new initiative launches, results usually go down before they go up, as research has shown consistently. The problem then is not the dip itself, it is most leaders giving up at the first sign of failure, when they should be holding on. Most initiatives fail, in his view, simply because nobody pushed them long enough. He compares it to a baby learning to walk: think about how many falls a child accepts before getting it right, then ask how many failures we tolerate as adults before quitting.</p> <p>Holding on does not mean closing your eyes, though, and this is where he draws his best distinction. A summative assessment, the big test at the end, is like an autopsy. It happened, it is done, it is over. A formative assessment is like a physical- you get information while there is still time to act on it. Leaders, he says, should be giving their own initiatives a daily physical, checking progress and adjusting the course accordingly.</p> <p>In an interesting metaphor, he compares it to sailing. A sailboat tacks left and right the whole way, and still moves in one clear direction.</p> <h3>The Seven Steps</h3> <p>Now we return to the roadmap Olson swears by, in place of any grand lessons.</p> <p>It begins with people. Walk your building, he says, and look for the diamonds in the rough, the quiet performers nobody has noticed yet. Then lift up the leaders who do not know they are leaders, praising their work in front of their peers. Everything after that exists to give those people room to grow. Staff meetings are kept for professional learning, with the paperwork pushed to email, so the one hour colleagues spend together goes to teaching rather than admin. Money follows good ideas: when someone brings a well-grounded proposal, fund it if you can, because once others watch it succeed, fear of missing out brings even the sceptics along. The data, he believes, will help you pinpoint your greatest areas of need, and a vision built on solid research, simple enough to say in one sentence, will keep it moving in one direction. His last step closes the loop. Hand that vision back to the promising people you found at the start, and let them drive it.</p> <p>Olson repeats this roadmap twice, once for principals and once for superintendents, and the two versions are identical except for the job titles. This makes a very important point- the work of leadership stays the same at every level. Only the size of the room changes.</p> <h3>The Yukon, Now</h3> <p>Olson's current posting puts these ideas to work in a system going through real change. <a href="https://www.cbc.ca/news/canada/north/two-yukon-school-boards-still-need-teachers-1.7618491" target="_blank" rel="noopener noreferrer">Speaking to CBC</a> at the start of the 2025-26 school year, he described the department's push to fill teaching vacancies through targeted recruitment campaigns and career fairs, with a roster of more than two hundred on-call teachers across its schools. The territory around him is moving too. Yukon Education schools have been implementing new mandatory <a href="https://yukon.ca/en/news/government-yukon-shares-literacy-and-numeracy-strategies-yukon-education-schools" target="_blank" rel="noopener noreferrer">literacy and numeracy strategies</a> since 2023, and in March 2026 the government announced an <a href="https://yukon.ca/en/news/government-yukon-announces-independent-review-education-system" target="_blank" rel="noopener noreferrer">independent review</a> of the entire education system. For a leader who talks about implementation dips and daily course corrections, it is fitting terrain.</p> <h3>What He Believes</h3> <p>For all the frameworks and research, Olson's deepest convictions are simple ones, and he holds them with the generosity of a man who names his teachers. He believes education is about more than numbers, a conviction he shares with the Australian educator Charles Burford, who says, "every child has a face and a name, and we have a moral duty to do what is best for each one." He believes culture matters more than structure, in every classroom, board and territory, and that forgetting this has humbled many educators, himself included.</p> <p>And above everything, he believes the rule his early mentor Michael Carson gave him at the start of his career, the one he has carried into every role since.</p> <p>"You have to love those kids like they're your own."</p> <h3>Why TomoClub Shares This Story</h3> <p>At TomoClub, we are drawn to leaders who treat learning as the job itself, and Jan Olson has built a career on exactly that. For thirty years he has refused easy answers, read every plan before writing his own, and worked to make every room he leads smarter than any one person in it, including himself.</p> <p>The Education Hall series exists to gather accounts like his, from the superintendents and principals doing this work, so that other leaders have something honest to learn from.</p> <p>Read the full Education Hall series, and if you are building a school where children learn to think, adapt and lead, come talk to us. Book a call with us!</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem;">
+                <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>

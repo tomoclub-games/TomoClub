@@ -13,6 +13,13 @@ articles = json.loads(json_str)
 
 # Article metadata (matching index.html)
 article_metadata = {
+    "article_14": {
+        "title": "Preparing Students for 2057: The Leadership Playbook of Jan Olson",
+        "date": "August 27, 2026",
+        "category": "Leadership",
+        "slug": "jan-olson-leadership-playbook",
+        "cover": "C:\Users\rohit\AppData\Local\Temp\claude\c--Users-rohit-TomoClub-Projects-TomoClub\55d28847-f164-48eb-bad2-45167a11ba44\scratchpad\page6-img1.jpeg"
+    },
     "article_13": {
         "title": "Serve First: How Dr. Ronnie Tarchichi Rebuilds School Districts",
         "date": "August 10, 2026",
