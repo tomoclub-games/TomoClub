@@ -17,7 +17,7 @@ def process_html_file(filepath):
 
     # Determine type and image
     og_type = "website"
-    image_url = "https://www.tomoclub.org/assets/og-image.png"
+    image_url = "https://www.tomoclub.org/assets/og-image.jpg"
     filepath_norm = filepath.replace('\\', '/')
 
     if "podcast-" in filepath_norm:
