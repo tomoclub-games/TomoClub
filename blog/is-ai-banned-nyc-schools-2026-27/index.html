@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is AI Banned in NYC Schools? What the 2026-27 Policy Means for K-12 Leaders | TomoClub Blog</title>
+    <meta name="description" content="Understand NYC's 2026-27 AI restrictions, screen-time rules, and what K-12 leaders can do to build AI literacy while protecting student learning.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+
+    <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: var(--article-max-width);
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.75rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content mark {
+            background: rgba(42, 180, 184, 0.18);
+            color: inherit;
+            padding: 0.05em 0.3em;
+            border-radius: 4px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+        }
+
+        .back-nav {
+            max-width: var(--article-max-width);
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .reflect-box {
+            background: rgba(42, 180, 184, 0.08);
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--navy);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Is AI Banned in NYC Schools? What the 2026-27 Policy Means for K-12 Leaders | TomoClub Blog">
+    <meta property="og:description" content="Understand NYC's 2026-27 AI restrictions, screen-time rules, and what K-12 leaders can do to build AI literacy while protecting student learning.">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/is-ai-banned-nyc-schools-2026-27/hero.jpg">
+    <meta property="og:site_name" content="TomoClub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Is AI Banned in NYC Schools? What the 2026-27 Policy Means for K-12 Leaders | TomoClub Blog">
+    <meta name="twitter:description" content="Understand NYC's 2026-27 AI restrictions, screen-time rules, and what K-12 leaders can do to build AI literacy while protecting student learning.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/is-ai-banned-nyc-schools-2026-27/hero.jpg">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+
+                </div>
+                <h1 class="article-title">Is AI Banned in NYC Schools? What the 2026-27 Policy Means for K-12 Leaders</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+<p>If you&rsquo;re not reading this from under a rock, the news that Mayor Mamdani banned generative AI in NYC schools must&rsquo;ve clearly settled on your phone screens. For the 2026-27 school year, NYC Public Schools are pausing student-facing generative AI through eighth grade. High school use is restricted, while teachers retain permission for approved planning and operational uses. The policy also preserves necessary accessibility support. <sup><a href="https://www.schools.nyc.gov/about-us/news/newsletter---nyc-public-schools-plus-you" target="_blank" rel="noopener">[S1]</a></sup></p>
+
+<p>For a principal, this policy mandate opens several practical questions. Does the reading platform need to change? What should teachers tell families? Can students learn about AI when they cannot interact with a chatbot?</p>
+
+<p>These decisions deserve more care than a headline allows. Even though the policy might ban AI use, schools still have a responsibility to protect the time children spend developing their own ideas. They also need to prepare students to recognize unreliable information and make informed choices about technology.</p>
+
+<p>The year ahead requires a plan for both. Keep reading ahead to understand what this decision means for your school or your district.</p>
+
+<h2>What the NYC schools AI policy actually covers</h2>
+
+<p><a href="https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat" target="_blank" rel="noopener">Announced September 2</a>, the one-year moratorium affects nearly 600,000 students in 2-K through grade eight. It covers software with student-facing generative AI, including features embedded in existing platforms. Companion chatbots have been prohibited across all grades. <sup><a href="https://www.nyc.gov/mayors-office/news/2026/09/mayor-mamdani-and-chancellor-samuels-put-students-first-with-nat" target="_blank" rel="noopener">[S2]</a></sup></p>
+
+<p>What we also need to keep in mind is that it is specifically targeted towards limiting Generative AI (which produces content such as texts and images) and not a blanket ban on every technology described as &lsquo;artificial intelligence.&rsquo;</p>
+
+<p>The <mark>NYC schools AI policy</mark> pairs those restrictions with separate rules for individual device use through different grades.</p>
+
+<div class="table-responsive" style="overflow-x: auto; margin-bottom: 2.5rem;">
+<table style="width: 100%; border-collapse: collapse; font-size: 1.05rem;">
+<thead>
+<tr>
+<th style="text-align: left; padding: 0.9rem 1.25rem; background: rgba(42, 180, 184, 0.08); border: 1px solid var(--border-color); color: var(--navy); font-weight: 700; white-space: nowrap;">Grade band</th>
+<th style="text-align: left; padding: 0.9rem 1.25rem; background: rgba(42, 180, 184, 0.08); border: 1px solid var(--border-color); color: var(--navy); font-weight: 700;">Student-facing generative AI</th>
+<th style="text-align: left; padding: 0.9rem 1.25rem; background: rgba(42, 180, 184, 0.08); border: 1px solid var(--border-color); color: var(--navy); font-weight: 700;">Routine 1:1 screen time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top; white-space: nowrap;">2-K through grade 2</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Moratorium</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">No individual screen time</td>
+</tr>
+<tr>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top; white-space: nowrap;">Grades 3-5</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Moratorium</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Recommended maximum: 30 minutes daily</td>
+</tr>
+<tr>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top; white-space: nowrap;">Grades 6-8</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Moratorium</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Recommended maximum: 45 minutes daily</td>
+</tr>
+<tr>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top; white-space: nowrap;">Grades 9-12</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Limited approved uses</td>
+<td style="padding: 0.9rem 1.25rem; border: 1px solid var(--border-color); vertical-align: top;">Depends on school and course</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>The <a href="https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence" target="_blank" rel="noopener">NYCPS guidance</a> includes screen-time exceptions for accessibility, assessments, and specified centrally approved instruction. Teacher-led whole-group or small-group screen use remains allowable.</p>
+
+<p>Every high school student must complete two 45-minute AI literacy modules. Five supervised pilots, involving Quill, Edia, Brisk Teaching, Playlab, and Intel AI-Ready Schools, can reach up to 50,000 students, with a maximum of five classes per high school. Career-readiness pathways have additional permitted uses.</p>
+
+<p>Teachers may use approved AI for planning and operations, but not grading, behavior monitoring, placement, promotion, or graduation decisions.</p>
+
+<p>Start with your existing software inventory. Ask vendors whether students can access generative features and whether those features can be disabled. Give staff a confirmed list of permitted tools and uses; a familiar product name does not establish that every feature is allowed.</p>
+
+<h2>What NYC school leaders need to know</h2>
+
+<p>The <a href="https://www.schools.nyc.gov/about-us/policies/guidance-on-artificial-intelligence" target="_blank" rel="noopener">NYCPS guidance</a> still allows screens for accessibility support, assessments, and certain centrally approved lessons. Teachers may also use screens during whole-class or small-group instruction.</p>
+
+<p>At the high school level, every student must complete two 45-minute AI literacy modules. NYCPS has also approved five supervised AI pilot programs that may reach up to 50,000 students, with participation limited to five classes per high school. Additional AI use can be permitted in approved career-readiness programs.</p>
+
+<p>Teachers can use approved AI tools for lesson planning and administrative tasks. However, AI cannot be used to grade students, monitor behavior, or make decisions about placement, promotion, or graduation.</p>
+
+<p>As we said in our discussion on AI Policy in K-12 schools, the policy exists, the usage exists, but the bottleneck is clarity. That is why, as a school leader, your first step should be to review all the existing digital and AI tools already in use.</p>
+
+<p>Check whether it includes student-facing generative AI, whether that feature can be switched off, and whether the tool is approved under the new guidance. Then give staff a clear list of permitted tools, restricted uses, and the person to contact when questions arise. A familiar platform may contain new AI features that fall outside the policy.</p>
+
+<h2>Take the concerns about learning seriously</h2>
+
+<p>An eighth grader can submit a convincing argument without having decided what they believe. A mathematics assignment can look complete even when the student cannot explain the method. When AI performs the work an assignment was designed to teach, the finished product gives teachers less useful evidence of understanding.</p>
+
+<p>School leaders should take that risk seriously. A vendor demonstration showing faster completion cannot establish that students learned more. Before supporting an activity, ask what students must attempt independently and the specific points at which the teacher can evaluate and understand what the students learned.</p>
+
+<p>Another thing to keep in mind is that, despite the regulations laid out clearly, school restrictions operate within a wider reality. A February 2026 <a href="https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/" target="_blank" rel="noopener">Pew Research Center report</a> found that 54% of U.S. teens ages 13-17 had used chatbots for schoolwork. The survey was conducted in fall 2025.</p>
+
+<p>A good school leader would be one who wants to operate within this reality, rather than being blind to it. We need to make technology judgment part of everyday instruction, even where direct access is restricted.</p>
+
+<p>So a school that is limiting AI usage as per state mandates, can still help students understand why an answer deserves scrutiny. Leaving that instruction to chance makes the quality of guidance depend on whichever adults happen to be available outside school.</p>
+
+<h2>Build AI literacy in schools before handing over the tools</h2>
+
+<p><mark>AI literacy in schools</mark> can begin with questions children can investigate without opening an account. What information did a system receive? Whose experiences were missing? What would make its recommendation worth trusting?</p>
+
+<p>Any AI literacy intervention needs to include understanding and evaluating AI alongside using it, with <a href="https://digitalpromise.org/2024/06/18/ai-literacy-a-framework-to-understand-evaluate-and-use-emerging-technology/" target="_blank" rel="noopener">human judgement central to the approach</a>. This also provides a useful basis for designing lessons when access is limited.</p>
+
+<p>Consider a teacher-created paper activity- a fictional AI system recommends new library books using checkout records from older students only. Small groups examine the recommendation and identify whose interests the data leaves out. They propose additional evidence, then explain whether they would change the purchase decision.</p>
+
+<p>The lesson gives students practice evaluating data and challenging a recommendation. It needs neither a live chatbot nor student information uploaded to a platform.</p>
+
+<p>Where AI use is approved, extend that habit into actual interactions. Ask students to explain why they accepted an output, what they checked, and where they disagreed. Their explanation should count toward the learning evidence.</p>
+
+<p>Leaders planning this progression can <a href="../../#ai-literacy">explore TomoClub&rsquo;s AI Literacy Curriculum for grades 6-12</a> and discuss which activities fit their district&rsquo;s permitted uses. Its published curriculum includes hands-on AI work, so NYC schools would need to review and adapt any proposed delivery against current restrictions.</p>
+
+<h2>Give teachers time to make these decisions together</h2>
+
+<p>A restriction can be communicated in an email. But applying it to a lesson takes professional judgment, one which can only come from the educators.</p>
+
+<p><a href="https://www.rand.org/pubs/research_reports/RRA4180-1.html" target="_blank" rel="noopener">RAND&rsquo;s 2025 research</a> found that more than 80% of surveyed students reported that teachers had not explicitly taught them how to use AI for schoolwork.</p>
+
+<p>For leaders, AI literacy for teachers should include practice with the situations staff will encounter. Use an existing team meeting to review one assignment together. Identify the learning goal, decide which thinking belongs to the student, and agree on what evidence will show that thinking happened.</p>
+
+<p>An English team might require an initial claim and supporting passage before any permitted AI feedback. A science team could assess how students defend a conclusion when someone challenges their evidence. Teachers should leave with an example they can use and a named colleague who can resolve uncertain cases.</p>
+
+<p>If your staff needs that preparation, <a href="../../#pd">TomoClub&rsquo;s AI Fundamentals PD</a> covers AI literacy, classroom ethics, academic integrity, and practical applications. It is a relevant starting point for planning responsible AI use in schools.</p>
+
+<h2>Make screen time earn its place in the lesson</h2>
+
+<p>The discussion about <mark>screen time in schools</mark>, rather than just being about the minutes allowed needs to be about what happens during those minutes. A student tapping through answers and a group negotiating a strategy may both be using devices, but their opportunities to reason and interact differ.</p>
+
+<p>During a classroom visit, look for the decisions students make. Can they explain a choice? Does another student challenge it? Is there a discussion afterward that connects the activity to the lesson?</p>
+
+<p>Those questions are especially useful when evaluating a game-based digital learning setting. In a well-designed activity, students might share limited resources, negotiate competing priorities, and revise a strategy after a setback. A teacher-led debrief can ask which decision changed the outcome and how the group handled disagreement.</p>
+
+<p><a href="../../#future-ready">TomoClub&rsquo;s Future-Ready Skills program</a> uses multiplayer strategic gameplay to practice skills including critical thinking and collaboration. Leaders can evaluate that format against an explicit learning goal, local screen rules, and the quality of the discussion it makes possible.</p>
+
+<h2>Bring families into the implementation</h2>
+
+<p>A school involves multiple stakeholders and parents are one of the most important ones. With this rule change, you need to make sure that they know what their children will experience when a rule changes. Explain which activities are stopping, which supports continue, and what students will learn about AI. Include a point of contact that is accessible to them in case of questions about any new rules or interventions.</p>
+
+<p>In <a href="../../articles/people-over-programs-sharon-pepukayi-on-people-first-school-leadership/">TomoClub&rsquo;s Education Hall conversation with Dr. Sharon Pepukayi</a>, the Talbot County superintendent emphasizes communicating early and often. Her approach to AI includes involving multiple voices in decisions about policy and instruction.</p>
+
+<p>That principle is useful here. Invite teachers and families to bring actual examples to a scheduled review. A generative feature newly added to a familiar platform may need attention before the next annual policy update.</p>
+
+<p>For an <mark>AI policy for K-12 schools</mark> to remain useful, someone must own that review. Assign a lead, record unresolved questions, and publish changes where staff and families already look for school information.</p>
+
+<p>This is a low hanging fruit that will work brilliantly to build trust and dialogue with the community, so that decisions taken for the students and staff feel like their own, rather than being imposed from above.</p>
+
+<h2>Bonus: A 15-minute check for your leadership team</h2>
+
+<p>We bring to you a short list of questions that you can bring to your next board meeting to ensure more transparency and a self-correcting, sustainable review mechanism. These can be applied to thinking about classroom lessons or activities.</p>
+
+<ul>
+<li>What must students understand or decide for themselves?</li>
+<li>Does the activity meet the rules for this grade and the specific tool?</li>
+<li>Could the same objective be met through discussion, paper materials, or a non-generative AI activity?</li>
+<li>Which accessibility supports must remain available?</li>
+<li>What will students explain or produce that shows learning beyond task completion?</li>
+</ul>
+
+<p>Finish by naming an owner for any unresolved issue. Test the revised lesson on a small scale where permitted, then review student work before expanding it.</p>
+
+<h2>Give the year a learning goal</h2>
+
+<p>The NYC school AI policy sets clear boundaries while leaving school leaders room to shape what responsible AI learning looks like in their communities. The opportunity now is to build an approach that reflects students&rsquo; ages, needs, and futures, one that protects essential learning while helping young people understand the technology influencing their world.</p>
+
+<p>The schools that move forward with clarity and purpose will help students become thoughtful, capable users of AI. For leaders exploring how to bring that vision into the classroom, <a href="../../contact-us.html">TomoClub&rsquo;s work in AI literacy and future-ready skills</a> offers a place to begin.</p>
+
+<h2>FAQs</h2>
+
+<h3>Is AI banned in NYC schools for every student?</h3>
+<p>The 2026-27 moratorium covers student-facing generative AI in 2-K through grade eight. High school students have limited approved uses, including supervised pilots and career-readiness activities. Necessary accessibility supports continue.</p>
+
+<h3>Can NYC teachers still use AI?</h3>
+<p>Yes, for approved instructional planning and operational tasks. AI cannot be used for grading or specified decisions about students. Teachers remain responsible for the accuracy and appropriateness of their work.</p>
+
+<h3>Can schools teach AI literacy without chatbots?</h3>
+<p>Yes. <mark>AI literacy in schools</mark> can be taught without chatbots by including things like examining sample recommendations, identifying missing data, discussing privacy, and checking evidence through teacher-led activities. Direct interaction with generative AI must follow the applicable grade-level and tool restrictions.</p>
+
+<h3>What should an AI policy for K-12 schools include?</h3>
+<p>A practical <mark>AI policy for K-12 schools</mark> should explain permitted uses, protected student information, accessibility requirements, and assessment expectations. Include classroom examples and a review process so staff can act when tools or district guidance change.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo">
+                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
