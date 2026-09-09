@@ -24,6 +24,17 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 - **Never summarize or paraphrase the source body text. Use the exact wording, verbatim.** This is not "close enough" -- word choice, sentence order, and phrasing are the user's, not a first draft to be rewritten. The description/meta-teaser (which is explicitly asked for separately) is the one exception; the article/post body itself must match the doc word-for-word.
 - **Preserve the source's line breaks.** A sentence-level line break in the doc is structural signal (a new beat, a deliberate pause, a new list item), not filler to merge into flowing prose. Don't silently reflow multiple source lines into one paragraph.
 - **Every bold span in the source needs an explicit `<strong>` in the output.** Do a dedicated pass just for this -- skimming for bold while reading for content is how spans get missed (e.g. a bolded term like "AI literacy curriculum for schools" silently dropped to plain text). Check the source text specifically for bold runs before calling the content pass done.
+- **Check for highlighted/marked spans too, not just bold.** A source PDF (especially one exported from Google Docs) can carry colored text-highlight emphasis that is neither a bold font nor a link annotation -- it won't show up via `get_links()` or a font-flag bold check, and it's easy to render the plain text and call it done. Check for it with PyMuPDF:
+  ```python
+  import fitz
+  doc = fitz.open("path/to/source.pdf")
+  for pno in range(len(doc)):
+      for d in doc[pno].get_drawings():
+          fill = d.get("fill")
+          if fill and fill != (1, 1, 1):
+              print(pno + 1, fill, doc[pno].get_textbox(d["rect"]))
+  ```
+  This catches colored fill rects drawn behind text (the highlight), separately from the table-header background fills (which are part of the table, not a content highlight -- exclude those). Reproduce genuine highlights as `<mark>` in the output, with a `.article-content mark` rule added to the post's inline `<style>` block (background tinted with the site's teal, e.g. `background: rgba(42, 180, 184, 0.18); padding: 0.05em 0.3em; border-radius: 4px;`) -- one consistent color is fine even if the source used several different highlighter colors for the same kind of emphasis.
 - **Reproduce the source's actual layout for callouts/boxes** (e.g. `.reflect-box`), don't redesign it. If the doc has a callout as "label + one sentence," render it as label + one sentence -- not a bulleted/stacked reformat that "reads better." The user already specified the formatting by writing it that way; match the doc, not your own instinct for what looks better.
 - **Replicate tables, not just prose.** If the source has a table, render it as a real `<table>` (`<thead>`/`<tbody>`, `<th>`/`<td>`) matching the source's rows and columns -- don't flatten it into a bulleted list or paragraph. There's no sitewide table CSS yet (only a `.table-responsive` overflow wrapper in `styles.css`), so wrap the table in `<div class="table-responsive">` and give the `<table>` inline styles matching the post's look (border, padding, header row background) -- check the most recently published post with a table for the convention if one exists, otherwise style it consistent with the surrounding `.article-content` typography.
 - **Before calling a post done, re-check the rendered content against the source text directly** (read the generated `<div class="article-content">` back and compare it against the extracted source, paragraph by paragraph) -- don't rely on a clean `git diff` alone, since that only proves the HTML is well-formed, not that the wording, headers, and links match the source. Visual/browser verification is not required from you -- the user checks the live preview themselves.
@@ -32,11 +43,12 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 1. **Collect inputs** from the user if not already given:
    - Title
-   - Category (e.g. "Parenting", "AI in Education", "Teacher Support", "Leadership", "SEL" -- freeform, no fixed list)
+   - Category (e.g. "Parenting", "AI in Education", "Teacher Support", "Leadership", "SEL" -- freeform, no fixed list). If drawing one from an example rather than asked outright (e.g. matching a related existing post), confirm it rather than assuming.
    - Description -- one or two sentences; used as the meta description, the homepage card teaser, and the lead paragraph. Ask for it, or draft one from the source content and confirm it with the user.
-   - Cover image -- a URL or a local file path
+   - Cover image -- a URL or a local file path. If the resulting file is larger than ~500KB (common with PDF-embedded PNGs, which can run several MB), re-encode it as a JPEG with Pillow before passing `--cover`: `im.save(out, "JPEG", quality=85, optimize=True)` typically lands well under the limit without a visible quality loss; drop to 75-80 if it's still too large.
    - The post's source content, same preference as add-article: **ask "do you have a source document (PDF, doc, text) for this post?" before offering a blank template.**
-   - Optional: `--slug` (auto-derived from title if omitted), `--gradient` (`gold`/`teal`/`slate`; auto-rotates if omitted).
+   - Optional: `--slug` (auto-derived from title if omitted -- see step 5 if the auto-derived slug is unwieldy and the source suggests its own), `--gradient` (`gold`/`teal`/`slate`; auto-rotates if omitted).
+   - **Don't run the script (step 5) until description and category are confirmed with the user** -- even when both were drafted from the source rather than given outright. Drafting them yourself and proceeding straight to generation skips the confirmation this step calls for.
 
 2. **If the source is a PDF, extract its embedded images before writing content.** PDFs like infographic-heavy tip sheets often have inline graphics that belong in the post. Use the shared helper:
    ```bash
@@ -64,6 +76,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
    </div>
    ```
    Copy the structure of the most recently published post (check `git log --diff-filter=A --oneline -- 'blog/*/index.html'` for the latest) for exact conventions -- e.g. `blog/ai-implementation-in-k12-schools/index.html` had a "Back to Blog" nav link above the header, an FAQ section at the end, and a `<p class="lead">` intro. The template also ships a `.reflect-box` CSS class (a highlighted callout box) useful for "pause and reflect" / pull-quote style callouts if the content calls for it.
+   - **When the source's own formatting conflicts with the precedent post's structural convention** (e.g. the precedent post numbers its FAQ headings "1. How many states...", but the source document's FAQs have no numbers), prefer the source -- content fidelity to what the user gave you outranks matching a sibling post's stylistic choice. But flag the choice to the user rather than silently picking one, since it's a judgment call, not a rule.
    - **Body links need to visibly stand out, not just be clickable.** The site's global `a` rule (`styles.css`) sets link color equal to body text with no underline, so an in-content `<a>` is invisible against surrounding `<p>` text unless overridden. `add_blog_post.py`'s `HTML_TEMPLATE` already ships a `.article-content a` rule (teal, underlined, bold, navy on hover) for exactly this reason -- don't remove it. If you're hand-editing an already-rendered `blog/<slug>/index.html` instead of going through the script, confirm that rule is present in its inline `<style>` block; if it's missing (e.g. the post predates this fix), add it.
 
 5. **Run the script**:
@@ -99,6 +112,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 - **Cover/content image download fails**: same as add-article -- the script shells out to `curl.exe` with a browser User-Agent since some hosts reject bare `urllib` requests. Fall back to a local file path if a URL keeps failing.
 - **"already exists" abort**: `blog/<slug>/` is already present. Check whether the post was already added, or pick a different `--slug`. If regenerating, `rm -rf blog/<slug>` first.
+- **Auto-derived slug is unwieldy and you want a different one (e.g. the source PDF suggests its own, cleaner slug)**: the script won't overwrite an existing `blog/<slug>/`, so switching slugs after an initial run takes three steps, done before the first commit: (1) `rm -rf blog/<old-slug>/` to remove the folder from the first run, (2) `git checkout -- index.html` to undo the homepage card the script already inserted for the old slug (the script edits `index.html` in place as part of step 5, so this reverts it to its pre-script state), (3) re-run `add_blog_post.py` with `--slug <new-slug>`. Skipping step 2 leaves two cards (or a stray reverted-looking diff) in `index.html`.
 - **A local image reference in content doesn't get picked up**: the script only auto-resolves *bare filenames* (no `http://`, no `/`) that exist next to `--content-file`. If the content HTML references a path with a slash, or the image lives somewhere else, either move the image next to the content file or fix the path manually before running the script.
 - **Card lands in the wrong spot / wrong section**: `update_index_html_card()` finds the FIRST `<div class="grid-3">` after `id="blog"` in `index.html`. If a homepage redesign adds another `grid-3` before the blog one, or nests the blog cards differently, the insertion point in `add_blog_post.py` will need updating.
 - **PDF has no extractable images**: `pdf_image_utils.py` only pulls images embedded as PDF XObjects. A PDF where a "graphic" is actually rendered from vector/text content won't yield anything -- there's nothing to extract in that case; describe it in prose instead or ask the user for the original graphic file.
