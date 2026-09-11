@@ -773,9 +773,12 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
     var thanks='<strong>Thank you for sharing your story.</strong><br>Our team will send an initial project outline to '+email+' within 24 hours. If we need anything else to get it right, we\'ll ask for a short call.<br><br>If you\'d rather get on a call right away, pick a slot that suits you:<br><a class="btn btn-primary" style="margin-top:.9rem" href="https://calendly.com/avinashtomo/tomoclub-call" target="_blank" rel="noopener">Book 20 minutes with Avinash <span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>';
     if(SHEET_ENDPOINT){
       // Apps Script web apps accept form-encoded POSTs; no-cors means we can't read the reply, but the row is written.
-      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)})
-        .then(function(){location.href='thank-you.html';})
-        .catch(function(){done(false,'Something went wrong on our side. Please email avinash@tomoclub.org and we will reply within 24 hours.');});
+      // The Apps Script answers with a redirect to googleusercontent.com, which a strict
+      // Content-Security-Policy (as on tomoclub.org) can block *after* the row is written.
+      // So: if the browser is online and the POST was dispatched, go to the thank-you page either way.
+      if(!navigator.onLine){done(false,'You appear to be offline. Please try again, or email avinash@tomoclub.org.');return;}
+      var go=function(){location.href='thank-you.html';};
+      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(go,go);
     }else{
       var lines=['Name: '+data.name,'District/School: '+data.district,'Email: '+data.email,'','What is on my mind:',data.goal];
       var href='mailto:avinash@tomoclub.org?subject='+encodeURIComponent('What our school needs: '+data.district)+'&body='+encodeURIComponent(lines.join('\n'));
