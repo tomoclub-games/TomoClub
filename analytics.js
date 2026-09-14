@@ -19,7 +19,7 @@
 (function () {
   var CONFIG = {
     GA4: 'G-FEGGQ2ZDMT',
-    LINKEDIN_PARTNER_ID: '',      // e.g. '1234567'
+    LINKEDIN_PARTNER_ID: '8364153',
     CLARITY_PROJECT_ID: ''        // e.g. 'abc1def2gh'
   };
 
