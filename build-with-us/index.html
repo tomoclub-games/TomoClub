@@ -351,6 +351,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 }
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.glass-card:hover,.btn:hover{transform:none}}
 </style>
+    <script defer src="/analytics.js"></script>
 </head>
 <body>
 
@@ -482,7 +483,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </nav>
 
 <!-- Hero -->
-<header class="hero">
+<header class="hero" data-track="hero">
   <div class="container reveal">
     <div class="hello"><div class="faces"><span class="face"><img src="/assets/team/Avinash.jpg" alt="Avinash Bansal"></span><span class="face"><img src="/assets/team/Manik.jpg" alt="Manik Mehta"></span><span class="face"><img src="/assets/team/Chelsea.jpg" alt="Chelsea Dean"></span></div><span><b>Our curriculum and technology experts</b> read every message here and write each proposal by hand</span></div>
     <h1>Let's start with what <span class="highlight-gold">your school needs.</span></h1>
@@ -507,7 +508,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </header>
 
 <!-- Partners -->
-<section class="section-tight" style="padding-top:1rem">
+<section class="section-tight" style="padding-top:1rem" data-track="partners">
   <div class="container">
     <div class="partners" style="margin-top:0"><div class="label">Schools and districts we work with</div></div>
     <div class="logo-marquee">
@@ -531,7 +532,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- What a conversation looks like -->
-<section class="section-tight">
+<section class="section-tight" data-track="how-it-works">
   <div class="container">
     <div class="section-header" style="margin-bottom:2.5rem">
       <span class="eyebrow">How it works</span>
@@ -563,7 +564,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- What exists + what's new -->
-<section class="bg-slate section-tight">
+<section class="bg-slate section-tight" data-track="programs">
   <div class="container">
     <div class="two-col">
       <div>
@@ -593,7 +594,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- Team -->
-<section class="bg-teal">
+<section class="bg-teal" data-track="team">
   <div class="container">
     <div class="founders">
       <div>
@@ -633,7 +634,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- Note + form -->
-<section id="interest-form" class="bg-slate" style="scroll-margin-top:6rem">
+<section id="interest-form" class="bg-slate" style="scroll-margin-top:6rem" data-track="form">
   <div class="container">
     <div class="note">
       <span class="eyebrow">A note from Avinash</span>
@@ -680,7 +681,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- Voices + credibility -->
-<section class="section-tight">
+<section class="section-tight" data-track="voices">
   <div class="container">
     <div class="section-header" style="margin-bottom:2rem">
       <span class="eyebrow">From leaders we've worked with</span>
@@ -698,7 +699,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- FAQ -->
-<section class="bg-slate section-tight">
+<section class="bg-slate section-tight" data-track="faq">
   <div class="container">
     <div class="section-header" style="margin-bottom:2rem"><span class="eyebrow">Things leaders ask before writing</span><h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">Fair questions.</h2></div>
     <div class="faq">
@@ -712,7 +713,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </section>
 
 <!-- CTA -->
-<section class="cta-band bg-teal">
+<section class="cta-band bg-teal" data-track="cta">
   <div class="container">
     <h2>Whenever you're ready, we're here.</h2>
     <p>One message is enough to start. We'll take it from there.</p>
