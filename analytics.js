@@ -8,6 +8,7 @@
  *                  → copy the Partner ID (a number like 1234567).
  *   CLARITY      : clarity.microsoft.com → New project → Settings → Setup → copy the Project ID
  *                  (a short code like "abc1def2gh").
+ *   LEADSY       : leadsy.ai tag → copy the data-pid value from the install snippet.
  * Leave an ID as '' to skip that tool.
  *
  * Also sends GA4 events:
@@ -20,7 +21,8 @@
   var CONFIG = {
     GA4: 'G-FEGGQ2ZDMT',
     LINKEDIN_PARTNER_ID: '8364153',
-    CLARITY_PROJECT_ID: 'yibamjl9lq'
+    CLARITY_PROJECT_ID: 'yibamjl9lq',
+    LEADSY_PID: 'Er26IyzOijeMy17O'
   };
 
   function load(src, attrs) {
@@ -63,7 +65,16 @@
     })(window, document, 'clarity', 'script', CONFIG.CLARITY_PROJECT_ID);
   }
 
-  /* ── 4. Section engagement → GA4 events ─────────────────────────────── */
+  /* ── 4. Leadsy.ai visitor identification ────────────────────────────── */
+  if (CONFIG.LEADSY_PID) {
+    load('https://r2.leadsy.ai/tag.js', {
+      id: 'vtag-ai-js',
+      'data-pid': CONFIG.LEADSY_PID,
+      'data-version': '062024'
+    });
+  }
+
+  /* ── 5. Section engagement → GA4 events ─────────────────────────────── */
   function onReady(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn();
   }
