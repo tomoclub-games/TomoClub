@@ -1056,10 +1056,13 @@ footer .muted{font-size:1rem}
 const FORM_ENDPOINT = "";
 /* true on tomoclub.org so videos play on the page; false in the preview */
 const EMBED_VIDEOS = true;
-/* Country lookup by IP so VPN users and travellers see the right currency.
-   Tries these services in order (free tiers, no key). Set to [] to rely on the browser's time zone only.
+/* Country lookup by IP so VPN users and travellers see the right currency and language.
+   Tried in order. The first one is a tiny function on your own site (see api/geo.js in the package):
+   it reads the country Vercel already knows and cannot be blocked by ad blockers. The others are
+   free public services used as a fallback. Set to [] to rely on the browser's time zone only.
    Mention the lookup in your privacy policy. */
 const GEO_APIS = [
+  {url:'/api/geo', pick:r=>r.json().then(d=>d.country)},
   {url:'https://ipapi.co/country/', pick:r=>r.text()},
   {url:'https://ipwho.is/?fields=country_code', pick:r=>r.json().then(d=>d.country_code)}
 ];
@@ -1095,10 +1098,16 @@ const T = {"hi":{"eng.note":"क्लास अंग्रेज़ी मे�
 const QUOTES_BY_COUNTRY = {};
 
 /* ================= LOCALE ================= */
-const state = {lang:'en', country:'US', cur:'USD'};
+const state = {lang:'en', country:'US', cur:'USD', src:'tz', manualLang:false};
 function guessCountry(){
   try{const tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(TZ[tz]) return TZ[tz]; if(/^Australia\//.test(tz)) return 'AU'; if(/^America\//.test(tz)) return 'US';}catch(e){}
   const l=(navigator.language||'').split('-')[1]; return (l&&COUNTRIES[l.toUpperCase()])?l.toUpperCase():'US';
+}
+/* Language for a country: a non-English browser language wins (a Spanish speaker in the US gets Spanish);
+   otherwise the country's own language (an English browser in Spain gets Spanish). */
+function langForCountry(country){
+  for(const l of (navigator.languages||[navigator.language||'en'])){const p=l.split('-')[0].toLowerCase(); if(p!=='en'&&LANGS.includes(p)) return p;}
+  return (COUNTRIES[country]||COUNTRIES.OTHER).lang;
 }
 function guessLang(country){
   for(const l of (navigator.languages||[navigator.language||'en'])){const p=l.split('-')[0].toLowerCase(); if(LANGS.includes(p)) return p;}
@@ -1114,18 +1123,17 @@ function applyLang(lang){
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml; const v=(lang!=='en'&&T[lang]&&T[lang][k])||EN[k]; if(v!=null) el.innerHTML=v;});
   document.getElementById('langSel').value=lang;
   fillGrades(); fillCountries(); renderQuotes(); renderPrices();
-  try{localStorage.setItem('tomo-lang',lang)}catch(e){}
 }
 function fmt(n,cur){
   const loc={en:'en-US',hi:'hi-IN',es:'es',fr:'fr-FR',de:'de-DE',pt:'pt-BR',zh:'zh-CN'}[state.lang]||'en';
-  try{return new Intl.NumberFormat(cur==='INR'?'en-IN':(cur==='MXN'?'en-US':loc),{style:'currency',currency:cur,maximumFractionDigits:0}).format(n);}catch(e){return cur+' '+n;}
+  try{return new Intl.NumberFormat(cur==='INR'?'en-IN':((cur==='MXN'||cur==='USD')?'en-US':loc),{style:'currency',currency:cur,maximumFractionDigits:0}).format(n);}catch(e){return cur+' '+n;}
 }
 function renderPrices(){
   const p=PRICES[state.cur]||PRICES.USD;
   document.querySelectorAll('[data-price="now"]').forEach(el=>el.textContent=fmt(p[0],state.cur));
   document.querySelectorAll('[data-price="was"]').forEach(el=>el.textContent=fmt(p[1],state.cur));
   const rg=document.querySelector('[data-i18n="price.region"]'); if(rg){let cn=state.country; try{cn=new Intl.DisplayNames([state.lang==='zh'?'zh-Hans':state.lang],{type:'region'}).of(state.country)}catch(e){} rg.textContent=(t('price.region')||EN['price.region'])+' · '+cn+' ('+state.cur+')';}
-  document.querySelectorAll('#e-det,#t-det').forEach(i=>i.value=state.country);
+  document.querySelectorAll('#e-det,#t-det').forEach(i=>i.value=state.country+' ('+state.src+')');
   document.querySelectorAll('#e-cur,#t-cur').forEach(i=>i.value=state.cur);
   document.querySelectorAll('#e-lang,#t-lang').forEach(i=>i.value=state.lang);
 }
@@ -1159,30 +1167,43 @@ function renderQuotes(){
   box.innerHTML=list.slice(0,4).map((q,i)=>'<figure class="testimonial-card" style="margin:0"><p>'+esc(q.t)+'</p><div class="who"><span class="av" style="background:'+colors[i%4]+'">'+esc((q.name||'P')[0].toUpperCase())+'</span>'+esc(q.name?q.name+', '+q.who:q.who)+'</div></figure>').join('');
 }
 
-/* Boot: saved choice > guess from browser */
+/* Boot: URL override (?country=ES&lang=es, handy for testing) > saved language > browser guess */
 (function(){
-  const c=guessCountry(); let lang=guessLang(c), cur=(COUNTRIES[c]||COUNTRIES.OTHER).cur;
-  try{lang=localStorage.getItem('tomo-lang')||lang;}catch(e){}
-  state.country=c; state.cur=PRICES[cur]?cur:'USD';
+  const q=new URLSearchParams(location.search);
+  let c=guessCountry(), src='tz';
+  const qc=(q.get('country')||'').toUpperCase(); if(qc&&COUNTRIES[qc]){c=qc;src='url';}
+  let lang=src==='url'?langForCountry(c):guessLang(c); const cur=(COUNTRIES[c]||COUNTRIES.OTHER).cur;
+  const saved=(()=>{try{return localStorage.getItem('tomo-lang')}catch(e){return null}})();
+  if(saved&&LANGS.includes(saved)){lang=saved;state.manualLang=true;}
+  if(q.get('lang')&&LANGS.includes(q.get('lang'))){lang=q.get('lang');state.manualLang=true;}
+  state.country=c; state.src=src; state.cur=PRICES[cur]?cur:'USD';
   applyLang(LANGS.includes(lang)?lang:'en'); applyCountry(c);
-  document.getElementById('langSel').addEventListener('change',e=>applyLang(e.target.value));
+  console.info('[tomo] country '+c+' via '+src+', currency '+state.cur+', language '+state.lang);
+  document.getElementById('langSel').addEventListener('change',e=>{state.manualLang=true; applyLang(e.target.value); try{localStorage.setItem('tomo-lang',e.target.value)}catch(x){}});
   /* Picking a country in the form only sets the phone prefix; it does not change the price shown. */
   document.querySelector('[data-countries]').addEventListener('change',e=>{ if(e.target.value){ const cfg=COUNTRIES[e.target.value]||COUNTRIES.OTHER; document.querySelectorAll('[data-phone]').forEach(i=>i.placeholder=cfg.tel+' ...'); } });
 })();
 
-/* IP-based country: refines the time-zone guess once the lookup answers */
+/* IP-based country: overrides the time-zone guess once a lookup answers (skipped when ?country= is used) */
 (async function(){
+  if(state.src==='url') return;
   for(const api of GEO_APIS){
     try{
-      const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),2500);
-      const r=await fetch(api.url,{signal:ctl.signal}); clearTimeout(tm); if(!r.ok) continue;
+      const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),3000);
+      const r=await fetch(api.url,{signal:ctl.signal,cache:'no-store'}); clearTimeout(tm);
+      if(!r.ok){console.info('[tomo] geo '+api.url+' answered '+r.status); continue;}
       const code=String(await api.pick(r)||'').trim().toUpperCase();
-      if(!/^[A-Z]{2}$/.test(code)) continue;
+      if(!/^[A-Z]{2}$/.test(code)){console.info('[tomo] geo '+api.url+' gave no country'); continue;}
       const c=COUNTRIES[code]?code:'OTHER';
+      state.src='ip:'+code;
       if(c!==state.country){ applyCountry(c); setCurrency(COUNTRIES[c].cur); fillCountries(); }
+      if(!state.manualLang){ const l=langForCountry(c); if(l!==state.lang) applyLang(l); }
+      renderPrices();
+      console.info('[tomo] country '+code+' via '+api.url+', currency '+state.cur+', language '+state.lang);
       return;
-    }catch(e){}
+    }catch(e){console.info('[tomo] geo '+api.url+' failed: '+e.message);}
   }
+  console.info('[tomo] no IP lookup answered; keeping time-zone guess');
 })();
 
 /* Theme toggle */
