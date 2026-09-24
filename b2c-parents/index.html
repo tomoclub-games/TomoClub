@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://www.tomoclub.org/parents">
+<title>TomoClub for Parents</title>
+<meta name="description" content="Accredited live classes in AI literacy and life skills for Grades 3-12. Small groups of 12, monthly progress reports, first class free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
+<style>
+/* ===== TomoClub design tokens (from tomoclub.org styles.css) ===== */
+:root{
+  --navy:#0F172A; --teal:#2AB4B8; --gold:#FDC62D; --crimson:#B34158;
+  --bg-main:#FAFBFC; --surface:#FFFFFF; --surface-hover:#F8FAFC;
+  --text-main:#0F172A; --text-muted:#475569; --text-light:#94A3B8;
+  --border-color:#E2E8F0; --card-border:rgba(15,23,42,.08);
+  --btn-primary-text:#FFFFFF; --btn-primary-hover-bg:#020617;
+  --teal-text:#1a8f93; --crimson-text:#B34158;
+  --card-grad-teal:linear-gradient(135deg,#FFFFFF,#F0FAFA);
+  --card-grad-gold:linear-gradient(135deg,#FFFFFF,#FFF8E5);
+  --section-grad-slate:linear-gradient(180deg,transparent 0%,#F4F6FB 100%);
+  --hero-glow:radial-gradient(circle at top right,#E3F6F6,transparent 60%);
+  --shadow:0 4px 14px rgba(15,23,42,.12); --shadow-sm:0 2px 8px rgba(15,23,42,.08);
+  --wa:#1FAA59; --wa-soft:#E9F8EF; --wa-text:#0E6B37;
+  --font:'Outfit','Noto Sans Devanagari','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg-main:#020617; --surface:#0F172A; --surface-hover:#1E293B;
+    --navy:#F8FAFC; --text-main:#F1F5F9; --text-muted:#94A3B8; --text-light:#64748B;
+    --btn-primary-text:#020617; --btn-primary-hover-bg:#CBD5E1;
+    --border-color:#334155; --card-border:rgba(255,255,255,.07);
+    --teal-text:#4FD1D5; --crimson-text:#E7849A;
+    --card-grad-teal:linear-gradient(135deg,#0F172A,rgba(42,180,184,.12));
+    --card-grad-gold:linear-gradient(135deg,#0F172A,rgba(253,198,45,.10));
+    --section-grad-slate:linear-gradient(180deg,transparent 0%,#0F172A 100%);
+    --hero-glow:radial-gradient(circle at top right,rgba(42,180,184,.16),transparent 60%);
+    --shadow:0 4px 14px rgba(0,0,0,.4); --shadow-sm:0 2px 8px rgba(0,0,0,.35);
+    --wa-soft:#0B2A1A; --wa-text:#86E3AE;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg-main:#020617; --surface:#0F172A; --surface-hover:#1E293B;
+  --navy:#F8FAFC; --text-main:#F1F5F9; --text-muted:#94A3B8; --text-light:#64748B;
+  --btn-primary-text:#020617; --btn-primary-hover-bg:#CBD5E1;
+  --border-color:#334155; --card-border:rgba(255,255,255,.07);
+  --teal-text:#4FD1D5; --crimson-text:#E7849A;
+  --card-grad-teal:linear-gradient(135deg,#0F172A,rgba(42,180,184,.12));
+  --card-grad-gold:linear-gradient(135deg,#0F172A,rgba(253,198,45,.10));
+  --section-grad-slate:linear-gradient(180deg,transparent 0%,#0F172A 100%);
+  --hero-glow:radial-gradient(circle at top right,rgba(42,180,184,.16),transparent 60%);
+  --shadow:0 4px 14px rgba(0,0,0,.4); --shadow-sm:0 2px 8px rgba(0,0,0,.35);
+  --wa-soft:#0B2A1A; --wa-text:#86E3AE;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg-main);color:var(--text-main);font-family:var(--font);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--teal-text)}
+h1,h2,h3,h4{margin:0;color:var(--navy);font-weight:700;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);letter-spacing:-.05em;line-height:1.08}
+h2{font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.03em;line-height:1.12}
+h3{font-size:1.5rem;letter-spacing:-.02em;line-height:1.2}
+p{margin:0}
+.container{max-width:1150px;margin:0 auto;padding-inline:clamp(16px,4vw,2rem)}
+section{padding-block:4.5rem;position:relative}
+.slate{background:var(--section-grad-slate)}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 3rem}
+.sec-head p{color:var(--text-muted);margin-top:1rem;font-size:1.15rem}
+.badge-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;border-radius:999px;background:rgba(179,65,88,.08);color:var(--crimson-text);font-weight:700;font-size:.85rem;border:1px solid rgba(179,65,88,.18);letter-spacing:.02em;margin-bottom:1.25rem}
+.badge-pill.teal{background:rgba(42,180,184,.1);color:var(--teal-text);border-color:rgba(42,180,184,.25)}
+.muted{color:var(--text-muted)}
+.icon{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.875rem 2rem;font:600 1.05rem var(--font);letter-spacing:-.01em;border-radius:999px;cursor:pointer;border:none;text-decoration:none;transition:all .4s var(--ease)}
+.btn-primary{background:var(--navy);color:var(--btn-primary-text);box-shadow:0 4px 14px rgba(15,23,42,.2)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 24px rgba(15,23,42,.3);background:var(--btn-primary-hover-bg)}
+.btn-secondary{background:var(--surface);color:var(--navy);border:1px solid var(--border-color);box-shadow:var(--shadow-sm)}
+.btn-secondary:hover{border-color:var(--navy)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-teal{background:var(--teal);color:#fff}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* WhatsApp top strip */
+.wa-strip{background:var(--wa);color:#fff;font-size:.95rem;font-weight:500}
+.wa-strip .container{display:flex;gap:.75rem 1rem;align-items:center;justify-content:center;flex-wrap:wrap;padding-block:.6rem;text-align:center}
+.wa-strip a{color:#fff;font-weight:700;background:rgba(0,0,0,.18);padding:.25rem .9rem;border-radius:999px;text-decoration:none;white-space:nowrap}
+
+/* floating nav pill (site style) */
+.nav-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:40;padding-inline:clamp(12px,3vw,2rem);margin-top:12px}
+nav.pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem .7rem .6rem 1.4rem;background:rgba(15,23,42,.82);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-radius:999px;box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 1px rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.08)}
+.brand img{height:30px;width:auto}
+.nav-links{display:flex;align-items:center;gap:1.6rem}
+.nav-links a{color:#CBD5E1;text-decoration:none;font-weight:500;font-size:.98rem}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:.5rem}
+.theme-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.nav-cta .btn{padding:.6rem 1.3rem;font-size:.95rem;background:#fff;color:#020617}
+@media (max-width:920px){.nav-links{display:none}}
+@media (max-width:420px){.brand img{height:24px}.nav-cta .btn{padding:.55rem 1rem;font-size:.88rem}}
+
+/* hero */
+.hero{text-align:center;padding-block:4.5rem 3.5rem;background:var(--hero-glow)}
+.hero p.lead{font-size:1.25rem;color:var(--text-muted);max-width:700px;margin:1.25rem auto 2.25rem}
+.hero h1 .hl{color:var(--teal)}
+.hero .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.hero .note{margin-top:1rem;font-size:.95rem;color:var(--text-muted)}
+.cert-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:2.75rem}
+.cert-chip{display:flex;align-items:center;gap:.7rem;background:#fff;border:1px solid #E2E8F0;border-radius:18px;padding:.55rem 1rem .55rem .6rem;text-decoration:none;color:#0F172A;font-size:.85rem;font-weight:600;line-height:1.25;text-align:left;box-shadow:var(--shadow-sm);transition:transform .4s var(--ease)}
+.cert-chip:hover{transform:translateY(-3px)}
+.cert-chip img{height:54px;width:auto}
+.cert-chip small{display:block;color:#64748B;font-weight:500}
+
+/* stats */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media (max-width:760px){.stats-grid{grid-template-columns:1fr}}
+.stat-item{background:var(--surface);padding:1.75rem 2rem;border-radius:24px;box-shadow:var(--shadow-sm);border:1px solid var(--card-border)}
+.stat-item .num{font-size:3rem;font-weight:800;color:var(--navy);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat-item .label{color:var(--text-muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-top:.6rem}
+
+/* partner logos */
+.partners{padding-block:3rem}
+.partners .cap{text-align:center;font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:var(--text-muted);margin-bottom:1.5rem}
+.logo-strip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px}
+.logo-tile{height:84px;min-width:120px;padding:10px 18px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;display:grid;place-items:center}
+.logo-tile img{max-height:62px;width:auto;max-width:150px;object-fit:contain}
+.logo-tile .wm{font-weight:700;font-size:.9rem;color:#334155;text-align:center;line-height:1.2;max-width:160px}
+
+/* programs */
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem}
+@media (max-width:880px){.prog-grid{grid-template-columns:1fr}}
+.program-card{display:flex;flex-direction:column;border-radius:32px;border:1px solid var(--card-border);background:var(--card-grad-teal);overflow:hidden;box-shadow:var(--shadow);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.program-card:hover{transform:translateY(-6px);box-shadow:0 32px 64px -12px rgba(15,23,42,.14)}
+.program-card.ls{background:var(--card-grad-gold)}
+.thumb{aspect-ratio:16/9;position:relative;overflow:hidden;background:#0F172A}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .fb{position:absolute;inset:0;display:none}
+.thumb.fallback img{display:none}
+.thumb.fallback .fb{display:block}
+.thumb .tag{position:absolute;left:16px;top:16px;background:rgba(15,23,42,.8);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.35rem .8rem;border-radius:999px;z-index:2}
+.prog-body{padding:2rem 2.25rem 2.25rem;display:flex;flex-direction:column;gap:1.25rem;flex:1}
+.prog-body .hook{font-size:1.15rem;color:var(--text-muted)}
+.feat{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:520px){.feat{grid-template-columns:1fr}}
+.feat li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;line-height:1.4}
+.feat .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;background:rgba(42,180,184,.12);color:var(--teal-text)}
+.ls .feat .ic{background:rgba(253,198,45,.18);color:#B07D00}
+:root[data-theme="dark"] .ls .feat .ic{color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ls .feat .ic{color:var(--gold)}}
+.feat b{display:block;color:var(--navy)}
+.feat span{color:var(--text-muted);font-size:.9rem}
+.hour{display:flex;border-radius:12px;overflow:hidden;font-size:.78rem;font-weight:700;color:#fff}
+.hour div{padding:.55rem .4rem;text-align:center;line-height:1.15}
+.hour small{display:block;font-weight:500;opacity:.85}
+.hour-cap{font-size:.82rem;color:var(--text-muted);margin-top:.4rem}
+.prog-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.25rem;border-top:1px solid var(--border-color)}
+.prog-foot .p{font-weight:800;font-size:1.35rem;color:var(--navy)}
+.prog-foot .p s{font-weight:500;font-size:1rem;color:var(--text-light);margin-right:.4rem}
+.prog-foot .p small{font-weight:500;font-size:.9rem;color:var(--text-muted)}
+
+/* games strip */
+.games{margin-top:2.5rem}
+.games h3{font-size:1.25rem;margin-bottom:.35rem}
+.games-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:1.1rem}
+@media (max-width:880px){.games-row{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.games-row{grid-template-columns:repeat(2,1fr)}}
+.game{border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--card-border);box-shadow:var(--shadow-sm)}
+.game .gimg{aspect-ratio:4/3;position:relative;overflow:hidden}
+.game .gimg img{width:100%;height:100%;object-fit:cover}
+.game .gimg .fb{display:none;position:absolute;inset:0;place-items:center;color:#fff}
+.game .gimg.fallback img{display:none}
+.game .gimg.fallback .fb{display:grid}
+.game p{font-size:.88rem;font-weight:600;padding:.6rem .8rem;color:var(--navy)}
+
+.selfpaced{margin-top:2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:var(--surface);border:1px dashed var(--border-color);border-radius:28px;padding:1.5rem 2rem}
+@media (max-width:760px){.selfpaced{grid-template-columns:1fr}}
+.sp-ic{width:64px;height:64px;border-radius:18px;background:rgba(179,65,88,.1);color:var(--crimson-text);display:grid;place-items:center}
+.sp-ic .icon{width:30px;height:30px}
+.selfpaced h3{font-size:1.25rem}
+.selfpaced p{color:var(--text-muted);font-size:1rem;margin-top:.3rem}
+
+/* trust */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+@media (max-width:980px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.cert-grid{grid-template-columns:1fr}}
+.cert-card{background:var(--surface);border:1px solid var(--card-border);border-radius:28px;padding:1.75rem 1.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.8rem;box-shadow:var(--shadow-sm)}
+.cert-card .img{height:120px;width:100%;display:grid;place-items:center;background:#fff;border-radius:18px}
+.cert-card img{max-height:104px;width:auto}
+.cert-card b{color:var(--navy);font-size:1.05rem;line-height:1.3}
+.cert-card span{color:var(--text-muted);font-size:.92rem;line-height:1.45}
+.cert-card a{font-size:.9rem;font-weight:600;margin-top:auto;text-decoration:none}
+.cert-card a:hover{text-decoration:underline}
+
+.xprize{margin-top:1.75rem;display:grid;grid-template-columns:1.05fr 1fr;border-radius:32px;overflow:hidden;background:var(--surface);border:1px solid var(--card-border);box-shadow:var(--shadow)}
+@media (max-width:880px){.xprize{grid-template-columns:1fr}}
+.xp-media{position:relative;min-height:280px;background:#0F172A}
+.xp-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.xp-media .fb{display:none;position:absolute;inset:0}
+.xp-media.fallback img{display:none}
+.xp-media.fallback .fb{display:block}
+.xp-body{padding:2.5rem;display:flex;flex-direction:column;gap:1rem;justify-content:center}
+.xp-kicker{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson-text)}
+.xp-body h3{font-size:1.75rem}
+.xp-body p{color:var(--text-muted)}
+.xp-facts{display:flex;flex-wrap:wrap;gap:.5rem}
+.xp-facts span{font-size:.85rem;font-weight:600;padding:.35rem .8rem;border-radius:999px;background:var(--surface-hover);border:1px solid var(--border-color);color:var(--text-main)}
+.fw{margin-top:2.5rem;text-align:center}
+.fw .cap{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:var(--text-muted);margin-bottom:1rem}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem;align-items:center}
+@media (max-width:920px){.team-grid{grid-template-columns:1fr}}
+.team-grid>*{min-width:0}
+.founder-photo{border-radius:32px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#2AB4B8,#0F172A);position:relative;box-shadow:var(--shadow)}
+.founder-photo img{width:100%;height:100%;object-fit:cover}
+.founder-photo.fallback img{display:none}
+.founder-photo .cap{position:absolute;left:0;right:0;bottom:0;padding:1.25rem 1.5rem;background:linear-gradient(transparent,rgba(2,6,23,.85));color:#fff;font-size:.95rem}
+.founder-photo .cap b{display:block;font-size:1.1rem}
+.disc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:1.75rem}
+@media (max-width:620px){.disc{grid-template-columns:repeat(2,1fr)}}
+.disc div{background:var(--surface);border:1px solid var(--card-border);border-radius:20px;padding:1rem;display:flex;flex-direction:column;gap:.5rem;box-shadow:var(--shadow-sm)}
+.disc .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center}
+.disc b{font-size:.98rem;color:var(--navy);line-height:1.25}
+.disc span{font-size:.84rem;color:var(--text-muted);line-height:1.35}
+.advisors{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.advisors span{font-size:.88rem;padding:.35rem .9rem;border-radius:999px;background:var(--surface);border:1px solid var(--border-color);color:var(--text-muted)}
+
+/* results */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media (max-width:920px){.res-grid{grid-template-columns:1fr}}
+.res{background:var(--surface);border:1px solid var(--card-border);border-radius:28px;padding:2rem;box-shadow:var(--shadow-sm)}
+.res h3{font-size:1.15rem}
+.res .src{font-size:.85rem;color:var(--text-muted);margin:.2rem 0 1.25rem}
+.big{font-size:3rem;font-weight:800;color:var(--navy);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.bar{margin-top:1rem}
+.bar .row{display:flex;justify-content:space-between;font-size:.92rem;font-weight:600}
+.bar .row em{font-style:normal;color:var(--teal-text);font-variant-numeric:tabular-nums}
+.track{height:10px;border-radius:99px;background:var(--surface-hover);border:1px solid var(--border-color);margin-top:.35rem;position:relative;overflow:hidden}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:99px}
+.track .a{background:rgba(42,180,184,.35)}
+.track .b{background:var(--teal)}
+.chk{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.6rem}
+.chk li{display:flex;gap:.6rem;font-size:.95rem;color:var(--text-muted);line-height:1.4}
+.chk li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+/* testimonials */
+.t-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+@media (max-width:760px){.t-grid{grid-template-columns:1fr}}
+.testimonial-card{background:var(--surface);border:1px solid var(--border-color);border-radius:28px;padding:2rem 2.25rem;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:1.1rem;transition:all .5s var(--ease)}
+.testimonial-card:hover{transform:translateY(-6px);border-color:var(--teal)}
+.stars{color:var(--gold);letter-spacing:.15em;font-size:1rem}
+.testimonial-card p{font-size:1.2rem;line-height:1.5;color:var(--text-main);font-weight:500}
+.who{display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--text-muted)}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--teal)}
+.t-small{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.25rem}
+@media (max-width:920px){.t-small{grid-template-columns:1fr}}
+.t-small .testimonial-card{box-shadow:none;padding:1.5rem 1.75rem}
+.t-small p{font-size:1rem}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;position:relative}
+@media (max-width:920px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--card-border);border-radius:28px;padding:1.75rem;box-shadow:var(--shadow-sm)}
+.step .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.step .n{font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--text-light)}
+.step .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--navy);color:var(--bg-main)}
+.step h3{font-size:1.2rem}
+.step p{color:var(--text-muted);font-size:.95rem;margin-top:.4rem;line-height:1.45}
+
+/* pricing */
+.price-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:2.5rem;align-items:center}
+@media (max-width:920px){.price-wrap{grid-template-columns:1fr}}
+.price-wrap>*{min-width:0}
+.glass-card{background:var(--surface);border:1px solid var(--card-border);border-radius:32px;padding:2.5rem;box-shadow:var(--shadow)}
+@media (max-width:520px){.glass-card{padding:1.6rem}}
+.price-card{border:2px solid var(--teal)}
+.free-tag{display:inline-block;background:var(--gold);color:#3D2C00;font-weight:700;font-size:.8rem;letter-spacing:.06em;padding:.35rem .9rem;border-radius:999px}
+.curr{display:inline-flex;border:1px solid var(--border-color);border-radius:999px;padding:3px;gap:2px;float:right}
+.curr button{font:600 .85rem var(--font);border:0;background:transparent;color:var(--text-muted);padding:.35rem .9rem;border-radius:999px;cursor:pointer}
+.curr button[aria-pressed="true"]{background:var(--navy);color:var(--btn-primary-text)}
+.amount{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-top:1.25rem;clear:both}
+.amount .now{font-size:3.5rem;font-weight:800;color:var(--navy);letter-spacing:-.04em;line-height:1}
+.amount s{color:var(--text-light);font-size:1.3rem}
+.amount .per{color:var(--text-muted)}
+.save{font-size:.9rem;color:var(--teal-text);font-weight:600;margin-top:.3rem}
+.guar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.guar span{font-size:.9rem;font-weight:600;padding:.4rem .9rem;border-radius:999px;background:var(--surface);border:1px solid var(--border-color);color:var(--text-main)}
+
+/* networks */
+.net{border-radius:32px;background:#0F172A;color:#E2E8F0;padding:clamp(1.75rem,5vw,3.5rem);position:relative;overflow:hidden}
+:root[data-theme="dark"] .net{background:#0F172A;border:1px solid #1E293B}
+.net::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(42,180,184,.35),transparent 70%)}
+.net h2{color:#fff;position:relative}
+.net .intro{color:#94A3B8;max-width:640px;margin-top:1rem;position:relative}
+.net .badge-pill{background:rgba(253,198,45,.12);color:var(--gold);border-color:rgba(253,198,45,.3)}
+.net-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;position:relative}
+@media (max-width:920px){.net-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.net-grid{grid-template-columns:1fr}}
+.net-grid div{border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.25rem;background:rgba(255,255,255,.03)}
+.net-grid .ic{color:var(--teal);margin-bottom:.6rem}
+.net-grid b{display:block;color:#fff}
+.net-grid span{font-size:.92rem;color:#94A3B8}
+.net .btn{margin-top:2rem;background:#fff;color:#020617;position:relative}
+
+/* forms */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media (max-width:920px){.paths{grid-template-columns:1fr}}
+.paths>*{min-width:0}
+.path-kick{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-text)}
+.paths h3{margin:.4rem 0 .4rem}
+.paths .glass-card>p{color:var(--text-muted);margin-bottom:1.5rem;font-size:1rem}
+form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+.full{grid-column:1/-1}
+label{display:block;font-size:.88rem;font-weight:600;margin-bottom:.35rem;color:var(--navy)}
+label .opt{font-weight:400;color:var(--text-muted)}
+input,select,textarea{width:100%;font:400 1rem var(--font);color:var(--text-main);background:var(--bg-main);border:1px solid var(--border-color);border-radius:14px;padding:.8rem 1rem}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(42,180,184,.2)}
+textarea{min-height:90px;resize:vertical}
+.check{display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--text-muted);font-weight:400}
+.check input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--teal)}
+form .btn{width:100%}
+.err{grid-column:1/-1;color:#DC2626;font-size:.9rem;font-weight:600;display:none}
+.err.show{display:block}
+.done{display:none;text-align:center;padding:2rem .5rem}
+.done.show{display:block}
+.done .ok{width:60px;height:60px;border-radius:50%;background:var(--teal);margin:0 auto 1rem;display:grid;place-items:center}
+.done h4{font-size:1.4rem;margin-bottom:.4rem}
+.done p{color:var(--text-muted)}
+
+/* WA banner */
+.wa-big{background:var(--wa-soft);border:2px solid var(--wa);border-radius:32px;padding:clamp(1.5rem,4vw,2.5rem);display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
+@media (max-width:860px){.wa-big{grid-template-columns:1fr;gap:1.25rem}}
+.wa-logo{width:80px;height:80px;border-radius:24px;background:var(--wa);display:grid;place-items:center}
+.wa-big h2{font-size:clamp(1.5rem,3vw,2.1rem)}
+.wa-big p{color:var(--text-muted);margin-top:.5rem}
+.wa-big ul{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem}
+.wa-big li{font-size:.88rem;font-weight:600;padding:.35rem .9rem;border-radius:999px;background:var(--surface);color:var(--wa-text)}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto}
+details{border-bottom:1px solid var(--border-color);padding-block:1.2rem}
+summary{font-weight:600;font-size:1.1rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem;color:var(--navy)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--teal-text);font-size:1.5rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--text-muted);margin-top:.6rem;max-width:70ch;font-size:1.02rem}
+
+/* podcast nudge */
+.pod{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;border-radius:28px;padding:1.5rem 1.75rem;background:var(--surface);border:1px solid var(--card-border);box-shadow:var(--shadow-sm)}
+@media (max-width:760px){.pod{grid-template-columns:1fr}}
+.pod-art{width:96px;height:96px;border-radius:22px;background:linear-gradient(135deg,#B34158,#0F172A);display:grid;place-items:center;color:#fff}
+.pod-art .icon{width:40px;height:40px}
+.pod h3{font-size:1.2rem}
+.pod p{color:var(--text-muted);font-size:.98rem;margin-top:.25rem}
+.eps{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem}
+.eps a{font-size:.85rem;font-weight:500;text-decoration:none;padding:.4rem .85rem;border-radius:999px;border:1px solid var(--border-color);color:var(--text-main);background:var(--bg-main)}
+.eps a:hover{border-color:var(--teal)}
+.eps a.all{color:var(--teal-text);font-weight:700}
+
+/* footer */
+footer{border-top:1px solid var(--border-color);padding-block:4rem 7rem;margin-top:3rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr;gap:2rem}}
+footer h4{font-size:1.05rem;margin-bottom:1rem}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+footer a{color:var(--text-muted);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--teal)}
+footer .muted{font-size:1rem}
+.legal{margin-top:3rem;font-size:.88rem;color:var(--text-light)}
+
+/* mobile sticky bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;gap:.6rem;padding:.7rem 16px calc(.7rem + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--border-color);box-shadow:0 -8px 24px rgba(15,23,42,.1)}
+.mbar .btn{flex:1;padding:.75rem .5rem;font-size:.95rem}
+@media (max-width:760px){.mbar{display:flex}}
+</style>
+</head>
+<body>
+
+
+<style>
+/* ===== additions v3 ===== */
+.video{position:relative;display:block;border-radius:28px;overflow:hidden;aspect-ratio:16/9;background:#0F172A;box-shadow:var(--shadow);text-decoration:none;color:#fff;isolation:isolate}
+.video>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.video:hover>img{transform:scale(1.03)}
+.video .poster{position:absolute;inset:0;display:none}
+.video.fallback>img{display:none}
+.video.fallback .poster{display:block}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0) 40%,rgba(2,6,23,.8));z-index:1}
+.video .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:#fff;display:grid;place-items:center;z-index:2;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .4s var(--ease)}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.video .play svg{margin-left:5px}
+.video .vcap{position:absolute;left:0;right:0;bottom:0;padding:1.1rem 1.4rem;z-index:2;font-weight:600;font-size:1.05rem;line-height:1.3}
+.video .vcap small{display:block;font-weight:500;font-size:.85rem;opacity:.85;margin-bottom:.15rem;letter-spacing:.04em;text-transform:uppercase}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.hero-video{max-width:880px;margin:3rem auto 0}
+
+.split{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.split>*{min-width:0}
+.split h3{font-size:clamp(1.5rem,3vw,2rem)}
+.split p{color:var(--text-muted);margin-top:.8rem}
+
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+@media (max-width:860px){.res3{grid-template-columns:1fr}}
+.res3 .res p{color:var(--text-muted);font-size:1rem;margin-top:.6rem;line-height:1.45}
+.res3 .res small{display:block;color:var(--text-light);font-size:.82rem;margin-top:.8rem}
+
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.pick label{margin:0;cursor:pointer;border:2px solid var(--border-color);border-radius:18px;overflow:hidden;background:var(--bg-main);display:flex;flex-direction:column;transition:border-color .3s}
+.pick>div{position:relative}
+.pick input{position:absolute;top:8px;left:8px;width:1px;height:1px;opacity:0;pointer-events:none}
+.pick img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.pick span{padding:.55rem .75rem;font-weight:600;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.pick span i{width:18px;height:18px;border-radius:50%;border:2px solid var(--border-color);flex:none}
+.pick input:checked+label{border-color:var(--teal)}
+.pick input:checked+label span i{border-color:var(--teal);background:var(--teal);box-shadow:inset 0 0 0 3px var(--bg-main)}
+.pick input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
+.pick-note{font-size:.85rem;color:var(--text-muted);margin-top:.4rem}
+.pick-note button{font:inherit;color:var(--teal-text);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+
+.mini-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.25rem}
+.mini-thumbs div{border-radius:14px;overflow:hidden;position:relative}
+.mini-thumbs img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.mini-thumbs span{position:absolute;left:8px;bottom:8px;background:rgba(15,23,42,.8);color:#fff;font-size:.75rem;font-weight:600;padding:.2rem .6rem;border-radius:999px}
+
+.pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pills input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.pills label{margin:0;cursor:pointer;padding:.6rem 1.05rem;border-radius:999px;border:1.5px solid var(--border-color);background:var(--bg-main);font-weight:600;font-size:.95rem;color:var(--text-main);transition:all .25s}
+.pills label:hover{border-color:var(--teal)}
+.pills input:checked+label{background:var(--navy);border-color:var(--navy);color:var(--btn-primary-text)}
+.pills input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
+.pills-wrap{position:relative}
+
+.games-row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:.75rem;scrollbar-width:thin}
+.games-row .game{flex:0 0 calc((100% - 48px)/5.4);scroll-snap-align:start}
+@media (max-width:880px){.games-row .game{flex-basis:40%}}
+@media (max-width:480px){.games-row .game{flex-basis:62%}}
+.game .gimg img{aspect-ratio:4/3}
+
+.wa-band{display:flex;align-items:center;justify-content:space-between;gap:1rem 1.5rem;flex-wrap:wrap;background:var(--wa-soft);border:1px solid rgba(31,170,89,.35);border-radius:22px;padding:1rem 1.25rem 1rem 1rem}
+.wa-band .l{display:flex;align-items:center;gap:1rem}
+.wa-band .dot{width:48px;height:48px;border-radius:14px;background:var(--wa);display:grid;place-items:center;flex:none}
+.wa-band b{display:block;color:var(--navy);font-size:1.05rem}
+.wa-band span{color:var(--text-muted);font-size:.95rem}
+.wa-band .btn{padding:.65rem 1.4rem;font-size:.95rem}
+.band-wrap{padding-block:0 3rem}
+
+.pod-thumb{display:block;width:240px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.pod-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (max-width:760px){.pod-thumb{width:100%}}
+
+.to-top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:50px;height:50px;border-radius:50%;border:1px solid var(--border-color);background:var(--navy);color:var(--btn-primary-text);display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(15,23,42,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:all .35s var(--ease)}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:760px){.to-top{bottom:calc(84px + env(safe-area-inset-bottom,0px));width:44px;height:44px}}
+
+.partners .cap2{text-align:center;color:var(--text-muted);font-size:1rem;margin-top:-.9rem;margin-bottom:1rem}
+.logo-marquee{overflow:hidden;width:100%;padding:1rem 0;position:relative;-webkit-mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(to right,transparent,#000 15%,#000 85%,transparent)}
+.logo-track{display:flex;width:max-content;animation:scroll-marquee 40s linear infinite}
+.logo-marquee:hover .logo-track{animation-play-state:paused}
+.logo-set{display:flex;align-items:center;gap:4rem;padding-right:4rem}
+.logo-set img{height:80px;width:auto;max-width:200px;object-fit:contain;opacity:.85;filter:grayscale(1);transition:transform .3s ease,opacity .3s ease,filter .3s ease}
+.logo-set img:hover{transform:scale(1.05);opacity:1;filter:grayscale(0)}
+@keyframes scroll-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media (max-width:768px){.logo-set{gap:2.5rem;padding-right:2.5rem}.logo-set img{height:50px;max-width:140px}}
+@media (max-width:360px){.logo-set{gap:2rem;padding-right:2rem}.logo-set img{height:40px;max-width:120px}}
+@media (prefers-reduced-motion:reduce){.logo-track{animation:none}.logo-marquee{overflow-x:auto}}
+:root[data-theme="dark"] .logo-set img{filter:grayscale(1) invert(1) brightness(1.15)}
+:root[data-theme="dark"] .logo-set img:hover{filter:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-set img{filter:grayscale(1) invert(1) brightness(1.15)}:root:not([data-theme="light"]) .logo-set img:hover{filter:none}}
+
+.xprize{grid-template-columns:1fr!important}
+.xp-media{min-height:0!important;aspect-ratio:1390/630}
+.xp-body{padding:2rem 2.5rem 2.5rem!important}
+.founder-photo{aspect-ratio:4/5!important;max-width:460px;margin-inline:auto}
+.founder-photo img{object-position:center top}
+
+.ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.ig-ctrl{display:flex;gap:.6rem;align-items:center}
+.ig-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--border-color);background:var(--surface);color:var(--navy);display:grid;place-items:center;cursor:pointer;transition:border-color .3s}
+.ig-btn:hover{border-color:var(--navy)}
+.ig-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:.75rem;scrollbar-width:thin}
+.ig-tile{flex:0 0 calc((100% - 42px)/4);aspect-ratio:1;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;background:#0F172A;display:block}
+.ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ig-tile:hover img{transform:scale(1.05)}
+.ig-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(2,6,23,.75))}
+.ig-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;color:#fff;font-size:.9rem;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:900px){.ig-tile{flex-basis:calc((100% - 14px)/2.2)}}
+@media (max-width:520px){.ig-tile{flex-basis:78%}}
+
+.ig-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;padding:3rem 1.5rem;border:1px dashed var(--border-color);border-radius:28px;background:var(--surface);color:var(--text-muted)}
+.ig-empty svg{color:var(--crimson-text);margin-bottom:.5rem}
+.ig-empty b{color:var(--navy);font-size:1.15rem}
+.ig-empty span{max-width:46ch}
+.ig-empty .btn{margin-top:1rem}
+[hidden]{display:none!important}
+
+.lang-wrap{display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:0 .6rem 0 .7rem;height:42px;color:#fff}
+.lang-wrap .icon{width:18px;height:18px;stroke:#fff}
+.lang-wrap select{background:transparent;border:0;color:#fff;font:600 .9rem var(--font);padding:.4rem .2rem;width:auto;cursor:pointer}
+.lang-wrap select option{color:#0F172A;background:#fff}
+@media (max-width:420px){.lang-wrap{padding:0 .3rem 0 .5rem}.lang-wrap select{font-size:.85rem;max-width:88px}}
+.curr-wrap{float:right;display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--text-muted);font-weight:600;margin:0}
+.curr-wrap select{width:auto;padding:.4rem .6rem;font-size:.9rem;border-radius:999px}
+:lang(hi) h1,:lang(hi) h2,:lang(hi) h3,:lang(zh-Hans) h1,:lang(zh-Hans) h2,:lang(zh-Hans) h3{letter-spacing:0}
+:lang(hi) h1{line-height:1.25}
+:lang(zh-Hans) h1{line-height:1.2}
+.eng-note{display:inline-flex;align-items:center;gap:.4rem;font-size:.95rem;font-weight:600;color:var(--teal-text);margin:-.75rem auto 1.75rem;background:rgba(42,180,184,.1);padding:.4rem .9rem;border-radius:999px}
+.eng-note .icon{width:18px;height:18px}
+
+/* ===== mobile polish ===== */
+.brand{flex:none;display:flex;align-items:center}
+.brand img{height:30px;width:auto;max-width:none}
+.nav-cta{flex:none}
+@media (max-width:640px){
+  html{font-size:15px}
+  .wa-strip{font-size:.82rem}.wa-strip .container{padding-block:.45rem;gap:.35rem .6rem}.wa-strip a{padding:.2rem .7rem}
+  .nav-wrap{padding-inline:10px;margin-top:8px;top:calc(env(safe-area-inset-top,0px) + 8px)}
+  nav.pill{padding:.45rem .5rem .45rem 1rem;gap:.5rem}
+  .brand img{height:24px}
+  .nav-cta .btn{display:none}
+  .lang-wrap{height:38px;padding:0 .25rem 0 .55rem}.lang-wrap .icon{width:16px;height:16px}.lang-wrap select{font-size:.85rem;max-width:96px;padding:.3rem .1rem}
+  .theme-btn{width:38px;height:38px}
+  section{padding-block:3rem}.sec-head{margin-bottom:2rem}
+  .hero{padding-block:2.5rem 2.5rem}.hero h1{font-size:2.25rem}.hero p.lead{font-size:1.1rem;margin-bottom:1.5rem}
+  .hero .ctas .btn{width:100%}.hero .note{font-size:.9rem}
+  .cert-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2rem}
+  .cert-chip{padding:.5rem .6rem .5rem .5rem;border-radius:14px;font-size:.8rem;gap:.5rem}.cert-chip img{height:40px}
+  .hero-video{margin-top:2rem;border-radius:20px}.video .play{width:60px;height:60px}.video .vcap{font-size:.95rem;padding:.9rem 1rem}
+  .partners{padding-block:2rem}.partners .cap{font-size:.75rem}
+  .program-card{border-radius:24px}.prog-body{padding:1.4rem 1.25rem 1.5rem}
+  .prog-foot{flex-direction:column;align-items:stretch}.prog-foot .btn{width:100%}
+  .selfpaced{padding:1.25rem;border-radius:22px}.selfpaced .btn{width:100%}
+  .wa-band{padding:1rem;border-radius:18px}.wa-band .btn{width:100%}
+  .xp-body{padding:1.4rem 1.25rem 1.5rem!important}.xp-body h3{font-size:1.45rem}.xp-body .btn{width:100%;align-self:stretch!important}
+  .disc{grid-template-columns:1fr 1fr;gap:10px}.disc div{padding:.8rem}.disc b{font-size:.9rem}
+  .res{padding:1.4rem}.big{font-size:2.5rem}
+  .testimonial-card{padding:1.4rem 1.25rem;border-radius:22px}.testimonial-card p{font-size:1.05rem}
+  .step{padding:1.25rem}
+  .glass-card{padding:1.4rem 1.2rem;border-radius:24px}
+  .amount .now{font-size:2.8rem}
+  .pills label{padding:.5rem .85rem;font-size:.9rem}
+  .net{border-radius:24px}.net .btn{width:100%}
+  .wa-big{padding:1.4rem;border-radius:24px}.wa-big .btn{width:100%}
+  .ig-head{align-items:flex-start}.ig-ctrl{width:100%}.ig-ctrl .btn{flex:1}
+  .pod{padding:1.25rem}
+  .faq summary{font-size:1rem}
+  footer{padding-block:3rem 7rem}
+}
+</style>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8.5 11h5"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.3-2 4-2 6 2 0 4.7-.5 6-2M9 13l2 2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM15 9h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-hands" viewBox="0 0 24 24"><path d="M7 11l3-3 3 2 2-2 4 4-6 6-6-4-3 1V8"/><path d="M3 8h4M17 8h4"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.5-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.2 0 4 1.5 4.5 4"/></symbol>
+  <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM4 19a2 2 0 0 1 2-2h13"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+  <symbol id="i-game" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15.5 12h.01M18 13.5h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 10h8M8 13h5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5zM7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+</svg>
+
+<!-- ===== WhatsApp strip ===== -->
+<div class="wa-strip">
+  <div class="container">
+    <span data-i18n="wa.strip">Free parenting tips and TomoClub updates, straight to your WhatsApp.</span>
+    <a href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a>
+  </div>
+</div>
+
+<!-- ===== Nav ===== -->
+<div class="nav-wrap">
+  <nav class="pill" aria-label="Main">
+    <a class="brand" href="https://www.tomoclub.org/"><img src="/assets/parents/logo.webp" alt="TomoClub" width="169" height="30"></a>
+    <div class="nav-links">
+      <a href="#programs" data-i18n="nav.programs">Programs</a>
+      <a href="#trust" data-i18n="nav.why">Why TomoClub</a>
+      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <label class="lang-wrap" aria-label="Language">
+        <svg class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        <select id="langSel">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="zh">中文</option>
+        </select>
+      </label>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode"><svg class="icon"><use href="#i-moon"/></svg></button>
+      <a class="btn" href="#start" data-i18n="nav.cta">Book free class</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="container">
+    <span class="badge-pill" data-i18n="hero.badge">Now open to families · Your first class is free</span>
+    <h1 data-i18n-html="hero.h1">Raise a kid who <span class="hl">thinks for themselves</span> in the age of AI.</h1>
+    <p class="lead" data-i18n="hero.lead">Live online classes for Grades 3 to 12. Kids play team games, build real projects, and learn to use AI without letting it think for them.</p>
+    <p class="eng-note"><svg class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><span data-i18n="eng.note">Classes are taught in English.</span></p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#start" data-i18n="hero.cta1">Book a free class</a>
+      <a class="btn btn-secondary" href="#talk" data-i18n="hero.cta2">Talk to our team</a>
+    </div>
+    <p class="note" data-i18n-html="hero.note">No card needed. Then <b data-price="now">$99</b> a month for 4 live classes. Cancel anytime.</p>
+
+    <div class="cert-row">
+      <a class="cert-chip" href="https://blockchain.stem.org/6e6c3b55-d452-4dd0-a726-7b76185b20a4" target="_blank" rel="noopener"><img src="/assets/parents/accredited.webp" alt="STEM.org Accredited Educational Experience badge" width="32" height="54"><span><span data-i18n="chip.acc">STEM.org Accredited</span><small data-i18n="chip.verify">Verify →</small></span></a>
+      <a class="cert-chip" href="https://blockchain.stem.org/62393e2c-7cc4-4603-aaab-b63d818a448a" target="_blank" rel="noopener"><img src="/assets/parents/bestinstem.webp" alt="Best in STEM badge" width="39" height="54"><span><span data-i18n="chip.best">Best in STEM™</span><small data-i18n="chip.best.s">Top 5% · Verify →</small></span></a>
+      <span class="cert-chip"><img src="/assets/parents/instructor.webp" alt="STEM.org Certified Educational Instructor badge" width="32" height="54"><span><span data-i18n="chip.cert">STEM.org Certified</span><small data-i18n="chip.cert.s">Master trainers</small></span></span>
+      <span class="cert-chip"><img src="/assets/parents/google.webp" alt="Google for Education Certified Educator badge" width="77" height="54"><span><span data-i18n="chip.google">Google Certified</span><small data-i18n="chip.google.s">Educators</small></span></span>
+    </div>
+
+    <a data-thumb class="video hero-video" data-yt="Sum2y_a2yY8" href="https://youtu.be/Sum2y_a2yY8" target="_blank" rel="noopener">
+      <img src="https://i.ytimg.com/vi/Sum2y_a2yY8/hqdefault.jpg" alt="" loading="lazy">
+      <svg class="poster" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="1600" height="900" fill="#0F172A"/><circle cx="1350" cy="120" r="520" fill="#2AB4B8" opacity=".28"/><circle cx="160" cy="880" r="420" fill="#FDC62D" opacity=".16"/><circle cx="1500" cy="880" r="300" fill="#B34158" opacity=".22"/></svg>
+      <span class="play"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#0F172A"/></svg></span>
+      <span class="vcap"><small data-i18n="watch">Watch</small><span data-i18n="hero.video">Step inside a real TomoClub class</span></span>
+    </a>
+  </div>
+</header>
+
+<!-- ===== Partners + reach ===== -->
+<div class="partners">
+  <div class="container">
+    <p class="cap" data-i18n="partners.cap">10,000+ students · 12+ US states · 10+ countries</p>
+    <p class="cap2" data-i18n="partners.cap2">Trusted by schools and homeschool programs like these</p>
+  </div>
+  <div class="logo-marquee" aria-label="Partner schools and homeschool programs">
+    <div class="logo-track"><div class="logo-set"><img src="/assets/parents/sl_waseca.webp" alt="Waseca Public Schools" loading="lazy"><img src="/assets/parents/sl_southsutter.webp" alt="South Sutter IEM Charter School" loading="lazy"><img src="/assets/parents/sl_skymountain.webp" alt="Sky Mountain IEM Charter School" loading="lazy"><img src="/assets/parents/sl_oceangrove.webp" alt="Ocean Grove IEM Charter School" loading="lazy"><img src="/assets/parents/sl_panther.webp" alt="Partner school" loading="lazy"><img src="/assets/parents/sl_m.webp" alt="Partner school" loading="lazy"><img src="/assets/parents/sl_longhorn.webp" alt="Partner school" loading="lazy"><img src="/assets/parents/sl_garden.webp" alt="Garden School" loading="lazy"><img src="/assets/parents/sl_ep.webp" alt="Partner school" loading="lazy"><img src="/assets/parents/sl_dishchii.webp" alt="Dishchii'bikoh Community School" loading="lazy"><img src="/assets/parents/sl_a.webp" alt="Partner school" loading="lazy"><img src="/assets/parents/sl_elite.webp" alt="Elite Academic Academy" loading="lazy"><img src="/assets/parents/sl_nyskool.webp" alt="NYsKOOL" loading="lazy"><img data-fb="drop" src="https://www.tomoclub.org/assets/logos/choice_charter.png" alt="Choice Charter School"><img data-fb="drop" src="https://www.tomoclub.org/assets/logos/berean_baptist.png" alt="Berean Baptist Academy"></div><div class="logo-set" aria-hidden="true"><img src="/assets/parents/sl_waseca.webp" alt="" loading="lazy"><img src="/assets/parents/sl_southsutter.webp" alt="" loading="lazy"><img src="/assets/parents/sl_skymountain.webp" alt="" loading="lazy"><img src="/assets/parents/sl_oceangrove.webp" alt="" loading="lazy"><img src="/assets/parents/sl_panther.webp" alt="" loading="lazy"><img src="/assets/parents/sl_m.webp" alt="" loading="lazy"><img src="/assets/parents/sl_longhorn.webp" alt="" loading="lazy"><img src="/assets/parents/sl_garden.webp" alt="" loading="lazy"><img src="/assets/parents/sl_ep.webp" alt="" loading="lazy"><img src="/assets/parents/sl_dishchii.webp" alt="" loading="lazy"><img src="/assets/parents/sl_a.webp" alt="" loading="lazy"><img src="/assets/parents/sl_elite.webp" alt="" loading="lazy"><img src="/assets/parents/sl_nyskool.webp" alt="" loading="lazy"><img data-fb="drop" src="https://www.tomoclub.org/assets/logos/choice_charter.png" alt=""><img data-fb="drop" src="https://www.tomoclub.org/assets/logos/berean_baptist.png" alt=""></div></div>
+  </div>
+</div>
+
+<!-- ===== Programs ===== -->
+<section class="slate" id="programs">
+  <div class="container">
+    <div class="sec-head">
+      <span class="badge-pill teal" data-i18n="prog.badge">Two programs</span>
+      <h2 data-i18n="prog.h2">Pick the one your child needs most right now.</h2>
+      <p><span data-i18n="prog.p">Same price. Same small groups of up to 12. Kids spend the hour doing, not watching.</span> <span data-i18n="eng.note">Classes are taught in English.</span></p>
+    </div>
+
+    <div class="prog-grid">
+      <article class="program-card">
+        <div class="thumb"><span class="tag" data-i18n="ai.tag">AI LITERACY</span><img src="/assets/parents/ailab.webp" alt="A student using an AI tool in class" loading="lazy"></div>
+        <div class="prog-body">
+          <h3>Tomo AI Lab</h3>
+          <p class="hook" data-i18n="ai.hook">Their idea comes first, AI comes second. Kids learn to build with AI and to catch it when it's wrong.</p>
+          <ul class="feat">
+            <li><span class="ic"><svg class="icon"><use href="#i-bulb"/></svg></span><div><b data-i18n="ai.f1b">Original ideas</b><span data-i18n="ai.f1s">Theirs, not a chatbot's</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-eye"/></svg></span><div><b data-i18n="ai.f2b">Critical thinking</b><span data-i18n="ai.f2s">Spot bias and fake answers</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-rocket"/></svg></span><div><b data-i18n="ai.f3b">A real project</b><span data-i18n="ai.f3s">Built and presented by them</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><div><b data-i18n="ai.f4b">Online safety</b><span data-i18n="ai.f4s">Privacy habits that stick</span></div></li>
+          </ul>
+          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="AI Lab" data-i18n="ai.cta">Try AI Lab free</a></div>
+        </div>
+      </article>
+
+      <article class="program-card ls">
+        <div class="thumb"><span class="tag" data-i18n="ls.tag">LIFE SKILLS · SEL</span><img src="/assets/parents/lifeskills.webp" alt="Kids working together on a team game" loading="lazy"></div>
+        <div class="prog-body">
+          <h3>Tomo Life Skills</h3>
+          <p class="hook" data-i18n="ls.hook">Team games you only win by talking, listening and leading. A coach links every game to real life.</p>
+          <ul class="feat">
+            <li><span class="ic"><svg class="icon"><use href="#i-mic"/></svg></span><div><b data-i18n="ls.f1b">Speaking up</b><span data-i18n="ls.f1s">Quiet kids grow the most</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-hands"/></svg></span><div><b data-i18n="ls.f2b">Handling conflict</b><span data-i18n="ls.f2s">Practiced in a safe space</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-flag"/></svg></span><div><b data-i18n="ls.f3b">Leading</b><span data-i18n="ls.f3s">Real decisions, real stakes</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-users"/></svg></span><div><b data-i18n="ls.f4b">Real friends</b><span data-i18n="ls.f4s">Same group every week</span></div></li>
+          </ul>
+          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="Life Skills" data-i18n="ls.cta">Try Life Skills free</a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="games">
+      <h3 data-i18n="games.h3">The games behind Life Skills</h3>
+      <p class="muted" style="font-size:1rem" data-i18n="games.p">Made by our game designers and psychologists. Kids think they're just playing.</p>
+      <div class="games-row"><div class="game"><div class="gimg"><img src="/assets/parents/g_backyard.webp" alt="Backyard Blast game artwork" loading="lazy"></div><p>Backyard Blast</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_eijoe.webp" alt="E.I. Joe game artwork" loading="lazy"></div><p>E.I. Joe</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_crisis.webp" alt="The Crisis Crew game artwork" loading="lazy"></div><p>The Crisis Crew</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_river.webp" alt="River Taxi game artwork" loading="lazy"></div><p>River Taxi</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_settlers.webp" alt="The First Settlers game artwork" loading="lazy"></div><p>The First Settlers</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_cosmos.webp" alt="Cosmos Colour Clash game artwork" loading="lazy"></div><p>Cosmos Colour Clash</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_food.webp" alt="Food for Every Mood game artwork" loading="lazy"></div><p>Food for Every Mood</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_jolly.webp" alt="Jolly Jumpers game artwork" loading="lazy"></div><p>Jolly Jumpers</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_santa.webp" alt="Secret Santa game artwork" loading="lazy"></div><p>Secret Santa</p></div></div>
+    </div>
+
+    <div class="selfpaced">
+      <div class="sp-ic"><svg class="icon"><use href="#i-clock"/></svg></div>
+      <div>
+        <h3 data-i18n="sp.h3">Need more flexibility?</h3>
+        <p data-i18n="sp.p">Both programs also come as a self-paced version. Ideal for homeschool families and online schools.</p>
+      </div>
+      <a class="btn btn-secondary" href="#talk" data-interest="self-paced" data-i18n="sp.cta">Ask about self-paced</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How we teach AI (video 2) ===== -->
+<section>
+  <div class="container split">
+    <a data-thumb class="video" data-yt="H8vAtOBlY2s" href="https://www.youtube.com/watch?v=H8vAtOBlY2s" target="_blank" rel="noopener">
+      <img src="https://i.ytimg.com/vi/H8vAtOBlY2s/hqdefault.jpg" alt="" loading="lazy">
+      <img class="poster" src="/assets/parents/ailab.webp" alt="" style="object-fit:cover;width:100%;height:100%">
+      <span class="play"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#0F172A"/></svg></span>
+      <span class="vcap"><small data-i18n="watch">Watch</small><span data-i18n="v2.cap">How TomoClub teaches AI literacy</span></span>
+    </a>
+    <div>
+      <span class="badge-pill teal" data-i18n="v2.badge">For AI Lab parents</span>
+      <h3 data-i18n="v2.h3">Wondering how kids "learn AI" without just using ChatGPT?</h3>
+      <p data-i18n="v2.p">This short video shows exactly how we teach it: kids think first, test AI tools together, and talk through what AI gets right and wrong.</p>
+      <a class="btn btn-primary" style="margin-top:1.5rem" href="#start" data-prog="AI Lab" data-i18n="ai.cta">Try AI Lab free</a>
+    </div>
+  </div>
+</section>
+
+<div class="container band-wrap"><div class="wa-band"><div class="l"><span class="dot" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></span><div><b data-i18n="band1.b">Get one useful parenting tip a day</b><span data-i18n="band1.s">Short, practical ideas on AI, screens and life skills. Free on WhatsApp.</span></div></div><a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="band1.cta">Follow on WhatsApp</a></div></div>
+
+<!-- ===== Trust ===== -->
+<section class="slate" id="trust">
+  <div class="container">
+    <div class="sec-head">
+      <span class="badge-pill" data-i18n="trust.badge">Why families trust us</span>
+      <h2 data-i18n="trust.h2">Serious credentials. Seriously fun classes.</h2>
+    </div>
+
+    <div class="xprize">
+      <div class="xp-media" data-thumb>
+        <img src="/assets/parents/xprize.webp" alt="Avinash Bansal and Manik Mehta receiving the $1M Anu and Naveen Jain Women's Safety XPRIZE, June 2018" loading="lazy">
+        <svg class="fb" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="400" fill="#0F172A"/></svg>
+      </div>
+      <div class="xp-body">
+        <span class="xp-kicker" data-i18n="xp.kicker">As featured in Forbes</span>
+        <h3 data-i18n="xp.h3">Built by founders who've done big things before.</h3>
+        <p data-i18n="xp.p">Founders Avinash Bansal and Manik Mehta won the $1M Women's Safety XPRIZE in 2018 and presented at the United Nations. They then built and exited a consumer electronics company. TomoClub is what they chose to build next.</p>
+        <a class="btn btn-secondary" style="align-self:flex-start" href="https://www.forbes.com/sites/denizcam/2018/06/07/safety-device-for-women-wins-1-million-xprize-launched-by-philanthropists-anu-and-naveen-jain/" target="_blank" rel="noopener" data-i18n="xp.cta">Read the Forbes story</a>
+      </div>
+    </div>
+
+    <div class="team-grid" style="margin-top:3.5rem">
+      <div class="founder-photo" data-thumb>
+        <img src="/assets/parents/founders.webp" alt="TomoClub founders Avinash Bansal and Manik Mehta" loading="lazy">
+        <div class="cap"><b>Avinash Bansal &amp; Manik Mehta</b><span data-i18n="founders.cap">Co-founders, TomoClub</span></div>
+      </div>
+      <div>
+        <h3 style="font-size:clamp(1.5rem,3vw,2rem)" data-i18n="team.h3">Six kinds of experts behind every class.</h3>
+        <div class="disc">
+          <div><span class="ic" style="background:rgba(179,65,88,.12);color:var(--crimson-text)"><svg class="icon"><use href="#i-brain"/></svg></span><b data-i18n="disc.1">Psychologists</b></div>
+          <div><span class="ic" style="background:rgba(42,180,184,.12);color:var(--teal-text)"><svg class="icon"><use href="#i-book"/></svg></span><b data-i18n="disc.2">Education researchers</b></div>
+          <div><span class="ic" style="background:rgba(253,198,45,.2);color:#B07D00"><svg class="icon"><use href="#i-game"/></svg></span><b data-i18n="disc.3">Game designers</b></div>
+          <div><span class="ic" style="background:rgba(42,180,184,.12);color:var(--teal-text)"><svg class="icon"><use href="#i-layers"/></svg></span><b data-i18n="disc.4">Curriculum designers</b></div>
+          <div><span class="ic" style="background:rgba(179,65,88,.12);color:var(--crimson-text)"><svg class="icon"><use href="#i-pen"/></svg></span><b data-i18n="disc.5">Instructional designers</b></div>
+          <div><span class="ic" style="background:rgba(253,198,45,.2);color:#B07D00"><svg class="icon"><use href="#i-code"/></svg></span><b data-i18n="disc.6">Software developers</b></div>
+        </div>
+        <div class="fw" style="text-align:left;margin-top:2rem">
+          <p class="cap" data-i18n="fw.cap">Aligned to</p>
+          <div class="logo-strip" style="justify-content:flex-start">
+            <div class="logo-tile"><img src="/assets/parents/fw_casel.webp" alt="CASEL"></div>
+            <div class="logo-tile"><img src="/assets/parents/fw_ai4k12.webp" alt="AI4K12"></div>
+            <div class="logo-tile"><img src="/assets/parents/fw_unesco.webp" alt="UNESCO"></div>
+            <div class="logo-tile"><span class="wm">ISTE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Results ===== -->
+<section id="results">
+  <div class="container">
+    <div class="sec-head">
+      <span class="badge-pill teal" data-i18n="res.badge">Proven in schools first</span>
+      <h2 data-i18n="res.h2">Real results from real classrooms.</h2>
+    </div>
+    <div class="res3">
+      <div class="res"><div class="big">+80%</div><p data-i18n="res1.p">growth in leadership and emotional intelligence from first class to last.</p><small data-i18n="res1.s">IEM Charter Schools, 2023-24</small></div>
+      <div class="res"><div class="big">87%</div><p data-i18n="res2.p">of 8th graders passed AI Lab sessions on ethics and critical thinking.</p><small data-i18n="res2.s">Amity School District, 2025-26</small></div>
+      <div class="res"><div class="big">97%</div><p data-i18n="res3.p">of kids stayed engaged across our partner schools.</p><small data-i18n="res3.s">All partner schools</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Student story (video 1) + parent quotes ===== -->
+<section class="slate">
+  <div class="container">
+    <div class="split" style="margin-bottom:3rem">
+      <div>
+        <span class="badge-pill" data-i18n="story.badge">Student story</span>
+        <h3 data-i18n="story.h3">A student saw a problem. Then used AI to build the fix.</h3>
+        <p data-i18n="story.p">Watch how one student built an app to help people who stammer. This is what AI Lab is about: kids coming up with ideas that matter, then using AI to bring them to life.</p>
+      </div>
+      <a data-thumb class="video" data-yt="cuyC-PEcwlw" href="https://www.youtube.com/watch?v=cuyC-PEcwlw" target="_blank" rel="noopener">
+        <img src="https://i.ytimg.com/vi/cuyC-PEcwlw/hqdefault.jpg" alt="" loading="lazy">
+        <svg class="poster" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="1600" height="900" fill="#0F172A"/><circle cx="220" cy="140" r="480" fill="#B34158" opacity=".3"/><circle cx="1450" cy="820" r="420" fill="#2AB4B8" opacity=".25"/><g fill="#FDC62D" opacity=".85"><rect x="1080" y="380" width="22" height="140" rx="11"/><rect x="1130" y="330" width="22" height="240" rx="11"/><rect x="1180" y="400" width="22" height="100" rx="11"/><rect x="1230" y="300" width="22" height="300" rx="11"/><rect x="1280" y="370" width="22" height="160" rx="11"/></g></svg>
+        <span class="play"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#0F172A"/></svg></span>
+        <span class="vcap"><small data-i18n="watch">Watch</small><span data-i18n="story.video">An app for people who stammer, built by a student</span></span>
+      </a>
+    </div>
+
+    <div class="sec-head" style="margin-bottom:2rem"><h2 data-i18n="q.h2">What parents notice at home</h2></div>
+    <div class="t-grid" id="quotes"></div>
+  </div>
+</section>
+
+<div style="padding-top:3rem" class="slate"><div class="container band-wrap"><div class="wa-band"><div class="l"><span class="dot" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></span><div><b data-i18n="band2.b">Join other TomoClub parents on WhatsApp</b><span data-i18n="band2.s">Guides, activity ideas and community news, a tap away.</span></div></div><a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a></div></div></div>
+
+<!-- ===== Steps ===== -->
+<section id="how">
+  <div class="container">
+    <div class="sec-head">
+      <span class="badge-pill teal" data-i18n="steps.badge">What happens next</span>
+      <h2 data-i18n="steps.h2">Getting started takes about a minute.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-form"/></svg></span><span class="n" data-i18n="step.1">STEP 1</span></div><h3 data-i18n="step1.h">Fill one short form</h3><p data-i18n="step1.p">Takes under a minute.</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chat"/></svg></span><span class="n" data-i18n="step.2">STEP 2</span></div><h3 data-i18n="step2.h">Get your schedule</h3><p data-i18n="step2.p">We match your child to a group and message you.</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-play"/></svg></span><span class="n" data-i18n="step.3">STEP 3</span></div><h3 data-i18n="step3.h">Free first class</h3><p data-i18n="step3.p">Your child tries it. You decide after.</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chart"/></svg></span><span class="n" data-i18n="step.4">STEP 4</span></div><h3 data-i18n="step4.h">Monthly report</h3><p data-i18n="step4.p">See exactly how your child is growing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="slate" id="pricing">
+  <div class="container price-wrap">
+    <div>
+      <span class="badge-pill" data-i18n="price.badge">Simple pricing</span>
+      <h2 data-i18n="price.h2">One plan. Either program.</h2>
+      <p class="muted" style="margin-top:1rem" data-i18n="price.p">Per child, billed monthly. No sign-up fee, no contract.</p>
+      <div class="mini-thumbs">
+        <div><img src="/assets/parents/ailab.webp" alt="Tomo AI Lab" loading="lazy"><span>AI Lab</span></div>
+        <div><img src="/assets/parents/lifeskills.webp" alt="Tomo Life Skills" loading="lazy"><span>Life Skills</span></div>
+      </div>
+    </div>
+    <div class="glass-card price-card">
+      <span class="free-tag" data-i18n="price.free">FIRST CLASS FREE</span>
+      
+      <div class="amount"><span class="now" data-price="now">$99</span><s data-price="was">$199</s><span class="per" data-i18n="price.per">/ month per child</span></div>
+      <p class="save" data-i18n="price.region">Billed in your local currency</p>
+      <ul class="chk">
+        <li data-i18n="price.i1">4 live one-hour classes a month</li>
+        <li data-i18n="price.i5">Live classes taught in English</li>
+        <li data-i18n="price.i2">Groups of up to 12 kids</li>
+        <li data-i18n="price.i3">Monthly progress report</li>
+        <li data-i18n="price.i4">Cancel anytime</li>
+      </ul>
+      <a class="btn btn-primary" href="#start" style="width:100%;margin-top:1.75rem" data-i18n="price.cta">Start with a free class</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Forms ===== -->
+<section id="start">
+  <div class="container">
+    <div class="sec-head">
+      <span class="badge-pill teal" data-i18n="start.badge">Let's get started</span>
+      <h2 data-i18n="start.h2">Ready to jump in, or want to chat first?</h2>
+    </div>
+    <div class="paths">
+      <div class="glass-card price-card">
+        <p class="path-kick" data-i18n="f1.kick">I'm ready</p>
+        <h3 data-i18n="f1.h3">Book my child's free class</h3>
+        <p><span data-i18n="f1.p">We'll message you with your group and schedule.</span> <span data-i18n="eng.note">Classes are taught in English.</span></p>
+        <form id="f-enroll" data-form="enroll" novalidate>
+          <div class="full">
+            <label id="prog-lbl" data-i18n="f1.prog">Which program?</label>
+            <div class="pills" role="radiogroup" aria-labelledby="prog-lbl">
+              <input type="radio" name="program" id="p-ai" value="AI Lab" required><label for="p-ai">AI Lab</label>
+              <input type="radio" name="program" id="p-ls" value="Life Skills"><label for="p-ls">Life Skills</label>
+              <input type="radio" name="program" id="p-both" value="Both programs"><label for="p-both" data-i18n="f1.both">Both programs</label>
+              <input type="radio" name="program" id="p-unsure" value="Not sure, help me choose"><label for="p-unsure" data-i18n="f1.unsure">Not sure? Help me choose</label>
+            </div>
+          </div>
+          <div><label for="e-name" data-i18n="f.name">Your name</label><input id="e-name" name="parent_name" required autocomplete="name"></div>
+          <div><label for="e-email" data-i18n="f.email">Email</label><input id="e-email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="e-wa" data-i18n="f.wa">WhatsApp number</label><input id="e-wa" name="whatsapp" type="tel" required data-phone autocomplete="tel"></div>
+          <div><label for="e-grade" data-i18n="f1.grade">Child's grade</label><select id="e-grade" name="child_grade" required data-grades><option value="" data-i18n="f.select">Select</option></select></div>
+          <div class="full"><label for="e-country" data-i18n="f1.country">Country</label><select id="e-country" name="country" required data-countries><option value="" data-i18n="f.select">Select</option></select></div>
+          <label class="check full"><input type="checkbox" id="e-consent" name="consent" required> <span data-i18n="f.consent">TomoClub can contact me by email and WhatsApp.</span></label>
+          <p class="err" role="alert" data-i18n="f1.err">Please choose a program, fill in every field and tick the box.</p>
+          <input type="hidden" name="language" id="e-lang"><input type="hidden" name="currency" id="e-cur"><input type="hidden" name="detected_country" id="e-det">
+          <div class="full"><button class="btn btn-primary" type="submit" data-i18n="f1.submit">Book my free class</button></div>
+        </form>
+        <div class="done" aria-live="polite">
+          <div class="ok"><svg width="28" height="28" viewBox="0 0 20 20"><path d="M5 10.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4 data-i18n="f1.done.h">You're in!</h4>
+          <p data-i18n="f1.done.p">Our team will message you on WhatsApp shortly with your group and schedule.</p>
+          <a class="btn btn-wa" style="margin-top:1.25rem" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="f1.done.cta">Join our WhatsApp channel</a>
+        </div>
+      </div>
+
+      <div class="glass-card" id="talk">
+        <p class="path-kick" data-i18n="f2.kick">I have questions</p>
+        <h3 data-i18n="f2.h3">Talk to a real person</h3>
+        <p data-i18n="f2.p">For parents, homeschool networks, online schools and educators.</p>
+        <form id="f-talk" data-form="talk" novalidate>
+          <div><label for="t-name" data-i18n="f.name">Your name</label><input id="t-name" name="name" required autocomplete="name"></div>
+          <div><label for="t-email" data-i18n="f.email">Email</label><input id="t-email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="t-wa" data-i18n="f.wa">WhatsApp number</label><input id="t-wa" name="whatsapp" type="tel" required data-phone autocomplete="tel"></div>
+          <div><label for="t-role" data-i18n="f2.role">I am a</label><select id="t-role" name="role" required><option value="" data-i18n="f.select">Select</option><option value="Parent" data-i18n="r.parent">Parent</option><option value="Homeschool network" data-i18n="r.home">Homeschool network</option><option value="Online school" data-i18n="r.online">Online school</option><option value="Educator" data-i18n="r.edu">Educator</option><option value="Other" data-i18n="r.other">Other</option></select></div>
+          <div class="full"><label for="t-msg"><span data-i18n="f2.msg">What's on your mind?</span> <span class="opt" data-i18n="f.opt">(optional)</span></label><textarea id="t-msg" name="message"></textarea></div>
+          <label class="check full"><input type="checkbox" id="t-consent" name="consent" required> <span data-i18n="f.consent">TomoClub can contact me by email and WhatsApp.</span></label>
+          <p class="err" role="alert" data-i18n="f2.err">Please fill in the required fields and tick the box.</p>
+          <input type="hidden" name="language" id="t-lang"><input type="hidden" name="currency" id="t-cur"><input type="hidden" name="detected_country" id="t-det">
+          <div class="full"><button class="btn btn-primary" type="submit" data-i18n="f2.submit">Request a call</button></div>
+        </form>
+        <div class="done" aria-live="polite">
+          <div class="ok"><svg width="28" height="28" viewBox="0 0 20 20"><path d="M5 10.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4 data-i18n="f2.done.h">Got it, thank you!</h4>
+          <p data-i18n="f2.done.p">Someone from our team will reach out shortly to set up a call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Networks ===== -->
+<section id="networks" style="padding-top:0">
+  <div class="container">
+    <div class="net">
+      <span class="badge-pill" data-i18n="net.badge">Homeschool co-ops &amp; online schools</span>
+      <h2 data-i18n="net.h2">Bring TomoClub to your whole community.</h2>
+      <p class="intro" data-i18n="net.p">Private live groups, a self-paced license for your educators, teacher training and group pricing.</p>
+      <a class="btn" href="#talk" data-role="Homeschool network" data-i18n="net.cta">Talk to us about your network</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WhatsApp banner ===== -->
+<section style="padding-block:0 2rem">
+  <div class="container">
+    <div class="wa-big">
+      <div class="wa-logo" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></div>
+      <div>
+        <h2 data-i18n="wab.h2">Not ready yet? Stay in the loop.</h2>
+        <p data-i18n="wab.p">Daily parenting tips, AI guides for families and activity ideas on our WhatsApp channel.</p>
+      </div>
+      <a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Instagram ===== -->
+<section id="insta" style="padding-top:1rem">
+  <div class="container">
+    <div class="ig-head">
+      <div>
+        <span class="badge-pill" data-i18n="ig.badge">Follow along</span>
+        <h2 data-i18n="ig.h2">Life at TomoClub, on Instagram</h2>
+        <p class="muted" style="margin-top:.5rem"><span data-i18n="ig.p">Classes, games, student projects and behind the scenes at</span> <a href="https://www.instagram.com/tomoclub_edu/" target="_blank" rel="noopener">@tomoclub_edu</a>.</p>
+      </div>
+      <div class="ig-ctrl" id="igCtrl">
+        <button type="button" class="ig-btn" data-dir="-1" aria-label="Previous posts"><svg class="icon"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="ig-btn" data-dir="1" aria-label="Next posts"><svg class="icon"><path d="M9 5l7 7-7 7"/></svg></button>
+        <a class="btn btn-primary" href="https://www.instagram.com/tomoclub_edu/" target="_blank" rel="noopener" data-i18n="ig.follow">Follow us</a>
+      </div>
+    </div>
+    <div class="ig-track" id="igTrack" hidden></div>
+    <div class="ig-empty" id="igEmpty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+      <b data-i18n="ig.empty.b">Our latest Instagram posts show up here.</b>
+      <span data-i18n="ig.empty.s">Live feed from @tomoclub_edu. In the meantime, follow us to see classes, games and student projects.</span>
+      <a class="btn btn-secondary" href="https://www.instagram.com/tomoclub_edu/" target="_blank" rel="noopener" data-i18n="ig.empty.cta">Open Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head"><span class="badge-pill teal" data-i18n="faq.badge">Good questions</span><h2 data-i18n="faq.h2">Things parents usually ask</h2></div>
+    <div class="faq">
+      <details open><summary data-i18n="faq1.q">What grades is this for?</summary><p data-i18n="faq1.a">Grades 3 to 12. Your child is grouped with kids around the same age.</p></details>
+      <details><summary data-i18n="faq2.q">What does "accredited" mean?</summary><p data-i18n="faq2.a">STEM.org has reviewed and accredited every TomoClub program, and we hold their Best in STEM distinction (top 5%). You can verify both using the badges at the top of this page.</p></details>
+      <details><summary data-i18n="faq3.q">What happens in the free class?</summary><p data-i18n="faq3.a">A full 60-minute live class with a coach and a real group of kids. No credit card needed.</p></details>
+      <details><summary data-i18n="faq4.q">How much does it cost?</summary><p data-i18n-html="faq4.a"><b data-price="now">$99</b> a month per child for 4 live one-hour classes and a monthly progress report. Shown in your local currency.</p></details>
+      <details><summary data-i18n="faq5.q">What does my child need?</summary><p data-i18n="faq5.a">A laptop or desktop with a webcam, microphone and steady internet.</p></details>
+      <details><summary data-i18n="faq7.q">What language are classes taught in?</summary><p data-i18n="faq7.a">All classes are taught in English by our coaches. Kids who are comfortable following instructions in English do well, and the games make it easy to join in.</p></details>
+      <details><summary data-i18n="faq6.q">Are classes recorded?</summary><p data-i18n="faq6.a">No. Kids speak more freely that way. Coaches take notes for your monthly report instead.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Podcast nudge ===== -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="pod">
+      <a class="pod-thumb" href="https://www.tomoclub.org/#podcast" target="_blank" rel="noopener"><img src="/assets/parents/podcast.webp" alt="The Learning Shift Podcast by TomoClub" loading="lazy"></a>
+      <div>
+        <h3 data-i18n="pod.h3">Want to go deeper?</h3>
+        <p data-i18n="pod.p">Listen to The Learning Shift, our podcast with school leaders on raising kids for a world with AI.</p>
+        <div class="eps"><a class="all" href="https://www.tomoclub.org/#podcast" target="_blank" rel="noopener" data-i18n="pod.cta">Listen to episodes →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/assets/parents/logo.webp" alt="TomoClub" width="169" height="30" style="height:30px;width:auto;margin-bottom:1rem">
+        <p class="muted" data-i18n="foot.p">Accredited programs in AI literacy and life skills, for schools and families.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.contact">Contact</h4>
+        <ul class="muted" style="font-size:1rem"><li>info@tomoclub.org</li><li>+1 650 547-8082</li><li>4197 Tuller Road, Dublin, Ohio 43017, USA</li></ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.follow">Follow us</h4>
+        <ul>
+          <li><a href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="foot.wa">WhatsApp channel</a></li>
+          <li><a href="https://www.tomoclub.org/#podcast" target="_blank" rel="noopener" data-i18n="foot.pod">The Learning Shift podcast</a></li>
+          <li><a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/tomoclub/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal" data-i18n="foot.legal">© 2026 TomoClub. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg class="icon"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="mbar"><a class="btn btn-secondary" href="#talk" data-i18n="mbar.talk">Talk to us</a><a class="btn btn-primary" href="#start" data-i18n="mbar.free">Free class</a></div>
+<script>
+/* ================= CONFIG ================= */
+/* Google Apps Script web app URL (see tomoclub-forms-apps-script.gs). Empty = preview mode. */
+const FORM_ENDPOINT = "";
+/* true on tomoclub.org so videos play on the page; false in the preview */
+const EMBED_VIDEOS = true;
+/* Country lookup by IP so VPN users and travellers see the right currency.
+   Tries these services in order (free tiers, no key). Set to [] to rely on the browser's time zone only.
+   Mention the lookup in your privacy policy. */
+const GEO_APIS = [
+  {url:'https://ipapi.co/country/', pick:r=>r.text()},
+  {url:'https://ipwho.is/?fields=country_code', pick:r=>r.json().then(d=>d.country_code)}
+];
+/* Behold JSON feed for the Instagram section */
+const INSTAGRAM_FEED_URL = "https://feeds.behold.so/GzowUZPGkHqTYQi2N4p7";
+
+/* Prices per currency: [monthly, crossed-out]. Change here and the whole page follows. */
+const PRICES = {
+  USD:[99,199], INR:[2999,7999], EUR:[89,179], GBP:[75,149], CAD:[139,279], AUD:[139,279],
+  AED:[369,739], SGD:[129,259], MXN:[1699,3399], BRL:[499,999], CNY:[699,1399]
+};
+/* Country -> default language, currency, phone code. Add a line to support another country. */
+const COUNTRIES = {
+  US:{lang:'en',cur:'USD',tel:'+1'},  CA:{lang:'en',cur:'CAD',tel:'+1'},  GB:{lang:'en',cur:'GBP',tel:'+44'},
+  AU:{lang:'en',cur:'AUD',tel:'+61'}, SG:{lang:'en',cur:'SGD',tel:'+65'}, AE:{lang:'en',cur:'AED',tel:'+971'},
+  IN:{lang:'en',cur:'INR',tel:'+91'}, ES:{lang:'es',cur:'EUR',tel:'+34'}, MX:{lang:'es',cur:'MXN',tel:'+52'},
+  FR:{lang:'fr',cur:'EUR',tel:'+33'}, DE:{lang:'de',cur:'EUR',tel:'+49'}, AT:{lang:'de',cur:'EUR',tel:'+43'},
+  CH:{lang:'de',cur:'EUR',tel:'+41'}, PT:{lang:'pt',cur:'EUR',tel:'+351'}, BR:{lang:'pt',cur:'BRL',tel:'+55'},
+  CN:{lang:'zh',cur:'CNY',tel:'+86'}, HK:{lang:'zh',cur:'USD',tel:'+852'}, TW:{lang:'zh',cur:'USD',tel:'+886'},
+  IT:{lang:'en',cur:'EUR',tel:'+39'}, NL:{lang:'en',cur:'EUR',tel:'+31'}, IE:{lang:'en',cur:'EUR',tel:'+353'},
+  AR:{lang:'es',cur:'USD',tel:'+54'}, CO:{lang:'es',cur:'USD',tel:'+57'}, CL:{lang:'es',cur:'USD',tel:'+56'}, PE:{lang:'es',cur:'USD',tel:'+51'},
+  OTHER:{lang:'en',cur:'USD',tel:'+'}
+};
+/* Time zone -> country, used to guess where a visitor is. */
+const TZ = {'Asia/Kolkata':'IN','Asia/Calcutta':'IN','Europe/Madrid':'ES','Atlantic/Canary':'ES','America/Mexico_City':'MX','America/Cancun':'MX','America/Monterrey':'MX','America/Tijuana':'MX',
+  'Europe/Paris':'FR','Europe/Berlin':'DE','Europe/Vienna':'AT','Europe/Zurich':'CH','Europe/Lisbon':'PT','Atlantic/Madeira':'PT','America/Sao_Paulo':'BR','America/Fortaleza':'BR','America/Recife':'BR','America/Bahia':'BR','America/Manaus':'BR','America/Belem':'BR',
+  'Asia/Shanghai':'CN','Asia/Chongqing':'CN','Asia/Urumqi':'CN','Asia/Hong_Kong':'HK','Asia/Taipei':'TW','Europe/London':'GB','Europe/Dublin':'IE','Europe/Rome':'IT','Europe/Amsterdam':'NL',
+  'Asia/Dubai':'AE','Asia/Singapore':'SG','America/Argentina/Buenos_Aires':'AR','America/Buenos_Aires':'AR','America/Bogota':'CO','America/Santiago':'CL','America/Lima':'PE',
+  'America/Toronto':'CA','America/Vancouver':'CA','America/Edmonton':'CA','America/Winnipeg':'CA','America/Halifax':'CA','America/St_Johns':'CA','America/Regina':'CA'};
+const LANGS = ['en','hi','es','fr','de','pt','zh'];
+const T = {"hi":{"eng.note":"क्लास अंग्रेज़ी में होती हैं।","price.i5":"लाइव क्लास अंग्रेज़ी में","faq7.q":"क्लास किस भाषा में होती हैं?","faq7.a":"सभी क्लास हमारे कोच अंग्रेज़ी में लेते हैं। जो बच्चे अंग्रेज़ी में निर्देश समझ लेते हैं, वे अच्छा करते हैं, और गेम की वजह से शामिल होना आसान हो जाता है।","wa.strip":"मुफ़्त पेरेंटिंग टिप्स और TomoClub की खबरें, सीधे आपके WhatsApp पर।","wa.join":"चैनल से जुड़ें","nav.programs":"प्रोग्राम","nav.why":"TomoClub क्यों","nav.pricing":"फ़ीस","nav.faq":"सवाल-जवाब","nav.cta":"मुफ़्त क्लास बुक करें","hero.badge":"अब परिवारों के लिए खुला · पहली क्लास मुफ़्त","hero.h1":"AI के दौर में ऐसा बच्चा तैयार करें जो <span class=\"hl\">खुद सोचना</span> जानता हो।","hero.lead":"कक्षा 3 से 12 के बच्चों के लिए लाइव ऑनलाइन क्लास। बच्चे टीम गेम खेलते हैं, असली प्रोजेक्ट बनाते हैं, और AI का इस्तेमाल सीखते हैं, बिना उसे अपनी सोच का काम सौंपे।","hero.cta1":"मुफ़्त क्लास बुक करें","hero.cta2":"हमारी टीम से बात करें","hero.note":"कार्ड की ज़रूरत नहीं। फिर 4 लाइव क्लास के लिए <b data-price=\"now\"></b> प्रति माह। कभी भी बंद करें।","chip.acc":"STEM.org से मान्यता प्राप्त","chip.verify":"जाँचें →","chip.best":"Best in STEM™","chip.best.s":"शीर्ष 5% · जाँचें →","chip.cert":"STEM.org प्रमाणित","chip.cert.s":"मास्टर ट्रेनर","chip.google":"Google प्रमाणित","chip.google.s":"शिक्षक","watch":"देखें","hero.video":"TomoClub की एक असली क्लास अंदर से देखें","partners.cap":"10,000+ छात्र · अमेरिका के 12+ राज्य · 10+ देश","partners.cap2":"इन जैसे स्कूलों और होमस्कूल प्रोग्रामों का भरोसा","prog.badge":"दो प्रोग्राम","prog.h2":"वह चुनें जिसकी आपके बच्चे को अभी सबसे ज़्यादा ज़रूरत है।","prog.p":"एक ही फ़ीस। अधिकतम 12 बच्चों के छोटे ग्रुप। बच्चे पूरा घंटा करके सीखते हैं, देखकर नहीं।","ai.tag":"AI साक्षरता","ai.hook":"पहले बच्चे का आइडिया, फिर AI। बच्चे AI के साथ बनाना सीखते हैं और उसकी गलतियाँ पकड़ना भी।","ai.f1b":"अपने आइडिया","ai.f1s":"बच्चे के, चैटबॉट के नहीं","ai.f2b":"आलोचनात्मक सोच","ai.f2s":"पक्षपात और झूठे जवाब पहचानना","ai.f3b":"एक असली प्रोजेक्ट","ai.f3s":"बच्चा खुद बनाता और पेश करता है","ai.f4b":"ऑनलाइन सुरक्षा","ai.f4s":"निजता की आदतें जो टिकती हैं","per.month":"/ माह","ai.cta":"AI Lab मुफ़्त आज़माएँ","ls.tag":"जीवन कौशल · SEL","ls.hook":"ऐसे टीम गेम जो सिर्फ़ बोलकर, सुनकर और नेतृत्व करके जीते जाते हैं। कोच हर गेम को असली ज़िंदगी से जोड़ता है।","ls.f1b":"खुलकर बोलना","ls.f1s":"शांत बच्चे सबसे ज़्यादा बढ़ते हैं","ls.f2b":"मतभेद संभालना","ls.f2s":"सुरक्षित माहौल में अभ्यास","ls.f3b":"नेतृत्व","ls.f3s":"असली फ़ैसले, असली दाँव","ls.f4b":"सच्चे दोस्त","ls.f4s":"हर हफ़्ते वही ग्रुप","ls.cta":"Life Skills मुफ़्त आज़माएँ","games.h3":"Life Skills के पीछे के गेम","games.p":"हमारे गेम डिज़ाइनरों और मनोवैज्ञानिकों ने बनाए हैं। बच्चों को लगता है वे बस खेल रहे हैं।","sp.h3":"और लचीलापन चाहिए?","sp.p":"दोनों प्रोग्राम अपनी गति से सीखने वाले (self-paced) रूप में भी उपलब्ध हैं। होमस्कूल परिवारों और ऑनलाइन स्कूलों के लिए आदर्श।","sp.cta":"self-paced के बारे में पूछें","v2.cap":"TomoClub AI साक्षरता कैसे सिखाता है","v2.badge":"AI Lab के अभिभावकों के लिए","v2.h3":"सोच रहे हैं कि बच्चे सिर्फ़ ChatGPT चलाए बिना \"AI कैसे सीखते\" हैं?","v2.p":"यह छोटा वीडियो दिखाता है कि हम इसे कैसे सिखाते हैं: बच्चे पहले सोचते हैं, साथ मिलकर AI टूल परखते हैं, और चर्चा करते हैं कि AI कहाँ सही है और कहाँ गलत।","band1.b":"रोज़ एक काम की पेरेंटिंग टिप पाएँ","band1.s":"AI, स्क्रीन और जीवन कौशल पर छोटे, व्यावहारिक सुझाव। WhatsApp पर मुफ़्त।","band1.cta":"WhatsApp पर फ़ॉलो करें","trust.badge":"परिवार हम पर भरोसा क्यों करते हैं","trust.h2":"पक्की साख। मज़ेदार क्लास।","xp.kicker":"Forbes में छपा","xp.h3":"ऐसे संस्थापकों ने बनाया जिन्होंने पहले भी बड़े काम किए हैं।","xp.p":"संस्थापक अविनाश बंसल और मानिक मेहता ने 2018 में 10 लाख डॉलर का Women's Safety XPRIZE जीता और संयुक्त राष्ट्र में प्रस्तुति दी। फिर उन्होंने एक कंज़्यूमर इलेक्ट्रॉनिक्स कंपनी बनाई और उसे सफलतापूर्वक बेचा। इसके बाद उन्होंने TomoClub बनाने का फ़ैसला किया।","xp.cta":"Forbes की कहानी पढ़ें","founders.cap":"सह-संस्थापक, TomoClub","team.h3":"हर क्लास के पीछे छह तरह के विशेषज्ञ।","disc.1":"मनोवैज्ञानिक","disc.2":"शिक्षा शोधकर्ता","disc.3":"गेम डिज़ाइनर","disc.4":"पाठ्यक्रम डिज़ाइनर","disc.5":"इंस्ट्रक्शनल डिज़ाइनर","disc.6":"सॉफ़्टवेयर डेवलपर","fw.cap":"इनके अनुरूप","res.badge":"पहले स्कूलों में परखा गया","res.h2":"असली कक्षाओं के असली नतीजे।","res1.p":"पहली क्लास से आखिरी तक नेतृत्व और भावनात्मक बुद्धिमत्ता में बढ़ोतरी।","res1.s":"IEM Charter Schools, 2023-24","res2.p":"8वीं कक्षा के छात्र नैतिकता और आलोचनात्मक सोच के AI Lab सत्रों में उत्तीर्ण हुए।","res2.s":"Amity School District, 2025-26","res3.p":"बच्चे हमारे सभी साझेदार स्कूलों में पूरी तरह जुड़े रहे।","res3.s":"सभी साझेदार स्कूल","story.badge":"छात्र की कहानी","story.h3":"एक छात्र ने समस्या देखी। फिर AI से उसका हल बनाया।","story.p":"देखें कैसे एक छात्र ने हकलाने वाले लोगों की मदद के लिए ऐप बनाया। AI Lab यही है: बच्चे ऐसे आइडिया लाते हैं जो मायने रखते हैं, फिर AI से उन्हें साकार करते हैं।","story.video":"हकलाने वाले लोगों के लिए ऐप, एक छात्र ने बनाया","q.h2":"अभिभावक घर पर क्या बदलाव देखते हैं","q1":"मेरा बच्चा अब चीज़ों को अलग तरह से संभालता है। वह गुस्सा कम करती है और जल्दी समाधान ढूँढने की कोशिश करती है।","q2":"वह अपनी भावनाएँ ज़्यादा साफ़ बताती है। और पहले से कहीं जल्दी हल निकालती है।","q3":"साथियों के साथ मेलजोल और झगड़े सुलझाने की क्षमता काफ़ी बढ़ी। एक सकारात्मक, तनाव-रहित जगह।","q4":"Tomo ने ऐसे विचार और चर्चाएँ दीं जो समस्या सुलझाने और नई सोच के बीज बोती हैं।","q.who":"अभिभावक, IEM Charter School, कैलिफ़ोर्निया","band2.b":"WhatsApp पर TomoClub के अन्य अभिभावकों से जुड़ें","band2.s":"गाइड, गतिविधियों के आइडिया और समुदाय की खबरें, एक टैप पर।","steps.badge":"आगे क्या होता है","steps.h2":"शुरुआत में बस एक मिनट लगता है।","step.1":"चरण 1","step1.h":"एक छोटा फ़ॉर्म भरें","step1.p":"एक मिनट से भी कम।","step.2":"चरण 2","step2.h":"शेड्यूल पाएँ","step2.p":"हम आपके बच्चे के लिए ग्रुप तय करके आपको संदेश भेजते हैं।","step.3":"चरण 3","step3.h":"पहली क्लास मुफ़्त","step3.p":"बच्चा आज़माता है। फ़ैसला बाद में आपका।","step.4":"चरण 4","step4.h":"मासिक रिपोर्ट","step4.p":"देखें आपका बच्चा कैसे बढ़ रहा है।","price.badge":"सीधी-सरल फ़ीस","price.h2":"एक प्लान। कोई भी प्रोग्राम।","price.p":"प्रति बच्चा, मासिक भुगतान। कोई रजिस्ट्रेशन शुल्क नहीं, कोई अनुबंध नहीं।","price.free":"पहली क्लास मुफ़्त","price.currency":"मुद्रा","price.per":"/ माह प्रति बच्चा","price.region":"आपकी स्थानीय मुद्रा में","price.i1":"हर माह 4 लाइव एक-घंटे की क्लास","price.i2":"अधिकतम 12 बच्चों के ग्रुप","price.i3":"मासिक प्रगति रिपोर्ट","price.i4":"कभी भी बंद करें","price.cta":"मुफ़्त क्लास से शुरू करें","start.badge":"चलिए शुरू करें","start.h2":"अभी शुरू करना है, या पहले बात करनी है?","f1.kick":"मैं तैयार हूँ","f1.h3":"मेरे बच्चे की मुफ़्त क्लास बुक करें","f1.p":"हम आपको ग्रुप और शेड्यूल के साथ संदेश भेजेंगे।","f1.prog":"कौन सा प्रोग्राम?","f1.both":"दोनों प्रोग्राम","f1.unsure":"पक्का नहीं? चुनने में मदद करें","f.name":"आपका नाम","f.email":"ईमेल","f.wa":"WhatsApp नंबर","f1.grade":"बच्चे की कक्षा","f.select":"चुनें","f1.country":"देश","f.consent":"TomoClub मुझसे ईमेल और WhatsApp पर संपर्क कर सकता है।","f1.err":"कृपया प्रोग्राम चुनें, सभी जानकारी भरें और बॉक्स पर टिक करें।","f1.submit":"मेरी मुफ़्त क्लास बुक करें","f1.done.h":"हो गया!","f1.done.p":"हमारी टीम जल्द ही WhatsApp पर आपको ग्रुप और शेड्यूल भेजेगी।","f1.done.cta":"हमारे WhatsApp चैनल से जुड़ें","f2.kick":"मेरे कुछ सवाल हैं","f2.h3":"किसी असली इंसान से बात करें","f2.p":"अभिभावकों, होमस्कूल नेटवर्क, ऑनलाइन स्कूलों और शिक्षकों के लिए।","f2.role":"मैं हूँ","r.parent":"अभिभावक","r.home":"होमस्कूल नेटवर्क","r.online":"ऑनलाइन स्कूल","r.edu":"शिक्षक","r.other":"अन्य","f2.msg":"आप क्या जानना चाहते हैं?","f.opt":"(वैकल्पिक)","f2.err":"कृपया ज़रूरी जानकारी भरें और बॉक्स पर टिक करें।","f2.submit":"कॉल का अनुरोध करें","f2.done.h":"मिल गया, धन्यवाद!","f2.done.p":"हमारी टीम का कोई सदस्य जल्द ही कॉल तय करने के लिए संपर्क करेगा।","net.badge":"होमस्कूल समूह और ऑनलाइन स्कूल","net.h2":"TomoClub को अपने पूरे समुदाय तक लाएँ।","net.p":"निजी लाइव ग्रुप, आपके शिक्षकों के लिए self-paced लाइसेंस, शिक्षक प्रशिक्षण और ग्रुप फ़ीस।","net.cta":"अपने नेटवर्क के बारे में हमसे बात करें","wab.h2":"अभी तैयार नहीं? जुड़े रहें।","wab.p":"हमारे WhatsApp चैनल पर रोज़ाना पेरेंटिंग टिप्स, परिवारों के लिए AI गाइड और गतिविधियों के आइडिया।","ig.badge":"साथ चलें","ig.h2":"Instagram पर TomoClub की ज़िंदगी","ig.p":"क्लास, गेम, छात्रों के प्रोजेक्ट और पर्दे के पीछे की झलक, यहाँ:","ig.follow":"फ़ॉलो करें","ig.empty.b":"हमारी ताज़ा Instagram पोस्ट यहाँ दिखेंगी।","ig.empty.s":"@tomoclub_edu की लाइव फ़ीड। तब तक, क्लास, गेम और छात्रों के प्रोजेक्ट देखने के लिए हमें फ़ॉलो करें।","ig.empty.cta":"Instagram खोलें","faq.badge":"अच्छे सवाल","faq.h2":"अभिभावक अक्सर यह पूछते हैं","faq1.q":"यह किन कक्षाओं के लिए है?","faq1.a":"कक्षा 3 से 12। आपके बच्चे को लगभग उसी उम्र के बच्चों के साथ रखा जाता है।","faq2.q":"\"मान्यता प्राप्त\" का क्या मतलब है?","faq2.a":"STEM.org ने TomoClub के हर प्रोग्राम की समीक्षा करके उसे मान्यता दी है, और हमें उनका Best in STEM सम्मान (शीर्ष 5%) मिला है। आप इस पेज के ऊपर दिए बैज से दोनों की जाँच कर सकते हैं।","faq3.q":"मुफ़्त क्लास में क्या होता है?","faq3.a":"कोच और बच्चों के असली ग्रुप के साथ पूरी 60 मिनट की लाइव क्लास। क्रेडिट कार्ड की ज़रूरत नहीं।","faq4.q":"फ़ीस कितनी है?","faq4.a":"प्रति बच्चा <b data-price=\"now\"></b> प्रति माह, जिसमें 4 लाइव एक-घंटे की क्लास और मासिक प्रगति रिपोर्ट शामिल है। आपकी स्थानीय मुद्रा में दिखाया गया है।","faq5.q":"मेरे बच्चे को क्या चाहिए?","faq5.a":"वेबकैम, माइक्रोफ़ोन और स्थिर इंटरनेट वाला लैपटॉप या डेस्कटॉप।","faq6.q":"क्या क्लास रिकॉर्ड होती हैं?","faq6.a":"नहीं। इससे बच्चे खुलकर बोलते हैं। कोच आपकी मासिक रिपोर्ट के लिए नोट्स लेते हैं।","pod.h3":"और गहराई में जाना है?","pod.p":"The Learning Shift सुनें, स्कूल प्रमुखों के साथ हमारा पॉडकास्ट, AI की दुनिया के लिए बच्चों को तैयार करने पर।","pod.cta":"एपिसोड सुनें →","foot.p":"स्कूलों और परिवारों के लिए AI साक्षरता और जीवन कौशल के मान्यता प्राप्त प्रोग्राम।","foot.contact":"संपर्क","foot.follow":"हमें फ़ॉलो करें","foot.wa":"WhatsApp चैनल","foot.pod":"The Learning Shift पॉडकास्ट","foot.legal":"© 2026 TomoClub. सर्वाधिकार सुरक्षित।","mbar.talk":"हमसे बात करें","mbar.free":"मुफ़्त क्लास","grade":"कक्षा {n}","sending":"भेजा जा रहा है...","tryagain":"फिर कोशिश करें","senderr":"फ़ॉर्म नहीं भेजा जा सका। कृपया फिर कोशिश करें, या info@tomoclub.org पर ईमेल करें।"},"es":{"eng.note":"Las clases se imparten en inglés.","price.i5":"Clases en vivo impartidas en inglés","faq7.q":"¿En qué idioma son las clases?","faq7.a":"Todas las clases las imparten nuestros coaches en inglés. Los niños que siguen instrucciones en inglés con comodidad avanzan bien, y los juegos hacen que sea fácil participar.","wa.strip":"Consejos gratis para padres y novedades de TomoClub, directo a tu WhatsApp.","wa.join":"Unirme al canal","nav.programs":"Programas","nav.why":"Por qué TomoClub","nav.pricing":"Precios","nav.faq":"Preguntas","nav.cta":"Reservar clase gratis","hero.badge":"Ya abierto a familias · La primera clase es gratis","hero.h1":"Cría a un niño que <span class=\"hl\">piensa por sí mismo</span> en la era de la IA.","hero.lead":"Clases online en vivo para niños de 3.º a 12.º grado. Juegan en equipo, construyen proyectos reales y aprenden a usar la IA sin dejar que piense por ellos.","hero.cta1":"Reservar una clase gratis","hero.cta2":"Hablar con nuestro equipo","hero.note":"Sin tarjeta. Después, <b data-price=\"now\"></b> al mes por 4 clases en vivo. Cancela cuando quieras.","chip.acc":"Acreditado por STEM.org","chip.verify":"Verificar →","chip.best":"Best in STEM™","chip.best.s":"Top 5 % · Verificar →","chip.cert":"Certificado STEM.org","chip.cert.s":"Formadores máster","chip.google":"Certificado Google","chip.google.s":"Educadores","watch":"Ver","hero.video":"Entra en una clase real de TomoClub","partners.cap":"Más de 10 000 alumnos · 12+ estados de EE. UU. · 10+ países","partners.cap2":"Con la confianza de escuelas y programas de educación en casa como estos","prog.badge":"Dos programas","prog.h2":"Elige el que tu hijo necesita más ahora.","prog.p":"Mismo precio. Mismos grupos pequeños de hasta 12. Los niños pasan la hora haciendo, no mirando.","ai.tag":"ALFABETIZACIÓN EN IA","ai.hook":"Primero su idea, después la IA. Los niños aprenden a crear con IA y a detectar cuándo se equivoca.","ai.f1b":"Ideas propias","ai.f1s":"Suyas, no de un chatbot","ai.f2b":"Pensamiento crítico","ai.f2s":"Detectar sesgos y respuestas falsas","ai.f3b":"Un proyecto real","ai.f3s":"Construido y presentado por ellos","ai.f4b":"Seguridad en línea","ai.f4s":"Hábitos de privacidad que perduran","per.month":"/ mes","ai.cta":"Probar AI Lab gratis","ls.tag":"HABILIDADES PARA LA VIDA · SEL","ls.hook":"Juegos en equipo que solo se ganan hablando, escuchando y liderando. Un coach conecta cada juego con la vida real.","ls.f1b":"Atreverse a hablar","ls.f1s":"Los niños tímidos son los que más crecen","ls.f2b":"Manejar conflictos","ls.f2s":"Practicado en un espacio seguro","ls.f3b":"Liderar","ls.f3s":"Decisiones reales, riesgos reales","ls.f4b":"Amigos de verdad","ls.f4s":"El mismo grupo cada semana","ls.cta":"Probar Life Skills gratis","games.h3":"Los juegos detrás de Life Skills","games.p":"Creados por nuestros diseñadores de juegos y psicólogos. Los niños creen que solo están jugando.","sp.h3":"¿Necesitas más flexibilidad?","sp.p":"Ambos programas también existen en versión a tu ritmo. Ideal para familias que educan en casa y escuelas online.","sp.cta":"Preguntar por la versión a tu ritmo","v2.cap":"Cómo enseña TomoClub la alfabetización en IA","v2.badge":"Para padres de AI Lab","v2.h3":"¿Te preguntas cómo los niños \"aprenden IA\" sin limitarse a usar ChatGPT?","v2.p":"Este breve video muestra exactamente cómo lo enseñamos: los niños piensan primero, prueban herramientas de IA juntos y discuten qué acierta y qué falla la IA.","band1.b":"Recibe un consejo útil para padres cada día","band1.s":"Ideas breves y prácticas sobre IA, pantallas y habilidades para la vida. Gratis en WhatsApp.","band1.cta":"Seguir en WhatsApp","trust.badge":"Por qué las familias confían en nosotros","trust.h2":"Credenciales serias. Clases muy divertidas.","xp.kicker":"Destacado en Forbes","xp.h3":"Creado por fundadores que ya han hecho grandes cosas.","xp.p":"Los fundadores Avinash Bansal y Manik Mehta ganaron el Women's Safety XPRIZE de 1 millón de dólares en 2018 y presentaron su trabajo en las Naciones Unidas. Después crearon y vendieron una empresa de electrónica de consumo. TomoClub es lo que decidieron construir a continuación.","xp.cta":"Leer la historia en Forbes","founders.cap":"Cofundadores, TomoClub","team.h3":"Seis tipos de expertos detrás de cada clase.","disc.1":"Psicólogos","disc.2":"Investigadores en educación","disc.3":"Diseñadores de juegos","disc.4":"Diseñadores curriculares","disc.5":"Diseñadores instruccionales","disc.6":"Desarrolladores de software","fw.cap":"Alineado con","res.badge":"Probado primero en escuelas","res.h2":"Resultados reales de aulas reales.","res1.p":"de mejora en liderazgo e inteligencia emocional entre la primera clase y la última.","res1.s":"IEM Charter Schools, 2023-24","res2.p":"de los alumnos de 8.º grado aprobaron las sesiones de AI Lab sobre ética y pensamiento crítico.","res2.s":"Amity School District, 2025-26","res3.p":"de los niños se mantuvieron comprometidos en nuestras escuelas asociadas.","res3.s":"Todas las escuelas asociadas","story.badge":"Historia de un alumno","story.h3":"Un alumno vio un problema. Luego usó la IA para resolverlo.","story.p":"Mira cómo un alumno creó una app para ayudar a personas que tartamudean. De eso trata AI Lab: niños con ideas que importan, que usan la IA para hacerlas realidad.","story.video":"Una app para personas que tartamudean, creada por un alumno","q.h2":"Lo que los padres notan en casa","q1":"Mi hija ahora afronta las cosas de otra manera. Tarda más en enfadarse y busca soluciones más rápido.","q2":"Expresa sus emociones con más claridad. Y encuentra soluciones mucho más rápido que antes.","q3":"La interacción con sus compañeros y la resolución de conflictos mejoraron mucho. Un espacio positivo y sin estrés.","q4":"Tomo planteó ideas y debates que siembran la resolución de problemas y el pensamiento innovador.","q.who":"Madre/padre, IEM Charter School, California","band2.b":"Únete a otros padres de TomoClub en WhatsApp","band2.s":"Guías, ideas de actividades y noticias de la comunidad, a un toque.","steps.badge":"Qué pasa después","steps.h2":"Empezar lleva alrededor de un minuto.","step.1":"PASO 1","step1.h":"Rellena un formulario breve","step1.p":"Menos de un minuto.","step.2":"PASO 2","step2.h":"Recibe tu horario","step2.p":"Asignamos a tu hijo a un grupo y te escribimos.","step.3":"PASO 3","step3.h":"Primera clase gratis","step3.p":"Tu hijo la prueba. Tú decides después.","step.4":"PASO 4","step4.h":"Informe mensual","step4.p":"Ve exactamente cómo crece tu hijo.","price.badge":"Precios simples","price.h2":"Un plan. Cualquiera de los dos programas.","price.p":"Por niño, con cobro mensual. Sin cuota de inscripción ni contrato.","price.free":"PRIMERA CLASE GRATIS","price.currency":"Moneda","price.per":"/ mes por niño","price.region":"Cobrado en tu moneda local","price.i1":"4 clases en vivo de una hora al mes","price.i2":"Grupos de hasta 12 niños","price.i3":"Informe de progreso mensual","price.i4":"Cancela cuando quieras","price.cta":"Empezar con una clase gratis","start.badge":"Empecemos","start.h2":"¿Listo para empezar, o prefieres hablar primero?","f1.kick":"Estoy listo","f1.h3":"Reservar la clase gratis de mi hijo","f1.p":"Te escribiremos con tu grupo y horario.","f1.prog":"¿Qué programa?","f1.both":"Ambos programas","f1.unsure":"¿No estás seguro? Ayúdame a elegir","f.name":"Tu nombre","f.email":"Correo electrónico","f.wa":"Número de WhatsApp","f1.grade":"Grado de tu hijo","f.select":"Seleccionar","f1.country":"País","f.consent":"TomoClub puede contactarme por correo y WhatsApp.","f1.err":"Elige un programa, completa todos los campos y marca la casilla.","f1.submit":"Reservar mi clase gratis","f1.done.h":"¡Listo!","f1.done.p":"Nuestro equipo te escribirá pronto por WhatsApp con tu grupo y horario.","f1.done.cta":"Unirme al canal de WhatsApp","f2.kick":"Tengo preguntas","f2.h3":"Habla con una persona real","f2.p":"Para padres, redes de educación en casa, escuelas online y educadores.","f2.role":"Soy","r.parent":"Madre/padre","r.home":"Red de educación en casa","r.online":"Escuela online","r.edu":"Educador","r.other":"Otro","f2.msg":"¿Qué te gustaría saber?","f.opt":"(opcional)","f2.err":"Completa los campos obligatorios y marca la casilla.","f2.submit":"Solicitar una llamada","f2.done.h":"Recibido, ¡gracias!","f2.done.p":"Alguien de nuestro equipo te contactará pronto para agendar una llamada.","net.badge":"Cooperativas de educación en casa y escuelas online","net.h2":"Lleva TomoClub a toda tu comunidad.","net.p":"Grupos privados en vivo, licencia a tu ritmo para tus educadores, formación docente y precios de grupo.","net.cta":"Hablemos de tu red","wab.h2":"¿Aún no? Mantente al tanto.","wab.p":"Consejos diarios para padres, guías de IA para familias e ideas de actividades en nuestro canal de WhatsApp.","ig.badge":"Síguenos","ig.h2":"La vida en TomoClub, en Instagram","ig.p":"Clases, juegos, proyectos de alumnos y detrás de cámaras en","ig.follow":"Síguenos","ig.empty.b":"Nuestras últimas publicaciones de Instagram aparecen aquí.","ig.empty.s":"Feed en vivo de @tomoclub_edu. Mientras tanto, síguenos para ver clases, juegos y proyectos de alumnos.","ig.empty.cta":"Abrir Instagram","faq.badge":"Buenas preguntas","faq.h2":"Lo que suelen preguntar los padres","faq1.q":"¿Para qué grados es?","faq1.a":"De 3.º a 12.º grado. Tu hijo se agrupa con niños de edad parecida.","faq2.q":"¿Qué significa \"acreditado\"?","faq2.a":"STEM.org ha revisado y acreditado todos los programas de TomoClub, y tenemos su distinción Best in STEM (top 5 %). Puedes verificar ambas con las insignias al inicio de esta página.","faq3.q":"¿Qué pasa en la clase gratis?","faq3.a":"Una clase en vivo completa de 60 minutos con un coach y un grupo real de niños. Sin tarjeta de crédito.","faq4.q":"¿Cuánto cuesta?","faq4.a":"<b data-price=\"now\"></b> al mes por niño por 4 clases en vivo de una hora y un informe de progreso mensual. Mostrado en tu moneda local.","faq5.q":"¿Qué necesita mi hijo?","faq5.a":"Un portátil o computadora de escritorio con cámara web, micrófono e internet estable.","faq6.q":"¿Se graban las clases?","faq6.a":"No. Así los niños hablan con más libertad. Los coaches toman notas para tu informe mensual.","pod.h3":"¿Quieres profundizar?","pod.p":"Escucha The Learning Shift, nuestro pódcast con líderes escolares sobre criar niños para un mundo con IA.","pod.cta":"Escuchar episodios →","foot.p":"Programas acreditados de alfabetización en IA y habilidades para la vida, para escuelas y familias.","foot.contact":"Contacto","foot.follow":"Síguenos","foot.wa":"Canal de WhatsApp","foot.pod":"Pódcast The Learning Shift","foot.legal":"© 2026 TomoClub. Todos los derechos reservados.","mbar.talk":"Háblanos","mbar.free":"Clase gratis","grade":"{n}.º grado","sending":"Enviando...","tryagain":"Intentar de nuevo","senderr":"No se pudo enviar. Inténtalo de nuevo o escribe a info@tomoclub.org."},"fr":{"eng.note":"Les cours sont donnés en anglais.","price.i5":"Cours en direct donnés en anglais","faq7.q":"Dans quelle langue se déroulent les cours ?","faq7.a":"Tous les cours sont donnés en anglais par nos coachs. Les enfants à l'aise pour suivre des consignes en anglais s'en sortent très bien, et les jeux rendent la participation facile.","wa.strip":"Conseils gratuits pour les parents et actualités TomoClub, directement sur votre WhatsApp.","wa.join":"Rejoindre la chaîne","nav.programs":"Programmes","nav.why":"Pourquoi TomoClub","nav.pricing":"Tarifs","nav.faq":"FAQ","nav.cta":"Réserver un cours gratuit","hero.badge":"Désormais ouvert aux familles · Le premier cours est gratuit","hero.h1":"Élevez un enfant qui <span class=\"hl\">pense par lui-même</span> à l'ère de l'IA.","hero.lead":"Cours en ligne en direct pour les enfants du CE2 à la terminale. Ils jouent en équipe, construisent de vrais projets et apprennent à utiliser l'IA sans la laisser penser à leur place.","hero.cta1":"Réserver un cours gratuit","hero.cta2":"Parler à notre équipe","hero.note":"Sans carte bancaire. Ensuite, <b data-price=\"now\"></b> par mois pour 4 cours en direct. Résiliable à tout moment.","chip.acc":"Accrédité STEM.org","chip.verify":"Vérifier →","chip.best":"Best in STEM™","chip.best.s":"Top 5 % · Vérifier →","chip.cert":"Certifié STEM.org","chip.cert.s":"Formateurs experts","chip.google":"Certifié Google","chip.google.s":"Éducateurs","watch":"Regarder","hero.video":"Entrez dans un vrai cours TomoClub","partners.cap":"Plus de 10 000 élèves · 12+ États américains · 10+ pays","partners.cap2":"Des écoles et programmes d'instruction en famille comme ceux-ci nous font confiance","prog.badge":"Deux programmes","prog.h2":"Choisissez celui dont votre enfant a le plus besoin maintenant.","prog.p":"Même prix. Mêmes petits groupes de 12 maximum. Les enfants passent l'heure à faire, pas à regarder.","ai.tag":"CULTURE DE L'IA","ai.hook":"Leur idée d'abord, l'IA ensuite. Les enfants apprennent à créer avec l'IA et à repérer ses erreurs.","ai.f1b":"Des idées à eux","ai.f1s":"Les leurs, pas celles d'un chatbot","ai.f2b":"Esprit critique","ai.f2s":"Repérer les biais et les fausses réponses","ai.f3b":"Un vrai projet","ai.f3s":"Construit et présenté par eux","ai.f4b":"Sécurité en ligne","ai.f4s":"Des réflexes de confidentialité durables","per.month":"/ mois","ai.cta":"Essayer AI Lab gratuitement","ls.tag":"COMPÉTENCES DE VIE · SEL","ls.hook":"Des jeux d'équipe qu'on ne gagne qu'en parlant, en écoutant et en menant. Un coach relie chaque jeu à la vraie vie.","ls.f1b":"Oser parler","ls.f1s":"Les enfants timides progressent le plus","ls.f2b":"Gérer les conflits","ls.f2s":"Pratiqué dans un cadre sûr","ls.f3b":"Mener","ls.f3s":"De vraies décisions, de vrais enjeux","ls.f4b":"De vrais amis","ls.f4s":"Le même groupe chaque semaine","ls.cta":"Essayer Life Skills gratuitement","games.h3":"Les jeux derrière Life Skills","games.p":"Conçus par nos concepteurs de jeux et nos psychologues. Les enfants pensent qu'ils ne font que jouer.","sp.h3":"Besoin de plus de souplesse ?","sp.p":"Les deux programmes existent aussi en version à votre rythme. Idéal pour l'instruction en famille et les écoles en ligne.","sp.cta":"Se renseigner sur la version à votre rythme","v2.cap":"Comment TomoClub enseigne la culture de l'IA","v2.badge":"Pour les parents AI Lab","v2.h3":"Vous vous demandez comment les enfants « apprennent l'IA » sans se contenter d'utiliser ChatGPT ?","v2.p":"Cette courte vidéo montre exactement comment nous l'enseignons : les enfants réfléchissent d'abord, testent les outils d'IA ensemble et discutent de ce que l'IA réussit et rate.","band1.b":"Recevez un conseil utile par jour","band1.s":"Des idées courtes et concrètes sur l'IA, les écrans et les compétences de vie. Gratuit sur WhatsApp.","band1.cta":"Suivre sur WhatsApp","trust.badge":"Pourquoi les familles nous font confiance","trust.h2":"Des références sérieuses. Des cours vraiment amusants.","xp.kicker":"Vu dans Forbes","xp.h3":"Créé par des fondateurs qui ont déjà accompli de grandes choses.","xp.p":"Les fondateurs Avinash Bansal et Manik Mehta ont remporté le Women's Safety XPRIZE d'un million de dollars en 2018 et ont présenté leur travail aux Nations unies. Ils ont ensuite créé puis cédé une entreprise d'électronique grand public. TomoClub est ce qu'ils ont choisi de construire ensuite.","xp.cta":"Lire l'article de Forbes","founders.cap":"Cofondateurs, TomoClub","team.h3":"Six types d'experts derrière chaque cours.","disc.1":"Psychologues","disc.2":"Chercheurs en éducation","disc.3":"Concepteurs de jeux","disc.4":"Concepteurs de programmes","disc.5":"Ingénieurs pédagogiques","disc.6":"Développeurs","fw.cap":"Aligné sur","res.badge":"D'abord éprouvé dans les écoles","res.h2":"De vrais résultats dans de vraies classes.","res1.p":"de progression en leadership et en intelligence émotionnelle entre le premier et le dernier cours.","res1.s":"IEM Charter Schools, 2023-24","res2.p":"des élèves de 4e ont réussi les séances AI Lab sur l'éthique et l'esprit critique.","res2.s":"Amity School District, 2025-26","res3.p":"des enfants sont restés engagés dans nos écoles partenaires.","res3.s":"Toutes les écoles partenaires","story.badge":"Histoire d'un élève","story.h3":"Un élève a vu un problème. Puis il a utilisé l'IA pour le résoudre.","story.p":"Regardez comment un élève a créé une application pour aider les personnes qui bégaient. C'est tout AI Lab : des enfants qui ont des idées qui comptent, puis utilisent l'IA pour leur donner vie.","story.video":"Une application pour les personnes qui bégaient, créée par un élève","q.h2":"Ce que les parents remarquent à la maison","q1":"Ma fille gère les choses différemment maintenant. Elle se met moins vite en colère et cherche plus vite des solutions.","q2":"Elle exprime ses émotions plus clairement. Et trouve des solutions bien plus vite qu'avant.","q3":"Les interactions avec les autres et la résolution des conflits se sont nettement améliorées. Un espace positif, sans stress.","q4":"Tomo a apporté des idées et des discussions qui sèment la résolution de problèmes et la pensée innovante.","q.who":"Parent, IEM Charter School, Californie","band2.b":"Rejoignez d'autres parents TomoClub sur WhatsApp","band2.s":"Guides, idées d'activités et nouvelles de la communauté, en un clic.","steps.badge":"Et ensuite","steps.h2":"Commencer prend environ une minute.","step.1":"ÉTAPE 1","step1.h":"Remplissez un court formulaire","step1.p":"Moins d'une minute.","step.2":"ÉTAPE 2","step2.h":"Recevez votre planning","step2.p":"Nous plaçons votre enfant dans un groupe et vous écrivons.","step.3":"ÉTAPE 3","step3.h":"Premier cours gratuit","step3.p":"Votre enfant essaie. Vous décidez ensuite.","step.4":"ÉTAPE 4","step4.h":"Rapport mensuel","step4.p":"Voyez exactement comment votre enfant progresse.","price.badge":"Tarif simple","price.h2":"Une formule. L'un ou l'autre programme.","price.p":"Par enfant, facturé chaque mois. Pas de frais d'inscription, pas d'engagement.","price.free":"PREMIER COURS GRATUIT","price.currency":"Devise","price.per":"/ mois par enfant","price.region":"Facturé dans votre devise locale","price.i1":"4 cours d'une heure en direct par mois","price.i2":"Groupes de 12 enfants maximum","price.i3":"Rapport de progrès mensuel","price.i4":"Résiliable à tout moment","price.cta":"Commencer par un cours gratuit","start.badge":"C'est parti","start.h2":"Prêt à vous lancer, ou envie d'en parler d'abord ?","f1.kick":"Je suis prêt","f1.h3":"Réserver le cours gratuit de mon enfant","f1.p":"Nous vous écrirons avec votre groupe et votre planning.","f1.prog":"Quel programme ?","f1.both":"Les deux programmes","f1.unsure":"Pas sûr ? Aidez-moi à choisir","f.name":"Votre nom","f.email":"E-mail","f.wa":"Numéro WhatsApp","f1.grade":"Classe de votre enfant","f.select":"Choisir","f1.country":"Pays","f.consent":"TomoClub peut me contacter par e-mail et WhatsApp.","f1.err":"Choisissez un programme, remplissez tous les champs et cochez la case.","f1.submit":"Réserver mon cours gratuit","f1.done.h":"C'est noté !","f1.done.p":"Notre équipe vous écrira bientôt sur WhatsApp avec votre groupe et votre planning.","f1.done.cta":"Rejoindre notre chaîne WhatsApp","f2.kick":"J'ai des questions","f2.h3":"Parler à une vraie personne","f2.p":"Pour les parents, les réseaux d'instruction en famille, les écoles en ligne et les éducateurs.","f2.role":"Je suis","r.parent":"Parent","r.home":"Réseau d'instruction en famille","r.online":"École en ligne","r.edu":"Éducateur","r.other":"Autre","f2.msg":"De quoi aimeriez-vous parler ?","f.opt":"(facultatif)","f2.err":"Remplissez les champs obligatoires et cochez la case.","f2.submit":"Demander un appel","f2.done.h":"Bien reçu, merci !","f2.done.p":"Un membre de notre équipe vous contactera bientôt pour fixer un appel.","net.badge":"Collectifs d'instruction en famille et écoles en ligne","net.h2":"Apportez TomoClub à toute votre communauté.","net.p":"Groupes privés en direct, licence à votre rythme pour vos éducateurs, formation des enseignants et tarifs de groupe.","net.cta":"Parlons de votre réseau","wab.h2":"Pas encore prêt ? Restez informé.","wab.p":"Conseils quotidiens pour les parents, guides IA pour les familles et idées d'activités sur notre chaîne WhatsApp.","ig.badge":"Suivez-nous","ig.h2":"La vie chez TomoClub, sur Instagram","ig.p":"Cours, jeux, projets d'élèves et coulisses sur","ig.follow":"Nous suivre","ig.empty.b":"Nos dernières publications Instagram apparaissent ici.","ig.empty.s":"Flux en direct de @tomoclub_edu. En attendant, suivez-nous pour voir les cours, les jeux et les projets des élèves.","ig.empty.cta":"Ouvrir Instagram","faq.badge":"Bonnes questions","faq.h2":"Ce que les parents demandent souvent","faq1.q":"Pour quelles classes ?","faq1.a":"Du CE2 à la terminale (grades 3 à 12). Votre enfant est placé avec des enfants du même âge.","faq2.q":"Que signifie « accrédité » ?","faq2.a":"STEM.org a examiné et accrédité chaque programme TomoClub, et nous détenons leur distinction Best in STEM (top 5 %). Vous pouvez vérifier les deux grâce aux badges en haut de cette page.","faq3.q":"Que se passe-t-il pendant le cours gratuit ?","faq3.a":"Un vrai cours en direct de 60 minutes avec un coach et un groupe d'enfants. Aucune carte bancaire requise.","faq4.q":"Combien ça coûte ?","faq4.a":"<b data-price=\"now\"></b> par mois et par enfant pour 4 cours d'une heure en direct et un rapport de progrès mensuel. Affiché dans votre devise locale.","faq5.q":"De quoi mon enfant a-t-il besoin ?","faq5.a":"Un ordinateur portable ou fixe avec webcam, micro et une connexion internet stable.","faq6.q":"Les cours sont-ils enregistrés ?","faq6.a":"Non. Les enfants parlent plus librement ainsi. Les coachs prennent des notes pour votre rapport mensuel.","pod.h3":"Envie d'aller plus loin ?","pod.p":"Écoutez The Learning Shift, notre podcast avec des responsables d'écoles sur l'éducation des enfants dans un monde avec l'IA.","pod.cta":"Écouter les épisodes →","foot.p":"Programmes accrédités de culture de l'IA et de compétences de vie, pour les écoles et les familles.","foot.contact":"Contact","foot.follow":"Nous suivre","foot.wa":"Chaîne WhatsApp","foot.pod":"Podcast The Learning Shift","foot.legal":"© 2026 TomoClub. Tous droits réservés.","mbar.talk":"Nous parler","mbar.free":"Cours gratuit","grade":"Grade {n}","sending":"Envoi...","tryagain":"Réessayer","senderr":"L'envoi a échoué. Réessayez ou écrivez à info@tomoclub.org."},"de":{"eng.note":"Der Unterricht findet auf Englisch statt.","price.i5":"Live-Stunden auf Englisch","faq7.q":"In welcher Sprache findet der Unterricht statt?","faq7.a":"Alle Stunden werden von unseren Coaches auf Englisch gehalten. Kinder, die Anweisungen auf Englisch gut folgen können, kommen bestens zurecht, und die Spiele machen das Mitmachen leicht.","wa.strip":"Kostenlose Erziehungstipps und TomoClub-News, direkt auf dein WhatsApp.","wa.join":"Kanal beitreten","nav.programs":"Programme","nav.why":"Warum TomoClub","nav.pricing":"Preise","nav.faq":"FAQ","nav.cta":"Gratisstunde buchen","hero.badge":"Jetzt offen für Familien · Die erste Stunde ist gratis","hero.h1":"Erziehe ein Kind, das im KI-Zeitalter <span class=\"hl\">selbst denkt</span>.","hero.lead":"Live-Onlinekurse für Kinder der Klassen 3 bis 12. Sie spielen im Team, bauen echte Projekte und lernen, KI zu nutzen, ohne sie für sich denken zu lassen.","hero.cta1":"Gratisstunde buchen","hero.cta2":"Mit unserem Team sprechen","hero.note":"Keine Karte nötig. Danach <b data-price=\"now\"></b> pro Monat für 4 Live-Stunden. Jederzeit kündbar.","chip.acc":"STEM.org-akkreditiert","chip.verify":"Prüfen →","chip.best":"Best in STEM™","chip.best.s":"Top 5 % · Prüfen →","chip.cert":"STEM.org-zertifiziert","chip.cert.s":"Master-Trainer","chip.google":"Google-zertifiziert","chip.google.s":"Lehrkräfte","watch":"Ansehen","hero.video":"Blick in eine echte TomoClub-Stunde","partners.cap":"Über 10.000 Schüler · 12+ US-Bundesstaaten · 10+ Länder","partners.cap2":"Schulen und Homeschool-Programme wie diese vertrauen uns","prog.badge":"Zwei Programme","prog.h2":"Wähle das, was dein Kind gerade am meisten braucht.","prog.p":"Gleicher Preis. Gleiche kleine Gruppen mit maximal 12 Kindern. Die Kinder machen die ganze Stunde mit, statt nur zuzuschauen.","ai.tag":"KI-KOMPETENZ","ai.hook":"Erst die eigene Idee, dann die KI. Kinder lernen, mit KI zu bauen und ihre Fehler zu erkennen.","ai.f1b":"Eigene Ideen","ai.f1s":"Ihre eigenen, nicht die eines Chatbots","ai.f2b":"Kritisches Denken","ai.f2s":"Verzerrungen und falsche Antworten erkennen","ai.f3b":"Ein echtes Projekt","ai.f3s":"Von ihnen gebaut und präsentiert","ai.f4b":"Sicherheit im Netz","ai.f4s":"Datenschutz-Gewohnheiten, die bleiben","per.month":"/ Monat","ai.cta":"AI Lab gratis testen","ls.tag":"LEBENSKOMPETENZEN · SEL","ls.hook":"Teamspiele, die man nur durch Reden, Zuhören und Führen gewinnt. Ein Coach verbindet jedes Spiel mit dem echten Leben.","ls.f1b":"Sich trauen zu sprechen","ls.f1s":"Stille Kinder wachsen am meisten","ls.f2b":"Konflikte lösen","ls.f2s":"Geübt in einem sicheren Rahmen","ls.f3b":"Führen","ls.f3s":"Echte Entscheidungen, echter Einsatz","ls.f4b":"Echte Freunde","ls.f4s":"Jede Woche dieselbe Gruppe","ls.cta":"Life Skills gratis testen","games.h3":"Die Spiele hinter Life Skills","games.p":"Entwickelt von unseren Spieledesignern und Psychologen. Die Kinder denken, sie spielen nur.","sp.h3":"Mehr Flexibilität gewünscht?","sp.p":"Beide Programme gibt es auch als Version zum Selbstlernen. Ideal für Homeschool-Familien und Onlineschulen.","sp.cta":"Nach der Selbstlern-Version fragen","v2.cap":"Wie TomoClub KI-Kompetenz vermittelt","v2.badge":"Für AI-Lab-Eltern","v2.h3":"Du fragst dich, wie Kinder „KI lernen“, ohne einfach nur ChatGPT zu benutzen?","v2.p":"Dieses kurze Video zeigt genau, wie wir es vermitteln: Kinder denken zuerst selbst, testen KI-Tools gemeinsam und besprechen, was die KI richtig und falsch macht.","band1.b":"Jeden Tag ein nützlicher Erziehungstipp","band1.s":"Kurze, praktische Ideen zu KI, Bildschirmzeit und Lebenskompetenzen. Kostenlos auf WhatsApp.","band1.cta":"Auf WhatsApp folgen","trust.badge":"Warum Familien uns vertrauen","trust.h2":"Seriöse Referenzen. Richtig spaßige Stunden.","xp.kicker":"Bekannt aus Forbes","xp.h3":"Gegründet von Menschen, die schon Großes geschafft haben.","xp.p":"Die Gründer Avinash Bansal und Manik Mehta gewannen 2018 den mit 1 Million Dollar dotierten Women's Safety XPRIZE und präsentierten bei den Vereinten Nationen. Danach bauten sie ein Unternehmen für Unterhaltungselektronik auf und verkauften es. TomoClub ist das, was sie als Nächstes aufbauen wollten.","xp.cta":"Forbes-Artikel lesen","founders.cap":"Mitgründer, TomoClub","team.h3":"Sechs Arten von Experten hinter jeder Stunde.","disc.1":"Psychologen","disc.2":"Bildungsforscher","disc.3":"Spieledesigner","disc.4":"Lehrplan-Designer","disc.5":"Instructional Designer","disc.6":"Softwareentwickler","fw.cap":"Ausgerichtet an","res.badge":"Zuerst in Schulen bewährt","res.h2":"Echte Ergebnisse aus echten Klassenzimmern.","res1.p":"Zuwachs bei Führungsstärke und emotionaler Intelligenz von der ersten bis zur letzten Stunde.","res1.s":"IEM Charter Schools, 2023-24","res2.p":"der Achtklässler bestanden die AI-Lab-Einheiten zu Ethik und kritischem Denken.","res2.s":"Amity School District, 2025-26","res3.p":"der Kinder blieben in unseren Partnerschulen engagiert dabei.","res3.s":"Alle Partnerschulen","story.badge":"Schülergeschichte","story.h3":"Ein Schüler sah ein Problem. Dann baute er mit KI die Lösung.","story.p":"Sieh, wie ein Schüler eine App für Menschen entwickelte, die stottern. Genau darum geht es im AI Lab: Kinder haben Ideen, die zählen, und setzen sie mit KI um.","story.video":"Eine App für Menschen, die stottern, gebaut von einem Schüler","q.h2":"Was Eltern zu Hause bemerken","q1":"Mein Kind geht jetzt anders mit Dingen um. Sie wird nicht mehr so schnell wütend und versucht schneller, Probleme zu lösen.","q2":"Sie drückt ihre Gefühle klarer aus. Und findet viel schneller Lösungen als sonst.","q3":"Der Umgang mit Gleichaltrigen und das Lösen von Konflikten haben sich deutlich verbessert. Ein positiver, stressfreier Raum.","q4":"Tomo brachte Ideen und Gespräche, die die Saat für Problemlösung und innovatives Denken legen.","q.who":"Elternteil, IEM Charter School, Kalifornien","band2.b":"Triff andere TomoClub-Eltern auf WhatsApp","band2.s":"Leitfäden, Aktivitätsideen und Neuigkeiten aus der Community, mit einem Tipp.","steps.badge":"So geht es weiter","steps.h2":"Der Start dauert etwa eine Minute.","step.1":"SCHRITT 1","step1.h":"Kurzes Formular ausfüllen","step1.p":"Dauert unter einer Minute.","step.2":"SCHRITT 2","step2.h":"Termine erhalten","step2.p":"Wir ordnen dein Kind einer Gruppe zu und melden uns.","step.3":"SCHRITT 3","step3.h":"Erste Stunde gratis","step3.p":"Dein Kind probiert es aus. Du entscheidest danach.","step.4":"SCHRITT 4","step4.h":"Monatlicher Bericht","step4.p":"Sieh genau, wie dein Kind wächst.","price.badge":"Einfache Preise","price.h2":"Ein Tarif. Beide Programme.","price.p":"Pro Kind, monatlich abgerechnet. Keine Anmeldegebühr, kein Vertrag.","price.free":"ERSTE STUNDE GRATIS","price.currency":"Währung","price.per":"/ Monat pro Kind","price.region":"Abgerechnet in deiner Landeswährung","price.i1":"4 einstündige Live-Stunden pro Monat","price.i2":"Gruppen mit maximal 12 Kindern","price.i3":"Monatlicher Fortschrittsbericht","price.i4":"Jederzeit kündbar","price.cta":"Mit einer Gratisstunde starten","start.badge":"Los geht's","start.h2":"Direkt loslegen oder erst mal reden?","f1.kick":"Ich bin bereit","f1.h3":"Gratisstunde für mein Kind buchen","f1.p":"Wir melden uns mit Gruppe und Terminen.","f1.prog":"Welches Programm?","f1.both":"Beide Programme","f1.unsure":"Unsicher? Hilf mir bei der Wahl","f.name":"Dein Name","f.email":"E-Mail","f.wa":"WhatsApp-Nummer","f1.grade":"Klasse deines Kindes","f.select":"Auswählen","f1.country":"Land","f.consent":"TomoClub darf mich per E-Mail und WhatsApp kontaktieren.","f1.err":"Bitte ein Programm wählen, alle Felder ausfüllen und das Kästchen ankreuzen.","f1.submit":"Meine Gratisstunde buchen","f1.done.h":"Du bist dabei!","f1.done.p":"Unser Team schickt dir bald per WhatsApp Gruppe und Termine.","f1.done.cta":"Unserem WhatsApp-Kanal beitreten","f2.kick":"Ich habe Fragen","f2.h3":"Mit einem echten Menschen sprechen","f2.p":"Für Eltern, Homeschool-Netzwerke, Onlineschulen und Lehrkräfte.","f2.role":"Ich bin","r.parent":"Elternteil","r.home":"Homeschool-Netzwerk","r.online":"Onlineschule","r.edu":"Lehrkraft","r.other":"Sonstiges","f2.msg":"Worum geht es dir?","f.opt":"(optional)","f2.err":"Bitte die Pflichtfelder ausfüllen und das Kästchen ankreuzen.","f2.submit":"Rückruf anfragen","f2.done.h":"Angekommen, danke!","f2.done.p":"Jemand aus unserem Team meldet sich bald, um einen Termin zu vereinbaren.","net.badge":"Homeschool-Gruppen und Onlineschulen","net.h2":"Bring TomoClub in deine ganze Community.","net.p":"Private Live-Gruppen, Selbstlern-Lizenz für deine Lehrkräfte, Lehrerfortbildung und Gruppenpreise.","net.cta":"Sprich mit uns über dein Netzwerk","wab.h2":"Noch nicht so weit? Bleib dran.","wab.p":"Tägliche Erziehungstipps, KI-Leitfäden für Familien und Aktivitätsideen auf unserem WhatsApp-Kanal.","ig.badge":"Folge uns","ig.h2":"Leben bei TomoClub, auf Instagram","ig.p":"Stunden, Spiele, Schülerprojekte und Blicke hinter die Kulissen auf","ig.follow":"Folgen","ig.empty.b":"Unsere neuesten Instagram-Beiträge erscheinen hier.","ig.empty.s":"Live-Feed von @tomoclub_edu. Folge uns in der Zwischenzeit für Stunden, Spiele und Schülerprojekte.","ig.empty.cta":"Instagram öffnen","faq.badge":"Gute Fragen","faq.h2":"Was Eltern uns oft fragen","faq1.q":"Für welche Klassen ist das?","faq1.a":"Klassen 3 bis 12. Dein Kind kommt in eine Gruppe mit etwa gleichaltrigen Kindern.","faq2.q":"Was bedeutet „akkreditiert“?","faq2.a":"STEM.org hat jedes TomoClub-Programm geprüft und akkreditiert, und wir tragen die Auszeichnung Best in STEM (Top 5 %). Beides kannst du über die Abzeichen oben auf dieser Seite prüfen.","faq3.q":"Was passiert in der Gratisstunde?","faq3.a":"Eine komplette 60-minütige Live-Stunde mit Coach und einer echten Kindergruppe. Keine Kreditkarte nötig.","faq4.q":"Was kostet es?","faq4.a":"<b data-price=\"now\"></b> pro Monat und Kind für 4 einstündige Live-Stunden und einen monatlichen Fortschrittsbericht. Angezeigt in deiner Landeswährung.","faq5.q":"Was braucht mein Kind?","faq5.a":"Einen Laptop oder PC mit Webcam, Mikrofon und stabilem Internet.","faq6.q":"Werden die Stunden aufgezeichnet?","faq6.a":"Nein. So sprechen Kinder freier. Die Coaches machen stattdessen Notizen für deinen Monatsbericht.","pod.h3":"Lust auf mehr?","pod.p":"Hör The Learning Shift, unseren Podcast mit Schulleitungen darüber, wie man Kinder für eine Welt mit KI stark macht.","pod.cta":"Folgen anhören →","foot.p":"Akkreditierte Programme für KI-Kompetenz und Lebenskompetenzen, für Schulen und Familien.","foot.contact":"Kontakt","foot.follow":"Folge uns","foot.wa":"WhatsApp-Kanal","foot.pod":"Podcast The Learning Shift","foot.legal":"© 2026 TomoClub. Alle Rechte vorbehalten.","mbar.talk":"Kontakt","mbar.free":"Gratisstunde","grade":"Klasse {n}","sending":"Wird gesendet...","tryagain":"Erneut versuchen","senderr":"Das hat nicht geklappt. Bitte versuche es erneut oder schreibe an info@tomoclub.org."},"pt":{"eng.note":"As aulas são em inglês.","price.i5":"Aulas ao vivo em inglês","faq7.q":"Em que idioma são as aulas?","faq7.a":"Todas as aulas são dadas em inglês pelos nossos coaches. Crianças que acompanham instruções em inglês com conforto vão bem, e os jogos facilitam a participação.","wa.strip":"Dicas gratuitas para pais e novidades da TomoClub, direto no seu WhatsApp.","wa.join":"Entrar no canal","nav.programs":"Programas","nav.why":"Por que a TomoClub","nav.pricing":"Preços","nav.faq":"Dúvidas","nav.cta":"Agendar aula grátis","hero.badge":"Agora aberto às famílias · A primeira aula é grátis","hero.h1":"Crie uma criança que <span class=\"hl\">pensa por si mesma</span> na era da IA.","hero.lead":"Aulas online ao vivo para crianças do 3.º ao 12.º ano. Elas jogam em equipe, constroem projetos reais e aprendem a usar a IA sem deixar que ela pense por elas.","hero.cta1":"Agendar uma aula grátis","hero.cta2":"Falar com nossa equipe","hero.note":"Sem cartão. Depois, <b data-price=\"now\"></b> por mês por 4 aulas ao vivo. Cancele quando quiser.","chip.acc":"Acreditado pela STEM.org","chip.verify":"Verificar →","chip.best":"Best in STEM™","chip.best.s":"Top 5% · Verificar →","chip.cert":"Certificado STEM.org","chip.cert.s":"Treinadores máster","chip.google":"Certificado Google","chip.google.s":"Educadores","watch":"Assistir","hero.video":"Entre em uma aula real da TomoClub","partners.cap":"Mais de 10.000 alunos · 12+ estados dos EUA · 10+ países","partners.cap2":"Escolas e programas de educação domiciliar como estes confiam em nós","prog.badge":"Dois programas","prog.h2":"Escolha o que seu filho mais precisa agora.","prog.p":"Mesmo preço. Mesmos grupos pequenos de até 12. As crianças passam a hora fazendo, não assistindo.","ai.tag":"LETRAMENTO EM IA","ai.hook":"Primeiro a ideia deles, depois a IA. As crianças aprendem a criar com IA e a perceber quando ela erra.","ai.f1b":"Ideias próprias","ai.f1s":"Deles, não de um chatbot","ai.f2b":"Pensamento crítico","ai.f2s":"Identificar vieses e respostas falsas","ai.f3b":"Um projeto real","ai.f3s":"Construído e apresentado por eles","ai.f4b":"Segurança online","ai.f4s":"Hábitos de privacidade que ficam","per.month":"/ mês","ai.cta":"Testar o AI Lab grátis","ls.tag":"HABILIDADES PARA A VIDA · SEL","ls.hook":"Jogos em equipe que só se vencem falando, ouvindo e liderando. Um coach liga cada jogo à vida real.","ls.f1b":"Ter voz","ls.f1s":"As crianças tímidas são as que mais crescem","ls.f2b":"Lidar com conflitos","ls.f2s":"Praticado em um espaço seguro","ls.f3b":"Liderar","ls.f3s":"Decisões reais, riscos reais","ls.f4b":"Amigos de verdade","ls.f4s":"O mesmo grupo toda semana","ls.cta":"Testar o Life Skills grátis","games.h3":"Os jogos por trás do Life Skills","games.p":"Criados por nossos designers de jogos e psicólogos. As crianças acham que estão só brincando.","sp.h3":"Precisa de mais flexibilidade?","sp.p":"Os dois programas também existem em versão no seu ritmo. Ideal para famílias que educam em casa e escolas online.","sp.cta":"Perguntar sobre a versão no seu ritmo","v2.cap":"Como a TomoClub ensina letramento em IA","v2.badge":"Para pais do AI Lab","v2.h3":"Quer saber como as crianças \"aprendem IA\" sem apenas usar o ChatGPT?","v2.p":"Este vídeo curto mostra exatamente como ensinamos: as crianças pensam primeiro, testam ferramentas de IA juntas e discutem o que a IA acerta e erra.","band1.b":"Receba uma dica útil por dia","band1.s":"Ideias curtas e práticas sobre IA, telas e habilidades para a vida. Grátis no WhatsApp.","band1.cta":"Seguir no WhatsApp","trust.badge":"Por que as famílias confiam em nós","trust.h2":"Credenciais sérias. Aulas muito divertidas.","xp.kicker":"Destaque na Forbes","xp.h3":"Criado por fundadores que já fizeram grandes coisas.","xp.p":"Os fundadores Avinash Bansal e Manik Mehta venceram o Women's Safety XPRIZE de US$ 1 milhão em 2018 e apresentaram seu trabalho nas Nações Unidas. Depois criaram e venderam uma empresa de eletrônicos. A TomoClub é o que escolheram construir em seguida.","xp.cta":"Ler a matéria da Forbes","founders.cap":"Cofundadores, TomoClub","team.h3":"Seis tipos de especialistas por trás de cada aula.","disc.1":"Psicólogos","disc.2":"Pesquisadores em educação","disc.3":"Designers de jogos","disc.4":"Designers de currículo","disc.5":"Designers instrucionais","disc.6":"Desenvolvedores de software","fw.cap":"Alinhado a","res.badge":"Testado primeiro nas escolas","res.h2":"Resultados reais de salas de aula reais.","res1.p":"de crescimento em liderança e inteligência emocional da primeira à última aula.","res1.s":"IEM Charter Schools, 2023-24","res2.p":"dos alunos do 8.º ano foram aprovados nas sessões do AI Lab sobre ética e pensamento crítico.","res2.s":"Amity School District, 2025-26","res3.p":"das crianças se mantiveram engajadas em nossas escolas parceiras.","res3.s":"Todas as escolas parceiras","story.badge":"História de um aluno","story.h3":"Um aluno viu um problema. Depois usou a IA para resolvê-lo.","story.p":"Veja como um aluno criou um app para ajudar pessoas que gaguejam. É disso que o AI Lab trata: crianças com ideias que importam, usando a IA para tirá-las do papel.","story.video":"Um app para pessoas que gaguejam, criado por um aluno","q.h2":"O que os pais percebem em casa","q1":"Minha filha lida com as coisas de outro jeito agora. Demora mais para se irritar e tenta resolver os problemas mais rápido.","q2":"Ela expressa as emoções com mais clareza. E encontra soluções bem mais rápido do que antes.","q3":"A interação com os colegas e a resolução de conflitos melhoraram muito. Um espaço positivo e sem estresse.","q4":"A Tomo trouxe ideias e discussões que plantam sementes para resolver problemas e pensar de forma inovadora.","q.who":"Mãe/pai, IEM Charter School, Califórnia","band2.b":"Junte-se a outros pais da TomoClub no WhatsApp","band2.s":"Guias, ideias de atividades e novidades da comunidade, a um toque.","steps.badge":"O que acontece depois","steps.h2":"Começar leva cerca de um minuto.","step.1":"PASSO 1","step1.h":"Preencha um formulário curto","step1.p":"Menos de um minuto.","step.2":"PASSO 2","step2.h":"Receba seu horário","step2.p":"Colocamos seu filho em um grupo e entramos em contato.","step.3":"PASSO 3","step3.h":"Primeira aula grátis","step3.p":"Seu filho experimenta. Você decide depois.","step.4":"PASSO 4","step4.h":"Relatório mensal","step4.p":"Veja exatamente como seu filho está crescendo.","price.badge":"Preço simples","price.h2":"Um plano. Qualquer um dos programas.","price.p":"Por criança, cobrado mensalmente. Sem taxa de inscrição, sem contrato.","price.free":"PRIMEIRA AULA GRÁTIS","price.currency":"Moeda","price.per":"/ mês por criança","price.region":"Cobrado na sua moeda local","price.i1":"4 aulas ao vivo de uma hora por mês","price.i2":"Grupos de até 12 crianças","price.i3":"Relatório de progresso mensal","price.i4":"Cancele quando quiser","price.cta":"Começar com uma aula grátis","start.badge":"Vamos começar","start.h2":"Pronto para começar, ou prefere conversar antes?","f1.kick":"Estou pronto","f1.h3":"Agendar a aula grátis do meu filho","f1.p":"Vamos entrar em contato com seu grupo e horário.","f1.prog":"Qual programa?","f1.both":"Os dois programas","f1.unsure":"Não sabe? Me ajude a escolher","f.name":"Seu nome","f.email":"E-mail","f.wa":"Número de WhatsApp","f1.grade":"Ano escolar do seu filho","f.select":"Selecionar","f1.country":"País","f.consent":"A TomoClub pode entrar em contato comigo por e-mail e WhatsApp.","f1.err":"Escolha um programa, preencha todos os campos e marque a caixa.","f1.submit":"Agendar minha aula grátis","f1.done.h":"Pronto!","f1.done.p":"Nossa equipe vai enviar em breve, pelo WhatsApp, seu grupo e horário.","f1.done.cta":"Entrar no nosso canal do WhatsApp","f2.kick":"Tenho dúvidas","f2.h3":"Fale com uma pessoa de verdade","f2.p":"Para pais, redes de educação domiciliar, escolas online e educadores.","f2.role":"Eu sou","r.parent":"Mãe/pai","r.home":"Rede de educação domiciliar","r.online":"Escola online","r.edu":"Educador","r.other":"Outro","f2.msg":"O que você gostaria de saber?","f.opt":"(opcional)","f2.err":"Preencha os campos obrigatórios e marque a caixa.","f2.submit":"Pedir uma ligação","f2.done.h":"Recebido, obrigado!","f2.done.p":"Alguém da nossa equipe entrará em contato em breve para marcar uma conversa.","net.badge":"Grupos de educação domiciliar e escolas online","net.h2":"Leve a TomoClub para toda a sua comunidade.","net.p":"Grupos privados ao vivo, licença no seu ritmo para seus educadores, formação de professores e preços para grupos.","net.cta":"Fale conosco sobre sua rede","wab.h2":"Ainda não? Fique por dentro.","wab.p":"Dicas diárias para pais, guias de IA para famílias e ideias de atividades no nosso canal do WhatsApp.","ig.badge":"Acompanhe","ig.h2":"A vida na TomoClub, no Instagram","ig.p":"Aulas, jogos, projetos dos alunos e bastidores em","ig.follow":"Seguir","ig.empty.b":"Nossos posts mais recentes do Instagram aparecem aqui.","ig.empty.s":"Feed ao vivo de @tomoclub_edu. Enquanto isso, siga-nos para ver aulas, jogos e projetos dos alunos.","ig.empty.cta":"Abrir o Instagram","faq.badge":"Boas perguntas","faq.h2":"O que os pais costumam perguntar","faq1.q":"Para quais anos escolares?","faq1.a":"Do 3.º ao 12.º ano. Seu filho fica em um grupo com crianças de idade parecida.","faq2.q":"O que significa \"acreditado\"?","faq2.a":"A STEM.org avaliou e acreditou todos os programas da TomoClub, e temos a distinção Best in STEM (top 5%). Você pode verificar as duas pelos selos no topo desta página.","faq3.q":"O que acontece na aula grátis?","faq3.a":"Uma aula completa de 60 minutos ao vivo com um coach e um grupo real de crianças. Sem cartão de crédito.","faq4.q":"Quanto custa?","faq4.a":"<b data-price=\"now\"></b> por mês por criança por 4 aulas ao vivo de uma hora e um relatório de progresso mensal. Exibido na sua moeda local.","faq5.q":"O que meu filho precisa?","faq5.a":"Um notebook ou computador com webcam, microfone e internet estável.","faq6.q":"As aulas são gravadas?","faq6.a":"Não. Assim as crianças falam com mais liberdade. Os coaches fazem anotações para o seu relatório mensal.","pod.h3":"Quer se aprofundar?","pod.p":"Ouça o The Learning Shift, nosso podcast com líderes escolares sobre criar filhos para um mundo com IA.","pod.cta":"Ouvir episódios →","foot.p":"Programas acreditados de letramento em IA e habilidades para a vida, para escolas e famílias.","foot.contact":"Contato","foot.follow":"Siga-nos","foot.wa":"Canal do WhatsApp","foot.pod":"Podcast The Learning Shift","foot.legal":"© 2026 TomoClub. Todos os direitos reservados.","mbar.talk":"Fale conosco","mbar.free":"Aula grátis","grade":"{n}.º ano","sending":"Enviando...","tryagain":"Tentar de novo","senderr":"Não foi possível enviar. Tente de novo ou escreva para info@tomoclub.org."},"zh":{"eng.note":"课程以英语授课。","price.i5":"直播课以英语授课","faq7.q":"课程用什么语言授课？","faq7.a":"所有课程都由我们的教练用英语授课。能够听懂英语指令的孩子都能学得很好，游戏也让参与变得容易。","wa.strip":"免费育儿小贴士和 TomoClub 最新动态，直接发送到您的 WhatsApp。","wa.join":"加入频道","nav.programs":"课程","nav.why":"为什么选择 TomoClub","nav.pricing":"价格","nav.faq":"常见问题","nav.cta":"预约免费课","hero.badge":"现已面向家庭开放 · 第一节课免费","hero.h1":"在 AI 时代，培养一个<span class=\"hl\">会独立思考</span>的孩子。","hero.lead":"面向 3 至 12 年级孩子的在线直播课。孩子们玩团队游戏、做真实项目，并学会使用 AI，而不是让 AI 替他们思考。","hero.cta1":"预约一节免费课","hero.cta2":"联系我们的团队","hero.note":"无需绑卡。之后每月 <b data-price=\"now\"></b>，含 4 节直播课。随时取消。","chip.acc":"STEM.org 认证课程","chip.verify":"查验 →","chip.best":"Best in STEM™","chip.best.s":"前 5% · 查验 →","chip.cert":"STEM.org 认证","chip.cert.s":"资深培训师","chip.google":"Google 认证","chip.google.s":"教育者","watch":"观看","hero.video":"走进一节真实的 TomoClub 课堂","partners.cap":"10,000+ 名学生 · 美国 12+ 个州 · 10+ 个国家","partners.cap2":"深受这些学校和家庭教育项目的信赖","prog.badge":"两个课程","prog.h2":"选一个孩子现在最需要的。","prog.p":"价格相同，同样是最多 12 人的小组。孩子整节课都在动手，而不是旁观。","ai.tag":"AI 素养","ai.hook":"先有孩子自己的想法，再用 AI。孩子学会用 AI 创作，也学会发现 AI 的错误。","ai.f1b":"原创想法","ai.f1s":"是孩子的，不是聊天机器人的","ai.f2b":"批判性思维","ai.f2s":"识别偏见和虚假答案","ai.f3b":"一个真实项目","ai.f3s":"由孩子自己完成并展示","ai.f4b":"网络安全","ai.f4s":"养成保护隐私的习惯","per.month":"/ 月","ai.cta":"免费试上 AI Lab","ls.tag":"生活技能 · SEL","ls.hook":"只有靠沟通、倾听和带领才能赢的团队游戏。教练把每个游戏和真实生活联系起来。","ls.f1b":"敢于表达","ls.f1s":"内向的孩子进步最大","ls.f2b":"处理冲突","ls.f2s":"在安全的环境中练习","ls.f3b":"学会带领","ls.f3s":"真实的决定，真实的考验","ls.f4b":"真正的朋友","ls.f4s":"每周都是同一组伙伴","ls.cta":"免费试上 Life Skills","games.h3":"Life Skills 背后的游戏","games.p":"由我们的游戏设计师和心理学家打造。孩子以为自己只是在玩。","sp.h3":"需要更灵活的安排？","sp.p":"两个课程都提供自主学习版本，适合在家教育的家庭和在线学校。","sp.cta":"咨询自主学习版本","v2.cap":"TomoClub 如何教授 AI 素养","v2.badge":"给 AI Lab 的家长","v2.h3":"想知道孩子怎样“学 AI”，而不只是用 ChatGPT？","v2.p":"这段短视频展示了我们的教法：孩子先自己思考，再一起测试 AI 工具，然后讨论 AI 哪里对、哪里错。","band1.b":"每天一条实用育儿建议","band1.s":"关于 AI、屏幕时间和生活技能的简短实用建议。WhatsApp 上免费获取。","band1.cta":"在 WhatsApp 上关注","trust.badge":"家庭为何信任我们","trust.h2":"过硬的资质，真正有趣的课堂。","xp.kicker":"福布斯报道","xp.h3":"由曾做成大事的创始人打造。","xp.p":"创始人 Avinash Bansal 和 Manik Mehta 于 2018 年赢得 100 万美元的女性安全 XPRIZE 大奖，并在联合国进行了展示。之后他们创办并成功出售了一家消费电子公司。TomoClub 是他们接下来选择做的事。","xp.cta":"阅读福布斯报道","founders.cap":"TomoClub 联合创始人","team.h3":"每节课背后有六类专家。","disc.1":"心理学家","disc.2":"教育研究者","disc.3":"游戏设计师","disc.4":"课程设计师","disc.5":"教学设计师","disc.6":"软件开发者","fw.cap":"对标框架","res.badge":"先在学校验证","res.h2":"来自真实课堂的真实成果。","res1.p":"从第一节课到最后一节课，领导力和情商的提升幅度。","res1.s":"IEM Charter Schools，2023-24","res2.p":"的八年级学生通过了 AI Lab 关于伦理和批判性思维的课程。","res2.s":"Amity School District，2025-26","res3.p":"的孩子在我们的合作学校中保持高度投入。","res3.s":"所有合作学校","story.badge":"学生故事","story.h3":"一位学生发现了问题，然后用 AI 做出了解决方案。","story.p":"看看一位学生如何做出一款帮助口吃者的应用。这就是 AI Lab：孩子提出有意义的想法，再用 AI 把它变成现实。","story.video":"一位学生做的、帮助口吃者的应用","q.h2":"家长在家中看到的变化","q1":"我的孩子现在处理事情的方式不一样了。她不那么容易生气，更快地去想办法解决问题。","q2":"她能更清楚地表达自己的情绪，也比以前更快找到解决办法。","q3":"和同伴的互动以及解决冲突的能力明显提高了。这是一个积极、没有压力的空间。","q4":"Tomo 带来的想法和讨论，为解决问题和创新思维播下了种子。","q.who":"家长，IEM Charter School，加利福尼亚","band2.b":"在 WhatsApp 上加入其他 TomoClub 家长","band2.s":"指南、活动点子和社区动态，一键获取。","steps.badge":"接下来会怎样","steps.h2":"开始只需大约一分钟。","step.1":"第 1 步","step1.h":"填写一份简短表单","step1.p":"不到一分钟。","step.2":"第 2 步","step2.h":"收到课程安排","step2.p":"我们为孩子匹配小组并联系您。","step.3":"第 3 步","step3.h":"第一节课免费","step3.p":"孩子先试，您之后再决定。","step.4":"第 4 步","step4.h":"每月报告","step4.p":"清楚看到孩子的成长。","price.badge":"简单定价","price.h2":"一个套餐，任选课程。","price.p":"按孩子计费，按月支付。无报名费，无合同。","price.free":"第一节课免费","price.currency":"货币","price.per":"/ 月 / 每个孩子","price.region":"以您的当地货币计费","price.i1":"每月 4 节一小时直播课","price.i2":"每组最多 12 个孩子","price.i3":"每月进度报告","price.i4":"随时取消","price.cta":"从免费课开始","start.badge":"开始吧","start.h2":"准备好开始了，还是想先聊聊？","f1.kick":"我准备好了","f1.h3":"为孩子预约免费课","f1.p":"我们会把小组和课程安排发给您。","f1.prog":"选择课程","f1.both":"两个课程都要","f1.unsure":"不确定？帮我选","f.name":"您的姓名","f.email":"电子邮箱","f.wa":"WhatsApp 号码","f1.grade":"孩子的年级","f.select":"请选择","f1.country":"国家/地区","f.consent":"TomoClub 可以通过邮件和 WhatsApp 联系我。","f1.err":"请选择课程，填写所有信息并勾选同意框。","f1.submit":"预约我的免费课","f1.done.h":"预约成功！","f1.done.p":"我们的团队很快会通过 WhatsApp 发送小组和课程安排。","f1.done.cta":"加入我们的 WhatsApp 频道","f2.kick":"我有问题","f2.h3":"和真人聊聊","f2.p":"面向家长、在家教育网络、在线学校和教育者。","f2.role":"我是","r.parent":"家长","r.home":"在家教育网络","r.online":"在线学校","r.edu":"教育者","r.other":"其他","f2.msg":"您想了解什么？","f.opt":"（选填）","f2.err":"请填写必填项并勾选同意框。","f2.submit":"申请通话","f2.done.h":"已收到，谢谢！","f2.done.p":"我们的团队成员很快会联系您安排通话。","net.badge":"在家教育团体和在线学校","net.h2":"把 TomoClub 带给您的整个社群。","net.p":"私享直播小组、供您的教育者使用的自主学习授权、教师培训和团体价格。","net.cta":"和我们聊聊您的网络","wab.h2":"还没准备好？保持联系。","wab.p":"我们的 WhatsApp 频道每天提供育儿建议、家庭 AI 指南和活动点子。","ig.badge":"关注我们","ig.h2":"Instagram 上的 TomoClub 日常","ig.p":"课堂、游戏、学生项目和幕后花絮，尽在","ig.follow":"关注","ig.empty.b":"我们最新的 Instagram 动态会显示在这里。","ig.empty.s":"来自 @tomoclub_edu 的实时动态。在此之前，欢迎关注我们，查看课堂、游戏和学生项目。","ig.empty.cta":"打开 Instagram","faq.badge":"常见问题","faq.h2":"家长常问的问题","faq1.q":"适合哪些年级？","faq1.a":"3 至 12 年级。孩子会和年龄相近的同伴分在一组。","faq2.q":"“认证”是什么意思？","faq2.a":"STEM.org 已审核并认证了 TomoClub 的每一个课程，我们还获得了 Best in STEM 荣誉（前 5%）。您可以通过本页顶部的徽章查验。","faq3.q":"免费课上会做什么？","faq3.a":"一节完整的 60 分钟直播课，有教练和真实的孩子小组。无需信用卡。","faq4.q":"费用是多少？","faq4.a":"每个孩子每月 <b data-price=\"now\"></b>，含 4 节一小时直播课和每月进度报告。以您的当地货币显示。","faq5.q":"孩子需要准备什么？","faq5.a":"一台带摄像头和麦克风的笔记本或台式电脑，以及稳定的网络。","faq6.q":"课程会录像吗？","faq6.a":"不会。这样孩子更敢表达。教练会做笔记，用于您的每月报告。","pod.h3":"想了解更多？","pod.p":"收听我们的播客 The Learning Shift，与学校负责人探讨如何培养孩子迎接 AI 时代。","pod.cta":"收听节目 →","foot.p":"面向学校和家庭的 AI 素养与生活技能认证课程。","foot.contact":"联系方式","foot.follow":"关注我们","foot.wa":"WhatsApp 频道","foot.pod":"The Learning Shift 播客","foot.legal":"© 2026 TomoClub. 保留所有权利。","mbar.talk":"联系我们","mbar.free":"免费课","grade":"{n} 年级","sending":"发送中...","tryagain":"再试一次","senderr":"发送失败，请重试，或发邮件至 info@tomoclub.org。"},"en":{"eng.note":"Classes are taught in English.","grade":"Grade {n}","sending":"Sending...","tryagain":"Try again","senderr":"That didn't go through. Please try again, or email info@tomoclub.org.","q1":"My child deals with things differently now. She is slower to anger and quicker to try to problem solve.","q2":"She will express her emotions more clearly. And find solutions a lot quicker than usual.","q3":"Peer interactions and conflict resolution significantly increased. Just a positive, non-stressful space.","q4":"Tomo presented ideas and discussions that plant seeds for problem solving and innovative thinking.","q.who":"Parent, IEM Charter School, California"}};
+/* Real parent quotes. Add a country block (e.g. IN:[{t:'...',who:'...'}]) to show local parents to that country. */
+const QUOTES_BY_COUNTRY = {};
+
+/* ================= LOCALE ================= */
+const state = {lang:'en', country:'US', cur:'USD'};
+function guessCountry(){
+  try{const tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(TZ[tz]) return TZ[tz]; if(/^Australia\//.test(tz)) return 'AU'; if(/^America\//.test(tz)) return 'US';}catch(e){}
+  const l=(navigator.language||'').split('-')[1]; return (l&&COUNTRIES[l.toUpperCase()])?l.toUpperCase():'US';
+}
+function guessLang(country){
+  for(const l of (navigator.languages||[navigator.language||'en'])){const p=l.split('-')[0].toLowerCase(); if(LANGS.includes(p)) return p;}
+  return (COUNTRIES[country]||COUNTRIES.OTHER).lang;
+}
+function t(key){ return (T[state.lang]&&T[state.lang][key]) || (T.en&&T.en[key]) || null; }
+const EN = {}; /* English defaults captured from the markup */
+document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el=>{const k=el.dataset.i18n||el.dataset.i18nHtml; if(!(k in EN)) EN[k]= el.dataset.i18nHtml!==undefined ? el.innerHTML : el.textContent;});
+
+function applyLang(lang){
+  state.lang=lang; document.documentElement.lang = lang==='zh'?'zh-Hans':lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n; const v=(lang!=='en'&&T[lang]&&T[lang][k])||EN[k]; if(v!=null) el.textContent=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml; const v=(lang!=='en'&&T[lang]&&T[lang][k])||EN[k]; if(v!=null) el.innerHTML=v;});
+  document.getElementById('langSel').value=lang;
+  fillGrades(); fillCountries(); renderQuotes(); renderPrices();
+  try{localStorage.setItem('tomo-lang',lang)}catch(e){}
+}
+function fmt(n,cur){
+  const loc={en:'en-US',hi:'hi-IN',es:'es',fr:'fr-FR',de:'de-DE',pt:'pt-BR',zh:'zh-CN'}[state.lang]||'en';
+  try{return new Intl.NumberFormat(cur==='INR'?'en-IN':(cur==='MXN'?'en-US':loc),{style:'currency',currency:cur,maximumFractionDigits:0}).format(n);}catch(e){return cur+' '+n;}
+}
+function renderPrices(){
+  const p=PRICES[state.cur]||PRICES.USD;
+  document.querySelectorAll('[data-price="now"]').forEach(el=>el.textContent=fmt(p[0],state.cur));
+  document.querySelectorAll('[data-price="was"]').forEach(el=>el.textContent=fmt(p[1],state.cur));
+  const rg=document.querySelector('[data-i18n="price.region"]'); if(rg){let cn=state.country; try{cn=new Intl.DisplayNames([state.lang==='zh'?'zh-Hans':state.lang],{type:'region'}).of(state.country)}catch(e){} rg.textContent=(t('price.region')||EN['price.region'])+' · '+cn+' ('+state.cur+')';}
+  document.querySelectorAll('#e-det,#t-det').forEach(i=>i.value=state.country);
+  document.querySelectorAll('#e-cur,#t-cur').forEach(i=>i.value=state.cur);
+  document.querySelectorAll('#e-lang,#t-lang').forEach(i=>i.value=state.lang);
+}
+/* Currency is set only from the visitor's detected country; there is no manual switch on purpose. */
+function setCurrency(cur){ state.cur=PRICES[cur]?cur:'USD'; renderPrices(); }
+function fillGrades(){
+  const sel=document.querySelector('[data-grades]'); const keep=sel.value; const pat=t('grade')||'Grade {n}';
+  sel.innerHTML='<option value="">'+(t('f.select')||EN['f.select'])+'</option>'+[3,4,5,6,7,8,9,10,11,12].map(n=>'<option value="Grade '+n+'">'+pat.replace('{n}',n)+'</option>').join('');
+  sel.value=keep;
+}
+function fillCountries(){
+  const sel=document.querySelector('[data-countries]'); const keep=sel.value||state.country;
+  let dn=null; try{dn=new Intl.DisplayNames([state.lang==='zh'?'zh-Hans':state.lang],{type:'region'});}catch(e){}
+  const codes=Object.keys(COUNTRIES).filter(c=>c!=='OTHER');
+  const rows=codes.map(c=>({c,n:(dn&&dn.of(c))||c})).sort((a,b)=>a.n.localeCompare(b.n,state.lang));
+  sel.innerHTML='<option value="">'+(t('f.select')||EN['f.select'])+'</option>'+rows.map(r=>'<option value="'+r.c+'">'+r.n+'</option>').join('')+'<option value="OTHER">'+({en:'Other',hi:'अन्य',es:'Otro',fr:'Autre',de:'Anderes Land',pt:'Outro',zh:'其他'}[state.lang]||'Other')+'</option>';
+  sel.value=keep;
+}
+function applyCountry(c){
+  state.country=c; const cfg=COUNTRIES[c]||COUNTRIES.OTHER;
+  document.querySelectorAll('[data-phone]').forEach(i=>i.placeholder=cfg.tel+' ...');
+  const sel=document.querySelector('[data-countries]'); if(sel) sel.value=c;
+  renderQuotes();
+}
+function renderQuotes(){
+  const box=document.getElementById('quotes'); if(!box) return;
+  const esc=s=>String(s||'').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  const colors=['var(--teal)','#B34158','#B07D00','#334155'];
+  let list=QUOTES_BY_COUNTRY[state.country];
+  if(!list||!list.length){ list=[1,2,3,4].map(i=>({t:t('q'+i),who:t('q.who')})); }
+  box.innerHTML=list.slice(0,4).map((q,i)=>'<figure class="testimonial-card" style="margin:0"><p>'+esc(q.t)+'</p><div class="who"><span class="av" style="background:'+colors[i%4]+'">'+esc((q.name||'P')[0].toUpperCase())+'</span>'+esc(q.name?q.name+', '+q.who:q.who)+'</div></figure>').join('');
+}
+
+/* Boot: saved choice > guess from browser */
+(function(){
+  const c=guessCountry(); let lang=guessLang(c), cur=(COUNTRIES[c]||COUNTRIES.OTHER).cur;
+  try{lang=localStorage.getItem('tomo-lang')||lang;}catch(e){}
+  state.country=c; state.cur=PRICES[cur]?cur:'USD';
+  applyLang(LANGS.includes(lang)?lang:'en'); applyCountry(c);
+  document.getElementById('langSel').addEventListener('change',e=>applyLang(e.target.value));
+  /* Picking a country in the form only sets the phone prefix; it does not change the price shown. */
+  document.querySelector('[data-countries]').addEventListener('change',e=>{ if(e.target.value){ const cfg=COUNTRIES[e.target.value]||COUNTRIES.OTHER; document.querySelectorAll('[data-phone]').forEach(i=>i.placeholder=cfg.tel+' ...'); } });
+})();
+
+/* IP-based country: refines the time-zone guess once the lookup answers */
+(async function(){
+  for(const api of GEO_APIS){
+    try{
+      const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(),2500);
+      const r=await fetch(api.url,{signal:ctl.signal}); clearTimeout(tm); if(!r.ok) continue;
+      const code=String(await api.pick(r)||'').trim().toUpperCase();
+      if(!/^[A-Z]{2}$/.test(code)) continue;
+      const c=COUNTRIES[code]?code:'OTHER';
+      if(c!==state.country){ applyCountry(c); setCurrency(COUNTRIES[c].cur); fillCountries(); }
+      return;
+    }catch(e){}
+  }
+})();
+
+/* Theme toggle */
+(function(){
+  const root=document.documentElement, btn=document.getElementById('themeBtn');
+  const isDark=()=> root.dataset.theme ? root.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const paint=()=>{const d=isDark(); btn.innerHTML='<svg class="icon"><use href="#i-'+(d?'sun':'moon')+'"/></svg>'; btn.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode');};
+  try{const s=localStorage.getItem('tomo-theme'); if(s) root.dataset.theme=s;}catch(e){}
+  paint();
+  btn.addEventListener('click',()=>{const n=isDark()?'light':'dark'; root.dataset.theme=n; try{localStorage.setItem('tomo-theme',n)}catch(e){} paint();});
+  matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',paint);
+})();
+
+/* Image fallbacks */
+(function(){
+  function fail(img){
+    if(img.classList.contains('poster')) return;
+    if(img.dataset.fb==='drop'){img.remove();return;}
+    const box=img.closest('[data-thumb]'); if(box){box.classList.add('fallback');}
+  }
+  document.querySelectorAll('img').forEach(img=>{
+    if(!img.getAttribute('src')){fail(img);return;}
+    if(img.complete && img.naturalWidth===0) fail(img); else img.addEventListener('error',()=>fail(img));
+  });
+})();
+
+/* Buttons that prefill the forms */
+document.querySelectorAll('[data-prog]').forEach(a=>a.addEventListener('click',()=>{const r=document.getElementById(a.dataset.prog==='AI Lab'?'p-ai':'p-ls'); r.checked=true;}));
+document.querySelectorAll('[data-role]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('t-role').value=a.dataset.role}));
+document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{const m=document.getElementById('t-msg'); if(!m.value) m.value="I'd like to know more about the self-paced version."}));
+
+/* Instagram: live feed from Behold */
+(function(){
+  const track=document.getElementById('igTrack'), empty=document.getElementById('igEmpty'); if(!track) return;
+  const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function render(posts){
+    if(!posts.length) return;
+    track.innerHTML=posts.slice(0,12).map(p=>'<a class="ig-tile" href="'+esc(p.url)+'" target="_blank" rel="noopener"><img src="'+esc(p.img)+'" alt="'+esc(p.alt||'Instagram post')+'" loading="lazy">'+(p.caption?'<span class="ig-cap">'+esc(p.caption)+'</span>':'')+'</a>').join('');
+    track.hidden=false; empty.hidden=true; document.querySelectorAll('.ig-btn').forEach(b=>b.hidden=false);
+  }
+  document.querySelectorAll('.ig-btn').forEach(b=>{b.hidden=true;b.addEventListener('click',()=>track.scrollBy({left:track.clientWidth*0.9*(+b.dataset.dir),behavior:'smooth'}));});
+  if(INSTAGRAM_FEED_URL){
+    fetch(INSTAGRAM_FEED_URL).then(r=>r.json()).then(d=>{
+      const list=(d.posts||[]).map(p=>({url:p.permalink,img:(p.sizes&&p.sizes.medium&&p.sizes.medium.mediaUrl)||p.thumbnailUrl||p.mediaUrl,caption:(p.prunedCaption||p.caption||'').split('\n')[0],alt:p.altText}));
+      render(list.filter(p=>p.url&&p.img));
+    }).catch(()=>{});
+  }
+})();
+
+/* Back to top */
+(function(){const b=document.getElementById('toTop');const on=()=>b.classList.toggle('show',scrollY>700);addEventListener('scroll',on,{passive:true});on();b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));})();
+
+/* Videos: play in place on the live site, open YouTube in previews */
+document.querySelectorAll('.video[data-yt]').forEach(v=>v.addEventListener('click',e=>{
+  if(!EMBED_VIDEOS) return;
+  e.preventDefault(); if(v.querySelector('iframe')) return;
+  const f=document.createElement('iframe');
+  f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0';
+  f.allow='autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen=true; f.title='TomoClub video';
+  v.appendChild(f);
+}));
+
+/* Forms -> Google Sheets + Slack (via Apps Script) */
+document.querySelectorAll('form[data-form]').forEach(form=>{
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const err=form.querySelector('.err');
+    if(!form.checkValidity()){err.classList.add('show');form.querySelector(':invalid')?.focus();return;}
+    err.classList.remove('show');
+    const btn=form.querySelector('button[type=submit]'); const label=btn.textContent; btn.disabled=true; btn.textContent=t('sending')||'Sending...';
+    const data=Object.fromEntries(new FormData(form));
+    data.form=form.dataset.form; data.page=location.href; data.submitted_at=new Date().toISOString();
+    try{
+      if(FORM_ENDPOINT){await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});}
+      form.style.display='none'; form.parentElement.querySelector('.done').classList.add('show');
+    }catch(x){btn.disabled=false;btn.textContent=t('tryagain')||'Try again';err.textContent=t('senderr');err.classList.add('show');}
+  });
+});
+</script>
+
+</body>
+</html>
