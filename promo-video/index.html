@@ -178,6 +178,7 @@ svg.i { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width:
 #sync .track i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--teal-hi), var(--gold), var(--rose)); transform-origin: left; }
 #synced { left: 520px; top: 590px; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 30px; color: #060A18; background: var(--teal-hi); padding: 6px 16px; border-radius: 10px; }
 .float-ic { font-size: 70px; }
+#ic1 { left: 40px; top: 120px; } #ic2 { left: 700px; top: 90px; } #ic3 { left: 720px; top: 470px; }
 
 /* ---------- S7: loop ---------- */
 .pn { position: absolute; top: 0; width: 640px; height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -250,6 +251,109 @@ svg.i { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width:
 /* ---------- film finish ---------- */
 #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%); }
 #grain { position: absolute; inset: -128px; pointer-events: none; opacity: .07; mix-blend-mode: overlay; }
+
+/* ================= vertical 9:16 cut (?vertical) =================
+   Key content stays inside roughly y 250–1500 so the Reels / Shorts
+   header, caption and side-button overlays never cover it. */
+.vertical #stage { width: 1080px; height: 1920px; }
+.vertical #wipe .p { height: 2120px; }
+.vertical #hudbg { height: 380px; }
+.vertical #hud { left: 56px; right: 56px; top: 190px; }
+.vertical #hud .logo { font-size: 38px; }
+.vertical #hud .r { gap: 14px; }
+.vertical #hud-lvl { font-size: 22px; }
+.vertical #hud .xpbar { width: 150px; height: 14px; }
+.vertical #hud-xp { font-size: 22px; min-width: 128px; }
+/* S1 */
+.vertical #l-ai { left: 0; right: 0; top: 700px; text-align: center; font-size: 150px; }
+.vertical #slot { left: 0; top: 860px; width: 1080px; height: 240px; }
+.vertical #slot .w { left: 0; right: 0; text-align: center; font-size: 200px; }
+.vertical #uline { left: 240px; top: 1100px; width: 600px; }
+/* S2 */
+.vertical .s2line { left: 60px; right: 60px; text-align: center; white-space: normal; }
+.vertical #s2l1 { top: 640px; font-size: 112px; }
+.vertical #s2l2 { top: 800px; font-size: 190px; line-height: .98; }
+.vertical #s2l3 { top: 1200px; font-size: 104px; }
+.vertical #s2k { top: 560px; font-size: 66px; }
+.vertical #s2b1 { top: 680px; font-size: 210px; }
+.vertical #s2b2 { top: 920px; font-size: 200px; line-height: .98; }
+/* S3 */
+.vertical #logo-big { top: 600px; font-size: 200px; }
+.vertical .ring { left: 340px; top: 500px; }
+.vertical #tag1 { top: 880px; }
+.vertical #tag2 { top: 1030px; left: 90px; right: 90px; white-space: normal; line-height: 1.2; }
+.vertical #chips3 { top: 1230px; left: 60px; right: 60px; flex-wrap: wrap; gap: 16px; }
+/* S4 */
+.vertical #wall { height: 3400px; margin-top: -1700px; }
+.vertical #wall-shade { background: radial-gradient(ellipse 80% 42% at 50% 48%, rgba(6,10,24,.9) 0%, rgba(6,10,24,.64) 55%, rgba(6,10,24,.3) 100%); }
+.vertical #wA1 { top: 640px; font-size: 96px; }
+.vertical #wA2 { top: 770px; left: 60px; right: 60px; white-space: normal; line-height: .95; }
+.vertical .stk { font-size: 130px; padding: 0 40px 8px; border-radius: 28px; }
+.vertical #stk1 { top: 560px; } .vertical #stk2 { top: 790px; } .vertical #stk3 { top: 1020px; }
+/* S5 */
+.vertical #s5L { left: 80px; top: 250px; width: 920px; }
+.vertical #s5L .h2 { font-size: 170px; }
+.vertical #s5L .lede { font-size: 50px; margin-top: 26px; }
+.vertical #s5L .chips { position: absolute; left: 0; top: 1080px; width: 920px; margin: 0; gap: 14px; }
+.vertical .chip { height: 72px; font-size: 31px; padding: 0 22px; }
+.vertical #quiz { left: 80px; top: 660px; width: 920px; height: 640px; }
+.vertical .bub-u { max-width: 700px; }
+.vertical .bub-a { width: 740px; min-height: 170px; }
+.vertical #stamp { left: 250px; top: 330px; }
+.vertical #xpf { right: 40px; top: 452px; }
+/* S6 */
+.vertical #s6R { left: 80px; top: 250px; width: 920px; }
+.vertical #s6R .lede { font-size: 54px; margin-top: 24px; }
+.vertical #s6R .chips { margin-top: 34px; gap: 14px; }
+.vertical #fan { left: 130px; top: 840px; }
+.vertical #coop { top: -10px; }
+.vertical #sync { top: 520px; }
+.vertical #synced { top: 472px; }
+.vertical #ic3 { top: 380px; }
+/* S7: three stacked bands, content kept towards the middle */
+.vertical .pn { left: 0; width: 1080px; }
+.vertical #pn1 { left: 0; top: 0; height: 720px; justify-content: flex-end; padding-bottom: 60px; }
+.vertical #pn2 { left: 0; top: 720px; height: 480px; }
+.vertical #pn3 { left: 0; top: 1200px; height: 720px; justify-content: flex-start; padding-top: 60px; }
+.vertical .pn .in { display: grid; grid-template-columns: auto auto; grid-template-areas: "ic num" "ic word" "ic sub"; column-gap: 40px; align-items: center; justify-items: start; }
+.vertical .pn .num { grid-area: num; }
+.vertical .pn svg.i { grid-area: ic; margin: 0; font-size: 150px; }
+.vertical .pn .word { grid-area: word; font-size: 140px; }
+.vertical .pn .sub { grid-area: sub; margin-top: 8px; }
+.vertical .arrow { left: 498px !important; }
+.vertical #ar1 { top: 678px; } .vertical #ar2 { top: 1158px; }
+.vertical .arrow svg { transform: rotate(90deg); }
+/* S8 */
+.vertical #s8tag { left: 80px; top: 250px; }
+.vertical #s8h { left: 80px; top: 292px; width: 640px; font-size: 88px; white-space: normal; line-height: 1.02; }
+.vertical .card { left: 80px !important; width: 920px; height: 236px; padding: 28px 40px; display: grid; grid-template-columns: 330px 1fr; grid-template-rows: 1fr auto; column-gap: 20px; align-items: center; }
+.vertical .card .n { grid-row: 1 / 3; font-size: 160px; }
+.vertical .card .n small { font-size: 90px; }
+.vertical .card .lb { font-size: 34px; margin: 0; align-self: end; }
+.vertical .card .src { position: static; align-self: start; margin-top: 12px; }
+.vertical #c1 { top: 520px; } .vertical #c2 { top: 776px; } .vertical #c3 { top: 1032px; }
+.vertical #ticks { left: 80px; top: 1300px; gap: 36px; }
+.vertical .tick b { font-size: 48px; }
+.vertical .tick span { font-size: 26px; }
+.vertical #badges { right: auto; left: 80px; top: 1390px; }
+.vertical #badges .bcap { order: 2; text-align: left; margin: 0 0 0 8px; }
+/* S9 */
+.vertical #qmark { left: 70px; top: 300px; font-size: 360px; }
+.vertical #q1 { left: 80px; top: 560px; width: 920px; font-size: 72px; }
+.vertical #q2 { left: 80px; top: 840px; width: 920px; font-size: 72px; white-space: normal; line-height: 1.12; }
+.vertical #qa { left: 80px; top: 1060px; width: 920px; flex-wrap: wrap; row-gap: 10px; white-space: normal; }
+.vertical #qa > span:last-child { width: 100%; padding-left: 96px; }
+/* S10 */
+.vertical #lvlup { left: 40px; right: 40px; top: 640px; font-size: 230px; line-height: 1.05; white-space: normal; }
+.vertical #lvlsub { top: 1180px; font-size: 32px; }
+.vertical #paper { left: 440px; top: 860px; }
+.vertical #playlead { top: 620px; }
+.vertical #playlead .ln { font-size: 136px; }
+.vertical #logo-end { top: 760px; font-size: 200px; }
+.vertical #endsub .sep { display: block; height: 0; overflow: hidden; }
+.vertical #endsub { top: 1010px; left: 60px; right: 60px; white-space: normal; font-size: 40px; line-height: 1.3; }
+.vertical #cta { top: 1170px; }
+.vertical #cta .pillcta { font-size: 34px; padding: 18px 20px 18px 38px; gap: 18px; }
 
 /* ---------- preview player (hidden when rendering) ---------- */
 #player { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(920px, calc(100vw - 32px)); display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 999px; background: rgba(15,23,42,.86); color: #F8FAFC; font: 600 14px/1 'Outfit', system-ui, sans-serif; backdrop-filter: blur(10px); z-index: 10; }
@@ -366,9 +470,9 @@ body.render #player { display: none; }
         <div class="fc" id="fc3"><img src="../assets/games/emotional_rollercoaster.jpg" alt=""></div>
         <div class="fc" id="fc2"><img src="../assets/games/ei_joe.jpg" alt=""></div>
         <div class="abs" id="coop">CO-OP MODE</div>
-        <div class="abs float-ic rose" id="ic1" style="left:40px;top:120px"><svg class="i" viewBox="0 0 24 24" style="fill:var(--rose);stroke:none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
-        <div class="abs float-ic gold" id="ic2" style="left:700px;top:90px"><svg class="i" viewBox="0 0 24 24" style="fill:var(--gold);stroke:none"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.4 5.8 21.1l1.6-7L2 9.3l7.1-.7z"/></svg></div>
-        <div class="abs float-ic teal" id="ic3" style="left:720px;top:470px"><svg class="i" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="abs float-ic rose" id="ic1"><svg class="i" viewBox="0 0 24 24" style="fill:var(--rose);stroke:none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+        <div class="abs float-ic gold" id="ic2"><svg class="i" viewBox="0 0 24 24" style="fill:var(--gold);stroke:none"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.4 5.8 21.1l1.6-7L2 9.3l7.1-.7z"/></svg></div>
+        <div class="abs float-ic teal" id="ic3"><svg class="i" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="abs" id="sync">
           <div class="row"><span class="pixel">TEAM SYNC</span><span class="mono" id="syncPct">0%</span></div>
           <div class="track"><i id="syncFill"></i></div>
@@ -438,7 +542,7 @@ body.render #player { display: none; }
       <div class="mask"><div class="ln" id="pl2" style="color:var(--crimson)">Lead tomorrow.</div></div>
     </div>
     <div class="abs logo" id="logo-end"><span class="lt">To</span><span class="lm">mo</span><span class="lc">Club</span></div>
-    <div class="abs split" id="endsub"><b>AI Literacy</b> &amp; <b>SEL</b> through game-based learning · Grades 3–12</div>
+    <div class="abs split" id="endsub"><b>AI Literacy</b> &amp; <b>SEL</b> through game-based learning <span class="sep">·</span> Grades 3–12</div>
     <div class="abs" id="cta"><div class="pillcta">Bring TomoClub to your school <span class="url">tomoclub.org</span></div></div>
   </section>
 
@@ -468,8 +572,25 @@ body.render #player { display: none; }
 (() => {
 'use strict';
 const DURATION = 46;
-const RENDER = new URLSearchParams(location.search).has('render');
+const Q = new URLSearchParams(location.search);
+const RENDER = Q.has('render');
 if (RENDER) document.body.classList.add('render');
+// ?vertical renders the same timeline as a 1080x1920 cut for Reels / Shorts
+const VERT = Q.has('vertical');
+if (VERT) document.body.classList.add('vertical');
+const W = VERT ? 1080 : 1920, H = VERT ? 1920 : 1080;
+// layout-dependent positions (everything else is CSS)
+const L = VERT ? {
+  aiCY: 900, burst1: [540, 700], burst2: [540, 880], wallRows: 11,
+  cursor: [[900, 760], [663, 543], [740, 620]],
+  fan: [[60, 100, -14], [230, 40, 0], [400, 100, 14]],
+  panelIn: { x: [-1080, 0] }, playlead: { y: [0, -170], s: [1, .55] },
+} : {
+  aiCY: 520, burst1: [960, 400], burst2: [960, 500], wallRows: 8,
+  cursor: [[720, 820], [530, 652], [610, 740]],
+  fan: [[60, 150, -14], [230, 80, 0], [400, 150, 14]],
+  panelIn: { y: [-1080, 0] }, playlead: { y: [0, -210], s: [1, .5] },
+};
 
 /* ================= tiny deterministic timeline engine ================= */
 const $ = (s, r = document) => r.querySelector(s);
@@ -575,9 +696,11 @@ on(t => {
   const f = Math.floor(t * 24);
   const gx = (f * 73) % 128, gy = (f * 151) % 128;
   $('#grain').style.transform = `translate(${gx}px,${gy}px)`;
-  $('#blobA').style.transform = `translate(${-300 + Math.sin(t * .35) * 260}px,${-500 + Math.cos(t * .28) * 160}px)`;
-  $('#blobB').style.transform = `translate(${1000 + Math.cos(t * .31) * 240}px,${-50 + Math.sin(t * .4) * 180}px)`;
-  $('#blobC').style.transform = `translate(${300 + Math.sin(t * .22 + 2) * 300}px,${200 + Math.cos(t * .3 + 1) * 200}px)`;
+  // blob paths are authored for 1920x1080; scale their centres to the current frame
+  const bx = x => (x + 750) * W / 1920 - 750, by = y => (y + 750) * H / 1080 - 750;
+  $('#blobA').style.transform = `translate(${bx(-300 + Math.sin(t * .35) * 260)}px,${by(-500 + Math.cos(t * .28) * 160)}px)`;
+  $('#blobB').style.transform = `translate(${bx(1000 + Math.cos(t * .31) * 240)}px,${by(-50 + Math.sin(t * .4) * 180)}px)`;
+  $('#blobC').style.transform = `translate(${bx(300 + Math.sin(t * .22 + 2) * 300)}px,${by(200 + Math.cos(t * .3 + 1) * 200)}px)`;
   $('#bg .dots').style.transform = `translate(${(t * 6) % 48}px,${(t * 10) % 48}px)`;
 });
 
@@ -686,7 +809,7 @@ wipe(8.0);
 const logoC = chars($('#logo-big'));
 tw(logoC, 8.02, .6, { y: [140, 0], s: [.2, 1], o: [0, 1] }, 'back', .045);
 tw('#s3 .ring', 8.05, 1.1, { s: [.2, 3.6], o: [.9, 0] }, 'out', .12);
-burst(8.05, 960, 400);
+burst(8.05, ...L.burst1);
 sfx(8.0, 'drop');
 tw('#tag1 .pill.t', 9.0, .45, { s: [.3, 1], o: [0, 1] }, 'back');
 tw('#tag1 .plus', 9.12, .45, { s: [0, 1], r: [-180, 0], o: [0, 1] }, 'back');
@@ -706,7 +829,7 @@ sfx(11.55, 'whoosh');
   const wall = $('#wall');
   for (let c = 0; c < 9; c++) {
     const col = document.createElement('div'); col.className = 'col';
-    for (let r = 0; r < 8; r++) {
+    for (let r = 0; r < L.wallRows; r++) {
       const img = document.createElement('img');
       img.src = `../assets/games/${games[(c * 5 + r * 3) % games.length]}.jpg`; img.alt = '';
       col.appendChild(img);
@@ -759,10 +882,10 @@ sfx(17.25, 'type', { dur: 1.15 });
 // cursor glides to "Flag it", clicks
 tw('#cursor', 0, 0, { o: [0, 0] });
 tw('#cursor', 18.35, .2, { o: [0, 1] }, 'out');
-tw('#cursor', 18.35, .6, { x: [720, 530], y: [820, 652] }, 'io');
+tw('#cursor', 18.35, .6, { x: [L.cursor[0][0], L.cursor[1][0]], y: [L.cursor[0][1], L.cursor[1][1]] }, 'io');
 tw('#cursor', 18.98, .08, { s: [1, .82] }, 'out');
 tw('#cursor', 19.06, .15, { s: [.82, 1] }, 'out');
-tw('#cursor', 19.5, .6, { x: [530, 610], y: [652, 740] }, 'io');
+tw('#cursor', 19.5, .6, { x: [L.cursor[1][0], L.cursor[2][0]], y: [L.cursor[1][1], L.cursor[2][1]] }, 'io');
 tw('#cursor', 20.3, .3, { o: [1, 0] }, 'out');
 tw('#btnFlag', 18.98, .08, { s: [1, .94] }, 'out');
 tw('#btnFlag', 19.06, .3, { s: [.94, 1] }, 'back');
@@ -781,7 +904,7 @@ sfx(21.65, 'whoosh');
 
 /* ================= S6 · SEL (22–28s) ================= */
 tw('#s6in', 22.0, .4, { x: [900, 0], b: [26, 0] }, 'expo');
-const FAN = [['#fc1', 60, 150, -14], ['#fc2', 230, 80, 0], ['#fc3', 400, 150, 14]];
+const FAN = ['#fc1', '#fc2', '#fc3'].map((s, i) => [s, ...L.fan[i]]);
 FAN.forEach(([s, x, y, r], i) => {
   tw(s, 22.15 + i * .12, .6, { x: [x + (i - 1) * 60, x], y: [y + 700, y], r: [r * 2.5 + (i - 1) * 10, r], o: [0, 1] }, 'back');
 });
@@ -810,7 +933,7 @@ tw('#s6in', 27.72, .28, { s: [1, .88], o: [1, 0] }, 'expoIn');
 
 /* ================= S7 · play → reflect → apply (28–30s) ================= */
 [['#pn1', 28.0], ['#pn2', 28.5], ['#pn3', 29.0]].forEach(([s, t0]) => {
-  tw(s, t0, .34, { y: [-1080, 0] }, 'expo');
+  tw(s, t0, .34, L.panelIn, 'expo');
   tw(s + ' .in', t0 + .08, .45, { s: [.55, 1], o: [0, 1] }, 'back');
   sfx(t0, 'hit');
 });
@@ -848,7 +971,7 @@ flash(40.0, .9, .4);
 sfx(40.0, 'levelup');
 tw('#lvlup', 40.0, .8, { s: [.2, 1], o: [0, 1] }, 'elastic');
 tw('#lvlsub', 40.2, .4, { y: [30, 0], o: [0, 1] }, 'expo');
-burst(40.02, 960, 500, 1.0);
+burst(40.02, ...L.burst2, 1.0);
 tw('#paper', 0, 0, { o: [0, 0] });
 tw('#vignette', 40.9, .3, { o: [1, 0] }, 'out');
 tw('#paper', 40.55, .45, { s: [0, 15], o: [1, 1] }, 'io');
@@ -857,7 +980,7 @@ on(t => { $('#endbg').style.visibility = t >= 41.0 ? 'visible' : 'hidden'; });
 tw('#pl1', 41.0, .5, { y: [220, 0] }, 'expo');
 tw('#pl2', 41.5, .5, { y: [220, 0] }, 'expo');
 sfx(41.0, 'hit'); sfx(41.5, 'hit');
-tw('#playlead', 42.0, .5, { y: [0, -210], s: [1, .5] }, 'io');
+tw('#playlead', 42.0, .5, L.playlead, 'io');
 const endC = chars($('#logo-end'));
 tw(endC, 42.2, .6, { y: [120, 0], s: [.3, 1], o: [0, 1] }, 'back', .04);
 sfx(42.5, 'final');
@@ -872,14 +995,14 @@ tw('#cta .url', 43.45, .45, { s: [.4, 1] }, 'back');
   for (let i = 0; i < 38; i++) {
     const d = document.createElement('div'); d.className = 'cf'; d.style.background = cols[i % 3];
     host.appendChild(d);
-    P.push({ el: d, x: rnd() * 1920, v: 380 + rnd() * 280, sway: 30 + rnd() * 60, ph: rnd() * 6.28, spin: 180 + rnd() * 360, dl: rnd() * 1.4 });
+    P.push({ el: d, x: rnd() * W, v: (380 + rnd() * 280) * (VERT ? 1.5 : 1), sway: 30 + rnd() * 60, ph: rnd() * 6.28, spin: 180 + rnd() * 360, dl: rnd() * 1.4 });
   }
   on(t => {
     const s = t - 42.45;
     P.forEach(p => {
       const k = s - p.dl;
       if (k <= 0 || s > 6) { p.el.style.visibility = 'hidden'; return; }
-      const y = -60 + k * p.v; if (y > 1140) { p.el.style.visibility = 'hidden'; return; }
+      const y = -60 + k * p.v; if (y > H + 60) { p.el.style.visibility = 'hidden'; return; }
       p.el.style.visibility = 'inherit';
       p.el.style.transform = `translate(${(p.x + Math.sin(k * 2.2 + p.ph) * p.sway).toFixed(1)}px,${y.toFixed(1)}px) rotate(${(k * p.spin).toFixed(1)}deg) scaleX(${Math.cos(k * 5 + p.ph).toFixed(3)})`;
     });
@@ -914,10 +1037,10 @@ LEVELS.slice(1).forEach(([t0]) => sfx(t0, 'lvl'));
 
 /* ================= measure-dependent setup ================= */
 function layoutAI() {
-  const st = $('#stage').getBoundingClientRect(); const scale = st.width / 1920;
+  const st = $('#stage').getBoundingClientRect(); const scale = st.width / W;
   const r = $('#ai-word').getBoundingClientRect();
   const cx = (r.left - st.left) / scale + r.width / scale / 2, cy = (r.top - st.top) / scale + r.height / scale / 2;
-  aiDX = 960 - cx; aiDY = 520 - cy;
+  aiDX = W / 2 - cx; aiDY = L.aiCY - cy;
   tw('#ai-word', 0, 0, { o: [0, 0] });
   tw('#ai-word', 1.0, .32, { o: [0, 1], s: [AIS * 1.9, AIS], b: [30, 0] }, 'expo');
   tw('#ai-word', 1.0, 0, { x: [aiDX, aiDX], y: [aiDY, aiDY] });
@@ -934,6 +1057,7 @@ function renderAt(t) {
 }
 window.__cues = CUES;
 window.__duration = DURATION;
+window.__size = [W, H];
 window.__seek = t => { renderAt(t); return true; };
 
 async function boot() {
@@ -953,10 +1077,10 @@ async function boot() {
 function setupPlayer() {
   const stage = $('#stage');
   const fit = () => {
-    const s = Math.min(innerWidth / 1920, (innerHeight - 70) / 1080);
+    const s = Math.min(innerWidth / W, (innerHeight - 70) / H);
     stage.style.transform = `scale(${s})`;
-    stage.style.left = ((innerWidth - 1920 * s) / 2) + 'px';
-    stage.style.top = Math.max(0, (innerHeight - 70 - 1080 * s) / 2) + 'px';
+    stage.style.left = ((innerWidth - W * s) / 2) + 'px';
+    stage.style.top = Math.max(0, (innerHeight - 70 - H * s) / 2) + 'px';
   };
   fit(); addEventListener('resize', fit);
   const audio = $('#music'), pp = $('#pp'), scrub = $('#scrub'), tc = $('#tc');

@@ -22,9 +22,13 @@ All stats and the testimonial are taken from the current homepage (`index.html`)
 ## Files
 
 - `tomoclub-promo.mp4` — the finished video (H.264 + AAC, 1920×1080, 30 fps, ~18 MB, -14 LUFS audio).
-- `poster.jpg` — end-card frame for thumbnails / video posters.
+- `tomoclub-promo-vertical.mp4` — the 9:16 cut for Reels / Shorts / TikTok (1080×1920, same timing and soundtrack).
+- `poster.jpg`, `poster-vertical.jpg` — end-card frames for thumbnails / Reels covers.
 - `index.html` — the animation source. Open it through a local server to preview with sound
-  (space = play/pause, ←/→ = seek, `?t=12` starts at 12s).
+  (space = play/pause, ←/→ = seek, `?t=12` starts at 12s, `?vertical` shows the 9:16 cut).
+  The vertical cut reuses the same timeline; its layout lives in the `.vertical` CSS block and the
+  `L` layout table in the script. Key content stays within roughly y 250–1500 so the Reels/Shorts
+  header, caption and side buttons don't cover it.
 - `render.mjs` — renders the page frame by frame with Playwright and encodes with ffmpeg.
 - `music.py` — synthesizes the soundtrack (120 BPM; every SFX is placed from `cues.json`).
 - `cues.json` — sound cues exported from the animation timeline.
@@ -42,6 +46,7 @@ python3 promo-video/music.py         # -> soundtrack.wav (needs numpy + scipy)
 # bring to about -14 LUFS (measure with ebur128; the current mix needs about -0.8 dB)
 ffmpeg -i promo-video/soundtrack.wav -af "volume=-0.8dB,alimiter=limit=0.87:level=disabled" -c:a aac -b:a 192k promo-video/soundtrack.m4a
 node promo-video/render.mjs --jobs 4 # -> promo-video/tomoclub-promo.mp4
+node promo-video/render.mjs --vertical --jobs 4   # -> promo-video/tomoclub-promo-vertical.mp4
 ```
 
 Copy lives in `index.html`; each scene is a `<section class="scene">` block with its timing in the

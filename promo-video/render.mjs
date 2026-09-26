@@ -4,6 +4,7 @@
 //   node promo-video/render.mjs --jobs 4             # full render -> promo-video/tomoclub-promo.mp4
 //   node promo-video/render.mjs --stills 1.2,8.6     # review frames -> promo-video/.stills/*.png
 //   node promo-video/render.mjs --cues               # write sound cue list -> promo-video/cues.json
+//   node promo-video/render.mjs --vertical --jobs 4  # 9:16 cut -> promo-video/tomoclub-promo-vertical.mp4
 //
 // Options: --fps 30  --crf 22  --out path.mp4  --audio promo-video/soundtrack.m4a  --from 0 --to 46
 // Needs Playwright (with Chromium) and an ffmpeg that has libx264 (FFMPEG env var or on PATH).
@@ -26,7 +27,9 @@ const args = process.argv.slice(2);
 const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i < 0 ? dflt : (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true); };
 
 const FPS = +opt('fps', 30);
-const OUT = path.resolve(opt('out', path.join(HERE, 'tomoclub-promo.mp4')));
+const VERT = !!opt('vertical', false);
+const [W, H] = VERT ? [1080, 1920] : [1920, 1080];
+const OUT = path.resolve(opt('out', path.join(HERE, VERT ? 'tomoclub-promo-vertical.mp4' : 'tomoclub-promo.mp4')));
 const AUDIO = opt('silent', false) ? '' : opt('audio', path.join(HERE, 'soundtrack.m4a'));
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 const JOBS = +opt('jobs', 1);
@@ -46,7 +49,7 @@ if (JOBS > 1) {
     const a = j * per, b = Math.min(frames, (j + 1) * per);
     if (a >= b) break;
     const seg = path.join(tmp, `seg${j}.mp4`); segs.push(seg);
-    kids.push(run(process.execPath, [fileURLToPath(import.meta.url), '--from', String(a / FPS), '--to', String(b / FPS), '--fps', String(FPS), '--crf', CRF, '--silent', '--out', seg]));
+    kids.push(run(process.execPath, [fileURLToPath(import.meta.url), '--from', String(a / FPS), '--to', String(b / FPS), '--fps', String(FPS), '--crf', CRF, ...(VERT ? ['--vertical'] : []), '--silent', '--out', seg]));
   }
   await Promise.all(kids);
   const list = path.join(tmp, 'list.txt');
@@ -67,16 +70,16 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(p).pipe(res);
 });
 await new Promise(r => server.listen(0, '127.0.0.1', r));
-const url = `http://127.0.0.1:${server.address().port}/promo-video/index.html?render=1`;
+const url = `http://127.0.0.1:${server.address().port}/promo-video/index.html?render=1${VERT ? '&vertical' : ''}`;
 
 const browser = await chromium.launch({ args: ['--force-color-profile=srgb', '--font-render-hinting=none', '--hide-scrollbars'] });
-const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
 page.on('pageerror', e => console.error('page error:', e.message));
 await page.goto(url);
 await page.waitForFunction(() => window.__ready === true, null, { timeout: 60000 });
 const DURATION = await page.evaluate(() => window.__duration);
 
-const shot = () => page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: 1920, height: 1080 } });
+const shot = () => page.screenshot({ type: 'png', clip: { x: 0, y: 0, width: W, height: H } });
 
 if (opt('cues', false)) {
   const cues = await page.evaluate(() => window.__cues);
@@ -86,7 +89,7 @@ if (opt('cues', false)) {
   const dir = path.join(HERE, '.stills'); fs.mkdirSync(dir, { recursive: true });
   for (const t of String(opt('stills')).split(',').map(Number)) {
     await page.evaluate(t => window.__seek(t), t);
-    fs.writeFileSync(path.join(dir, `t${t.toFixed(2).padStart(6, '0')}.png`), await shot());
+    fs.writeFileSync(path.join(dir, `${VERT ? 'v' : 't'}${t.toFixed(2).padStart(6, '0')}.png`), await shot());
   }
   console.log('stills in', dir);
 } else {
