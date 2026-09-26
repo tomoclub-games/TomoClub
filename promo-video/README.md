@@ -21,7 +21,8 @@ All stats and the testimonial are taken from the current homepage (`index.html`)
 
 ## Files
 
-- `tomoclub-promo.mp4` — the finished video (H.264 + AAC, 1920×1080, 30 fps).
+- `tomoclub-promo.mp4` — the finished video (H.264 + AAC, 1920×1080, 30 fps, ~18 MB, -14 LUFS audio).
+- `poster.jpg` — end-card frame for thumbnails / video posters.
 - `index.html` — the animation source. Open it through a local server to preview with sound
   (space = play/pause, ←/→ = seek, `?t=12` starts at 12s).
 - `render.mjs` — renders the page frame by frame with Playwright and encodes with ffmpeg.

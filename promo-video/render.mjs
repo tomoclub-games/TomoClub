@@ -5,7 +5,7 @@
 //   node promo-video/render.mjs --stills 1.2,8.6     # review frames -> promo-video/.stills/*.png
 //   node promo-video/render.mjs --cues               # write sound cue list -> promo-video/cues.json
 //
-// Options: --fps 30  --out path.mp4  --audio promo-video/soundtrack.m4a  --from 0 --to 46
+// Options: --fps 30  --crf 22  --out path.mp4  --audio promo-video/soundtrack.m4a  --from 0 --to 46
 // Needs Playwright (with Chromium) and an ffmpeg that has libx264 (FFMPEG env var or on PATH).
 
 import http from 'node:http';
@@ -30,6 +30,7 @@ const OUT = path.resolve(opt('out', path.join(HERE, 'tomoclub-promo.mp4')));
 const AUDIO = opt('silent', false) ? '' : opt('audio', path.join(HERE, 'soundtrack.m4a'));
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 const JOBS = +opt('jobs', 1);
+const CRF = String(opt('crf', 22));
 
 const run = (cmd, argv) => new Promise((res, rej) => {
   spawn(cmd, argv, { stdio: 'inherit' }).on('close', c => c === 0 ? res() : rej(new Error(`${cmd} exited ${c}`)));
@@ -45,7 +46,7 @@ if (JOBS > 1) {
     const a = j * per, b = Math.min(frames, (j + 1) * per);
     if (a >= b) break;
     const seg = path.join(tmp, `seg${j}.mp4`); segs.push(seg);
-    kids.push(run(process.execPath, [fileURLToPath(import.meta.url), '--from', String(a / FPS), '--to', String(b / FPS), '--fps', String(FPS), '--silent', '--out', seg]));
+    kids.push(run(process.execPath, [fileURLToPath(import.meta.url), '--from', String(a / FPS), '--to', String(b / FPS), '--fps', String(FPS), '--crf', CRF, '--silent', '--out', seg]));
   }
   await Promise.all(kids);
   const list = path.join(tmp, 'list.txt');
@@ -96,7 +97,7 @@ if (opt('cues', false)) {
     '-y', '-hide_banner', '-loglevel', 'error',
     '-f', 'image2pipe', '-framerate', String(FPS), '-i', '-',
     ...(hasAudio ? ['-ss', String(from), '-i', AUDIO] : []),
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
+    '-c:v', 'libx264', '-preset', 'slow', '-crf', CRF, '-pix_fmt', 'yuv420p', '-profile:v', 'high',
     '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
     ...(hasAudio ? ['-c:a', 'aac', '-b:a', '192k', '-shortest'] : []),
     '-movflags', '+faststart', OUT,
@@ -110,7 +111,7 @@ if (opt('cues', false)) {
   }
   ff.stdin.end();
   await new Promise((res, rej) => ff.on('close', c => c === 0 ? res() : rej(new Error('ffmpeg exited ' + c))));
-  console.log(`\nwrote ${OUT}${hasAudio ? '' : ' (no soundtrack found, silent)'}`);
+  console.log(`\nwrote ${OUT}${hasAudio ? '' : AUDIO ? ' (no soundtrack found, silent)' : ' (video only)'}`);
 }
 
 await browser.close();
