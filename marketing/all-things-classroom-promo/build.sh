@@ -16,9 +16,9 @@ node build_icons.js
 node render.js video 60          # -> video_noaudio.mp4 (60 fps) + events.json (audio cue sheet)
 python3 audio.py events.json     # -> soundtrack.wav
 
-# Mux the soundtrack and encode for social (60 fps, ~10 Mbps, web-optimised).
+# Mux the soundtrack and encode for social (60 fps, ~8 Mbps, web-optimised).
 "$FFMPEG" -y -loglevel error -i video_noaudio.mp4 -i soundtrack.wav \
-  -c:v libx264 -profile:v high -level 4.2 -preset slow -crf 20 -maxrate 12M -bufsize 24M -pix_fmt yuv420p -g 120 \
+  -c:v libx264 -profile:v high -level 4.2 -preset slow -crf 21 -maxrate 9M -bufsize 18M -pix_fmt yuv420p -g 120 \
   -c:a aac -b:a 192k -ar 44100 -movflags +faststart -shortest \
   all-things-classroom-promo-9x16.mp4
 

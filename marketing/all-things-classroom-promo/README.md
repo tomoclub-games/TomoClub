@@ -1,6 +1,6 @@
 # All Things Classroom — 9:16 promo video
 
-`all-things-classroom-promo-9x16.mp4` is a 26-second vertical promo (1080×1920, 60 fps, H.264 + AAC, about 10 Mbps)
+`all-things-classroom-promo-9x16.mp4` is a 26-second vertical promo (1080×1920, 60 fps, H.264 + AAC, about 8 Mbps)
 for Reels, TikTok and YouTube Shorts. It's written for students. `cover.jpg` is a matching cover frame.
 
 ## Storyboard (120 BPM; every cut lands on the beat)
