@@ -1,0 +1,8 @@
+node_modules/
+fonts/
+icons.js
+stills/
+events.json
+soundtrack.wav
+video_noaudio.mp4
+render.log
