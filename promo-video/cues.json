@@ -1,0 +1,293 @@
+{
+ "duration": 46,
+ "cues": [
+  {
+   "t": 0.1,
+   "type": "blip"
+  },
+  {
+   "t": 0.52,
+   "type": "blip"
+  },
+  {
+   "t": 0.82,
+   "type": "select"
+  },
+  {
+   "t": 1,
+   "type": "impact"
+  },
+  {
+   "t": 2,
+   "type": "tick"
+  },
+  {
+   "t": 2.5,
+   "type": "tick"
+  },
+  {
+   "t": 3,
+   "type": "tick"
+  },
+  {
+   "t": 3.5,
+   "type": "tick"
+  },
+  {
+   "t": 5,
+   "type": "hit"
+  },
+  {
+   "t": 5.5,
+   "type": "tick"
+  },
+  {
+   "t": 6.5,
+   "type": "hit"
+  },
+  {
+   "t": 7,
+   "type": "hit"
+  },
+  {
+   "t": 7.58,
+   "type": "whoosh"
+  },
+  {
+   "t": 8,
+   "type": "drop"
+  },
+  {
+   "t": 9,
+   "type": "pop"
+  },
+  {
+   "t": 9.25,
+   "type": "pop"
+  },
+  {
+   "t": 10.75,
+   "type": "blip2"
+  },
+  {
+   "t": 10.9,
+   "type": "blip2"
+  },
+  {
+   "t": 11.05,
+   "type": "blip2"
+  },
+  {
+   "t": 11.55,
+   "type": "whoosh"
+  },
+  {
+   "t": 12,
+   "type": "lvl"
+  },
+  {
+   "t": 12.75,
+   "type": "hit"
+  },
+  {
+   "t": 14,
+   "type": "hit"
+  },
+  {
+   "t": 14.5,
+   "type": "hit"
+  },
+  {
+   "t": 15,
+   "type": "hit"
+  },
+  {
+   "t": 16,
+   "type": "impact2"
+  },
+  {
+   "t": 16,
+   "type": "lvl"
+  },
+  {
+   "t": 16.7,
+   "type": "pop"
+  },
+  {
+   "t": 17.25,
+   "type": "type",
+   "dur": 1.15
+  },
+  {
+   "t": 17.5,
+   "type": "coin"
+  },
+  {
+   "t": 17.75,
+   "type": "coin"
+  },
+  {
+   "t": 18,
+   "type": "coin"
+  },
+  {
+   "t": 18.25,
+   "type": "coin"
+  },
+  {
+   "t": 19,
+   "type": "click"
+  },
+  {
+   "t": 19.05,
+   "type": "buzz"
+  },
+  {
+   "t": 19.2,
+   "type": "stamp"
+  },
+  {
+   "t": 19.45,
+   "type": "coin2"
+  },
+  {
+   "t": 21.65,
+   "type": "whoosh"
+  },
+  {
+   "t": 22,
+   "type": "lvl"
+  },
+  {
+   "t": 22.15,
+   "type": "card"
+  },
+  {
+   "t": 22.27,
+   "type": "card"
+  },
+  {
+   "t": 22.39,
+   "type": "card"
+  },
+  {
+   "t": 22.9,
+   "type": "pop"
+  },
+  {
+   "t": 23.5,
+   "type": "coin"
+  },
+  {
+   "t": 23.75,
+   "type": "coin"
+  },
+  {
+   "t": 24,
+   "type": "coin"
+  },
+  {
+   "t": 24.25,
+   "type": "coin"
+  },
+  {
+   "t": 25.25,
+   "type": "coin2"
+  },
+  {
+   "t": 28,
+   "type": "hit"
+  },
+  {
+   "t": 28,
+   "type": "lvl"
+  },
+  {
+   "t": 28.5,
+   "type": "hit"
+  },
+  {
+   "t": 29,
+   "type": "hit"
+  },
+  {
+   "t": 29.58,
+   "type": "whoosh"
+  },
+  {
+   "t": 30,
+   "type": "lvl"
+  },
+  {
+   "t": 30.6,
+   "type": "count",
+   "dur": 1.2
+  },
+  {
+   "t": 30.8,
+   "type": "count",
+   "dur": 1.2
+  },
+  {
+   "t": 31,
+   "type": "count",
+   "dur": 1.2
+  },
+  {
+   "t": 31.8,
+   "type": "coin2"
+  },
+  {
+   "t": 32,
+   "type": "coin2"
+  },
+  {
+   "t": 32.2,
+   "type": "coin2"
+  },
+  {
+   "t": 33,
+   "type": "blip2"
+  },
+  {
+   "t": 33.25,
+   "type": "blip2"
+  },
+  {
+   "t": 33.5,
+   "type": "blip2"
+  },
+  {
+   "t": 34,
+   "type": "pop"
+  },
+  {
+   "t": 34.15,
+   "type": "pop"
+  },
+  {
+   "t": 36,
+   "type": "lvl"
+  },
+  {
+   "t": 40,
+   "type": "levelup"
+  },
+  {
+   "t": 40.5,
+   "type": "whoosh"
+  },
+  {
+   "t": 41,
+   "type": "hit"
+  },
+  {
+   "t": 41.5,
+   "type": "hit"
+  },
+  {
+   "t": 42.5,
+   "type": "final"
+  }
+ ]
+}

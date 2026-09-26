@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TomoClub Promo</title>
+<meta name="description" content="A 46-second motion-graphics promo for TomoClub: AI literacy and SEL through game-based learning.">
+<style>
+@font-face { font-family: 'Outfit'; src: url(fonts/outfit-latin-wght-normal.woff2) format('woff2'); font-weight: 100 900; font-display: block; }
+@font-face { font-family: 'Silkscreen'; src: url(fonts/silkscreen-latin-400-normal.woff2) format('woff2'); font-weight: 400; font-display: block; }
+@font-face { font-family: 'Silkscreen'; src: url(fonts/silkscreen-latin-700-normal.woff2) format('woff2'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'JetBrains Mono'; src: url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2'); font-weight: 500; font-display: block; }
+@font-face { font-family: 'JetBrains Mono'; src: url(fonts/jetbrains-mono-latin-700-normal.woff2) format('woff2'); font-weight: 700; font-display: block; }
+
+:root {
+  --bg: #060A18;
+  --panel: #0E1630;
+  --ink: #F8FAFC;
+  --soft: #CBD5E1;
+  --muted: #94A3B8;
+  --navy: #0F172A;
+  --teal: #2AB4B8;
+  --teal-hi: #45DADE;
+  --gold: #FDC62D;
+  --crimson: #B34158;
+  --rose: #F0567A;
+  --paper: #FAFBFC;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+body { display: grid; place-items: center; }
+
+#stage {
+  position: absolute; left: 0; top: 0;
+  width: 1920px; height: 1080px; overflow: hidden;
+  background: var(--bg); color: var(--ink);
+  font-family: 'Outfit', system-ui, sans-serif;
+  transform-origin: 0 0;
+  -webkit-font-smoothing: antialiased;
+}
+.abs { position: absolute; }
+.scene { position: absolute; inset: 0; visibility: hidden; }
+.pixel { font-family: 'Silkscreen', monospace; letter-spacing: .06em; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+.ib { display: inline-block; }
+.mask { overflow: hidden; padding: .06em .04em .1em; margin: -.06em -.04em -.1em; }
+.nowrap { white-space: nowrap; }
+.teal { color: var(--teal-hi); }
+.gold { color: var(--gold); }
+.rose { color: var(--rose); }
+svg.i { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -.12em; }
+
+/* ---------- background ---------- */
+#bg { position: absolute; inset: 0; }
+#bg .dots { position: absolute; inset: -60px; background-image: radial-gradient(rgba(148,163,184,.16) 1.4px, transparent 1.6px); background-size: 48px 48px; }
+.blob { position: absolute; width: 1500px; height: 1500px; border-radius: 50%; left: 0; top: 0; }
+#blobA { background: radial-gradient(circle, rgba(42,180,184,.30) 0%, rgba(42,180,184,0) 60%); }
+#blobB { background: radial-gradient(circle, rgba(179,65,88,.30) 0%, rgba(179,65,88,0) 60%); }
+#blobC { background: radial-gradient(circle, rgba(253,198,45,.14) 0%, rgba(253,198,45,0) 60%); }
+
+/* ---------- S1: hook ---------- */
+#press { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 34px; font-size: 64px; font-weight: 700; color: var(--ink); }
+#press .tri { width: 0; height: 0; border-top: 26px solid transparent; border-bottom: 26px solid transparent; border-left: 42px solid var(--gold); }
+#scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 5px); }
+#l-ai { left: 170px; top: 230px; font-size: 160px; font-weight: 800; letter-spacing: -.035em; line-height: 1; white-space: nowrap; }
+#ai-word { display: inline-block; color: var(--teal-hi); font-weight: 900; }
+#ai-rest { display: inline-block; }
+#slot { left: 150px; top: 400px; width: 1700px; height: 300px; overflow: hidden; }
+#slot .w { position: absolute; left: 20px; top: 0; font-size: 250px; font-weight: 900; letter-spacing: -.05em; line-height: 1.08; white-space: nowrap; }
+#uline { left: 176px; top: 690px; width: 900px; height: 18px; border-radius: 9px; background: var(--gold); transform-origin: left center; }
+
+/* ---------- S2: problem ---------- */
+.s2line { left: 170px; white-space: nowrap; }
+#s2l1 { top: 250px; font-size: 124px; font-weight: 700; letter-spacing: -.03em; }
+#s2l2 { top: 410px; font-size: 180px; font-weight: 900; letter-spacing: -.045em; color: var(--gold); }
+#s2l3 { top: 650px; font-size: 96px; font-weight: 700; letter-spacing: -.03em; color: var(--teal-hi); }
+#s2k { top: 230px; font-size: 78px; font-weight: 600; color: var(--soft); letter-spacing: -.02em; }
+#s2b1 { top: 350px; font-size: 220px; font-weight: 900; letter-spacing: -.05em; color: var(--teal-hi); }
+#s2b2 { top: 590px; font-size: 220px; font-weight: 900; letter-spacing: -.05em; color: var(--rose); }
+
+/* ---------- transition panels ---------- */
+#wipe { position: absolute; inset: 0; pointer-events: none; }
+#wipe .p { position: absolute; top: -100px; left: -240px; width: 2400px; height: 1280px; transform: translateX(-2800px) skewX(-14deg); }
+#wipe .p0 { background: var(--teal); }
+#wipe .p1 { background: var(--gold); }
+#wipe .p2 { background: var(--crimson); }
+#flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+
+/* ---------- S3: logo reveal ---------- */
+.logo { font-weight: 800; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
+.logo .c { display: inline-block; }
+.lt { color: var(--teal); } .lm { color: var(--gold); } .lc { color: #E04D6E; }
+#logo-big { left: 0; right: 0; top: 250px; text-align: center; font-size: 270px; }
+.ring { left: 760px; top: 200px; width: 400px; height: 400px; border-radius: 50%; border: 8px solid; }
+#tag1 { left: 0; right: 0; top: 590px; display: flex; justify-content: center; align-items: center; gap: 28px; }
+.pill { font-size: 68px; font-weight: 800; padding: 6px 40px 12px; border-radius: 999px; border: 4px solid; letter-spacing: -.02em; }
+.pill.t { color: var(--teal-hi); border-color: var(--teal); background: rgba(42,180,184,.12); }
+.pill.r { color: var(--rose); border-color: var(--rose); background: rgba(240,86,122,.12); }
+#tag1 .plus { font-size: 80px; font-weight: 800; color: var(--gold); }
+#tag2 { left: 0; right: 0; top: 740px; text-align: center; font-size: 56px; font-weight: 500; color: var(--soft); white-space: nowrap; }
+#tag2 b { color: var(--gold); font-weight: 800; }
+#chips3 { left: 0; right: 0; top: 870px; display: flex; justify-content: center; gap: 20px; }
+.chip3 { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 26px; letter-spacing: .08em; text-transform: uppercase; color: #E2E8F0; padding: 14px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,.18); background: rgba(255,255,255,.04); display: flex; align-items: center; gap: 14px; }
+.chip3 i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+
+/* ---------- particles ---------- */
+#bits { position: absolute; inset: 0; pointer-events: none; }
+#bits .b { position: absolute; left: 0; top: 0; width: 18px; height: 18px; visibility: hidden; }
+
+/* ---------- S4: game wall ---------- */
+#wall-wrap { position: absolute; inset: 0; perspective: 1700px; overflow: hidden; }
+#wall { position: absolute; left: 50%; top: 50%; width: 3000px; height: 2400px; margin-left: -1500px; margin-top: -1200px; display: flex; gap: 30px; justify-content: center; transform-style: preserve-3d; }
+#wall .col { display: flex; flex-direction: column; gap: 30px; width: 300px; flex: none; }
+#wall img { width: 300px; height: 300px; border-radius: 28px; display: block; box-shadow: 0 24px 48px rgba(0,0,0,.55); }
+#wall-shade { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(6,10,24,.88) 0%, rgba(6,10,24,.62) 55%, rgba(6,10,24,.30) 100%); }
+#wA1 { left: 0; right: 0; top: 300px; text-align: center; font-size: 110px; font-weight: 700; letter-spacing: -.03em; }
+#wA2 { left: 0; right: 0; top: 430px; text-align: center; font-size: 230px; font-weight: 900; letter-spacing: -.05em; color: var(--gold); }
+.stk-row { left: 0; right: 0; display: flex; justify-content: center; }
+.stk { font-size: 150px; font-weight: 900; letter-spacing: -.045em; line-height: 1.12; padding: 0 50px 10px; border-radius: 32px; color: #060A18; box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+#stk1 { top: 150px; } #stk1 .stk { background: var(--teal-hi); transform: rotate(-4deg); }
+#stk2 { top: 400px; } #stk2 .stk { background: var(--gold); transform: rotate(3deg); }
+#stk3 { top: 650px; } #stk3 .stk { background: var(--rose); transform: rotate(-2deg); }
+
+/* ---------- skill scenes (S5 / S6) ---------- */
+.tagpx { font-family: 'Silkscreen', monospace; font-size: 32px; letter-spacing: .1em; }
+.h2 { font-weight: 900; letter-spacing: -.045em; line-height: .98; white-space: nowrap; }
+.lede { font-weight: 500; color: var(--soft); line-height: 1.22; }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.chip { height: 84px; padding: 0 26px; border-radius: 20px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.11); display: flex; align-items: center; gap: 16px; font-size: 34px; font-weight: 600; white-space: nowrap; }
+.chip .ck { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; color: #060A18; flex: none; }
+.chip .xp { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px; }
+.chips.t .ck { background: var(--teal-hi); } .chips.t .xp { color: var(--teal-hi); }
+.chips.r .ck { background: var(--rose); } .chips.r .xp { color: var(--rose); }
+
+#s5L { left: 140px; top: 190px; width: 860px; }
+#s5L .tagpx { color: var(--teal-hi); }
+#s5L .h2 { font-size: 176px; margin-top: 18px; }
+#s5L .lede { font-size: 52px; margin-top: 34px; }
+#s5L .lede b { color: var(--gold); font-weight: 800; }
+#s5L .chips { margin-top: 56px; }
+
+#quiz { left: 1040px; top: 160px; width: 740px; height: 760px; border-radius: 40px; background: linear-gradient(165deg, #121C3C 0%, #0B1229 100%); border: 2px solid rgba(255,255,255,.1); box-shadow: 0 50px 100px rgba(0,0,0,.55), 0 0 0 1px rgba(69,218,222,.06); padding: 42px; }
+#quiz .head { display: flex; justify-content: space-between; align-items: center; }
+#quiz .head .pixel { font-size: 24px; color: var(--gold); }
+#quiz .head .mono { font-size: 24px; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+#quiz .bar { height: 8px; border-radius: 4px; background: rgba(255,255,255,.08); margin-top: 22px; overflow: hidden; }
+#quiz .bar i { display: block; height: 100%; width: 100%; background: var(--gold); transform-origin: left; }
+.bub-u { margin: 38px 0 0 auto; width: max-content; max-width: 560px; background: var(--teal-hi); color: #04131A; font-size: 34px; font-weight: 600; line-height: 1.25; padding: 22px 30px; border-radius: 28px 28px 8px 28px; }
+.ai-row { display: flex; gap: 18px; margin-top: 30px; align-items: flex-start; }
+.ai-ava { width: 68px; height: 68px; border-radius: 50%; background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.14); display: grid; place-items: center; font-size: 36px; color: var(--teal-hi); flex: none; }
+.bub-a { position: relative; width: 560px; min-height: 190px; background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.12); border-radius: 28px 28px 28px 8px; padding: 22px 30px; font-size: 34px; font-weight: 500; line-height: 1.3; color: #E2E8F0; }
+.bub-a .redline { position: absolute; inset: -3px; border-radius: inherit; border: 4px solid var(--rose); box-shadow: 0 0 40px rgba(240,86,122,.35); opacity: 0; }
+.caret { display: inline-block; width: 4px; height: 1em; background: var(--teal-hi); vertical-align: -.14em; margin-left: 3px; }
+#quiz .acts { position: absolute; left: 42px; right: 42px; bottom: 42px; display: flex; gap: 20px; }
+.btn { position: relative; flex: 1; height: 96px; border-radius: 24px; font-size: 34px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 14px; overflow: hidden; }
+.btn.ok { background: rgba(255,255,255,.07); color: #CBD5E1; border: 2px solid rgba(255,255,255,.12); }
+.btn.flag { background: rgba(240,86,122,.12); color: var(--rose); border: 2px solid var(--rose); }
+.btn.flag .fill { position: absolute; inset: 0; background: var(--rose); color: #fff; display: flex; align-items: center; justify-content: center; gap: 14px; opacity: 0; }
+#stamp { left: 170px; top: 420px; font-size: 68px; font-weight: 900; letter-spacing: .02em; color: var(--rose); border: 7px solid var(--rose); border-radius: 18px; padding: 2px 26px 8px; background: rgba(11,18,41,.92); white-space: nowrap; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+#xpf { right: 40px; top: 548px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 52px; color: var(--gold); text-shadow: 0 0 30px rgba(253,198,45,.5); }
+#cursor { left: 0; top: 0; width: 64px; height: 64px; }
+
+#s6R { left: 950px; top: 240px; width: 880px; }
+#s6R .tagpx { color: var(--rose); }
+#s6R .h2 { font-size: 104px; margin-top: 18px; }
+#s6R .lede { font-size: 58px; margin-top: 34px; color: var(--ink); font-weight: 600; }
+#s6R .lede b { color: var(--gold); font-weight: 800; }
+#s6R .chips { margin-top: 52px; }
+#fan { left: 90px; top: 200px; width: 820px; height: 800px; }
+.fc { position: absolute; width: 360px; height: 360px; border-radius: 34px; overflow: hidden; border: 7px solid rgba(255,255,255,.92); box-shadow: 0 40px 80px rgba(0,0,0,.55); }
+.fc img { width: 100%; height: 100%; display: block; }
+#coop { left: 250px; top: 20px; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; background: var(--gold); color: #1A1203; padding: 10px 22px; border-radius: 12px; letter-spacing: .08em; box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+#sync { left: 80px; top: 640px; width: 660px; }
+#sync .row { display: flex; justify-content: space-between; align-items: baseline; }
+#sync .pixel { font-size: 26px; color: var(--soft); }
+#sync .mono { font-size: 34px; font-weight: 700; color: var(--ink); }
+#sync .track { height: 26px; border-radius: 13px; background: rgba(255,255,255,.08); margin-top: 14px; overflow: hidden; border: 2px solid rgba(255,255,255,.1); }
+#sync .track i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--teal-hi), var(--gold), var(--rose)); transform-origin: left; }
+#synced { left: 520px; top: 590px; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 30px; color: #060A18; background: var(--teal-hi); padding: 6px 16px; border-radius: 10px; }
+.float-ic { font-size: 70px; }
+
+/* ---------- S7: loop ---------- */
+.pn { position: absolute; top: 0; width: 640px; height: 1080px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#pn1 { left: 0; background: var(--teal); color: #04131A; }
+#pn2 { left: 640px; background: var(--gold); color: #1A1203; }
+#pn3 { left: 1280px; background: var(--crimson); color: #fff; }
+.pn .in { display: flex; flex-direction: column; align-items: center; }
+.pn .num { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 34px; letter-spacing: .1em; opacity: .7; }
+.pn svg.i { font-size: 170px; stroke-width: 1.8; margin: 26px 0 30px; }
+.pn .word { font-size: 148px; font-weight: 900; letter-spacing: -.05em; line-height: 1; }
+.pn .sub { font-size: 34px; font-weight: 600; margin-top: 18px; opacity: .8; }
+.arrow { position: absolute; top: 500px; width: 84px; height: 84px; border-radius: 50%; background: #060A18; color: #fff; display: grid; place-items: center; font-size: 44px; z-index: 2; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+
+/* ---------- S8: results ---------- */
+#s8tag { left: 140px; top: 150px; color: var(--gold); }
+#s8h { left: 140px; top: 196px; font-size: 96px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; }
+.card { position: absolute; top: 370px; width: 520px; height: 430px; border-radius: 36px; padding: 40px 44px; }
+.card .n { font-size: 190px; font-weight: 800; letter-spacing: -.055em; line-height: .9; display: flex; align-items: baseline; }
+.card .n small { font-size: 110px; margin-left: 6px; }
+.card .lb { font-size: 35px; font-weight: 600; line-height: 1.2; color: #F1F5F9; margin-top: 22px; }
+.card .src { position: absolute; left: 44px; bottom: 36px; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 21px; color: var(--muted); letter-spacing: .02em; }
+#c1 { left: 140px; background: linear-gradient(160deg, rgba(42,180,184,.22), rgba(42,180,184,.05)); border: 2px solid rgba(69,218,222,.35); } #c1 .n { color: var(--teal-hi); }
+#c2 { left: 700px; background: linear-gradient(160deg, rgba(253,198,45,.2), rgba(253,198,45,.04)); border: 2px solid rgba(253,198,45,.35); } #c2 .n { color: var(--gold); }
+#c3 { left: 1260px; background: linear-gradient(160deg, rgba(240,86,122,.22), rgba(240,86,122,.05)); border: 2px solid rgba(240,86,122,.38); } #c3 .n { color: var(--rose); }
+#ticks { left: 140px; top: 850px; display: flex; gap: 56px; }
+.tick { display: flex; align-items: baseline; gap: 14px; white-space: nowrap; }
+.tick b { font-size: 64px; font-weight: 800; letter-spacing: -.03em; }
+.tick span { font-size: 32px; font-weight: 500; color: var(--soft); }
+#badges { right: 140px; top: 840px; display: flex; gap: 20px; align-items: center; }
+#badges .bcap { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 19px; line-height: 1.5; color: var(--soft); text-align: right; margin-right: 8px; white-space: nowrap; }
+#badges img { height: 104px; width: auto; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,.4)); }
+
+/* ---------- S9: quote ---------- */
+#qmark { left: 140px; top: 110px; font-size: 420px; font-weight: 900; color: var(--gold); line-height: 1; }
+#q1 { left: 200px; top: 400px; width: 1540px; font-size: 84px; font-weight: 700; letter-spacing: -.03em; line-height: 1.12; }
+#q2 { left: 200px; top: 640px; font-size: 84px; font-weight: 800; letter-spacing: -.03em; color: var(--gold); white-space: nowrap; }
+#qa { left: 200px; top: 810px; display: flex; align-items: center; gap: 26px; white-space: nowrap; }
+#qa .ln { width: 70px; height: 6px; border-radius: 3px; background: var(--gold); }
+#qa b { font-size: 38px; font-weight: 700; }
+#qa span { font-size: 32px; color: var(--muted); font-weight: 500; }
+
+/* ---------- S10: level up + end card ---------- */
+#lvlup { left: 0; right: 0; top: 380px; text-align: center; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 240px; line-height: 1; color: var(--gold); text-shadow: 10px 10px 0 var(--crimson), 20px 20px 0 var(--teal); white-space: nowrap; }
+#lvlsub { left: 0; right: 0; top: 660px; text-align: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 36px; letter-spacing: .3em; color: var(--soft); }
+#paper { left: 860px; top: 440px; width: 200px; height: 200px; border-radius: 50%; background: var(--paper); }
+#endbg { position: absolute; inset: 0; background: var(--paper); visibility: hidden; }
+#endbg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(15,23,42,.07) 1.4px, transparent 1.6px); background-size: 48px 48px; }
+#playlead { left: 0; right: 0; top: 280px; text-align: center; color: var(--navy); }
+#playlead .ln { font-size: 180px; font-weight: 900; letter-spacing: -.05em; line-height: 1.02; white-space: nowrap; }
+#logo-end { left: 0; right: 0; top: 390px; text-align: center; font-size: 250px; }
+#logo-end .lc { color: var(--crimson); }
+#endsub { left: 0; right: 0; top: 690px; text-align: center; font-size: 40px; font-weight: 500; color: #475569; white-space: nowrap; }
+#endsub b { color: var(--navy); font-weight: 700; }
+#cta { left: 0; right: 0; top: 790px; display: flex; justify-content: center; }
+#cta .pillcta { display: flex; align-items: center; gap: 22px; background: var(--navy); color: #fff; font-size: 38px; font-weight: 600; padding: 20px 26px 20px 46px; border-radius: 999px; box-shadow: 0 24px 50px rgba(15,23,42,.25); white-space: nowrap; }
+#cta .url { background: var(--gold); color: var(--navy); font-weight: 800; padding: 10px 26px 14px; border-radius: 999px; }
+#confetti { position: absolute; inset: 0; pointer-events: none; }
+#confetti .cf { position: absolute; left: 0; top: 0; width: 14px; height: 26px; border-radius: 3px; visibility: hidden; }
+
+/* ---------- HUD ---------- */
+#hudbg { position: absolute; left: 0; right: 0; top: 0; height: 200px; background: linear-gradient(180deg, rgba(6,10,24,.85) 0%, rgba(6,10,24,.5) 45%, rgba(6,10,24,0) 100%); pointer-events: none; }
+#hud { position: absolute; left: 64px; right: 64px; top: 44px; display: flex; justify-content: space-between; align-items: center; }
+#hud .logo { font-size: 40px; }
+#hud .r { display: flex; align-items: center; gap: 22px; }
+#hud-lvl { font-family: 'Silkscreen', monospace; font-size: 24px; color: var(--soft); letter-spacing: .08em; white-space: nowrap; transform-origin: right center; }
+#hud .xpbar { width: 300px; height: 16px; border-radius: 8px; background: rgba(255,255,255,.1); overflow: hidden; border: 1.5px solid rgba(255,255,255,.12); }
+#hud .xpbar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--teal-hi), var(--gold), var(--rose)); transform-origin: left; transform: scaleX(0); }
+#hud-xp { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 24px; color: var(--gold); min-width: 150px; text-align: right; }
+
+/* ---------- film finish ---------- */
+#vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%); }
+#grain { position: absolute; inset: -128px; pointer-events: none; opacity: .07; mix-blend-mode: overlay; }
+
+/* ---------- preview player (hidden when rendering) ---------- */
+#player { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(920px, calc(100vw - 32px)); display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 999px; background: rgba(15,23,42,.86); color: #F8FAFC; font: 600 14px/1 'Outfit', system-ui, sans-serif; backdrop-filter: blur(10px); z-index: 10; }
+#player button { all: unset; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; background: #FDC62D; color: #0F172A; display: grid; place-items: center; font-size: 14px; flex: none; }
+#player input { flex: 1; accent-color: #2AB4B8; }
+#player .t { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #CBD5E1; min-width: 92px; text-align: right; }
+body.render #player { display: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- background -->
+  <div id="bg">
+    <div class="dots"></div>
+    <div class="blob" id="blobA"></div>
+    <div class="blob" id="blobB"></div>
+    <div class="blob" id="blobC"></div>
+  </div>
+
+  <!-- S1 · hook -->
+  <section class="scene" id="s1" data-in="0" data-out="4">
+    <div id="scan"></div>
+    <div id="press" class="pixel"><span class="tri"></span><span>PRESS START</span></div>
+    <div class="abs" id="l-ai"><span id="ai-word">AI</span><span id="ai-rest">&nbsp;is in their</span></div>
+    <div class="abs" id="slot">
+      <span class="w teal">phones.</span>
+      <span class="w gold">homework.</span>
+      <span class="w rose">games.</span>
+      <span class="w">future.</span>
+    </div>
+    <div class="abs" id="uline"></div>
+  </section>
+
+  <!-- S2 · the shift -->
+  <section class="scene" id="s2" data-in="4" data-out="8">
+    <div class="abs" id="s2a" style="inset:0">
+      <div class="abs s2line split" id="s2l1">Using AI is easy.</div>
+      <div class="abs s2line" id="s2l2">Using it wisely?</div>
+      <div class="abs s2line" id="s2l3">That's a skill.</div>
+    </div>
+    <div class="abs" id="s2b" style="inset:0">
+      <div class="abs s2line split" id="s2k">Tomorrow needs kids who are</div>
+      <div class="abs s2line" id="s2b1">AI-smart</div>
+      <div class="abs s2line" id="s2b2">&amp; human-strong.</div>
+    </div>
+  </section>
+
+  <!-- S3 · logo reveal -->
+  <section class="scene" id="s3" data-in="8" data-out="12">
+    <div class="abs" id="s3in" style="inset:0">
+      <div class="abs ring" style="border-color:var(--teal)"></div>
+      <div class="abs ring" style="border-color:var(--gold)"></div>
+      <div class="abs ring" style="border-color:var(--rose)"></div>
+      <div class="abs logo" id="logo-big"><span class="lt">To</span><span class="lm">mo</span><span class="lc">Club</span></div>
+      <div class="abs" id="tag1"><span class="pill t">AI Literacy</span><span class="plus">+</span><span class="pill r">SEL</span></div>
+      <div class="abs split" id="tag2">taught through games kids actually <b>want</b> <b>to</b> <b>play.</b></div>
+      <div class="abs" id="chips3">
+        <span class="chip3"><i style="background:var(--teal-hi)"></i>Grades 3–12</span>
+        <span class="chip3"><i style="background:var(--gold)"></i>Standards-aligned</span>
+        <span class="chip3"><i style="background:var(--rose)"></i>Classroom-ready</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 · the games -->
+  <section class="scene" id="s4" data-in="12" data-out="16">
+    <div id="wall-wrap"><div id="wall"></div></div>
+    <div id="wall-shade" class="abs"></div>
+    <div class="abs" id="wA1">Learning that feels</div>
+    <div class="abs" id="wA2">like playing.</div>
+    <div class="abs stk-row" id="stk1"><div class="stk">Multiplayer.</div></div>
+    <div class="abs stk-row" id="stk2"><div class="stk">Strategic.</div></div>
+    <div class="abs stk-row" id="stk3"><div class="stk">Seriously fun.</div></div>
+  </section>
+
+  <!-- S5 · AI literacy -->
+  <section class="scene" id="s5" data-in="16" data-out="22">
+    <div class="abs" id="s5in" style="inset:0">
+      <div class="abs" id="s5L">
+        <div class="tagpx">SKILL TREE 01</div>
+        <div class="mask"><div class="h2"><span class="teal">AI</span> Literacy</div></div>
+        <div class="lede">Students don't just use AI —<br>they <b>question</b> it.</div>
+        <div class="chips t">
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Prompting<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Spotting bias<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Fact-checking<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Ethical use<span class="xp">+25XP</span></div>
+        </div>
+      </div>
+      <div class="abs" id="quiz">
+        <div class="head"><span class="pixel">ROUND 3 · SPOT THE MYTH</span><span class="mono"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M10 2h4"/></svg><span id="qtime">00:15</span></span></div>
+        <div class="bar"><i id="qbar"></i></div>
+        <div class="bub-u" id="bubU">Can you see the Great Wall of China from the Moon?</div>
+        <div class="ai-row" id="aiRow">
+          <div class="ai-ava"><svg class="i" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+          <div class="bub-a" id="bubA"><span id="aiText"></span><span class="caret" id="caret"></span><div class="redline" id="redline"></div></div>
+        </div>
+        <div class="acts">
+          <div class="btn ok"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Trust it</div>
+          <div class="btn flag" id="btnFlag"><svg class="i" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>Flag it<div class="fill"><svg class="i" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>Flagged!</div></div>
+        </div>
+        <div class="abs" id="stamp">MYTH BUSTED!</div>
+        <div class="abs" id="xpf">+50 XP</div>
+        <svg class="abs" id="cursor" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.4-3 1.5-3.8-7.4L4.6 19z" fill="#fff" stroke="#060A18" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 · SEL -->
+  <section class="scene" id="s6" data-in="22" data-out="28">
+    <div class="abs" id="s6in" style="inset:0">
+      <div class="abs" id="fan">
+        <div class="fc" id="fc1"><img src="../assets/games/crisis_crew.jpg" alt=""></div>
+        <div class="fc" id="fc3"><img src="../assets/games/emotional_rollercoaster.jpg" alt=""></div>
+        <div class="fc" id="fc2"><img src="../assets/games/ei_joe.jpg" alt=""></div>
+        <div class="abs" id="coop">CO-OP MODE</div>
+        <div class="abs float-ic rose" id="ic1" style="left:40px;top:120px"><svg class="i" viewBox="0 0 24 24" style="fill:var(--rose);stroke:none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+        <div class="abs float-ic gold" id="ic2" style="left:700px;top:90px"><svg class="i" viewBox="0 0 24 24" style="fill:var(--gold);stroke:none"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7L12 17.4 5.8 21.1l1.6-7L2 9.3l7.1-.7z"/></svg></div>
+        <div class="abs float-ic teal" id="ic3" style="left:720px;top:470px"><svg class="i" viewBox="0 0 24 24" style="stroke-width:2.4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="abs" id="sync">
+          <div class="row"><span class="pixel">TEAM SYNC</span><span class="mono" id="syncPct">0%</span></div>
+          <div class="track"><i id="syncFill"></i></div>
+        </div>
+        <div class="abs" id="synced">SYNCED!</div>
+      </div>
+      <div class="abs" id="s6R">
+        <div class="tagpx">SKILL TREE 02</div>
+        <div class="mask"><div class="h2">Social-<span class="rose">Emotional</span></div></div>
+        <div class="mask"><div class="h2">Learning</div></div>
+        <div class="lede">The skills AI <b>can't replace.</b></div>
+        <div class="chips r">
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Empathy<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Collaboration<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Leadership<span class="xp">+25XP</span></div>
+          <div class="chip"><span class="ck"><svg class="i" viewBox="0 0 24 24" style="stroke-width:3.4"><path d="M20 6 9 17l-5-5"/></svg></span>Resilience<span class="xp">+25XP</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 · the loop -->
+  <section class="scene" id="s7" data-in="28" data-out="30">
+    <div class="pn" id="pn1"><div class="in"><span class="num">01</span><svg class="i" viewBox="0 0 24 24"><path d="M6 11h4"/><path d="M8 9v4"/><path d="M15 12h.01"/><path d="M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg><span class="word">Play.</span><span class="sub">Multiplayer challenges</span></div></div>
+    <div class="pn" id="pn2"><div class="in"><span class="num">02</span><svg class="i" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg><span class="word">Reflect.</span><span class="sub">Guided debriefs</span></div></div>
+    <div class="pn" id="pn3"><div class="in"><span class="num">03</span><svg class="i" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><span class="word">Apply.</span><span class="sub">Real-world skills</span></div></div>
+    <div class="arrow" id="ar1" style="left:598px"><svg class="i" viewBox="0 0 24 24" style="stroke-width:2.6"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+    <div class="arrow" id="ar2" style="left:1238px"><svg class="i" viewBox="0 0 24 24" style="stroke-width:2.6"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+  </section>
+
+  <!-- S8 · results -->
+  <section class="scene" id="s8" data-in="30" data-out="36">
+    <div class="abs" id="s8in" style="inset:0">
+      <div class="abs tagpx" id="s8tag">HIGH SCORES</div>
+      <div class="abs" id="s8h">Real results in real classrooms.</div>
+      <div class="card" id="c1"><div class="n"><span class="cnt" data-to="93">0</span><small>%</small></div><div class="lb">of educators report stronger AI understanding</div><div class="src">Amity School District, OR</div></div>
+      <div class="card" id="c2"><div class="n"><span class="cnt" data-to="80">0</span><small>%</small></div><div class="lb">increase in leadership &amp; EI competency</div><div class="src">IEM Charter Schools</div></div>
+      <div class="card" id="c3"><div class="n"><span class="cnt" data-to="94">0</span><small>%</small></div><div class="lb">ethics debate pass rate in AI Literacy</div><div class="src">Amity students</div></div>
+      <div class="abs" id="ticks">
+        <div class="tick" id="t1"><b class="teal">10,000+</b><span>students</span></div>
+        <div class="tick" id="t2"><b class="gold">5,000+</b><span>teachers</span></div>
+        <div class="tick" id="t3"><b class="rose">12+</b><span>US states</span></div>
+      </div>
+      <div class="abs" id="badges"><span class="bcap">STEM.org Accredited<br>Best in STEM™ · Top 5%</span><img id="bd1" src="../assets/stem-accredited-badge.png" alt="STEM.org Accredited"><img id="bd2" src="../assets/stem-best-in-stem-badge.png" alt="Best in STEM"></div>
+    </div>
+  </section>
+
+  <!-- S9 · voice -->
+  <section class="scene" id="s9" data-in="36" data-out="40">
+    <div class="abs" id="s9in" style="inset:0">
+      <div class="abs" id="qmark">“</div>
+      <div class="abs" id="q1">I've seen the ‘too cool’ students transform into collaborative leaders.</div>
+      <div class="abs" id="q2">They aren't scared to fail anymore.</div>
+      <div class="abs" id="qa"><span class="ln"></span><b>Natasha Bessimier</b><span>Counselor, Lone Star School District</span></div>
+    </div>
+  </section>
+
+  <!-- S10 · level up + end card -->
+  <section class="scene" id="s10" data-in="40" data-out="99">
+    <div class="abs" id="lvlup">LEVEL UP!</div>
+    <div class="abs" id="lvlsub">FUTURE-READY UNLOCKED</div>
+    <div class="abs" id="paper"></div>
+    <div id="endbg"><div class="dots"></div></div>
+    <div id="confetti"></div>
+    <div class="abs" id="playlead">
+      <div class="mask"><div class="ln" id="pl1">Play today.</div></div>
+      <div class="mask"><div class="ln" id="pl2" style="color:var(--crimson)">Lead tomorrow.</div></div>
+    </div>
+    <div class="abs logo" id="logo-end"><span class="lt">To</span><span class="lm">mo</span><span class="lc">Club</span></div>
+    <div class="abs split" id="endsub"><b>AI Literacy</b> &amp; <b>SEL</b> through game-based learning · Grades 3–12</div>
+    <div class="abs" id="cta"><div class="pillcta">Bring TomoClub to your school <span class="url">tomoclub.org</span></div></div>
+  </section>
+
+  <div id="bits"></div>
+
+  <!-- HUD -->
+  <div id="hudbg"></div>
+  <div id="hud">
+    <div class="logo"><span class="lt">To</span><span class="lm">mo</span><span class="lc">Club</span></div>
+    <div class="r"><span id="hud-lvl">LVL 1 · WELCOME</span><div class="xpbar"><i id="xpfill"></i></div><span id="hud-xp">0 XP</span></div>
+  </div>
+
+  <div id="wipe"><div class="p p0"></div><div class="p p1"></div><div class="p p2"></div></div>
+  <div id="flash"></div>
+  <div id="vignette"></div>
+  <div id="grain"></div>
+</div>
+
+<div id="player">
+  <button id="pp" aria-label="Play">▶</button>
+  <input id="scrub" type="range" min="0" max="46" step="0.01" value="0" aria-label="Seek">
+  <span class="t" id="tc">0.00 / 46.00</span>
+</div>
+<audio id="music" src="soundtrack.m4a" preload="auto"></audio>
+
+<script>
+(() => {
+'use strict';
+const DURATION = 46;
+const RENDER = new URLSearchParams(location.search).has('render');
+if (RENDER) document.body.classList.add('render');
+
+/* ================= tiny deterministic timeline engine ================= */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const els = t => typeof t === 'string' ? $$(t) : (t instanceof Element ? [t] : [...t]);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, p) => a + (b - a) * p;
+const E = {
+  lin: p => p,
+  out: p => 1 - Math.pow(1 - p, 3),
+  in: p => p * p * p,
+  expo: p => p >= 1 ? 1 : 1 - Math.pow(2, -10 * p),
+  expoIn: p => p <= 0 ? 0 : Math.pow(2, 10 * p - 10),
+  io: p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2,
+  back: p => { const c = 1.9; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); },
+  backS: p => { const c = 1.2; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); },
+  elastic: p => p <= 0 ? 0 : p >= 1 ? 1 : Math.pow(2, -10 * p) * Math.sin((p * 10 - .75) * (2 * Math.PI) / 3) + 1,
+};
+const TR = new Map();
+const TRANSFORM_KEYS = ['x', 'y', 's', 'sx', 'sy', 'r', 'rx', 'ry', 'skx'];
+const DEF = { x: 0, y: 0, s: 1, sx: 1, sy: 1, r: 0, rx: 0, ry: 0, skx: 0, o: 1, b: 0 };
+function tw(target, t0, dur, props, ease = 'expo', stagger = 0) {
+  els(target).forEach((el, i) => {
+    let e = TR.get(el); if (!e) { e = {}; TR.set(el, e); }
+    for (const k in props) {
+      const v = props[k]; const [a, b] = Array.isArray(v) ? v : [v, v];
+      (e[k] ||= []).push({ t0: t0 + i * stagger, dur, a, b, ease: typeof ease === 'function' ? ease : E[ease] });
+    }
+  });
+}
+function valAt(list, t) {
+  if (t < list[0].t0) return list[0].a;
+  let w = list[0];
+  for (const x of list) { if (x.t0 <= t) w = x; else break; }
+  if (w.dur <= 0) return w.b;
+  return lerp(w.a, w.b, w.ease(clamp((t - w.t0) / w.dur)));
+}
+const FNS = [];
+const on = fn => FNS.push(fn);
+const CUES = [];
+const sfx = (t, type, extra = {}) => CUES.push({ t: +t.toFixed(3), type, ...extra });
+
+function applyTweens(t) {
+  for (const [el, e] of TR) {
+    const g = k => e[k] ? valAt(e[k], t) : DEF[k];
+    let hasT = false; for (const k of TRANSFORM_KEYS) if (e[k]) { hasT = true; break; }
+    if (hasT) {
+      const s = g('s');
+      el.style.transform = `translate3d(${g('x').toFixed(2)}px,${g('y').toFixed(2)}px,0)` +
+        (e.rx ? ` rotateX(${g('rx').toFixed(3)}deg)` : '') + (e.ry ? ` rotateY(${g('ry').toFixed(3)}deg)` : '') +
+        ` rotate(${g('r').toFixed(3)}deg)` + (e.skx ? ` skewX(${g('skx').toFixed(3)}deg)` : '') +
+        ` scale(${(s * g('sx')).toFixed(4)},${(s * g('sy')).toFixed(4)})`;
+    }
+    if (e.o) { const o = clamp(g('o')); el.style.opacity = o.toFixed(3); el.style.visibility = o <= .001 ? 'hidden' : 'inherit'; }
+    if (e.b) { const b = g('b'); el.style.filter = b > .05 ? `blur(${b.toFixed(2)}px)` : 'none'; }
+    if (e.cr) el.style.clipPath = `inset(-10% ${g('cr').toFixed(2)}% -10% -10%)`;
+  }
+}
+
+/* ================= helpers ================= */
+function split(el) {
+  // wrap each word in an inline-block span, preserving inline markup like <b>
+  const walk = node => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+          const s = document.createElement('span'); s.className = 'wd ib'; s.textContent = part; frag.appendChild(s);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && !n.classList.contains('wd')) {
+        if (n.tagName === 'B') n.classList.add('wd', 'ib'); else walk(n);
+      }
+    });
+  };
+  walk(el);
+  return $$('.wd', el);
+}
+function chars(el) {
+  const out = [];
+  [...el.children].forEach(span => {
+    const txt = span.textContent; span.textContent = '';
+    for (const ch of txt) { const c = document.createElement('span'); c.className = 'c'; c.textContent = ch; span.appendChild(c); out.push(c); }
+  });
+  return out;
+}
+// seeded PRNG so every render is identical
+let seed = 7;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+
+/* ================= global layers ================= */
+// grain texture (static noise, jittered per frame)
+(() => {
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const x = c.getContext('2d'); const d = x.createImageData(256, 256);
+  for (let i = 0; i < d.data.length; i += 4) { const v = Math.floor(rnd() * 255); d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+  x.putImageData(d, 0, 0);
+  $('#grain').style.backgroundImage = `url(${c.toDataURL()})`;
+})();
+on(t => {
+  const f = Math.floor(t * 24);
+  const gx = (f * 73) % 128, gy = (f * 151) % 128;
+  $('#grain').style.transform = `translate(${gx}px,${gy}px)`;
+  $('#blobA').style.transform = `translate(${-300 + Math.sin(t * .35) * 260}px,${-500 + Math.cos(t * .28) * 160}px)`;
+  $('#blobB').style.transform = `translate(${1000 + Math.cos(t * .31) * 240}px,${-50 + Math.sin(t * .4) * 180}px)`;
+  $('#blobC').style.transform = `translate(${300 + Math.sin(t * .22 + 2) * 300}px,${200 + Math.cos(t * .3 + 1) * 200}px)`;
+  $('#bg .dots').style.transform = `translate(${(t * 6) % 48}px,${(t * 10) % 48}px)`;
+});
+
+// scene windows
+$$('.scene').forEach(sc => {
+  const a = +sc.dataset.in, b = +sc.dataset.out;
+  on(t => { sc.style.visibility = (t >= a && t < b) ? 'visible' : 'hidden'; });
+});
+
+// flash overlay
+const flash = (t0, peak = 1, dur = .35) => tw('#flash', t0, dur, { o: [peak, 0] }, 'out');
+tw('#flash', 0, 0, { o: [0, 0] });
+
+// color-panel wipe; C = cut time (screen fully covered)
+function wipe(C) {
+  const ps = $$('#wipe .p');
+  ps.forEach((p, i) => {
+    tw(p, C - .3 - (2 - i) * .07, .3, { x: [-2800, 0] }, 'io');
+    tw(p, C + (2 - i) * .07, .36, { x: [0, 2800] }, 'io');
+    tw(p, 0, 0, { skx: [-14, -14] });
+  });
+  sfx(C - .42, 'whoosh');
+}
+
+// particle bursts
+const BITS = [];
+(() => {
+  const host = $('#bits'); const cols = ['#45DADE', '#FDC62D', '#F0567A', '#F8FAFC'];
+  for (let i = 0; i < 40; i++) {
+    const b = document.createElement('div'); b.className = 'b';
+    const sz = 10 + Math.floor(rnd() * 20);
+    b.style.width = b.style.height = sz + 'px'; b.style.background = cols[i % 4];
+    host.appendChild(b);
+    BITS.push({ el: b, ang: rnd() * Math.PI * 2, dist: 380 + rnd() * 620, spin: (rnd() - .5) * 720, delay: rnd() * .08 });
+  }
+})();
+const BURSTS = [];
+const burst = (t0, cx, cy, dur = 1.1) => BURSTS.push({ t0, cx, cy, dur });
+on(t => {
+  const bst = BURSTS.find(b => t >= b.t0 && t < b.t0 + b.dur + .1);
+  BITS.forEach(p => {
+    if (!bst) { p.el.style.visibility = 'hidden'; return; }
+    const q = clamp((t - bst.t0 - p.delay) / bst.dur);
+    if (q <= 0 || q >= 1) { p.el.style.visibility = 'hidden'; return; }
+    const e = E.expo(q);
+    const x = bst.cx + Math.cos(p.ang) * p.dist * e, y = bst.cy + Math.sin(p.ang) * p.dist * e + 160 * q * q;
+    p.el.style.visibility = 'inherit';
+    p.el.style.opacity = (1 - q * q).toFixed(3);
+    p.el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${(p.spin * q).toFixed(1)}deg) scale(${(1 - q * .5).toFixed(3)})`;
+  });
+});
+
+/* ================= S1 · hook (0–4s) ================= */
+sfx(.1, 'blip'); sfx(.52, 'blip'); sfx(.82, 'select');
+on(t => {
+  const vis = t > .08 && t < .95 && !(t > .4 && t < .52);
+  $('#press').style.visibility = vis ? 'inherit' : 'hidden';
+});
+tw('#press', .82, .1, { s: [1, .9] }, 'out');
+tw('#scan', .95, .2, { o: [1, 0] }, 'out');
+flash(1.0, 1, .4);
+sfx(1.0, 'impact');
+
+// "AI" slams in huge at centre, then settles into the sentence
+let aiDX = 0, aiDY = 0; const AIS = 3.3;
+tw('#ai-rest', 0, 0, { o: [0, 0] });
+tw('#ai-rest', 1.98, .3, { o: [0, 1], x: [-40, 0] }, 'expo');
+on(t => {
+  // RGB-split glitch on impact
+  const w = $('#ai-word');
+  if (t >= 1.0 && t < 1.42) {
+    const f = Math.floor(t * 30); const j = ((f * 37) % 11 - 5) * 1.6;
+    w.style.textShadow = `${j}px 0 0 rgba(240,86,122,.85), ${-j}px 0 0 rgba(253,198,45,.8)`;
+  } else w.style.textShadow = 'none';
+});
+tw('#slot .w', 0, 0, { y: [300, 300] });
+const slotT = [2.0, 2.5, 3.0, 3.5];
+$$('#slot .w').forEach((w, i) => {
+  tw(w, slotT[i], .24, { y: [300, 0] }, 'expo');
+  if (i < 3) tw(w, slotT[i + 1], .16, { y: [0, -300] }, 'in');
+  sfx(slotT[i], 'tick');
+});
+tw('#uline', 3.62, .35, { sx: [0, 1] }, 'expo');
+tw('#s1', 3.55, .45, { s: [1, 1.06] }, 'in');
+
+/* ================= S2 · the shift (4–8s) ================= */
+tw('#s2', 4.0, .35, { s: [1.08, 1] }, 'expo');
+const s2w = split($('#s2l1'));
+tw(s2w, 4.02, .45, { y: [90, 0], o: [0, 1] }, 'expo', .07);
+tw('#s2l1', 5.0, .3, { o: [1, .28] }, 'out');
+tw('#s2l2', 5.0, .32, { s: [1.5, 1], o: [0, 1], b: [14, 0] }, 'expo');
+tw('#s2l3', 5.5, .4, { y: [60, 0], o: [0, 1] }, 'expo');
+sfx(5.0, 'hit'); sfx(5.5, 'tick');
+tw('#s2a', 6.0, 0, { o: [1, 0] });
+tw('#s2b', 0, 0, { o: [0, 0] }); tw('#s2b', 6.0, 0, { o: [0, 1] });
+const s2k = split($('#s2k'));
+tw(s2k, 6.0, .4, { y: [70, 0], o: [0, 1] }, 'expo', .06);
+tw('#s2b1', 6.5, .3, { s: [1.7, 1], o: [0, 1], b: [18, 0] }, 'expo');
+tw('#s2b2', 7.0, .3, { s: [1.7, 1], o: [0, 1], b: [18, 0] }, 'expo');
+sfx(6.5, 'hit'); sfx(7.0, 'hit');
+tw('#s2b', 7.3, .7, { s: [1, 1.05] }, 'in');
+
+wipe(8.0);
+
+/* ================= S3 · logo reveal (8–12s) ================= */
+const logoC = chars($('#logo-big'));
+tw(logoC, 8.02, .6, { y: [140, 0], s: [.2, 1], o: [0, 1] }, 'back', .045);
+tw('#s3 .ring', 8.05, 1.1, { s: [.2, 3.6], o: [.9, 0] }, 'out', .12);
+burst(8.05, 960, 400);
+sfx(8.0, 'drop');
+tw('#tag1 .pill.t', 9.0, .45, { s: [.3, 1], o: [0, 1] }, 'back');
+tw('#tag1 .plus', 9.12, .45, { s: [0, 1], r: [-180, 0], o: [0, 1] }, 'back');
+tw('#tag1 .pill.r', 9.25, .45, { s: [.3, 1], o: [0, 1] }, 'back');
+sfx(9.0, 'pop'); sfx(9.25, 'pop');
+const t2w = split($('#tag2'));
+tw(t2w, 9.75, .45, { y: [40, 0], o: [0, 1] }, 'expo', .05);
+tw('#chips3 .chip3', 10.75, .45, { y: [40, 0], s: [.7, 1], o: [0, 1] }, 'back', .15);
+[10.75, 10.9, 11.05].forEach(x => sfx(x, 'blip2'));
+tw('#s3in', 11.62, .38, { s: [1, 1.7], o: [1, 0], b: [0, 12] }, 'expoIn');
+sfx(11.55, 'whoosh');
+
+/* ================= S4 · the games (12–16s) ================= */
+(() => {
+  const games = ['crisis_crew', 'emotional_rollercoaster', 'cosmos_colour_clash', 'ei_joe', 'river_taxi', 'first_settlers',
+    'mayday', 'jolly_jumpers', 'food_for_mood', 'backyard_blast', 'history_lesson', 'secret_santa'];
+  const wall = $('#wall');
+  for (let c = 0; c < 9; c++) {
+    const col = document.createElement('div'); col.className = 'col';
+    for (let r = 0; r < 8; r++) {
+      const img = document.createElement('img');
+      img.src = `../assets/games/${games[(c * 5 + r * 3) % games.length]}.jpg`; img.alt = '';
+      col.appendChild(img);
+    }
+    wall.appendChild(col);
+    const dir = c % 2 ? 1 : -1, off = c % 2 ? -330 : -165;
+    on(t => { col.style.transform = `translateY(${(off + dir * 70 * (t - 12)).toFixed(1)}px)`; });
+  }
+})();
+tw('#wall', 12.0, .7, { s: [2.4, 1.25], rx: [30, 22], r: [-6, -14], o: [0, 1] }, 'expo');
+tw('#wall', 15.3, .7, { s: [1.25, 1.45] }, 'in');
+const wa1 = split($('#wA1'));
+tw(wa1, 12.2, .45, { y: [80, 0], o: [0, 1] }, 'expo', .06);
+tw('#wA2', 12.75, .4, { s: [1.6, 1], o: [0, 1], b: [16, 0] }, 'expo');
+sfx(12.75, 'hit');
+tw(['#wA1', '#wA2'].map(s => $(s)), 13.86, .14, { o: [1, 0], y: [0, -40] }, 'in');
+[['#stk1', 14.0, -14], ['#stk2', 14.5, 12], ['#stk3', 15.0, -10]].forEach(([s, t0, r]) => {
+  tw(s, t0, .34, { s: [2.0, 1], r: [r, 0], o: [0, 1] }, 'expo');
+  sfx(t0, 'hit');
+});
+tw(['#stk1', '#stk2', '#stk3'].map(s => $(s)), 15.55, .45, { s: [1, 1.08] }, 'in');
+flash(16.0, .85, .3);
+sfx(16.0, 'impact2');
+
+/* ================= S5 · AI literacy (16–22s) ================= */
+tw('#s5L .tagpx', 16.05, .4, { x: [-40, 0], o: [0, 1] }, 'expo');
+tw('#s5L .h2', 16.1, .5, { y: [200, 0] }, 'expo');
+tw('#s5L .lede', 16.45, .5, { y: [40, 0], o: [0, 1] }, 'expo');
+tw('#s5L .chip', 17.5, .42, { x: [-60, 0], o: [0, 1] }, 'back', .25);
+[17.5, 17.75, 18.0, 18.25].forEach(x => sfx(x, 'coin'));
+tw('#quiz', 16.2, .6, { x: [260, 0], r: [5, 0], o: [0, 1] }, 'expo');
+tw('#bubU', 16.7, .4, { s: [.6, 1], o: [0, 1], y: [30, 0] }, 'back');
+sfx(16.7, 'pop');
+tw('#aiRow', 17.1, .35, { y: [30, 0], o: [0, 1] }, 'expo');
+const AI_MSG = 'Yes! The Great Wall is easy to see from the Moon with the naked eye.';
+on(t => {
+  const n = Math.round(clamp((t - 17.25) / 1.15) * AI_MSG.length);
+  const el = $('#aiText'); const s = AI_MSG.slice(0, n); if (el.textContent !== s) el.textContent = s;
+  $('#caret').style.visibility = (t < 17.25 || n < AI_MSG.length || Math.floor(t * 3) % 2) && t < 19.05 ? '' : 'hidden';
+  // quiz countdown
+  const left = clamp(15 - Math.floor(Math.max(0, t - 16.2) * 2.2), 0, 15);
+  $('#qtime').textContent = '00:' + String(left).padStart(2, '0');
+  $('#qbar').style.transform = `scaleX(${clamp(1 - (t - 16.2) / 7).toFixed(4)})`;
+  // "wrong answer" shake on the AI bubble
+  const bubble = $('#bubA');
+  if (t > 19.05 && t < 19.45) { const k = (t - 19.05) / .4; bubble.style.transform = `translateX(${(Math.sin(k * 40) * 14 * (1 - k)).toFixed(1)}px)`; }
+  else bubble.style.transform = '';
+});
+sfx(17.25, 'type', { dur: 1.15 });
+// cursor glides to "Flag it", clicks
+tw('#cursor', 0, 0, { o: [0, 0] });
+tw('#cursor', 18.35, .2, { o: [0, 1] }, 'out');
+tw('#cursor', 18.35, .6, { x: [720, 530], y: [820, 652] }, 'io');
+tw('#cursor', 18.98, .08, { s: [1, .82] }, 'out');
+tw('#cursor', 19.06, .15, { s: [.82, 1] }, 'out');
+tw('#cursor', 19.5, .6, { x: [530, 610], y: [652, 740] }, 'io');
+tw('#cursor', 20.3, .3, { o: [1, 0] }, 'out');
+tw('#btnFlag', 18.98, .08, { s: [1, .94] }, 'out');
+tw('#btnFlag', 19.06, .3, { s: [.94, 1] }, 'back');
+tw('#btnFlag .fill', 19.02, .12, { o: [0, 1] }, 'out');
+tw('#redline', 19.05, .2, { o: [0, 1] }, 'out');
+sfx(19.0, 'click'); sfx(19.05, 'buzz');
+tw('#stamp', 19.2, .32, { s: [2.4, 1], r: [-2, -9], o: [0, 1] }, 'expo');
+sfx(19.2, 'stamp');
+tw('#xpf', 19.45, .25, { o: [0, 1], s: [.5, 1.1] }, 'back');
+tw('#xpf', 19.45, 1.2, { y: [0, -44] }, 'out');
+tw('#xpf', 20.4, .3, { o: [1, 0] }, 'out');
+sfx(19.45, 'coin2');
+// whip-pan out
+tw('#s5in', 21.72, .28, { x: [0, -900], b: [0, 26], o: [1, .2] }, 'expoIn');
+sfx(21.65, 'whoosh');
+
+/* ================= S6 · SEL (22–28s) ================= */
+tw('#s6in', 22.0, .4, { x: [900, 0], b: [26, 0] }, 'expo');
+const FAN = [['#fc1', 60, 150, -14], ['#fc2', 230, 80, 0], ['#fc3', 400, 150, 14]];
+FAN.forEach(([s, x, y, r], i) => {
+  tw(s, 22.15 + i * .12, .6, { x: [x + (i - 1) * 60, x], y: [y + 700, y], r: [r * 2.5 + (i - 1) * 10, r], o: [0, 1] }, 'back');
+});
+sfx(22.15, 'card'); sfx(22.27, 'card'); sfx(22.39, 'card');
+on(t => {
+  // gentle idle float on the cards and icons
+  FAN.forEach(([s], i) => { const c = $(s); const img = c.firstElementChild; img.style.transform = `translateY(${(Math.sin(t * 2 + i) * 6).toFixed(1)}px) scale(1.05)`; });
+  ['#ic1', '#ic2', '#ic3'].forEach((s, i) => { $(s).firstElementChild.style.transform = `translateY(${(Math.sin(t * 2.4 + i * 2) * 12).toFixed(1)}px) rotate(${(Math.sin(t * 1.7 + i) * 8).toFixed(1)}deg)`; });
+  const p = clamp((t - 23.2) / 2.0);
+  const pe = E.io(p);
+  $('#syncFill').style.transform = `scaleX(${pe.toFixed(4)})`;
+  $('#syncPct').textContent = Math.round(pe * 100) + '%';
+});
+tw('#coop', 22.9, .45, { s: [0, 1], r: [-30, -4], o: [0, 1] }, 'back');
+sfx(22.9, 'pop');
+tw(['#ic1', '#ic2', '#ic3'].map(s => $(s)), 23.0, .45, { s: [0, 1], o: [0, 1] }, 'back', .12);
+tw('#sync', 23.0, .4, { y: [30, 0], o: [0, 1] }, 'expo');
+tw('#synced', 25.25, .4, { s: [0, 1], r: [20, 4], o: [0, 1] }, 'back');
+sfx(25.25, 'coin2');
+tw('#s6R .tagpx', 22.3, .4, { x: [40, 0], o: [0, 1] }, 'expo');
+tw('#s6R .h2', 22.35, .5, { y: [140, 0] }, 'expo', .1);
+tw('#s6R .lede', 22.9, .5, { y: [40, 0], o: [0, 1] }, 'expo');
+tw('#s6R .chip', 23.5, .42, { x: [60, 0], o: [0, 1] }, 'back', .25);
+[23.5, 23.75, 24.0, 24.25].forEach(x => sfx(x, 'coin'));
+tw('#s6in', 27.72, .28, { s: [1, .88], o: [1, 0] }, 'expoIn');
+
+/* ================= S7 · play → reflect → apply (28–30s) ================= */
+[['#pn1', 28.0], ['#pn2', 28.5], ['#pn3', 29.0]].forEach(([s, t0]) => {
+  tw(s, t0, .34, { y: [-1080, 0] }, 'expo');
+  tw(s + ' .in', t0 + .08, .45, { s: [.55, 1], o: [0, 1] }, 'back');
+  sfx(t0, 'hit');
+});
+tw('#ar1', 28.5, .35, { s: [0, 1], o: [0, 1] }, 'back');
+tw('#ar2', 29.0, .35, { s: [0, 1], o: [0, 1] }, 'back');
+
+wipe(30.0);
+
+/* ================= S8 · results (30–36s) ================= */
+tw('#s8tag', 30.1, .4, { x: [-40, 0], o: [0, 1] }, 'expo');
+tw('#s8h', 30.15, .5, { y: [60, 0], o: [0, 1] }, 'expo');
+[['#c1', 30.45], ['#c2', 30.65], ['#c3', 30.85]].forEach(([s, t0], i) => {
+  tw(s, t0, .6, { y: [180, 0], o: [0, 1] }, 'back');
+  const cnt = $(s + ' .cnt'); const to = +cnt.dataset.to; const a = t0 + .15, d = 1.2;
+  on(t => { cnt.textContent = Math.round(E.out(clamp((t - a) / d)) * to); });
+  sfx(a, 'count', { dur: d }); sfx(a + d, 'coin2');
+  tw(s + ' .n', a + d, .3, { s: [1.15, 1] }, 'back');
+});
+[['#t1', 33.0], ['#t2', 33.25], ['#t3', 33.5]].forEach(([s, t0]) => { tw(s, t0, .4, { y: [40, 0], o: [0, 1] }, 'back'); sfx(t0, 'blip2'); });
+tw(['#bd1', '#bd2'].map(s => $(s)), 34.0, .5, { s: [0, 1], r: [-25, 0], o: [0, 1] }, 'back', .15);
+tw('#badges .bcap', 34.3, .45, { x: [30, 0], o: [0, 1] }, 'expo');
+sfx(34.0, 'pop'); sfx(34.15, 'pop');
+tw('#s8in', 35.6, .4, { o: [1, 0], s: [1, .96] }, 'in');
+
+/* ================= S9 · voice (36–40s) ================= */
+tw('#qmark', 36.0, .6, { y: [-80, 0], s: [.5, 1], o: [0, .95] }, 'back');
+const q1w = split($('#q1'));
+tw(q1w, 36.1, .3, { o: [0, 1], y: [24, 0] }, 'out', .09);
+tw('#q2', 37.5, .5, { y: [50, 0], o: [0, 1] }, 'expo');
+tw('#qa', 38.2, .5, { x: [-30, 0], o: [0, 1] }, 'expo');
+tw('#s9in', 39.55, .45, { o: [1, 0], s: [1, 1.04] }, 'in');
+
+/* ================= S10 · level up + end card (40–46s) ================= */
+flash(40.0, .9, .4);
+sfx(40.0, 'levelup');
+tw('#lvlup', 40.0, .8, { s: [.2, 1], o: [0, 1] }, 'elastic');
+tw('#lvlsub', 40.2, .4, { y: [30, 0], o: [0, 1] }, 'expo');
+burst(40.02, 960, 500, 1.0);
+tw('#paper', 0, 0, { o: [0, 0] });
+tw('#vignette', 40.9, .3, { o: [1, 0] }, 'out');
+tw('#paper', 40.55, .45, { s: [0, 15], o: [1, 1] }, 'io');
+sfx(40.5, 'whoosh');
+on(t => { $('#endbg').style.visibility = t >= 41.0 ? 'visible' : 'hidden'; });
+tw('#pl1', 41.0, .5, { y: [220, 0] }, 'expo');
+tw('#pl2', 41.5, .5, { y: [220, 0] }, 'expo');
+sfx(41.0, 'hit'); sfx(41.5, 'hit');
+tw('#playlead', 42.0, .5, { y: [0, -210], s: [1, .5] }, 'io');
+const endC = chars($('#logo-end'));
+tw(endC, 42.2, .6, { y: [120, 0], s: [.3, 1], o: [0, 1] }, 'back', .04);
+sfx(42.5, 'final');
+const endW = split($('#endsub'));
+tw(endW, 42.75, .45, { y: [30, 0], o: [0, 1] }, 'expo', .03);
+tw('#cta', 43.1, .55, { y: [60, 0], s: [.8, 1], o: [0, 1] }, 'back');
+tw('#cta .url', 43.45, .45, { s: [.4, 1] }, 'back');
+// brand confetti on the end card
+(() => {
+  const host = $('#confetti'); const cols = ['#2AB4B8', '#FDC62D', '#B34158'];
+  const P = [];
+  for (let i = 0; i < 38; i++) {
+    const d = document.createElement('div'); d.className = 'cf'; d.style.background = cols[i % 3];
+    host.appendChild(d);
+    P.push({ el: d, x: rnd() * 1920, v: 380 + rnd() * 280, sway: 30 + rnd() * 60, ph: rnd() * 6.28, spin: 180 + rnd() * 360, dl: rnd() * 1.4 });
+  }
+  on(t => {
+    const s = t - 42.45;
+    P.forEach(p => {
+      const k = s - p.dl;
+      if (k <= 0 || s > 6) { p.el.style.visibility = 'hidden'; return; }
+      const y = -60 + k * p.v; if (y > 1140) { p.el.style.visibility = 'hidden'; return; }
+      p.el.style.visibility = 'inherit';
+      p.el.style.transform = `translate(${(p.x + Math.sin(k * 2.2 + p.ph) * p.sway).toFixed(1)}px,${y.toFixed(1)}px) rotate(${(k * p.spin).toFixed(1)}deg) scaleX(${Math.cos(k * 5 + p.ph).toFixed(3)})`;
+    });
+  });
+})();
+
+/* ================= HUD ================= */
+const LEVELS = [[8, 'LVL 1 · WELCOME'], [12, 'LVL 2 · THE GAMES'], [16, 'LVL 3 · AI LITERACY'], [22, 'LVL 4 · SEL'], [28, 'LVL 5 · THE LOOP'], [30, 'LVL 6 · HIGH SCORES'], [36, 'LVL 7 · VOICES']];
+const XP_EVENTS = [[8.6, 100], [12, 150], [14, 50], [14.5, 50], [15, 50], [17.5, 25], [17.75, 25], [18, 25], [18.25, 25], [19.45, 50], [22.2, 100], [23.5, 25], [23.75, 25], [24, 25], [24.25, 25], [25.25, 100], [28, 75], [28.5, 75], [29, 75], [31.8, 93], [32, 80], [32.2, 94], [34, 150], [37.5, 120], [39.2, 293]];
+const XP_MAX = XP_EVENTS.reduce((a, [, v]) => a + v, 0);
+tw('#hud', 0, 0, { o: [0, 0] });
+tw('#hud', 8.5, .5, { o: [0, 1], y: [-30, 0] }, 'expo');
+tw('#hud', 27.8, .15, { o: [1, 0] }, 'in');      // out of the way of the full-bleed panels
+tw('#hud', 30.2, .35, { o: [0, 1] }, 'out');
+tw('#hud', 39.85, .15, { o: [1, 0] }, 'in');
+tw('#hudbg', 0, 0, { o: [0, 0] });
+tw('#hudbg', 12.0, .3, { o: [0, 1] }, 'out');
+tw('#hudbg', 15.9, .1, { o: [1, 0] }, 'out');
+on(t => {
+  let xp = 0;
+  for (const [t0, v] of XP_EVENTS) xp += v * E.out(clamp((t - t0) / .45));
+  $('#xpfill').style.transform = `scaleX(${(xp / XP_MAX).toFixed(4)})`;
+  $('#hud-xp').textContent = Math.round(xp * 10).toLocaleString('en-US') + ' XP';
+  let lv = LEVELS[0], since = 99;
+  for (const L of LEVELS) if (t >= L[0]) { lv = L; since = t - L[0]; }
+  const el = $('#hud-lvl'); if (el.textContent !== lv[1]) el.textContent = lv[1];
+  const pop = since < .35 ? 1 + .25 * (1 - E.out(since / .35)) : 1;
+  el.style.transform = `scale(${pop.toFixed(3)})`;
+  el.style.color = since < .35 ? '#FDC62D' : '';
+});
+LEVELS.slice(1).forEach(([t0]) => sfx(t0, 'lvl'));
+
+/* ================= measure-dependent setup ================= */
+function layoutAI() {
+  const st = $('#stage').getBoundingClientRect(); const scale = st.width / 1920;
+  const r = $('#ai-word').getBoundingClientRect();
+  const cx = (r.left - st.left) / scale + r.width / scale / 2, cy = (r.top - st.top) / scale + r.height / scale / 2;
+  aiDX = 960 - cx; aiDY = 520 - cy;
+  tw('#ai-word', 0, 0, { o: [0, 0] });
+  tw('#ai-word', 1.0, .32, { o: [0, 1], s: [AIS * 1.9, AIS], b: [30, 0] }, 'expo');
+  tw('#ai-word', 1.0, 0, { x: [aiDX, aiDX], y: [aiDY, aiDY] });
+  tw('#ai-word', 1.72, .3, { x: [aiDX, 0], y: [aiDY, 0], s: [AIS, 1] }, 'io');
+}
+
+/* ================= driver ================= */
+function finalize() {
+  for (const e of TR.values()) for (const k in e) e[k].sort((a, b) => a.t0 - b.t0);
+}
+function renderAt(t) {
+  applyTweens(t);
+  for (const fn of FNS) fn(t);
+}
+window.__cues = CUES;
+window.__duration = DURATION;
+window.__seek = t => { renderAt(t); return true; };
+
+async function boot() {
+  await Promise.all(['900 100px Outfit', '500 40px Outfit', '700 40px Silkscreen', '400 40px Silkscreen', '500 20px "JetBrains Mono"', '700 20px "JetBrains Mono"'].map(f => document.fonts.load(f)));
+  await document.fonts.ready;
+  await Promise.all($$('img').map(i => i.decode().catch(() => {})));
+  // measure before any transforms are applied
+  $('#s1').style.visibility = 'visible';
+  layoutAI();
+  finalize();
+  CUES.sort((a, b) => a.t - b.t);
+  renderAt(0);
+  window.__ready = true;
+  if (!RENDER) setupPlayer();
+}
+
+function setupPlayer() {
+  const stage = $('#stage');
+  const fit = () => {
+    const s = Math.min(innerWidth / 1920, (innerHeight - 70) / 1080);
+    stage.style.transform = `scale(${s})`;
+    stage.style.left = ((innerWidth - 1920 * s) / 2) + 'px';
+    stage.style.top = Math.max(0, (innerHeight - 70 - 1080 * s) / 2) + 'px';
+  };
+  fit(); addEventListener('resize', fit);
+  const audio = $('#music'), pp = $('#pp'), scrub = $('#scrub'), tc = $('#tc');
+  let playing = false, t = 0, last = 0, hasAudio = true;
+  audio.addEventListener('error', () => { hasAudio = false; });
+  const show = () => { renderAt(t); scrub.value = t; tc.textContent = t.toFixed(2) + ' / ' + DURATION.toFixed(2); };
+  const play = () => {
+    if (t >= DURATION - .01) t = 0;
+    playing = true; pp.textContent = '❚❚'; last = performance.now();
+    if (hasAudio) { audio.currentTime = t; audio.play().catch(() => { hasAudio = false; }); }
+    requestAnimationFrame(loop);
+  };
+  const pause = () => { playing = false; pp.textContent = '▶'; audio.pause(); };
+  const loop = now => {
+    if (!playing) return;
+    if (hasAudio && !audio.paused) t = audio.currentTime; else t += (now - last) / 1000;
+    last = now;
+    if (t >= DURATION) { t = DURATION; show(); pause(); return; }
+    show(); requestAnimationFrame(loop);
+  };
+  pp.onclick = () => playing ? pause() : play();
+  stage.onclick = () => playing ? pause() : play();
+  scrub.oninput = () => { t = +scrub.value; if (hasAudio) audio.currentTime = t; show(); };
+  addEventListener('keydown', e => {
+    if (e.code === 'Space') { e.preventDefault(); playing ? pause() : play(); }
+    if (e.code === 'ArrowRight') { t = Math.min(DURATION, t + 1); if (hasAudio) audio.currentTime = t; show(); }
+    if (e.code === 'ArrowLeft') { t = Math.max(0, t - 1); if (hasAudio) audio.currentTime = t; show(); }
+  });
+  const q = new URLSearchParams(location.search).get('t');
+  if (q) t = +q;
+  show();
+}
+boot();
+})();
+</script>
+</body>
+</html>

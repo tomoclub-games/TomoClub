@@ -7,3 +7,8 @@ for_parents.docx
 # Python build artifacts
 __pycache__/
 *.pyc
+
+# Promo video render scratch (see promo-video/README.md)
+promo-video/.stills/
+promo-video/.segs-*/
+promo-video/soundtrack.wav
