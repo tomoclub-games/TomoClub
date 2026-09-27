@@ -1,0 +1,103 @@
+{
+  "title": "TomoClub | Game-Based Learning, Live (TAICY 2026 Round 2) | Parent Highlight",
+  "source": {
+    "video": "source/TAICY Round 2.mp4",
+    "transcript": "source/TAICY Round 2.vtt",
+    "drive_video_id": "1q0LkQYl57yerAysRevvz2UW7KF3Z99Cz",
+    "drive_transcript_id": "1EWIFHETALN1ufDVWqYhCTRl03bqRO34q"
+  },
+  "output": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "file": "out/TomoClub_TAICY-R2_Parent-Highlight_16x9_1080p.mp4",
+    "loudness_lufs": -14,
+    "true_peak_db": -1.0
+  },
+  "notes": [
+    "Times are seconds into the source recording, taken from the Zoom VTT cues.",
+    "snap: 'in', 'out' or 'both' lets render.py move a cut up to 0.6 s to the nearest pause in the audio, so words are never clipped.",
+    "Captions are clean verbatim: filler words and false starts removed, meaning unchanged.",
+    "Students are identified by first name only. Zoom name tiles are blurred with the regions in 'privacy_blur'."
+  ],
+  "privacy_blur": [],
+  "chapters": {
+    "0": {
+      "num": "",
+      "title": "Inside a live session",
+      "skills": [],
+      "sub": ""
+    },
+    "1": {
+      "num": "01",
+      "title": "Think it through",
+      "skills": [
+        "Strategic thinking",
+        "Resilience"
+      ],
+      "sub": "Game 1: a strategy game with no rulebook"
+    },
+    "2": {
+      "num": "02",
+      "title": "Win as a team",
+      "skills": [
+        "Collaboration",
+        "Communication"
+      ],
+      "sub": "Game 2: a co-op puzzle they can only solve together"
+    },
+    "3": {
+      "num": "03",
+      "title": "Reflect & level up",
+      "skills": [
+        "Reflection",
+        "Adaptability"
+      ],
+      "sub": "Replay, remember, improve"
+    },
+    "4": {
+      "num": "04",
+      "title": "In their own words",
+      "skills": [
+        "Confidence",
+        "Curiosity"
+      ],
+      "sub": "What the students said"
+    }
+  },
+  "sequence": [
+    {"type": "clip", "id": "hook-1", "chapter": 0, "in": 168.1, "out": 170.4, "snap": "out", "role": "facilitator", "speaker": "VK, TomoClub facilitator", "text": "We don't give you any rules."},
+    {"type": "clip", "id": "hook-2", "chapter": 0, "in": 178.42, "out": 181.7, "snap": "both", "role": "facilitator", "speaker": "VK, TomoClub facilitator", "text": "You have to talk to each other and figure it out."},
+    {"type": "clip", "id": "hook-3", "chapter": 0, "in": 3542.4, "out": 3544.7, "snap": "both", "role": "student", "speaker": "Student", "text": "Communication is key."},
+    {"type": "card", "id": "title", "graphic": "title", "dur": 3.5},
+    {"type": "card", "id": "ch1", "graphic": "chapter:1", "dur": 2.0},
+    {"type": "clip", "id": "g1-q1", "chapter": 1, "in": 657.28, "out": 661.28, "snap": "both", "role": "question", "speaker": "VK", "text": "Think about it: do you want to go aggressive, or do you want to go passive?"},
+    {"type": "clip", "id": "g1-q2", "chapter": 1, "in": 1100.42, "out": 1108.42, "snap": "both", "role": "question", "speaker": "VK", "text": "What did you do differently? What changed, and what was your thought process or strategy?"},
+    {"type": "clip", "id": "g1-vedant", "chapter": 1, "in": 1108.56, "out": 1121.56, "snap": "both", "role": "student", "speaker": "Vedant", "text": "In this round, instead of trying to directly attack, I tried to surround his entire territory from the sides as well, so that one click can take a larger portion out of it."},
+    {"type": "clip", "id": "g1-sudeep", "chapter": 1, "in": 1125.35, "out": 1135.15, "snap": "both", "role": "student", "speaker": "Sudeep", "text": "I tried to click on the triangles which made more hexagons. But a lot of hexagons were spawning at once and I didn't understand what was happening."},
+    {"type": "clip", "id": "g1-vk-learning", "chapter": 1, "in": 1140.26, "out": 1147.1, "snap": "both", "role": "insight", "speaker": "VK", "text": "No problem, that's part of learning, right? You don't know yet, so you experiment with different things."},
+    {"type": "clip", "id": "g1-vk-bounce", "chapter": 1, "in": 1171.94, "out": 1178.94, "snap": "both", "role": "insight", "speaker": "VK", "text": "You can always bounce back in this game, right? And Sudeep, I saw you doing it. Good job."},
+    {"type": "card", "id": "ch2", "graphic": "chapter:2", "dur": 2.0},
+    {"type": "clip", "id": "g2-team", "chapter": 2, "in": 1251.6, "out": 1259.64, "snap": "both", "role": "facilitator", "speaker": "VK", "text": "In this game, you will be playing as a team. Now I want to see how you crack this as a team."},
+    {"type": "clip", "id": "g2-play-1", "chapter": 2, "in": 1895.4, "out": 1901.45, "snap": "both", "role": "play", "speaker": "Live gameplay", "text": "Actually, I'll just be at the button, unlocking the doors you explore. Through each door."},
+    {"type": "clip", "id": "g2-roles", "chapter": 2, "in": 1785.66, "out": 1792.33, "snap": "both", "role": "student", "speaker": "Student", "text": "And also, each person handling a separate responsibility means that you don't have to shuffle between places and waste time."},
+    {"type": "clip", "id": "g2-roles-vk", "chapter": 2, "in": 1794.28, "out": 1798.2, "snap": "both", "role": "insight", "speaker": "VK", "text": "That's right, so you can optimize for resources and efficiency."},
+    {"type": "clip", "id": "g2-comm-q", "chapter": 2, "in": 2288.75, "out": 2293.4, "snap": "both", "role": "question", "speaker": "VK", "text": "How are you judging whether you're communicating efficiently or not?"},
+    {"type": "clip", "id": "g2-comm-a", "chapter": 2, "in": 2293.6, "out": 2300.75, "snap": "both", "role": "student", "speaker": "Student", "text": "Being able to get our thoughts to the other person, to make them understand what we need."},
+    {"type": "clip", "id": "g2-comm-q2", "chapter": 2, "in": 2315.18, "out": 2317.35, "snap": "both", "role": "question", "speaker": "VK", "text": "What happens if all three of us start shouting together?"},
+    {"type": "clip", "id": "g2-comm-a2", "chapter": 2, "in": 2317.35, "out": 2320.2, "snap": "both", "role": "student", "speaker": "Student", "text": "Oh, yeah. We need to be able to listen to the other person as well."},
+    {"type": "clip", "id": "g2-comm-vk", "chapter": 2, "in": 2320.2, "out": 2326.6, "snap": "both", "role": "insight", "speaker": "VK", "text": "Yes, communication is a two-way street. You need to give space. You need to take space."},
+    {"type": "card", "id": "ch3", "graphic": "chapter:3", "dur": 2.0},
+    {"type": "clip", "id": "g3-fast-q", "chapter": 3, "in": 3203.08, "out": 3206.3, "snap": "both", "role": "question", "speaker": "VK", "text": "Why are you doing it so fast? How are you doing it so fast?"},
+    {"type": "clip", "id": "g3-fast-a", "chapter": 3, "in": 3206.5, "out": 3213.46, "snap": "both", "role": "student", "speaker": "Student", "text": "Because we remember where all the circuit pieces are, and exactly what we should do at which time."},
+    {"type": "clip", "id": "g3-45s", "chapter": 3, "in": 3389.36, "out": 3393.36, "snap": "both", "role": "facilitator", "speaker": "VK", "text": "45 seconds, you've completed it. Pretty cool.", "stat": {"kicker": "PRACTICE PAYS OFF", "label": "Same level, lights off:", "value": "45 sec", "note": "to clear it, using the map and roles they had worked out in earlier rounds."}},
+    {"type": "clip", "id": "g3-chaos", "chapter": 3, "in": 3574.13, "out": 3583.0, "snap": "both", "role": "insight", "speaker": "VK", "text": "This is called embracing the chaos. When something is put at you, you're not going to panic. Once the challenges come in, don't panic, stay calm and see what exactly is going on."},
+    {"type": "card", "id": "ch4", "graphic": "chapter:4", "dur": 2.0},
+    {"type": "clip", "id": "v-vedant", "chapter": 4, "in": 3694.59, "out": 3707.46, "snap": "both", "role": "student", "speaker": "Vedant", "text": "I found the game pretty fun. It's quite unique. Usually in other games you're competing against someone, but here you're actually working together for a certain goal, which was nice, and it was fun to play."},
+    {"type": "clip", "id": "v-sudeep", "chapter": 4, "in": 3710.16, "out": 3721.01, "snap": "both", "role": "student", "speaker": "Sudeep", "text": "This game also includes a lot of trial and error to actually learn the rules. For example, once we went to the platform but realized that we did not have all the circuit pieces needed."},
+    {"type": "clip", "id": "v-vk-rules", "chapter": 4, "in": 3721.91, "out": 3729.91, "snap": "both", "role": "insight", "speaker": "VK", "text": "That's the key, right? The whole point of game-based learning is you figure out the rules."},
+    {"type": "clip", "id": "v-vk-close", "chapter": 4, "in": 3764.6, "out": 3773.22, "snap": "both", "role": "insight", "speaker": "VK", "text": "These are skills that, when honed time and again, you get better at. So don't stop with this session. Keep honing more."},
+    {"type": "card", "id": "outcomes", "graphic": "outcomes", "dur": 6.0},
+    {"type": "card", "id": "endcard", "graphic": "endcard", "dur": 12.0}
+  ]
+}
