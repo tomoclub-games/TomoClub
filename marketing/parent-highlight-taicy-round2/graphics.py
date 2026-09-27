@@ -289,9 +289,12 @@ def chunk_caption(text):
                 n = len(words)
                 while n > 1 and not balance_two_lines(d, words[:n], f):
                     n -= 1
-                commas = [i + 1 for i in range(n - 1) if words[i].endswith(",") and i + 1 >= n * 0.5]
-                if n < len(words) and commas:
-                    n = commas[-1]
+                # prefer ending a chunk at a comma, or just before a conjunction, over a mid-phrase break
+                joins = {"and", "but", "so", "because", "which", "or", "like", "when", "where"}
+                breaks = [i + 1 for i in range(n - 1)
+                          if (words[i].endswith(",") or words[i + 1].lower().strip(",") in joins) and i + 1 >= n * 0.45]
+                if n < len(words) and breaks:
+                    n = breaks[-1]
                 chunks.append(balance_two_lines(d, words[:n], f))
                 words = words[n:]
                 if words and balance_two_lines(d, words, f):

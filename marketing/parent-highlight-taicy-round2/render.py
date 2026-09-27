@@ -22,7 +22,7 @@ from PIL import Image
 import graphics as g
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FPS = 30
+FPS = json.load(open(os.path.join(HERE, "edl.json")))["output"]["fps"]
 SR = 48000
 
 
@@ -175,7 +175,7 @@ def footage_chain(blur_regions):
     base = "[s0]"
     for i, r in enumerate(blur_regions):
         parts.append(f"{base}split[k{i}][c{i}]")
-        parts.append(f"[c{i}]crop={r['w']}:{r['h']}:{r['x']}:{r['y']},boxblur=20:4[bl{i}]")
+        parts.append(f"[c{i}]crop={r['w']}:{r['h']}:{r['x']}:{r['y']},boxblur=luma_radius=10:luma_power=4:chroma_radius=5:chroma_power=4[bl{i}]")
         parts.append(f"[k{i}][bl{i}]overlay={r['x']}:{r['y']}[s{i + 1}]")
         base = f"[s{i + 1}]"
     parts.append(f"{base}scale={w}:{h}:force_original_aspect_ratio=decrease:flags=lanczos,"
@@ -208,12 +208,15 @@ def render_clip(item, src, placeholder, gfx, seg_path, gain_db, blur):
         args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.3f}", "-i", ph,
                  "-f", "lavfi", "-t", f"{dur:.3f}", "-i", f"sine=frequency=330:sample_rate={SR},volume=0.02"]
     else:
-        args += ["-ss", f"{item['in']:.3f}", "-t", f"{dur:.3f}", "-i", src]
+        # video can come from elsewhere in the recording (B-roll of the round being discussed)
+        v_in = item.get("video_in", item["in"])
+        args += ["-ss", f"{v_in:.3f}", "-t", f"{dur:.3f}", "-i", src,
+                 "-ss", f"{item['in']:.3f}", "-t", f"{dur:.3f}", "-i", src]
     overlays = [gfx["frame"], gfx["side"][item["side_key"]]] + [c["png"] for c in item["caps"]]
     for p in overlays:
         args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.3f}", "-i", p]
-    aidx = 1 if placeholder else 0
-    first = 2 if placeholder else 1
+    aidx = 1
+    first = 2
     fc = footage_chain(blur)
     cur = "[foot]"
     fc += f";{cur}[{first}:v]overlay=0:0[v1];[v1][{first + 1}:v]overlay=0:0[v2]"
@@ -224,7 +227,8 @@ def render_clip(item, src, placeholder, gfx, seg_path, gain_db, blur):
         cur = nxt
     fc += f";{cur}format=yuv420p[vout]"
     fade_out = max(dur - 0.05, 0)
-    fc += (f";[{aidx}:a]asetpts=PTS-STARTPTS,aresample={SR},pan=stereo|c0=c0|c1=c0,"
+    fc += (f";[{aidx}:a]asetpts=PTS-STARTPTS,aresample={SR},aformat=channel_layouts=stereo,"
+           f"pan=stereo|c0=0.5*c0+0.5*c1|c1=0.5*c0+0.5*c1,"
            f"highpass=f=80,volume={gain_db:.2f}dB,"
            f"acompressor=threshold=-20dB:ratio=2.5:attack=8:release=180:makeup=1,"
            f"afade=t=in:d=0.03,afade=t=out:st={fade_out:.3f}:d=0.05[aout]")
@@ -323,7 +327,10 @@ def main():
         else:
             it["dur"] = round(it["dur"] * FPS) / FPS
 
-    # 3. captions: chunk each clip's text and spread over its duration by character count
+    # 3. captions: chunk each clip's text; time chunks from caption_timing.json (align_captions.py)
+    #    when it matches, otherwise spread them over the clip by length
+    tpath = os.path.join(HERE, "caption_timing.json")
+    timing = json.load(open(tpath)) if (a.source and os.path.exists(tpath)) else {}
     for it in seq:
         if it["type"] != "clip":
             continue
@@ -335,14 +342,16 @@ def main():
             it["side_key"] = f"stat_{it['id']}"
         chunks = g.chunk_caption(it["text"])
         dur = it["out"] - it["in"]
-        weights = [len(" ".join(c)) + 8 for c in chunks]
-        t, caps = 0.0, []
-        for k, (c, wt) in enumerate(zip(chunks, weights)):
-            d = dur * wt / sum(weights)
+        starts = timing.get(it["id"])
+        if not starts or len(starts) != len(chunks):
+            weights = [len(" ".join(c)) + 8 for c in chunks]
+            starts = [dur * sum(weights[:k]) / sum(weights) for k in range(len(chunks))]
+        caps = []
+        for k, c in enumerate(chunks):
             p = os.path.join(gdir, f"cap_{it['id']}_{k}.png")
             g.caption_png(c, it["role"], it.get("speaker")).save(p)
-            caps.append({"png": p, "t0": t, "t1": t + d, "lines": c})
-            t += d
+            t1 = starts[k + 1] if k + 1 < len(chunks) else dur
+            caps.append({"png": p, "t0": min(starts[k], dur), "t1": min(t1, dur), "lines": c})
         it["caps"] = caps
 
     # 4. music bed for cards
@@ -364,7 +373,7 @@ def main():
             srt.append((t_out, t_out + dur, "[soft music]"))
         else:
             dur = it["out"] - it["in"]
-            blur = it.get("privacy_blur", edl.get("privacy_blur", []))
+            blur = edl.get("privacy_blur", {}).get(it.get("layout", ""), [])
             if a.placeholder:
                 blur = []
             if not only or it["id"] in only:
