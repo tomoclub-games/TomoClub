@@ -89,6 +89,16 @@ def snap(t, env, hop=0.01, window=0.6, kind="in"):
     return round(best * hop + (0.06 if kind == "out" else -0.06), 3)
 
 
+def measure_lufs(path):
+    err = run(["-i", path, "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"])
+    tail = err[err.rfind("Summary:"):]
+    for line in tail.splitlines():
+        line = line.strip()
+        if line.startswith("I:"):
+            return float(line.split()[1])
+    return float("nan")
+
+
 def clip_loudness(src, t0, dur):
     err = run(["-ss", f"{t0:.3f}", "-t", f"{dur:.3f}", "-i", src, "-vn", "-af", "ebur128=peak=true", "-f", "null", "-"])
     for line in reversed(err.splitlines()):
@@ -306,6 +316,13 @@ def main():
             it["gain_db"] = max(min(-18.0 - lufs, 12.0), -12.0)
             report.append(f"{it['id']:16} in {it['in_planned']:9.2f} -> {it['in']:9.2f}   out {it['out_planned']:9.2f} -> {it['out']:9.2f}   {lufs:6.1f} LUFS  gain {it['gain_db']:+5.1f} dB")
 
+    # every segment must be a whole number of frames, or the concatenated video drifts off 30 fps CFR
+    for it in seq:
+        if it["type"] == "clip":
+            it["out"] = round(it["in"] + round((it["out"] - it["in"]) * FPS) / FPS, 4)
+        else:
+            it["dur"] = round(it["dur"] * FPS) / FPS
+
     # 3. captions: chunk each clip's text and spread over its duration by character count
     for it in seq:
         if it["type"] != "clip":
@@ -372,9 +389,19 @@ def main():
     js = json.loads(err[err.rindex("{"):err.rindex("}") + 1])
     ln = (f"loudnorm=I={I}:TP={TP}:LRA=11:measured_I={js['input_i']}:measured_TP={js['input_tp']}:"
           f"measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}:offset={js['target_offset']}:linear=true")
-    run(["-i", joined, "-map", "0:v", "-map", "0:a", "-c:v", "copy", "-af", ln + f",aresample={SR}",
+    mastered = os.path.join(build, "mastered.wav")
+    run(["-i", joined, "-vn", "-af", ln + f",aresample={SR}", "-c:a", "pcm_s24le", mastered])
+    # loudnorm falls back to dynamic mode when linear gain would break the peak ceiling; check and trim
+    got = measure_lufs(mastered)
+    if abs(got - I) > 0.5:
+        fixed = os.path.join(build, "mastered_fix.wav")
+        run(["-i", mastered, "-af", f"volume={I - got:.2f}dB,alimiter=limit={10 ** (TP / 20):.4f}:level=false",
+             "-c:a", "pcm_s24le", fixed])
+        mastered = fixed
+    run(["-i", joined, "-i", mastered, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
          "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-movflags", "+faststart",
          "-metadata", f"title={edl['title']}", "-metadata", "copyright=© 2026 TomoClub", out])
+    report.insert(0, f"master loudness {measure_lufs(out):.1f} LUFS (target {I})")
 
     with open(os.path.splitext(out)[0] + ".srt", "w") as f:
         for i, (t0, t1, txt) in enumerate(srt, 1):
