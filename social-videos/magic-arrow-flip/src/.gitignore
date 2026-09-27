@@ -1,0 +1,4 @@
+build/
+kokoro-quantized.onnx
+voices.bin
+__pycache__/

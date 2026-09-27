@@ -1,0 +1,6 @@
+kokoro-onnx==0.6.1
+skia-python==144.0.post2
+pocketsphinx==5.1.1
+scipy==1.17.1
+soundfile==0.14.0
+numpy==2.4.6
