@@ -381,15 +381,16 @@ nav.scrolled {
 }
 
 .logo {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
   display: flex;
   align-items: center;
-  gap: 0;
-  color: #FFFFFF;
   flex-shrink: 0;
   transition: transform 0.3s ease;
+}
+
+.logo img {
+  height: 20px;
+  width: auto;
+  display: block;
 }
 
 .logo:hover {
@@ -441,7 +442,7 @@ nav.scrolled {
     padding: 0.5rem 1rem;
     top: 1rem;
   }
-  .logo { font-size: 1.5rem; }
+  .logo img { height: 17px; }
   .grid-2 { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
   .hero { padding-top: 140px; }
 }
@@ -1048,7 +1049,8 @@ body.has-banner nav.scrolled {
 /* Footer */
 footer { background: transparent; border-top: 1px solid transparent; border-image: linear-gradient(to right, transparent, var(--border-color), transparent) 1; padding: 6rem 0 3rem; margin-top: 4rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 5rem; }
-.footer-logo { font-size: 1.75rem; font-weight: 800; margin-bottom: 1.5rem; display: block; letter-spacing: -0.04em; }
+.footer-logo { margin-bottom: 1.5rem; display: block; }
+.footer-logo img { height: 24px; width: auto; }
 .footer-links h4 { color: var(--navy); margin-bottom: 1.75rem; font-size: 1.1rem; }
 .footer-links ul { list-style: none; }
 .footer-links li { margin-bottom: 1rem; }
