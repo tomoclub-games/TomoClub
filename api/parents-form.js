@@ -15,11 +15,13 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Apps Script always responds via a redirect to script.googleusercontent.com
+    // (even on a correctly public deployment) so redirects must be followed;
+    // whether it actually reached doPost is decided by the JSON body below.
     const upstream = await fetch(webhook, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
-      redirect: 'manual',
     });
     const result = await upstream.json().catch(() => null);
 
