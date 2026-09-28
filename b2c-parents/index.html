@@ -1062,7 +1062,7 @@ footer .muted{font-size:1rem}
 <script>
 /* ================= CONFIG ================= */
 /* Google Apps Script web app URL (see tomoclub-forms-apps-script.gs). Empty = preview mode. */
-const FORM_ENDPOINT = "";
+const FORM_ENDPOINT = "/api/parents-form";
 /* true on tomoclub.org so videos play on the page; false in the preview */
 const EMBED_VIDEOS = true;
 /* Country lookup by IP so VPN users and travellers see the right currency and language.
@@ -1275,7 +1275,7 @@ document.querySelectorAll('.video[data-yt]').forEach(v=>v.addEventListener('clic
   v.appendChild(f);
 }));
 
-/* Forms -> Google Sheets + Slack (via Apps Script) */
+/* Forms -> /api/parents-form -> Google Sheets + Slack (via Apps Script) */
 document.querySelectorAll('form[data-form]').forEach(form=>{
   form.addEventListener('submit',async e=>{
     e.preventDefault();
@@ -1286,9 +1286,12 @@ document.querySelectorAll('form[data-form]').forEach(form=>{
     const data=Object.fromEntries(new FormData(form));
     data.form=form.dataset.form; data.page=location.href; data.submitted_at=new Date().toISOString();
     try{
-      if(FORM_ENDPOINT){await fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});}
+      if(!FORM_ENDPOINT) throw new Error('Form endpoint not configured');
+      const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      const result=await r.json().catch(()=>({}));
+      if(!r.ok||result.ok===false) throw new Error(result.error||'Submission failed');
       form.style.display='none'; form.parentElement.querySelector('.done').classList.add('show');
-    }catch(x){btn.disabled=false;btn.textContent=t('tryagain')||'Try again';err.textContent=t('senderr');err.classList.add('show');}
+    }catch(x){btn.disabled=false;btn.textContent=label;err.textContent=t('senderr');err.classList.add('show');}
   });
 });
 </script>
