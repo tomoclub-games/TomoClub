@@ -97,7 +97,7 @@ section{padding-block:4.5rem;position:relative}
 /* floating nav pill (site style) */
 .nav-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:40;padding-inline:clamp(12px,3vw,2rem);margin-top:12px}
 nav.pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem .7rem .6rem 1.4rem;background:rgba(15,23,42,.82);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-radius:999px;box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 1px rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.08)}
-.brand img{height:30px;width:auto}
+.brand .logo{font-size:1.4rem}
 .nav-links{display:flex;align-items:center;gap:1.6rem}
 .nav-links a{color:#CBD5E1;text-decoration:none;font-weight:500;font-size:.98rem}
 .nav-links a:hover{color:#fff}
@@ -105,7 +105,7 @@ nav.pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-
 .theme-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);color:#fff;cursor:pointer}
 .nav-cta .btn{padding:.6rem 1.3rem;font-size:.95rem;background:#fff;color:#020617}
 @media (max-width:920px){.nav-links{display:none}}
-@media (max-width:420px){.brand img{height:24px}.nav-cta .btn{padding:.55rem 1rem;font-size:.88rem}}
+@media (max-width:420px){.brand .logo{font-size:1.15rem}.nav-cta .btn{padding:.55rem 1rem;font-size:.88rem}}
 
 /* hero */
 .hero{text-align:center;padding-block:4.5rem 3.5rem;background:var(--hero-glow)}
@@ -519,14 +519,15 @@ footer .muted{font-size:1rem}
 
 /* ===== mobile polish ===== */
 .brand{flex:none;display:flex;align-items:center}
-.brand img{height:30px;width:auto;max-width:none}
+.logo{font-size:1.4rem;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;gap:0}
+.footer-logo{font-size:1.5rem;margin-bottom:1rem}
 .nav-cta{flex:none}
 @media (max-width:640px){
   html{font-size:15px}
   .wa-strip{font-size:.82rem}.wa-strip .container{padding-block:.45rem;gap:.35rem .6rem}.wa-strip a{padding:.2rem .7rem}
   .nav-wrap{padding-inline:10px;margin-top:8px;top:calc(env(safe-area-inset-top,0px) + 8px)}
   nav.pill{padding:.45rem .5rem .45rem 1rem;gap:.5rem}
-  .brand img{height:24px}
+  .brand .logo{font-size:1.15rem}
   .nav-cta .btn{display:none}
   .lang-wrap{height:38px;padding:0 .25rem 0 .55rem}.lang-wrap .icon{width:16px;height:16px}.lang-wrap select{font-size:.85rem;max-width:96px;padding:.3rem .1rem}
   .theme-btn{width:38px;height:38px}
@@ -597,7 +598,7 @@ footer .muted{font-size:1rem}
 <!-- ===== Nav ===== -->
 <div class="nav-wrap">
   <nav class="pill" aria-label="Main">
-    <a class="brand" href="https://www.tomoclub.org/"><img src="/assets/parents/logo.webp" alt="TomoClub" width="169" height="30"></a>
+    <a class="brand" href="https://www.tomoclub.org/" style="text-decoration:none"><span class="logo"><span style="color:var(--teal)">To</span><span style="color:var(--gold)">mo</span><span style="color:var(--crimson)">Club</span></span></a>
     <div class="nav-links">
       <a href="#programs" data-i18n="nav.programs">Programs</a>
       <a href="#trust" data-i18n="nav.why">Why TomoClub</a>
@@ -1026,7 +1027,7 @@ footer .muted{font-size:1rem}
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="/assets/parents/logo.webp" alt="TomoClub" width="169" height="30" style="height:30px;width:auto;margin-bottom:1rem">
+        <a href="https://www.tomoclub.org/" class="logo footer-logo" style="text-decoration:none"><span style="color:var(--teal)">To</span><span style="color:var(--gold)">mo</span><span style="color:var(--crimson)">Club</span></a>
         <p class="muted" data-i18n="foot.p">Accredited programs in AI literacy and life skills, for schools and families.</p>
       </div>
       <div>
