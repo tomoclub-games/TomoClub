@@ -441,7 +441,11 @@ footer .muted{font-size:1rem}
 .pills input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
 .pills-wrap{position:relative}
 
-.games-row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:.75rem;scrollbar-width:thin}
+.games-row{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:.75rem;scrollbar-width:thin;scrollbar-color:var(--teal) transparent;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent)}
+.games-row::-webkit-scrollbar{height:6px}
+.games-row::-webkit-scrollbar-track{background:transparent}
+.games-row::-webkit-scrollbar-thumb{background:var(--teal);border-radius:999px}
+.games-row::-webkit-scrollbar-thumb:hover{background:var(--teal-text)}
 .games-row .game{flex:0 0 calc((100% - 48px)/5.4);scroll-snap-align:start}
 @media (max-width:880px){.games-row .game{flex-basis:40%}}
 @media (max-width:480px){.games-row .game{flex-basis:62%}}
@@ -488,7 +492,11 @@ footer .muted{font-size:1rem}
 .ig-ctrl{display:flex;gap:.6rem;align-items:center}
 .ig-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--border-color);background:var(--surface);color:var(--navy);display:grid;place-items:center;cursor:pointer;transition:border-color .3s}
 .ig-btn:hover{border-color:var(--navy)}
-.ig-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:.75rem;scrollbar-width:thin}
+.ig-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:.75rem;scrollbar-width:thin;scrollbar-color:var(--teal) transparent;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent)}
+.ig-track::-webkit-scrollbar{height:6px}
+.ig-track::-webkit-scrollbar-track{background:transparent}
+.ig-track::-webkit-scrollbar-thumb{background:var(--teal);border-radius:999px}
+.ig-track::-webkit-scrollbar-thumb:hover{background:var(--teal-text)}
 .ig-tile{flex:0 0 calc((100% - 42px)/4);aspect-ratio:1;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;background:#0F172A;display:block}
 .ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .ig-tile:hover img{transform:scale(1.05)}
@@ -607,7 +615,7 @@ footer .muted{font-size:1rem}
     </div>
     <div class="nav-cta">
       <label class="lang-wrap" aria-label="Language">
-        <svg class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
         <select id="langSel">
           <option value="en">English</option>
           <option value="hi">हिन्दी</option>
@@ -630,7 +638,7 @@ footer .muted{font-size:1rem}
     <span class="badge-pill" data-i18n="hero.badge">Now open to families · Your first class is free</span>
     <h1 data-i18n-html="hero.h1">Raise a kid who <span class="hl">thinks for themselves</span> in the age of AI.</h1>
     <p class="lead" data-i18n="hero.lead">Live online classes for Grades 3 to 12. Kids play team games, build real projects, and learn to use AI without letting it think for them.</p>
-    <p class="eng-note"><svg class="icon" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><span data-i18n="eng.note">Classes are taught in English.</span></p>
+    <p class="eng-note"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><span data-i18n="eng.note">Classes are taught in English.</span></p>
     <div class="ctas">
       <a class="btn btn-primary" href="#start" data-i18n="hero.cta1">Book a free class</a>
       <a class="btn btn-secondary" href="#talk" data-i18n="hero.cta2">Talk to our team</a>
