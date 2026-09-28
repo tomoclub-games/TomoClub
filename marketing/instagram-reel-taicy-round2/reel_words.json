@@ -1,0 +1,902 @@
+{
+"hook|847.85|854.61|So this isn't like your PUBG or other games, right? This is more strategy and thinking game.": [
+{
+"w": "So",
+"t": 0.0
+},
+{
+"w": "this",
+"t": 0.32
+},
+{
+"w": "isn't",
+"t": 0.68
+},
+{
+"w": "like",
+"t": 1.12
+},
+{
+"w": "your",
+"t": 1.24
+},
+{
+"w": "PUBG",
+"t": 1.36
+},
+{
+"w": "or",
+"t": 2.12
+},
+{
+"w": "other",
+"t": 2.5
+},
+{
+"w": "games,",
+"t": 2.8
+},
+{
+"w": "right?",
+"t": 3.4
+},
+{
+"w": "This",
+"t": 3.58
+},
+{
+"w": "is",
+"t": 3.62
+},
+{
+"w": "more",
+"t": 3.8
+},
+{
+"w": "strategy",
+"t": 3.98
+},
+{
+"w": "and",
+"t": 4.64
+},
+{
+"w": "thinking",
+"t": 5.52
+},
+{
+"w": "game.",
+"t": 6.3
+}
+],
+"rules-1|167.95|169.35|We don't give you any rules.": [
+{
+"w": "We",
+"t": 0.0
+},
+{
+"w": "don't",
+"t": 0.22
+},
+{
+"w": "give",
+"t": 0.46
+},
+{
+"w": "you",
+"t": 0.56
+},
+{
+"w": "any",
+"t": 0.72
+},
+{
+"w": "rules.",
+"t": 0.9
+}
+],
+"rules-2|178.55|181.15|You have to talk to each other and figure it out.": [
+{
+"w": "You",
+"t": 0.0
+},
+{
+"w": "have",
+"t": 0.42
+},
+{
+"w": "to",
+"t": 0.66
+},
+{
+"w": "talk",
+"t": 0.86
+},
+{
+"w": "to",
+"t": 1.02
+},
+{
+"w": "each",
+"t": 1.2
+},
+{
+"w": "other",
+"t": 1.34
+},
+{
+"w": "and",
+"t": 1.5
+},
+{
+"w": "figure",
+"t": 1.66
+},
+{
+"w": "it",
+"t": 1.88
+},
+{
+"w": "out.",
+"t": 2.04
+}
+],
+"unlock|1323.92|1328.68|In order to unlock the door, someone needs to be at this button over here.": [
+{
+"w": "In",
+"t": 0.0
+},
+{
+"w": "order",
+"t": 0.24
+},
+{
+"w": "to",
+"t": 0.44
+},
+{
+"w": "unlock",
+"t": 0.82
+},
+{
+"w": "the",
+"t": 1.3
+},
+{
+"w": "door,",
+"t": 1.6
+},
+{
+"w": "someone",
+"t": 2.1
+},
+{
+"w": "needs",
+"t": 2.34
+},
+{
+"w": "to",
+"t": 2.6
+},
+{
+"w": "be",
+"t": 2.82
+},
+{
+"w": "at",
+"t": 3.02
+},
+{
+"w": "this",
+"t": 3.36
+},
+{
+"w": "button",
+"t": 3.7
+},
+{
+"w": "over",
+"t": 4.02
+},
+{
+"w": "here.",
+"t": 4.24
+}
+],
+"level1|1375.65|1376.97|Yep, level one!": [
+{
+"w": "Yep,",
+"t": 0.0
+},
+{
+"w": "level",
+"t": 0.72
+},
+{
+"w": "one!",
+"t": 1.02
+}
+],
+"roles|1894.85|1900.69|Actually, I'll just be at the button, unlocking the doors you explore, through each door.": [
+{
+"w": "Actually,",
+"t": 0.0
+},
+{
+"w": "I'll",
+"t": 0.78
+},
+{
+"w": "just",
+"t": 1.04
+},
+{
+"w": "be",
+"t": 1.26
+},
+{
+"w": "at",
+"t": 1.6
+},
+{
+"w": "the",
+"t": 1.74
+},
+{
+"w": "button,",
+"t": 1.86
+},
+{
+"w": "unlocking",
+"t": 2.14
+},
+{
+"w": "the",
+"t": 2.64
+},
+{
+"w": "doors",
+"t": 2.9
+},
+{
+"w": "you",
+"t": 3.2
+},
+{
+"w": "explore,",
+"t": 3.46
+},
+{
+"w": "through",
+"t": 4.12
+},
+{
+"w": "each",
+"t": 4.98
+},
+{
+"w": "door.",
+"t": 5.26
+}
+],
+"chip|2603.3|2606.34|Okay, I got the last chip. Now we need to go to the platform.": [
+{
+"w": "Okay,",
+"t": 0.0
+},
+{
+"w": "I",
+"t": 0.4
+},
+{
+"w": "got",
+"t": 0.44
+},
+{
+"w": "the",
+"t": 0.56
+},
+{
+"w": "last",
+"t": 0.74
+},
+{
+"w": "chip.",
+"t": 0.94
+},
+{
+"w": "Now",
+"t": 1.26
+},
+{
+"w": "we",
+"t": 1.66
+},
+{
+"w": "need",
+"t": 1.86
+},
+{
+"w": "to",
+"t": 2.0
+},
+{
+"w": "go",
+"t": 2.14
+},
+{
+"w": "to",
+"t": 2.26
+},
+{
+"w": "the",
+"t": 2.4
+},
+{
+"w": "platform.",
+"t": 2.52
+}
+],
+"fast-q|3203.85|3205.41|How are you doing it so fast?": [
+{
+"w": "How",
+"t": 0.0
+},
+{
+"w": "are",
+"t": 0.12
+},
+{
+"w": "you",
+"t": 0.3
+},
+{
+"w": "doing",
+"t": 0.44
+},
+{
+"w": "it",
+"t": 0.64
+},
+{
+"w": "so",
+"t": 0.947
+},
+{
+"w": "fast?",
+"t": 1.253
+}
+],
+"fast-a1|3206.85|3210.45|Because we remember where all the circuit pieces are,": [
+{
+"w": "Because",
+"t": 0.0
+},
+{
+"w": "we",
+"t": 0.6
+},
+{
+"w": "remember",
+"t": 0.94
+},
+{
+"w": "where",
+"t": 1.32
+},
+{
+"w": "all",
+"t": 1.54
+},
+{
+"w": "the",
+"t": 1.7
+},
+{
+"w": "circuit",
+"t": 1.88
+},
+{
+"w": "pieces",
+"t": 2.14
+},
+{
+"w": "are,",
+"t": 2.5
+}
+],
+"fast-a2|3210.45|3212.77|and exactly what we should do at which time.": [
+{
+"w": "and",
+"t": 0.0
+},
+{
+"w": "exactly",
+"t": 0.045
+},
+{
+"w": "what",
+"t": 0.09
+},
+{
+"w": "we",
+"t": 0.135
+},
+{
+"w": "should",
+"t": 0.18
+},
+{
+"w": "do",
+"t": 0.38
+},
+{
+"w": "at",
+"t": 0.74
+},
+{
+"w": "which",
+"t": 1.4
+},
+{
+"w": "time.",
+"t": 1.62
+}
+],
+"dark-1|3343.8|3346.04|Oh, I can't see any light.": [
+{
+"w": "Oh,",
+"t": 0.0
+},
+{
+"w": "I",
+"t": 0.48
+},
+{
+"w": "can't",
+"t": 0.52
+},
+{
+"w": "see",
+"t": 1.42
+},
+{
+"w": "any",
+"t": 1.6
+},
+{
+"w": "light.",
+"t": 1.76
+}
+],
+"dark-2|3349.18|3351.46|But it's the same map. Can you remember?": [
+{
+"w": "But",
+"t": 0.0
+},
+{
+"w": "it's",
+"t": 0.28
+},
+{
+"w": "the",
+"t": 0.5
+},
+{
+"w": "same",
+"t": 0.56
+},
+{
+"w": "map.",
+"t": 0.78
+},
+{
+"w": "Can",
+"t": 1.24
+},
+{
+"w": "you",
+"t": 1.36
+},
+{
+"w": "remember?",
+"t": 1.54
+}
+],
+"dark-45|3389.22|3392.3|45 seconds. You've completed it. Pretty cool.": [
+{
+"w": "45",
+"t": 0.0
+},
+{
+"w": "seconds.",
+"t": 0.46
+},
+{
+"w": "You've",
+"t": 1.0
+},
+{
+"w": "completed",
+"t": 1.16
+},
+{
+"w": "it.",
+"t": 1.56
+},
+{
+"w": "Pretty",
+"t": 2.4
+},
+{
+"w": "cool.",
+"t": 2.7
+}
+],
+"stuck-1|1132.08|1134.84|And I didn't understand what was happening.": [
+{
+"w": "And",
+"t": 0.0
+},
+{
+"w": "I",
+"t": 0.38
+},
+{
+"w": "didn't",
+"t": 0.7
+},
+{
+"w": "understand",
+"t": 1.56
+},
+{
+"w": "what",
+"t": 1.66
+},
+{
+"w": "was",
+"t": 1.94
+},
+{
+"w": "happening.",
+"t": 2.16
+}
+],
+"stuck-2|1139.7|1142.94|No problem. That's the part of learning, right?": [
+{
+"w": "No",
+"t": 0.25
+},
+{
+"w": "problem.",
+"t": 1.06
+},
+{
+"w": "That's",
+"t": 1.52
+},
+{
+"w": "the",
+"t": 1.72
+},
+{
+"w": "part",
+"t": 1.88
+},
+{
+"w": "of",
+"t": 2.22
+},
+{
+"w": "learning,",
+"t": 2.46
+},
+{
+"w": "right?",
+"t": 2.98
+}
+],
+"bounce|1171.95|1177.75|You can always bounce back in this game, right? And Sudeep, I saw you doing it. So, good job.": [
+{
+"w": "You",
+"t": 0.0
+},
+{
+"w": "can",
+"t": 0.66
+},
+{
+"w": "always",
+"t": 0.8
+},
+{
+"w": "bounce",
+"t": 1.12
+},
+{
+"w": "back",
+"t": 1.48
+},
+{
+"w": "in",
+"t": 1.76
+},
+{
+"w": "this",
+"t": 1.96
+},
+{
+"w": "game,",
+"t": 2.35
+},
+{
+"w": "right?",
+"t": 2.74
+},
+{
+"w": "And",
+"t": 3.58
+},
+{
+"w": "Sudeep,",
+"t": 3.78
+},
+{
+"w": "I",
+"t": 3.98
+},
+{
+"w": "saw",
+"t": 4.107
+},
+{
+"w": "you",
+"t": 4.233
+},
+{
+"w": "doing",
+"t": 4.36
+},
+{
+"w": "it.",
+"t": 4.5
+},
+{
+"w": "So,",
+"t": 4.64
+},
+{
+"w": "good",
+"t": 4.78
+},
+{
+"w": "job.",
+"t": 5.2
+}
+],
+"voice-1|3697.15|3704.15|Usually in other games you're competing against someone, but here you're actually working together for a certain goal.": [
+{
+"w": "Usually",
+"t": 0.0
+},
+{
+"w": "in",
+"t": 0.44
+},
+{
+"w": "other",
+"t": 0.6
+},
+{
+"w": "games",
+"t": 0.78
+},
+{
+"w": "you're",
+"t": 1.06
+},
+{
+"w": "competing",
+"t": 1.6
+},
+{
+"w": "against",
+"t": 1.98
+},
+{
+"w": "someone,",
+"t": 2.38
+},
+{
+"w": "but",
+"t": 2.92
+},
+{
+"w": "here",
+"t": 3.0
+},
+{
+"w": "you're",
+"t": 3.3
+},
+{
+"w": "actually",
+"t": 3.9
+},
+{
+"w": "working",
+"t": 4.22
+},
+{
+"w": "together",
+"t": 4.6
+},
+{
+"w": "for",
+"t": 5.54
+},
+{
+"w": "a",
+"t": 6.14
+},
+{
+"w": "certain",
+"t": 6.28
+},
+{
+"w": "goal.",
+"t": 6.56
+}
+],
+"voice-2|3542.65|3544.61|Communication is key.": [
+{
+"w": "Communication",
+"t": 0.0
+},
+{
+"w": "is",
+"t": 0.84
+},
+{
+"w": "key.",
+"t": 1.38
+}
+],
+"close-1|3781.15|3783.31|So this is what game-based learning looks like.": [
+{
+"w": "So",
+"t": 0.0
+},
+{
+"w": "this",
+"t": 0.12
+},
+{
+"w": "is",
+"t": 0.34
+},
+{
+"w": "what",
+"t": 0.52
+},
+{
+"w": "game-based",
+"t": 0.82
+},
+{
+"w": "learning",
+"t": 1.12
+},
+{
+"w": "looks",
+"t": 1.4
+},
+{
+"w": "like.",
+"t": 1.76
+}
+],
+"close-2|3840.03|3841.07|And I'm so proud of you.": [
+{
+"w": "And",
+"t": 0.0
+},
+{
+"w": "I'm",
+"t": 0.14
+},
+{
+"w": "so",
+"t": 0.4
+},
+{
+"w": "proud",
+"t": 0.56
+},
+{
+"w": "of",
+"t": 0.76
+},
+{
+"w": "you.",
+"t": 0.92
+}
+],
+"fast-a1|3206.85|3210.29|Because we remember where all the circuit pieces are, and exactly": [
+{
+"w": "Because",
+"t": 0.0
+},
+{
+"w": "we",
+"t": 0.6
+},
+{
+"w": "remember",
+"t": 0.96
+},
+{
+"w": "where",
+"t": 1.32
+},
+{
+"w": "all",
+"t": 1.54
+},
+{
+"w": "the",
+"t": 1.7
+},
+{
+"w": "circuit",
+"t": 1.88
+},
+{
+"w": "pieces",
+"t": 2.14
+},
+{
+"w": "are,",
+"t": 2.5
+},
+{
+"w": "and",
+"t": 2.78
+},
+{
+"w": "exactly",
+"t": 2.9
+}
+],
+"fast-a2|3210.3|3212.74|what we should do at which time.": [
+{
+"w": "what",
+"t": 0.0
+},
+{
+"w": "we",
+"t": 0.14
+},
+{
+"w": "should",
+"t": 0.34
+},
+{
+"w": "do",
+"t": 0.54
+},
+{
+"w": "at",
+"t": 0.92
+},
+{
+"w": "which",
+"t": 1.56
+},
+{
+"w": "time.",
+"t": 1.78
+}
+]
+}

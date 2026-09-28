@@ -1,0 +1,41 @@
+{
+  "title": "TomoClub | This is what screen time SHOULD look like | TAICY 2026 Reel",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 25,
+    "file": "out/TomoClub_TAICY-R2_Reel_9x16.mp4",
+    "loudness_lufs": -14,
+    "true_peak_db": -1.0
+  },
+  "notes": [
+    "a_in/a_out: the words, in seconds of the source recording, cut in the pauses between words (faster-whisper word timestamps checked against the audio energy).",
+    "v_in: the picture comes from that time instead (same round). Used for the hook (a live 3-way battle) and the Game 1 debrief, where the real screen shows a student's DEFEAT screen.",
+    "view: game = centre square of the screen share; vk / vedant / sudeep = that person's Zoom tile, cropped square (the crop leaves out the Zoom name label); grid = all three faces stacked.",
+    "head: the kinetic headline at the top. *word* is set in gold. A shot without head keeps the previous one.",
+    "The lights-off round shows the coach's view of the map, so the text says the lights were off for the kids."
+  ],
+  "shots": [
+    {"id": "hook", "a_in": 847.85, "a_out": 854.62, "v_in": 700.0, "view": "game", "who": "coach", "head": "This is what screen time|*SHOULD* look like", "text": "So this isn't like your PUBG or other games, right? This is more strategy and thinking game."},
+    {"id": "rules-1", "a_in": 167.95, "a_out": 169.35, "view": "vk", "who": "coach", "head": "No rules. *No answers.*", "text": "We don't give you any rules."},
+    {"id": "rules-2", "a_in": 178.55, "a_out": 181.15, "view": "grid", "who": "coach", "text": "You have to talk to each other and figure it out."},
+    {"id": "unlock", "a_in": 1323.92, "a_out": 1328.7, "view": "game", "cx": 1213, "who": "student", "head": "They crack the rules…|*together.*", "text": "In order to unlock the door, someone needs to be at this button over here."},
+    {"id": "level1", "a_in": 1375.65, "a_out": 1376.97, "view": "game", "cx": 1213, "who": "student", "head": "Level 1: *cleared.*", "text": "Yep, level one!"},
+    {"id": "roles", "a_in": 1894.85, "a_out": 1900.7, "view": "game", "cx": 1213, "who": "student", "head": "They split the roles.|*They plan.*", "text": "Actually, I'll just be at the button, unlocking the doors you explore, through each door."},
+    {"id": "chip", "a_in": 2603.3, "a_out": 2606.35, "view": "game", "cx": 1213, "who": "student", "text": "Okay, I got the last chip. Now we need to go to the platform."},
+    {"id": "fast-q", "a_in": 3203.85, "a_out": 3205.4, "view": "vk", "who": "coach", "head": "The coach asks.|*The kids think.*", "text": "How are you doing it so fast?"},
+    {"id": "fast-a1", "a_in": 3206.85, "a_out": 3210.3, "view": "grid", "who": "student", "text": "Because we remember where all the circuit pieces are, and exactly"},
+    {"id": "fast-a2", "a_in": 3210.3, "a_out": 3212.75, "view": "game", "cx": 1213, "who": "student", "text": "what we should do at which time.", "joined": true},
+    {"id": "dark-1", "a_in": 3343.8, "a_out": 3346.05, "view": "game", "cx": 1213, "who": "student", "head": "Now the lights go *OFF*|for the kids.", "text": "Oh, I can't see any light."},
+    {"id": "dark-2", "a_in": 3349.18, "a_out": 3351.45, "view": "game", "cx": 1213, "who": "coach", "text": "But it's the same map. Can you remember?"},
+    {"id": "dark-45", "a_in": 3389.22, "a_out": 3392.3, "view": "game", "cx": 1213, "who": "coach", "head": "Same level.|Cleared in *45 seconds.*", "text": "45 seconds. You've completed it. Pretty cool."},
+    {"id": "stuck-1", "a_in": 1132.08, "a_out": 1134.85, "v_in": 975.0, "view": "game", "who": "sudeep", "head": "Stuck? That's where|*learning starts.*", "text": "And I didn't understand what was happening."},
+    {"id": "stuck-2", "a_in": 1139.7, "a_out": 1142.95, "v_in": 988.0, "view": "game", "who": "coach", "text": "No problem. That's the part of learning, right?"},
+    {"id": "bounce", "a_in": 1171.95, "a_out": 1177.75, "v_in": 1017.0, "view": "game", "who": "coach", "head": "Bounce back. *Every time.*", "text": "You can always bounce back in this game, right? And Sudeep, I saw you doing it. So, good job."},
+    {"id": "voice-1", "a_in": 3697.15, "a_out": 3704.15, "view": "vedant", "who": "vedant", "head": "In their *own words.*", "text": "Usually in other games you're competing against someone, but here you're actually working together for a certain goal."},
+    {"id": "voice-2", "a_in": 3542.65, "a_out": 3544.6, "view": "grid", "who": "student", "text": "Communication is key."},
+    {"id": "close-1", "a_in": 3781.15, "a_out": 3783.31, "view": "vk", "who": "coach", "head": "Game-based learning,|*the TomoClub way.*", "text": "So this is what game-based learning looks like."},
+    {"id": "close-2", "a_in": 3840.03, "a_out": 3841.09, "view": "vk", "who": "coach", "fade_out": 0.06, "text": "And I'm so proud of you."},
+    {"id": "cta", "card": "cta", "dur": 8.0}
+  ]
+}
