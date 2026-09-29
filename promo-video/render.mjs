@@ -6,6 +6,8 @@
 //   node promo-video/render.mjs --cues               # write sound cue list -> promo-video/cues.json
 //   node promo-video/render.mjs --vertical --jobs 4  # 9:16 cut -> promo-video/tomoclub-promo-vertical.mp4
 //
+//   node promo-video/render.mjs --page thumbnail.html --stills 0 [--vertical]   # cover images
+//
 // Options: --fps 30  --crf 22  --out path.mp4  --audio promo-video/soundtrack.m4a  --from 0 --to 46
 // Needs Playwright (with Chromium) and an ffmpeg that has libx264 (FFMPEG env var or on PATH).
 
@@ -28,6 +30,7 @@ const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i < 0 
 
 const FPS = +opt('fps', 30);
 const VERT = !!opt('vertical', false);
+const PAGE = opt('page', 'index.html');
 const [W, H] = VERT ? [1080, 1920] : [1920, 1080];
 const OUT = path.resolve(opt('out', path.join(HERE, VERT ? 'tomoclub-promo-vertical.mp4' : 'tomoclub-promo.mp4')));
 const AUDIO = opt('silent', false) ? '' : opt('audio', path.join(HERE, 'soundtrack.m4a'));
@@ -70,7 +73,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(p).pipe(res);
 });
 await new Promise(r => server.listen(0, '127.0.0.1', r));
-const url = `http://127.0.0.1:${server.address().port}/promo-video/index.html?render=1${VERT ? '&vertical' : ''}`;
+const url = `http://127.0.0.1:${server.address().port}/promo-video/${PAGE}?render=1${VERT ? '&vertical' : ''}`;
 
 const browser = await chromium.launch({ args: ['--force-color-profile=srgb', '--font-render-hinting=none', '--hide-scrollbars'] });
 const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });

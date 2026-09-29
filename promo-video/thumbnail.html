@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TomoClub Thumbnails</title>
+<!--
+  Cover / thumbnail for the promo video.
+  thumbnail.html            -> 1920x1080 (YouTube, LinkedIn)
+  thumbnail.html?vertical   -> 1080x1920 (Reels / Shorts cover). Everything important sits
+                               inside the centre 1080x1080 so Instagram's 3:4 grid and 4:5
+                               feed crops keep it.
+  Render: node promo-video/render.mjs --page thumbnail.html --stills 0 [--vertical]
+-->
+<style>
+@font-face { font-family: 'Outfit'; src: url(fonts/outfit-latin-wght-normal.woff2) format('woff2'); font-weight: 100 900; font-display: block; }
+@font-face { font-family: 'Silkscreen'; src: url(fonts/silkscreen-latin-700-normal.woff2) format('woff2'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'JetBrains Mono'; src: url(fonts/jetbrains-mono-latin-700-normal.woff2) format('woff2'); font-weight: 700; font-display: block; }
+:root { --bg: #060A18; --ink: #F8FAFC; --soft: #CBD5E1; --teal: #2AB4B8; --teal-hi: #45DADE; --gold: #FDC62D; --crimson: #B34158; --rose: #F0567A; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #000; }
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); color: var(--ink); font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+.abs { position: absolute; }
+
+/* texture */
+.glow { position: absolute; border-radius: 50%; }
+#g1 { width: 1400px; height: 1400px; left: 900px; top: -700px; background: radial-gradient(circle, rgba(42,180,184,.34), rgba(42,180,184,0) 60%); }
+#g2 { width: 1400px; height: 1400px; left: 1100px; top: 250px; background: radial-gradient(circle, rgba(179,65,88,.34), rgba(179,65,88,0) 60%); }
+#g3 { width: 1200px; height: 1200px; left: -500px; top: 400px; background: radial-gradient(circle, rgba(253,198,45,.12), rgba(253,198,45,0) 60%); }
+#dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(148,163,184,.16) 1.4px, transparent 1.6px); background-size: 48px 48px; }
+#wall-wrap { position: absolute; inset: 0; perspective: 1700px; overflow: hidden; opacity: .36;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 38%, #000 78%); mask-image: linear-gradient(90deg, transparent 0%, transparent 38%, #000 78%); }
+#wall { position: absolute; left: 50%; top: 50%; width: 3000px; height: 2600px; margin-left: -1500px; margin-top: -1300px; display: flex; gap: 30px; justify-content: center; transform: rotateX(22deg) rotate(-14deg) scale(1.25); }
+#wall .col { display: flex; flex-direction: column; gap: 30px; width: 300px; flex: none; }
+#wall img { width: 300px; height: 300px; border-radius: 28px; display: block; }
+#vig { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%); }
+
+/* brand + copy */
+.logo { font-weight: 800; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
+.lt { color: var(--teal); } .lm { color: var(--gold); } .lc { color: #E04D6E; }
+#logo { left: 104px; top: 92px; font-size: 72px; }
+#tag { left: 110px; top: 250px; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 36px; letter-spacing: .12em; color: var(--gold); display: flex; align-items: center; gap: 18px; }
+#tag i { width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 24px solid var(--gold); }
+#head { left: 96px; top: 316px; font-weight: 900; font-size: 160px; letter-spacing: -.05em; line-height: .98; }
+#head .a { color: var(--teal-hi); } #head .h { color: var(--rose); }
+#pills { left: 104px; top: 700px; display: flex; align-items: center; gap: 22px; }
+.pill { font-size: 58px; font-weight: 800; padding: 4px 34px 10px; border-radius: 999px; border: 4px solid; letter-spacing: -.02em; white-space: nowrap; }
+.pill.t { color: var(--teal-hi); border-color: var(--teal); background: rgba(42,180,184,.14); }
+.pill.r { color: var(--rose); border-color: var(--rose); background: rgba(240,86,122,.14); }
+.plus { font-size: 70px; font-weight: 800; color: var(--gold); }
+#grades { left: 110px; top: 850px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 32px; letter-spacing: .1em; color: var(--soft); white-space: nowrap; }
+#grades b { color: var(--gold); }
+
+/* game cards + stickers */
+.fc { position: absolute; width: 340px; height: 340px; border-radius: 34px; overflow: hidden; border: 8px solid rgba(255,255,255,.95); box-shadow: 0 40px 90px rgba(0,0,0,.6); }
+.fc img { width: 100%; height: 100%; display: block; }
+#fc1 { left: 1230px; top: 330px; transform: rotate(-12deg); }
+#fc3 { left: 1560px; top: 350px; transform: rotate(13deg); }
+#fc2 { left: 1395px; top: 250px; transform: rotate(2deg); }
+#stamp { left: 1200px; top: 700px; font-size: 76px; font-weight: 900; color: var(--rose); border: 8px solid var(--rose); border-radius: 20px; padding: 0 28px 8px; background: rgba(11,18,41,.94); transform: rotate(-9deg); white-space: nowrap; box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+#xp { left: 1690px; top: 180px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 50px; color: #1A1203; background: var(--gold); padding: 8px 22px; border-radius: 16px; transform: rotate(8deg); box-shadow: 0 18px 40px rgba(0,0,0,.45); white-space: nowrap; }
+#url { display: none; }
+
+/* ============ vertical cover (1080x1920) ============ */
+.vertical #stage { width: 1080px; height: 1920px; }
+.vertical #g1 { left: 100px; top: -300px; } .vertical #g2 { left: 0; top: 1100px; } .vertical #g3 { left: -600px; top: 500px; }
+.vertical #wall-wrap { opacity: .24; -webkit-mask-image: radial-gradient(ellipse 95% 46% at 50% 50%, transparent 60%, #000 100%); mask-image: radial-gradient(ellipse 95% 46% at 50% 50%, transparent 60%, #000 100%); }
+.vertical #wall { height: 3600px; margin-top: -1800px; }
+.vertical #logo { left: 0; right: 0; top: 432px; text-align: center; font-size: 64px; }
+.vertical #tag { display: none; }
+.vertical #head { left: 0; right: 0; top: 530px; text-align: center; font-size: 150px; }
+.vertical .fc { width: 300px; height: 300px; border-width: 7px; }
+.vertical #fc1 { left: 150px; top: 880px; }
+.vertical #fc2 { left: 390px; top: 840px; }
+.vertical #fc3 { left: 630px; top: 890px; }
+.vertical #stamp { left: 120px; top: 1110px; font-size: 62px; border-width: 7px; }
+.vertical #xp { left: 760px; top: 1200px; font-size: 42px; }
+.vertical #pills { left: 0; right: 0; top: 1330px; justify-content: center; }
+.vertical .pill { font-size: 52px; }
+.vertical .plus { font-size: 62px; }
+.vertical #grades { left: 0; right: 0; top: 1560px; text-align: center; font-size: 30px; }
+.vertical #url { display: block; left: 0; right: 0; top: 1620px; text-align: center; font-size: 38px; font-weight: 700; color: var(--ink); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow" id="g1"></div><div class="glow" id="g2"></div><div class="glow" id="g3"></div>
+  <div id="dots"></div>
+  <div id="wall-wrap"><div id="wall"></div></div>
+  <div id="vig"></div>
+
+  <div class="abs logo" id="logo"><span class="lt">To</span><span class="lm">mo</span><span class="lc">Club</span></div>
+  <div class="abs" id="tag"><i></i>LEARN BY PLAYING</div>
+  <div class="abs" id="head"><span class="a">AI-smart</span> &amp;<br><span class="h">human-strong.</span></div>
+
+  <div class="fc" id="fc1"><img src="../assets/games/crisis_crew.jpg" alt=""></div>
+  <div class="fc" id="fc3"><img src="../assets/games/emotional_rollercoaster.jpg" alt=""></div>
+  <div class="fc" id="fc2"><img src="../assets/games/ei_joe.jpg" alt=""></div>
+  <div class="abs" id="stamp">MYTH BUSTED!</div>
+  <div class="abs" id="xp">+50 XP</div>
+
+  <div class="abs" id="pills"><span class="pill t">AI Literacy</span><span class="plus">+</span><span class="pill r">SEL</span></div>
+  <div class="abs" id="grades">GAME-BASED LEARNING · <b>GRADES 3–12</b></div>
+  <div class="abs" id="url">tomoclub.org</div>
+</div>
+<script>
+(async () => {
+  const VERT = new URLSearchParams(location.search).has('vertical');
+  if (VERT) document.body.classList.add('vertical');
+  const games = ['crisis_crew', 'emotional_rollercoaster', 'cosmos_colour_clash', 'ei_joe', 'river_taxi', 'first_settlers',
+    'mayday', 'jolly_jumpers', 'food_for_mood', 'backyard_blast', 'history_lesson', 'secret_santa'];
+  const wall = document.getElementById('wall');
+  for (let c = 0; c < 9; c++) {
+    const col = document.createElement('div'); col.className = 'col';
+    col.style.transform = `translateY(${c % 2 ? -330 : -165}px)`;
+    for (let r = 0; r < (VERT ? 12 : 9); r++) {
+      const img = document.createElement('img');
+      img.src = `../assets/games/${games[(c * 5 + r * 3) % games.length]}.jpg`; img.alt = '';
+      col.appendChild(img);
+    }
+    wall.appendChild(col);
+  }
+  await Promise.all(['900 100px Outfit', '800 60px Outfit', '700 30px Silkscreen', '700 30px "JetBrains Mono"'].map(f => document.fonts.load(f)));
+  await Promise.all([...document.images].map(i => i.decode().catch(() => {})));
+  // hooks used by render.mjs
+  window.__duration = 0; window.__cues = []; window.__size = VERT ? [1080, 1920] : [1920, 1080];
+  window.__seek = () => true;
+  window.__ready = true;
+})();
+</script>
+</body>
+</html>

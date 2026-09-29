@@ -23,7 +23,11 @@ All stats and the testimonial are taken from the current homepage (`index.html`)
 
 - `tomoclub-promo.mp4` — the finished video (H.264 + AAC, 1920×1080, 30 fps, ~18 MB, -14 LUFS audio).
 - `tomoclub-promo-vertical.mp4` — the 9:16 cut for Reels / Shorts / TikTok (1080×1920, same timing and soundtrack).
-- `poster.jpg`, `poster-vertical.jpg` — end-card frames for thumbnails / Reels covers.
+- `thumbnail-16x9.jpg` — designed thumbnail for YouTube / LinkedIn (1920×1080).
+- `cover-9x16.jpg` — designed Reels / Shorts cover (1080×1920); logo, headline and game cards sit in the
+  centre square, so Instagram's 3:4 grid and 4:5 feed crops keep them. Source: `thumbnail.html`
+  (`?vertical` for the 9:16 version), rendered with `render.mjs --page thumbnail.html --stills 0`.
+- `poster.jpg`, `poster-vertical.jpg` — plain end-card frames from the video.
 - `index.html` — the animation source. Open it through a local server to preview with sound
   (space = play/pause, ←/→ = seek, `?t=12` starts at 12s, `?vertical` shows the 9:16 cut).
   The vertical cut reuses the same timeline; its layout lives in the `.vertical` CSS block and the
