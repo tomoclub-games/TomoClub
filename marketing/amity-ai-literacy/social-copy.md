@@ -23,6 +23,7 @@ Everything here uses the same facts as the Substack post. Where a link is needed
 > 40 educators were trained in August. The student course started in October, taught by Amity's own teachers rather than outside specialists. 132 students in grades 8 and 9, 15 sessions each, with an ethics question in every lesson.
 >
 > Where things stood in March:
+>
 > - 87% average pass rate on eighth-grade exit tickets
 > - The top-scoring session was an ethics debate, at 4.6 out of 5
 > - 93% of educators surveyed said they understood AI better after training
