@@ -18,15 +18,15 @@ SEGS = [
     dict(v=[('tl_hex', 0, 2.72, 'game')], a=('v2', 178.45, 181.00), head=HEAD_HOOK, tag=[(0, 'Coach VK')]),
     dict(v=[('maze', 0.35, 5.90, 'game')], a=('v2', 1894.95, 1900.50),
          head=[('They plan. They ', WHITE), ('split roles.', TEAL)], tag=[(0, 'Student')]),
-    dict(v=[('tl_ally', 0, 4.48, 'game')], a=('v1', 1880.55, 1884.25),
+    dict(v=[('tl_ally2', 0, 4.2, 'game')], a=('v1', 1880.55, 1884.12),
          head=[('Challenges are ', WHITE), ('hard on purpose.', GOLD)], tag=[(0, 'Coach VK')]),
     dict(v=[('win', 0.25, 1.55, 'B'), ('win', 1.55, 4.60, 'A')], a=('v1', 2105.85, 2110.20),
          head=[('They win by ', WHITE), ('working together.', TEAL)], tag=[(0, 'Coach VK'), (1.3, 'Student')]),
     dict(v=[('twoway', 0.15, 5.60, 'B')], a=('v2', 2320.55, 2326.00),
          head=[('A coach links every game ', WHITE), ('to real life.', GOLD)], tag=[(0, 'Coach VK')]),
-    dict(v=[('testi', 0.35, 4.35, 'A'), ('maze', 5.90, 11.40, 'game')], a=('v2', 3696.75, 3706.55),
+    dict(v=[('testi', 0.35, 4.35, 'A'), ('maze2', 0.2, 5.8, 'game')], a=('v2', 3696.75, 3706.55),
          head=[('In their ', WHITE), ('own words.', TEAL)], tag=[(0, 'Student')]),
-    dict(v=[('rate', 0.30, 3.95, 'B'), ('rate', 3.95, 6.70, 'grid')], a=('v1', 4084.30, 4090.70),
+    dict(v=[('rate', 0.30, 3.95, 'B'), ('rate', 3.95, 6.70, 'grid')], a=('v1', 4084.30, 4090.45),
          head=[('And how did they ', WHITE), ('rate it?', GOLD)], tag=[(0, 'Coach VK'), (3.65, 'Students')]),
 ]
 CTA_DUR = 6.0
@@ -248,7 +248,7 @@ def draw_frame(t):
     acc = 0; sub = None
     for (cn, a, b, mode) in s['v']:
         span = b - a
-        if cn in ('tl_hex', 'tl_ally'): span = s['dur'] - acc if sub is None and (cn, a, b, mode) == s['v'][-1] else span
+        if cn.startswith('tl_'): span = s['dur'] - acc if sub is None and (cn, a, b, mode) == s['v'][-1] else span
         if rt < acc + span or (cn, a, b, mode) == s['v'][-1]:
             sub = (cn, a, b, mode, rt - acc, span); break
         acc += span
