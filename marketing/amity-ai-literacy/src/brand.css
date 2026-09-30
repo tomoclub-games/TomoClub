@@ -1,0 +1,72 @@
+/* Shared look for the Amity launch kit (carousel, images, video).
+   Colors and type follow the tomoclub.org brand: Outfit + logo teal/gold/crimson. */
+
+@font-face { font-family: 'Outfit'; src: url(fonts/outfit.woff2) format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'Fraunces'; src: url(fonts/fraunces.woff2) format('woff2'); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: 'Fraunces'; src: url(fonts/fraunces-italic.woff2) format('woff2'); font-weight: 100 900; font-style: italic; }
+
+:root {
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --teal: #2AB4B8;
+  --teal-ink: #1FA3A7;
+  --teal-deep: #0E6E71;
+  --gold: #FDC62D;
+  --gold-ink: #C98A00;
+  --crimson: #B34158;
+  --paper: #F6F4EE;
+  --card: #FFFFFF;
+  --ink: #0F172A;
+  --ink-2: #334155;
+  --ink-3: #64748B;
+  --rule: #E3DFD4;
+  --on-dark: #F8FAFC;
+  --on-dark-2: #CBD5E1;
+  --on-dark-3: #94A3B8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #555; font-family: 'Outfit', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+.frame { position: relative; overflow: hidden; background: var(--paper); }
+.frame.dark { background: var(--navy); color: var(--on-dark); }
+.frame.gold { background: var(--gold); color: var(--ink); }
+
+.kicker { font-size: 26px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-deep); }
+.dark .kicker { color: var(--teal); }
+.gold .kicker { color: var(--ink); opacity: 0.75; }
+
+.h1 { font-weight: 750; letter-spacing: -0.025em; line-height: 1.04; }
+.serif { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+.hl-teal { color: var(--teal-deep); }
+.dark .hl-teal { color: var(--teal); }
+.hl-gold { color: var(--gold); }
+.hl-crimson { color: var(--crimson); }
+
+/* Exit ticket: the recurring motif. Student quotes came from session exit tickets. */
+.ticket {
+  position: relative; background: var(--card); border-radius: 10px;
+  box-shadow: 0 2px 0 rgba(15,23,42,0.04), 0 24px 60px -20px rgba(15,23,42,0.35);
+  padding: 0; overflow: hidden;
+}
+.ticket .t-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 36px; border-bottom: 3px solid var(--crimson);
+  font-size: 20px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+}
+.ticket .t-head b { color: var(--crimson); font-weight: 800; }
+.ticket .t-body {
+  padding: 34px 44px 40px;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 69px, rgba(42,180,184,0.28) 69px, rgba(42,180,184,0.28) 71px);
+  background-position: 0 30px;
+}
+.ticket .quote { font-family: 'Fraunces', serif; font-style: italic; font-weight: 450; color: var(--ink); line-height: 70px; font-size: 52px; letter-spacing: -0.01em; }
+.ticket .who { margin-top: 26px; font-size: 22px; font-weight: 600; color: var(--ink-3); letter-spacing: 0.02em; }
+
+/* Footer used on carousel slides */
+.foot { position: absolute; left: 88px; right: 88px; bottom: 56px; display: flex; align-items: center; justify-content: space-between; font-size: 21px; font-weight: 500; color: var(--ink-3); }
+.dark .foot { color: var(--on-dark-3); }
+.gold .foot { color: rgba(15,23,42,0.7); }
+.foot img { height: 28px; display: block; }
+.foot .mid { flex: 1; margin-left: 24px; }
+.foot .pg { font-variant-numeric: tabular-nums; font-weight: 600; }

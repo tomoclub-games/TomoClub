@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Amity reel</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* 1080x1920. Text stays inside the Reels/Shorts/TikTok safe band (y 240–1560, x 80–960). */
+  body { background: #000; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+  .scene { position: absolute; inset: 0; padding: 240px 90px 400px; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  .scene > * { max-width: 900px; }
+  .scene > .ticket, .scene > .bars, .scene > .bars-x, .scene > .list { width: 900px; }
+  .scene.dark { background: var(--navy); color: var(--on-dark); }
+  .scene.paper { background: var(--paper); }
+  .scene.gold { background: var(--gold); }
+  .a { will-change: transform, opacity; }
+  .kicker { font-size: 30px; margin-bottom: 40px; }
+  .big { font-size: 108px; font-weight: 750; letter-spacing: -0.03em; line-height: 1.04; }
+  .mid { font-size: 72px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .body { font-size: 50px; line-height: 1.3; color: var(--ink-2); }
+  .dark .body { color: var(--on-dark-2); }
+
+  .cheat { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 230px; line-height: 1; color: var(--gold); margin-top: 110px; margin-left: -8px; letter-spacing: -0.03em; }
+
+  .ticket .quote { font-size: 76px; line-height: 104px; }
+  .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 103px, rgba(42,180,184,0.28) 103px, rgba(42,180,184,0.28) 105px); background-position: 0 38px; padding: 40px 48px 52px; }
+  .ticket .t-head { font-size: 22px; padding: 24px 40px; }
+  .ticket.sm .quote { font-size: 58px; line-height: 82px; }
+  .ticket.sm .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 81px, rgba(42,180,184,0.28) 81px, rgba(42,180,184,0.28) 83px); background-position: 0 34px; padding: 32px 44px 42px; }
+  .w { opacity: 0; }
+
+  .stat { display: flex; align-items: baseline; gap: 28px; margin-top: 70px; }
+  .stat b { font-size: 190px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; }
+  .stat span { font-size: 42px; line-height: 1.2; color: var(--ink-2); max-width: 440px; font-weight: 500; }
+
+  .list { margin-top: 70px; }
+  .list .li { display: flex; gap: 30px; align-items: baseline; padding: 34px 0; border-top: 2px solid rgba(203,213,225,0.18); }
+  .list .li:last-child { border-bottom: 2px solid rgba(203,213,225,0.18); }
+  .list .n { font-size: 34px; font-weight: 700; color: var(--gold); width: 64px; flex: none; }
+  .list .t { font-size: 58px; font-weight: 650; letter-spacing: -0.01em; line-height: 1.15; }
+
+  .bars { display: flex; align-items: flex-end; gap: 22px; height: 420px; margin-top: 80px; border-bottom: 3px solid #B8B2A3; }
+  .bars div { flex: 1; border-radius: 8px 8px 0 0; background: var(--teal-ink); height: 0; }
+  .bars .dip { background: var(--crimson); }
+  .bars .top { background: var(--gold-ink); }
+  .bars-x { display: flex; gap: 22px; margin-top: 16px; }
+  .bars-x span { flex: 1; text-align: center; font-size: 26px; color: var(--ink-3); font-weight: 500; }
+  .note { font-size: 34px; color: var(--ink-3); margin-top: 40px; line-height: 1.35; }
+
+  .badge { display: inline-flex; align-items: center; gap: 20px; padding: 22px 32px; border: 2px solid rgba(42,180,184,0.6); border-radius: 28px; font-size: 36px; font-weight: 600; line-height: 1.3; color: var(--on-dark); }
+  .badge svg { width: 48px; height: 48px; flex: none; }
+  .cta { display: inline-flex; align-items: center; gap: 22px; background: var(--gold); color: var(--ink); font-size: 60px; font-weight: 700; padding: 30px 54px; border-radius: 999px; margin-top: 70px; }
+  .logo-end { height: 76px; margin-top: 110px; display: block; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1: 0.0–4.8 -->
+  <section class="scene dark" data-start="0" data-end="4.8">
+    <div class="kicker a" data-in="0.2">Amity School District, Oregon</div>
+    <div class="big a" data-in="0.3">August 2025.</div>
+    <div class="mid a" data-in="0.9" style="margin-top:40px;color:var(--on-dark-2);font-weight:600">We asked teachers what worried them most about AI.</div>
+    <div class="cheat a" data-in="2.3" data-fx="pop">“Cheating.”</div>
+  </section>
+
+  <!-- 2: 4.8–10.4 -->
+  <section class="scene paper" data-start="4.8" data-end="10.4">
+    <div class="kicker a" data-in="5.0">March 2026</div>
+    <div class="mid a" data-in="5.1">Seven months later, an 8th grader wrote:</div>
+    <div class="ticket a" data-in="5.8" data-fx="ticket" style="margin-top:90px;transform:rotate(-1.5deg)">
+      <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 11</span></div>
+      <div class="t-body"><p class="quote" data-type="6.3" data-rate="0.16">“ChatGPT is a tool. I'm the one who still has to think.”</p></div>
+    </div>
+  </section>
+
+  <!-- 3: 10.4–15.6 -->
+  <section class="scene paper" data-start="10.4" data-end="15.6">
+    <div class="kicker a" data-in="10.6">What happened in between</div>
+    <div class="mid a" data-in="10.7">The superintendent made one call:</div>
+    <div class="big a" data-in="11.5" data-fx="pop" style="margin-top:50px;color:var(--teal-deep);font-size:120px">Train the teachers first.</div>
+    <div class="stat a" data-in="12.8"><b data-count="40" data-count-at="12.8">40</b><span>educators trained in August 2025</span></div>
+  </section>
+
+  <!-- 4: 15.6–21.4 -->
+  <section class="scene dark" data-start="15.6" data-end="21.4">
+    <div class="kicker a" data-in="15.8">Then the students</div>
+    <div class="mid a" data-in="15.9">132 students. 15 hands-on sessions per grade.</div>
+    <div class="list">
+      <div class="li a" data-in="16.9"><span class="n">01</span><span class="t">Trained their own image classifiers</span></div>
+      <div class="li a" data-in="17.6"><span class="n">02</span><span class="t">Audited their own TikTok feeds</span></div>
+      <div class="li a" data-in="18.3"><span class="n">03</span><span class="t">Argued an ethics question every week</span></div>
+    </div>
+  </section>
+
+  <!-- 5: 21.4–27.0 -->
+  <section class="scene paper" data-start="21.4" data-end="27.0">
+    <div class="kicker a" data-in="21.6">The results · 8th grade</div>
+    <div class="stat a" data-in="21.7" style="margin-top:0"><b class="hl-teal" data-count="87" data-count-at="21.8" data-suffix="%">87%</b><span>average pass rate on session exit tickets</span></div>
+    <div class="bars a" data-in="22.4" id="bars">
+      <div style="--h:84"></div><div style="--h:79"></div><div style="--h:92"></div><div style="--h:87"></div><div style="--h:82"></div>
+      <div style="--h:88"></div><div style="--h:85"></div><div class="dip" style="--h:78"></div><div style="--h:92"></div><div class="top" style="--h:94"></div>
+    </div>
+    <div class="bars-x a" data-in="22.4"><span>S3</span><span>S4</span><span>S5</span><span>S6</span><span>S7</span><span>S8</span><span>S9</span><span>S10</span><span>S11</span><span>S12</span></div>
+    <p class="note a" data-in="24.0">Pass = 3 or higher out of 5. One hard week (S10, advanced prompting), then 92% and 94%.</p>
+  </section>
+
+  <!-- 6: 27.0–32.0 -->
+  <section class="scene gold" data-start="27.0" data-end="32.0">
+    <div class="kicker a" data-in="27.2">The top-scoring lesson</div>
+    <div class="big a" data-in="27.3">An ethics debate with no right answer.</div>
+    <div class="stat a" data-in="28.4"><b>4.6/5</b><span style="color:var(--ink)">94% of students scored 3 or higher</span></div>
+    <div class="ticket sm a" data-in="29.2" data-fx="ticket" style="margin-top:80px;transform:rotate(1.2deg)">
+      <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 12</span></div>
+      <div class="t-body"><p class="quote">“Both sides had a real point. That's what real decisions feel like.”</p></div>
+    </div>
+  </section>
+
+  <!-- 7: 32.0–37.8 -->
+  <section class="scene paper" data-start="32.0" data-end="37.8">
+    <div class="kicker a" data-in="32.2">Back to the cheating worry</div>
+    <div class="mid a" data-in="32.3">In their first few sessions, 9th graders wrote:</div>
+    <div class="ticket sm a" data-in="33.1" data-fx="ticket" style="margin-top:70px;transform:rotate(-1.2deg)">
+      <div class="t-head"><span><b>Exit ticket</b> · Grade 9</span><span>Session 4</span></div>
+      <div class="t-body"><p class="quote">“Use AI for ideas not for answers.”</p></div>
+    </div>
+    <div class="ticket sm a" data-in="34.6" data-fx="ticket" style="margin-top:50px;transform:rotate(1deg)">
+      <div class="t-head"><span><b>Exit ticket</b> · Grade 9</span><span>Session 1</span></div>
+      <div class="t-body"><p class="quote">“…makes your brain slower if you rely on it too much.”</p></div>
+    </div>
+  </section>
+
+  <!-- 8: 37.8–44.0 -->
+  <section class="scene dark" data-start="37.8" data-end="44.0">
+    <div class="badge a" data-in="38.0"><svg viewBox="0 0 24 24" fill="none" stroke="#2AB4B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg><span>Reviewed by Superintendent Jeff Clark and cleared for sharing</span></div>
+    <div class="big a" data-in="38.8" style="margin-top:90px;font-size:110px">Read the full case study.</div>
+    <div class="body a" data-in="39.4" style="margin-top:36px">Session-by-session data, the baseline survey and the full curriculum.</div>
+    <div class="cta a" data-in="40.2" data-fx="pop">tomoclub.org</div>
+    <img class="logo-end a" data-in="40.8" src="logo.webp" alt="TomoClub">
+  </section>
+</div>
+
+<script>
+const DURATION = 44.0;
+const FADE = 0.35;
+const ease = x => 1 - Math.pow(1 - Math.min(Math.max(x, 0), 1), 3);
+const clamp01 = x => Math.min(Math.max(x, 0), 1);
+
+// split typed quotes into words once
+document.querySelectorAll('[data-type]').forEach(p => {
+  const words = p.textContent.split(' ');
+  p.innerHTML = words.map(w => `<span class="w">${w}</span>`).join(' ');
+});
+// remember each element's base transform (tickets are rotated)
+document.querySelectorAll('.a').forEach(el => { el.dataset.base = el.style.transform || ''; });
+
+function render(t) {
+  // Later scenes sit on top and fade in over the previous one, which stays up until covered.
+  const scenes = [...document.querySelectorAll('.scene')];
+  scenes.forEach((s, i) => {
+    const a = +s.dataset.start, b = +s.dataset.end, last = i === scenes.length - 1;
+    const on = t >= a && (last || t < b + FADE);
+    s.style.opacity = on ? (a > 0 ? clamp01((t - a) / FADE) : 1) : 0;
+    s.style.visibility = on ? 'visible' : 'hidden';
+  });
+  document.querySelectorAll('.a').forEach(el => {
+    const t0 = +el.dataset.in, fx = el.dataset.fx || 'up', base = el.dataset.base;
+    const p = ease((t - t0) / 0.6);
+    let tr = '';
+    if (fx === 'up') tr = `translateY(${(1 - p) * 44}px)`;
+    if (fx === 'pop') tr = `scale(${0.88 + 0.12 * p})`;
+    if (fx === 'ticket') tr = `translateY(${(1 - p) * 120}px)`;
+    el.style.opacity = clamp01((t - t0) / 0.45);
+    el.style.transform = `${tr} ${base}`;
+  });
+  document.querySelectorAll('[data-type]').forEach(p => {
+    const t0 = +p.dataset.type, rate = +p.dataset.rate;
+    p.querySelectorAll('.w').forEach((w, i) => { w.style.opacity = clamp01((t - t0 - i * rate) / 0.18); });
+  });
+  document.querySelectorAll('[data-count]').forEach(b => {
+    const n = +b.dataset.count, t0 = +b.dataset.countAt, suf = b.dataset.suffix || '';
+    b.textContent = Math.round(n * ease((t - t0) / 1.3)) + suf;
+  });
+  const bars = document.getElementById('bars');
+  [...bars.children].forEach((d, i) => {
+    const h = +d.style.getPropertyValue('--h');
+    d.style.height = (h * ease((t - 22.5 - i * 0.08) / 0.9)) + '%';
+  });
+}
+window.render = render;
+window.DURATION = DURATION;
+render(0);
+</script>
+</body>
+</html>

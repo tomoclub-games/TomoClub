@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Amity carousel</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  @page { size: 1080px 1350px; margin: 0; }
+  .slide { width: 1080px; height: 1350px; padding: 96px 88px 0; page-break-after: always; break-after: page; }
+  @media screen { .slide { margin: 40px auto; } }
+  .slide .kicker { margin-bottom: 36px; }
+
+  /* 1 hook */
+  .s1 .h1 { font-size: 70px; color: var(--on-dark); max-width: 904px; }
+  .s1 .word { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 212px; line-height: 1; color: var(--gold); margin: 120px 0 0 -8px; letter-spacing: -0.03em; }
+  .s1 .next { position: absolute; left: 88px; right: 88px; bottom: 150px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .s1 .next p { font-size: 42px; line-height: 1.25; color: var(--on-dark-2); max-width: 700px; font-weight: 400; }
+  .arrow { width: 110px; height: 110px; border-radius: 999px; background: var(--teal); display: grid; place-items: center; flex: none; }
+  .arrow svg { width: 52px; height: 52px; }
+
+  /* 2 first quote */
+  .s2 .lead { font-size: 60px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; max-width: 860px; }
+  .s2 .ticket { margin-top: 70px; transform: rotate(-1.6deg); }
+  .s2 .ticket .quote { font-size: 80px; line-height: 106px; }
+  .s2 .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 105px, rgba(42,180,184,0.28) 105px, rgba(42,180,184,0.28) 107px); background-position: 0 38px; padding-bottom: 56px; }
+  .s2 .after { position: absolute; left: 88px; right: 88px; bottom: 150px; }
+  .s2 .after p { font-size: 36px; line-height: 1.35; color: var(--ink-2); max-width: 860px; }
+  .s2 .after .go { margin-top: 30px; font-size: 38px; color: var(--ink); display: flex; align-items: center; gap: 18px; font-weight: 650; }
+
+  /* 3 decision + timeline */
+  .s3 .h1 { font-size: 72px; }
+  .s3 .sub { font-size: 34px; line-height: 1.35; color: var(--ink-2); margin-top: 30px; max-width: 880px; }
+  .tl { margin-top: 64px; position: relative; padding-left: 64px; }
+  .tl::before { content: ""; position: absolute; left: 15px; top: 14px; bottom: 60px; width: 3px; background: var(--rule); }
+  .tl .item { position: relative; margin-bottom: 44px; }
+  .tl .item::before { content: ""; position: absolute; left: -64px; top: 8px; width: 33px; height: 33px; border-radius: 999px; background: var(--paper); border: 6px solid var(--teal-ink); }
+  .tl .item.first::before { background: var(--teal-ink); }
+  .tl .when { font-size: 24px; font-weight: 700; letter-spacing: 0.14em; color: var(--teal-deep); }
+  .tl .what { font-size: 44px; font-weight: 700; letter-spacing: -0.015em; margin-top: 6px; }
+  .tl .det { font-size: 29px; color: var(--ink-2); margin-top: 8px; line-height: 1.35; }
+  .s3 .strip { position: absolute; left: 88px; right: 88px; bottom: 140px; border-top: 2px solid var(--rule); padding-top: 26px; font-size: 30px; font-weight: 600; color: var(--ink-2); display: flex; justify-content: space-between; }
+
+  /* 4 agency gap */
+  .s4 .h1 { font-size: 64px; color: var(--on-dark); max-width: 900px; }
+  .meter { margin-top: 64px; }
+  .meter .row { margin-bottom: 56px; }
+  .meter .top { display: flex; align-items: baseline; gap: 26px; }
+  .meter .num { font-size: 150px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; }
+  .meter .lbl { font-size: 36px; line-height: 1.25; color: var(--on-dark-2); max-width: 600px; }
+  .meter .track { margin-top: 22px; height: 26px; border-radius: 999px; background: #243349; overflow: hidden; }
+  .meter .fill { height: 100%; border-radius: 999px; }
+  .s4 .punch { position: absolute; left: 88px; right: 88px; bottom: 150px; font-family: 'Fraunces', serif; font-style: italic; font-size: 64px; line-height: 1.12; color: var(--on-dark); }
+  .s4 .punch span { color: var(--gold); }
+
+  /* 5 what class looked like */
+  .s5 .h1 { font-size: 70px; max-width: 900px; }
+  .acts { margin-top: 60px; }
+  .act { display: flex; gap: 34px; padding: 32px 0; border-top: 2px solid var(--rule); }
+  .act:last-child { border-bottom: 2px solid var(--rule); }
+  .act .n { font-size: 30px; font-weight: 700; color: var(--crimson); width: 56px; flex: none; padding-top: 6px; font-variant-numeric: tabular-nums; }
+  .act .t { font-size: 40px; font-weight: 650; line-height: 1.2; letter-spacing: -0.01em; }
+  .act .d { font-size: 28px; color: var(--ink-3); margin-top: 8px; line-height: 1.3; }
+  .s5 .note { position: absolute; left: 88px; right: 88px; bottom: 140px; font-size: 32px; color: var(--ink-2); font-weight: 500; }
+
+  /* 6 chart */
+  .s6 .h1 { font-size: 64px; max-width: 900px; }
+  .s6 .cap { font-size: 27px; color: var(--ink-3); margin-top: 26px; line-height: 1.35; }
+  .s6 svg.chart { display: block; margin-top: 40px; }
+  .s6 .avg { position: absolute; left: 88px; right: 88px; bottom: 140px; display: flex; gap: 60px; border-top: 2px solid var(--rule); padding-top: 26px; }
+  .s6 .avg div { font-size: 26px; color: var(--ink-3); font-weight: 500; }
+  .s6 .avg b { display: block; font-size: 52px; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
+
+  /* 7 ethics debate */
+  .s7 .h1 { font-size: 72px; max-width: 900px; }
+  .s7 .stats { display: flex; gap: 70px; margin-top: 54px; }
+  .s7 .stats b { display: block; font-size: 108px; font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
+  .s7 .stats span { font-size: 27px; font-weight: 600; opacity: 0.8; }
+  .s7 .ticket { margin-top: 70px; transform: rotate(1.2deg); }
+
+  /* 8 back to cheating */
+  .s8 .h1 { font-size: 60px; max-width: 900px; }
+  .s8 .ticket { margin-top: 44px; }
+  .s8 .ticket .quote { font-size: 52px; line-height: 72px; }
+  .s8 .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, rgba(42,180,184,0.28) 71px, rgba(42,180,184,0.28) 73px); background-position: 0 30px; padding: 30px 40px 36px; }
+  .s8 .ticket .t-head { padding: 18px 36px; font-size: 18px; }
+  .s8 .ticket.a { transform: rotate(-1.2deg); margin-top: 64px; }
+  .s8 .ticket.b { margin-top: 56px; }
+  .s8 .ticket.b { transform: rotate(0.9deg); }
+
+  /* 9 teachers */
+  .s9 .big { font-size: 280px; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; color: var(--teal-deep); margin-top: 20px; }
+  .s9 .lbl { font-size: 44px; font-weight: 600; line-height: 1.2; max-width: 860px; margin-top: 24px; letter-spacing: -0.01em; }
+  .s9 blockquote { margin-top: 70px; border-left: 6px solid var(--gold); padding-left: 36px; }
+  .s9 blockquote p { font-family: 'Fraunces', serif; font-style: italic; font-size: 48px; line-height: 1.25; color: var(--ink); }
+  .s9 blockquote cite { display: block; font-style: normal; margin-top: 22px; font-size: 27px; font-weight: 600; color: var(--ink-3); }
+
+  /* 10 CTA */
+  .s10 .badge { display: inline-flex; align-items: center; gap: 18px; padding: 18px 28px; border: 2px solid rgba(42,180,184,0.6); border-radius: 999px; font-size: 27px; font-weight: 600; color: var(--on-dark); }
+  .s10 .badge svg { width: 34px; height: 34px; flex: none; }
+  .s10 .h1 { font-size: 104px; margin-top: 90px; color: var(--on-dark); }
+  .s10 .sub { font-size: 38px; color: var(--on-dark-2); line-height: 1.35; margin-top: 34px; max-width: 860px; }
+  .s10 .cta { margin-top: 64px; display: inline-flex; align-items: center; gap: 20px; background: var(--gold); color: var(--ink); font-size: 42px; font-weight: 700; padding: 26px 44px; border-radius: 999px; }
+  .s10 .alt { margin-top: 34px; font-size: 30px; color: var(--on-dark-3); }
+  .s10 .alt b { color: var(--on-dark); font-weight: 600; }
+  .s10 .logo { position: absolute; left: 88px; bottom: 110px; height: 60px; }
+  .s10 .pg { position: absolute; right: 88px; bottom: 118px; font-size: 21px; font-weight: 600; color: var(--on-dark-3); }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="frame dark slide s1" data-out="carousel/01-hook">
+  <div class="kicker">Case study · Amity School District, Oregon</div>
+  <h1 class="h1">August 2025. We asked Amity's teachers what worried them most about AI.</h1>
+  <div class="word">“Cheating.”</div>
+  <div class="next">
+    <p>Seven months later, their students were writing something else.</p>
+    <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  </div>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">AI Literacy Case Study</span><span class="pg">1 / 10</span></div>
+</section>
+
+<!-- 2 -->
+<section class="frame slide s2" data-out="carousel/02-quote">
+  <div class="kicker">March 2026 · An 8th grader's exit ticket</div>
+  <div class="lead">After a session on generative AI, one student wrote:</div>
+  <div class="ticket">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 11 · Gen AI &amp; Learning</span></div>
+    <div class="t-body"><p class="quote">“ChatGPT is a tool. I'm the one who still has to think.”</p></div>
+  </div>
+  <div class="after">
+    <p>Seven months earlier, the adults in this student's school were worried AI would do students' thinking for them.</p>
+    <div class="go">Here's what happened in between
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B34158" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  </div>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Amity School District, OR</span><span class="pg">2 / 10</span></div>
+</section>
+
+<!-- 3 -->
+<section class="frame slide s3" data-out="carousel/03-decision">
+  <div class="kicker">The decision</div>
+  <h1 class="h1">The superintendent's call: <span class="hl-teal">train the teachers first.</span></h1>
+  <p class="sub">Amity is a rural district of about 756 students. Before a single student lesson, Superintendent Jeff Clark had the staff trained.</p>
+  <div class="tl">
+    <div class="item first"><div class="when">AUG 2025</div><div class="what">40 educators trained</div><div class="det">First-year teachers to 31-year veterans. Wood shop, agriculture, special ed, a principal.</div></div>
+    <div class="item"><div class="when">OCT 2025</div><div class="what">8th grade course begins</div><div class="det">Led by Amity teacher Darcy Hatch</div></div>
+    <div class="item"><div class="when">JAN 2026</div><div class="what">9th grade course begins</div><div class="det">Led by Amity teacher Jill Whitehead</div></div>
+  </div>
+  <div class="strip"><span>132 students</span><span>15 sessions per grade</span><span>60 minutes each</span></div>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Amity School District, OR</span><span class="pg">3 / 10</span></div>
+</section>
+
+<!-- 4 -->
+<section class="frame dark slide s4" data-out="carousel/04-agency-gap">
+  <div class="kicker">Where students started</div>
+  <h1 class="h1">Before the course, we surveyed 65 freshmen.</h1>
+  <div class="meter">
+    <div class="row">
+      <div class="top"><span class="num">82%</span><span class="lbl">could tell helpful AI from harmful AI</span></div>
+      <div class="track"><div class="fill" style="width:82%;background:var(--teal)"></div></div>
+    </div>
+    <div class="row">
+      <div class="top"><span class="num">25%</span><span class="lbl">felt capable of creating anything with it</span></div>
+      <div class="track"><div class="fill" style="width:25%;background:var(--gold)"></div></div>
+    </div>
+  </div>
+  <p class="punch">High awareness. <span>Low agency.</span></p>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Baseline survey, 9th grade</span><span class="pg">4 / 10</span></div>
+</section>
+
+<!-- 5 -->
+<section class="frame slide s5" data-out="carousel/05-classroom">
+  <div class="kicker">What class looked like</div>
+  <h1 class="h1">Every session, students built, tested or argued.</h1>
+  <div class="acts">
+    <div class="act"><span class="n">01</span><div><div class="t">Trained their own image classifiers</div><div class="d">in Teachable Machine, using their own faces</div></div></div>
+    <div class="act"><span class="n">02</span><div><div class="t">Played Semantris</div><div class="d">to see how a language model connects words</div></div></div>
+    <div class="act"><span class="n">03</span><div><div class="t">Audited their own TikTok feeds</div><div class="d">What has the algorithm decided about me?</div></div></div>
+    <div class="act"><span class="n">04</span><div><div class="t">Took on an ethics question every week</div><div class="d">Privacy, ownership, bias, who benefits and who pays</div></div></div>
+  </div>
+  <p class="note">Taught by Amity's own teachers, not computer science specialists.</p>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Amity School District, OR</span><span class="pg">5 / 10</span></div>
+</section>
+
+<!-- 6 -->
+<section class="frame slide s6" data-out="carousel/06-results">
+  <div class="kicker">The results · 8th grade</div>
+  <h1 class="h1">87% average pass rate. Including one hard week.</h1>
+  <p class="cap">Share of students scoring 3 or higher (out of 5) on each session's exit ticket, sessions 3–12. Data as of March 2026.</p>
+  <svg class="chart" id="chart" width="904" height="560" role="img" aria-label="Column chart of 8th grade exit ticket pass rates by session"></svg>
+  <div class="avg">
+    <div><b>4.25 / 5</b>average score, 10 sessions</div>
+    <div><b>456</b>exit tickets scored</div>
+  </div>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Exit tickets, grade 8</span><span class="pg">6 / 10</span></div>
+</section>
+
+<!-- 7 -->
+<section class="frame gold slide s7" data-out="carousel/07-ethics">
+  <div class="kicker">The top-scoring lesson</div>
+  <h1 class="h1">The top-scoring 8th grade session had no right answer.</h1>
+  <div class="stats">
+    <div><b>4.6/5</b><span>Ethics Debate, avg score</span></div>
+    <div><b>94%</b><span>scored 3 or higher</span></div>
+  </div>
+  <div class="ticket">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 12 · Ethics Debate</span></div>
+    <div class="t-body"><p class="quote">“The ethics debate was hard because both sides had a real point. That's what real decisions feel like.”</p></div>
+  </div>
+  <div class="foot"><span class="mid" style="margin-left:0">Amity School District, OR · TomoClub</span><span class="pg">7 / 10</span></div>
+</section>
+
+<!-- 8 -->
+<section class="frame slide s8" data-out="carousel/08-cheating">
+  <div class="kicker">Back to the cheating worry</div>
+  <h1 class="h1">Teachers feared AI would do the thinking. In their first few sessions, 9th graders wrote:</h1>
+  <div class="ticket a">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 9</span><span>Session 4 · Hallucinations</span></div>
+    <div class="t-body"><p class="quote">“Use AI for ideas not for answers.”</p></div>
+  </div>
+  <div class="ticket b">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 9</span><span>Session 1 · AI, the System</span></div>
+    <div class="t-body"><p class="quote">“AI is a smart tool that makes things easier for you but makes your brain slower if you rely on it too much.”</p></div>
+  </div>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Amity School District, OR</span><span class="pg">8 / 10</span></div>
+</section>
+
+<!-- 9 -->
+<section class="frame slide s9" data-out="carousel/09-teachers">
+  <div class="kicker">And the teachers</div>
+  <div class="big">93%</div>
+  <p class="lbl">of educators surveyed after training reported a stronger understanding of AI in education.</p>
+  <blockquote>
+    <p>“Post Tomo AI Training, educators are sharing new AI tools or strategies with each other.”</p>
+    <cite>Mary Matocha, Principal, Amity Middle School</cite>
+  </blockquote>
+  <div class="foot"><img src="logo.webp" alt=""><span class="mid">Amity School District, OR</span><span class="pg">9 / 10</span></div>
+</section>
+
+<!-- 10 -->
+<section class="frame dark slide s10" data-out="carousel/10-cta">
+  <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#2AB4B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>Reviewed by Superintendent Jeff Clark and cleared for sharing</div>
+  <h1 class="h1">Read the full case study.</h1>
+  <p class="sub">Session-by-session scores, the baseline survey and the complete curriculum for grades 8 and 9.</p>
+  <div class="cta">tomoclub.org
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  <p class="alt">The full story is on our Substack: <b>tomoclub.substack.com</b></p>
+  <img class="logo" src="logo.webp" alt="TomoClub">
+  <span class="pg">10 / 10</span>
+</section>
+
+<script>
+// Column chart: 8th grade pass rate (score >= 3) by session. Source: case study table, March 2026.
+(function () {
+  const data = [
+    { s: 3, v: 84, n: 31 }, { s: 4, v: 79, n: 38 }, { s: 5, v: 92, n: 39 }, { s: 6, v: 87, n: 38 },
+    { s: 7, v: 82, n: 55 }, { s: 8, v: 88, n: 49 }, { s: 9, v: 85, n: 52 }, { s: 10, v: 78, n: 51, note: 'dip' },
+    { s: 11, v: 92, n: 50 }, { s: 12, v: 94, n: 53, note: 'top' },
+  ];
+  const svg = document.getElementById('chart');
+  const W = 904, H = 560, L = 64, R = 8, T = 150, B = 56;
+  const ph = H - T - B, pw = W - L - R, slot = pw / data.length, bw = 44;
+  const y = v => T + ph - (v / 100) * ph;
+  const ns = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs, text) => { const e = document.createElementNS(ns, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; svg.appendChild(e); return e; };
+  [0, 25, 50, 75, 100].forEach(t => {
+    el('line', { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: t === 0 ? '#B8B2A3' : '#E3DFD4', 'stroke-width': t === 0 ? 2 : 1 });
+    el('text', { x: L - 14, y: y(t) + 8, 'text-anchor': 'end', 'font-size': 22, fill: '#64748B', 'font-family': 'Outfit', 'font-weight': 500 }, t + '%');
+  });
+  const r = 6;
+  data.forEach((d, i) => {
+    const cx = L + slot * i + slot / 2, x = cx - bw / 2, top = y(d.v), base = y(0);
+    const fill = d.note === 'dip' ? '#B34158' : d.note === 'top' ? '#C98A00' : '#1FA3A7';
+    // rounded data-end, square at the baseline
+    el('path', { d: `M${x},${base} V${top + r} Q${x},${top} ${x + r},${top} H${x + bw - r} Q${x + bw},${top} ${x + bw},${top + r} V${base} Z`, fill });
+    el('text', { x: cx, y: top - 12, 'text-anchor': 'middle', 'font-size': d.note ? 26 : 22, 'font-weight': d.note ? 700 : 600, fill: d.note ? '#0F172A' : '#334155', 'font-family': 'Outfit' }, d.v + '%');
+    el('text', { x: cx, y: H - B + 34, 'text-anchor': 'middle', 'font-size': 22, fill: '#64748B', 'font-family': 'Outfit', 'font-weight': 500 }, 'S' + d.s);
+    if (d.note) {
+      const label = d.note === 'dip' ? ['Context & Constraints', 'the hardest prompting lesson'] : ['Ethics Debate', 'highest score so far'];
+      const lx = d.note === 'dip' ? cx - 30 : W - R, anchor = 'end';
+      const ly = d.note === 'dip' ? 36 : 36;
+      if (d.note === 'dip') {
+        el('text', { x: lx - 150, y: ly, 'text-anchor': anchor, 'font-size': 24, 'font-weight': 700, fill: '#0F172A', 'font-family': 'Outfit' }, label[0]);
+        el('text', { x: lx - 150, y: ly + 30, 'text-anchor': anchor, 'font-size': 22, fill: '#64748B', 'font-family': 'Outfit' }, label[1]);
+        el('path', { d: `M${lx - 140},${ly + 10} H${cx} V${top - 44}`, fill: 'none', stroke: '#94A3B8', 'stroke-width': 1.5 });
+      } else {
+        el('text', { x: lx, y: ly, 'text-anchor': anchor, 'font-size': 24, 'font-weight': 700, fill: '#0F172A', 'font-family': 'Outfit' }, label[0]);
+        el('text', { x: lx, y: ly + 30, 'text-anchor': anchor, 'font-size': 22, fill: '#64748B', 'font-family': 'Outfit' }, label[1]);
+        el('path', { d: `M${cx},${ly + 44} V${top - 44}`, fill: 'none', stroke: '#94A3B8', 'stroke-width': 1.5 });
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

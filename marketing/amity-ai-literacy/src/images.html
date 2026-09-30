@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Amity images</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  .frame { margin: 40px auto; }
+
+  /* Substack cover + social preview, 1.9:1 so link cards don't crop it */
+  .header { width: 1600px; height: 840px; padding: 88px 96px; display: grid; grid-template-columns: 1fr 640px; gap: 70px; align-items: center; }
+  .header .kicker { font-size: 22px; margin-bottom: 30px; }
+  .header .h1 { font-size: 104px; color: var(--on-dark); }
+  .header .h1 span { color: var(--gold); }
+  .header .sub { font-size: 32px; line-height: 1.35; color: var(--on-dark-2); margin-top: 30px; max-width: 700px; }
+  .header .stats { display: flex; gap: 44px; margin-top: 50px; }
+  .header .stats b { display: block; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; color: var(--on-dark); }
+  .header .stats span { font-size: 20px; color: var(--on-dark-3); font-weight: 500; }
+  .header .logo { position: absolute; left: 96px; bottom: 60px; height: 34px; }
+  .header .ticket { transform: rotate(2deg); }
+  .header .ticket .quote { font-size: 54px; line-height: 76px; }
+  .header .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 75px, rgba(42,180,184,0.28) 75px, rgba(42,180,184,0.28) 77px); background-position: 0 30px; padding-bottom: 44px; }
+  .header .ticket .t-head { font-size: 17px; padding: 20px 34px; }
+  .header .ticket .who { font-size: 20px; }
+
+  /* Square quote cards */
+  .qc { width: 1080px; height: 1080px; padding: 90px; display: flex; flex-direction: column; }
+  .qc .kicker { font-size: 26px; }
+  .qc .ticket .t-head { font-size: 22px; padding: 24px 40px; }
+  .qc .ticket { margin: auto 0; }
+  .qc .ticket .quote { font-size: 84px; line-height: 112px; }
+  .qc .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 111px, rgba(42,180,184,0.28) 111px, rgba(42,180,184,0.28) 113px); background-position: 0 40px; padding: 40px 52px 52px; }
+  .qc.long .ticket .quote { font-size: 66px; line-height: 92px; }
+  .qc.long .ticket .t-body { background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 91px, rgba(42,180,184,0.28) 91px, rgba(42,180,184,0.28) 93px); }
+  .qc .qfoot { display: flex; justify-content: space-between; align-items: flex-end; }
+  .qc .qfoot img { height: 34px; }
+  .qc .qfoot span { font-size: 22px; color: var(--ink-3); font-weight: 500; text-align: right; line-height: 1.35; }
+  .qc.dark .qfoot span { color: var(--on-dark-3); }
+</style>
+</head>
+<body>
+
+<section class="frame dark header" data-out="images/substack-header">
+  <div>
+    <div class="kicker">Case study · Amity School District, Oregon</div>
+    <h1 class="h1">Train the teachers <span>first.</span></h1>
+    <p class="sub">How a rural district went from worrying about AI cheating to eighth graders debating AI ethics.</p>
+    <div class="stats">
+      <div><b>40</b><span>educators trained</span></div>
+      <div><b>132</b><span>students, grades 8–9</span></div>
+      <div><b>87%</b><span>avg exit-ticket pass rate</span></div>
+    </div>
+  </div>
+  <div class="ticket">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 11</span></div>
+    <div class="t-body"><p class="quote">“ChatGPT is a tool. I'm the one who still has to think.”</p></div>
+  </div>
+  <img class="logo" src="logo.webp" alt="TomoClub">
+</section>
+
+<section class="frame qc" data-out="images/quote-chatgpt">
+  <div class="kicker">What Amity students wrote</div>
+  <div class="ticket" style="transform: rotate(-1.5deg)">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 11 · Gen AI &amp; Learning</span></div>
+    <div class="t-body"><p class="quote">“ChatGPT is a tool. I'm the one who still has to think.”</p></div>
+  </div>
+  <div class="qfoot"><img src="logo.webp" alt="TomoClub"><span>Amity School District, Oregon<br>AI literacy course, 2025–26</span></div>
+</section>
+
+<section class="frame qc dark" data-out="images/quote-ideas">
+  <div class="kicker">What Amity students wrote</div>
+  <div class="ticket" style="transform: rotate(1.4deg)">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 9</span><span>Session 4 · Hallucinations</span></div>
+    <div class="t-body"><p class="quote">“Use AI for ideas not for answers.”</p></div>
+  </div>
+  <div class="qfoot"><img src="logo.webp" alt="TomoClub"><span>Amity School District, Oregon<br>AI literacy course, 2025–26</span></div>
+</section>
+
+<section class="frame qc long" data-out="images/quote-trained">
+  <div class="kicker">What Amity students wrote</div>
+  <div class="ticket" style="transform: rotate(-1deg)">
+    <div class="t-head"><span><b>Exit ticket</b> · Grade 8</span><span>Session 3 · Rules vs Learning</span></div>
+    <div class="t-body"><p class="quote">“I used to think AI just knew everything. Now I know it was trained — someone chose what it learned.”</p></div>
+  </div>
+  <div class="qfoot"><img src="logo.webp" alt="TomoClub"><span>Amity School District, Oregon<br>AI literacy course, 2025–26</span></div>
+</section>
+
+</body>
+</html>
