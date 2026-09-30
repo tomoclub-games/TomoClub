@@ -102,7 +102,7 @@ One hard week (advanced prompting, 78%), then 92% and 94%. The top-scoring sessi
 
 > "ChatGPT is a tool. I'm the one who still has to think." An 8th grader in Amity, Oregon, seven months after their teachers named cheating as their top AI worry. Full case study: link in bio.
 
-The video has no audio track. Add a quiet instrumental from the app's library when you post; the text carries the story without sound.
+The video has its own soundtrack: original music (synthesized, so no licensing issues) plus sound effects timed to the animation. On Instagram and TikTok you can still swap in a trending sound from the app if you prefer; the text carries the story either way.
 
 ---
 
@@ -179,5 +179,8 @@ Everything in `carousel/`, `images/` and `video/` is generated from the HTML in 
 ```bash
 cd marketing/amity-ai-literacy/src
 NODE_PATH=$(npm root -g) node render.cjs all        # carousel PNGs + PDF, header, quote cards
-FFMPEG=/path/to/ffmpeg NODE_PATH=$(npm root -g) node video.cjs   # reel (needs ffmpeg with libx264)
+FFMPEG=/path/to/ffmpeg NODE_PATH=$(npm root -g) node video.cjs   # reel video track (needs ffmpeg with libx264)
+python3 soundtrack.py ../video/soundtrack.wav                     # music + sound effects (needs numpy, scipy)
+ffmpeg -i ../video/amity-ai-literacy-reel.mp4 -i ../video/soundtrack.wav -map 0:v -map 1:a -c:v copy \
+  -af loudnorm=I=-16:TP=-1.5 -c:a aac -b:a 192k -shortest ../video/reel-with-audio.mp4
 ```

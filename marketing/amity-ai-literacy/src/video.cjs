@@ -1,4 +1,5 @@
-// Renders video.html frame by frame into an H.264 MP4 (silent, 30fps).
+// Renders video.html frame by frame into an H.264 MP4 (video only, 30fps).
+// Add the soundtrack afterwards with soundtrack.py; see social-copy.md.
 // Usage (from this folder): NODE_PATH=$(npm root -g) FFMPEG=/path/to/ffmpeg node video.cjs [out.mp4] [fps]
 const path = require('path');
 const { spawn } = require('child_process');

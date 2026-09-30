@@ -10,7 +10,8 @@ Marketing for the Amity School District AI Literacy case study (`case-studies/am
 | `carousel/01-hook.png` … `10-cta.png` | The same slides as images, for Instagram |
 | `images/substack-header.png` | Substack cover and social preview (1600×840) |
 | `images/quote-*.png` | Square student-quote cards (1080×1080) |
-| `video/amity-ai-literacy-reel.mp4` | 44-second vertical video (1080×1920, silent) for Reels, Shorts, TikTok, LinkedIn |
+| `video/amity-ai-literacy-reel.mp4` | 44-second vertical video (1080×1920) with an original music bed and sound effects, for Reels, Shorts, TikTok, LinkedIn |
+| `video/soundtrack.m4a` | The reel's audio on its own, for re-editing in CapCut or similar |
 | `video/reel-cover.png` | Cover frame to pick when uploading the video |
 | `src/` | HTML sources and render scripts. Edit the HTML and re-render; see the end of `social-copy.md` |
 
