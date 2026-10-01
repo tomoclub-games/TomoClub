@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Schools: 7 Metrics Every School Leader Should Track | TomoClub Blog</title>
+    <meta name="description" content="Measure AI impact in schools with seven practical metrics covering teacher workload, student learning, AI literacy, equitable access, and implementation costs.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+
+    <style>
+        :root {
+            --article-max-width: 850px;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--navy);
+        }
+
+        .article-content {
+            max-width: var(--article-max-width);
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .article-content h2 {
+            font-size: 2.25rem;
+            margin: 4rem 0 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content h3 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.25rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.75rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 1rem;
+        }
+
+        .back-nav {
+            max-width: var(--article-max-width);
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .reflect-box {
+            background: rgba(42, 180, 184, 0.08);
+            border-left: 4px solid var(--teal);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--navy);
+        }
+
+        /* Navigation Style matching Main Site */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.75rem;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.5rem;
+            }
+            nav {
+                width: calc(100% - 1rem);
+                padding: 0.5rem 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI in Schools: 7 Metrics Every School Leader Should Track | TomoClub Blog">
+    <meta property="og:description" content="Measure AI impact in schools with seven practical metrics covering teacher workload, student learning, AI literacy, equitable access, and implementation costs.">
+    <meta property="og:image" content="https://www.tomoclub.org/blog/measuring-ai-impact-in-schools/hero.jpg">
+    <meta property="og:site_name" content="TomoClub">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI in Schools: 7 Metrics Every School Leader Should Track | TomoClub Blog">
+    <meta name="twitter:description" content="Measure AI impact in schools with seven practical metrics covering teacher workload, student learning, AI literacy, equitable access, and implementation costs.">
+    <meta name="twitter:image" content="https://www.tomoclub.org/blog/measuring-ai-impact-in-schools/hero.jpg">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="../../" class="logo">
+            <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+
+                </div>
+                <h1 class="article-title">AI in Schools: 7 Metrics Every School Leader Should Track</h1>
+            </div>
+        </header>
+
+        <div class="article-content">
+<p>Consider a district reviewing its first semester with a new AI platform. Teachers have activated their accounts, the professional development sessions are complete, and the usage report looks encouraging. Then someone asks how much planning time teachers have recovered, or whether students understand the material more deeply. The report has very little to say about either.</p>
+
+<p>That is an uncomfortable position for a superintendent preparing a board update or a principal deciding what deserves another place in the budget. Schools need evidence that connects an investment to the work happening in classrooms. Account activity can help explain participation, but leaders also need to know whether the experience is worth continuing.</p>
+
+<p>Measuring AI impact in schools begins with that connection. A useful review follows the time teachers spend, the quality of their work, and the learning students can demonstrate. The seven metrics below give leaders a way to examine those outcomes while keeping the evaluation manageable for the people doing the teaching.</p>
+
+<h2>Start with the problem the school wanted to solve</h2>
+
+<p>Before collecting data, return to the reason the initiative began. Perhaps teachers were spending too long adapting reading materials. Perhaps students needed more opportunities to practice explaining their reasoning. Those are different problems, and they require different evidence of progress.</p>
+
+<p>A teacher planning tool should be evaluated for its effect on preparation time and instructional quality. A student tutoring tool needs closer examination of learning, independence, and access. Choose the measures that fit the intended use; an administrative pilot does not need to demonstrate gains in student test scores to justify its existence.</p>
+
+<p>Write down the starting point before introducing the tool, then agree on what would count as a worthwhile improvement. The seven measures form a menu for that decision. Select a small number for the first review, and keep the others in view as the work develops.</p>
+
+<h2>1. Teacher time saved after checking and revision</h2>
+
+<p>Time is an understandable place to begin because teachers can describe exactly where it goes. Preparing a lesson may involve finding examples, adjusting the reading level, checking accuracy, and making sure the activity fits the students who will actually use it. An AI draft only helps if it reduces the total work involved.</p>
+
+<p>A 2025 Gallup and Walton Family Foundation survey found that U.S. public school teachers who used AI at least weekly estimated saving 5.9 hours per week on average. Those were self-reported estimates, so they offer a reason to investigate local time savings rather than a target every school should expect to reach. <sup><a href="https://news.gallup.com/poll/691967/three-teachers-weekly-saving-six-weeks-year.aspx" target="_blank" rel="noopener">[1]</a></sup></p>
+
+<p>Ask a small, representative group of teachers to record the time spent on a few comparable tasks before and during the pilot. Include prompting, fact-checking, revision, and any extra work created later. In a hypothetical example, a task that previously took 45 minutes and now takes 30 minutes from start to finish saves 15 minutes, even if the initial draft appeared almost instantly.</p>
+
+<p>Track typical minutes saved per task and how much the results vary between teachers. Then discuss where that time went: additional student feedback, a less rushed planning period, or less work taken home. Those details help a principal understand whether the change is making the school day more manageable.</p>
+
+<h2>2. Teacher confidence supported by demonstrated skill</h2>
+
+<p>Time savings depend partly on whether teachers have enough support to use a tool well. A positive reaction at the end of a workshop tells you something about the session. Several weeks later, leaders need to understand what teachers can apply in their own subjects and where they still need help.</p>
+
+<p>In a 2026 Gallup and Walton Family Foundation study, only 18% of U.S. public K&ndash;12 teachers reported receiving formal guidance from administrators on AI use. That finding makes clarity an important part of any school AI review: teachers need to understand which uses are appropriate and what review is expected of them. <sup><a href="https://news.gallup.com/poll/710534/teachers-receive-no-formal-guidance.aspx" target="_blank" rel="noopener">[2]</a></sup></p>
+
+<p>Combine a short confidence survey with a practical demonstration using a normal teaching task. A teacher might adapt an activity, explain the changes made to the AI output, and identify something they decided to leave out. Track the proportion who can complete the task to an agreed standard, alongside their confidence and requests for further support.</p>
+
+<p>Make room for teachers who use AI selectively or decide it adds little value to a particular lesson. Their reasoning can reveal a poor fit, an unnecessary step, or a training need. Treating usage frequency as a performance expectation makes those conversations much harder to have honestly.</p>
+
+<h2>3. The quality of materials that reach students</h2>
+
+<p>A teacher who produces materials faster still needs confidence that those materials are worth teaching. A reading passage might be easier to understand but lose the vocabulary students need to learn. A polished explanation might contain an error that becomes apparent only when a student asks a good question.</p>
+
+<p>An Education Endowment Foundation trial involving 259 teachers in 68 English secondary schools examined AI use for science lesson preparation. Teachers given ChatGPT and a supporting guide spent 31% less time on the preparation measured in the trial. An expert review found no apparent reduction in the quality of sampled resources, although that does not establish the quality of every AI-generated lesson or its effect on student learning. <sup><a href="https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/choices-in-edtech-using-generative-ai-chatgpt-for-ks3-science-lesson-preparation-2024-teacher-choices-trial" target="_blank" rel="noopener">[3]</a></sup></p>
+
+<p>Schools can borrow the evaluation approach by reviewing a small sample of materials during existing team planning time. Agree on a few criteria before looking at the samples, so judgments are consistent:</p>
+
+<ul>
+<li><strong>Check accuracy and curriculum fit.</strong> Review whether the content is correct, whether examples support the intended standard, and whether the material prepares students for the next part of the unit. Record the proportion of samples that meet the agreed expectations and the corrections teachers needed to make.</li>
+<li><strong>Examine the thinking the task requires.</strong> Look at what students must explain, compare, justify, or apply. If an adaptation makes the language more accessible, check that it preserves the intellectual work students are supposed to do.</li>
+</ul>
+
+<p>Use the findings to improve shared examples and training. A recurring weakness in generated questions, for instance, gives a coach a specific issue to address with teachers at the next planning meeting.</p>
+
+<h2>4. Learning students can demonstrate independently</h2>
+
+<p>The quality of a resource matters because of what students learn from it. A completed assignment offers only part of that evidence when AI has helped produce the response. Teachers also need opportunities to see whether students can explain the idea, recognize an error, or apply the skill in a different situation.</p>
+
+<p>A 2025 study published in PNAS examined AI tutors with nearly 1,000 high school mathematics students in Turkey. Students using a basic GPT-4 interface performed better during supported practice but worse on subsequent unassisted assessments than students without AI access. A version designed with learning safeguards largely mitigated that negative effect. The study concerned a specific setting and short-term outcomes, which limits how broadly its results should be applied. <sup><a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">[4]</a></sup></p>
+
+<p>For a student-facing pilot, build a brief independent check into ordinary instruction. After supported practice, students might solve a comparable problem, explain a choice aloud, or apply a concept to an unfamiliar example. Track performance over time using a consistent rubric, while preserving established accommodations and access supports.</p>
+
+<p>Where feasible, compare progress with similar classes or tasks that did not use the tool. Note other changes, including extra instructional time or a new teaching approach, before attributing improvement to AI. The purpose is to understand what students have learned well enough to carry into the next lesson.</p>
+
+<h2>5. Students can evaluate AI responses responsibly</h2>
+
+<p>Independent subject knowledge also helps students judge AI output. A student who understands the topic has a better basis for questioning an explanation, checking a source, or recognizing that an answer leaves something important out. AI literacy should give students repeated practice making those decisions.</p>
+
+<p>Assess this through short scenarios suited to the students' age and the tools their school permits. Use the same criteria over time and track the proportion who can explain a sound decision, rather than simply name a rule:</p>
+
+<ul>
+<li><strong>Give students an answer that needs checking.</strong> Ask them to identify which claims require verification, consult reliable sources, and explain what they would revise. Credit the checking process and reasoning, including when students correctly conclude that there is not enough evidence to accept a claim.</li>
+<li><strong>Ask students to choose an appropriate use of AI.</strong> Present a realistic assignment or privacy scenario and have them explain what help would be acceptable under school guidance. Their answer should show that they understand both the learning purpose and the boundaries around sharing personal information.</li>
+</ul>
+
+<p>These activities can reveal gaps that a quiz about AI terminology would miss. They also create useful classroom discussions about why a fluent answer can feel convincing and what responsible judgment looks like when students are uncertain.</p>
+
+<h2>6. Access and benefits across different groups</h2>
+
+<p>As evidence begins to accumulate, look closely at who is represented in it. A pilot run entirely by enthusiastic volunteers can tell you what is possible under favorable conditions. It gives a less complete picture of what may happen when teachers with different experience, schedules, and support needs join the initiative.</p>
+
+<p>Review participation and outcomes across relevant grade levels, subjects, and student groups, using only information the school is authorized to use and protecting small groups from identification. Track practical barriers as well: availability of training, compatible devices, accessibility features, language support, and whether an activity depends on a paid account at home.</p>
+
+<p>An overall improvement can conceal uneven results. If one group is gaining time while another needs substantial troubleshooting, the next step may be targeted support or a different approach for that setting. Ask teachers and students what prevented them from benefiting, then check whether the change you make actually removes that barrier.</p>
+
+<h2>7. Total cost in relation to the benefit demonstrated</h2>
+
+<p>Once leaders understand the benefits and who receives them, they can make a more credible judgment about cost. The subscription price is only one part of that calculation. Include training time, substitute coverage where needed, technical support, accessibility work, and the staff time required to review and maintain the approach.</p>
+
+<p>Choose a cost measure that matches the purpose of the initiative. A planning pilot might track total cost per participating teacher alongside verified time savings and resource quality. A student literacy program might compare its full cost with the number of students who meet an agreed performance standard, while considering other ways the school could achieve that goal.</p>
+
+<p>Keep recovered staff time separate from cash savings. A teacher who gains 30 minutes for feedback has additional capacity, but that does not automatically reduce the district's payroll. Describe the benefit honestly so the budget discussion reflects what the school actually received.</p>
+
+<p>Include the effort required to continue or change direction at renewal. A promising pilot may need more coaching before expansion, while a tool with limited benefit may warrant a smaller commitment. Clear evidence gives leaders a defensible basis for either decision.</p>
+
+<h2>Build an AI impact scorecard that teachers can live with</h2>
+
+<p>Collecting all seven measures every week would create its own workload problem. For an initial pilot, select two or three priority outcomes, assign one person to coordinate the review, and use information already available through planning meetings, student work, and brief staff check-ins. Set the review date to allow time for teachers to learn the approach and use it through a relevant teaching cycle.</p>
+
+<p>A shared scorecard can remain simple while giving the leadership team enough context to act. For each selected metric, record the starting point, intended improvement, evidence collected, and the decision that evidence supports:</p>
+
+<ul>
+<li><strong>Agree on success before the pilot begins.</strong> For a materials-preparation pilot, the team might seek a locally chosen reduction in preparation time while maintaining its existing quality standard. Record how both will be checked so enthusiasm or disappointment does not change the definition halfway through.</li>
+<li><strong>Show variation and uncertainty in the review.</strong> Include the number of participants, a typical result, and the range of experiences, supported by a few examples. Where the evidence is incomplete, name the question that remains and decide whether a longer or better-supported pilot could answer it.</li>
+<li><strong>Connect findings to a specific next step.</strong> Expand an approach when the relevant benefits are consistent and the school can support wider use. Adjust it when a solvable problem is limiting results, or end the pilot when the benefit does not justify the cost and effort.</li>
+</ul>
+
+<p>Discuss the findings with the teachers involved before presenting a board summary. They can explain why an apparent improvement was harder to achieve in one class, or why a modest time saving mattered during a demanding part of the term. Their experience helps leaders interpret the numbers accurately.</p>
+
+<p>Return to the leadership meeting where the usage report left the central questions unanswered. With a focused review, the conversation becomes more specific: teachers can describe the time recovered, students can demonstrate the skills learned, and leaders can explain what deserves further investment. Families and board members have evidence they can examine, including the limits of what the school knows so far.</p>
+
+<p>At TomoClub, we work with schools on AI literacy, teacher professional development, and implementation support. If your school is planning an initiative or reviewing one already underway, <a href="../../">connect with our team</a> to discuss the problem you want to solve and the evidence that would make progress meaningful in your classrooms.</p>
+
+<h2>Sources</h2>
+
+<ol>
+<li><a href="https://news.gallup.com/poll/691967/three-teachers-weekly-saving-six-weeks-year.aspx" target="_blank" rel="noopener">Gallup and Walton Family Foundation, June 24, 2025</a>. Survey of U.S. public K&ndash;12 teachers reporting AI use and estimated time savings.</li>
+<li><a href="https://news.gallup.com/poll/710534/teachers-receive-no-formal-guidance.aspx" target="_blank" rel="noopener">Gallup and Walton Family Foundation, May 26, 2026</a>. Research on formal and informal guidance for teachers using AI.</li>
+<li><a href="https://educationendowmentfoundation.org.uk/projects-and-evaluation/projects/choices-in-edtech-using-generative-ai-chatgpt-for-ks3-science-lesson-preparation-2024-teacher-choices-trial" target="_blank" rel="noopener">Education Endowment Foundation, ChatGPT in lesson preparation</a>. Teacher Choices trial independently evaluated by NFER.</li>
+<li><a href="https://doi.org/10.1073/pnas.2422633122" target="_blank" rel="noopener">Bastani and colleagues, PNAS, 2025</a>. Generative AI without guardrails can harm learning: Evidence from high school mathematics.</li>
+</ol>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+                <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
+            </a>
+        </div>
+    </article>
+
+    <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
+                <a href="../../" class="logo footer-logo" style="margin-bottom: 0;">
+                    <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24">
+                </a>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                </div>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
