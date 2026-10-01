@@ -298,7 +298,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <nav>
         <div class="container nav-container">
             <a href="../../" class="logo">
-            <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+            <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
         </a>
         <div class="nav-links">
             <div class="nav-item"><a href="../../#blog">Blog</a></div>
@@ -338,8 +338,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <footer style="background: var(--surface); padding: 6rem 0; border-top: 1px solid var(--border-color);">
         <div class="container">
             <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;">
-                <a href="../../" class="logo">
-                    <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
+                <a href="../../" class="logo footer-logo" style="margin-bottom: 0;">
+                    <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24">
                 </a>
                 <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem;">
