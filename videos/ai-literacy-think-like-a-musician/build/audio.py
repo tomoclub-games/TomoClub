@@ -70,9 +70,9 @@ def add(buf, sig, t, gain=1.0, pan=0.0):
         buf[i:i + len(sig)] += sig * gain
 
 
-def music_bed(total):
+def music_bed(total, bpm=96):
     """Original I-vi-IV-V loop at 96 bpm: soft pad + gentle mallet arpeggio."""
-    beat = 60 / 96
+    beat = 60 / bpm
     bar = 4 * beat
     chords = [[48, 55, 64, 71], [45, 52, 60, 67], [41, 48, 57, 64], [43, 50, 59, 64]]
     buf = np.zeros((int(total * SR) + SR * 4, 2), np.float32)

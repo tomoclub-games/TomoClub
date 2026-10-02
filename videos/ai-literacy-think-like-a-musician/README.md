@@ -11,6 +11,9 @@ that students try themselves and report in the comments.
 | `captions.en.srt` | English closed captions, timed to the video (upload them in YouTube Studio) |
 | `youtube-upload.md` | Title, description, chapters, tags, pinned comment and upload settings |
 | `script.md` | Full narration script and the on-screen text |
+| `instagram/ai-literacy-reel.mp4` | Instagram Reel cut: 1080×1920 (9:16), 1:29, captions burned in |
+| `instagram/reel-cover.jpg` | 1080×1920 Reel cover |
+| `instagram/instagram-post.md` | Reel caption, hashtags, pinned comment and posting settings (AI label on) |
 | `build/` | Source used to generate everything above (see below) |
 
 ## The five moves
@@ -56,3 +59,14 @@ python thumbnail.py thumbnail.jpg
 
 To change the wording, edit `build/script_data.py` and re-run all the steps. The scene timings
 follow the new narration automatically.
+
+The Instagram Reel has its own shorter script and vertical layouts in `build/reel.py`:
+
+```bash
+R=/path/to/reel-workdir
+python reel.py tts kokoro-v1.0.onnx voices-v1.0.bin $R
+python reel.py audio "$SRC" $R
+python reel.py scenes "$SRC" $R
+python reel.py final "$SRC" $R ai-literacy-reel.mp4
+python reel.py cover reel-cover.jpg
+```

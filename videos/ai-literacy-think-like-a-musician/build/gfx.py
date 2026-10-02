@@ -258,11 +258,12 @@ class Dyn:
 
 # ---------------------------------------------------------------- background
 
-def background():
+def background(w=W, h=H):
     import numpy as np
-    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    sx, sy, sr = w / W, h / H, max(w, h) / W
     top, bot = np.array(C["bg0"], np.float32), np.array(C["navy"], np.float32)
-    g = (yy / H)[..., None]
+    g = (yy / h)[..., None]
     img = top * (1 - g) + bot * g
 
     def glow(cx, cy, r, col, a):
@@ -270,9 +271,9 @@ def background():
         k = (np.clip(1 - d, 0, 1) ** 2 * a)[..., None]
         return k * (np.array(col, np.float32) - img)
 
-    img += glow(1700, 80, 900, C["teal"], 0.16)
-    img += glow(150, 1050, 800, C["crimson"], 0.12)
-    img += glow(1000, 1150, 700, C["gold"], 0.04)
+    img += glow(1700 * sx, 80 * sy, 900 * sr, C["teal"], 0.16)
+    img += glow(150 * sx, 1050 * sy, 800 * sr, C["crimson"], 0.12)
+    img += glow(1000 * sx, 1150 * sy, 700 * sr, C["gold"], 0.04)
     # faint Song Maker grid
     grid = ((xx % 60) < 1.2) | ((yy % 60) < 1.2)
     img[grid] = img[grid] * 0.93 + 255 * 0.07 * 0.35

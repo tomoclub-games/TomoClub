@@ -48,8 +48,8 @@ def still(src, t, size):
 
 
 class ClipPlayer:
-    def __init__(self, src, segs):
-        self.gen = clip_frames(src, segs)
+    def __init__(self, src, segs, size=(CLIP_W, CLIP_H)):
+        self.gen = clip_frames(src, segs, size)
         self.idx, self.cur = -1, None
 
     def at(self, t):

@@ -8,12 +8,14 @@ from script_data import CLIPS, SCENES
 FPS = 30
 
 
-def build(work):
+def build(work, scenes=None, clips=None):
+    scenes = SCENES if scenes is None else scenes
+    clips = CLIPS if clips is None else clips
     with open(os.path.join(work, "vo", "durations.json")) as f:
         durations = json.load(f)
     t = 0.0
     out = []
-    for sc in SCENES:
+    for sc in scenes:
         cues = {}
         items = []
         local = sc["lead"]
@@ -27,7 +29,7 @@ def build(work):
             elif it[0] == "pause":
                 local += it[1]
             elif it[0] == "clip":
-                segs = CLIPS[it[1]]
+                segs = clips[it[1]]
                 d = sum(b - a for a, b in segs)
                 items.append(dict(kind="clip", id=it[1], start=local, dur=d, segs=segs))
                 local += d
