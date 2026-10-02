@@ -1,0 +1,467 @@
+1
+00:00:00,400 --> 00:00:01,022
+Quick one.
+
+2
+00:00:01,042 --> 00:00:01,471
+Listen.
+
+3
+00:00:05,591 --> 00:00:06,744
+What note comes next?
+
+4
+00:00:07,564 --> 00:00:08,344
+Take a moment.
+
+5
+00:00:08,364 --> 00:00:09,487
+Commit to an answer.
+
+6
+00:00:10,507 --> 00:00:12,467
+You just did what AI does all day.
+
+7
+00:00:12,487 --> 00:00:14,039
+It doesn't know the answer.
+
+8
+00:00:14,059 --> 00:00:14,912
+It predicts it.
+
+9
+00:00:14,932 --> 00:00:15,902
+Sneaky, isn't it?
+
+10
+00:00:16,422 --> 00:00:19,890
+With AI set to start from Class
+3 in India this school year,
+
+11
+00:00:19,910 --> 00:00:24,772
+parents keep asking us one thing: what does
+my child actually need to know about it?
+
+12
+00:00:25,192 --> 00:00:27,598
+Here are five habits to try at home.
+
+13
+00:00:27,618 --> 00:00:28,138
+A phone.
+
+14
+00:00:28,158 --> 00:00:29,081
+A curious kid.
+
+15
+00:00:29,101 --> 00:00:29,823
+10 minutes.
+
+16
+00:00:34,867 --> 00:00:36,162
+First, the ground rules.
+
+17
+00:00:36,482 --> 00:00:39,449
+Most AI chat tools are
+built for ages 13 and up.
+
+18
+00:00:39,469 --> 00:00:42,622
+With younger kids, you hold
+the phone and you type.
+
+19
+00:00:42,642 --> 00:00:43,929
+They do the thinking.
+
+20
+00:00:44,349 --> 00:00:46,458
+And play the billboard game together.
+
+21
+00:00:46,478 --> 00:00:50,545
+If you wouldn't put it on a billboard
+outside school, don't type it in.
+
+22
+00:00:50,565 --> 00:00:52,790
+No full names, no addresses, no photos.
+
+23
+00:00:54,233 --> 00:00:54,425
+One.
+
+24
+00:00:54,445 --> 00:00:55,486
+Guess the next note.
+
+25
+00:00:55,906 --> 00:00:58,871
+This is a real class
+Varchas ran with TomoClub,
+
+26
+00:00:58,891 --> 00:01:03,064
+where kids built their own songs
+in Chrome Music Lab's Song Maker.
+
+27
+00:01:03,084 --> 00:01:04,715
+Listen to what he notices.
+
+28
+00:01:05,467 --> 00:01:12,047
+[Student's song plays]
+
+29
+00:01:12,067 --> 00:01:13,047
+[Varchas] Nice.
+
+30
+00:01:13,067 --> 00:01:15,047
+I like the gap in between where it plays
+
+31
+00:01:15,067 --> 00:01:17,847
+and gives something to anticipate as well.
+
+32
+00:01:17,867 --> 00:01:18,347
+Well done.
+
+33
+00:01:18,867 --> 00:01:20,299
+Something to anticipate.
+
+34
+00:01:20,319 --> 00:01:21,691
+That's the whole trick.
+
+35
+00:01:21,711 --> 00:01:26,533
+An AI writes one small piece at a time,
+always picking the most likely next one.
+
+36
+00:01:26,953 --> 00:01:27,829
+Try it at home.
+
+37
+00:01:27,849 --> 00:01:32,128
+Open Song Maker together - it's free,
+in the browser - build three bars,
+
+38
+00:01:32,148 --> 00:01:34,278
+and let your child guess the fourth.
+
+39
+00:01:34,298 --> 00:01:34,875
+Then swap.
+
+40
+00:01:35,295 --> 00:01:37,591
+AI goes for the safe note every time.
+
+41
+00:01:37,611 --> 00:01:39,845
+Notice how often your child doesn't.
+
+42
+00:01:41,267 --> 00:01:41,509
+Two.
+
+43
+00:01:41,529 --> 00:01:42,429
+Play it twice.
+
+44
+00:01:42,849 --> 00:01:46,137
+Musicians replay a tricky
+bit to check it holds up.
+
+45
+00:01:46,157 --> 00:01:50,418
+Ask an AI a question, then open a
+brand-new chat and ask it again.
+
+46
+00:01:50,838 --> 00:01:54,058
+If a name, a number or a date
+changes, it was guessing.
+
+47
+00:01:54,078 --> 00:01:57,710
+Give your child a word for that:
+a rumour, until you check it.
+
+48
+00:01:59,133 --> 00:01:59,463
+Three.
+
+49
+00:01:59,483 --> 00:02:00,222
+Flip the key.
+
+50
+00:02:00,642 --> 00:02:05,044
+Take a song from a major key to a
+minor key, and the whole mood changes.
+
+51
+00:02:05,064 --> 00:02:06,764
+Questions work the same way.
+
+52
+00:02:07,184 --> 00:02:09,346
+Ask: why is homework good for kids?
+
+53
+00:02:09,366 --> 00:02:12,464
+Then, in a new chat: why
+is homework bad for kids?
+
+54
+00:02:12,884 --> 00:02:16,258
+If it happily agrees both
+times, it's following your lead.
+
+55
+00:02:16,278 --> 00:02:20,412
+Neutral questions get better answers,
+like: what are the pros and cons?
+
+56
+00:02:21,833 --> 00:02:22,121
+Four.
+
+57
+00:02:22,141 --> 00:02:23,413
+Find the sheet music.
+
+58
+00:02:23,833 --> 00:02:27,514
+Before your child repeats an AI
+fact - in a project, in class,
+
+59
+00:02:27,534 --> 00:02:29,843
+at the dinner table - find the receipt.
+
+60
+00:02:30,263 --> 00:02:34,351
+A real book or a site you trust,
+and the exact line that backs it up.
+
+61
+00:02:34,371 --> 00:02:35,006
+No receipt?
+
+62
+00:02:35,026 --> 00:02:35,959
+Don't repeat it.
+
+63
+00:02:37,400 --> 00:02:37,703
+Five.
+
+64
+00:02:37,723 --> 00:02:38,673
+Play it by ear.
+
+65
+00:02:39,093 --> 00:02:43,076
+A musician who can only play while reading
+the sheet hasn't learned the song yet.
+
+66
+00:02:43,496 --> 00:02:45,558
+So after AI helps with homework,
+
+67
+00:02:45,578 --> 00:02:50,114
+close the tab and ask your child to
+explain it out loud in 30 seconds.
+
+68
+00:02:50,534 --> 00:02:53,549
+Wherever they get stuck is the
+part they still need to learn.
+
+69
+00:02:54,900 --> 00:02:57,728
+Well, the kids in this class
+didn't aim for perfect.
+
+70
+00:02:57,748 --> 00:02:58,714
+They experimented.
+
+71
+00:02:59,717 --> 00:03:00,997
+[Varchas] Wow, wow. I love this.
+
+72
+00:03:01,017 --> 00:03:04,997
+Yeah, that's how you experiment.
+
+73
+00:03:05,017 --> 00:03:07,497
+That's how you experiment. Yes, I love it.
+
+74
+00:03:07,517 --> 00:03:08,997
+Let's see how it would sound.
+
+75
+00:03:09,017 --> 00:03:10,397
+[Student's song plays]
+
+76
+00:03:10,617 --> 00:03:13,097
+I love the pattern in
+which you have coloured,
+
+77
+00:03:13,117 --> 00:03:15,097
+shows that you have gone for some pattern.
+
+78
+00:03:15,117 --> 00:03:18,897
+This is like pressing all the keys on
+the keyboard together, so that's nice.
+
+79
+00:03:18,917 --> 00:03:20,997
+Yeah, lovely.
+
+80
+00:03:21,117 --> 00:03:22,497
+Like the experimentation.
+
+81
+00:03:22,817 --> 00:03:23,697
+Wonderful team.
+
+82
+00:03:24,133 --> 00:03:25,938
+That's the habit worth building.
+
+83
+00:03:25,958 --> 00:03:30,044
+Treat AI like an instrument your child
+is learning, and keep testing it.
+
+84
+00:03:31,567 --> 00:03:32,468
+Now, your turn.
+
+85
+00:03:32,488 --> 00:03:34,372
+Can your child make an AI flip?
+
+86
+00:03:34,792 --> 00:03:38,762
+Pick a this-or-that together, like
+cats or dogs, or pizza or dosa.
+
+87
+00:03:39,182 --> 00:03:41,468
+Ask an AI why the first one is better.
+
+88
+00:03:41,488 --> 00:03:45,414
+Then open a brand-new chat, and
+ask why the second one is better.
+
+89
+00:03:45,834 --> 00:03:48,785
+Did it flip to agree both
+times, or hold its ground?
+
+90
+00:03:48,805 --> 00:03:53,586
+Tell us in the comments: flipped or held,
+and what your child said when they saw it.
+
+91
+00:03:54,006 --> 00:03:56,204
+Just keep your child's
+name and school out of it.
+
+92
+00:03:57,933 --> 00:03:58,737
+Quick recap.
+
+93
+00:03:59,007 --> 00:04:00,014
+Guess the next note.
+
+94
+00:04:00,234 --> 00:04:01,080
+Play it twice.
+
+95
+00:04:01,300 --> 00:04:02,094
+Flip the key.
+
+96
+00:04:02,314 --> 00:04:03,407
+Find the sheet music.
+
+97
+00:04:03,627 --> 00:04:04,666
+And play it by ear.
+
+98
+00:04:06,300 --> 00:04:08,788
+If you'd like your child
+to learn this properly,
+
+99
+00:04:08,808 --> 00:04:11,453
+that's what AI Labs at All
+Things Classroom is for.
+
+100
+00:04:11,873 --> 00:04:15,990
+Live online classes with a real
+teacher, the same one every week,
+
+101
+00:04:16,010 --> 00:04:17,708
+built around making things.
+
+102
+00:04:17,728 --> 00:04:19,045
+Monthly, no lock-ins.
+
+103
+00:04:19,465 --> 00:04:23,693
+Tap the link in the description, tell
+us about your child, tick AI Labs,
+
+104
+00:04:23,713 --> 00:04:25,345
+and our team will email you.
+
+105
+00:04:27,467 --> 00:04:28,821
+Oh, and one more thing.
+
+106
+00:04:28,841 --> 00:04:30,493
+This voice was made with AI.
+
+107
+00:04:30,513 --> 00:04:32,405
+Now you know how to question it.
+
+108
+00:04:32,825 --> 00:04:33,919
+See you in the comments.
+
