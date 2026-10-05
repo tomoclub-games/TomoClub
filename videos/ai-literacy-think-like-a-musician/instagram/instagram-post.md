@@ -17,38 +17,10 @@
 | 1:06 | Your turn: the Flip Challenge (comment FLIPPED or HELD) |
 | 1:21 | "This voice was made by AI" + follow |
 
-## Caption
+## Caption and comments
 
-```
-What note comes next? 🎵 Your brain just predicted it, and that's exactly how AI works.
-
-5 moves to stay smarter than the machine:
-1️⃣ Guess the next note: AI picks the most likely answer, so surprise is your job
-2️⃣ Play it twice: ask again in a new chat. If the facts change, it was guessing
-3️⃣ Flip the key: leading questions get agreeable answers
-4️⃣ Find the sheet music: no receipt? Don't repeat it
-5️⃣ Play it by ear: close the tab and explain it in 30 seconds
-
-🔁 THE FLIP CHALLENGE
-Ask an approved AI tool "Why are cats better?" Then, in a NEW chat, "Why are dogs better?"
-Did it FLIP or HOLD? Comment your answer 👇
-🔒 Please keep it anonymous: no names, schools or personal details.
-
-For students 13+. Use AI tools your school or a parent/guardian has approved.
-Narration: AI-generated voice. Session clips shared with student faces and names blurred.
-
-#AILiteracy #StudentsOfInstagram #EdTech #CriticalThinking #TomoClub
-```
-
-Instagram has been limiting how many hashtags a post can carry, so this uses 5. Add more only if
-your account still allows it.
-
-## Pinned comment (post it from @tomoclub, then pin it)
-
-```
-🔁 Did your AI FLIP or HOLD? Reply with one word plus what you tested (e.g. "HELD, cats vs dogs") 👇
-Keep it anonymous, no names or personal details please 🔒
-```
+The caption, pinned comment and other comments are in `../social/posts.md` (the Instagram section),
+along with the LinkedIn and Substack copy.
 
 ## Settings when posting
 
