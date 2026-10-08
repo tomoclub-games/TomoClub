@@ -1,0 +1,34 @@
+{
+ "title": "TomoClub | TAICY 2026: AI literacy and teamwork, learned by playing",
+ "format": "linkedin",
+ "output": "out/TomoClub_TAICY_LinkedIn_1x1.mp4",
+ "music": {"bpm": 104, "drop_at": "prizes", "breakdown": ["bd0", "bd1"], "volume_db": -13},
+ "notes": [
+   "a_in/a_out: the words, in seconds of the source recording. v_in: the picture comes from that time instead.",
+   "view: project = the student's own game panel (oct04 share); game = the shared game screen; slide = the debrief slides; vk = the coach's tile; gallery = whole Zoom grid with every student tile blurred.",
+   "No caption, label or kept audio contains a student's name."
+ ],
+ "shots": [
+  {"id": "norules", "src": "sep20", "a_in": 295.55, "a_out": 302.8, "v_in": 900, "view": "game", "who": "coach", "head": "We give kids *no rulebook.*|On purpose.", "text": "We don't give you any rules. You've got to figure it out. And how you figure it out is you have to communicate to figure it out."},
+  {"id": "explainer", "card": "explainer", "dur": 7.5},
+  {"id": "built", "src": "oct04", "a_in": 17.3, "a_out": 21.62, "v_in": 60, "view": "project", "who": "student", "head": "Kids don't just use AI.|They *build* with it.", "text": "Actually, I've made a game that I was making on Claude."},
+  {"id": "english", "src": "oct04", "a_in": 36.21, "a_out": 40.9, "v_in": 75, "view": "project", "who": "student", "text": "I was making this game for my English test."},
+  {"id": "quiz", "src": "oct04", "a_in": 182.2, "a_out": 185.18, "v_in": 191, "view": "project", "who": "student", "text": "And I've also put some questions to answer."},
+  {"id": "solid", "src": "oct04", "a_in": 296.78, "a_out": 299.12, "view": "vk", "who": "coach", "text": "But it looks pretty solid."},
+  {"id": "win", "src": "sep20", "a_in": 2105.3, "a_out": 2107.4, "view": "vk", "who": "coach", "head": "Collaboration isn't lectured.|It's *practised.*", "text": "What made you win this time?"},
+  {"id": "together", "src": "sep20", "a_in": 2108.05, "a_out": 2110.3, "view": "gallery", "who": "student", "text": "Because we were working together.", "fade_out": 0.06},
+  {"id": "3min", "src": "sep20", "a_in": 2653.3, "a_out": 2660.1, "v_in": 2600, "view": "game", "who": "coach", "head": "Same level. 3 minutes|down to *about 1.*", "text": "You know, last time you took three minutes to complete the whole thing. This time you did it in under a minute or about a minute."},
+  {"id": "talking", "src": "sep20", "a_in": 2663.77, "a_out": 2665.29, "fade_out": 0.05, "v_in": 2615, "view": "game", "who": "student", "text": "We were talking to each other."},
+  {"id": "clarity", "src": "sep20", "a_in": 2677.59, "a_out": 2680.15, "v_in": 2622, "view": "game", "who": "coach", "text": "It gives you clarity in a chaotic situation."},
+  {"id": "debrief", "src": "sep20", "a_in": 3860.75, "a_out": 3862.92, "v_in": 3866, "view": "slide", "who": "coach", "mark": "bd0", "head": "Every game ends with an|*After-Action Review.*", "text": "On top of it, we were debriefing."},
+  {"id": "mistakes", "src": "sep20", "a_in": 3887.85, "a_out": 3891.9, "v_in": 3870, "view": "slide", "who": "coach", "text": "It's okay to make mistakes. What is important is, can somebody correct it?"},
+  {"id": "execute", "src": "sep20", "a_in": 3900.7, "a_out": 3906.1, "v_in": 3902, "view": "slide", "who": "coach", "text": "How we execute matters, and how we communicate that matters even more."},
+  {"id": "compound-a", "src": "sep20", "a_in": 4046.88, "a_out": 4054.95, "view": "vk", "who": "coach", "head": "Skills that *compound,*|week after week.", "text": "Imagine that every hour in a week, if you start practicing this, there are more games with varied challenges and varied skills,"},
+  {"id": "compound-b", "src": "sep20", "a_in": 4055.5, "a_out": 4056.85, "v_in": 4054.95, "view": "vk", "who": "coach", "joined": true, "text": "how much you can develop."},
+  {"id": "teamwork", "src": "sep20", "a_in": 3941.24, "a_out": 3944.01, "view": "gallery", "who": "student", "mark": "bd1", "head": "In their *own words.*", "text": "It was a good teamwork, not fighting.", "fade_out": 0.05},
+  {"id": "ten", "src": "oct04", "a_in": 3954.0, "a_out": 3957.22, "view": "gallery", "who": "student", "text": "I think a good 10 out of 10."},
+  {"id": "ten2", "src": "sep20", "a_in": 4088.22, "a_out": 4090.2, "view": "gallery", "who": "student", "text": "10 out of 10 out of 10. 10 out of 10!"},
+  {"id": "prizes", "card": "prizes", "dur": 5.4},
+  {"id": "cta", "card": "cta", "dur": 9.0}
+ ]
+}

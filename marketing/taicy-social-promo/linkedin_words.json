@@ -1,0 +1,822 @@
+{
+"sep20|295.55|302.79|We don't give you any rules. You've got to figure it out. And how you figure it out is you have to communicate to figure it out.": [
+{
+"w": "We",
+"t": 0.0
+},
+{
+"w": "don't",
+"t": 0.68
+},
+{
+"w": "give",
+"t": 0.96
+},
+{
+"w": "you",
+"t": 1.18
+},
+{
+"w": "any",
+"t": 1.48
+},
+{
+"w": "rules.",
+"t": 1.86
+},
+{
+"w": "You've",
+"t": 2.5
+},
+{
+"w": "got",
+"t": 3.14
+},
+{
+"w": "to",
+"t": 3.3
+},
+{
+"w": "figure",
+"t": 3.5
+},
+{
+"w": "it",
+"t": 3.7
+},
+{
+"w": "out.",
+"t": 3.92
+},
+{
+"w": "And",
+"t": 4.16
+},
+{
+"w": "how",
+"t": 4.42
+},
+{
+"w": "you",
+"t": 4.6
+},
+{
+"w": "figure",
+"t": 4.76
+},
+{
+"w": "it",
+"t": 4.96
+},
+{
+"w": "out",
+"t": 5.14
+},
+{
+"w": "is",
+"t": 5.34
+},
+{
+"w": "you",
+"t": 5.5
+},
+{
+"w": "have",
+"t": 5.68
+},
+{
+"w": "to",
+"t": 5.8
+},
+{
+"w": "communicate",
+"t": 6.0
+},
+{
+"w": "to",
+"t": 6.36
+},
+{
+"w": "figure",
+"t": 6.6
+},
+{
+"w": "it",
+"t": 6.78
+},
+{
+"w": "out.",
+"t": 6.92
+}
+],
+"oct04|17.3|21.62|Actually, I've made a game that I was making on Claude.": [
+{
+"w": "Actually,",
+"t": 0.0
+},
+{
+"w": "I've",
+"t": 0.78
+},
+{
+"w": "made",
+"t": 1.0
+},
+{
+"w": "a",
+"t": 1.34
+},
+{
+"w": "game",
+"t": 1.9
+},
+{
+"w": "that",
+"t": 2.42
+},
+{
+"w": "I",
+"t": 2.76
+},
+{
+"w": "was",
+"t": 2.88
+},
+{
+"w": "making",
+"t": 3.02
+},
+{
+"w": "on",
+"t": 3.34
+},
+{
+"w": "Claude.",
+"t": 3.56
+}
+],
+"oct04|36.21|40.89|I was making this game for my English test.": [
+{
+"w": "I",
+"t": 0.0
+},
+{
+"w": "was",
+"t": 0.36
+},
+{
+"w": "making",
+"t": 0.9
+},
+{
+"w": "this",
+"t": 2.28
+},
+{
+"w": "game",
+"t": 2.62
+},
+{
+"w": "for",
+"t": 2.88
+},
+{
+"w": "my",
+"t": 3.1
+},
+{
+"w": "English",
+"t": 3.38
+},
+{
+"w": "test.",
+"t": 3.88
+}
+],
+"oct04|182.2|185.2|And I've also put some questions to answer.": [
+{
+"w": "And",
+"t": 0.0
+},
+{
+"w": "I've",
+"t": 0.46
+},
+{
+"w": "also",
+"t": 0.68
+},
+{
+"w": "put",
+"t": 0.92
+},
+{
+"w": "some",
+"t": 1.16
+},
+{
+"w": "questions",
+"t": 1.38
+},
+{
+"w": "to",
+"t": 1.96
+},
+{
+"w": "answer.",
+"t": 2.32
+}
+],
+"sep20|2105.3|2107.38|What made you win this time?": [
+{
+"w": "What",
+"t": 0.0
+},
+{
+"w": "made",
+"t": 0.68
+},
+{
+"w": "you",
+"t": 0.92
+},
+{
+"w": "win",
+"t": 1.12
+},
+{
+"w": "this",
+"t": 1.4
+},
+{
+"w": "time?",
+"t": 1.62
+}
+],
+"sep20|2108.05|2110.29|Because we were working together.": [
+{
+"w": "Because",
+"t": 0.25
+},
+{
+"w": "we",
+"t": 0.72
+},
+{
+"w": "were",
+"t": 1.0
+},
+{
+"w": "working",
+"t": 1.22
+},
+{
+"w": "together.",
+"t": 1.64
+}
+],
+"sep20|2653.3|2660.1|You know, last time you took three minutes to complete the whole thing. This time you did it in under a minute or about a minute.": [
+{
+"w": "You",
+"t": 0.0
+},
+{
+"w": "know,",
+"t": 0.48
+},
+{
+"w": "last",
+"t": 0.76
+},
+{
+"w": "time",
+"t": 0.94
+},
+{
+"w": "you",
+"t": 1.18
+},
+{
+"w": "took",
+"t": 1.32
+},
+{
+"w": "three",
+"t": 1.57
+},
+{
+"w": "minutes",
+"t": 1.82
+},
+{
+"w": "to",
+"t": 2.06
+},
+{
+"w": "complete",
+"t": 2.32
+},
+{
+"w": "the",
+"t": 2.6
+},
+{
+"w": "whole",
+"t": 2.8
+},
+{
+"w": "thing.",
+"t": 2.98
+},
+{
+"w": "This",
+"t": 4.0
+},
+{
+"w": "time",
+"t": 4.18
+},
+{
+"w": "you",
+"t": 4.38
+},
+{
+"w": "did",
+"t": 4.56
+},
+{
+"w": "it",
+"t": 4.68
+},
+{
+"w": "in",
+"t": 4.88
+},
+{
+"w": "under",
+"t": 4.98
+},
+{
+"w": "a",
+"t": 5.44
+},
+{
+"w": "minute",
+"t": 5.62
+},
+{
+"w": "or",
+"t": 5.76
+},
+{
+"w": "about",
+"t": 6.0
+},
+{
+"w": "a",
+"t": 6.28
+},
+{
+"w": "minute.",
+"t": 6.46
+}
+],
+"sep20|2677.59|2680.15|It gives you clarity in a chaotic situation.": [
+{
+"w": "It",
+"t": 0.0
+},
+{
+"w": "gives",
+"t": 0.14
+},
+{
+"w": "you",
+"t": 0.42
+},
+{
+"w": "clarity",
+"t": 0.62
+},
+{
+"w": "in",
+"t": 1.24
+},
+{
+"w": "a",
+"t": 1.46
+},
+{
+"w": "chaotic",
+"t": 1.58
+},
+{
+"w": "situation.",
+"t": 1.98
+}
+],
+"sep20|3860.75|3862.91|On top of it, we were debriefing.": [
+{
+"w": "On",
+"t": 0.0
+},
+{
+"w": "top",
+"t": 0.58
+},
+{
+"w": "of",
+"t": 0.76
+},
+{
+"w": "it,",
+"t": 0.92
+},
+{
+"w": "we",
+"t": 1.22
+},
+{
+"w": "were",
+"t": 1.28
+},
+{
+"w": "debriefing.",
+"t": 1.44
+}
+],
+"sep20|3887.85|3891.89|It's okay to make mistakes. What is important is, can somebody correct it?": [
+{
+"w": "It's",
+"t": 0.0
+},
+{
+"w": "okay",
+"t": 0.58
+},
+{
+"w": "to",
+"t": 0.72
+},
+{
+"w": "make",
+"t": 0.9
+},
+{
+"w": "mistakes.",
+"t": 1.06
+},
+{
+"w": "What",
+"t": 1.72
+},
+{
+"w": "is",
+"t": 1.8
+},
+{
+"w": "important",
+"t": 2.08
+},
+{
+"w": "is,",
+"t": 2.64
+},
+{
+"w": "can",
+"t": 2.84
+},
+{
+"w": "somebody",
+"t": 3.06
+},
+{
+"w": "correct",
+"t": 3.4
+},
+{
+"w": "it?",
+"t": 3.74
+}
+],
+"sep20|3900.7|3906.1|How we execute matters, and how we communicate that matters even more.": [
+{
+"w": "How",
+"t": 0.0
+},
+{
+"w": "we",
+"t": 0.24
+},
+{
+"w": "execute",
+"t": 0.42
+},
+{
+"w": "matters,",
+"t": 0.84
+},
+{
+"w": "and",
+"t": 1.36
+},
+{
+"w": "how",
+"t": 2.42
+},
+{
+"w": "we",
+"t": 2.66
+},
+{
+"w": "communicate",
+"t": 2.96
+},
+{
+"w": "that",
+"t": 3.62
+},
+{
+"w": "matters",
+"t": 4.12
+},
+{
+"w": "even",
+"t": 4.56
+},
+{
+"w": "more.",
+"t": 4.98
+}
+],
+"sep20|4046.88|4054.96|Imagine that every hour in a week, if you start practicing this, there are more games with varied challenges and varied skills,": [
+{
+"w": "Imagine",
+"t": 0.0
+},
+{
+"w": "that",
+"t": 0.58
+},
+{
+"w": "every",
+"t": 0.92
+},
+{
+"w": "hour",
+"t": 1.3
+},
+{
+"w": "in",
+"t": 1.62
+},
+{
+"w": "a",
+"t": 2.3
+},
+{
+"w": "week,",
+"t": 2.42
+},
+{
+"w": "if",
+"t": 2.66
+},
+{
+"w": "you",
+"t": 2.84
+},
+{
+"w": "start",
+"t": 2.96
+},
+{
+"w": "practicing",
+"t": 3.28
+},
+{
+"w": "this,",
+"t": 3.86
+},
+{
+"w": "there",
+"t": 4.54
+},
+{
+"w": "are",
+"t": 4.88
+},
+{
+"w": "more",
+"t": 5.02
+},
+{
+"w": "games",
+"t": 5.22
+},
+{
+"w": "with",
+"t": 5.54
+},
+{
+"w": "varied",
+"t": 5.78
+},
+{
+"w": "challenges",
+"t": 6.08
+},
+{
+"w": "and",
+"t": 6.56
+},
+{
+"w": "varied",
+"t": 6.84
+},
+{
+"w": "skills,",
+"t": 7.16
+}
+],
+"sep20|4055.5|4056.86|how much you can develop.": [
+{
+"w": "how",
+"t": 0.0
+},
+{
+"w": "much",
+"t": 0.38
+},
+{
+"w": "you",
+"t": 0.6
+},
+{
+"w": "can",
+"t": 0.74
+},
+{
+"w": "develop.",
+"t": 0.94
+}
+],
+"sep20|3941.24|3944.0|It was a good teamwork, not fighting.": [
+{
+"w": "It",
+"t": 0.0
+},
+{
+"w": "was",
+"t": 0.14
+},
+{
+"w": "a",
+"t": 0.28
+},
+{
+"w": "good",
+"t": 0.44
+},
+{
+"w": "teamwork,",
+"t": 0.9
+},
+{
+"w": "not",
+"t": 2.04
+},
+{
+"w": "fighting.",
+"t": 2.26
+}
+],
+"oct04|3954.0|3957.2|I think a good 10 out of 10.": [
+{
+"w": "I",
+"t": 0.0
+},
+{
+"w": "think",
+"t": 0.48
+},
+{
+"w": "a",
+"t": 1.11
+},
+{
+"w": "good",
+"t": 1.74
+},
+{
+"w": "10",
+"t": 1.99
+},
+{
+"w": "out",
+"t": 2.24
+},
+{
+"w": "of",
+"t": 2.56
+},
+{
+"w": "10.",
+"t": 2.88
+}
+],
+"sep20|4088.22|4090.22|10 out of 10 out of 10. 10 out of 10!": [
+{
+"w": "10",
+"t": 0.0
+},
+{
+"w": "out",
+"t": 0.28
+},
+{
+"w": "of",
+"t": 0.5
+},
+{
+"w": "10",
+"t": 0.7
+},
+{
+"w": "out",
+"t": 0.88
+},
+{
+"w": "of",
+"t": 1.18
+},
+{
+"w": "10.",
+"t": 1.42
+},
+{
+"w": "10",
+"t": 1.536
+},
+{
+"w": "out",
+"t": 1.652
+},
+{
+"w": "of",
+"t": 1.768
+},
+{
+"w": "10!",
+"t": 1.884
+}
+],
+"sep20|2663.77|2665.29|We were talking to each other.": [
+{
+"w": "We",
+"t": 0.0
+},
+{
+"w": "were",
+"t": 0.2
+},
+{
+"w": "talking",
+"t": 0.38
+},
+{
+"w": "to",
+"t": 0.8
+},
+{
+"w": "each",
+"t": 1.12
+},
+{
+"w": "other.",
+"t": 1.36
+}
+],
+"oct04|296.78|299.14|But it looks pretty solid.": [
+{
+"w": "But",
+"t": 0.0
+},
+{
+"w": "it",
+"t": 0.37
+},
+{
+"w": "looks",
+"t": 0.74
+},
+{
+"w": "pretty",
+"t": 1.1
+},
+{
+"w": "solid.",
+"t": 1.62
+}
+]
+}

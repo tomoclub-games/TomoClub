@@ -1,0 +1,33 @@
+{
+ "title": "TomoClub | Kids who build with AI | TAICY 2026 Reel",
+ "format": "reel",
+ "output": "out/TomoClub_TAICY_Reel_9x16.mp4",
+ "music": {"bpm": 122, "drop_at": "prizes", "breakdown": ["bd0", "bd1"], "volume_db": -9},
+ "notes": [
+   "a_in/a_out: the words, in seconds of the source recording. v_in: the picture comes from that time instead.",
+   "view: project = the student's own game panel (oct04 share); game = the shared game screen; vk = the coach's tile; gallery = whole Zoom grid with every student tile blurred.",
+   "No caption, label or kept audio contains a student's name."
+ ],
+ "shots": [
+  {"id": "built", "src": "oct04", "a_in": 17.3, "a_out": 21.62, "v_in": 60, "view": "project", "who": "student", "head": "He built his own game|*with AI.*", "text": "Actually, I've made a game that I was making on Claude."},
+  {"id": "english", "src": "oct04", "a_in": 36.21, "a_out": 40.9, "v_in": 75, "view": "project", "who": "student", "head": "For his *English test.*", "text": "I was making this game for my English test."},
+  {"id": "quiz", "src": "oct04", "a_in": 182.2, "a_out": 185.18, "v_in": 191, "view": "project", "who": "student", "head": "Quiz questions|*built right in.*", "text": "And I've also put some questions to answer."},
+  {"id": "solid", "src": "oct04", "a_in": 296.78, "a_out": 299.12, "view": "vk", "who": "coach", "head": "Kids don't just use AI.|They *build* with it.", "text": "But it looks pretty solid."},
+  {"id": "taicy", "card": "taicy", "dur": 3.4},
+  {"id": "rules", "src": "oct04", "a_in": 1960.58, "a_out": 1964.4, "view": "vk", "who": "coach", "head": "No rulebook.|*Figure it out together.*", "text": "You know the rules, right? I don't give any rules. So you got to figure it out together.", "fade_out": 0.06},
+  {"id": "level1", "src": "r2", "a_in": 1375.65, "a_out": 1376.97, "view": "game", "cx": 1213, "who": "student", "head": "Live. As a team.|*In real time.*", "text": "Yep, level one!"},
+  {"id": "chip", "src": "r2", "a_in": 2603.3, "a_out": 2606.35, "view": "game", "cx": 1213, "who": "student", "text": "Okay, I got the last chip. Now we need to go to the platform."},
+  {"id": "hard-a", "src": "oct04", "a_in": 2456.1, "a_out": 2457.84, "v_in": 2050, "view": "game", "who": "coach", "head": "Hard? *On purpose.*", "text": "It's not confusing, it's challenging,"},
+  {"id": "hard-b", "src": "oct04", "a_in": 2459.32, "a_out": 2460.9, "v_in": 2051.74, "view": "game", "who": "coach", "joined": true, "text": "because that's how you learn."},
+  {"id": "3min", "src": "sep20", "a_in": 2653.3, "a_out": 2660.1, "v_in": 2600, "view": "game", "cx": 1213, "who": "coach", "head": "Same level. 3 minutes|down to *about 1.*", "text": "You know, last time you took three minutes to complete the whole thing. This time you did it in under a minute or about a minute."},
+  {"id": "talking", "src": "sep20", "a_in": 2663.77, "a_out": 2665.29, "fade_out": 0.05, "v_in": 2615, "view": "game", "cx": 1213, "who": "student", "head": "What changed?|*They talked.*", "text": "We were talking to each other."},
+  {"id": "clarity", "src": "sep20", "a_in": 2677.59, "a_out": 2680.15, "v_in": 2622, "view": "game", "cx": 1213, "who": "coach", "text": "It gives you clarity in a chaotic situation."},
+  {"id": "last-a", "src": "sep20", "a_in": 1194.05, "a_out": 1197.8, "view": "game", "who": "student", "mark": "bd0", "head": "Last place|*back to second.*", "text": "So once I had gone down to last place,", "v_in": 935.0},
+  {"id": "last-b", "src": "sep20", "a_in": 1198.25, "a_out": 1201.3, "v_in": 938.76, "view": "game", "who": "student", "joined": true, "text": "and from there I recovered back to second place."},
+  {"id": "grit", "src": "sep20", "a_in": 1216.12, "a_out": 1218.56, "view": "game", "who": "coach", "head": "That's *grit.*", "text": "This is the grit I want from both of you.", "v_in": 941.8},
+  {"id": "ten", "src": "oct04", "a_in": 3954.0, "a_out": 3957.22, "view": "gallery", "who": "student", "mark": "bd1", "head": "Kids' verdict: *10/10*", "text": "I think a good 10 out of 10."},
+  {"id": "ten2", "src": "sep20", "a_in": 4088.22, "a_out": 4090.2, "view": "gallery", "who": "student", "text": "10 out of 10 out of 10. 10 out of 10!"},
+  {"id": "prizes", "card": "prizes", "dur": 4.6},
+  {"id": "cta", "card": "cta", "dur": 7.4}
+ ]
+}
