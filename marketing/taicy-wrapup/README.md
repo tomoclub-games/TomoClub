@@ -5,7 +5,8 @@ winners and every entrant as a group and sends parents to one free live session.
 
 | Output | Format | Length |
 |---|---|---|
-| `out/TomoClub_TAICY-Wrap_Reel_9x16.mp4` (+ `_no-music`, `_cover.jpg`) | 1080×1920, 25 fps | 61.8 s |
+| `out/TomoClub_TAICY-Wrap_Reel_9x16.mp4` (+ `_no-music`) | 1080×1920, 25 fps | 61.8 s |
+| `out/TomoClub_TAICY-Wrap_Reel_9x16_cover.jpg` | 1080×1920 Reel cover (key content in the centre 3:4 for the profile grid) | |
 | `out/TomoClub_TAICY-Wrap_LinkedIn_1x1.mp4` (+ `_no-music`) | 1080×1080, 25 fps | 82.1 s |
 | `substack/taicy-2026-wrap-up.md` / `.html` + `substack/images/` | The Learning Shift newsletter post | about 1,100 words |
 | `instagram-caption.txt`, `linkedin-post.txt` | Post copy with CTAs | |
@@ -68,6 +69,7 @@ live round, four takeaways, congratulations, and the CTA.
 ```bash
 python3 ../taicy-social-promo/promo.py reel.json
 python3 ../taicy-social-promo/promo.py linkedin.json
+python3 make_cover.py                # Reel cover: hook headline over the wet / dry / e-waste screens
 python3 substack/make_images.py      # cover + stills for the post
 python3 substack/build_html.py       # paste-ready page from the Markdown draft
 ```
