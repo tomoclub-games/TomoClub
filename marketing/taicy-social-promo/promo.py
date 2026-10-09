@@ -49,6 +49,7 @@ WHO = {
 VK_CENTER = {"r2": (1953, 300), "sep20": (1920, 330), "oct04": (1930, 640)}
 PROJECT = (1460, 300)  # top-left of the student's game panel in oct04 (crop stays clear of browser chrome and the chat)
 TAICY_LOGO = os.path.join(HERE, "assets", "taicy_logo.jpg")
+FREE_SESSION = "https://tally.so/r/gDgLeN"  # free live session sign-up
 
 
 # ------------------------------------------------------------------ geometry
@@ -95,7 +96,7 @@ def is_fit(shot, fmt):
 
 # ------------------------------------------------------------------ graphics
 
-def background(fmt):
+def background(fmt, hexes=True):
     W, H = fmt["W"], fmt["H"]
     grad = Image.new("RGBA", (1, H))
     for y in range(H):
@@ -106,7 +107,7 @@ def background(fmt):
     img.alpha_composite(g.radial_glow((W, H), (int(W * 0.95), int(H * 0.95)), int(W * 0.52), g.GOLD, 40))
     img.alpha_composite(g.radial_glow((W, H), (W, int(H * 0.22)), int(W * 0.35), g.CRIMSON, 40))
     d = ImageDraw.Draw(img)
-    for cx, cy, r, a in [(W - 100, H - 160, 170, 16), (90, H - 220, 120, 12), (W - 40, 130, 90, 12)]:
+    for cx, cy, r, a in [(W - 100, H - 160, 170, 16), (90, H - 220, 120, 12), (W - 40, 130, 90, 12)][:3 if hexes else 0]:
         d.polygon(g.hexagon(cx, cy, r), outline=(255, 255, 255, a), width=3)
     x, y, s = fmt["wordmark"]
     g.wordmark(d, (x, y), s, anchor="mt")
@@ -289,6 +290,7 @@ def card_layers(fmt, kind, out, extra):
     """Each card is a background plus layers that slide in at their start times."""
     W, H = fmt["W"], fmt["H"]
     reel = fmt is FORMATS["reel"]
+    opt = lambda k, default: extra.get(k, default)  # noqa: E731  per-shot text overrides from the EDL
     base = background(fmt)
     base.save(f"{out}/{kind}_0.png")
     layers = [(f"{kind}_0.png", 0.0)]
@@ -334,7 +336,7 @@ def card_layers(fmt, kind, out, extra):
         add(l, 0.0)
         y = 500 + st.height + 30
         l = layer(fmt); d = ImageDraw.Draw(l)
-        rich_c(d, y, "*65+* young innovators", 64, W)
+        rich_c(d, y, "Real problems. *Real solutions.*", 64, W)
         text_c(d, y + 84, "Ages 8–15  ·  open globally", 40, g.TEAL_TEXT, 700, W)
         add(l, 0.3)
         for i, (tag, line) in enumerate([("ROUND 1", "Build with AI"), ("ROUND 2", "Win as a team, live")]):
@@ -346,6 +348,65 @@ def card_layers(fmt, kind, out, extra):
             d.text((x0 + 210, y0 + 52), line, font=g.font(800, 44), fill=g.WHITE, anchor="lm")
             add(l, 0.65 + 0.3 * i)
 
+    elif kind == "round":  # a round's title: pill, two-line title, one line of detail
+        y = opt("y", 700 if reel else 330)
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        g.pill(d, W / 2, y, opt("tag", "ROUND 1  ·  CREATE"), g.GOLD if opt("gold", True) else g.TEAL, g.NAVY,
+               size=26 if reel else 22, h=54 if reel else 46, pad_x=24, anchor="m")
+        add(l, 0.0)
+        size = 84 if reel else 64
+        for k, line in enumerate(opt("title", "Spot a real problem.|*Build the fix with AI.*").split("|")):
+            l = layer(fmt); d = ImageDraw.Draw(l)
+            rich_c(d, y + (110 if reel else 86) + k * int(size * 1.15), line, size, W)
+            add(l, 0.2 + 0.25 * k)
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        text_c(d, y + (110 if reel else 86) + 2 * int(size * 1.15) + 30, opt("sub", ""), 40 if reel else 32,
+               (203, 213, 225), 600, W)
+        add(l, 0.75)
+
+    elif kind == "rubric":  # LinkedIn: how Round 1 was judged, and the AI Use Log
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        g.pill(d, W / 2, 70, "ROUND 1  ·  HOW IT WAS JUDGED", g.GOLD, g.NAVY, size=20, h=42, anchor="m")
+        rich_c(d, 130, "Judges scored the *thinking,*", 52, W)
+        rich_c(d, 192, "not the production.", 52, W)
+        add(l, 0.0)
+        for i, (name, pct) in enumerate([("Problem identification", 25), ("Proposed solution", 25),
+                                         ("Working prototype & AI use", 30), ("Pitch / explanation", 20)]):
+            l = layer(fmt); d = ImageDraw.Draw(l)
+            y0 = 290 + i * 70
+            d.text((90, y0 + 22), name, font=g.font(700, 32), fill=g.WHITE, anchor="lm")
+            bx, bw = 560, 340
+            d.rounded_rectangle([bx, y0 + 8, bx + bw, y0 + 36], 14, fill=(30, 41, 59, 255))
+            d.rounded_rectangle([bx, y0 + 8, bx + int(bw * pct / 30), y0 + 36], 14, fill=g.GOLD if pct == 30 else g.TEAL)
+            d.text((bx + bw + 24, y0 + 22), f"{pct}%", font=g.font(800, 32), fill=g.GOLD if pct == 30 else g.WHITE, anchor="lm")
+            add(l, 0.4 + 0.2 * i)
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        x0, y0, x1 = 70, 600, W - 70
+        d.rounded_rectangle([x0, y0, x1, y0 + 330], 28, fill=(30, 41, 59, 235), outline=g.TEAL + (160,), width=2)
+        d.text((W / 2, y0 + 30), "Every entry came with an AI Use Log", font=g.font(800, 38), fill=g.WHITE, anchor="mt")
+        for k, q in enumerate(["What did you ask?", "What did you change?", "What did AI get wrong?"]):
+            d.text((W / 2, y0 + 100 + k * 54), q, font=g.font(700, 36), fill=g.TEAL_TEXT if k < 2 else g.GOLD, anchor="mt")
+        d.text((W / 2, y0 + 270), "AI can help build the idea. The thinking must be theirs.", font=g.font(400, 28),
+               fill=(203, 213, 225), anchor="mt")
+        add(l, 1.4)
+
+    elif kind == "wrap":  # congratulations, without naming anyone
+        l = layer(fmt)
+        st = taicy_sticker(600 if reel else 440)
+        sy = 480 if reel else 90
+        l.alpha_composite(st, ((W - st.width) // 2, sy))
+        add(l, 0.0)
+        y = sy + st.height + (40 if reel else 24)
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        rich_c(d, y, opt("title", "TAICY 2026 is a *wrap!*"), 80 if reel else 64, W)
+        add(l, 0.3)
+        y += 120 if reel else 96
+        l = layer(fmt); d = ImageDraw.Draw(l)
+        text_c(d, y, "Congratulations to our winners", 52 if reel else 42, g.GOLD, 800, W)
+        text_c(d, y + (70 if reel else 56), "and to every young innovator", 48 if reel else 38, g.WHITE, 700, W)
+        text_c(d, y + (132 if reel else 104), "who took on the challenge.", 48 if reel else 38, g.WHITE, 700, W)
+        add(l, 0.8)
+
     elif kind == "explainer":  # LinkedIn: what TAICY is
         l = layer(fmt)
         st = taicy_sticker(400)
@@ -353,7 +414,7 @@ def card_layers(fmt, kind, out, extra):
         add(l, 0.0)
         y = 64 + st.height + 6
         l = layer(fmt); d = ImageDraw.Draw(l)
-        text_c(d, y, "Ages 8–15  ·  Free  ·  Open globally  ·  65+ students entered", 30, g.TEAL_TEXT, 700, W)
+        text_c(d, y, "Ages 8–15  ·  Free to enter  ·  Open globally", 30, g.TEAL_TEXT, 700, W)
         add(l, 0.3)
         y += 62
         for i, (tag, title, lines) in enumerate([
@@ -376,35 +437,35 @@ def card_layers(fmt, kind, out, extra):
 
     elif kind == "cta" and reel:
         l = layer(fmt); d = ImageDraw.Draw(l)
-        text_c(d, 360, "Want your child", 92, g.WHITE, 800, W)
-        text_c(d, 466, "in the next one?", 92, g.GOLD, 800, W)
+        text_c(d, 360, opt("h1", "Want your child"), 92, g.WHITE, 800, W)
+        text_c(d, 466, opt("h2", "in the next one?"), 92, g.GOLD, 800, W)
         add(l, 0.1)
         l = layer(fmt); d = ImageDraw.Draw(l)
-        rich_c(d, 640, "Their first session is *FREE*", 58, W, 700)
+        rich_c(d, 640, opt("sub", "One live, coach-led session. *Free.*"), 56, W, 700)
         add(l, 0.6)
         l = layer(fmt); d = ImageDraw.Draw(l)
-        button(d, W / 2, 760, "Book a free trial", 820, 132, 56)
+        button(d, W / 2, 760, "Join a free session", 820, 132, 56)
         add(l, 1.0)
         l = layer(fmt); d = ImageDraw.Draw(l)
-        text_c(d, 960, "Link in bio", 50, g.WHITE, 800, W)
-        text_c(d, 1030, "tomoclub.org/parents", 46, g.TEAL_TEXT, 700, W)
+        text_c(d, 970, "Link in bio", 56, g.WHITE, 800, W)
         add(l, 1.4)
         l = layer(fmt); d = ImageDraw.Draw(l)
-        text_c(d, 1150, "Live · Coach-led · Grades 3–8 · Ages 8–15", 36, (203, 213, 225), 600, W)
-        d.rounded_rectangle([140, 1226, W - 140, 1316], 45, outline=g.GOLD + (220,), width=3)
-        text_c(d, 1250, "Follow @tomoclub_edu for the winners", 38, g.GOLD, 700, W)
+        text_c(d, 1090, "Live  ·  Coach-led  ·  Ages 8–15", 38, (203, 213, 225), 600, W)
+        d.rounded_rectangle([140, 1186, W - 140, 1276], 45, outline=g.GOLD + (220,), width=3)
+        text_c(d, 1210, opt("follow", "Follow @tomoclub_edu for the winners"), 38, g.GOLD, 700, W)
         add(l, 1.8)
 
     elif kind == "cta":  # LinkedIn: one route for parents, one for schools
         l = layer(fmt); d = ImageDraw.Draw(l)
-        text_c(d, 76, "Want this for your child", 58, g.WHITE, 800, W)
-        rich_c(d, 146, "or your *school?*", 58, W)
+        text_c(d, 76, opt("h1", "Want this for your child"), 58, g.WHITE, 800, W)
+        rich_c(d, 146, opt("h2", "or your *school?*"), 58, W)
         add(l, 0.1)
+        utm = f"utm_source=linkedin&utm_medium=video&utm_campaign={opt('campaign', 'taicy_hype')}"
         for i, (tag, head, sub, url, qr_url) in enumerate([
-            ("PARENTS", "Book a free trial session", "Live, coach-led · Grades 3–8", "tomoclub.org/parents",
-             "https://www.tomoclub.org/parents?utm_source=linkedin&utm_medium=video&utm_campaign=taicy_hype"),
+            ("PARENTS", "Join a free live session", "Coach-led · Ages 8–15", "Scan, or tap the link in the post",
+             f"{FREE_SESSION}?{utm}"),
             ("EDUCATORS & SCHOOLS", "Bring TAICY to your school", "Game-based AI literacy + SEL", "tomoclub.org/contact-us",
-             "https://www.tomoclub.org/contact-us?utm_source=linkedin&utm_medium=video&utm_campaign=taicy_hype")]):
+             f"https://www.tomoclub.org/contact-us?{utm}")]):
             l = layer(fmt); d = ImageDraw.Draw(l)
             x0 = 50 + i * 500
             y0 = 250
@@ -416,10 +477,10 @@ def card_layers(fmt, kind, out, extra):
             qs = 240
             d.rounded_rectangle([x0 + 240 - qs / 2 - 12, y0 + 252, x0 + 240 + qs / 2 + 12, y0 + 252 + qs + 24], 16, fill=(255, 255, 255))
             l.alpha_composite(qr_png(qr_url, qs), (int(x0 + 240 - qs / 2), y0 + 264))
-            d.text((x0 + 240, y0 + 540), url, font=g.font(700, 30), fill=g.TEAL_TEXT if i else g.GOLD, anchor="mt")
+            d.text((x0 + 240, y0 + 540), url, font=g.font(700, 30 if i else 26), fill=g.TEAL_TEXT if i else g.GOLD, anchor="mt")
             add(l, 0.6 + 0.5 * i)
         l = layer(fmt); d = ImageDraw.Draw(l)
-        rich_c(d, 902, "TAICY winners announced *soon.* Follow TomoClub for the reveal.", 34, W, 700)
+        rich_c(d, 902, opt("foot", "TAICY winners announced *soon.* Follow TomoClub for the reveal."), 34, W, 700)
         text_c(d, 960, "info@tomoclub.org  ·  +1 650 547-8082", 30, g.MUTED, 400, W)
         add(l, 1.8)
     return layers
@@ -488,6 +549,15 @@ def venc():
 def footage_filter(shot, fmt, dur, speed=1.0):
     fx, fy, fw, fh = fmt["foot"]
     pts = f"setpts=(PTS-STARTPTS)/{speed}" if speed != 1 else "setpts=PTS-STARTPTS"
+    if shot["view"] == "fitv":  # a portrait phone video: the whole crop, centred over a blurred fill of itself
+        sw, sh = sanitize.SOURCES[shot["src"]]["size"]
+        x, y, w, h = shot.get("crop", (0, 0, sw, sh))
+        k = min(fw / w, fh / h)
+        tw, th = int(w * k) // 2 * 2, int(h * k) // 2 * 2
+        return (f"[0:v]{pts},fps={FPS},crop={w}:{h}:{x}:{y},split[fa][fb];"
+                f"[fa]scale={tw}:{th}:flags=lanczos[fg];"
+                f"[fb]scale={fw}:{fh}:force_original_aspect_ratio=increase,crop={fw}:{fh},gblur=sigma=30,"
+                f"eq=brightness=-0.2:saturation=0.8[bg];[bg][fg]overlay={(fw - tw) // 2}:{(fh - th) // 2}[foot]")
     if is_fit(shot, fmt):
         x, y, w, h = crop_for(shot, 16 / 9)
         bh = int(round(fw * 9 / 16 / 2)) * 2
@@ -559,15 +629,16 @@ def main():
     ap.add_argument("--keep", action="store_true", help="reuse existing segments")
     ap.add_argument("--model", default=os.environ.get("WHISPER_MODEL", "medium.en"))
     a = ap.parse_args()
-    edl_path = os.path.join(HERE, a.edl)
+    edl_path = os.path.abspath(a.edl) if os.path.exists(a.edl) else os.path.join(HERE, a.edl)
+    base = os.path.dirname(edl_path)  # build/, out/ and the caption cache live next to the EDL
     edl = json.load(open(edl_path))
     name = os.path.splitext(os.path.basename(a.edl))[0]
     fmt = FORMATS[edl["format"]]
-    build = a.build or os.path.join(HERE, "build", name)
+    build = a.build or os.path.join(base, "build", name)
     gdir, sdir, cdir = (os.path.join(build, d) for d in ("gfx", "segments", "clips"))
     for d in (gdir, sdir, cdir):
         os.makedirs(d, exist_ok=True)
-    out = os.path.join(HERE, edl["output"])
+    out = os.path.join(base, edl["output"])
     os.makedirs(os.path.dirname(out), exist_ok=True)
     shots = edl["shots"]
     for s in shots:
@@ -575,7 +646,7 @@ def main():
             s["dur"] = round(s["dur"] * FPS) / FPS
         else:
             s["a_out"] = round(s["a_in"] + round((s["a_out"] - s["a_in"]) * FPS) / FPS, 4)
-    word_timings(shots, os.path.join(HERE, f"{name}_words.json"), a.model)
+    word_timings(shots, os.path.join(base, f"{name}_words.json"), a.model)
 
     background(fmt).save(os.path.join(gdir, "bg.png"))
     chrome(fmt).save(os.path.join(gdir, "chrome.png"))
@@ -589,6 +660,8 @@ def main():
             if todo:
                 render_card(card_layers(fmt, s["card"], gdir, s), s["dur"], gdir, seg)
             marks.setdefault(s["card"], t)
+            if s.get("mark"):
+                marks[s["mark"]] = t
             t += s["dur"]
             segs.append(seg)
             continue

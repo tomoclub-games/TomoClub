@@ -1,0 +1,31 @@
+{
+ "title": "TomoClub | TAICY 2026 wrap-up: AI literacy and teamwork, by kids aged 8-15",
+ "format": "linkedin",
+ "output": "out/TomoClub_TAICY-Wrap_LinkedIn_1x1.mp4",
+ "music": {"bpm": 104, "drop_at": "wrap", "breakdown": ["bd0", "bd1"], "volume_db": -13},
+ "notes": [
+   "eco = the Round 1 demo video (phone, portrait). Only face-free stretches are used for the picture; v_in moves the picture there while the student's words play. The student's name (first 7 s) is never used.",
+   "r2 = the TAICY Round 2 recording. Students' Zoom tiles and names are blurred by sanitize.py; Coach VK stays sharp.",
+   "No student names, no participant numbers. Winners and entrants are congratulated as a group."
+ ],
+ "shots": [
+  {"id": "problem", "src": "eco", "a_in": 7.54, "a_out": 15.45, "who": "student", "text": "Usually, when we hold an object to throw in the trash, it is not always obvious which trash bin to throw it into.", "v_in": 29.5, "view": "fitv", "crop": [60, 330, 960, 1200], "head": "TAICY Round 1 started with|a problem *they actually noticed.*"},
+  {"id": "wet", "src": "eco", "a_in": 63.2, "a_out": 69.4, "who": "student", "text": "As you can see, it classifies the tomato as a wet waste and it moves this arrow to the wet waste bin.", "view": "fitv", "crop": [300, 420, 640, 860], "head": "So a student built a bin|that *sorts waste with AI.*", "v_in": 61.3},
+  {"id": "elec", "src": "eco", "a_in": 98.95, "a_out": 103.56, "who": "student", "text": "As you can see, it classifies the mouse as electronic waste.", "view": "fitv", "crop": [300, 420, 640, 860], "v_in": 98.5},
+  {"id": "control", "src": "eco", "a_in": 154.2, "a_out": 162.1, "who": "student", "text": "One of the things that I had to identify while making the app was what to let AI control and to not control.", "v_in": 113.0, "view": "fitv", "crop": [300, 420, 640, 860], "mark": "bd0", "head": "The real skill: deciding|what AI should *not* do."},
+  {"id": "only-a", "src": "eco", "a_in": 162.55, "a_out": 165.07, "who": "student", "text": "I use AI in the app only for", "v_in": 121.0, "view": "fitv", "crop": [300, 420, 640, 860]},
+  {"id": "only-b", "src": "eco", "a_in": 166.3, "a_out": 168.75, "who": "student", "text": "categorizing the waste.", "v_in": 123.52, "view": "fitv", "crop": [300, 420, 640, 860], "joined": true},
+  {"id": "rubric", "card": "rubric", "dur": 8.0},
+  {"id": "round2", "card": "round", "dur": 3.6, "mark": "bd1", "tag": "ROUND 2  ·  LEAD", "gold": false, "title": "You solved it with AI.|Now solve it *with a team.*", "sub": "Live multiplayer strategy games · teamwork · no rulebook"},
+  {"id": "rules1", "src": "r2", "a_in": 167.95, "a_out": 169.35, "view": "vk", "who": "coach", "text": "We don't give you any rules.", "head": "No rulebook.|*Figure it out together.*"},
+  {"id": "rules2", "src": "r2", "a_in": 178.55, "a_out": 181.15, "view": "vk", "who": "coach", "text": "You have to talk to each other and figure it out."},
+  {"id": "fastq", "src": "r2", "a_in": 3203.85, "a_out": 3205.4, "view": "vk", "who": "coach", "text": "How are you doing it so fast?", "head": "The coach asks.|*The kids think.*"},
+  {"id": "fasta", "src": "r2", "a_in": 3206.85, "a_out": 3212.75, "view": "game", "who": "student", "text": "Because we remember where all the circuit pieces are, and exactly what we should do at which time.", "v_in": 3210.3},
+  {"id": "dark45", "src": "r2", "a_in": 3389.22, "a_out": 3392.3, "view": "game", "who": "coach", "text": "45 seconds. You've completed it. Pretty cool.", "head": "Lights off. Same level.|Cleared in *45 seconds.*"},
+  {"id": "voice", "src": "r2", "a_in": 3697.15, "a_out": 3704.15, "view": "game", "who": "student", "text": "Usually in other games you're competing against someone, but here you're actually working together for a certain goal.", "v_in": 1890.0, "head": "In their *own words.*"},
+  {"id": "gbl", "src": "r2", "a_in": 3781.15, "a_out": 3783.31, "view": "vk", "who": "coach", "text": "So this is what game-based learning looks like.", "head": "Game-based learning,|*the TomoClub way.*"},
+  {"id": "proud", "src": "r2", "a_in": 3840.03, "a_out": 3841.09, "view": "vk", "who": "coach", "text": "And I'm so proud of you."},
+  {"id": "wrap", "card": "wrap", "dur": 4.6},
+  {"id": "cta", "card": "cta", "dur": 9.5, "campaign": "taicy_wrap", "foot": "Congratulations to every TAICY 2026 winner and *entrant.*"}
+ ]
+}

@@ -20,17 +20,17 @@ Post copy: `instagram-caption.txt` and `linkedin-post.txt`.
 
 **Instagram Reel** (marketing, for parents scrolling): hook → proof → hype → prizes → book.
 
-1. "He built his own game *with AI*." The student's own words over his game: "I've made a game that I was making on
-   Claude" / "for my English test" / "I've also put some questions to answer." Coach: "looks pretty solid."
-2. TAICY title card: 65+ young innovators · Round 1: build with AI · Round 2: win as a team, live.
+1. "A student built a game *with AI*." The student's own words over the game: "I've made a game that I was making on
+   Claude" / "for my English test" / "I've also put some questions to answer." Coach: "But it looks pretty solid."
+2. TAICY title card: Real problems. Real solutions. · Round 1: build with AI · Round 2: win as a team, live.
 3. "No rulebook. *Figure it out together.*" Then kids live on their mics ("Yep, level one!"), "it's not confusing,
    it's challenging, because that's how you learn", and the payoff: same level, 3 minutes down to about 1, because
    "we were talking to each other."
 4. Grit: "once I had gone down to last place… I recovered back to second place." Shown over live hex-battle
    gameplay from the same session (the game's end screen reads DEFEAT, so it isn't used).
 5. Kids' verdict: "a good 10 out of 10" / "10 out of 10 out of 10."
-6. Prizes card (winners announced soon) → CTA: *Want your child in the next one? Their first session is FREE.
-   Book a free trial · Link in bio · tomoclub.org/parents · Follow @tomoclub_edu for the winners.*
+6. Prizes card (winners announced soon) → CTA: *Want your child in the next one? One live, coach-led session.
+   Free. Join a free session · Link in bio · Follow @tomoclub_edu for the winners.*
 
 **LinkedIn** (parents and educators): the method, with proof.
 
@@ -42,9 +42,9 @@ Post copy: `instagram-caption.txt` and `linkedin-post.txt`.
 5. "Every game ends with an *After-Action Review.*" Over the debrief slides: "It's okay to make mistakes. What is
    important is, can somebody correct it?"
 6. "Skills that *compound,* week after week." Then the kids in their own words.
-7. Prizes card → two-route CTA with QR codes: **Parents:** book a free trial (tomoclub.org/parents).
-   **Educators & schools:** bring TAICY to your school (tomoclub.org/contact-us). Both QR codes carry
-   `utm_source=linkedin&utm_medium=video&utm_campaign=taicy_hype`.
+7. Prizes card → two-route CTA with QR codes: **Parents:** join a free live session (the Tally sign-up form,
+   `FREE_SESSION` in `promo.py`). **Educators & schools:** bring TAICY to your school (tomoclub.org/contact-us).
+   Both QR codes carry `utm_source=linkedin&utm_medium=video&utm_campaign=taicy_hype`.
 
 ## Privacy
 
@@ -71,12 +71,13 @@ Post copy: `instagram-caption.txt` and `linkedin-post.txt`.
       recognition on the finished audio).
 - [x] No "DEFEAT" screen is shown. Face-check hits were reviewed by eye: the hex board's dot pattern and a cartoon
       on a debrief slide, both false positives.
-- [x] Every caption is what was said. "65+" and "3 minutes → about 1" are the coach's own statements on camera.
+- [x] Every caption is what was said. "3 minutes → about 1" is the coach's own statement on camera. No participant
+      numbers are published.
 - [x] No claim that a particular child entered or won TAICY; the AI-build student is presented as a TomoClub student.
-- [x] Offer matches tomoclub.org/parents (free trial, Grades 3–8). No fake urgency.
+- [x] The offer is one free live session (Tally form). No fake urgency.
 - [x] Original music (`../instagram-reel-taicy-round2/music.py`), so there's nothing to license and nothing for
       platforms to mute.
-- [ ] Set the Instagram bio link to the UTM link in `instagram-caption.txt` before posting.
+- [ ] Put the free-session link in the Instagram bio before posting.
 - [ ] Consider limiting comments on Instagram, since the Reel features minors.
 
 ## Render

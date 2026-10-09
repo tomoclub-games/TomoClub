@@ -1,0 +1,598 @@
+{
+"eco|63.2|69.4|As you can see, it classifies the tomato as a wet waste and it moves this arrow to the wet waste bin.": [
+{
+"w": "As",
+"t": 0.0
+},
+{
+"w": "you",
+"t": 0.34
+},
+{
+"w": "can",
+"t": 0.5
+},
+{
+"w": "see,",
+"t": 0.64
+},
+{
+"w": "it",
+"t": 1.08
+},
+{
+"w": "classifies",
+"t": 1.16
+},
+{
+"w": "the",
+"t": 1.68
+},
+{
+"w": "tomato",
+"t": 1.86
+},
+{
+"w": "as",
+"t": 2.2
+},
+{
+"w": "a",
+"t": 2.37
+},
+{
+"w": "wet",
+"t": 2.54
+},
+{
+"w": "waste",
+"t": 2.82
+},
+{
+"w": "and",
+"t": 3.08
+},
+{
+"w": "it",
+"t": 3.76
+},
+{
+"w": "moves",
+"t": 3.94
+},
+{
+"w": "this",
+"t": 4.18
+},
+{
+"w": "arrow",
+"t": 4.46
+},
+{
+"w": "to",
+"t": 4.8
+},
+{
+"w": "the",
+"t": 5.06
+},
+{
+"w": "wet",
+"t": 5.16
+},
+{
+"w": "waste",
+"t": 5.38
+},
+{
+"w": "bin.",
+"t": 5.62
+}
+],
+"eco|82.7|86.06|As you can see, it classifies the paper as dry waste.": [
+{
+"w": "As",
+"t": 0.0
+},
+{
+"w": "you",
+"t": 0.42
+},
+{
+"w": "can",
+"t": 0.56
+},
+{
+"w": "see,",
+"t": 0.7
+},
+{
+"w": "it",
+"t": 1.16
+},
+{
+"w": "classifies",
+"t": 1.3
+},
+{
+"w": "the",
+"t": 1.76
+},
+{
+"w": "paper",
+"t": 1.94
+},
+{
+"w": "as",
+"t": 2.26
+},
+{
+"w": "dry",
+"t": 2.6
+},
+{
+"w": "waste.",
+"t": 2.98
+}
+],
+"eco|98.95|103.55|As you can see, it classifies the mouse as electronic waste.": [
+{
+"w": "As",
+"t": 0.0
+},
+{
+"w": "you",
+"t": 1.16
+},
+{
+"w": "can",
+"t": 1.3
+},
+{
+"w": "see,",
+"t": 1.46
+},
+{
+"w": "it",
+"t": 1.873
+},
+{
+"w": "classifies",
+"t": 2.287
+},
+{
+"w": "the",
+"t": 2.7
+},
+{
+"w": "mouse",
+"t": 2.95
+},
+{
+"w": "as",
+"t": 3.2
+},
+{
+"w": "electronic",
+"t": 3.5
+},
+{
+"w": "waste.",
+"t": 4.05
+}
+],
+"eco|154.2|162.12|One of the things that I had to identify while making the app was what to let AI control and to not control.": [
+{
+"w": "One",
+"t": 0.0
+},
+{
+"w": "of",
+"t": 0.24
+},
+{
+"w": "the",
+"t": 0.38
+},
+{
+"w": "things",
+"t": 0.52
+},
+{
+"w": "that",
+"t": 0.8
+},
+{
+"w": "I",
+"t": 1.44
+},
+{
+"w": "had",
+"t": 1.68
+},
+{
+"w": "to",
+"t": 1.92
+},
+{
+"w": "identify",
+"t": 2.14
+},
+{
+"w": "while",
+"t": 2.74
+},
+{
+"w": "making",
+"t": 3.16
+},
+{
+"w": "the",
+"t": 3.58
+},
+{
+"w": "app",
+"t": 3.82
+},
+{
+"w": "was",
+"t": 4.02
+},
+{
+"w": "what",
+"t": 4.58
+},
+{
+"w": "to",
+"t": 4.94
+},
+{
+"w": "let",
+"t": 5.22
+},
+{
+"w": "AI",
+"t": 5.44
+},
+{
+"w": "control",
+"t": 5.84
+},
+{
+"w": "and",
+"t": 6.32
+},
+{
+"w": "to",
+"t": 6.9
+},
+{
+"w": "not",
+"t": 7.06
+},
+{
+"w": "control.",
+"t": 7.32
+}
+],
+"r2|167.95|169.35|We don't give you any rules.": [
+{
+"w": "We",
+"t": 0.0
+},
+{
+"w": "don't",
+"t": 0.22
+},
+{
+"w": "give",
+"t": 0.46
+},
+{
+"w": "you",
+"t": 0.56
+},
+{
+"w": "any",
+"t": 0.72
+},
+{
+"w": "rules.",
+"t": 0.9
+}
+],
+"r2|178.55|181.15|You have to talk to each other and figure it out.": [
+{
+"w": "You",
+"t": 0.0
+},
+{
+"w": "have",
+"t": 0.42
+},
+{
+"w": "to",
+"t": 0.66
+},
+{
+"w": "talk",
+"t": 0.86
+},
+{
+"w": "to",
+"t": 1.02
+},
+{
+"w": "each",
+"t": 1.2
+},
+{
+"w": "other",
+"t": 1.34
+},
+{
+"w": "and",
+"t": 1.5
+},
+{
+"w": "figure",
+"t": 1.66
+},
+{
+"w": "it",
+"t": 1.88
+},
+{
+"w": "out.",
+"t": 2.06
+}
+],
+"r2|1375.65|1376.97|Yep, level one!": [
+{
+"w": "Yep,",
+"t": 0.0
+},
+{
+"w": "level",
+"t": 0.44
+},
+{
+"w": "one!",
+"t": 0.88
+}
+],
+"r2|3203.85|3205.41|How are you doing it so fast?": [
+{
+"w": "How",
+"t": 0.0
+},
+{
+"w": "are",
+"t": 0.12
+},
+{
+"w": "you",
+"t": 0.3
+},
+{
+"w": "doing",
+"t": 0.44
+},
+{
+"w": "it",
+"t": 0.64
+},
+{
+"w": "so",
+"t": 0.947
+},
+{
+"w": "fast?",
+"t": 1.253
+}
+],
+"r2|3206.85|3212.77|Because we remember where all the circuit pieces are, and exactly what we should do at which time.": [
+{
+"w": "Because",
+"t": 0.0
+},
+{
+"w": "we",
+"t": 0.58
+},
+{
+"w": "remember",
+"t": 0.94
+},
+{
+"w": "where",
+"t": 1.32
+},
+{
+"w": "all",
+"t": 1.54
+},
+{
+"w": "the",
+"t": 1.7
+},
+{
+"w": "circuit",
+"t": 1.88
+},
+{
+"w": "pieces",
+"t": 2.14
+},
+{
+"w": "are,",
+"t": 2.5
+},
+{
+"w": "and",
+"t": 2.76
+},
+{
+"w": "exactly",
+"t": 2.9
+},
+{
+"w": "what",
+"t": 3.3
+},
+{
+"w": "we",
+"t": 3.58
+},
+{
+"w": "should",
+"t": 3.8
+},
+{
+"w": "do",
+"t": 3.98
+},
+{
+"w": "at",
+"t": 4.38
+},
+{
+"w": "which",
+"t": 4.98
+},
+{
+"w": "time.",
+"t": 5.22
+}
+],
+"r2|3389.22|3392.3|45 seconds. You've completed it. Pretty cool.": [
+{
+"w": "45",
+"t": 0.0
+},
+{
+"w": "seconds.",
+"t": 0.46
+},
+{
+"w": "You've",
+"t": 1.0
+},
+{
+"w": "completed",
+"t": 1.16
+},
+{
+"w": "it.",
+"t": 1.56
+},
+{
+"w": "Pretty",
+"t": 2.4
+},
+{
+"w": "cool.",
+"t": 2.7
+}
+],
+"r2|3697.15|3704.15|Usually in other games you're competing against someone, but here you're actually working together for a certain goal.": [
+{
+"w": "Usually",
+"t": 0.0
+},
+{
+"w": "in",
+"t": 0.44
+},
+{
+"w": "other",
+"t": 0.6
+},
+{
+"w": "games",
+"t": 0.78
+},
+{
+"w": "you're",
+"t": 1.06
+},
+{
+"w": "competing",
+"t": 1.6
+},
+{
+"w": "against",
+"t": 1.98
+},
+{
+"w": "someone,",
+"t": 2.38
+},
+{
+"w": "but",
+"t": 2.78
+},
+{
+"w": "here",
+"t": 3.0
+},
+{
+"w": "you're",
+"t": 3.3
+},
+{
+"w": "actually",
+"t": 3.9
+},
+{
+"w": "working",
+"t": 4.22
+},
+{
+"w": "together",
+"t": 4.6
+},
+{
+"w": "for",
+"t": 5.54
+},
+{
+"w": "a",
+"t": 6.14
+},
+{
+"w": "certain",
+"t": 6.28
+},
+{
+"w": "goal.",
+"t": 6.56
+}
+],
+"r2|3840.03|3841.07|And I'm so proud of you.": [
+{
+"w": "And",
+"t": 0.0
+},
+{
+"w": "I'm",
+"t": 0.14
+},
+{
+"w": "so",
+"t": 0.4
+},
+{
+"w": "proud",
+"t": 0.56
+},
+{
+"w": "of",
+"t": 0.76
+},
+{
+"w": "you.",
+"t": 0.92
+}
+]
+}

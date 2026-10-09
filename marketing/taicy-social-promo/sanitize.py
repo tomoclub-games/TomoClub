@@ -39,6 +39,10 @@ SOURCES = {
               "size": (2560, 1318), "gallery_black": [(0, 20, 2560, 280), (0, 1040, 2560, 1300)],
               "kid_tiles": [(0, 298, 1280, 720)], "vk_tile": (1280, 298, 1280, 720),
               "strip": (2310, 0, 250, 278)},
+    # Round 1 demo video filmed on a phone (portrait once rotated). Only face-free stretches are used, so
+    # nothing is blurred; with no facilitator tile, the face check flags any face at all.
+    "eco": {"path": os.path.join(ROOT, "taicy-wrapup", "source", "sudeep_submission.mp4"),
+            "size": (1080, 2400), "gallery_black": [], "kid_tiles": [], "vk_tile": (0, 0, 0, 0), "strip": None},
 }
 SMALL_W = 256
 
@@ -55,8 +59,8 @@ def classify(src, t0, dur, fps=25):
     k = SMALL_W / w
     modes = []
     for f in frames:
-        black = all(f[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)].mean() < 3
-                    for x0, y0, x1, y1 in cfg["gallery_black"])
+        black = bool(cfg["gallery_black"]) and all(f[int(y0 * k):int(y1 * k), int(x0 * k):int(x1 * k)].mean() < 3
+                                                   for x0, y0, x1, y1 in cfg["gallery_black"])
         modes.append("g" if black else "s")
     return modes
 
@@ -89,7 +93,7 @@ def sanitize(src, t0, dur, out_path, fps=25):
     cfg = SOURCES[src]
     modes = classify(src, t0, dur, fps)
     g_win, s_win = windows(modes, "g", fps), windows(modes, "s", fps)
-    regions = [(r, g_win, 46) for r in cfg["kid_tiles"]] + [(cfg["strip"], s_win, 22)]
+    regions = [(r, g_win, 46) for r in cfg["kid_tiles"]] + ([(cfg["strip"], s_win, 22)] if cfg["strip"] else [])
     parts = [f"[0:v]setpts=PTS-STARTPTS,fps={fps}[s0]"]
     base = "[s0]"
     n = 0

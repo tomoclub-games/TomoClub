@@ -1,0 +1,29 @@
+{
+ "title": "TomoClub | TAICY 2026 wrap-up | Reel",
+ "format": "reel",
+ "output": "out/TomoClub_TAICY-Wrap_Reel_9x16.mp4",
+ "music": {"bpm": 122, "drop_at": "wrap", "breakdown": ["bd0", "bd1"], "volume_db": -9},
+ "notes": [
+   "eco = the Round 1 demo video (phone, portrait). Only face-free stretches are used for the picture; v_in moves the picture there while the student's words play. The student's name (first 7 s) is never used.",
+   "r2 = the TAICY Round 2 recording. Students' Zoom tiles and names are blurred by sanitize.py; Coach VK stays sharp.",
+   "No student names, no participant numbers. Winners and entrants are congratulated as a group."
+ ],
+ "shots": [
+  {"id": "wet", "src": "eco", "a_in": 63.2, "a_out": 69.4, "who": "student", "text": "As you can see, it classifies the tomato as a wet waste and it moves this arrow to the wet waste bin.", "view": "crop", "crop": [170, 380, 800, 800], "head": "A student built a dustbin|that *thinks.*", "v_in": 61.3},
+  {"id": "dry", "src": "eco", "a_in": 82.7, "a_out": 86.04, "who": "student", "text": "As you can see, it classifies the paper as dry waste.", "view": "crop", "crop": [170, 380, 800, 800], "head": "Wet. Dry. *E-waste.*", "v_in": 79.6},
+  {"id": "elec", "src": "eco", "a_in": 98.95, "a_out": 103.56, "who": "student", "text": "As you can see, it classifies the mouse as electronic waste.", "view": "crop", "crop": [170, 380, 800, 800], "v_in": 98.5},
+  {"id": "round1", "card": "round", "dur": 2.6, "tag": "ROUND 1  ·  CREATE", "title": "Spot a real problem.|*Build the fix with AI.*", "sub": "That's TAICY Round 1"},
+  {"id": "control", "src": "eco", "a_in": 154.2, "a_out": 162.1, "who": "student", "text": "One of the things that I had to identify while making the app was what to let AI control and to not control.", "v_in": 113.0, "view": "crop", "crop": [170, 380, 800, 800], "mark": "bd0", "head": "The best part? Deciding|what AI should *NOT* do."},
+  {"id": "round2", "card": "round", "dur": 2.6, "mark": "bd1", "tag": "ROUND 2  ·  LEAD", "gold": false, "title": "Then: win as a team.|*Live.*", "sub": "Live team strategy games · no rulebook"},
+  {"id": "rules1", "src": "r2", "a_in": 167.95, "a_out": 169.35, "view": "vk", "who": "coach", "text": "We don't give you any rules.", "head": "No rulebook.|*Figure it out together.*"},
+  {"id": "rules2", "src": "r2", "a_in": 178.55, "a_out": 181.15, "view": "vk", "who": "coach", "text": "You have to talk to each other and figure it out."},
+  {"id": "level1", "src": "r2", "a_in": 1375.65, "a_out": 1376.97, "view": "game", "who": "student", "text": "Yep, level one!", "cx": 1213, "head": "Live. *As a team.*"},
+  {"id": "fastq", "src": "r2", "a_in": 3203.85, "a_out": 3205.4, "view": "vk", "who": "coach", "text": "How are you doing it so fast?", "head": "The coach asks.|*The kids think.*"},
+  {"id": "fasta", "src": "r2", "a_in": 3206.85, "a_out": 3212.75, "view": "game", "who": "student", "text": "Because we remember where all the circuit pieces are, and exactly what we should do at which time.", "v_in": 3210.3, "cx": 1213},
+  {"id": "dark45", "src": "r2", "a_in": 3389.22, "a_out": 3392.3, "view": "game", "who": "coach", "text": "45 seconds. You've completed it. Pretty cool.", "cx": 1213, "head": "Lights off. Same level.|Cleared in *45 seconds.*"},
+  {"id": "voice", "src": "r2", "a_in": 3697.15, "a_out": 3704.15, "view": "game", "who": "student", "text": "Usually in other games you're competing against someone, but here you're actually working together for a certain goal.", "v_in": 1890.0, "cx": 1213, "head": "In their *own words.*"},
+  {"id": "proud", "src": "r2", "a_in": 3840.03, "a_out": 3841.09, "view": "vk", "who": "coach", "text": "And I'm so proud of you.", "head": "Every winner. Every entrant.|*So proud of you.*"},
+  {"id": "wrap", "card": "wrap", "dur": 3.6},
+  {"id": "cta", "card": "cta", "dur": 7.0, "h2": "to build like this?", "follow": "Follow @tomoclub_edu for what's next"}
+ ]
+}

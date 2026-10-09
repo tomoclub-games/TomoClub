@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAICY 2026 wrap-up</title>
+<style>
+  :root { --ink: #0f172a; --muted: #475569; --accent: #2ab4b8; --rule: #e2e8f0; --bg: #ffffff; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 19px/1.6 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 40px 16px 80px; }
+  h1 { font: 700 38px/1.15 -apple-system, "Segoe UI", sans-serif; margin: 0 0 12px; }
+  h1 + p em { color: var(--muted); font-size: 21px; }
+  h2 { font: 700 26px/1.25 -apple-system, "Segoe UI", sans-serif; margin: 44px 0 12px; }
+  img { width: 100%; height: auto; border-radius: 8px; margin: 12px 0 4px; }
+  blockquote { margin: 20px 0; padding: 4px 0 4px 18px; border-left: 4px solid var(--accent); font-style: italic; }
+  a { color: #0e7c80; }
+  li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>TAICY 2026: what to let AI control, and what not to</h1>
+<p><em>Our AI Innovation Challenge for Youth is a wrap. A smart dustbin, a live team round with no rulebook, and what both taught us about kids and AI.</em></p>
+<p><img alt="Cover: TAICY 2026, the wrap-up" src="images/00-cover.jpg" /></p>
+<p>A tablet hangs on a wall. Someone holds a tomato up to its camera. The screen turns green: <strong>DROP IN WET</strong>. Below it, a paper arrow on a tiny motor swings toward the bin marked WET.</p>
+<p>That was one student's Round 1 entry to TAICY 2026, the TomoClub AI Innovation Challenge for Youth. The most impressive part wasn't the AI. It was this:</p>
+<blockquote>
+<p>"One of the things that I had to identify while making the app was what to let AI control and to not control."</p>
+</blockquote>
+<p>The student who said that is in Grade 8.</p>
+<p><img alt="The smart dustbin's tablet turns green: drop in wet" src="images/01-drop-in-wet.jpg" /></p>
+<h2>What TAICY asked of students</h2>
+<p>TAICY was free to enter and open to students aged 8 to 15, anywhere in the world. It ran in two rounds.</p>
+<p><strong>Round 1, Create (solo, online).</strong> Spot a real problem: at home, at school, in your neighbourhood or online. Propose a solution with a clear "how". Use any AI tool to build a prototype. Then explain it in a short video, like you're telling a friend.</p>
+<p>Judges scored the thinking, not the production quality:</p>
+<ul>
+<li>Problem identification: 25%</li>
+<li>Proposed solution: 25%</li>
+<li>Working prototype and AI use: 30%</li>
+<li>Pitch and explanation: 20%</li>
+</ul>
+<p>Every entry also came with an <strong>AI Use Log</strong>, three short answers:</p>
+<ol>
+<li>What did you ask?</li>
+<li>What did you change?</li>
+<li>What did AI get wrong?</li>
+</ol>
+<p>The rule underneath it all: <em>AI can help build the idea. The thinking must be yours.</em></p>
+<p><strong>Round 2, Lead (live, as a team).</strong> Top-scoring students from Round 1 were invited to a live round on Zoom, where they played multiplayer strategy games together, with no rulebook.</p>
+<p><img alt="How Round 1 was judged, and the AI Use Log" src="images/02-judging.jpg" /></p>
+<h2>Round 1 spotlight: a dustbin that knows where things go</h2>
+<p>The problem came from something every household does several times a day:</p>
+<blockquote>
+<p>"Usually, when we hold an object to throw in the trash, it is not always obvious which trash bin to throw it into."</p>
+</blockquote>
+<p>Put it in the wrong bin, and separating it later becomes much harder. So the student built <strong>EcoSense</strong>, a smart dustbin:</p>
+<ul>
+<li>A tablet's camera checks whether something has been placed in front of it.</li>
+<li>The app sends a photo to Gemini, which sorts it into wet, dry or electronic waste.</li>
+<li>The app passes the answer over Bluetooth to an ESP32 microcontroller.</li>
+<li>A small servo motor turns a paper arrow toward the right bin.</li>
+</ul>
+<p>In the demo, a tomato goes to wet, a sheet of paper to dry, and a computer mouse to electronic waste.</p>
+<p><img alt="The arrow points to the right bin" src="images/03-arrow-and-bins.jpg" /></p>
+<p>What impressed us most was the judgment around the AI. The AI does exactly one job: recognising the waste. Talking to the microcontroller and moving the arrow, in the student's words, "does not involve AI whatsoever." When an AI tool proposed a more complicated auto-sorting machine, the student chose the simpler design that worked.</p>
+<p>The entry was honest about what didn't work, too. The hardest part was getting the app to tell reliably whether an object was really in front of the camera. Sometimes it saw objects that weren't there, and sometimes it missed ones that were. The fix: the app first photographs the empty background, and only takes a picture once something different has been held still for two seconds. It even runs smoothly on a tablet from 2016.</p>
+<p>That's the AI Use Log in action. What did you ask? What did you change? What did AI get wrong?</p>
+<p>Other entrants took on very different problems, including a study platform with separate spaces for students and teachers. Different problems, same bar: a problem you actually noticed, a solution with a clear "how", and real back-and-forth with AI.</p>
+<h2>Round 2: no rulebook, one team</h2>
+<p>Round 2 was live, coached by VK. The first thing the students heard was:</p>
+<blockquote>
+<p>"We don't give you any rules. You have to talk to each other and figure it out."</p>
+</blockquote>
+<p>That's the design. In one maze, a player has to hold down a button so a teammate can get through a door. Nobody can win alone. The students split the roles, called out their moves, and got faster with every attempt.</p>
+<p>When VK asked one team, "How are you doing it so fast?", the answer was pure strategy:</p>
+<blockquote>
+<p>"Because we remember where all the circuit pieces are, and exactly what we should do at which time."</p>
+</blockquote>
+<p>Then the lights went off. Same map, but the players could no longer see it. They cleared it in 45 seconds.</p>
+<p><img alt="Round 2, live: the coach and the team on Zoom (students blurred for privacy)" src="images/04-round-2-live.jpg" /></p>
+<p>Afterwards, one student summed up the difference better than we could:</p>
+<blockquote>
+<p>"Usually in other games you're competing against someone, but here you're actually working together for a certain goal."</p>
+</blockquote>
+<p>Another put it in three words: <em>"Communication is key."</em></p>
+<h2>What we're taking away</h2>
+<ol>
+<li><strong>Judgment is the new literacy.</strong> Using AI is easy. Deciding what AI should and shouldn't do is the skill.</li>
+<li><strong>Real problems beat assignments.</strong> Students build harder, better things when the problem is one they've actually noticed.</li>
+<li><strong>Collaboration has to be practised, live.</strong> You can't lecture a child into teamwork. A game with no rulebook makes them talk.</li>
+<li><strong>Honesty about failure is a strength.</strong> The strongest entries told us what went wrong and how they fixed it.</li>
+</ol>
+<h2>Congratulations</h2>
+<p>To our winners, and to every young innovator who took on TAICY 2026: congratulations. You spotted real problems, built real things and showed us your thinking. Thank you to the parents who encouraged them, and to everyone who shared the challenge.</p>
+<h2>Want your child to experience this?</h2>
+<p>TomoClub runs live, coach-led sessions where kids aged 8 to 15 build with AI, learn to question it, and play strategy games that only work with real teamwork. Your child's first session is free.</p>
+<p><strong><a href="https://tally.so/r/gDgLeN">Join a free live session →</a></strong></p>
+<p><em>Educators and schools:</em> want TAICY or game-based AI literacy for your students? Write to <a href="mailto:info@tomoclub.org">info@tomoclub.org</a>.</p>
+<p><em>Enjoyed this? Subscribe to The Learning Shift for more stories on better ways to teach, learn and play.</em></p>
+</main>
+</body>
+</html>

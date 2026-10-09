@@ -9,8 +9,8 @@
    "No caption, label or kept audio contains a student's name."
  ],
  "shots": [
-  {"id": "built", "src": "oct04", "a_in": 17.3, "a_out": 21.62, "v_in": 60, "view": "project", "who": "student", "head": "He built his own game|*with AI.*", "text": "Actually, I've made a game that I was making on Claude."},
-  {"id": "english", "src": "oct04", "a_in": 36.21, "a_out": 40.9, "v_in": 75, "view": "project", "who": "student", "head": "For his *English test.*", "text": "I was making this game for my English test."},
+  {"id": "built", "src": "oct04", "a_in": 17.3, "a_out": 21.62, "v_in": 60, "view": "project", "who": "student", "head": "A student built a game|*with AI.*", "text": "Actually, I've made a game that I was making on Claude."},
+  {"id": "english", "src": "oct04", "a_in": 36.21, "a_out": 40.9, "v_in": 75, "view": "project", "who": "student", "head": "For an *English test.*", "text": "I was making this game for my English test."},
   {"id": "quiz", "src": "oct04", "a_in": 182.2, "a_out": 185.18, "v_in": 191, "view": "project", "who": "student", "head": "Quiz questions|*built right in.*", "text": "And I've also put some questions to answer."},
   {"id": "solid", "src": "oct04", "a_in": 296.78, "a_out": 299.12, "view": "vk", "who": "coach", "head": "Kids don't just use AI.|They *build* with it.", "text": "But it looks pretty solid."},
   {"id": "taicy", "card": "taicy", "dur": 3.4},
