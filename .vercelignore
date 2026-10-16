@@ -1,2 +1,10 @@
 # Superseded pages kept for reference, not deployed.
 archive/
+
+# Local-only files. Git deploys never include these; this keeps `vercel deploy` from the CLI in line.
+.env*
+scratch/
+for_parents.docx
+__pycache__/
+*.pyc
+.claude/settings.local.json

@@ -268,6 +268,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             --border-color: rgba(255,255,255,0.1);
         }}
     </style>
+    <script defer src="/analytics.js"></script>
 </head>
 <body>
     <nav>

@@ -293,6 +293,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:title" content="{title} | TomoClub Blog">
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="https://www.tomoclub.org/blog/{slug}/{cover_local_name}">
+    <script defer src="/analytics.js"></script>
 </head>
 <body>
     <nav>

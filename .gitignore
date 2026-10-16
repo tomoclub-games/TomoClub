@@ -7,3 +7,5 @@ for_parents.docx
 # Python build artifacts
 __pycache__/
 *.pyc
+.vercel
+.env*

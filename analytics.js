@@ -9,6 +9,7 @@
  *   CLARITY      : clarity.microsoft.com → New project → Settings → Setup → copy the Project ID
  *                  (a short code like "abc1def2gh").
  *   LEADSY       : leadsy.ai tag → copy the data-pid value from the install snippet.
+ *   META_PIXEL   : Meta Events Manager → Data sources → the pixel → copy the Pixel ID (15–16 digits).
  * Leave an ID as '' to skip that tool.
  *
  * Also sends GA4 events:
@@ -16,13 +17,19 @@
  *                                                     for any element with a data-track="name" attribute
  *   cta_click      { cta_text, cta_href }             for links/buttons inside data-track sections
  *   lead_submitted { form_id }                        when the Build With Us form is submitted
+ *
+ * Meta Pixel events (besides PageView on every page):
+ *   Lead    { content_name }   Build With Us thank-you page, contact-page Tally form submit,
+ *                              or a page calling window.tomoTrackLead(name) after its own form succeeds
+ *   Contact { content_name }   click on any WhatsApp link
  */
 (function () {
   var CONFIG = {
     GA4: 'G-FEGGQ2ZDMT',
     LINKEDIN_PARTNER_ID: '8364153',
     CLARITY_PROJECT_ID: 'yibamjl9lq',
-    LEADSY_PID: 'Er26IyzOijeMy17O'
+    LEADSY_PID: 'Er26IyzOijeMy17O',
+    META_PIXEL_ID: '1805331960518408'
   };
 
   function load(src, attrs) {
@@ -74,7 +81,47 @@
     });
   }
 
-  /* ── 5. Section engagement → GA4 events ─────────────────────────────── */
+  /* ── 5. Meta Pixel (Facebook/Instagram ads) ─────────────────────────── */
+  function metaTrack(event, params) {
+    if (window.fbq) window.fbq('track', event, params || {});
+  }
+  // Pages with their own fetch-based forms call this once the submission succeeds.
+  window.tomoTrackLead = function (name) { metaTrack('Lead', { content_name: name || '' }); };
+
+  if (CONFIG.META_PIXEL_ID) {
+    (function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', CONFIG.META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+
+    // Build With Us only redirects here after a successful send, so count the Lead on arrival
+    // rather than on submit (which also fires when validation fails).
+    if (/^\/build-with-us\/thank-you(\.html)?$/.test(location.pathname)) {
+      metaTrack('Lead', { content_name: 'build-with-us' });
+    }
+
+    // WhatsApp clicks → Contact
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href*="whatsapp.com"], a[href*="wa.me"]');
+      if (a) metaTrack('Contact', { content_name: 'whatsapp' });
+    });
+
+    // Tally form on the contact page posts a message to this window when submitted.
+    window.addEventListener('message', function (ev) {
+      if (!/(^|\.)tally\.so$/.test((ev.origin || '').replace(/^https?:\/\//, ''))) return;
+      var d = ev.data;
+      if (typeof d === 'string') { try { d = JSON.parse(d); } catch (x) { return; } }
+      if (d && d.event === 'Tally.FormSubmitted') metaTrack('Lead', { content_name: 'contact-us' });
+    });
+  }
+
+  /* ── 6. Section engagement → GA4 events ─────────────────────────────── */
   function onReady(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn();
   }
