@@ -52,6 +52,36 @@
             font-weight: 800;
         }
 
+        .article-cover-portrait {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .article-cover-portrait .acp-bg {
+            position: absolute;
+            inset: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            object-fit: cover;
+            filter: blur(24px) brightness(0.8);
+        }
+
+        .article-cover-portrait .acp-fg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         .article-cover {
             width: 100%;
             max-width: 1100px;
@@ -205,7 +235,10 @@
                     <span class="article-date">June 1, 2026</span>
                 </div>
                 <h1 class="article-title">Why Derek Fialkiewicz Thinks Your School's Biggest Problem Is Fear</h1>
-                <img src="../../articles/images/derek-fialkiewicz.jpg" alt="Derek Fialkiewicz" class="article-cover">
+                <div class="article-cover-portrait">
+                    <img src="../../articles/images/derek-fialkiewicz.jpg" alt="" aria-hidden="true" class="acp-bg">
+                    <img src="../../articles/images/derek-fialkiewicz.jpg" alt="Derek Fialkiewicz" class="acp-fg">
+                </div>
             </div>
         </header>
 
