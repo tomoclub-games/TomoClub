@@ -21,7 +21,7 @@
   --card-grad-teal:linear-gradient(135deg,#FFFFFF,#F0FAFA);
   --card-grad-gold:linear-gradient(135deg,#FFFFFF,#FFF8E5);
   --section-grad-slate:linear-gradient(180deg,transparent 0%,#F4F6FB 100%);
-  --hero-glow:radial-gradient(circle at top right,#E3F6F6,transparent 60%);
+  --hero-glow:radial-gradient(circle 1400px at top right,#E3F6F6,transparent 60%);
   --shadow:0 4px 14px rgba(15,23,42,.12); --shadow-sm:0 2px 8px rgba(15,23,42,.08);
   --wa:#1FAA59; --wa-soft:#E9F8EF; --wa-text:#0E6B37;
   --font:'Outfit','Noto Sans Devanagari','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
@@ -38,7 +38,7 @@
     --card-grad-teal:linear-gradient(135deg,#0F172A,rgba(42,180,184,.12));
     --card-grad-gold:linear-gradient(135deg,#0F172A,rgba(253,198,45,.10));
     --section-grad-slate:linear-gradient(180deg,transparent 0%,#0F172A 100%);
-    --hero-glow:radial-gradient(circle at top right,rgba(42,180,184,.16),transparent 60%);
+    --hero-glow:radial-gradient(circle 1400px at top right,rgba(42,180,184,.16),transparent 60%);
     --shadow:0 4px 14px rgba(0,0,0,.4); --shadow-sm:0 2px 8px rgba(0,0,0,.35);
     --wa-soft:#0B2A1A; --wa-text:#86E3AE;
   }
@@ -53,14 +53,14 @@
   --card-grad-teal:linear-gradient(135deg,#0F172A,rgba(42,180,184,.12));
   --card-grad-gold:linear-gradient(135deg,#0F172A,rgba(253,198,45,.10));
   --section-grad-slate:linear-gradient(180deg,transparent 0%,#0F172A 100%);
-  --hero-glow:radial-gradient(circle at top right,rgba(42,180,184,.16),transparent 60%);
+  --hero-glow:radial-gradient(circle 1400px at top right,rgba(42,180,184,.16),transparent 60%);
   --shadow:0 4px 14px rgba(0,0,0,.4); --shadow-sm:0 2px 8px rgba(0,0,0,.35);
   --wa-soft:#0B2A1A; --wa-text:#86E3AE;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--bg-main);color:var(--text-main);font-family:var(--font);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--hero-glow) top/100% 1400px no-repeat,var(--bg-main);color:var(--text-main);font-family:var(--font);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--teal-text)}
 h1,h2,h3,h4{margin:0;color:var(--navy);font-weight:700;text-wrap:balance}
@@ -95,21 +95,48 @@ section{padding-block:4.5rem;position:relative}
 .wa-strip a{color:#fff;font-weight:700;background:rgba(0,0,0,.18);padding:.25rem .9rem;border-radius:999px;text-decoration:none;white-space:nowrap}
 
 /* floating nav pill (site style) */
-.nav-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:40;padding-inline:clamp(12px,3vw,2rem);margin-top:12px}
-nav.pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 3.5rem;background:rgba(15,23,42,.82);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-radius:999px;box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 1px rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.08)}
-.brand img{height:20px;width:auto}
-.nav-links{display:flex;align-items:center;gap:1.6rem}
-.nav-links a{color:#CBD5E1;text-decoration:none;font-weight:500;font-size:.98rem}
-.nav-links a:hover{color:#fff}
-.nav-cta{display:flex;align-items:center;gap:.5rem}
-.theme-btn{width:42px;height:42px;padding:0;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);color:#fff;cursor:pointer}
-.nav-cta .btn{padding:.875rem 2rem;font-size:1.05rem;line-height:1.5;background:#fff;color:#020617}
-@media (max-width:1024px){nav.pill{padding-inline:3rem}}
-@media (max-width:920px){.nav-links{display:none}}
-@media (max-width:420px){.brand img{height:17px}.nav-cta .btn{padding:.55rem 1rem;font-size:.88rem}}
+/* Site nav: mirrors styles.css on the homepage (px, since this page shrinks the root font on mobile) */
+.nav-wrap{height:88px}
+#siteNav{position:fixed;top:24px;left:50%;transform:translateX(-50%);width:calc(100% - 64px);max-width:1200px;z-index:1000;padding:12px 24px;background:rgba(15,23,42,.75);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-radius:999px;box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 1px rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.08);transition:all .4s cubic-bezier(.16,1,.3,1);font-family:'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+#siteNav.scrolled{top:16px;background:rgba(15,23,42,.9);padding:9.6px 24px;box-shadow:0 12px 40px rgba(0,0,0,.3)}
+#siteNav .nav-container{max-width:1150px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center;width:100%}
+#siteNav .logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none;transition:transform .3s ease}
+#siteNav .logo img{height:20px;width:auto;display:block}
+#siteNav .logo:hover{transform:scale(1.03)}
+#siteNav .nav-links{display:flex;gap:24px;align-items:center}
+#siteNav .nav-item{position:relative;font-weight:600;font-size:14.4px;color:#94A3B8;white-space:nowrap;transition:all .3s ease;padding:8px 0}
+#siteNav .nav-item::after{content:"";position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--teal);transition:all .3s ease;transform:translateX(-50%);border-radius:2px}
+#siteNav .nav-item:hover::after{width:60%}
+#siteNav .nav-item:hover{color:#fff}
+#siteNav .nav-item a{color:inherit;text-decoration:none;display:flex;align-items:center;gap:4px;transition:all .4s cubic-bezier(.16,1,.3,1)}
+#siteNav .nav-actions{display:flex;align-items:center;gap:12px}
+#siteNav .theme-btn{width:36px;height:36px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:all .4s cubic-bezier(.16,1,.3,1)}
+#siteNav .theme-btn .icon{display:block;width:18px;height:18px;stroke-width:2}
+#siteNav .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 32px;font:600 16.8px/1.5 'Outfit',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;letter-spacing:-.01em;gap:12px;border-radius:999px;border:none;cursor:pointer;text-decoration:none}
+#siteNav .mobile-menu-toggle{display:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;width:40px;height:40px;padding:0;border-radius:50%;align-items:center;justify-content:center;transition:all .4s cubic-bezier(.16,1,.3,1)}
+#siteNav .mobile-menu-toggle .icon{width:24px;height:24px;stroke-width:2}
+#siteNav .desktop-only{display:flex}
+#siteNav .mobile-only{display:none}
+@media (max-width:1200px){#siteNav .nav-container{max-width:95%}}
+@media (max-width:1024px){#siteNav .nav-container{max-width:95%;padding:0 24px}}
+@media (max-width:992px){#siteNav{width:calc(100% - 32px);padding:8px 16px;top:16px}#siteNav .logo img{height:17px}}
+@media (max-width:768px){
+  #siteNav,#siteNav.scrolled{width:calc(100% - 32px);top:16px}
+  #siteNav .nav-container{padding:0}
+  #siteNav .mobile-menu-toggle{display:flex}
+  #siteNav .desktop-only{display:none}
+  #siteNav .mobile-only{display:flex}
+  #siteNav .btn{width:100%;padding:12.8px 24px;font-size:15.2px;min-height:48px}
+  #siteNav .nav-links{position:fixed;top:88px;left:50%;transform:translateX(-50%) translateY(-20px);width:calc(100% - 32px);max-width:400px;background:rgba(15,23,42,.85);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);flex-direction:column;padding:40px 32px;border-radius:32px;border:1px solid var(--border-color);opacity:0;visibility:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);gap:20px}
+  #siteNav .nav-links.active{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  #siteNav .nav-item{width:100%;text-align:center}
+  #siteNav .nav-item a{justify-content:center}
+}
+@media (max-width:480px){#siteNav .btn{font-size:14.4px}#siteNav{padding:6.4px 12px}#siteNav.scrolled{padding:5.6px 12px}#siteNav .nav-links{top:72px;padding:32px 24px;border-radius:24px}}
+@media (max-width:360px){#siteNav{padding:5.6px 8px}#siteNav .btn{font-size:13.6px}}
 
 /* hero */
-.hero{text-align:center;padding-block:4.5rem 3.5rem;background:var(--hero-glow)}
+.hero{text-align:center;padding-block:4.5rem 3.5rem}
 .hero p.lead{font-size:1.25rem;color:var(--text-muted);max-width:700px;margin:1.25rem auto 1.5rem}
 .hero h1 .hl{color:var(--teal)}
 .hero .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
@@ -526,7 +553,6 @@ footer a:hover{color:var(--teal)}
 
 .lang-wrap{display:flex;align-items:center;gap:.35rem;margin:0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:0 .6rem 0 .7rem;height:42px;color:#fff}
 .lang-wrap .icon{width:18px;height:18px;stroke:#fff}
-.theme-btn .icon{display:block}
 .lang-wrap select{background:transparent;border:0;color:#fff;font:600 .9rem var(--font);padding:.4rem .2rem;width:auto;cursor:pointer}
 .lang-wrap select option{color:#0F172A;background:#fff}
 @media (max-width:420px){.lang-wrap{padding:0 .3rem 0 .5rem}.lang-wrap select{font-size:.85rem;max-width:88px}}
@@ -543,19 +569,12 @@ footer a:hover{color:var(--teal)}
 .animate-on-scroll.visible{opacity:1;transform:translateY(0)}
 
 /* ===== mobile polish ===== */
-.brand{flex:none;display:flex;align-items:center}
 .footer-logo{display:block;margin-bottom:1rem}
 .footer-logo img{height:24px;width:auto}
-.nav-cta{flex:none}
 @media (max-width:640px){
   html{font-size:15px}
   .wa-strip{font-size:.82rem}.wa-strip .container{padding-block:.45rem;gap:.35rem .6rem}.wa-strip a{padding:.2rem .7rem}
-  .nav-wrap{padding-inline:10px;margin-top:8px;top:calc(env(safe-area-inset-top,0px) + 8px)}
-  nav.pill{padding:.45rem .5rem .45rem 1rem;gap:.5rem}
-  .brand img{height:17px}
-  .nav-cta .btn{display:none}
   .lang-wrap{height:38px;padding:0 .25rem 0 .55rem}.lang-wrap .icon{width:16px;height:16px}.lang-wrap select{font-size:.85rem;max-width:96px;padding:.3rem .1rem}
-  .theme-btn{width:38px;height:38px}
   section{padding-block:3rem}.sec-head{margin-bottom:2rem}
   .hero{padding-block:2.5rem 2.5rem}.hero h1{font-size:2.25rem}.hero p.lead{font-size:1.1rem;margin-bottom:1.5rem}
   .hero .ctas .btn{width:100%}.hero .note{font-size:.9rem}
@@ -620,17 +639,21 @@ footer a:hover{color:var(--teal)}
 
 <!-- ===== Nav ===== -->
 <div class="nav-wrap">
-  <nav class="pill" aria-label="Main">
-    <a class="brand" href="https://www.tomoclub.org/"><img src="/assets/logo.webp" alt="TomoClub" width="182" height="28"></a>
-    <div class="nav-links">
-      <a href="#programs" data-i18n="nav.programs">Programs</a>
-      <a href="#trust" data-i18n="nav.why">Why TomoClub</a>
-      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
-      <a href="#faq" data-i18n="nav.faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode"><svg class="icon"><use href="#i-moon"/></svg></button>
-      <a class="btn" href="#start" data-i18n="nav.cta">Book free class</a>
+  <nav id="siteNav" aria-label="Main">
+    <div class="nav-container">
+      <a class="logo" href="https://www.tomoclub.org/"><img src="/assets/logo.webp" alt="TomoClub" width="130" height="20"></a>
+      <div class="nav-links" id="nav-links">
+        <div class="nav-item"><a href="#programs" data-i18n="nav.programs">Programs</a></div>
+        <div class="nav-item"><a href="#trust" data-i18n="nav.why">Why TomoClub</a></div>
+        <div class="nav-item"><a href="#pricing" data-i18n="nav.pricing">Pricing</a></div>
+        <div class="nav-item"><a href="#faq" data-i18n="nav.faq">FAQ</a></div>
+        <div class="nav-item mobile-only" style="margin-top:16px;width:100%"><a class="btn btn-primary" href="#start" data-i18n="nav.cta">Book free class</a></div>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode"><svg class="icon"><use href="#i-moon"/></svg></button>
+        <a class="btn btn-primary desktop-only" href="#start" data-i18n="nav.cta">Book free class</a>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      </div>
     </div>
   </nav>
 </div>
@@ -1286,5 +1309,14 @@ document.querySelectorAll('form[data-form]').forEach(form=>{
 })();
 </script>
 
+<script>(function(){
+  var n=document.getElementById("siteNav");if(!n)return;
+  function f(){n.classList.toggle("scrolled",window.scrollY>50)}
+  window.addEventListener("scroll",f,{passive:true});f();
+  var t=document.getElementById("mobile-menu-toggle"),m=document.getElementById("nav-links"),p=document.getElementById("menu-icon-path");
+  function set(o){m.classList.toggle("active",o);t.setAttribute("aria-expanded",o);p.setAttribute("d",o?"M18 6 6 18M6 6l12 12":"M4 6h16M4 12h16M4 18h16")}
+  t.addEventListener("click",function(){set(!m.classList.contains("active"))});
+  m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){set(false)})});
+})();</script>
 </body>
 </html>
