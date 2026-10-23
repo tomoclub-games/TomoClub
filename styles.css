@@ -594,6 +594,18 @@ section { padding: 3.5rem 0; position: relative; }
 .hero { min-height: 80vh; display: flex; align-items: center; padding-top: 120px; text-align: center; }
 .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 2.5rem; color: var(--text-muted); }
 
+/* Teal glow that fades out before the section's bottom edge, so no hard edge shows on a short hero */
+.hero-glow-fade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-glow-teal);
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  pointer-events: none;
+}
+.hero-glow-fade > .container { position: relative; }
+
 /* Badges (Crimson Accent mappings for better readability and pop) */
 .badge {
   display: inline-flex; align-items: center; padding: 0.5rem 1.25rem; border-radius: var(--border-radius-pill);
@@ -1041,9 +1053,17 @@ body.has-banner nav.scrolled {
   transition: opacity 0.8s ease-out, 
               transform 1s cubic-bezier(0.16, 1, 0.3, 1); 
 }
-.animate-on-scroll.visible { 
-  opacity: 1; 
-  transform: translateY(0); 
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Education Hall cards reveal one by one; keep the card hover lift working */
+#articles-grid > .animate-on-scroll {
+  transition: opacity 0.8s ease-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+}
+#articles-grid > .animate-on-scroll.visible:hover {
+  transform: translateY(-6px) scale(1.01);
 }
 
 /* Footer */

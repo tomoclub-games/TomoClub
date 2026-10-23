@@ -556,6 +556,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const articles = Array.from(articlesGrid.children);
     articles.forEach((article, index) => {
       article.setAttribute('data-timestamp', index + 1);
+      article.classList.add('animate-on-scroll');
+      article.querySelectorAll('img:not([loading])').forEach(img => img.setAttribute('loading', 'lazy'));
     });
 
     function filterArticles() {
@@ -583,6 +585,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       visibleArticles.forEach(article => articlesGrid.appendChild(article));
+
+      // Re-run the row-by-row reveal for the new order
+      visibleArticles.forEach(article => article.classList.remove('visible'));
+      requestAnimationFrame(observeElements);
     }
 
     articleSearch.addEventListener('input', filterArticles);
