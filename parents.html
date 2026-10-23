@@ -110,7 +110,7 @@ nav.pill{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-
 
 /* hero */
 .hero{text-align:center;padding-block:4.5rem 3.5rem;background:var(--hero-glow)}
-.hero p.lead{font-size:1.25rem;color:var(--text-muted);max-width:700px;margin:1.25rem auto 2.25rem}
+.hero p.lead{font-size:1.25rem;color:var(--text-muted);max-width:700px;margin:1.25rem auto 1.5rem}
 .hero h1 .hl{color:var(--teal)}
 .hero .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 .hero .note{margin-top:1rem;font-size:.95rem;color:var(--text-muted)}
@@ -618,14 +618,6 @@ footer a:hover{color:var(--teal)}
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
 </svg>
 
-<!-- ===== WhatsApp strip ===== -->
-<div class="wa-strip">
-  <div class="container">
-    <span data-i18n="wa.strip">Free parenting tips and TomoClub updates, straight to your WhatsApp.</span>
-    <a href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a>
-  </div>
-</div>
-
 <!-- ===== Nav ===== -->
 <div class="nav-wrap">
   <nav class="pill" aria-label="Main">
@@ -637,18 +629,6 @@ footer a:hover{color:var(--teal)}
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </div>
     <div class="nav-cta">
-      <label class="lang-wrap" aria-label="Language">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
-        <select id="langSel">
-          <option value="en">English</option>
-          <option value="hi">हिन्दी</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
-          <option value="zh">中文</option>
-        </select>
-      </label>
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode"><svg class="icon"><use href="#i-moon"/></svg></button>
       <a class="btn" href="#start" data-i18n="nav.cta">Book free class</a>
     </div>
@@ -659,12 +639,49 @@ footer a:hover{color:var(--teal)}
 <header class="hero">
   <div class="container">
     <span class="badge-pill animate-on-scroll" data-i18n="hero.badge">Now open to families · Your first class is free</span>
-    <h1 class="animate-on-scroll" data-i18n-html="hero.h1">Raise a kid who <span class="hl">thinks for themselves</span> in the age of AI.</h1>
+    <h1 class="animate-on-scroll" data-i18n-html="hero.h1">Raise a kid who <span class="hl">thinks for themselves</span> in the age of AI</h1>
     <p class="lead animate-on-scroll" data-i18n="hero.lead">Live online classes for Grades 3 to 12. Kids play team games, build real projects, and learn to use AI without letting it think for them.</p>
-    <p class="eng-note animate-on-scroll"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><span data-i18n="eng.note">Classes are taught in English.</span></p>
-    <div class="ctas animate-on-scroll">
-      <a class="btn btn-primary" href="#start" data-i18n="hero.cta1">Book a free class</a>
+<!-- ===== Programs ===== -->
+<section id="programs" style="padding-block:0 1rem">
+  <div class="container">
+    <div class="sec-head animate-on-scroll">
+      <span class="badge-pill teal" data-i18n="prog.badge">Two programs</span>
+      <h2 data-i18n="prog.h2">Pick the one your child needs most right now</h2>
     </div>
+
+    <div class="prog-grid animate-on-scroll">
+      <article class="program-card">
+        <div class="thumb"><span class="tag" data-i18n="ai.tag">AI LITERACY</span><img src="/assets/tomo_AI_LAB_thumb.webp" alt="A student using an AI tool in class" loading="lazy"></div>
+        <div class="prog-body">
+          <h3>Tomo AI Lab</h3>
+          <p class="hook" data-i18n="ai.hook">Their idea comes first, AI comes second. Kids learn to build with AI and to catch it when it's wrong.</p>
+          <ul class="feat">
+            <li><span class="ic"><svg class="icon"><use href="#i-bulb"/></svg></span><div><b data-i18n="ai.f1b">Original ideas</b><span data-i18n="ai.f1s">Theirs, not a chatbot's</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-eye"/></svg></span><div><b data-i18n="ai.f2b">Critical thinking</b><span data-i18n="ai.f2s">Spot bias and fake answers</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-rocket"/></svg></span><div><b data-i18n="ai.f3b">A real project</b><span data-i18n="ai.f3s">Built and presented by them</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><div><b data-i18n="ai.f4b">Online safety</b><span data-i18n="ai.f4s">Privacy habits that stick</span></div></li>
+          </ul>
+          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="AI Lab" data-i18n="ai.cta">Try AI Lab free</a></div>
+        </div>
+      </article>
+
+      <article class="program-card ls">
+        <div class="thumb"><span class="tag" data-i18n="ls.tag">LIFE SKILLS · SEL</span><img src="/assets/tomo_LIFE_SKILLS_thumb.webp" alt="Kids working together on a team game" loading="lazy"></div>
+        <div class="prog-body">
+          <h3>Tomo Life Skills</h3>
+          <p class="hook" data-i18n="ls.hook">Team games you only win by talking, listening and leading. A coach links every game to real life.</p>
+          <ul class="feat">
+            <li><span class="ic"><svg class="icon"><use href="#i-mic"/></svg></span><div><b data-i18n="ls.f1b">Speaking up</b><span data-i18n="ls.f1s">Quiet kids grow the most</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-hands"/></svg></span><div><b data-i18n="ls.f2b">Handling conflict</b><span data-i18n="ls.f2s">Practiced in a safe space</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-flag"/></svg></span><div><b data-i18n="ls.f3b">Leading</b><span data-i18n="ls.f3s">Real decisions, real stakes</span></div></li>
+            <li><span class="ic"><svg class="icon"><use href="#i-users"/></svg></span><div><b data-i18n="ls.f4b">Real friends</b><span data-i18n="ls.f4s">Same group every week</span></div></li>
+          </ul>
+          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="Life Skills" data-i18n="ls.cta">Try Life Skills free</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
     <p class="note animate-on-scroll" data-i18n-html="hero.note">No card needed. Then <b data-price="now">$99</b> a month for 4 live classes. Cancel anytime.</p>
 
     <div class="cert-row animate-on-scroll">
@@ -694,90 +711,30 @@ footer a:hover{color:var(--teal)}
   </div>
 </div>
 
-<!-- ===== Programs ===== -->
-<section class="slate" id="programs">
-  <div class="container">
-    <div class="sec-head animate-on-scroll">
-      <span class="badge-pill teal" data-i18n="prog.badge">Two programs</span>
-      <h2 data-i18n="prog.h2">Pick the one your child needs most right now.</h2>
-      <p><span data-i18n="prog.p">Same price. Same small groups of up to 12. Kids spend the hour doing, not watching.</span> <span data-i18n="eng.note">Classes are taught in English.</span></p>
-    </div>
-
-    <div class="prog-grid animate-on-scroll">
-      <article class="program-card">
-        <div class="thumb"><span class="tag" data-i18n="ai.tag">AI LITERACY</span><img src="/assets/parents/ailab.webp" alt="A student using an AI tool in class" loading="lazy"></div>
-        <div class="prog-body">
-          <h3>Tomo AI Lab</h3>
-          <p class="hook" data-i18n="ai.hook">Their idea comes first, AI comes second. Kids learn to build with AI and to catch it when it's wrong.</p>
-          <ul class="feat">
-            <li><span class="ic"><svg class="icon"><use href="#i-bulb"/></svg></span><div><b data-i18n="ai.f1b">Original ideas</b><span data-i18n="ai.f1s">Theirs, not a chatbot's</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-eye"/></svg></span><div><b data-i18n="ai.f2b">Critical thinking</b><span data-i18n="ai.f2s">Spot bias and fake answers</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-rocket"/></svg></span><div><b data-i18n="ai.f3b">A real project</b><span data-i18n="ai.f3s">Built and presented by them</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><div><b data-i18n="ai.f4b">Online safety</b><span data-i18n="ai.f4s">Privacy habits that stick</span></div></li>
-          </ul>
-          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="AI Lab" data-i18n="ai.cta">Try AI Lab free</a></div>
-        </div>
-      </article>
-
-      <article class="program-card ls">
-        <div class="thumb"><span class="tag" data-i18n="ls.tag">LIFE SKILLS · SEL</span><img src="/assets/parents/lifeskills.webp" alt="Kids working together on a team game" loading="lazy"></div>
-        <div class="prog-body">
-          <h3>Tomo Life Skills</h3>
-          <p class="hook" data-i18n="ls.hook">Team games you only win by talking, listening and leading. A coach links every game to real life.</p>
-          <ul class="feat">
-            <li><span class="ic"><svg class="icon"><use href="#i-mic"/></svg></span><div><b data-i18n="ls.f1b">Speaking up</b><span data-i18n="ls.f1s">Quiet kids grow the most</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-hands"/></svg></span><div><b data-i18n="ls.f2b">Handling conflict</b><span data-i18n="ls.f2s">Practiced in a safe space</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-flag"/></svg></span><div><b data-i18n="ls.f3b">Leading</b><span data-i18n="ls.f3s">Real decisions, real stakes</span></div></li>
-            <li><span class="ic"><svg class="icon"><use href="#i-users"/></svg></span><div><b data-i18n="ls.f4b">Real friends</b><span data-i18n="ls.f4s">Same group every week</span></div></li>
-          </ul>
-          <div class="prog-foot"><span class="p"><s data-price="was">$199</s><span data-price="now">$99</span> <small data-i18n="per.month">/ month</small></span><a class="btn btn-primary" href="#start" data-prog="Life Skills" data-i18n="ls.cta">Try Life Skills free</a></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="games animate-on-scroll">
-      <h3 data-i18n="games.h3">The games behind Life Skills</h3>
-      <p class="muted" style="font-size:1rem" data-i18n="games.p">Made by our game designers and psychologists. Kids think they're just playing.</p>
-      <div class="games-row"><div class="game"><div class="gimg"><img src="/assets/parents/g_backyard.webp" alt="Backyard Blast game artwork" loading="lazy"></div><p>Backyard Blast</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_eijoe.webp" alt="E.I. Joe game artwork" loading="lazy"></div><p>E.I. Joe</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_crisis.webp" alt="The Crisis Crew game artwork" loading="lazy"></div><p>The Crisis Crew</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_river.webp" alt="River Taxi game artwork" loading="lazy"></div><p>River Taxi</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_settlers.webp" alt="The First Settlers game artwork" loading="lazy"></div><p>The First Settlers</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_cosmos.webp" alt="Cosmos Colour Clash game artwork" loading="lazy"></div><p>Cosmos Colour Clash</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_food.webp" alt="Food for Every Mood game artwork" loading="lazy"></div><p>Food for Every Mood</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_jolly.webp" alt="Jolly Jumpers game artwork" loading="lazy"></div><p>Jolly Jumpers</p></div><div class="game"><div class="gimg"><img src="/assets/parents/g_santa.webp" alt="Secret Santa game artwork" loading="lazy"></div><p>Secret Santa</p></div></div>
-    </div>
-
-    <div class="selfpaced animate-on-scroll">
-      <div class="sp-ic"><svg class="icon"><use href="#i-clock"/></svg></div>
-      <div>
-        <h3 data-i18n="sp.h3">Need more flexibility?</h3>
-        <p data-i18n="sp.p">Both programs also come as a self-paced version. Ideal for homeschool families and online schools.</p>
-      </div>
-      <a class="btn btn-secondary" href="/contact-us" data-i18n="sp.cta">Ask about self-paced</a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== How we teach AI (video 2) ===== -->
 <section>
   <div class="container split">
     <a data-thumb class="video animate-on-scroll" data-yt="H8vAtOBlY2s" href="https://www.youtube.com/watch?v=H8vAtOBlY2s" target="_blank" rel="noopener">
       <img src="https://i.ytimg.com/vi/H8vAtOBlY2s/hqdefault.jpg" alt="" loading="lazy">
-      <img class="poster" src="/assets/parents/ailab.webp" alt="" loading="lazy" style="object-fit:cover;width:100%;height:100%">
+      <img class="poster" src="/assets/tomo_AI_LAB_thumb.webp" alt="" loading="lazy" style="object-fit:cover;width:100%;height:100%">
       <span class="play"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#0F172A"/></svg></span>
       <span class="vcap"><small data-i18n="watch">Watch</small><span data-i18n="v2.cap">How TomoClub teaches AI literacy</span></span>
     </a>
     <div class="animate-on-scroll">
       <span class="badge-pill teal" data-i18n="v2.badge">For AI Lab parents</span>
       <h3 data-i18n="v2.h3">Wondering how kids "learn AI" without just using ChatGPT?</h3>
-      <p data-i18n="v2.p">This short video shows exactly how we teach it: kids think first, test AI tools together, and talk through what AI gets right and wrong.</p>
-      <a class="btn btn-primary" style="margin-top:1.5rem" href="#start" data-prog="AI Lab" data-i18n="ai.cta">Try AI Lab free</a>
+      <p data-i18n="v2.p">This short video shows exactly how we teach it: kids think first, test AI tools together, and talk through what AI gets right and wrong</p>
+      <a class="btn btn-primary" style="margin-top:1.5rem" href="#start" data-prog="AI Lab" data-i18n="ai.cta2">Book Your Trial Class Now</a>
     </div>
   </div>
 </section>
-
-<div class="container band-wrap"><div class="wa-band animate-on-scroll"><div class="l"><span class="dot" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></span><div><b data-i18n="band1.b">Get one useful parenting tip a day</b><span data-i18n="band1.s">Short, practical ideas on AI, screens and life skills. Free on WhatsApp.</span></div></div><a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="band1.cta">Follow on WhatsApp</a></div></div>
 
 <!-- ===== Trust ===== -->
 <section class="slate" id="trust">
   <div class="container">
     <div class="sec-head animate-on-scroll">
       <span class="badge-pill" data-i18n="trust.badge">Why families trust us</span>
-      <h2 data-i18n="trust.h2">Serious credentials. Seriously fun classes.</h2>
+      <h2 data-i18n="trust.h2">Serious credentials Seriously fun classes</h2>
     </div>
 
     <div class="xprize animate-on-scroll">
@@ -787,7 +744,7 @@ footer a:hover{color:var(--teal)}
       </div>
       <div class="xp-body">
         <span class="xp-kicker" data-i18n="xp.kicker">As featured in Forbes</span>
-        <h3 data-i18n="xp.h3">Built by founders who've done big things before.</h3>
+        <h3 data-i18n="xp.h3">Built by founders who've done big things before</h3>
         <p data-i18n="xp.p">Founders Avinash Bansal and Manik Mehta won the $1M Women's Safety XPRIZE in 2018 and presented at the United Nations. They then built and exited a consumer electronics company. TomoClub is what they chose to build next.</p>
         <a class="btn btn-secondary" style="align-self:flex-start" href="https://www.forbes.com/sites/denizcam/2018/06/07/safety-device-for-women-wins-1-million-xprize-launched-by-philanthropists-anu-and-naveen-jain/" target="_blank" rel="noopener" data-i18n="xp.cta">Read the Forbes story</a>
       </div>
@@ -795,7 +752,7 @@ footer a:hover{color:var(--teal)}
 
     <div class="team-block animate-on-scroll">
       <div>
-        <h3 data-i18n="team.h3">Six kinds of experts behind every class.</h3>
+        <h3 data-i18n="team.h3">Six kinds of experts behind every class</h3>
         <div class="disc">
           <div><span class="ic" style="background:rgba(179,65,88,.12);color:var(--crimson-text)"><svg class="icon"><use href="#i-brain"/></svg></span><b data-i18n="disc.1">Psychologists</b></div>
           <div><span class="ic" style="background:rgba(42,180,184,.12);color:var(--teal-text)"><svg class="icon"><use href="#i-book"/></svg></span><b data-i18n="disc.2">Education researchers</b></div>
@@ -823,12 +780,12 @@ footer a:hover{color:var(--teal)}
   <div class="container">
     <div class="sec-head animate-on-scroll">
       <span class="badge-pill teal" data-i18n="res.badge">Proven in schools first</span>
-      <h2 data-i18n="res.h2">Real results from real classrooms.</h2>
+      <h2 data-i18n="res.h2">Real results from real classrooms</h2>
     </div>
     <div class="res3 animate-on-scroll">
-      <div class="res"><div class="big">+80%</div><p data-i18n="res1.p">growth in leadership and emotional intelligence from first class to last.</p><small data-i18n="res1.s">IEM Charter Schools, 2023-24</small></div>
-      <div class="res"><div class="big">87%</div><p data-i18n="res2.p">of 8th graders passed AI Lab sessions on ethics and critical thinking.</p><small data-i18n="res2.s">Amity School District, 2025-26</small></div>
-      <div class="res"><div class="big">97%</div><p data-i18n="res3.p">of kids stayed engaged across our partner schools.</p><small data-i18n="res3.s">All partner schools</small></div>
+      <div class="res"><div class="big">+80%</div><p data-i18n="res1.p">growth in leadership and emotional intelligence from first class to last</p><small data-i18n="res1.s">IEM Charter Schools, 2023-24</small></div>
+      <div class="res"><div class="big">87%</div><p data-i18n="res2.p">of 8th graders passed AI Lab sessions on ethics and critical thinking</p><small data-i18n="res2.s">Amity School District, 2025-26</small></div>
+      <div class="res"><div class="big">97%</div><p data-i18n="res3.p">of kids stayed engaged across our partner schools</p><small data-i18n="res3.s">All partner schools</small></div>
     </div>
   </div>
 </section>
@@ -855,20 +812,18 @@ footer a:hover{color:var(--teal)}
   </div>
 </section>
 
-<div style="padding-top:3rem" class="slate"><div class="container band-wrap"><div class="wa-band animate-on-scroll"><div class="l"><span class="dot" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></span><div><b data-i18n="band2.b">Join other TomoClub parents on WhatsApp</b><span data-i18n="band2.s">Guides, activity ideas and community news, a tap away.</span></div></div><a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a></div></div></div>
-
 <!-- ===== Steps ===== -->
 <section id="how">
   <div class="container">
     <div class="sec-head animate-on-scroll">
       <span class="badge-pill teal" data-i18n="steps.badge">What happens next</span>
-      <h2 data-i18n="steps.h2">Getting started takes about a minute.</h2>
+      <h2 data-i18n="steps.h2">Getting started takes about a minute</h2>
     </div>
     <div class="steps animate-on-scroll">
-      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-form"/></svg></span><span class="n" data-i18n="step.1">STEP 1</span></div><h3 data-i18n="step1.h">Fill one short form</h3><p data-i18n="step1.p">Takes under a minute.</p></div>
-      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chat"/></svg></span><span class="n" data-i18n="step.2">STEP 2</span></div><h3 data-i18n="step2.h">Get your schedule</h3><p data-i18n="step2.p">We match your child to a group and message you.</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-form"/></svg></span><span class="n" data-i18n="step.1">STEP 1</span></div><h3 data-i18n="step1.h">Fill one short form</h3><p data-i18n="step1.p">Takes under a minute</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chat"/></svg></span><span class="n" data-i18n="step.2">STEP 2</span></div><h3 data-i18n="step2.h">Get your schedule</h3><p data-i18n="step2.p">We match your child to a group and message you</p></div>
       <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-play"/></svg></span><span class="n" data-i18n="step.3">STEP 3</span></div><h3 data-i18n="step3.h">Free first class</h3><p data-i18n="step3.p">Your child tries it. You decide after.</p></div>
-      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chart"/></svg></span><span class="n" data-i18n="step.4">STEP 4</span></div><h3 data-i18n="step4.h">Monthly report</h3><p data-i18n="step4.p">See exactly how your child is growing.</p></div>
+      <div class="step"><div class="top"><span class="ic"><svg class="icon"><use href="#i-chart"/></svg></span><span class="n" data-i18n="step.4">STEP 4</span></div><h3 data-i18n="step4.h">Monthly report</h3><p data-i18n="step4.p">See exactly how your child is growing</p></div>
     </div>
   </div>
 </section>
@@ -881,8 +836,8 @@ footer a:hover{color:var(--teal)}
       <h2 data-i18n="price.h2">One plan. Either program.</h2>
       <p class="muted" style="margin-top:1rem" data-i18n="price.p">Per child, billed monthly. No sign-up fee, no contract.</p>
       <div class="mini-thumbs">
-        <div><img src="/assets/parents/ailab.webp" alt="Tomo AI Lab" loading="lazy"><span>AI Lab</span></div>
-        <div><img src="/assets/parents/lifeskills.webp" alt="Tomo Life Skills" loading="lazy"><span>Life Skills</span></div>
+        <div><img src="/assets/tomo_AI_LAB_thumb.webp" alt="Tomo AI Lab" loading="lazy"><span>AI Lab</span></div>
+        <div><img src="/assets/tomo_LIFE_SKILLS_thumb.webp" alt="Tomo Life Skills" loading="lazy"><span>Life Skills</span></div>
       </div>
     </div>
     <div class="glass-card price-card animate-on-scroll">
@@ -925,15 +880,15 @@ footer a:hover{color:var(--teal)}
           <div><label for="e-wa" data-i18n="f.wa">WhatsApp number</label><input id="e-wa" name="whatsapp" type="tel" required data-phone autocomplete="tel"></div>
           <div><label for="e-grade" data-i18n="f1.grade">Child's grade</label><select id="e-grade" name="child_grade" required data-grades><option value="" data-i18n="f.select">Select</option></select></div>
           <div class="full"><label for="e-country" data-i18n="f1.country">Country</label><select id="e-country" name="country" required data-countries><option value="" data-i18n="f.select">Select</option></select></div>
-          <label class="check full"><input type="checkbox" id="e-consent" name="consent" required> <span data-i18n="f.consent">TomoClub can contact me by email and WhatsApp.</span></label>
-          <p class="err" role="alert" data-i18n="f1.err">Please choose a program, fill in every field and tick the box.</p>
+          <label class="check full"><input type="checkbox" id="e-consent" name="consent" required> <span data-i18n="f.consent">TomoClub can contact me by email and WhatsApp</span></label>
+          <p class="err" role="alert" data-i18n="f1.err">Please choose a program, fill in every field and tick the box</p>
           <input type="hidden" name="language" id="e-lang"><input type="hidden" name="currency" id="e-cur"><input type="hidden" name="detected_country" id="e-det">
           <div class="full"><button class="btn btn-primary" type="submit" data-i18n="f1.submit">Book my free class</button></div>
         </form>
         <div class="done" aria-live="polite">
           <div class="ok"><svg width="28" height="28" viewBox="0 0 20 20"><path d="M5 10.5l3 3 7-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4 data-i18n="f1.done.h">You're in!</h4>
-          <p data-i18n="f1.done.p">Our team will message you on WhatsApp shortly with your group and schedule.</p>
+          <p data-i18n="f1.done.p">Our team will message you on WhatsApp shortly with your group and schedule</p>
           <a class="btn btn-wa" style="margin-top:1.25rem" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="f1.done.cta">Join our WhatsApp channel</a>
         </div>
     </div>
@@ -945,23 +900,9 @@ footer a:hover{color:var(--teal)}
   <div class="container">
     <div class="net animate-on-scroll">
       <span class="badge-pill" data-i18n="net.badge">Homeschool co-ops &amp; online schools</span>
-      <h2 data-i18n="net.h2">Bring TomoClub to your whole community.</h2>
-      <p class="intro" data-i18n="net.p">Private live groups, a self-paced license for your educators, teacher training and group pricing.</p>
+      <h2 data-i18n="net.h2">Bring TomoClub to your whole community</h2>
+      <p class="intro" data-i18n="net.p">Private live groups, a self-paced license for your educators, teacher training and group pricing</p>
       <a class="btn" href="/contact-us" data-i18n="net.cta">Talk to us about your network</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WhatsApp banner ===== -->
-<section style="padding-block:0 2rem">
-  <div class="container">
-    <div class="wa-big animate-on-scroll">
-      <div class="wa-logo" aria-hidden="true"><svg width="44" height="44" viewBox="0 0 32 32"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9z"/></svg></div>
-      <div>
-        <h2 data-i18n="wab.h2">Not ready yet? Stay in the loop.</h2>
-        <p data-i18n="wab.p">Daily parenting tips, AI guides for families and activity ideas on our WhatsApp channel.</p>
-      </div>
-      <a class="btn btn-wa" href="https://whatsapp.com/channel/0029VbDqIP52Jl8LcXeSzT28" target="_blank" rel="noopener" data-i18n="wa.join">Join the channel</a>
     </div>
   </div>
 </section>
@@ -984,7 +925,7 @@ footer a:hover{color:var(--teal)}
     <div class="ig-track" id="igTrack" hidden></div>
     <div class="ig-empty animate-on-scroll" id="igEmpty">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
-      <b data-i18n="ig.empty.b">Our latest Instagram posts show up here.</b>
+      <b data-i18n="ig.empty.b">Our latest Instagram posts show up here</b>
       <span data-i18n="ig.empty.s">Live feed from @tomoclub_edu. In the meantime, follow us to see classes, games and student projects.</span>
       <a class="btn btn-secondary" href="https://www.instagram.com/tomoclub_edu/" target="_blank" rel="noopener" data-i18n="ig.empty.cta">Open Instagram</a>
     </div>
@@ -999,8 +940,8 @@ footer a:hover{color:var(--teal)}
       <details open><summary data-i18n="faq1.q">What grades is this for?</summary><p data-i18n="faq1.a">Grades 3 to 12. Your child is grouped with kids around the same age.</p></details>
       <details><summary data-i18n="faq2.q">What does "accredited" mean?</summary><p data-i18n="faq2.a">STEM.org has reviewed and accredited every TomoClub program, and we hold their Best in STEM distinction (top 5%). You can verify both using the badges at the top of this page.</p></details>
       <details><summary data-i18n="faq3.q">What happens in the free class?</summary><p data-i18n="faq3.a">A full 60-minute live class with a coach and a real group of kids. No credit card needed.</p></details>
-      <details><summary data-i18n="faq4.q">How much does it cost?</summary><p data-i18n-html="faq4.a"><b data-price="now">$99</b> a month per child for 4 live one-hour classes and a monthly progress report. Shown in your local currency.</p></details>
-      <details><summary data-i18n="faq5.q">What does my child need?</summary><p data-i18n="faq5.a">A laptop or desktop with a webcam, microphone and steady internet.</p></details>
+      <details><summary data-i18n="faq4.q">How much does it cost?</summary><p data-i18n-html="faq4.a"><b data-price="now">$99</b> a month per child for 4 live one-hour classes and a monthly progress report. Shown in your local currency</p></details>
+      <details><summary data-i18n="faq5.q">What does my child need?</summary><p data-i18n="faq5.a">A laptop or desktop with a webcam, microphone and steady internet</p></details>
       <details><summary data-i18n="faq7.q">What language are classes taught in?</summary><p data-i18n="faq7.a">All classes are taught in English by our coaches. Kids who are comfortable following instructions in English do well, and the games make it easy to join in.</p></details>
       <details><summary data-i18n="faq6.q">Are classes recorded?</summary><p data-i18n="faq6.a">No. Kids speak more freely that way. Coaches take notes for your monthly report instead.</p></details>
     </div>
@@ -1014,7 +955,7 @@ footer a:hover{color:var(--teal)}
       <a class="pod-thumb" href="https://www.tomoclub.org/#podcast" target="_blank" rel="noopener"><img src="/assets/parents/podcast.webp" alt="The Learning Shift Podcast by TomoClub" loading="lazy"></a>
       <div>
         <h3 data-i18n="pod.h3">Want to go deeper?</h3>
-        <p data-i18n="pod.p">Listen to The Learning Shift, our podcast with school leaders on raising kids for a world with AI.</p>
+        <p data-i18n="pod.p">Listen to The Learning Shift, our podcast with school leaders on raising kids for a world with AI</p>
         <div class="eps"><a class="all" href="https://www.tomoclub.org/#podcast" target="_blank" rel="noopener" data-i18n="pod.cta">Listen to episodes →</a></div>
       </div>
     </div>
@@ -1027,7 +968,7 @@ footer a:hover{color:var(--teal)}
     <div class="footer-grid">
       <div>
         <a href="https://www.tomoclub.org/" class="footer-logo"><img src="/assets/logo.webp" alt="TomoClub" width="182" height="28" loading="lazy"></a>
-        <p class="muted" data-i18n="foot.p" style="font-size:.875rem;margin-top:1rem">Accredited programs in AI literacy and life skills, for schools and families.</p>
+        <p class="muted" data-i18n="foot.p" style="font-size:.875rem;margin-top:1rem">Accredited programs in AI literacy and life skills, for schools and families</p>
         <div class="social-links">
           <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon"><use href="#i-youtube"/></svg></a>
           <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
@@ -1135,7 +1076,7 @@ function applyLang(lang){
   state.lang=lang; document.documentElement.lang = lang==='zh'?'zh-Hans':lang;
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n; const v=(lang!=='en'&&T[lang]&&T[lang][k])||EN[k]; if(v!=null) el.textContent=v;});
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml; const v=(lang!=='en'&&T[lang]&&T[lang][k])||EN[k]; if(v!=null) el.innerHTML=v;});
-  document.getElementById('langSel').value=lang;
+  
   fillGrades(); fillCountries(); renderQuotes(); renderPrices();
 }
 function fmt(n,cur){
@@ -1193,7 +1134,7 @@ function renderQuotes(){
   state.country=c; state.src=src; state.cur=PRICES[cur]?cur:'USD';
   applyLang(LANGS.includes(lang)?lang:'en'); applyCountry(c);
   console.info('[tomo] country '+c+' via '+src+', currency '+state.cur+', language '+state.lang);
-  document.getElementById('langSel').addEventListener('change',e=>{state.manualLang=true; applyLang(e.target.value); try{localStorage.setItem('tomo-lang',e.target.value)}catch(x){}});
+  
   /* Picking a country in the form only sets the phone prefix; it does not change the price shown. */
   document.querySelector('[data-countries]').addEventListener('change',e=>{ if(e.target.value){ const cfg=COUNTRIES[e.target.value]||COUNTRIES.OTHER; document.querySelectorAll('[data-phone]').forEach(i=>i.placeholder=cfg.tel+' ...'); } });
 })();
