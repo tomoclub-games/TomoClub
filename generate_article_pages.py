@@ -13,6 +13,13 @@ articles = json.loads(json_str)
 
 # Article metadata (matching index.html)
 article_metadata = {
+    "article_15": {
+        "title": "How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity",
+        "date": "October 23, 2026",
+        "category": "Leadership",
+        "slug": "martin-miller-antwerp-leadership",
+        "cover": "C:\Users\rohit\AppData\Local\Temp\claude\c--Users-rohit-TomoClub-Projects-TomoClub\b33bbbfc-023b-47a9-8a9a-569933c31a2d\scratchpad\mm\cover.jpg"
+    },
     "article_14": {
         "title": "Preparing Students for 2057: The Leadership Playbook of Jan Olson",
         "date": "August 27, 2026",

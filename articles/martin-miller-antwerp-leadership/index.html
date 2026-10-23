@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Martin Miller, Superintendent of Antwerp Local Schools">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity | TomoClub Education Hall">
+    <meta property="og:description" content="Dr. Martin Miller, Superintendent of Antwerp Local Schools">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/martin-miller-antwerp-leadership-cover.jpg">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/martin-miller-antwerp-leadership/">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity | TomoClub Education Hall">
+    <meta name="twitter:description" content="Dr. Martin Miller, Superintendent of Antwerp Local Schools">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/martin-miller-antwerp-leadership-cover.jpg">
+
+    <title>How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity | TomoClub Education Hall</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover-portrait {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .article-cover-portrait .acp-bg {
+            position: absolute;
+            inset: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            object-fit: cover;
+            filter: blur(24px) brightness(0.8);
+        }
+
+        .article-cover-portrait .acp-fg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+    <script defer src="/analytics.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="../../#home" class="logo">
+            <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">October 23, 2026</span>
+                </div>
+                <h1 class="article-title">How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity</h1>
+                <div class="article-cover-portrait">
+                    <img src="../../articles/images/martin-miller-antwerp-leadership-cover.jpg" alt="" aria-hidden="true" class="acp-bg">
+                    <img src="../../articles/images/martin-miller-antwerp-leadership-cover.jpg" alt="How Dr. Martin Miller Leads Antwerp Local Schools: Trust, Innovation, Opportunity" class="acp-fg">
+                </div>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>When Martin Miller entered college, he had a very different future in mind. “I wanted to be an astronaut,” he says. “The thought of being a teacher really never entered my mind.”</p> <p>Education ran in his family. His grandmother and two aunts were educators, but he says they did not play a role in his decision. By his junior year, the science and engineering courses were a struggle. His college advisor noticed how much he liked math and history and suggested he switch gears and work toward teaching. Miller took the advice and changed direction.</p> <p>Today, Dr. Martin Miller is the superintendent of Antwerp Local Schools in rural Ohio, a nationally recognized educator, and a leader whose work has helped students see possibilities well beyond their hometown. He has spent more than four decades in education.</p> <p>The young man who once wanted to explore space has spent his career making sure children can explore a world of possibilities. And he never set out to become a school leader at all.</p> <h3>The Teacher Who Was Happy Being a Teacher</h3> <p>For 16 years, Miller taught middle and high school social studies. “I really enjoyed my sixteen-year career,” he says, “and was very content with being a teacher for the rest of my career in education.”</p> <p>He had finished a master’s degree and planned to take a few more classes to reach the top of the teacher salary schedule. Then two fellow teachers began talking about courses toward a master’s in administration. Ohio was paying one-third of the tuition to help solve a shortage of principals, and Miller decided to join them.</p> <p>Before he even had his license, his superintendent and a couple of school board members asked him to fill the open elementary principal job. He had never taught elementary school. “I was very hesitant,” he remembers, “but decided to give it a try.”</p> <p>He served as an elementary principal for the next 12 years. “I absolutely loved it,” he says. “I loved working with the young kids, my staff, and improving our school effort to educate our students.”</p> <p>Wanting to be the best leader he could be, he enrolled in a leadership studies program at Bowling Green State University and graduated with his doctorate in 2008. He also finished the coursework for a superintendent license. He was not looking for the job. “If the right opportunity came along, I was ready,” he says. And it did. Thirteen years later, he still leads the same district. “I absolutely love the opportunity I have had to work with a board of education, staff, and community to enhance the educational experience for our wonderful students.”</p> <p>There was no grand career plan. There was a series of decisions by someone willing to learn and to accept unfamiliar responsibilities.</p> <h3>Building Trust Before Asking People to Follow</h3> <p>Miller has always been fascinated by leadership, including how leaders in government, the military, and education have handled the situations they faced. One theme kept coming up. “In nearly every situation, trust, or the lack of trust, played the pivotal role,” he says. That is why building and keeping trust inside his organization has shaped his leadership more than anything else.</p> <p>He is open about where this has been hard. “The toughest challenge is to get others to move forward in the direction I am leading them,” he says. “Sometimes leaders like myself get complacent with our thinking that because I say ‘let’s go,’ others will follow.”</p> <p>What he learned is that communication makes the difference. People need to know the purpose, goal, objectives, and outcome of a change. “Of course,” he adds, “they also must believe they can trust me.”</p> <p>That belief shapes how he makes decisions. “Leading by example is the most important principle,” he says. He tries to be in the middle of the situations that need his decision, and he does not rush. He takes time to get input from others and holds himself to a strong moral and ethical standard. “I must be able to explain to those in opposition why I made a decision.”</p> <p>Miller also builds trust by giving people room to lead. In a conversation with District Administration, he described how Antwerp strengthened its leadership team by bringing key positions in-house, including curriculum, special education, and technology. For a small rural district, having experienced professionals who can work independently and closely with teachers makes a real difference.</p> <h3>An Idea That Became a Place to Explore</h3> <p>That trust made a bigger idea possible: the Innovation and Aquaponics Center.</p> <p>It began with a simple goal. “Our inspiration for the Center started with an idea to create a space and resources that all students and staff could benefit from,” Miller says, both academically and through hands-on experience. Like many districts, Antwerp had makerspaces in classrooms and the media center, but access and room to grow were limited.</p> <p>Over 18 months, small groups of teachers, community members, and administrators met with an architecture firm to brainstorm ideas. During the same period, the district shared its vision and construction plans with the public. Then something unexpected happened. An individual contacted Miller and offered to donate the funds to equip the Center with a hydroponics unit, a greenhouse, and two aquaponics systems. The gift fit the district’s plan to teach students about high-tech science in the world of modern agriculture.</p> <p>The Center has since won recognition, including from Tech &amp; Learning. But the comment Miller remembers best came at the public grand opening: “If my school would have had this kind of space when I was in school, it would have made the difference in how I interact with school and my career path.”</p> <h3>The Student Who Found His Future in Robotics</h3> <p>“So many come to mind,” Miller says when asked for a student story, “but one that probably drives the point home” involves a student who thrived with the Center’s robotics resources.</p> <p>The student built on his programming foundation in college. He graduated this past May, but he had already been recruited and hired as a computer programmer, starting the day he graduated. His parents were thrilled. Their son was in a career he loved, he could live close to home, and his starting salary was higher than theirs.</p> <p>Not every student who walks into an innovation center will become a programmer or engineer, and that is not the goal. The goal is for students to discover an interest or ability before they have to make big decisions about their future.</p> <h3>A Small Rural District With a Much Bigger Vision</h3> <p>When Miller became superintendent, the district was already respected. “My vision was simple,” he says: lead it “to higher levels of student performance and fiscal responsibility.”</p> <p>That vision is still at the front of the district’s work. Antwerp believes its students can keep growing as learners and continues to practice fiscal responsibility “despite the multitude of issues confronting school funding at the local, state, and federal levels.”</p> <p>Part of that vision is preparing students for work. Ohio is pushing hard on STEAM and career-tech education, especially in high school, because thousands of jobs in the state need workers with those skills. Antwerp faces the same need locally, along with a need for agricultural science in a rural farming area. That is why the district added agriculture science and STEAM/CTE teaching positions. “We want our children to stay and have families after high school,” Miller says.</p> <p>His top priorities for the future are clear. “Our biggest priority is to develop in our students a vision for potential careers they may have interest in and the skill set to excel in their upcoming and evolving careers.” He also wants his students to have “as many opportunities” as they might have had at a much larger district.</p> <h3>What Classrooms in 15 Countries Taught Him</h3> <p>Miller has visited classrooms in 15 countries. “Despite cultural differences, all children want to learn, explore, and benefit greatly from a caring teacher,” he says.</p> <p>He also saw how much it matters when parents and society are deeply involved in education, and when schools and teachers are highly respected. That lesson shapes how Antwerp talks to its community. Miller and his staff work every day to tell families and community members that the school needs each of them involved. They also work to share the good news about the school. “Our staff floods social media with images of our students making academic and extra-curricular progress,” he says.</p> <p>His view is clear: “The school must be the center of our efforts and the center of our attention.” Buildings should be the best facilities in the community, and staff should be respected for their work.</p> <h3>Preparing Teachers for a Changing Education System</h3> <p>Miller is direct about artificial intelligence. “The positives and negatives are well documented and are important to be aware of,” he says, “but the bottom line is AI in education is here to stay and has so many positives that we need to tap into them.”</p> <p>Antwerp has provided high-quality professional development to help staff find positive uses of AI. Miller sees AI increasing efficiency in instructional time, access to resources, and assessment, and supporting gains in student learning. He also sees it helping with the teacher shortage by creating new ways for independent students to learn.</p> <p>His approach to supporting teachers is practical. The district encourages them to attend professional development and bring best practices into their lessons. His administrative team understands the importance of meeting the needs of Generation Alpha and Generation Z students with learning environments that make students excited to learn. Teachers are also encouraged to learn from the “wealth of information and resources shared by other successful school districts and put it to work in our own.”</p> <h3>Recognition That Belongs to a Community</h3> <p>In 2025, Miller received two honors. He was recognized by the Martha Holden Jennings Foundation with the Ohio Superintendent Award of Excellence and was named Age of Learning’s 2025-2026 Educator of the Year. “Words cannot adequately relay the level of gratitude I have toward the Age of Learning organization,” he says. Receiving the award from one of the top educational technology companies in the world was “humbling in so many ways.”</p> <p>He quickly turns the credit to others. The award, he says, is “really symbolic of the effort and talent of so many staff who work with me” and of a community “that is locked into seeing their youngsters have the academic resources to succeed.”</p> <p>His own part, as he describes it, was recognizing the importance of Age of Learning’s products, seeing how they could be used in his schools, and getting staff the professional development to bring game-based learning into the school day. The result, he says, was significant academic gains in students’ math and language arts skills and knowledge.</p> <h3>What Other School Leaders Can Learn From Dr. Miller</h3> <p>Dr. Miller’s path offers practical lessons for any school leader:</p> <ul> <li><strong>Say yes to what you did not plan.</strong> He never planned to be a principal or superintendent. Each step came from being willing to try something unfamiliar.</li> <li><strong>Earn trust before asking people to change.</strong> Saying “let’s go” is not enough. People need to know the purpose, goal, and outcome, and they need to believe in you.</li> <li><strong>Lead by example and take your time.</strong> Be close to the situation, get input from others, and be ready to explain your decision, even to people who disagree.</li> <li><strong>Build a team and let them lead.</strong> At Antwerp, he brought curriculum, special education, and technology leadership in-house and trusted those leaders to work independently.</li> <li><strong>Start with students, not technology.</strong> Whether it is AI or a new innovation center, the question is how it helps students and teachers.</li> <li><strong>Show the community what is happening.</strong> Share student progress often so families feel part of their school.</li> <li><strong>Give credit away.</strong> He sees his award as a symbol of the work of his staff and community.</li> </ul> <p>His own advice to new leaders is short: “Surround yourself with a talented and trustworthy leadership team who can work independently and inspire others. Always remember to give credit for the work others do and be a good servant to those who look to you for leadership.”</p> <h3>The Future He Is Still Building</h3> <p>After 16 years in the classroom, 12 as an elementary principal, and 13 leading Antwerp Local Schools, Miller could look back on an accomplished career. His attention is still on what students need next.</p> <p>He wants students to see the careers open to them and to build the skills to succeed in them. He wants his small rural district to offer opportunities that students might expect only at a larger school. These goals trace back to his own story. He knows what it is to begin with one idea of the future and find a different one. He knows that a teacher or advisor can see potential before a young person does. And he knows that one opportunity, offered at the right moment, can change a life.</p> <p>Miller may never have become an astronaut. But the curiosity behind that early dream still drives his work. At Antwerp, he is building a school where students can explore, try new things, and find out what they are capable of.</p> <h3>Why TomoClub Shares This Story</h3> <p>At TomoClub, we believe some of the most important lessons in education come from the people who lead schools every day, often in communities whose achievements rarely get the attention they deserve.</p> <p>Dr. Miller’s journey shows that strong leadership is built on trust, continuous learning, openness to new ideas, and a commitment to opening doors for students. His work at Antwerp shows what becomes possible when a school community shares a clear purpose and believes every child deserves the chance to explore a meaningful future.</p> <p>Through Education Hall, we are proud to share stories like his and to recognize the educators whose work is making a lasting difference in public education.</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem; justify-content: center;">
+                <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24" style="height: 24px;">
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
