@@ -409,14 +409,14 @@ nav.scrolled {
 }
 
 .theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: #334155 !important; /* solid, so icon contrast is measurable (was rgba(255,255,255,.1)) */
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #FFFFFF !important;
 }
 
 .mobile-menu-toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: #334155;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #FFFFFF;
   cursor: pointer;
