@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** G. Sitemap, robots, canonicals, deploy clean-up
-- **Current step:** G7
-- **Waiting on:** Vercel preview build
-- **Next action:** run the G7 preview checks
+- **Current step:** G8 done; phase waiting for review
+- **Waiting on:** Rohith: review and approve Phase G
+- **Next action:** on approval, run `seo-next` to start Phase H (analytics)
 
 ---
 
@@ -27,7 +27,7 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | D. Remove router | approved | Router-free `script.js`, hash shim | Rohith, 2026-10-26 |
 | E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
 | F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
-| G. Sitemap, robots, canonicals, deploy clean-up | in progress | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | |
+| G. Sitemap, robots, canonicals, deploy clean-up | waiting for review | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | |
 | H. Analytics | not started | GA + Clarity check | |
 | I. Verify before merge | not started | Preview check report; merge | |
 | J. After launch | not started | Search Console submission, monitoring notes | |
@@ -44,8 +44,8 @@ Task spec: `00-context.md` section 16.
 - [x] G4. Self-referencing `www`, no-slash canonical and `og:url` on every indexable page: 75 pages updated (25 articles, 44 blog posts, `contact-us.html`, `privacy-policy.html`, `terms-and-conditions.html`, `build-with-us/index.html`, plus `og:url` on `parents.html` and `leaders-of-tomorrow/`); templates in `add_article.py`, `add_blog_post.py`, `generate_article_pages.py` emit them
 - [x] G5. `build_sitemap.py` writes `sitemap.xml` (194 URLs: 17 main and root pages, 25 articles, 44 blog posts plus `/blog`, 107 episodes; no `#`, no `noindex`, no-slash `www`, `lastmod` from git); the 3 add_* scripts run it; `--check` mode. Only the player redirect and the `noindex` thank-you page are left out
 - [x] G6. `robots.txt` checked: `Allow: /` and the sitemap line; no change needed
-- [ ] G7. Checks: every sitemap URL returns 200 on the preview with a matching canonical; no indexable page is missing from the sitemap; internal files return 404 on the preview; link crawl clean
-- [ ] G8. Summary given; phase set to `waiting for review`
+- [x] G7. Preview `tomoclub-website-gpexthpsz` (commit `a431110`): all 194 sitemap URLs return 200 with canonical = sitemap URL and no `noindex`; 19 internal files return 404 (`docs/`, `tools/`, `.claude/`, `.py`, `.md`, the 8 root files, `articles_data.js`, `_partials/`, `pages/`); `/contact-form`, `/schedule`, `/waitlist-form`, `/pd` return 301 to the right page; site assets still load; thank-you page is `noindex`. Local link crawl clean (only the known missing image)
+- [x] G8. Summary given; phase set to `waiting for review`
 
 ---
 
