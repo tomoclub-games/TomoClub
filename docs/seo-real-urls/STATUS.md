@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** I. Verify before merge
-- **Current step:** I2
-- **Waiting on:** nothing
-- **Next action:** run the I2-I5 checks on the preview
+- **Current step:** I6
+- **Waiting on:** Rohith: approve the merge to `main` (production) and choose the merge method
+- **Next action:** merge, then production smoke test (I7)
 
 ---
 
@@ -42,8 +42,8 @@ Task spec: `00-context.md` section 18.
 - [x] I2. Preview `tomoclub-website-9cteh9t13`: 195 pages (sitemap + thank-you) all 200; 390 distinct internal link targets, 0 broken
 - [x] I3. All 12 old `/#route` links land on their page and `/#signup` stays on `/`; all 8 `vercel.json` redirects land on their target
 - [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
-- [ ] I5. Visual pass on the preview, desktop and mobile: navbar and dropdowns, mobile menu, theme toggle, forms render (home signup, `/contact-us` Tally, `/build-with-us`, toolkit download), podcast video embeds. Rohith clicks through the preview too. **Claude Code part done:** 18 desktop + 6 mobile screenshots look right; dropdown, theme toggle, mobile menu, Tally iframe, Build With Us form, toolkit modal, episode embed all pass; no page errors. **Waiting on Rohith's click-through**
-- [ ] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**)
+- [x] I5. Visual pass on the preview: Claude Code screenshots and interaction checks passed; Rohith's click-through found the Build With Us / Parents link and navbar issues and the theme flash, all fixed (commits `13511e1` to `fdd0234`); Rohith confirmed it looks good
+- [ ] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. **Waiting on Rohith's merge approval**
 - [ ] I7. Merge to `main` (production deploy) the way Rohith chooses; production smoke test (key URLs, redirects, sitemap); revoke the Vercel bypass token and delete `C:\Users\rohit\.vercel-bypass`
 - [ ] I8. Summary given; phase set to `waiting for review`
 
