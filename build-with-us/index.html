@@ -140,6 +140,18 @@ nav{position:sticky;top:1.25rem;margin:1.25rem auto 0;width:calc(100% - 4rem);ma
 .logo{font-size:1.75rem;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;color:#fff;flex-shrink:0}
 .logo .t{color:var(--teal)}.logo .m{color:var(--gold)}.logo .c{color:var(--crimson)}
 .logo img{height:20px;width:auto;display:block}.footer-logo img{height:24px}
+/* Navbar logo size and position match the shared site navbar (styles.css: nav, .container, .logo img). */
+nav .nav-container{max-width:1150px;margin:0 auto;padding:0 2rem}
+@media (max-width:1200px){nav .nav-container{max-width:95%}}
+@media (max-width:1024px){nav .nav-container{padding:0 1.5rem}}
+@media (max-width:992px){nav{width:calc(100% - 2rem);padding:.5rem 1rem}nav .logo img{height:17px}}
+@media (max-width:768px){nav .nav-container{padding:0}}
+@media (max-width:480px){nav{padding:.4rem .75rem}}
+@media (max-width:360px){nav{padding:.35rem .5rem}}
+/* Like the shared navbar, let the action button wrap instead of overflowing when space is tight. */
+.nav-actions{min-width:0}
+nav .btn{white-space:normal;text-align:center;line-height:1.2}
+nav .theme-toggle{flex-shrink:0}
 .nav-links{display:flex;gap:1.5rem;align-items:center}
 .nav-links a{font-weight:600;font-size:.9rem;color:var(--nav-muted);position:relative;padding:.5rem 0;white-space:nowrap}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--teal);transform:translateX(-50%);border-radius:2px;transition:all .3s ease}
@@ -148,7 +160,7 @@ nav{position:sticky;top:1.25rem;margin:1.25rem auto 0;width:calc(100% - 4rem);ma
 .nav-actions{display:flex;align-items:center;gap:.75rem}
 .theme-toggle{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
 .theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.nav .btn{padding:.6rem 1.25rem;font-size:.95rem}
+nav .btn{padding:.6rem 1.25rem;font-size:.95rem}
 nav .btn-primary{background:#F8FAFC;color:#0F172A}
 nav .btn-primary .ic{background:var(--teal)}
 @media (max-width:900px){.nav-links{display:none}}
