@@ -1,6 +1,6 @@
 # Layout spec: partials and `build_pages.py`
 
-Status: **draft, waiting for Rohith's approval.** No code is written before approval.
+Status: **approved by Rohith, 2026-10-26.**
 
 Phase B, step B2. Task spec: `00-context.md` §11.
 
@@ -132,6 +132,7 @@ No conditionals and no loops. If a page needs something different, it gets its o
 ## 7. `build_pages.py`
 
 - Python 3, standard library only. Run from the repo root: `py build_pages.py`.
+- Reads input with CRLF or LF line endings (Git on Windows checks out CRLF) and always writes LF.
 - Builds every file in `pages/`. Writes UTF-8 with `\n` line endings and no BOM, the same as today's `index.html`.
 - Prints one line per page written.
 - `py build_pages.py --check` builds in memory and exits with code 1 if any output file differs from what is committed. Phase I and the add-* skills use it to catch hand edits to generated files.

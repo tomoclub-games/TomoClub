@@ -8,3 +8,7 @@ for_parents.docx
 __pycache__/
 *.pyc
 .claude/settings.local.json
+
+# Page build sources (build_pages.py). Only the generated HTML is deployed.
+_partials/
+pages/

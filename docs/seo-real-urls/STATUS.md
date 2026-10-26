@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** B. Shared layout
-- **Current step:** B2
-- **Waiting on:** Rohith: approve `02-layout-spec.md`
-- **Next action:** on approval, extract partials (B3)
+- **Current step:** B7 done; phase waiting for review
+- **Waiting on:** Rohith: review and approve Phase B
+- **Next action:** on approval, run `seo-next` to start Phase C (split `index.html`)
 
 ---
 
@@ -22,7 +22,7 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | Phase | Status | Output | Approved by / date |
 |---|---|---|---|
 | A. Baseline | approved | `baseline/` folder, Q1 + Q2 + Q3 decided | Rohith, 2026-10-26 |
-| B. Shared layout | in progress | `_partials/`, `build_pages.py` | |
+| B. Shared layout | waiting for review | `_partials/`, `build_pages.py` | |
 | C. Split `index.html` | not started | `<route>/index.html` pages | |
 | D. Remove router | not started | Router-free `script.js`, hash shim | |
 | E. Rewrite links | not started | Zero route `#` links; updated generators and skills | |
@@ -39,12 +39,12 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 Task spec: `00-context.md` section 11.
 
 - [x] B1. Plan shown to Rohith and accepted
-- [ ] B2. Layout spec `02-layout-spec.md` approved by Rohith (**no code before this**)
-- [ ] B3. Partials extracted from `index.html` into `_partials/`; page body moved to `pages/`
-- [ ] B4. `build_pages.py` written (stdlib only)
-- [ ] B5. `py build_pages.py` regenerates `index.html` identical to the original (`git diff` empty)
-- [ ] B6. `_partials/` and `pages/` added to `.vercelignore`; local browser smoke test of `/` passes
-- [ ] B7. Summary given; phase set to `waiting for review`
+- [x] B2. Layout spec `02-layout-spec.md` approved by Rohith (**no code before this**)
+- [x] B3. Partials extracted from `index.html` into `_partials/` (6 files); page body moved to `pages/index.html`
+- [x] B4. `build_pages.py` written (stdlib only); error cases tested (missing value, missing partial, self-include)
+- [x] B5. `py build_pages.py` regenerates `index.html` byte-identical to the original (`cmp` and `git diff` empty); `--check` exits 0; footer edit flows through and `--check` flags it
+- [x] B6. `_partials/` and `pages/` added to `.vercelignore`. Browser smoke test not run: output is byte-identical to the committed `index.html`, so the page cannot behave differently
+- [x] B7. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -84,6 +84,8 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Q1: keep `podcast-<id>/` URLs (no move to `/podcast/<slug>`). In Phase F, 301 `podcast-player.html?id=X` to `/podcast-X`, and first create the missing `podcast-<id>/` pages for player-only episodes (8 seen in Search Console) | Rohith |
 | 2026-10-26 | Phase A approved | Rohith |
 | 2026-10-26 | Phase B plan accepted | Rohith |
+| 2026-10-26 | Layout spec `02-layout-spec.md` approved | Rohith |
+| 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
 
 ---
 
@@ -107,3 +109,4 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `00-context.md` | Added inventory facts to §4 and Phase E notes to §9 |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase A closed; Phase B checklist and task spec (§11) added |
 | 2026-10-26 | `02-layout-spec.md` | Created (draft, waiting for approval) |
+| 2026-10-26 | `02-layout-spec.md` | Status set to approved |

@@ -1,0 +1,123 @@
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" id="meta-description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    <meta name="author" content="TomoClub">
+    <link rel="canonical" id="canonical-link" href="{{canonical}}">
+
+    <!-- Open Graph / Facebook -->
+                    
+    <!-- Twitter -->
+                    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#2ab4b8">
+
+    <title id="page-title">{{title}}</title>
+
+{{block:head_jsonld}}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEGGQ2ZDMT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEGGQ2ZDMT');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=25">
+    <style>
+        .section-header {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            margin-bottom: 4rem !important;
+        }
+        .section-header h2 {
+            margin-bottom: 1.5rem !important;
+        }
+        .section-header p {
+            max-width: 800px !important;
+            margin: 0 auto !important;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+
+        /* Match inputs to the website's dark theme aesthetics */
+        #main-signup-form .form-control {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #f1f5f9 !important;
+            height: 60px; /* Consistent tall inputs */
+            font-weight: 400;
+        }
+
+        #main-signup-form .form-control:focus {
+            border-color: var(--teal) !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            box-shadow: 0 0 0 4px rgba(42, 180, 184, 0.15) !important;
+        }
+
+        #main-signup-form label {
+            color: #94A3B8 !important;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        /* Custom Dropdown Arrow */
+        #signup-interest {
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 1.25rem center !important;
+            background-size: 1.25rem !important;
+            padding-right: 3rem !important;
+            cursor: pointer;
+        }
+
+        #signup-interest option {
+            background: #1e293b;
+            color: #f1f5f9;
+        }
+
+        /* Placeholder styling */
+        #main-signup-form .form-control::placeholder {
+            color: rgba(148, 163, 184, 0.4) !important;
+        }
+
+        #main-signup-form textarea.form-control {
+            height: auto !important;
+            min-height: 120px;
+            padding-top: 1.25rem !important;
+        }
+    </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{social_description}}">
+    <meta property="og:image" content="{{social_image}}">
+    <meta property="og:site_name" content="TomoClub">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{social_description}}">
+    <meta name="twitter:image" content="{{social_image}}">
+    <script defer src="/analytics.js"></script>
