@@ -4,10 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" id="meta-description" content="Standards-aligned AI literacy curriculum for middle and high school students. Two differentiated tracks. Aligned to AI4K12, ISTE, and UNESCO. Full teacher support included. Request a pilot today.">
+    <script>
+      // Old hash routes (/#pd, /#podcast, ...) now live at real URLs. Send visitors there.
+      (function () {
+        var routes = {
+          '#home': '/', '#ai-literacy': '/ai-literacy', '#future-ready': '/future-ready',
+          '#pd': '/professional-development', '#guides': '/guides', '#education-hall': '/education-hall',
+          '#podcast': '/podcast', '#results': '/results', '#faqs': '/faqs', '#about': '/about',
+          '#blog': '/blog', '#ebook': '/leaders-of-tomorrow'
+        };
+        function go() {
+          var target = routes[location.hash];
+          var here = location.pathname.replace(/\/(index\.html)?$/, '') || '/';
+          if (target && target !== here) location.replace(target);
+        }
+        go();
+        window.addEventListener('hashchange', go);
+      })();
+    </script>
+    <meta name="description" content="Standards-aligned AI literacy curriculum for middle and high school students. Two differentiated tracks. Aligned to AI4K12, ISTE, and UNESCO. Full teacher support included. Request a pilot today.">
     <meta name="keywords" content="TomoClub, K-12 Education, AI Literacy Curriculum, AI Curriculum, Grades 6-12, AI4K12, ISTE, UNESCO">
     <meta name="author" content="TomoClub">
-    <link rel="canonical" id="canonical-link" href="https://www.tomoclub.org/ai-literacy">
+    <link rel="canonical" href="https://www.tomoclub.org/ai-literacy">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -17,7 +35,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#2ab4b8">
 
-    <title id="page-title">AI Literacy Curriculum for Grades 6–12 | TomoClub</title>
+    <title>AI Literacy Curriculum for Grades 6–12 | TomoClub</title>
 
     <script type="application/ld+json">
     {
@@ -51,7 +69,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css?v=25">
+    <link rel="stylesheet" href="/styles.css?v=26">
     <style>
         .section-header {
             display: flex !important;
@@ -207,7 +225,7 @@
             </div>
         </div>
     </nav>
-    <div id="ai-literacy" class="page active faded-in">
+    <div id="ai-literacy">
 
         <!-- HERO -->
         <section class="program-hero ai-literacy-hero">
@@ -1124,7 +1142,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
-    <script src="/script.js?v=24"></script>
+    <script src="/script.js?v=25"></script>
 </body>
 </html>
 

@@ -1,9 +1,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" id="meta-description" content="{{description}}">
+    <script>
+      // Old hash routes (/#pd, /#podcast, ...) now live at real URLs. Send visitors there.
+      (function () {
+        var routes = {
+          '#home': '/', '#ai-literacy': '/ai-literacy', '#future-ready': '/future-ready',
+          '#pd': '/professional-development', '#guides': '/guides', '#education-hall': '/education-hall',
+          '#podcast': '/podcast', '#results': '/results', '#faqs': '/faqs', '#about': '/about',
+          '#blog': '/blog', '#ebook': '/leaders-of-tomorrow'
+        };
+        function go() {
+          var target = routes[location.hash];
+          var here = location.pathname.replace(/\/(index\.html)?$/, '') || '/';
+          if (target && target !== here) location.replace(target);
+        }
+        go();
+        window.addEventListener('hashchange', go);
+      })();
+    </script>
+    <meta name="description" content="{{description}}">
     <meta name="keywords" content="{{keywords}}">
     <meta name="author" content="TomoClub">
-    <link rel="canonical" id="canonical-link" href="{{canonical}}">
+    <link rel="canonical" href="{{canonical}}">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -13,7 +31,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#2ab4b8">
 
-    <title id="page-title">{{title}}</title>
+    <title>{{title}}</title>
 
 {{block:head_jsonld}}
     <!-- Google Fonts -->
@@ -30,7 +48,7 @@
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css?v=25">
+    <link rel="stylesheet" href="/styles.css?v=26">
     <style>
         .section-header {
             display: flex !important;

@@ -1,54 +1,3 @@
-const seoData = {
-  '#home': {
-    title: 'AI Literacy and Future-Ready Skills for K–12 Schools | TomoClub',
-    description: 'TomoClub is the K–12 implementation partner for AI literacy and future-ready skills. Built, delivered, and supported for real classrooms, real teachers, and real students. 14+ US states and 10+ countries.'
-  },
-  '#ai-literacy': {
-    title: 'AI Literacy Curriculum for Grades 6–12 | TomoClub',
-    description: 'Standards-aligned AI literacy curriculum for middle and high school students. Two differentiated tracks. Aligned to AI4K12, ISTE, and UNESCO. Full teacher support included. Request a free pilot.'
-  },
-  '#future-ready': {
-    title: 'Future-Ready Skills Program for K–12 Schools | TomoClub',
-    description: 'Game-based learning program that builds communication, collaboration, leadership, and creative problem-solving in students from Grades 3–12. Built on CASEL framework. Measurable outcomes.'
-  },
-  '#pd': {
-    title: 'AI Professional Development for Teachers | TomoClub',
-    description: 'Practical, customized AI PD for K–12 educators. Builds teacher confidence with AI tools, classroom ethics, and academic integrity. Hands-on and ready to apply the next day.'
-  },
-  '#about': {
-    title: 'About TomoClub | K–12 AI Literacy and Future-Ready EdTech',
-    description: 'TomoClub is a mission-driven EdTech company serving 10,000+ students and 5,000+ teachers across 14+ US states and 10+ countries. The implementation partner for future-ready education.'
-  },
-  '#faqs': {
-    title: 'FAQs | TomoClub AI Literacy and Future-Ready Skills Programs',
-    description: 'Answers to the most common questions about TomoClub programs, pricing, implementation timelines, grade levels, teacher support, and funding options.'
-  },
-  '#education-hall': {
-    title: 'The Education Hall | TomoClub',
-    description: 'Real Stories from Schools Rethinking Education. Explore fresh ideas, perspectives, and conversations on how education needs to evolve for today\'s learners.'
-  },
-  '#podcast': {
-    title: 'The TomoClub Podcast | Play & Learn',
-    description: 'Listen to discussions on SEL, AI literacy, school leadership, and preparing students for the 21st century. New episodes weekly.'
-  },
-  '#guides': {
-    title: 'Guides & Toolkits for School Leaders | TomoClub',
-    description: 'Download practical roadmaps, SEL toolkits, and activation guides for your school district. Built by practitioners for future-ready education.'
-  },
-  '#signup': {
-    title: 'Get Started with TomoClub | Request a Pilot',
-    description: 'Ready to bring future-ready skills to your school? Contact our team to design a pilot program for your district.'
-  },
-  '#blog': {
-    title: 'TomoClub Blog | Insights on AI and Leadership in Education',
-    description: 'Exploring the intersection of technology, leadership, and human-centered learning. Real stories and practical strategies for future-ready schools.'
-  },
-  'blog/why-schools-should-train-teachers-in-ai-literacy/': {
-    title: 'Why Schools Should Train Teachers in AI Literacy | TomoClub Blog',
-    description: 'Discover Why Schools Should Train Teachers in AI Literacy by Building Confidence, Reducing Workload, and Preparing Educators to Guide Students in a Tech-Driven Future'
-  }
-};
-
 // Security Helper: Lightweight sanitization
 function sanitizeHTML(html) {
   if (typeof DOMPurify !== 'undefined') {
@@ -59,65 +8,18 @@ function sanitizeHTML(html) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ... existing code ...
-  // --- 1. Routing & Visibility (Priority) ---
-  const pages = document.querySelectorAll('.page');
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-  function navigateFromHash() {
-    try {
-      let hash = window.location.hash || '#home';
-      if(hash === '#') return;
-
-      // Update SEO Data
-      const currentSeo = seoData[hash] || seoData['#home'];
-      const pageTitle = document.getElementById('page-title');
-      const metaDesc = document.getElementById('meta-description');
-      if (pageTitle && currentSeo.title) pageTitle.textContent = currentSeo.title;
-      if (metaDesc && currentSeo.description) metaDesc.setAttribute('content', currentSeo.description);
-
-      // Update Social Tags
-      const ogTitle = document.getElementById('og-title');
-      const ogDesc = document.getElementById('og-description');
-      const ogUrl = document.getElementById('og-url');
-      const twTitle = document.getElementById('tw-title');
-      const twDesc = document.getElementById('tw-desc');
-      const canonicalLink = document.getElementById('canonical-link');
-
-      if (ogTitle) ogTitle.setAttribute('content', currentSeo.title);
-      if (ogDesc) ogDesc.setAttribute('content', currentSeo.description);
-      if (ogUrl && currentSeo.url) ogUrl.setAttribute('content', currentSeo.url);
-      if (twTitle) twTitle.setAttribute('content', currentSeo.title);
-      if (twDesc) twDesc.setAttribute('content', currentSeo.description);
-      if (canonicalLink && currentSeo.url) canonicalLink.setAttribute('href', currentSeo.url);
-
-      pages.forEach(page => {
-        if ('#' + page.id === hash) {
-          page.classList.add('active');
-          setTimeout(() => page.classList.add('faded-in'), 10);
-          
-          const animatedElements = page.querySelectorAll('.animate-on-scroll');
-          animatedElements.forEach(el => el.classList.remove('visible'));
-          setTimeout(() => {
-            if (typeof observeElements === 'function') observeElements();
-          }, 100);
-        } else {
-          page.classList.remove('active');
-          page.classList.remove('faded-in');
-        }
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } catch (e) {
-      console.error('Routing error:', e);
-    }
-  }
-
-  // Hash routing only applies to the multi-section home page; route pages have a single .page div.
-  if (pages.length > 1) {
-    window.addEventListener('hashchange', navigateFromHash);
-    navigateFromHash();
-  }
+  // --- 1. Nav current state ---
+  // Mark the nav item whose link matches the current URL.
+  const currentPath = window.location.pathname.replace(/\/(index\.html)?$/, '') || '/';
+  document.querySelectorAll('nav .nav-item').forEach(item => {
+    item.querySelectorAll('a[href^="/"]').forEach(link => {
+      const linkPath = link.getAttribute('href').replace(/\/$/, '') || '/';
+      if (linkPath === currentPath) {
+        item.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  });
 
   // --- 2. Initializations ---
   

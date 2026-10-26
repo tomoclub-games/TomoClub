@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** C. Split `index.html`
-- **Current step:** C8 done; phase waiting for review
-- **Waiting on:** Rohith: review and approve Phase C (and confirm the two new page titles in the decision log)
-- **Next action:** on approval, commit Phase C and run `seo-next` to start Phase D (remove router)
+- **Current phase:** D. Remove router
+- **Current step:** D7 done; phase waiting for review
+- **Waiting on:** Rohith: review and approve Phase D
+- **Next action:** on approval, commit Phase D and run `seo-next` to start Phase E (rewrite links)
 
 ---
 
@@ -23,8 +23,8 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 |---|---|---|---|
 | A. Baseline | approved | `baseline/` folder, Q1 + Q2 + Q3 decided | Rohith, 2026-10-26 |
 | B. Shared layout | approved | `_partials/`, `build_pages.py` | Rohith, 2026-10-26 |
-| C. Split `index.html` | waiting for review | `<route>/index.html` pages | |
-| D. Remove router | not started | Router-free `script.js`, hash shim | |
+| C. Split `index.html` | approved | `<route>/index.html` pages | Rohith, 2026-10-26 |
+| D. Remove router | waiting for review | Router-free `script.js`, hash shim | |
 | E. Rewrite links | not started | Zero route `#` links; updated generators and skills | |
 | F. Vercel config | not started | Updated `vercel.json` | |
 | G. Sitemap, robots, canonicals | not started | `build_sitemap.py`, new `sitemap.xml` | |
@@ -34,18 +34,17 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 
 ---
 
-## Current phase checklist: C. Split `index.html`
+## Current phase checklist: D. Remove router
 
-Task spec: `00-context.md` section 12.
+Task spec: `00-context.md` section 13.
 
-- [x] C1. Plan shown to Rohith and accepted
-- [x] C2. Partials updated: root-absolute asset paths, `og:url`, head cleanup, generated-file comment, nav and footer links point to the new URLs. Shared "Global CTA" section moved to `_partials/cta.html` and included on every page
-- [x] C3. Router guard in `script.js`: hash routing runs only on pages with more than one `.page` div. Toolkit download URL made root-absolute. `script.js?v=24`
-- [x] C4. 10 page files in `pages/` with unique title, description, canonical, social tags and one `<h1>`; built to `<route>/index.html`. Relative `src`/`href`/`data-file` paths in their bodies made root-absolute
-- [x] C5. JSON-LD added: `FAQPage` on `/faqs`, `PodcastSeries` on `/podcast`, `Service` on the three program pages
-- [x] C6. Redirect stubs `education-hall/`, `podcast/`, `blog/` replaced by the real pages
-- [x] C7. Local check: every new URL returns 200 with the right title, canonical and one `<h1>`; desktop and mobile screenshots of each page; `/` still works with `#` links; `build_pages.py --check` passes. Note: headless Chrome mobile shots are clipped on the right on every page including the unchanged `/`, so they are a tool limit, not a regression; a real-device mobile pass is in Phase I
-- [x] C8. Summary given; phase set to `waiting for review`
+- [x] D1. Plan shown to Rohith and accepted
+- [x] D2. `pages/index.html` slimmed to the home section; `/` JSON-LD trimmed to `Organization` + `WebSite` (`SearchAction` dropped). `/` is now 82 KB (was 571 KB)
+- [x] D3. Hash router, `seoData` and the `.page` show/hide system removed (`script.js`, `styles.css`, page wrappers, head ids)
+- [x] D4. Hash shim on every page: `#<route>` on load or on `hashchange` goes to the real URL; in-page anchors untouched
+- [x] D5. Nav "current" state set from `location.pathname`
+- [x] D6. Local check (puppeteer-core + local Chrome): all 11 pages render; scroll animations, FAQ accordion, article and podcast filters, download modal, theme toggle and mobile menu work; all 12 old `/#route` links land on their page; in-page `#pd` link navigates; `/#signup` stays on `/`; `--check` passes. Pilot and video modals have no trigger on any page, so they were not exercised. Mobile menu matches production
+- [x] D7. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -77,6 +76,19 @@ Result: `index.html` is generated from `_partials/` and `pages/index.html` by `b
 - [x] B6. `_partials/` and `pages/` added to `.vercelignore`. Browser smoke test not run: output is byte-identical to the committed `index.html`, so the page cannot behave differently
 - [x] B7. Summary given; phase set to `waiting for review`
 
+### C. Split `index.html` (approved by Rohith, 2026-10-26)
+
+Result: 10 route pages with static SEO tags and JSON-LD; redirect stubs replaced; `/` unchanged apart from partials. Commit `cfd7b99`.
+
+- [x] C1. Plan shown to Rohith and accepted
+- [x] C2. Partials updated: root-absolute asset paths, `og:url`, head cleanup, generated-file comment, nav and footer links point to the new URLs. Shared "Global CTA" section moved to `_partials/cta.html` and included on every page
+- [x] C3. Router guard in `script.js`: hash routing runs only on pages with more than one `.page` div. Toolkit download URL made root-absolute. `script.js?v=24`
+- [x] C4. 10 page files in `pages/` with unique title, description, canonical, social tags and one `<h1>`; built to `<route>/index.html`. Relative `src`/`href`/`data-file` paths in their bodies made root-absolute
+- [x] C5. JSON-LD added: `FAQPage` on `/faqs`, `PodcastSeries` on `/podcast`, `Service` on the three program pages
+- [x] C6. Redirect stubs `education-hall/`, `podcast/`, `blog/` replaced by the real pages
+- [x] C7. Local check: every new URL returns 200 with the right title, canonical and one `<h1>`; desktop and mobile screenshots of each page; `/` still works with `#` links; `build_pages.py --check` passes. Note: headless Chrome mobile shots are clipped on the right on every page including the unchanged `/`, so they are a tool limit, not a regression; a real-device mobile pass is in Phase I
+- [x] C8. Summary given; phase set to `waiting for review`
+
 ---
 
 ## Decision log
@@ -102,6 +114,9 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase C plan accepted | Rohith |
 | 2026-10-26 | `/blog` built from the `#blog` section; `blog/index.html` was a redirect stub, not a real page | Claude Code (fact correction) |
 | 2026-10-26 | New page titles where `seoData` was missing or outdated: `/podcast` = "The Learning Shift Podcast \| TomoClub" (seoData said "The TomoClub Podcast \| Play & Learn"); `/results` = "Results and Case Studies \| TomoClub" (no seoData entry). Needs Rohith's confirmation | Claude Code |
+| 2026-10-26 | Phase C approved, including the `/podcast` and `/results` titles and the Educational Hall link change | Rohith |
+| 2026-10-26 | Phase D plan accepted | Rohith |
+| 2026-10-26 | Hash shim runs on every page (not only `/`), so leftover `#route` links in page bodies work until Phase E | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -131,3 +146,5 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `02-layout-spec.md` | Status set to approved |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase B closed; Phase C checklist and task spec (§12) added; corrected `blog/` fact |
 | 2026-10-26 | `02-layout-spec.md` | Added `cta.html` partial and `{{source}}` value |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase C closed; Phase D checklist and task spec (§13) added |
+| 2026-10-26 | `00-context.md` | Added open items: missing `android-chrome-*.png` icons, unused pilot and video modals |

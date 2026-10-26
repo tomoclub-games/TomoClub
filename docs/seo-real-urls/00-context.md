@@ -133,6 +133,8 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - Phase E: decide whether to rewrite links in `archive/` too (16 links in `archive/parents-legacy.html`) or exclude `archive/` from the `--check`.
 - Phase E: one-off scripts (`add_brad_article.py`, `add_shane_article.py`) contain route links. Decide whether to update or delete them.
 - After Phase C: consider moving other pages with their own navbar copy (`parents.html`, `leaders-of-tomorrow/`, articles, podcast pages, blog) onto the shared partials, so the navbar is edited in one place.
+- `site.webmanifest` points to `/android-chrome-192x192.png` and `/android-chrome-512x512.png`, which do not exist. Every page logs a 404 for it. This is older than the project (since the initial commit). Fix in Phase I or separately.
+- The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
 
 ---
@@ -242,3 +244,27 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - "Load only the JS each page needs": no per-page data scripts exist, and every feature in `script.js` (636 lines) already checks that its elements exist. All pages keep the one shared `script.js`. The size win comes from each page carrying only its own section.
 
 **Known gaps until later phases:** links inside page bodies still use `#` routes (Phase E). On a new page, such a link goes to `/<route>#x` and does nothing until Phase E rewrites it. The branch is not deployed to production before Phase I.
+
+---
+
+## 13. Task spec: Phase D
+
+**Goal:** `/` becomes a normal single page with only the home section. The hash router and the `.page` show/hide system are removed. Old `/#route` links keep working through a small shim.
+
+**Inputs:** Phase C pages; `script.js` router (`navigateFromHash`, `seoData`); `.page` CSS in `styles.css` (lines ~1032-1047 and the print rule ~1706); `.nav-item.active` CSS already exists.
+
+**Steps:**
+
+1. Slim `pages/index.html` to the home section. `/` JSON-LD keeps `Organization` and `WebSite`. `Service` and `FAQPage` are dropped there, because they now live on the program pages and `/faqs`, where the content is visible. The `WebSite` `SearchAction` is dropped too: the site has no search page, so `/?s=` is not a real search URL.
+2. Remove the router: `seoData`, `navigateFromHash` and its listener in `script.js`; the `.page`, `.page.active`, `.page.faded-in` rules in `styles.css`; the `page active faded-in` classes on the page wrappers; the `id="page-title"`, `id="meta-description"`, `id="canonical-link"` attributes in `_partials/head.html`. The wrapper `<div id="<route>">` stays, so in-page anchors to it still work.
+3. Hash shim in `_partials/head.html`, on every page, inline and before any rendering:
+   - map: `#home` to `/`, `#ai-literacy`, `#future-ready`, `#pd` to `/professional-development`, `#guides`, `#education-hall`, `#podcast`, `#results`, `#faqs`, `#about`, `#blog`, `#ebook` to `/leaders-of-tomorrow`;
+   - runs on load and on `hashchange`, using `location.replace` so the old URL does not stay in history;
+   - does nothing when the target is the current page (so `/faqs#faqs` does not reload);
+   - ignores every other hash (`#signup`, `#programs`, ...).
+   Running it on every page also makes the remaining `#route` links inside page bodies work until Phase E rewrites them.
+4. Nav current state: add `active` to the `.nav-item` whose link (or dropdown link) matches `location.pathname`, and `aria-current="page"` to that link.
+5. Local check with `py -m http.server`: all 11 pages render with content visible; scroll animations, FAQ accordion, article and podcast filters, toolkit download modal, pilot modal, video modal, theme toggle and mobile menu work; each old `/#route` lands on its page; `/#signup` stays on `/`; record the new `/` size; `py build_pages.py --check` passes.
+6. Summary given; phase set to `waiting for review`.
+
+**Behaviour change to note:** today the browser title of `/` is set by JavaScript from `seoData` ("AI Literacy and Future-Ready Skills for K–12 Schools | TomoClub"). After this phase, the static title in the HTML is used ("AI Literacy & Future-Ready Skills for K–12 Schools | TomoClub Implementation Partner"). The static one is what Google indexes today, so search results do not change.
