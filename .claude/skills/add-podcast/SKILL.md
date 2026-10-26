@@ -6,7 +6,7 @@ tools: Bash, Read, Edit, Grep
 
 # Add Podcast Episode
 
-Adds one new podcast episode to the site using `add_podcast_episode.py` at the repo root, a hardened helper script that replaced the guide's original multi-script pipeline after it hit real bugs in production (see "Why not the old pipeline" below).
+Adds one new podcast episode to the site using `scripts/add_podcast_episode.py`, a hardened helper script that replaced the guide's original multi-script pipeline after it hit real bugs in production (see "Why not the old pipeline" below).
 
 ## Steps
 
@@ -14,22 +14,20 @@ Adds one new podcast episode to the site using `add_podcast_episode.py` at the r
 
 2. **Run the script** from the repo root:
    ```bash
-   python add_podcast_episode.py --url "https://youtu.be/VIDEO_ID?si=..." --speaker "Full Name" --date "July 26, 2026"
+   python scripts/add_podcast_episode.py --url "https://youtu.be/VIDEO_ID?si=..." --speaker "Full Name" --date "July 26, 2026"
    ```
    This single call:
    - Extracts the video ID from the URL.
    - Fetches the real title + duration for **just that one video** from YouTube (not the whole back-catalog — fetching all ~100 videos at once triggers 429 rate limits).
-   - Adds the entry to `podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py build_podcast_pages.py`; never edit `podcast-<id>/index.html` by hand.
-   - Adds/refreshes the entry in `podcast_data.json` (metadata cache).
-   - Appends the URL to `generate_html.py`'s `urls` list and the tuple to `update_js_metadata.py`'s `new_podcasts` list (kept as historical records only — see below).
-   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py build_podcast_pages.py`, which creates the episode page `podcast-<id>/index.html`. The card links to `/podcast-<id>`. The script then runs `py build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
+   - Adds the entry to `data/podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py scripts/build_podcast_pages.py`; never edit `podcast/episodes/<id>/index.html` by hand.
+   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py scripts/build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py scripts/build_podcast_pages.py`, which creates the episode page `podcast/episodes/<id>/index.html` (served at `/podcast-<id>`). The card links to `/podcast-<id>`. The script then runs `py scripts/build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
    - All steps are duplicate-safe: re-running with the same URL is a no-op that reports "already has an entry, skipping" for each file.
 
 3. **Verify the diff is minimal and sane**:
    ```bash
    git diff --stat
    ```
-   Expect small, additive diffs only: `pages/podcast.html` (~16 lines), the same lines in the generated `podcast/index.html`, `podcasts_data.js` (~8 lines), `podcast_data.json` (~6 lines), `generate_html.py` (~1 line), `update_js_metadata.py` (~1 line). If any file shows hundreds of changed lines, stop — something went wrong (see Troubleshooting).
+   Expect small, additive diffs only: `pages/podcast.html` (~16 lines), the same lines in the generated `podcast/index.html`, `data/podcasts_data.js` (~8 lines), the new episode page and `sitemap.xml` (~1 line). If any file shows hundreds of changed lines, stop — something went wrong (see Troubleshooting).
 
 4. **Set up a local preview and hand the user the links.** Check if a local server is already running on port 8000:
    ```bash
@@ -60,4 +58,4 @@ The original guide (`TomoClub Content Management & GitHub Publishing Guide new.p
 - **Large/unexpected diff after running the script**: revert (`git checkout -- <file>`) and re-run; check the printed output for which step ran vs. skipped.
 - **YouTube fetch fails with 429**: wait a few minutes before retrying; the script already retries 3x with backoff, but the whole back-catalog scripts (`fetch_podcasts.py`, `update_all.py`) should not be run to work around it.
 - **Local preview shows stale content**: check for duplicate processes on port 8000 (see step 4) and hard-refresh the browser.
-- **Duplicate keys in `podcasts_data.js`**: verify with `node -e "new Function(require('fs').readFileSync('podcasts_data.js','utf-8')+'; return podcastsData;')()"` — should not throw and should have no repeated keys.
+- **Duplicate keys in `data/podcasts_data.js`**: verify with `node -e "new Function(require('fs').readFileSync('podcasts_data.js','utf-8')+'; return podcastsData;')()"` — should not throw and should have no repeated keys.

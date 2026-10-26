@@ -109,6 +109,72 @@
       "source": "/podcast-player",
       "destination": "/podcast",
       "statusCode": 301
+    },
+    {
+      "source": "/podcast/episodes/:id",
+      "destination": "/podcast-:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/parents.html",
+      "destination": "/parents",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-us.html",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-and-conditions.html",
+      "destination": "/terms-and-conditions",
+      "statusCode": 301
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/assets/css/styles.css",
+      "statusCode": 301
+    },
+    {
+      "source": "/script.js",
+      "destination": "/assets/js/script.js",
+      "statusCode": 301
+    },
+    {
+      "source": "/analytics.js",
+      "destination": "/assets/js/analytics.js",
+      "statusCode": 301
+    },
+    {
+      "source": "/favicon-16x16.png",
+      "destination": "/assets/icons/favicon-16x16.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/favicon-32x32.png",
+      "destination": "/assets/icons/favicon-32x32.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/assets/icons/apple-touch-icon.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/site.webmanifest",
+      "destination": "/assets/icons/site.webmanifest",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/podcast-:id",
+      "destination": "/podcast/episodes/:id"
     }
   ]
 }

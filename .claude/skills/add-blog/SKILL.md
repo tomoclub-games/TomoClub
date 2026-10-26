@@ -6,7 +6,7 @@ tools: Bash, Read, Edit, Grep
 
 # Add Blog Post
 
-Adds one new post to the TomoClub Blog using `add_blog_post.py` at the repo root. This is a **separate system from the Education Hall** (`add-article` skill) -- different URL space (`blog/<slug>/` vs `articles/<slug>/`), different template, different grid (`/blog`, source `pages/blog.html`), and no JS data registry. Don't reach for `add_article.py` for a "blog" request or vice versa; check with the user if it's ambiguous which one they mean.
+Adds one new post to the TomoClub Blog using `scripts/add_blog_post.py`. This is a **separate system from the Education Hall** (`add-article` skill) -- different URL space (`blog/<slug>/` vs `articles/<slug>/`), different template, different grid (`/blog`, source `pages/blog.html`), and no JS data registry. Don't reach for `add_article.py` for a "blog" request or vice versa; check with the user if it's ambiguous which one they mean.
 
 ## Key differences from Education Hall articles (don't copy those conventions here)
 
@@ -52,7 +52,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 2. **If the source is a PDF, extract its embedded images before writing content.** PDFs like infographic-heavy tip sheets often have inline graphics that belong in the post. Use the shared helper:
    ```bash
-   python pdf_image_utils.py path/to/source.pdf /path/to/scratch/dir
+   python scripts/pdf_image_utils.py path/to/source.pdf /path/to/scratch/dir
    ```
    This dumps every embedded image as `page<N>-img<i>.<ext>` and prints their page numbers and dimensions. **Review each one with the Read tool** (view it) before using it -- not every embedded image is worth keeping (some PDFs embed background textures, logos, or decorative elements as separate XObjects). Only reference the ones that are genuinely content (e.g. an infographic that supports the text). Rename the useful ones to something descriptive in the same directory (e.g. `the-5-cs-of-screen-time.jpeg`) so the content HTML and the final published filename stay readable.
 
@@ -81,7 +81,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 5. **Run the script**:
    ```bash
-   python add_blog_post.py --title "Healthy Screen-Time Habits for Kids" \
+   python scripts/add_blog_post.py --title "Healthy Screen-Time Habits for Kids" \
      --category "Parenting" \
      --description "Healthy screen-time habits require much more than setting time limits..." \
      --cover /path/to/hero.jpeg \
@@ -91,7 +91,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
    - Saves the cover as `blog/<slug>/hero.<ext>`.
    - Localizes any `<img>` in the content: external URLs get downloaded and renamed `<slug>-img-N.ext`; bare local filenames (e.g. extracted PDF images) get copied in from next to `--content-file`.
    - Renders `blog/<slug>/index.html` from the current template.
-   - Inserts a new card at the **top** of `#blog`'s `grid-3` in `pages/blog.html`, then runs `py build_pages.py`, which regenerates `blog/index.html` (never edit that file by hand: it is generated). The script auto-rotates the card's gradient/category-badge color between gold (`#D97706`), teal (`var(--teal)`), and slate (`var(--navy)`) based on how many blog cards already exist. The script then runs `py build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
+   - Inserts a new card at the **top** of `#blog`'s `grid-3` in `pages/blog.html`, then runs `py scripts/build_pages.py`, which regenerates `blog/index.html` (never edit that file by hand: it is generated). The script auto-rotates the card's gradient/category-badge color between gold (`#D97706`), teal (`var(--teal)`), and slate (`var(--navy)`) based on how many blog cards already exist. The script then runs `py scripts/build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
    - Is duplicate-safe: aborts before writing anything if `blog/<slug>/` already exists; re-running with a slug that already has a homepage card skips that step.
 
 6. **Verify the diff is minimal**: `git diff --stat` should show `pages/blog.html` (~11-13 lines), the same lines in the generated `blog/index.html`, plus new files under `blog/<slug>/`. If either shows hundreds of changed lines, stop -- something went wrong (e.g. the `id="blog"` marker moved and the insertion landed in the wrong section).
