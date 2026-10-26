@@ -246,6 +246,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | STATUS update `5cba166` stays local on `main` (not pushed yet) | Rohith |
 | 2026-10-26 | New Phase K, repo clean-up, before Phase J. Podcast episodes move to `/podcast/<id>` with 301s from `/podcast-<id>` (replaces Q1's "keep `podcast-<id>`"); one-off scripts go to `archive/scripts/` (kept, not deleted); site assets move into `assets/` | Rohith |
 | 2026-10-26 | Revised: no public URL changes in Phase K. Podcast, article and blog links are already shared on socials. Episodes stay at `/podcast-<id>`; their folders move to `podcast/episodes/<id>/` and Vercel serves them at the old URL (rewrite), with a 301 from `/podcast/episodes/<id>` so there is one public address. Supersedes the `/podcast/<id>` decision above | Rohith |
+| 2026-10-26 | Old root asset paths (`/styles.css`, `/script.js`, `/analytics.js`, icons, `/site.webmanifest`) 301 to their `/assets/...` location, so pages still cached in a browser keep their styling | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
