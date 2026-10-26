@@ -114,6 +114,26 @@
       "source": "/podcast/episodes/:id",
       "destination": "/podcast-:id",
       "statusCode": 301
+    },
+    {
+      "source": "/parents.html",
+      "destination": "/parents",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-us.html",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-and-conditions.html",
+      "destination": "/terms-and-conditions",
+      "statusCode": 301
     }
   ],
   "rewrites": [
