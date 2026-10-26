@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** F. Vercel config and podcast pages
-- **Current step:** F8
-- **Waiting on:** Rohith: OK to push branch `seo-real-urls` to GitHub for a Vercel preview
-- **Next action:** push, then test redirects, clean URLs and no-slash URLs on the preview with `curl -I`
+- **Current step:** F9 done; phase waiting for review
+- **Waiting on:** Rohith: review and approve Phase F
+- **Next action:** on approval, run `seo-next` to start Phase G (sitemap, robots, canonicals)
 
 ---
 
@@ -26,7 +26,7 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | C. Split `index.html` | approved | `<route>/index.html` pages | Rohith, 2026-10-26 |
 | D. Remove router | approved | Router-free `script.js`, hash shim | Rohith, 2026-10-26 |
 | E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
-| F. Vercel config and podcast pages | in progress | Updated `vercel.json`; 107 generated episode pages; player redirect | |
+| F. Vercel config and podcast pages | waiting for review | Updated `vercel.json`; 107 generated episode pages; player redirect | |
 | G. Sitemap, robots, canonicals | not started | `build_sitemap.py`, new `sitemap.xml` | |
 | H. Analytics | not started | GA + Clarity check | |
 | I. Verify before merge | not started | Preview check report; merge | |
@@ -45,8 +45,8 @@ Task spec: `00-context.md` section 15.
 - [x] F5. Trailing slash settled: no trailing slash. 205 absolute and 103 relative folder links rewritten (relative `../x/` links were already broken on production because Vercel serves these pages without the slash); generator templates updated
 - [x] F6. `vercel.json`: `cleanUrls: true`, manual `rewrites` removed, 301 `/pd` to `/professional-development`, 301 `/podcast-player.html?id=X` to `/podcast-X`, 301 `/podcast-player.html` (no id) to `/podcast`
 - [x] F7. Local check: episode pages render (title, h1, video, meta); link crawl of all 199 deployable pages (6,273 internal links) finds no broken links except one missing image that predates the project; `build_pages.py --check`, `build_podcast_pages.py --check` and `inventory.py --check` pass
-- [ ] F8. Vercel preview (only after Rohith OKs pushing the branch): redirects, clean URLs and no-slash URLs verified with `curl`
-- [ ] F9. Summary given; phase set to `waiting for review`
+- [x] F8. Vercel preview, pushed with Rohith's OK and tested with Rohith's automation bypass token (kept in `C:\Users\rohit\.vercel-bypass`, never printed): 18 pages return 200; `/pd` 301 to `/professional-development`; `.html`, trailing-slash and `/index.html` URLs 308 to the clean URL; unknown URL 404; `/podcast-player.html?id=X` reaches `/podcast-X` in 2 hops (308 clean URL, then 301) with `?id=X` left on the URL. The episode canonical is clean, so Google consolidates to `/podcast-X`
+- [x] F9. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -157,6 +157,9 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Episode speakers stored as "Feat. Name" are shown as "Name" | Claude Code |
 | 2026-10-26 | E4 was incomplete: it only changed apex links that carried a route hash. 13 plain `https://tomoclub.org/...` links (in `build-with-us/` and 2 blog posts) changed to www in Phase F | Claude Code |
 | 2026-10-26 | `leaders-of-tomorrow/index.html` linked to `leaders-of-tomorrow.html`, which does not exist (banner button and breadcrumb JSON-LD); now `/leaders-of-tomorrow` | Claude Code |
+| 2026-10-26 | Phase F committed (`d629d91`) and branch `seo-real-urls` pushed to GitHub with Rohith's OK. Preview `https://tomoclub-website-fbrzicbpe-tomo-club.vercel.app` built, but Vercel Deployment Protection (SSO) blocks unauthenticated requests | Rohith / Claude Code |
+| 2026-10-26 | Player redirect accepted as is: 2 hops and a leftover `?id=` query; the target canonical is clean. Revisit only if Search Console flags it | Claude Code |
+| 2026-10-26 | Revoke the Vercel automation bypass token and delete `C:\Users\rohit\.vercel-bypass` after Phase I | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
