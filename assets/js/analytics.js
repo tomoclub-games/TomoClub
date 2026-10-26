@@ -1,6 +1,6 @@
 /* TomoClub site analytics — one file, loaded on every page.
  *
- *   <script defer src="/analytics.js"></script>   (already added before </head> on every page)
+ *   <script defer src="/assets/js/analytics.js"></script>   (already added before </head> on every page)
  *
  * Fill in the two IDs below. Nothing else needs editing.
  *   GA4          : Google Analytics property already used on the site.

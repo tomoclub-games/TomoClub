@@ -101,7 +101,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../styles.css?v=21">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=21">
     <style>
         body {{
             background: var(--bg-main);
@@ -262,7 +262,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             --border-color: rgba(255,255,255,0.1);
         }}
     </style>
-    <script defer src="/analytics.js"></script>
+    <script defer src="/assets/js/analytics.js"></script>
 </head>
 <body>
 <script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>

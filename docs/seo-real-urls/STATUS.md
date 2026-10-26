@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** K. Repo clean-up (runs before Phase J)
-- **Current step:** K4
+- **Current step:** K6
 - **Waiting on:** nothing
-- **Next action:** move site assets into `assets/` and rewrite references
+- **Next action:** archive one-off scripts, move documents to `docs/`
 
 ---
 
@@ -42,7 +42,7 @@ Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). Phas
 - [x] K1. Plan shown to Rohith and accepted (revised: no URL changes, see decision log)
 - [x] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated (rewrite and 301 to be verified on the preview in K7)
 - [x] K3. Root pages move into folders: `parents/`, `contact-us/`, `privacy-policy/`, `terms-and-conditions/` (`index.html` each); URLs unchanged; old `/<name>.html` addresses 301 to `/<name>` (they used to work through `cleanUrls` while the files existed)
-- [ ] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated
+- [x] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated (991 references in 200 files; `styles.css` and `script.js` cache busters bumped to `v=27`)
 - [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
 - [ ] K6. One-off and retired scripts and files move to `archive/scripts/`; internal documents and source PDFs move to `docs/`; `scope and sequence/` PDF moves to `toolkits/`; unused files (`podcast-player.html`, `tomo_*_thumb.jpg`) deleted
 - [ ] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`

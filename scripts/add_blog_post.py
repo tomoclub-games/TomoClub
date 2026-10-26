@@ -111,7 +111,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../styles.css?v=21">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=21">
 
     <style>
         :root {{
@@ -296,7 +296,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:title" content="{title} | TomoClub Blog">
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="https://www.tomoclub.org/blog/{slug}/{cover_local_name}">
-    <script defer src="/analytics.js"></script>
+    <script defer src="/assets/js/analytics.js"></script>
 </head>
 <body>
 <script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>
