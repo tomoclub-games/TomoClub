@@ -19,6 +19,7 @@ _partials/            shared fragments (not deployed)
   layout.html         the page skeleton: doctype, <html>, <head>, <body>, includes
   head.html           shared <head> content with {{vars}}
   nav.html            announcement banner + <nav>
+  cta.html            "Global CTA" section shown above the footer on every page (added in Phase C)
   footer.html         <footer>
   modals.html         floating CTA, pilot, video, article and download modals
   scripts.html        closing <script> tags
@@ -117,6 +118,7 @@ Rules:
 | `{{name}}` | Insert the front-matter value `name` |
 | `{{block:name}}` | Insert the block `name` from the page file |
 | `{{content}}` | Insert the page body |
+| `{{source}}` | Set by the build to the page's source path (`pages/<name>.html`) unless the front matter sets it |
 
 Partials can include other partials. The build fails with a clear message, naming the page and the line, when:
 

@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** B. Shared layout
-- **Current step:** B7 done; phase waiting for review
-- **Waiting on:** Rohith: review and approve Phase B
-- **Next action:** on approval, run `seo-next` to start Phase C (split `index.html`)
+- **Current phase:** C. Split `index.html`
+- **Current step:** C8 done; phase waiting for review
+- **Waiting on:** Rohith: review and approve Phase C (and confirm the two new page titles in the decision log)
+- **Next action:** on approval, commit Phase C and run `seo-next` to start Phase D (remove router)
 
 ---
 
@@ -22,8 +22,8 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | Phase | Status | Output | Approved by / date |
 |---|---|---|---|
 | A. Baseline | approved | `baseline/` folder, Q1 + Q2 + Q3 decided | Rohith, 2026-10-26 |
-| B. Shared layout | waiting for review | `_partials/`, `build_pages.py` | |
-| C. Split `index.html` | not started | `<route>/index.html` pages | |
+| B. Shared layout | approved | `_partials/`, `build_pages.py` | Rohith, 2026-10-26 |
+| C. Split `index.html` | waiting for review | `<route>/index.html` pages | |
 | D. Remove router | not started | Router-free `script.js`, hash shim | |
 | E. Rewrite links | not started | Zero route `#` links; updated generators and skills | |
 | F. Vercel config | not started | Updated `vercel.json` | |
@@ -34,17 +34,18 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 
 ---
 
-## Current phase checklist: B. Shared layout
+## Current phase checklist: C. Split `index.html`
 
-Task spec: `00-context.md` section 11.
+Task spec: `00-context.md` section 12.
 
-- [x] B1. Plan shown to Rohith and accepted
-- [x] B2. Layout spec `02-layout-spec.md` approved by Rohith (**no code before this**)
-- [x] B3. Partials extracted from `index.html` into `_partials/` (6 files); page body moved to `pages/index.html`
-- [x] B4. `build_pages.py` written (stdlib only); error cases tested (missing value, missing partial, self-include)
-- [x] B5. `py build_pages.py` regenerates `index.html` byte-identical to the original (`cmp` and `git diff` empty); `--check` exits 0; footer edit flows through and `--check` flags it
-- [x] B6. `_partials/` and `pages/` added to `.vercelignore`. Browser smoke test not run: output is byte-identical to the committed `index.html`, so the page cannot behave differently
-- [x] B7. Summary given; phase set to `waiting for review`
+- [x] C1. Plan shown to Rohith and accepted
+- [x] C2. Partials updated: root-absolute asset paths, `og:url`, head cleanup, generated-file comment, nav and footer links point to the new URLs. Shared "Global CTA" section moved to `_partials/cta.html` and included on every page
+- [x] C3. Router guard in `script.js`: hash routing runs only on pages with more than one `.page` div. Toolkit download URL made root-absolute. `script.js?v=24`
+- [x] C4. 10 page files in `pages/` with unique title, description, canonical, social tags and one `<h1>`; built to `<route>/index.html`. Relative `src`/`href`/`data-file` paths in their bodies made root-absolute
+- [x] C5. JSON-LD added: `FAQPage` on `/faqs`, `PodcastSeries` on `/podcast`, `Service` on the three program pages
+- [x] C6. Redirect stubs `education-hall/`, `podcast/`, `blog/` replaced by the real pages
+- [x] C7. Local check: every new URL returns 200 with the right title, canonical and one `<h1>`; desktop and mobile screenshots of each page; `/` still works with `#` links; `build_pages.py --check` passes. Note: headless Chrome mobile shots are clipped on the right on every page including the unchanged `/`, so they are a tool limit, not a regression; a real-device mobile pass is in Phase I
+- [x] C8. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -63,6 +64,18 @@ Result: Search Console, Lighthouse and inventory baselines saved in `baseline/`;
 - [x] A5. Inventory script run; `baseline/inventory.md` saved
 - [x] A6. Q1, Q2 and Q3 answered by Rohith and logged
 - [x] A7. Summary given; phase set to `waiting for review`
+
+### B. Shared layout (approved by Rohith, 2026-10-26)
+
+Result: `index.html` is generated from `_partials/` and `pages/index.html` by `build_pages.py`, byte-identical to before. Commit `8cb9700`.
+
+- [x] B1. Plan shown to Rohith and accepted
+- [x] B2. Layout spec `02-layout-spec.md` approved by Rohith (**no code before this**)
+- [x] B3. Partials extracted from `index.html` into `_partials/` (6 files); page body moved to `pages/index.html`
+- [x] B4. `build_pages.py` written (stdlib only); error cases tested (missing value, missing partial, self-include)
+- [x] B5. `py build_pages.py` regenerates `index.html` byte-identical to the original (`cmp` and `git diff` empty); `--check` exits 0; footer edit flows through and `--check` flags it
+- [x] B6. `_partials/` and `pages/` added to `.vercelignore`. Browser smoke test not run: output is byte-identical to the committed `index.html`, so the page cannot behave differently
+- [x] B7. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -85,6 +98,12 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase A approved | Rohith |
 | 2026-10-26 | Phase B plan accepted | Rohith |
 | 2026-10-26 | Layout spec `02-layout-spec.md` approved | Rohith |
+| 2026-10-26 | Phase B approved | Rohith |
+| 2026-10-26 | Phase C plan accepted | Rohith |
+| 2026-10-26 | `/blog` built from the `#blog` section; `blog/index.html` was a redirect stub, not a real page | Claude Code (fact correction) |
+| 2026-10-26 | New page titles where `seoData` was missing or outdated: `/podcast` = "The Learning Shift Podcast \| TomoClub" (seoData said "The TomoClub Podcast \| Play & Learn"); `/results` = "Results and Case Studies \| TomoClub" (no seoData entry). Needs Rohith's confirmation | Claude Code |
+| 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
+| 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
 
 ---
@@ -110,3 +129,5 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase A closed; Phase B checklist and task spec (§11) added |
 | 2026-10-26 | `02-layout-spec.md` | Created (draft, waiting for approval) |
 | 2026-10-26 | `02-layout-spec.md` | Status set to approved |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase B closed; Phase C checklist and task spec (§12) added; corrected `blog/` fact |
+| 2026-10-26 | `02-layout-spec.md` | Added `cta.html` partial and `{{source}}` value |

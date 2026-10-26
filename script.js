@@ -113,8 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  window.addEventListener('hashchange', navigateFromHash);
-  navigateFromHash();
+  // Hash routing only applies to the multi-section home page; route pages have a single .page div.
+  if (pages.length > 1) {
+    window.addEventListener('hashchange', navigateFromHash);
+    navigateFromHash();
+  }
 
   // --- 2. Initializations ---
   
@@ -443,7 +446,8 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           
           const fileName = downloadModal.getAttribute('data-current-file');
-          const downloadUrl = fileName.includes('/') ? fileName : `toolkits/${fileName}`;
+          const filePath = fileName.includes('/') ? fileName : `toolkits/${fileName}`;
+          const downloadUrl = /^(https?:)?\//.test(filePath) ? filePath : `/${filePath}`;
           
           // Show success message
           toolkitForm.style.display = 'none';

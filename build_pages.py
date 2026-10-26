@@ -102,6 +102,7 @@ def build():
             continue
         page = f"pages/{fname}"
         values, blocks, body = parse_page(os.path.join(PAGES, fname))
+        values.setdefault("source", page)
         html = render("layout", page, values, blocks, body)
         results.append((page, values["output"], html))
     return results
