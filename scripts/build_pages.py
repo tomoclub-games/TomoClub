@@ -73,7 +73,8 @@ def render(template_name, page, values, blocks, body, stack=()):
     def resolve(tag, lineno):
         where = f"{page}: _partials/{template_name}.html:{lineno}"
         if tag.startswith(">"):
-            return render(tag[1:].strip(), page, values, blocks, body, stack)
+            name = tag[1:].strip()
+            return render(values.get("partial_" + name, name), page, values, blocks, body, stack)
         if tag.startswith("block:"):
             if tag[6:] not in blocks:
                 raise BuildError(f"{where}: page has no block '{tag[6:]}'")

@@ -1,0 +1,105 @@
+<!--
+output: share-your-story/index.html
+title: Share Your Story | TomoClub
+description: Share your leadership story with The Education Hall. Your story could inspire other educators.
+keywords: TomoClub, Education Hall, School Leadership, Superintendent Stories, Share Your Story
+canonical: https://www.tomoclub.org/share-your-story
+social_description: Share your leadership story with The Education Hall. Your story could inspire other educators.
+social_image: https://www.tomoclub.org/assets/og-image.jpg
+partial_nav: nav-back
+-->
+<!-- block:head_jsonld -->
+    <script async src="https://tally.so/widgets/embed.js"></script>
+<!-- endblock -->
+    <style>
+        .contact-container {
+            padding: 160px 0 80px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-content {
+            background: #ffffff;
+            color: #0F172A;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid #E2E8F0;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-iframe-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .contact-content iframe,
+        .newsletter-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #tally-form {
+            display: block;
+            margin-bottom: 2.5rem;
+            height: auto;
+            min-height: 600px; /* until Tally sets the real height */
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                padding: 1rem;
+                border-radius: 16px;
+            }
+        }
+    </style>
+
+    <div class="contact-container container">
+        <div class="contact-content">
+            <div class="form-iframe-wrapper">
+                <iframe
+                    id="tally-form"
+                    data-form-src="https://tally.so/embed/o9b46b?hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    title="Share Your Story Form"
+                    width="100%"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Pass query parameters to the form. The iframe uses a plain src (not data-tally-src) so
+        // Tally's embed.js sees dynamicHeight=1 and resizes the frame to the form: no inner scroll.
+        const tallyIframe = document.getElementById('tally-form');
+        const url = new URL(tallyIframe.dataset.formSrc);
+        const params = new URLSearchParams(window.location.search);
+        params.set('pageUrl', window.location.href);
+        for (const [key, value] of params.entries()) {
+            url.searchParams.set(key, value);
+        }
+        tallyIframe.src = url.toString();
+        const initTally = () => { if (window.Tally) Tally.loadEmbeds(); };
+        initTally();
+        window.addEventListener('load', initTally);
+    </script>

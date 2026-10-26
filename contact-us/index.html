@@ -28,7 +28,7 @@
 
     <style>
         .contact-container {
-            padding: 120px 0 80px;
+            padding: 160px 0 80px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -40,7 +40,6 @@
             border: 1px solid #E2E8F0;
             box-shadow: var(--shadow-md);
             overflow: hidden;
-            min-height: 800px;
             display: flex;
             flex-direction: column;
         }
@@ -64,7 +63,6 @@
         .form-iframe-wrapper {
             flex-grow: 1;
             width: 100%;
-            height: 1200px; /* High enough to avoid double scrollbars on the form */
             border: none;
             border-radius: 12px;
             overflow: hidden;
@@ -76,49 +74,11 @@
             border: none;
         }
 
-        /* Floating Pill Nav */
-        nav {
-            position: fixed;
-            top: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 4rem);
-            max-width: 1200px;
-            z-index: 1000;
-            padding: 0.75rem 1.5rem;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-radius: 999px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
-                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-container {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-home-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: #0F172A;
-            font-weight: 700;
-            padding: 0.6rem 1.2rem;
-            background: #FFFFFF;
-            border-radius: 999px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-home-btn:hover {
-            background: #F1F5F9;
-            transform: translateY(-1px);
+        #tally-form {
+            display: block;
+            margin-bottom: 2.5rem;
+            height: auto;
+            min-height: 600px; /* until Tally sets the real height */
         }
 
         @media (max-width: 768px) {
@@ -128,9 +88,6 @@
             .contact-content {
                 padding: 1rem;
                 border-radius: 16px;
-            }
-            .form-iframe-wrapper {
-                height: 1500px; /* More height for mobile stacked fields */
             }
         }
     </style>
@@ -152,18 +109,16 @@
 <body>
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
     <nav>
-        <div class="nav-container">
-            <a href="/" class="logo" style="text-decoration: none; font-size: 1.5rem; font-weight: 800;">
+        <div class="container nav-container">
+            <a href="/" class="logo" style="text-decoration: none;">
                 <img src="/assets/logo.webp" alt="TomoClub" width="130" height="20">
             </a>
-            <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="nav-actions">
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
                     <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                 </button>
-                <a href="/" class="nav-home-btn">
-                    <i data-lucide="home"></i> Back to Home
-                </a>
+                <a href="/" class="btn btn-primary"><i data-lucide="arrow-left"></i> Back to Home</a>
             </div>
         </div>
     </nav>
@@ -176,15 +131,14 @@
             </div>
             
             <div class="form-iframe-wrapper">
-                <iframe 
-                    data-tally-src="https://tally.so/r/yPgo9X?transparentBackground=1" 
+                <iframe
+                    id="tally-form"
+                    data-form-src="https://tally.so/embed/yPgo9X?transparentBackground=1&dynamicHeight=1"
                     title="Contact Form"
                     width="100%"
-                    height="100%"
                     frameborder="0"
                     marginheight="0"
-                    marginwidth="0"
-                    loading="lazy">
+                    marginwidth="0">
                 </iframe>
             </div>
         </div>
@@ -296,19 +250,19 @@
             window.history.replaceState(null, '', newPath + window.location.hash);
         }
 
-        // Automatically pass all query parameters to the Tally form iframe
-        const tallyIframe = document.querySelector('iframe[data-tally-src]');
-        if(tallyIframe) {
-            const originalSrc = tallyIframe.getAttribute('data-tally-src') || tallyIframe.src;
-            const url = new URL(originalSrc, window.location.origin);
-            const params = new URLSearchParams(window.location.search);
-            params.set('pageUrl', window.location.href);
-            for (const [key, value] of params.entries()) {
-                url.searchParams.set(key, value);
-            }
-            tallyIframe.setAttribute('data-tally-src', url.toString());
-            tallyIframe.src = url.toString();
+        // Pass query parameters to the form. The iframe uses a plain src (not data-tally-src) so
+        // Tally's embed.js sees dynamicHeight=1 and resizes the frame to the form: no inner scroll.
+        const tallyIframe = document.getElementById('tally-form');
+        const url = new URL(tallyIframe.dataset.formSrc);
+        const params = new URLSearchParams(window.location.search);
+        params.set('pageUrl', window.location.href);
+        for (const [key, value] of params.entries()) {
+            url.searchParams.set(key, value);
         }
+        tallyIframe.src = url.toString();
+        const initTally = () => { if (window.Tally) Tally.loadEmbeds(); };
+        initTally();
+        window.addEventListener('load', initTally);
     </script>
 </body>
 </html>

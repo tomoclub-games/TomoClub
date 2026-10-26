@@ -117,7 +117,7 @@
       if (!/(^|\.)tally\.so$/.test((ev.origin || '').replace(/^https?:\/\//, ''))) return;
       var d = ev.data;
       if (typeof d === 'string') { try { d = JSON.parse(d); } catch (x) { return; } }
-      if (d && d.event === 'Tally.FormSubmitted') metaTrack('Lead', { content_name: 'contact-us' });
+      if (d && d.event === 'Tally.FormSubmitted') metaTrack('Lead', { content_name: location.pathname === '/share-your-story' ? 'share-your-story' : 'contact-us' });
     });
   }
 
