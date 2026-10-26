@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** H. Analytics
-- **Current step:** H4
-- **Waiting on:** Vercel preview build
-- **Next action:** run the H4 analytics check on the preview
+- **Current step:** H5 (optional)
+- **Waiting on:** Rohith: do the optional GA4 Realtime check, or skip it; then review Phase H
+- **Next action:** on approval, run `seo-next` to start Phase I (verify before merge)
 
 ---
 
@@ -41,7 +41,7 @@ Task spec: `00-context.md` section 17.
 - [x] H1. Plan shown to Rohith and accepted
 - [x] H2. Coverage audit (2026-10-26): all 196 deployed pages load `analytics.js` exactly once; GA4 is configured once per page (123 pages have the inline GA tag and `analytics.js` skips its own; 73 get GA from `analytics.js`). Tracked sections (`data-track`) exist only on `build-with-us/` and its thank-you page
 - [x] H3. Build With Us form sends people to `/build-with-us/thank-you` directly (today `thank-you.html`, which costs a redirect hop)
-- [ ] H4. Preview check with headless Chrome on sample pages (`/`, a route page, an article, a blog post, an episode, `/build-with-us`, an old `/#pd` link): GA4 `page_view` hits carry the real URL, one per page load; Clarity, LinkedIn and Meta tags load; no console errors from analytics
+- [x] H4. Preview `tomoclub-website-54iz8yty6` (commit `fab1d62`), headless Chrome, bypass token sent only to the preview host: on `/`, `/ai-literacy`, an article, a blog post, an episode, `/build-with-us` and `/#pd`, each load sends exactly one `page_view` to `G-FEGGQ2ZDMT` with the real URL; `/#pd` records only `/professional-development` (the shim redirects before GA fires); Clarity, LinkedIn and Meta fire on every page; no page errors. `section_view` (needs scrolling) not exercised
 - [ ] H5. Rohith confirms in GA4 Realtime that page paths like `/ai-literacy` and `/podcast-<id>` appear while the preview is opened (optional; GA may filter preview hostnames)
 - [ ] H6. Summary given; phase set to `waiting for review`
 
@@ -202,6 +202,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Hide `educational hall/` and `policy and terms/` (3 unlinked source PDFs) via `.vercelignore`; they stay in the repo | Rohith |
 | 2026-10-26 | Phase G approved. Ebook PDF stays public at its direct URL (not gated) | Rohith |
 | 2026-10-26 | Phase H plan accepted | Rohith |
+| 2026-10-26 | Found: every page view is also sent to a second GA4 property, `G-TEEDDHTK84`, linked inside the Google tag settings for `G-FEGGQ2ZDMT` (not in site code). Production does the same today. Not a duplicate within one property; Rohith to confirm whether the second property is wanted | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
