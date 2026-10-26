@@ -135,7 +135,7 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - After Phase C: consider moving other pages with their own navbar copy (`parents.html`, `leaders-of-tomorrow/`, articles, podcast pages, blog) onto the shared partials, so the navbar is edited in one place.
 - `site.webmanifest` points to `/android-chrome-192x192.png` and `/android-chrome-512x512.png`, which do not exist. Every page logs a 404 for it. This is older than the project (since the initial commit). Fix in Phase I or separately.
 - The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
-- `blog/ai-implementation-in-k12-schools/index.html` shows `../../blog pictures/Why Schools Should Train Teachers in AI Literacy.png`, which does not exist (folder never in git). Broken image on production today. Rohith will supply the picture; until then it stays broken.
+- Done 2026-10-26: missing image on `/blog/ai-implementation-in-k12-schools` restored from the source PDF.
 - `generate_html.py` and `patch_podcasts.py` still write old-style podcast cards into `index.html`. The add-podcast skill already says not to run them. Consider deleting them.
 - Done 2026-10-26: `generate_article_pages.py` retired; `add_article.py` no longer writes to it.
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
