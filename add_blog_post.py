@@ -44,14 +44,15 @@ What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
        runs; it is not where published assets live -- see the "clean up
        staging files" note in the skill doc.)
     3. Localizes any content images into blog/<slug>/ alongside hero.
-    4. Inserts a new card at the TOP of the #blog grid-3 in index.html.
+    4. Inserts a new card at the TOP of the #blog grid-3 in pages/blog.html.
        This is deliberate, not arbitrary: unlike the Education Hall grid,
        the blog grid has no JS sort/filter -- it's a static grid in DOM
        order, so the newest post must be FIRST in the DOM to display
        first. Don't move insertion to the end by analogy with
        add_article.py.
     5. There is no JS/JSON registry to update for blog posts (no
-       blog_data.js equivalent) -- the homepage card IS the registration.
+       blog_data.js equivalent) -- the /blog card IS the registration.
+    6. Runs build_pages.py so /blog (blog/index.html) is regenerated.
 """
 
 import argparse
@@ -101,6 +102,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | TomoClub Blog</title>
+    <link rel="canonical" href="https://www.tomoclub.org/blog/{slug}">
+    <meta property="og:url" content="https://www.tomoclub.org/blog/{slug}">
     <meta name="description" content="{description}">
 
     <!-- Google Fonts -->
@@ -296,13 +299,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script defer src="/analytics.js"></script>
 </head>
 <body>
+<script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>
     <nav>
         <div class="container nav-container">
             <a href="../../" class="logo">
             <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
         </a>
         <div class="nav-links">
-            <div class="nav-item"><a href="../../#blog">Blog</a></div>
+            <div class="nav-item"><a href="/blog">Blog</a></div>
             <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
         </div>
         </div>
@@ -310,7 +314,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <article>
         <div class="back-nav" style="margin-top: 140px; margin-bottom: 2rem;">
-            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+            <a href="/blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
                 <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
@@ -330,7 +334,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
 
         <div class="back-nav">
-            <a href="../../#blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
+            <a href="/blog" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--teal); font-weight: 600; border: none; background: transparent; box-shadow: none; padding: 0;">
                 <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i> Back to Blog
             </a>
         </div>
@@ -344,9 +348,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 </a>
                 <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem;">
-                    <a href="../../#blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
-                    <a href="../../#pd" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
-                    <a href="../../#future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
+                    <a href="/blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
+                    <a href="/professional-development" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>
+                    <a href="/future-ready" style="color: var(--text-muted); font-weight: 600;">AI Literacy</a>
                 </div>
                 <p style="color: var(--text-light); font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 TomoClub. All rights reserved.</p>
             </div>
@@ -378,17 +382,17 @@ GRADIENTS = [
 
 
 def update_index_html_card(slug, title, description, category, cover_local_name, gradient, color):
-    path = 'index.html'
+    path = 'pages/blog.html'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
-    if f'href="blog/{slug}/"' in content:
-        print(f"  index.html already has a card for {slug}, skipping.")
+    if f'href="/blog/{slug}"' in content:
+        print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                    <a href="blog/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                    <a href="/blog/{slug}" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                         <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
-                            <img loading="lazy" src="blog/{slug}/{cover_local_name}" alt="{title}" style="width: 100%; height: 200px; object-fit: cover;">
+                            <img loading="lazy" src="/blog/{slug}/{cover_local_name}" alt="{title}" style="width: 100%; height: 200px; object-fit: cover;">
                             <div style="padding: 2rem 2rem 2rem; display: flex; flex-direction: column; flex-grow: 1;">
                                 <span style="font-size: 0.85rem; color: {color}; font-weight: 600; text-transform: uppercase;">{category}</span>
                                 <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;">{title}</h3>
@@ -405,7 +409,7 @@ def update_index_html_card(slug, title, description, category, cover_local_name,
     content = content[:insert_at] + card + content[insert_at:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print("  Inserted new card at TOP of index.html #blog grid (displays first -- grid has no JS sort)")
+    print(f"  Inserted new card at TOP of {path} #blog grid (displays first -- grid has no JS sort)")
 
 
 def main():
@@ -496,15 +500,19 @@ def main():
         f.write(final_html)
     print(f"Rendered {post_dir}/index.html")
 
-    with open('index.html', encoding='utf-8') as f:
+    with open('pages/blog.html', encoding='utf-8') as f:
         blog_content = f.read()
         blog_section = blog_content[blog_content.index('id="blog"'):]
-        existing_cards = len(re.findall(r'href="blog/', blog_section))
+        existing_cards = len(re.findall(r'href="/blog/', blog_section))
     if args.gradient:
         gradient, color = next(g for g in GRADIENTS if g[0] == args.gradient)
     else:
         gradient, color = GRADIENTS[existing_cards % len(GRADIENTS)]
     update_index_html_card(slug, args.title, args.description, args.category, cover_local_name, gradient, color)
+
+    print("\nRebuilding pages...")
+    subprocess.run([sys.executable, 'build_pages.py'], check=True)
+    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

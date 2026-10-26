@@ -245,13 +245,13 @@ new_content = """<!DOCTYPE html>
 </head>
 <body>
     <nav>
-        <a href="index.html#home" class="logo" style="text-decoration: none;">
+        <a href="/" class="logo" style="text-decoration: none;">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
         <div class="nav-links">
-            <div class="nav-item"><a href="index.html#home">Home</a></div>
-            <div class="nav-item"><a href="index.html#about">About Us</a></div>
-            <div class="nav-item"><a href="index.html#podcast" class="active">Podcast</a></div>
+            <div class="nav-item"><a href="/">Home</a></div>
+            <div class="nav-item"><a href="/about">About Us</a></div>
+            <div class="nav-item"><a href="/podcast" class="active">Podcast</a></div>
         </div>
         <div class="nav-actions">
             <a href="https://91fabf1c.sibforms.com/v2/serve/MUIFAKeejaVgAe6G18ijnd1U-_b-q5wwqWzAAdp-46T-FSh3yStr_6qw8aeR19UjV40KMRWBGFQErR3NuMTCAmG_-KUhUOYxLU6-Nzza27KOqv33BSKj1pi2yF5sKpquz-KXLYHY8-nnSxH1lt1wkx9dy6n9Yag5Bllp8Grh6x6YnVdT-wVhFN1pgUpqf2R0tY7UuCdnEPrMWXJEiA==" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem; background: var(--teal); border: none; color: white; border-radius: 999px; font-weight: 700; text-decoration: none;">Request a Pilot</a>
@@ -260,7 +260,7 @@ new_content = """<!DOCTYPE html>
 
     <main class="container">
         <section class="podcast-hero">
-            <a href="index.html#podcast" class="btn btn-secondary btn-view-more">
+            <a href="/podcast" class="btn btn-secondary btn-view-more">
                 <i data-lucide="arrow-left"></i> View More
             </a>
             
@@ -306,7 +306,7 @@ new_content = """<!DOCTYPE html>
             </div>
 
             <div style="text-align: center; margin-top: 4rem;">
-                <a href="index.html#podcast" class="btn btn-secondary btn-view-more">
+                <a href="/podcast" class="btn btn-secondary btn-view-more">
                     <i data-lucide="arrow-left"></i> View More
                 </a>
             </div>
@@ -353,7 +353,7 @@ new_content = """<!DOCTYPE html>
                 document.getElementById('podcast-iframe').src = `https://www.youtube-nocookie.com/embed/${episodeId}?rel=0&enablejsapi=1&origin=${encodeURIComponent(origin)}`;
             } else {
                 document.getElementById('episode-title').textContent = "Episode Not Specified";
-                document.getElementById('episode-description').innerHTML = "<p>Please select a podcast episode to listen to.</p><a href='index.html#podcast' class='btn btn-secondary'>View All Episodes</a>";
+                document.getElementById('episode-description').innerHTML = "<p>Please select a podcast episode to listen to.</p><a href='/podcast' class='btn btn-secondary'>View All Episodes</a>";
             }
 
             // Theme Toggle Logic

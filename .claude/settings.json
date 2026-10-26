@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/docs/seo-real-urls/STATUS.md\"; if [ -f \"$f\" ]; then echo 'SEO Real URLs status (from docs/seo-real-urls/STATUS.md). Read docs/seo-real-urls/00-context.md before SEO Real URLs work. Run the seo-checkpoint skill after every completed step.'; echo; head -c 9000 \"$f\"; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
