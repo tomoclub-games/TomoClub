@@ -28,11 +28,12 @@ What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
        (kept as a historical record; this script does not invoke that
        script's full-batch regeneration, which would touch every article
        folder at once).
-    5. Appends a new card at the END of #articles-grid in index.html.
+    5. Appends a new card at the END of #articles-grid in pages/education-hall.html.
        This is deliberate, not arbitrary: script.js sorts the Education
        Hall grid by DOM position (data-timestamp = index in the DOM), and
        "Newest First" is the default sort -- so the newest article must be
        the LAST card in the DOM to display first on page load.
+    6. Runs build_pages.py so /education-hall (education-hall/index.html) is regenerated.
 """
 
 import argparse
@@ -272,18 +273,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <nav>
-        <a href="../../#home" class="logo">
+        <a href="/" class="logo">
             <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
         </a>
         <div class="nav-links">
-            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="/education-hall">Education Hall</a></div>
             <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
         </div>
     </nav>
 
     <article>
         <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
-            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
                 <i data-lucide="arrow-left"></i> View More
             </a>
         </div>
@@ -303,7 +304,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
 
         <div class="back-nav">
-            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
                 <i data-lucide="arrow-left"></i> View More
             </a>
         </div>
@@ -402,17 +403,17 @@ def update_generate_article_pages_py(art_key, title, date, category, slug, cover
 
 
 def update_index_html_card(slug, title, alt, cover_local_name, gradient):
-    path = 'index.html'
+    path = 'pages/education-hall.html'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
-    if f'href="articles/{slug}/"' in content:
-        print(f"  index.html already has a card for {slug}, skipping.")
+    if f'href="/articles/{slug}/"' in content:
+        print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                <a href="articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                <a href="/articles/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                     <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
-                        <img src="articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
+                        <img src="/articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
                         <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
                             <h3 style="margin: 1rem 0; font-size: 1.25rem; font-weight: 600;" class="article-title">{title}</h3>
                             <span class="btn btn-secondary btn-read-more">Read More <i data-lucide="arrow-right"></i></span>
@@ -421,13 +422,13 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
                 </a>
 
 '''
-    marker = '<div class="grid-3 animate-on-scroll" id="articles-grid">'
+    marker = 'id="articles-grid">'
     grid_start = content.index(marker) + len(marker)
     grid_end = content.index('</div>\n        </section>', grid_start)
     content = content[:grid_end] + card + content[grid_end:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print("  Appended new card at end of index.html #articles-grid (displays first under 'Newest First')")
+    print(f"  Appended new card at end of {path} #articles-grid (displays first under 'Newest First')")
 
 
 def main():
@@ -516,10 +517,13 @@ def main():
     update_articles_data_js(art_key, content_html)
     update_generate_article_pages_py(art_key, args.title, args.date, args.category, slug, args.cover)
 
-    with open('index.html', encoding='utf-8') as f:
-        existing_cards = len(re.findall(r'href="articles/', f.read()))
+    with open('pages/education-hall.html', encoding='utf-8') as f:
+        existing_cards = len(re.findall(r'href="/articles/', f.read()))
     gradient = args.gradient or GRADIENTS[existing_cards % len(GRADIENTS)]
     update_index_html_card(slug, args.title, alt, cover_local_name, gradient)
+
+    print("\nRebuilding pages...")
+    subprocess.run([sys.executable, 'build_pages.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

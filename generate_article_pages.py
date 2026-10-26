@@ -323,18 +323,18 @@ html_template = """<!DOCTYPE html>
 </head>
 <body>
     <nav>
-        <a href="../../#home" class="logo">
+        <a href="/" class="logo">
             <span style="color: var(--teal);">To</span><span style="color: var(--gold);">mo</span><span style="color: var(--crimson);">Club</span>
         </a>
         <div class="nav-links">
-            <div class="nav-item"><a href="../../#education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="/education-hall">Education Hall</a></div>
             <div class="nav-item"><a href="/contact-us" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Contact Us</a></div>
         </div>
     </nav>
 
     <article>
         <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
-            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
                 <i data-lucide="arrow-left"></i> View More
             </a>
         </div>
@@ -354,7 +354,7 @@ html_template = """<!DOCTYPE html>
         </div>
 
         <div class="back-nav">
-            <a href="../../#education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
                 <i data-lucide="arrow-left"></i> View More
             </a>
         </div>

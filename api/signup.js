@@ -61,7 +61,7 @@ export default async function handler(req, res) {
             <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
               <h2>Hi ${finalName},</h2>
               <p>Thank you for reaching out to TomoClub! We've received your ${(type === 'resource') ? 'request for the ' + toolkitName : 'inquiry'} and our team will get back to you shortly.</p>
-              <p>In the meantime, feel free to explore our <a href="https://www.tomoclub.org#guides">Guides & Toolkits</a> or listen to our <a href="https://www.tomoclub.org#podcast">Podcast</a>.</p>
+              <p>In the meantime, feel free to explore our <a href="https://www.tomoclub.org/guides">Guides & Toolkits</a> or listen to our <a href="https://www.tomoclub.org/podcast">Podcast</a>.</p>
               <br>
               <p>Best regards,<br><strong>The TomoClub Team</strong></p>
             </div>

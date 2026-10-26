@@ -4,8 +4,8 @@ Records the hash routes in index.html, every route-style '#' link in the repo,
 and the gap between sitemap.xml and the real pages on disk.
 
 Usage (from the repo root):
-    py tools/seo-real-urls/inventory.py            # writes docs/seo-real-urls/baseline/inventory.md
-    py tools/seo-real-urls/inventory.py --check    # prints link count, exits 1 if any route links remain (Phase E)
+    py tools/seo-real-urls/inventory.py --write    # overwrites docs/seo-real-urls/baseline/inventory.md
+    py tools/seo-real-urls/inventory.py --check    # exits 1 if any route links remain outside archive/ and sitemap.xml
 """
 import os
 import re
@@ -123,8 +123,15 @@ def main():
     hits = route_links()
     total = sum(len(v) for v in hits.values())
     if "--check" in sys.argv:
-        print(f"route-style # links: {total} in {len(hits)} files")
-        sys.exit(1 if total else 0)
+        # archive/ is not deployed; sitemap.xml is regenerated in Phase G.
+        live = {f: v for f, v in hits.items() if not f.startswith("archive/") and f != "sitemap.xml"}
+        for f, rows in sorted(live.items()):
+            print(f"  {f}: " + ", ".join(f"line {line} #{rid}" for line, rid, _ in rows[:5]))
+        print(f"route-style # links: {sum(len(v) for v in live.values())} in {len(live)} files "
+              f"(excluding archive/ and sitemap.xml)")
+        sys.exit(1 if live else 0)
+    if "--write" not in sys.argv:
+        sys.exit("Use --check, or --write to overwrite the baseline report " + rel(OUT))
 
     size_kb, sizes = route_sizes()
     pages, locs = pages_vs_sitemap()

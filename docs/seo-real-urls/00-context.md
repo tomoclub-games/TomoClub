@@ -129,9 +129,9 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 ## 9. Open items (not for the current phase, but do not forget)
 
 - Update external `/#...` links (LinkedIn, newsletters, email signatures) in Phase J.
-- Phase E: the add-* skills also refer to sections by id (for example "top of `#blog`'s `grid-3`"). The inventory does not count these as links, so update them by hand when the sections move to `pages/`.
-- Phase E: decide whether to rewrite links in `archive/` too (16 links in `archive/parents-legacy.html`) or exclude `archive/` from the `--check`.
-- Phase E: one-off scripts (`add_brad_article.py`, `add_shane_article.py`) contain route links. Decide whether to update or delete them.
+- Done in Phase E: add-* skills point at `pages/`; `archive/` is excluded from the check because `.vercelignore` keeps it off the site.
+- Rohith to decide: delete `add_brad_article.py` and `add_shane_article.py`? They are one-offs with paths to another computer (`c:\Users\JANMEJAY\...`) and cannot run here. Their links were fixed in Phase E.
+- `pages/index.html` (home body) still uses relative asset paths (`assets/...`). They work because `/` is at the root. Make them root-absolute if the home body is ever reused elsewhere.
 - After Phase C: consider moving other pages with their own navbar copy (`parents.html`, `leaders-of-tomorrow/`, articles, podcast pages, blog) onto the shared partials, so the navbar is edited in one place.
 - `site.webmanifest` points to `/android-chrome-192x192.png` and `/android-chrome-512x512.png`, which do not exist. Every page logs a 404 for it. This is older than the project (since the initial commit). Fix in Phase I or separately.
 - The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
@@ -268,3 +268,29 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 6. Summary given; phase set to `waiting for review`.
 
 **Behaviour change to note:** today the browser title of `/` is set by JavaScript from `seoData` ("AI Literacy and Future-Ready Skills for K–12 Schools | TomoClub"). After this phase, the static title in the HTML is used ("AI Literacy & Future-Ready Skills for K–12 Schools | TomoClub Implementation Partner"). The static one is what Google indexes today, so search results do not change.
+
+---
+
+## 14. Task spec: Phase E
+
+**Goal:** no route-style `#` link is left in anything that is deployed or that generates deployed pages. New content added by the add-* skills lands in `pages/` and is built, with real URLs.
+
+**Inputs:** `inventory.py` (889 links in 160 files after Phase D): 45 blog posts, 25 articles, 70 podcast pages, 7 root files, `build-with-us/`, `leaders-of-tomorrow/`, `education-hall/`, `api/signup.js`, 7 generator scripts, 3 skills. Phase A open items (§9) on skills, `archive/` and one-off scripts.
+
+**Link map** (same as the hash shim): `#home` to `/`; `#pd` to `/professional-development`; `#ebook` to `/leaders-of-tomorrow`; every other route `#x` to `/x`. Forms handled: `#x`, `/#x`, `../#x`, `../../#x`, `index.html#x`, `../index.html#x`, `https://(www.)tomoclub.org/#x` and `tomoclub.org#x`. Absolute links become `https://www.tomoclub.org/x`; all others become root-relative `/x`.
+
+**Steps:**
+
+1. Write `tools/seo-real-urls/rewrite_links.py`, reusing the patterns in `inventory.py`. Dry run by default; `--apply` writes. It skips generated files (it edits `pages/` and rebuilds instead), `archive/` (not deployed), `docs/` and `tools/`. A bare `#x` in a file that also has an element with `id="x"` might be an in-page anchor: the script lists these for review instead of changing them.
+2. Apply to source HTML and `api/signup.js`. Run `py build_pages.py`.
+3. Change apex `https://tomoclub.org/...` links to `https://www.tomoclub.org/...` (4 files).
+4. Generators:
+   - all 7 scripts (`add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `generate_article_pages.py`, `fix_podcast_player.py`, `add_brad_article.py`, `add_shane_article.py`): link templates use real URLs;
+   - `add_article.py` adds its card to `#articles-grid` in `pages/education-hall.html`; `add_blog_post.py` to the `#blog` grid in `pages/blog.html`; `add_podcast_episode.py` to `#podcast-grid` in `pages/podcast.html`. Card URLs are root-absolute (`/articles/<slug>/`). Each then runs `build_pages.py`.
+   - `add_brad_article.py` and `add_shane_article.py` are one-offs with hard-coded paths to another computer (`c:\Users\JANMEJAY\...`). Only their links are fixed; deleting them is Rohith's call (logged in §9).
+5. Skills: update file paths, section names (for example "top of `#blog`'s `grid-3` in `index.html`" becomes `pages/blog.html`), preview URLs (`http://localhost:8000/education-hall`) and add the build step.
+6. Test each add-* script in a throwaway `git worktree` with sample input; check the card lands in the right `pages/` file, the build runs, and `inventory.py --check` stays at zero. Remove the worktree.
+7. `inventory.py --check` excludes `archive/` and `sitemap.xml` (rebuilt in Phase G) and must report zero. `build_pages.py --check` passes. Crawl the 11 main pages locally; every internal link resolves.
+8. Summary given; phase set to `waiting for review`.
+
+**Not in this phase:** podcast cards still link to `podcast-player.html?id=X`. Phase F creates the missing `podcast-<id>/` pages, adds the redirect, and then points the cards at `/podcast-<id>`.
