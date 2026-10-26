@@ -134,36 +134,79 @@ strong{color:var(--navy)}
 .ticker-chunk .st{color:var(--ticker-star);font-size:12px}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* Nav (floating glass pill, as on tomoclub.org) */
-nav{position:sticky;top:1.25rem;margin:1.25rem auto 0;width:calc(100% - 4rem);max-width:1200px;z-index:1000;padding:.75rem 1.5rem;background:var(--nav-bg);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-radius:var(--radius-pill);box-shadow:0 8px 32px rgba(0,0,0,.2),inset 0 1px 1px rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.08)}
-.nav-container{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .logo{font-size:1.75rem;font-weight:800;letter-spacing:-.04em;display:flex;align-items:center;color:#fff;flex-shrink:0}
 .logo .t{color:var(--teal)}.logo .m{color:var(--gold)}.logo .c{color:var(--crimson)}
 .logo img{height:20px;width:auto;display:block}.footer-logo img{height:24px}
-/* Navbar logo size and position match the shared site navbar (styles.css: nav, .container, .logo img). */
-nav .nav-container{max-width:1150px;margin:0 auto;padding:0 2rem}
-@media (max-width:1200px){nav .nav-container{max-width:95%}}
-@media (max-width:1024px){nav .nav-container{padding:0 1.5rem}}
-@media (max-width:992px){nav{width:calc(100% - 2rem);padding:.5rem 1rem}nav .logo img{height:17px}}
-@media (max-width:768px){nav .nav-container{padding:0}}
-@media (max-width:480px){nav{padding:.4rem .75rem}}
-@media (max-width:360px){nav{padding:.35rem .5rem}}
-/* Like the shared navbar, let the action button wrap instead of overflowing when space is tight. */
-.nav-actions{min-width:0}
-nav .btn{white-space:normal;text-align:center;line-height:1.2}
-nav .theme-toggle{flex-shrink:0}
-.nav-links{display:flex;gap:1.5rem;align-items:center}
-.nav-links a{font-weight:600;font-size:.9rem;color:var(--nav-muted);position:relative;padding:.5rem 0;white-space:nowrap}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--teal);transform:translateX(-50%);border-radius:2px;transition:all .3s ease}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-links a:hover::after,.nav-links a.active::after{width:60%}
-.nav-actions{display:flex;align-items:center;gap:.75rem}
-.theme-toggle{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:#fff;cursor:pointer;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
-.theme-toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-nav .btn{padding:.6rem 1.25rem;font-size:.95rem}
-nav .btn-primary{background:#F8FAFC;color:#0F172A}
-nav .btn-primary .ic{background:var(--teal)}
-@media (max-width:900px){.nav-links{display:none}}
+/* Navbar: copied 1:1 from the homepage navbar (styles.css), scoped to nav#site-nav. Regenerate rather than hand-edit. */
+nav#site-nav{--border-color:rgba(255, 255, 255, 0.1);--border-radius-pill:999px;--btn-primary-hover-bg:#020617;--btn-primary-text:#FFFFFF;--gold:#FDC62D;--nav-bg:rgba(15, 23, 42, 0.85);--navy:#0F172A;--surface:#FFFFFF;--teal:#2AB4B8;--transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav#site-nav{--border-color:rgba(255, 255, 255, 0.1);--btn-primary-hover-bg:#CBD5E1;--btn-primary-text:#020617;--nav-bg:rgba(15, 23, 42, 0.85);--navy:#F8FAFC;--surface:#0F172A}}
+:root[data-theme="dark"] nav#site-nav{--border-color:rgba(255, 255, 255, 0.1);--btn-primary-hover-bg:#CBD5E1;--btn-primary-text:#020617;--nav-bg:rgba(15, 23, 42, 0.85);--navy:#F8FAFC;--surface:#0F172A}
+nav#site-nav .container{max-width: 1150px; margin: 0 auto; padding: 0 2rem;}
+nav#site-nav .desktop-only{display: flex !important;}
+nav#site-nav .mobile-only{display: none !important;}
+@media (max-width: 768px){nav#site-nav .desktop-only{display: none !important;}}
+@media (max-width: 768px){nav#site-nav .mobile-only{display: flex !important;}}
+nav#site-nav .btn{display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2rem; font-weight: 600; border-radius: var(--border-radius-pill); cursor: pointer; transition: var(--transition); border: none; font-size: 1.05rem; gap: 0.75rem; letter-spacing: -0.01em;}
+nav#site-nav .btn-primary{background: var(--navy); color: var(--btn-primary-text); box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);}
+nav#site-nav .btn-primary:hover{transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3); background: var(--btn-primary-hover-bg);}
+nav#site-nav .btn-primary i{background: var(--teal); color: white; border-radius: 50%; padding: 4px; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; transition: var(--transition);}
+nav#site-nav .btn-primary:hover i{transform: scale(1.1) translateX(4px); background: var(--gold);}
+nav#site-nav{position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); width: calc(100% - 4rem); max-width: 1200px; z-index: 1000; padding: 0.75rem 1.5rem; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-radius: var(--border-radius-pill); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);}
+nav#site-nav.scrolled{top: 1rem; background: rgba(15, 23, 42, 0.9); padding: 0.6rem 1.5rem; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);}
+nav#site-nav .nav-container{display: flex; justify-content: space-between; align-items: center; width: 100%;}
+nav#site-nav .logo{display: flex; align-items: center; flex-shrink: 0; transition: transform 0.3s ease;}
+nav#site-nav .logo img{height: 20px; width: auto; display: block;}
+nav#site-nav .logo:hover{transform: scale(1.03);}
+nav#site-nav .nav-actions{display: flex; align-items: center; gap: 0.75rem;}
+nav#site-nav .theme-toggle-btn{background: #334155 !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; color: #FFFFFF !important;}
+nav#site-nav .mobile-menu-toggle{display: none; background: #334155; border: 1px solid rgba(255, 255, 255, 0.1); color: #FFFFFF; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; align-items: center; justify-content: center; transition: var(--transition);}
+@media (max-width: 1024px){nav#site-nav .container{max-width: 95%; padding: 0 1.5rem;}}
+@media (max-width: 992px){nav#site-nav{width: calc(100% - 2rem); padding: 0.5rem 1rem; top: 1rem;}}
+@media (max-width: 992px){nav#site-nav .logo img{height: 17px;}}
+@media (max-width: 768px){nav#site-nav .mobile-menu-toggle{display: flex;}}
+@media (max-width: 768px){nav#site-nav .nav-links{position: fixed; top: 5.5rem; left: 50%; transform: translateX(-50%) translateY(-20px); width: calc(100% - 2rem); max-width: 400px; background: var(--nav-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); flex-direction: column; padding: 2.5rem 2rem; border-radius: 32px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); opacity: 0; visibility: hidden; transition: var(--transition); gap: 1.25rem;}}
+@media (max-width: 768px){nav#site-nav .nav-links.active{opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);}}
+@media (max-width: 768px){nav#site-nav .nav-item{width: 100%; text-align: center;}}
+@media (max-width: 768px){nav#site-nav .dropdown{position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; border: none; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;}}
+@media (max-width: 768px){nav#site-nav .nav-item:hover .dropdown{max-height: 500px;}}
+@media (max-width: 768px){nav#site-nav .btn-primary{display: none;}}
+nav#site-nav .nav-links{display: flex; gap: 1.5rem; align-items: center;}
+nav#site-nav .nav-item{position: relative; font-weight: 600; font-size: 0.9rem; color: #94A3B8; white-space: nowrap; transition: all 0.3s ease; padding: 0.5rem 0;}
+nav#site-nav .nav-item::after{content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--teal); transition: all 0.3s ease; transform: translateX(-50%); border-radius: 2px;}
+nav#site-nav .nav-item:hover::after,nav#site-nav .nav-item.active::after{width: 60%;}
+nav#site-nav .nav-item:hover,nav#site-nav .nav-item.active{color: #FFFFFF;}
+nav#site-nav .nav-item a{color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.25rem;}
+nav#site-nav .dropdown{position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%) translateY(12px) scale(0.98); background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; min-width: 280px; padding: 1.25rem; opacity: 0; visibility: hidden; transition: var(--transition); box-shadow: 0 20px 40px rgba(0,0,0,0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);}
+nav#site-nav .dropdown a{display: block; padding: 0.75rem 1rem; color: #94A3B8 !important; text-decoration: none; border-radius: 12px; transition: var(--transition);}
+nav#site-nav .dropdown a:hover{background: rgba(42, 180, 184, 0.15) !important; color: #FFFFFF !important;}
+nav#site-nav .dropdown a:hover strong{color: #FFFFFF !important;}
+nav#site-nav .dropdown a strong{display: block; color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.25rem;}
+nav#site-nav .nav-item:hover .dropdown{opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0) scale(1);}
+@media (max-width: 1200px){nav#site-nav .container{max-width: 95%;}}
+@media (max-width: 768px){nav#site-nav .container{padding: 0 1.25rem;}}
+@media (max-width: 768px){nav#site-nav .btn{padding: 0.875rem 1.5rem; width: 100%; font-size: 0.95rem; min-height: 48px;}}
+@media (max-width: 480px){nav#site-nav .container{padding: 0 1rem;}}
+@media (max-width: 480px){nav#site-nav .btn{font-size: 0.9rem; padding: 0.75rem 1.25rem;}}
+@media (max-width: 480px){nav#site-nav{width: calc(100% - 1.5rem); padding: 0.4rem 0.75rem; top: 0.75rem;}}
+@media (max-width: 480px){nav#site-nav.scrolled{top: 0.5rem; padding: 0.35rem 0.75rem;}}
+@media (max-width: 480px){nav#site-nav .logo{font-size: 1.3rem;}}
+@media (max-width: 480px){nav#site-nav .nav-links{top: 4.5rem; padding: 2rem 1.5rem; border-radius: 24px;}}
+@media (max-width: 360px){nav#site-nav .container{padding: 0 0.75rem;}}
+@media (max-width: 360px){nav#site-nav .btn{padding: 0.7rem 1rem; font-size: 0.85rem;}}
+@media (max-width: 360px){nav#site-nav{width: calc(100% - 1rem); padding: 0.35rem 0.5rem;}}
+@media (max-width: 360px){nav#site-nav .logo{font-size: 1.15rem;}}
+@media (hover: none) and (pointer: coarse){nav#site-nav .btn-primary:hover{transform: none;}}
+@media (hover: none) and (pointer: coarse){nav#site-nav .btn-primary:hover i{transform: none;}}
+@media (max-height: 500px) and (orientation: landscape){nav#site-nav{top: 0.5rem;}}
+@media (max-width: 768px){nav#site-nav .dropdown{position: static !important; transform: none !important; box-shadow: none !important; border: none !important; background: transparent !important; padding: 0 !important; min-width: 0 !important; max-height: 0; overflow: hidden; opacity: 1 !important; visibility: visible !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;}}
+@media (max-width: 768px){nav#site-nav .nav-item:hover .dropdown,nav#site-nav .nav-item:focus-within .dropdown{max-height: 500px !important;}}
+@media (max-width: 768px){nav#site-nav .dropdown a{padding: 0.75rem 1rem !important; margin: 0 !important; border-radius: 8px !important;}}
+@media (max-width: 768px){nav#site-nav .container{padding: 0 1.5rem !important;}}
+@media (max-width: 768px){nav#site-nav .btn{width: 100%; padding: 0.8rem 1.5rem !important;}}
+@media (max-width: 768px){nav#site-nav{width: calc(100% - 2rem) !important; top: 1rem !important;}}
+@media (max-width: 768px){nav#site-nav .nav-container{padding: 0 !important;}}
+/* This page keeps its navbar in the page flow under the ticker (the homepage's is fixed to the top). */
+nav#site-nav{position:sticky;left:auto;transform:none;margin:1.25rem auto 0}
 
 /* Hero */
 .hero{padding:6rem 0 3rem;text-align:center;background:var(--hero-glow-teal)}
@@ -475,27 +518,63 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
   </a>
 </div>
 
-<!-- Nav -->
-<nav aria-label="Primary">
-  <div class="nav-container">
-    <a href="/" class="logo" aria-label="TomoClub home"><img src="../assets/logo.webp" alt="TomoClub" width="130" height="20"></a>
-    <div class="nav-links">
-      <a href="/ai-literacy">For schools</a>
-      <a href="/parents">For Parents</a>
-      <a href="/about">About Us</a>
-      <a href="/results">Results</a>
-      <a href="#top" class="active" aria-current="page">Build With Us</a>
-      <a href="/taicy">TAICY</a>
-    </div>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-        <svg id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg id="ic-sun" viewBox="0 0 24 24" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      </button>
-      <a href="https://calendly.com/avinashtomo/tomoclub-call" target="_blank" rel="noopener" class="btn btn-primary">Book 20 minutes <span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
-    </div>
-  </div>
-</nav>
+    <!-- Navigation -->
+    <nav id="site-nav" aria-label="Primary">
+        <div class="container nav-container">
+            <a href="/" class="logo" style="text-decoration: none;">
+                <img src="/assets/logo.webp" alt="TomoClub" width="130" height="20">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <div class="nav-item">
+                    <a href="#">For schools <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <div class="dropdown">
+                        <a href="/ai-literacy">
+                            <strong>AI Literacy Curriculum</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 6–12</span>
+                        </a>
+                        <a href="/future-ready">
+                            <strong>Future-Ready Skills</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 3–12</span>
+                        </a>
+                        <a href="/professional-development">
+                            <strong>AI Fundamentals PD</strong>
+                            <span style="display:block; font-size:0.8rem;">For Teachers</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="/parents">For Parents</a></div>
+                <div class="nav-item"><a href="/about">About Us</a></div>
+                <div class="nav-item"><a href="/results">Results</a></div>
+                <div class="nav-item">
+                    <a href="#">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <div class="dropdown">
+                        <a href="/education-hall">Educational Hall</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/podcast">Podcast: The Learning Shift</a>
+                        <a href="/guides">Guides & Toolkits</a>
+                        <a href="/leaders-of-tomorrow">Leaders of Tomorrow Ebook</a>
+                    </div>
+                </div>
+                <div class="nav-item active"><a href="/build-with-us" aria-current="page">Build With Us</a></div>
+                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">Book 20 minutes</a>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
+                    <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
+                    <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
+                </button>
+                <a href="https://calendly.com/avinashtomo/tomoclub-call" target="_blank" rel="noopener" class="btn btn-primary desktop-only">Book 20 minutes</a>
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i data-lucide="menu" id="menu-icon-open"></i>
+                    <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
 <!-- Hero -->
 <header class="hero" data-track="hero">
@@ -754,6 +833,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
 <script>
 (function(){
   var track=document.getElementById('ticker-track');
@@ -761,9 +841,36 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
   var lt=document.getElementById('logo-track');
   if(lt){[...lt.children].forEach(function(n){lt.appendChild(n.cloneNode(true));});}
 
-  var root=document.documentElement,btn=document.getElementById('theme-toggle'),moon=document.getElementById('ic-moon'),sun=document.getElementById('ic-sun');
+  var root=document.documentElement,btn=document.getElementById('theme-toggle'),moon,sun;
   function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;}
-  function paint(){var d=isDark();moon.hidden=d;sun.hidden=!d;}
+  function paint(){var d=isDark();document.querySelectorAll('.theme-icon-moon').forEach(function(i){i.style.display=d?'none':'block';});document.querySelectorAll('.theme-icon-sun').forEach(function(i){i.style.display=d?'block':'none';});}
+
+  // ── Navbar behaviour, as on the homepage (script.js) ─────────────────────
+  if (window.lucide) lucide.createIcons();
+  (function () {
+    var nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 50); });
+    var toggle = document.getElementById('mobile-menu-toggle'), links = document.getElementById('nav-links');
+    var openIc = document.getElementById('menu-icon-open'), closeIc = document.getElementById('menu-icon-close');
+    function setOpen(open) {
+      links.classList.toggle('active', open);
+      if (openIc && closeIc) { openIc.style.display = open ? 'none' : 'block'; closeIc.style.display = open ? 'block' : 'none'; }
+    }
+    toggle.addEventListener('click', function () { setOpen(!links.classList.contains('active')); });
+    links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { if (!a.nextElementSibling) setOpen(false); }); });
+    nav.querySelectorAll('.nav-item').forEach(function (item) {
+      var link = item.querySelector('a'), dropdown = item.querySelector('.dropdown');
+      if (!link || !dropdown) return;
+      link.addEventListener('click', function (e) {
+        if (window.innerWidth > 768) return;
+        e.preventDefault();
+        var open = dropdown.style.maxHeight === '500px';
+        dropdown.style.maxHeight = open ? '0' : '500px';
+        var icon = link.querySelector('svg, i');
+        if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+  })();
   try{var saved=localStorage.getItem('tomo-theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
   paint();
   btn.addEventListener('click',function(){var next=isDark()?'light':'dark';root.setAttribute('data-theme',next);try{localStorage.setItem('tomo-theme',next);}catch(e){}paint();});
