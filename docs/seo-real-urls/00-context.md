@@ -137,7 +137,7 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
 - `blog/ai-implementation-in-k12-schools/index.html` shows `../../blog pictures/Why Schools Should Train Teachers in AI Literacy.png`, which does not exist (folder never in git). Broken image on production today. Rohith will supply the picture; until then it stays broken.
 - `generate_html.py` and `patch_podcasts.py` still write old-style podcast cards into `index.html`. The add-podcast skill already says not to run them. Consider deleting them.
-- `generate_article_pages.py` has a syntax error since 2026-10-23: `add_article.py`'s `update_generate_article_pages_py` writes the `--cover` path unescaped, and a Windows path (`C:\Users\...`) broke the string. Fix the writer (use `repr()`) and the stored entry if the file is ever needed again.
+- Done 2026-10-26: `generate_article_pages.py` retired; `add_article.py` no longer writes to it.
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
 
 ---

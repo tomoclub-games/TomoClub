@@ -181,6 +181,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Orphan pages (no incoming links since at least 2026-09-29): archive `contact-form.html`, `schedule.html`, `waitlist-form.html` with 301 redirects to `/contact-us`, `/contact-us` and `/parents`. `build-with-us/thank-you.html` stays (the form needs it) and gets `noindex` | Rohith |
 | 2026-10-26 | Phase G plan accepted | Rohith |
 | 2026-10-26 | Found, not fixed: `generate_article_pages.py` does not compile since 2026-10-23, because `add_article.py` wrote a raw Windows cover path into it. Nothing runs that file (historical record). Logged in §9 | Claude Code |
+| 2026-10-26 | `generate_article_pages.py` retired (deleted): one-off May 2026 migration script; re-running it would overwrite all 25 article pages. `add_article.py` no longer writes to it. Fixes the logged syntax-error item | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |

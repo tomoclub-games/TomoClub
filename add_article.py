@@ -19,21 +19,16 @@ Notes:
       defaults to --title.
 
 What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
-    1. Creates articles/<slug>/ and renders its index.html using the same
-       master template as generate_article_pages.py.
+    1. Creates articles/<slug>/ and renders its index.html from HTML_TEMPLATE below.
     2. Downloads the cover image (and any external images referenced in the
        content) into articles/images/, localizing paths in the content.
     3. Adds an entry to articlesData in articles_data.js.
-    4. Adds an entry to article_metadata in generate_article_pages.py
-       (kept as a historical record; this script does not invoke that
-       script's full-batch regeneration, which would touch every article
-       folder at once).
-    5. Appends a new card at the END of #articles-grid in pages/education-hall.html.
+    4. Appends a new card at the END of #articles-grid in pages/education-hall.html.
        This is deliberate, not arbitrary: script.js sorts the Education
        Hall grid by DOM position (data-timestamp = index in the DOM), and
        "Newest First" is the default sort -- so the newest article must be
        the LAST card in the DOM to display first on page load.
-    6. Runs build_pages.py so /education-hall (education-hall/index.html) is regenerated.
+    5. Runs build_pages.py so /education-hall (education-hall/index.html) is regenerated.
 """
 
 import argparse
@@ -377,30 +372,6 @@ def update_articles_data_js(art_key, content_html):
     print(f"  Added {art_key} to articles_data.js")
 
 
-def update_generate_article_pages_py(art_key, title, date, category, slug, cover):
-    path = 'generate_article_pages.py'
-    with open(path, encoding='utf-8') as f:
-        content = f.read()
-
-    if f'"{art_key}"' in content:
-        print(f"  generate_article_pages.py already has {art_key}, skipping.")
-        return
-
-    title_escaped = title.replace('"', '\\"')
-    block = f'''    "{art_key}": {{
-        "title": "{title_escaped}",
-        "date": "{date}",
-        "category": "{category}",
-        "slug": "{slug}",
-        "cover": "{cover}"
-    }},
-'''
-    marker = "article_metadata = {\n"
-    idx = content.index(marker) + len(marker)
-    content = content[:idx] + block + content[idx:]
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print(f"  Added {art_key} metadata to generate_article_pages.py")
 
 
 def update_index_html_card(slug, title, alt, cover_local_name, gradient):
@@ -516,7 +487,6 @@ def main():
     print(f"Article key: {art_key}")
 
     update_articles_data_js(art_key, content_html)
-    update_generate_article_pages_py(art_key, args.title, args.date, args.category, slug, args.cover)
 
     with open('pages/education-hall.html', encoding='utf-8') as f:
         existing_cards = len(re.findall(r'href="/articles/', f.read()))
