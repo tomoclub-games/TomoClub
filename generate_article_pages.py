@@ -152,7 +152,7 @@ html_template = """<!DOCTYPE html>
     <meta property="og:title" content="{title} | TomoClub Education Hall">
     <meta property="og:description" content="{description}">
     <meta property="og:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
-    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}/">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}">
     <meta property="og:type" content="article">
     
     <!-- Twitter Card Meta Tags -->
@@ -162,6 +162,7 @@ html_template = """<!DOCTYPE html>
     <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
 
     <title>{title} | TomoClub Education Hall</title>
+    <link rel="canonical" href="https://www.tomoclub.org/articles/{slug}">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

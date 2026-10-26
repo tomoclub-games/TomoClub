@@ -22,7 +22,7 @@ Adds one new podcast episode to the site using `add_podcast_episode.py` at the r
    - Adds the entry to `podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py build_podcast_pages.py`; never edit `podcast-<id>/index.html` by hand.
    - Adds/refreshes the entry in `podcast_data.json` (metadata cache).
    - Appends the URL to `generate_html.py`'s `urls` list and the tuple to `update_js_metadata.py`'s `new_podcasts` list (kept as historical records only — see below).
-   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py build_podcast_pages.py`, which creates the episode page `podcast-<id>/index.html`. The card links to `/podcast-<id>`.
+   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py build_podcast_pages.py`, which creates the episode page `podcast-<id>/index.html`. The card links to `/podcast-<id>`. The script then runs `py build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
    - All steps are duplicate-safe: re-running with the same URL is a no-op that reports "already has an entry, skipping" for each file.
 
 3. **Verify the diff is minimal and sane**:

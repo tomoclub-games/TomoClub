@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** F. Vercel config and podcast pages
-- **Current step:** F9 done; phase waiting for review
-- **Waiting on:** Rohith: review and approve Phase F
-- **Next action:** on approval, run `seo-next` to start Phase G (sitemap, robots, canonicals)
+- **Current phase:** G. Sitemap, robots, canonicals, deploy clean-up
+- **Current step:** G7
+- **Waiting on:** Rohith: OK to push the Phase G commit to the `seo-real-urls` preview
+- **Next action:** push, then run the G7 preview checks
 
 ---
 
@@ -26,27 +26,26 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | C. Split `index.html` | approved | `<route>/index.html` pages | Rohith, 2026-10-26 |
 | D. Remove router | approved | Router-free `script.js`, hash shim | Rohith, 2026-10-26 |
 | E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
-| F. Vercel config and podcast pages | waiting for review | Updated `vercel.json`; 107 generated episode pages; player redirect | |
-| G. Sitemap, robots, canonicals | not started | `build_sitemap.py`, new `sitemap.xml` | |
+| F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
+| G. Sitemap, robots, canonicals, deploy clean-up | in progress | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | |
 | H. Analytics | not started | GA + Clarity check | |
 | I. Verify before merge | not started | Preview check report; merge | |
 | J. After launch | not started | Search Console submission, monitoring notes | |
 
 ---
 
-## Current phase checklist: F. Vercel config and podcast pages
+## Current phase checklist: G. Sitemap, robots, canonicals, deploy clean-up
 
-Task spec: `00-context.md` section 15.
+Task spec: `00-context.md` section 16.
 
-- [x] F1. Plan shown to Rohith and accepted
-- [x] F2. Episode page spec (content, title and description rules, JSON-LD) approved by Rohith (**no code before this**)
-- [x] F3. `build_podcast_pages.py` generates all 107 `podcast-<id>/index.html` from `podcasts_data.js` with the shared layout; `--check` mode. 107 unique titles and descriptions; valid JSON-LD; desktop and mobile screenshots checked (mobile hero and card padding fixed)
-- [x] F4. Podcast cards and all other internal links to `podcast-player.html?id=X` point to `/podcast-<id>`; `add_podcast_episode.py` and the add-podcast skill generate the episode page
-- [x] F5. Trailing slash settled: no trailing slash. 205 absolute and 103 relative folder links rewritten (relative `../x/` links were already broken on production because Vercel serves these pages without the slash); generator templates updated
-- [x] F6. `vercel.json`: `cleanUrls: true`, manual `rewrites` removed, 301 `/pd` to `/professional-development`, 301 `/podcast-player.html?id=X` to `/podcast-X`, 301 `/podcast-player.html` (no id) to `/podcast`
-- [x] F7. Local check: episode pages render (title, h1, video, meta); link crawl of all 199 deployable pages (6,273 internal links) finds no broken links except one missing image that predates the project; `build_pages.py --check`, `build_podcast_pages.py --check` and `inventory.py --check` pass
-- [x] F8. Vercel preview, pushed with Rohith's OK and tested with Rohith's automation bypass token (kept in `C:\Users\rohit\.vercel-bypass`, never printed): 18 pages return 200; `/pd` 301 to `/professional-development`; `.html`, trailing-slash and `/index.html` URLs 308 to the clean URL; unknown URL 404; `/podcast-player.html?id=X` reaches `/podcast-X` in 2 hops (308 clean URL, then 301) with `?id=X` left on the URL. The episode canonical is clean, so Google consolidates to `/podcast-X`
-- [x] F9. Summary given; phase set to `waiting for review`
+- [x] G1. Plan shown to Rohith and accepted (internal file list and orphan pages decided)
+- [x] G2. `.vercelignore` keeps internal files off the site: `docs/`, `tools/`, `.claude/`, `*.py`, `*.md`, `*.docx`, and the 8 internal root files; every file the site uses still deploys
+- [x] G3. Orphan pages `contact-form.html`, `schedule.html`, `waitlist-form.html` moved to `archive/` with 301 redirects (`/contact-form` and `/schedule` to `/contact-us`, `/waitlist-form` to `/parents`); `build-with-us/thank-you.html` marked `noindex, follow`
+- [x] G4. Self-referencing `www`, no-slash canonical and `og:url` on every indexable page: 75 pages updated (25 articles, 44 blog posts, `contact-us.html`, `privacy-policy.html`, `terms-and-conditions.html`, `build-with-us/index.html`, plus `og:url` on `parents.html` and `leaders-of-tomorrow/`); templates in `add_article.py`, `add_blog_post.py`, `generate_article_pages.py` emit them
+- [x] G5. `build_sitemap.py` writes `sitemap.xml` (194 URLs: 17 main and root pages, 25 articles, 44 blog posts plus `/blog`, 107 episodes; no `#`, no `noindex`, no-slash `www`, `lastmod` from git); the 3 add_* scripts run it; `--check` mode. Only the player redirect and the `noindex` thank-you page are left out
+- [x] G6. `robots.txt` checked: `Allow: /` and the sitemap line; no change needed
+- [ ] G7. Checks: every sitemap URL returns 200 on the preview with a matching canonical; no indexable page is missing from the sitemap; internal files return 404 on the preview; link crawl clean
+- [ ] G8. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -117,6 +116,20 @@ Result: 859 route links rewritten; add-* scripts and skills work on `pages/` + b
 - [x] E8. `inventory.py --check` reports zero (excluding `archive/` and `sitemap.xml`); `build_pages.py --check` passes; 219 internal URLs on the 11 main pages all resolve locally (after the `/guides` toolkit fix below)
 - [x] E9. Summary given; phase set to `waiting for review`
 
+### F. Vercel config and podcast pages (approved by Rohith, 2026-10-26)
+
+Result: 107 generated episode pages; clean, no-slash URLs; 301 redirects for `/pd` and the podcast player; tested on the Vercel preview. Commits `d629d91`, `36819c8`.
+
+- [x] F1. Plan shown to Rohith and accepted
+- [x] F2. Episode page spec (content, title and description rules, JSON-LD) approved by Rohith (**no code before this**)
+- [x] F3. `build_podcast_pages.py` generates all 107 `podcast-<id>/index.html` from `podcasts_data.js` with the shared layout; `--check` mode. 107 unique titles and descriptions; valid JSON-LD; desktop and mobile screenshots checked (mobile hero and card padding fixed)
+- [x] F4. Podcast cards and all other internal links to `podcast-player.html?id=X` point to `/podcast-<id>`; `add_podcast_episode.py` and the add-podcast skill generate the episode page
+- [x] F5. Trailing slash settled: no trailing slash. 205 absolute and 103 relative folder links rewritten (relative `../x/` links were already broken on production because Vercel serves these pages without the slash); generator templates updated
+- [x] F6. `vercel.json`: `cleanUrls: true`, manual `rewrites` removed, 301 `/pd` to `/professional-development`, 301 `/podcast-player.html?id=X` to `/podcast-X`, 301 `/podcast-player.html` (no id) to `/podcast`
+- [x] F7. Local check: episode pages render (title, h1, video, meta); link crawl of all 199 deployable pages (6,273 internal links) finds no broken links except one missing image that predates the project; `build_pages.py --check`, `build_podcast_pages.py --check` and `inventory.py --check` pass
+- [x] F8. Vercel preview, pushed with Rohith's OK and tested with Rohith's automation bypass token (kept in `C:\Users\rohit\.vercel-bypass`, never printed): 18 pages return 200; `/pd` 301 to `/professional-development`; `.html`, trailing-slash and `/index.html` URLs 308 to the clean URL; unknown URL 404; `/podcast-player.html?id=X` reaches `/podcast-X` in 2 hops (308 clean URL, then 301) with `?id=X` left on the URL. The episode canonical is clean, so Google consolidates to `/podcast-X`
+- [x] F9. Summary given; phase set to `waiting for review`
+
 ---
 
 ## Decision log
@@ -160,6 +173,14 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase F committed (`d629d91`) and branch `seo-real-urls` pushed to GitHub with Rohith's OK. Preview `https://tomoclub-website-fbrzicbpe-tomo-club.vercel.app` built, but Vercel Deployment Protection (SSO) blocks unauthenticated requests | Rohith / Claude Code |
 | 2026-10-26 | Player redirect accepted as is: 2 hops and a leftover `?id=` query; the target canonical is clean. Revisit only if Search Console flags it | Claude Code |
 | 2026-10-26 | Revoke the Vercel automation bypass token and delete `C:\Users\rohit\.vercel-bypass` after Phase I | Claude Code |
+| 2026-10-26 | Phase F approved | Rohith |
+| 2026-10-26 | `add_brad_article.py` and `add_shane_article.py` deleted (one-off scripts with paths to JANMEJAY's computer; their articles stay) | Rohith |
+| 2026-10-26 | Missing image on `/blog/ai-implementation-in-k12-schools` stays broken until Rohith supplies the picture | Rohith |
+| 2026-10-26 | Found: production serves internal files publicly (all `.py` scripts, `.claude/` skills, `*.md`, `Website Feedback.pdf`, `Updated feedback.pdf`, the publishing guide PDF, `*.txt`, `images.json`, `podcast_data.json`). This branch would add `docs/` (Search Console export) and `tools/`. A quick scan found no secrets. Phase G adds a `.vercelignore` clean-up | Claude Code |
+| 2026-10-26 | Hide the 8 internal root files from the deploy: `Website Feedback.pdf`, `Updated feedback.pdf`, `TomoClub Content Management & GitHub Publishing Guide new.pdf`, `images.json`, `podcast_data.json`, `patch_steps.txt`, `podcast_html.txt`, `newsletter_google_script.js` (none is linked or loaded by any page) | Rohith |
+| 2026-10-26 | Orphan pages (no incoming links since at least 2026-09-29): archive `contact-form.html`, `schedule.html`, `waitlist-form.html` with 301 redirects to `/contact-us`, `/contact-us` and `/parents`. `build-with-us/thank-you.html` stays (the form needs it) and gets `noindex` | Rohith |
+| 2026-10-26 | Phase G plan accepted | Rohith |
+| 2026-10-26 | Found, not fixed: `generate_article_pages.py` does not compile since 2026-10-23, because `add_article.py` wrote a raw Windows cover path into it. Nothing runs that file (historical record). Logged in §9 | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -198,3 +219,6 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `00-context.md` | Corrected thumbnail fact: all thumbnails match their own id |
 | 2026-10-26 | `03-episode-page-spec.md` | Status set to approved |
 | 2026-10-26 | `00-context.md` | Added open item: missing `blog pictures/` image |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase F closed; Phase G checklist and task spec (§16) added |
+| 2026-10-26 | `00-context.md` | §16 updated with the confirmed file list, orphan archive and redirects |
+| 2026-10-26 | `00-context.md` | Added open item: `generate_article_pages.py` syntax error |

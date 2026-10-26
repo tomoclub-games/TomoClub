@@ -92,7 +92,7 @@ Phase letters map to the numbered sections of `01-refactor-plan.md` (A = §0, B 
 | D. Remove router (§3) | Delete hash routing and `.page` toggling; nav state from pathname; hash shim on `/` | No `navigateFromHash`; `/#pd` etc. land on new pages; animations work |
 | E. Rewrite links (§4) | Script rewrites route `#` links in all HTML; update generators and add-* skills | grep finds zero route-style `#` links |
 | F. Vercel config and podcast pages (§5) | `cleanUrls: true`, drop manual rewrites, `/pd` 301, settle trailing slash; create missing `podcast-<id>/` pages, then 301 `podcast-player.html?id=X` to `/podcast-X` | Local `vercel dev` or preview serves all URLs with one slash style; every player URL lands on an episode page |
-| G. Sitemap, robots, canonicals (§6) | `build_sitemap.py`, hooked into add-* scripts; robots.txt check; self-referencing canonical on every article, blog post and podcast page (generators updated too) | Sitemap lists every real page, no `#` URLs, no scratch/archive; every indexable page has one canonical |
+| G. Sitemap, robots, canonicals, deploy clean-up (§6) | `build_sitemap.py`, hooked into add-* scripts; robots.txt check; self-referencing canonical on every article, blog post and podcast page (generators updated too) | Sitemap lists every real page, no `#` URLs, no scratch/archive; every indexable page has one canonical |
 | H. Analytics (§7) | Confirm GA and Clarity fire per real URL | Page_view events seen per path on the preview |
 | I. Verify before merge (§8) | 200s, titles, canonicals, link check, old-link shim, Lighthouse vs baseline, visual pass desktop + mobile | All checks pass on the Vercel preview; Rohith approves merge |
 | J. After launch (§9) | Submit sitemap, request indexing, update external `/#` links, watch coverage 2-4 weeks | Search Console shows new URLs indexed, no coverage errors spike |
@@ -130,13 +130,14 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 
 - Update external `/#...` links (LinkedIn, newsletters, email signatures) in Phase J.
 - Done in Phase E: add-* skills point at `pages/`; `archive/` is excluded from the check because `.vercelignore` keeps it off the site.
-- Rohith to decide: delete `add_brad_article.py` and `add_shane_article.py`? They are one-offs with paths to another computer (`c:\Users\JANMEJAY\...`) and cannot run here. Their links were fixed in Phase E.
+- Done: `add_brad_article.py` and `add_shane_article.py` deleted on 2026-10-26.
 - `pages/index.html` (home body) still uses relative asset paths (`assets/...`). They work because `/` is at the root. Make them root-absolute if the home body is ever reused elsewhere.
 - After Phase C: consider moving other pages with their own navbar copy (`parents.html`, `leaders-of-tomorrow/`, articles, podcast pages, blog) onto the shared partials, so the navbar is edited in one place.
 - `site.webmanifest` points to `/android-chrome-192x192.png` and `/android-chrome-512x512.png`, which do not exist. Every page logs a 404 for it. This is older than the project (since the initial commit). Fix in Phase I or separately.
 - The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
-- `blog/ai-implementation-in-k12-schools/index.html` shows `../../blog pictures/Why Schools Should Train Teachers in AI Literacy.png`, which does not exist (folder never in git). Broken image on production today. Replace or remove it.
+- `blog/ai-implementation-in-k12-schools/index.html` shows `../../blog pictures/Why Schools Should Train Teachers in AI Literacy.png`, which does not exist (folder never in git). Broken image on production today. Rohith will supply the picture; until then it stays broken.
 - `generate_html.py` and `patch_podcasts.py` still write old-style podcast cards into `index.html`. The add-podcast skill already says not to run them. Consider deleting them.
+- `generate_article_pages.py` has a syntax error since 2026-10-23: `add_article.py`'s `update_generate_article_pages_py` writes the `--cover` path unescaped, and a Windows path (`C:\Users\...`) broke the string. Fix the writer (use `repr()`) and the stored entry if the file is ever needed again.
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
 
 ---
@@ -322,3 +323,26 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 8. Summary given; phase set to `waiting for review`.
 
 **Output:** `03-episode-page-spec.md` (approved), `build_podcast_pages.py`, `_partials/episode.html`, 107 episode pages, updated `vercel.json`, links and generators.
+
+---
+
+## 16. Task spec: Phase G
+
+**Goal:** search engines get one clean list of every real page, each page names itself as the official URL, and the site stops publishing internal files.
+
+**Inputs (checked 2026-10-26):**
+
+- 199 deployable HTML pages, none marked `noindex`. 78 indexable pages have no canonical: 25 articles, 44 blog posts, `build-with-us/` (2) and 7 root pages (`contact-form.html`, `contact-us.html`, `podcast-player.html`, `privacy-policy.html`, `schedule.html`, `terms-and-conditions.html`, `waitlist-form.html`).
+- `sitemap.xml`: 15 entries, 7 of them `#` URLs.
+- `robots.txt`: `Allow: /` and the sitemap line.
+- `.vercelignore` only excludes `archive/`, `scratch/`, `.env*`, Python caches, `_partials/`, `pages/`. Production serves every other file, including internal ones.
+
+**Steps:**
+
+1. `.vercelignore`: add `docs/`, `tools/`, `.claude/`, `*.py`, `*.md`, `*.docx`, and the internal root files `Website Feedback.pdf`, `Updated feedback.pdf`, `TomoClub Content Management & GitHub Publishing Guide new.pdf`, `patch_steps.txt`, `podcast_html.txt`, `images.json`, `podcast_data.json`, `newsletter_google_script.js` (confirmed by Rohith 2026-10-26; none is linked or loaded by any page). Then confirm nothing the site loads is excluded: crawl every page's `src`/`href`/`data-file` against the deploy list.
+2. Orphan pages (no incoming links; confirmed by Rohith 2026-10-26): move `contact-form.html`, `schedule.html` and `waitlist-form.html` to `archive/` (not deployed) and add 301 redirects in `vercel.json`: `/contact-form` and `/schedule` to `/contact-us`, `/waitlist-form` to `/parents`. `build-with-us/thank-you.html` stays, because the Build With Us form redirects to it, and gets `<meta name="robots" content="noindex, follow">`. `podcast-player.html` is already redirected.
+3. Canonical and `og:url` (`https://www.tomoclub.org/<path>`, no trailing slash) on every remaining indexable page that lacks them (25 articles, 44 blog posts, `contact-us.html`, `privacy-policy.html`, `terms-and-conditions.html`, `build-with-us/index.html`), inserted after `<title>`. Update the article and blog templates in `add_article.py` and `add_blog_post.py` so new pages get them.
+4. `build_sitemap.py` (repo root, stdlib): lists every deployed, indexable HTML page as a no-slash `www` URL; skips `noindex` pages, redirects and anything in `.vercelignore`; `lastmod` = last git commit date of the file. `--check` mode. `add_article.py`, `add_blog_post.py` and `add_podcast_episode.py` run it.
+5. `robots.txt`: keep `Allow: /` and the sitemap line. Excluded files are no longer deployed, so they need no `Disallow` lines.
+6. Checks: push to the preview (**ask Rohith first**); every sitemap URL returns 200 and its canonical equals its sitemap URL; every indexable page is in the sitemap; the excluded internal files return 404; link crawl clean; all `--check` modes pass.
+7. Summary given; phase set to `waiting for review`.

@@ -62,6 +62,21 @@
       "statusCode": 301
     },
     {
+      "source": "/contact-form",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/schedule",
+      "destination": "/contact-us",
+      "statusCode": 301
+    },
+    {
+      "source": "/waitlist-form",
+      "destination": "/parents",
+      "statusCode": 301
+    },
+    {
       "source": "/podcast-player.html",
       "has": [
         {

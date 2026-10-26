@@ -12,3 +12,21 @@ __pycache__/
 # Page build sources (build_pages.py). Only the generated HTML is deployed.
 _partials/
 pages/
+
+# Internal project files: docs, tooling, Claude skills, build and maintenance scripts, notes.
+docs/
+tools/
+.claude/
+*.py
+*.md
+*.docx
+
+# Internal root files that no page links to or loads (Phase G, 2026-10-26).
+Website Feedback.pdf
+Updated feedback.pdf
+TomoClub Content Management & GitHub Publishing Guide new.pdf
+images.json
+podcast_data.json
+patch_steps.txt
+podcast_html.txt
+newsletter_google_script.js

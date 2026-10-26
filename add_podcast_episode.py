@@ -228,6 +228,7 @@ def main():
     print("\nRebuilding pages...")
     subprocess.run([sys.executable, 'build_pages.py'], check=True)
     subprocess.run([sys.executable, 'build_podcast_pages.py'], check=True)
+    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

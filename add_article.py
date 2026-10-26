@@ -92,7 +92,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta property="og:title" content="{title} | TomoClub Education Hall">
     <meta property="og:description" content="{description}">
     <meta property="og:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
-    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}/">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/{slug}">
     <meta property="og:type" content="article">
 
     <!-- Twitter Card Meta Tags -->
@@ -102,6 +102,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/{cover_local_name}">
 
     <title>{title} | TomoClub Education Hall</title>
+    <link rel="canonical" href="https://www.tomoclub.org/articles/{slug}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -524,6 +525,7 @@ def main():
 
     print("\nRebuilding pages...")
     subprocess.run([sys.executable, 'build_pages.py'], check=True)
+    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

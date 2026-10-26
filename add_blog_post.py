@@ -102,6 +102,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | TomoClub Blog</title>
+    <link rel="canonical" href="https://www.tomoclub.org/blog/{slug}">
+    <meta property="og:url" content="https://www.tomoclub.org/blog/{slug}">
     <meta name="description" content="{description}">
 
     <!-- Google Fonts -->
@@ -509,6 +511,7 @@ def main():
 
     print("\nRebuilding pages...")
     subprocess.run([sys.executable, 'build_pages.py'], check=True)
+    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")
