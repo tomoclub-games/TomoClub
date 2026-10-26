@@ -53,36 +53,47 @@
       ]
     }
   ],
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/parents",
-      "destination": "/parents.html"
+      "source": "/pd",
+      "destination": "/professional-development",
+      "statusCode": 301
     },
     {
-      "source": "/privacy-policy",
-      "destination": "/privacy-policy.html"
+      "source": "/podcast-player.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(?<id>[A-Za-z0-9_-]+)"
+        }
+      ],
+      "destination": "/podcast-:id",
+      "statusCode": 301
     },
     {
-      "source": "/terms-and-conditions",
-      "destination": "/terms-and-conditions.html"
+      "source": "/podcast-player",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(?<id>[A-Za-z0-9_-]+)"
+        }
+      ],
+      "destination": "/podcast-:id",
+      "statusCode": 301
     },
     {
-      "source": "/contact-us",
-      "destination": "/contact-us.html"
+      "source": "/podcast-player.html",
+      "destination": "/podcast",
+      "statusCode": 301
     },
     {
-      "source": "/schedule",
-      "destination": "/schedule.html"
-    },
-    {
-      "source": "/contact-form",
-      "destination": "/contact-form.html"
-    },
-    {
-      "source": "/waitlist-form",
-      "destination": "/waitlist-form.html"
+      "source": "/podcast-player",
+      "destination": "/podcast",
+      "statusCode": 301
     }
   ]
 }

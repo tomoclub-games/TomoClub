@@ -19,10 +19,10 @@ Adds one new podcast episode to the site using `add_podcast_episode.py` at the r
    This single call:
    - Extracts the video ID from the URL.
    - Fetches the real title + duration for **just that one video** from YouTube (not the whole back-catalog — fetching all ~100 videos at once triggers 429 rate limits).
-   - Adds the entry to `podcasts_data.js` (used by `podcast-player.html`).
+   - Adds the entry to `podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py build_podcast_pages.py`; never edit `podcast-<id>/index.html` by hand.
    - Adds/refreshes the entry in `podcast_data.json` (metadata cache).
    - Appends the URL to `generate_html.py`'s `urls` list and the tuple to `update_js_metadata.py`'s `new_podcasts` list (kept as historical records only — see below).
-   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated).
+   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py build_podcast_pages.py`, which creates the episode page `podcast-<id>/index.html`. The card links to `/podcast-<id>`.
    - All steps are duplicate-safe: re-running with the same URL is a no-op that reports "already has an entry, skipping" for each file.
 
 3. **Verify the diff is minimal and sane**:
@@ -37,7 +37,7 @@ Adds one new podcast episode to the site using `add_podcast_episode.py` at the r
    ```
    If nothing is listening, start one from the repo root: `python -m http.server 8000` (run in background). If something IS listening, check how many PIDs — if more than one process is bound to the same port, kill all of them first (`taskkill //PID <pid> //F`) and start a single fresh instance. Two processes silently bound to the same port is what caused stale content to be served during the first episode upload.
 
-   Give the user both links directly: `http://localhost:8000/podcast` and `http://localhost:8000/podcast-player.html?id=VIDEO_ID`, and mention they should hard-refresh (Ctrl+Shift+R) since browsers cache aggressively.
+   Give the user both links directly: `http://localhost:8000/podcast` and `http://localhost:8000/podcast-VIDEO_ID`, and mention they should hard-refresh (Ctrl+Shift+R) since browsers cache aggressively.
 
 5. **Ask if the preview looks good or needs changes** — correct title, speaker, date, duration. Don't move past this until the user confirms. Loop back to fixing the entry as needed.
 

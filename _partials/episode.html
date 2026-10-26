@@ -1,0 +1,28 @@
+    <main class="episode-hero">
+    <div class="container">
+        <a href="/podcast" class="btn btn-secondary btn-view-more episode-back"><i data-lucide="arrow-left"></i> All episodes</a>
+
+        <h1 class="episode-title">{{heading}}</h1>
+
+        <div class="episode-meta-bar">
+{{block:speaker}}            <span class="episode-meta-unit"><i data-lucide="calendar"></i> <strong>Date:</strong> {{display_date}}</span>
+            <span class="episode-meta-unit"><i data-lucide="clock"></i> <strong>Duration:</strong> {{duration}}</span>
+        </div>
+
+        <div class="episode-player">
+            <iframe src="https://www.youtube-nocookie.com/embed/{{video_id}}?rel=0" title="{{heading}}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="episode-description">
+            <h2>About this episode</h2>
+{{block:description}}        </div>
+
+        <a href="https://www.youtube.com/watch?v={{video_id}}" class="episode-youtube" target="_blank" rel="noopener noreferrer"><i data-lucide="youtube"></i> Watch on YouTube</a>
+
+        <div class="episode-more">
+            <h2>More episodes</h2>
+            <div class="grid-3">
+{{block:more}}            </div>
+        </div>
+    </div>
+    </main>

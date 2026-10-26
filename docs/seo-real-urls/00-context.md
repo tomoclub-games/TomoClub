@@ -41,7 +41,7 @@ Stable decisions that shape the design. The dated history is the decision log in
 | `#blog` | `/blog` becomes a real page built from the `#blog` section. (Corrected 2026-10-26: `blog/index.html` is a redirect stub to `/#blog`, not a real page) |
 | Shared layout | `build_pages.py` combines `_partials/` with page bodies. Not hand-copied (Q2, 2026-10-26) |
 | Canonical host | `https://www.tomoclub.org`. All canonicals, sitemap entries and internal absolute links use it (Q3, 2026-10-26) |
-| Podcast URLs | Keep `podcast-<id>/`. No move to `/podcast/<slug>`. `podcast-player.html?id=X` 301-redirects to `/podcast-X`; missing episode pages are created first (Q1, 2026-10-26) |
+| Podcast URLs | Keep `podcast-<id>/`. No move to `/podcast/<slug>`. All 107 episode pages are generated from `podcasts_data.js`; `podcast-player.html?id=X` 301-redirects to `/podcast-X` (Q1, revised 2026-10-26) |
 | Old-link handling | A JS shim on `/` maps `location.hash` to the new path. Server 301 is impossible because fragments never reach the server |
 
 ---
@@ -91,7 +91,7 @@ Phase letters map to the numbered sections of `01-refactor-plan.md` (A = §0, B 
 | C. Split `index.html` (§2) | One `<route>/index.html` per route with static title, meta, canonical, OG, one `<h1>`, JSON-LD; replace redirect stubs; per-page JS | Every route URL serves its own page locally; `seoData` deleted; `/` well below 594 KB |
 | D. Remove router (§3) | Delete hash routing and `.page` toggling; nav state from pathname; hash shim on `/` | No `navigateFromHash`; `/#pd` etc. land on new pages; animations work |
 | E. Rewrite links (§4) | Script rewrites route `#` links in all HTML; update generators and add-* skills | grep finds zero route-style `#` links |
-| F. Vercel config (§5) | `cleanUrls: true`, drop manual rewrites, `/pd` 301, settle trailing slash; create missing `podcast-<id>/` pages, then 301 `podcast-player.html?id=X` to `/podcast-X` | Local `vercel dev` or preview serves all URLs with one slash style; every player URL lands on an episode page |
+| F. Vercel config and podcast pages (§5) | `cleanUrls: true`, drop manual rewrites, `/pd` 301, settle trailing slash; create missing `podcast-<id>/` pages, then 301 `podcast-player.html?id=X` to `/podcast-X` | Local `vercel dev` or preview serves all URLs with one slash style; every player URL lands on an episode page |
 | G. Sitemap, robots, canonicals (§6) | `build_sitemap.py`, hooked into add-* scripts; robots.txt check; self-referencing canonical on every article, blog post and podcast page (generators updated too) | Sitemap lists every real page, no `#` URLs, no scratch/archive; every indexable page has one canonical |
 | H. Analytics (§7) | Confirm GA and Clarity fire per real URL | Page_view events seen per path on the preview |
 | I. Verify before merge (§8) | 200s, titles, canonicals, link check, old-link shim, Lighthouse vs baseline, visual pass desktop + mobile | All checks pass on the Vercel preview; Rohith approves merge |
@@ -135,6 +135,8 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - After Phase C: consider moving other pages with their own navbar copy (`parents.html`, `leaders-of-tomorrow/`, articles, podcast pages, blog) onto the shared partials, so the navbar is edited in one place.
 - `site.webmanifest` points to `/android-chrome-192x192.png` and `/android-chrome-512x512.png`, which do not exist. Every page logs a 404 for it. This is older than the project (since the initial commit). Fix in Phase I or separately.
 - The pilot modal and the video modal in `_partials/modals.html` have no trigger on any page. Consider removing them to cut page weight (about 20 KB per page).
+- `blog/ai-implementation-in-k12-schools/index.html` shows `../../blog pictures/Why Schools Should Train Teachers in AI Literacy.png`, which does not exist (folder never in git). Broken image on production today. Replace or remove it.
+- `generate_html.py` and `patch_podcasts.py` still write old-style podcast cards into `index.html`. The add-podcast skill already says not to run them. Consider deleting them.
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
 
 ---
@@ -294,3 +296,29 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 8. Summary given; phase set to `waiting for review`.
 
 **Not in this phase:** podcast cards still link to `podcast-player.html?id=X`. Phase F creates the missing `podcast-<id>/` pages, adds the redirect, and then points the cards at `/podcast-<id>`.
+
+---
+
+## 15. Task spec: Phase F
+
+**Goal:** Vercel serves clean, no-slash URLs with the right redirects, and every podcast episode has a real, indexable page.
+
+**Inputs:**
+
+- `vercel.json` (checked 2026-10-26): `cleanUrls: false`, `trailingSlash: false`, 7 manual `rewrites` (`/parents`, `/privacy-policy`, `/terms-and-conditions`, `/contact-us`, `/schedule`, `/contact-form`, `/waitlist-form` to their `.html` files).
+- `podcasts_data.js`: 107 episodes. All have title, date, duration. 23 have the generic speaker "TomoClub Guest". 78 share one of a few generic descriptions. Some descriptions are JS template literals (backticks). Every `thumbnail` matches its own id (checked 2026-10-26).
+- The 68 existing `podcast-<id>/index.html` are empty shells. 39 episodes have no page.
+- 217 internal links to `/podcast-player.html?id=X`.
+
+**Steps:**
+
+1. Write `docs/seo-real-urls/03-episode-page-spec.md` for Rohith to approve: page content (h1 title, speaker, date, duration, YouTube embed, description, back link to `/podcast`), `<title>` and meta description rules (unique per episode even when the stored description is generic), canonical `https://www.tomoclub.org/podcast-<id>`, `PodcastEpisode` + `VideoObject` JSON-LD. **No code before approval.**
+2. `build_podcast_pages.py` (repo root, stdlib only): reads `podcasts_data.js`, renders each episode through `build_pages.py`'s `render()` with the shared partials and an `_partials/episode.html` body, writes `podcast-<id>/index.html`. `--check` like `build_pages.py`.
+3. Point every internal link to `/podcast-player.html?id=X` at `/podcast-X` (cards in `pages/podcast.html` and anywhere else). `add_podcast_episode.py` writes the new card with `/podcast-<id>` and runs `build_podcast_pages.py`. Update the add-podcast skill.
+4. Trailing slash: no slash. Rewrite internal links like `/articles/<slug>/` and `/blog/<slug>/` to drop the final slash, and update the generator templates.
+5. `vercel.json`: `cleanUrls: true`; remove the 7 manual `rewrites` (clean URLs cover them); `redirects`: `/pd` to `/professional-development`, `/podcast-player.html` with `id` query to `/podcast-:id`, `/podcast-player.html` without `id` to `/podcast`, all `statusCode: 301`.
+6. Local check: episode pages render; link crawl clean; both `--check` modes pass.
+7. Vercel preview: `vercel.json` behaviour can only be tested on Vercel. Pushing `seo-real-urls` to GitHub creates a preview deployment. **Ask Rohith before pushing.** Then test redirects, clean URLs and slash handling with `curl -I`.
+8. Summary given; phase set to `waiting for review`.
+
+**Output:** `03-episode-page-spec.md` (approved), `build_podcast_pages.py`, `_partials/episode.html`, 107 episode pages, updated `vercel.json`, links and generators.

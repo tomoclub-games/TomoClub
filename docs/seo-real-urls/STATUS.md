@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** E. Rewrite links
-- **Current step:** E9 done; phase waiting for review
-- **Waiting on:** Rohith: review and approve Phase E; decide whether to delete `add_brad_article.py` and `add_shane_article.py`
-- **Next action:** on approval, commit Phase E and run `seo-next` to start Phase F (Vercel config)
+- **Current phase:** F. Vercel config and podcast pages
+- **Current step:** F8
+- **Waiting on:** Rohith: OK to push branch `seo-real-urls` to GitHub for a Vercel preview
+- **Next action:** push, then test redirects, clean URLs and no-slash URLs on the preview with `curl -I`
 
 ---
 
@@ -25,8 +25,8 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | B. Shared layout | approved | `_partials/`, `build_pages.py` | Rohith, 2026-10-26 |
 | C. Split `index.html` | approved | `<route>/index.html` pages | Rohith, 2026-10-26 |
 | D. Remove router | approved | Router-free `script.js`, hash shim | Rohith, 2026-10-26 |
-| E. Rewrite links | waiting for review | Zero route `#` links; updated generators and skills | |
-| F. Vercel config | not started | Updated `vercel.json` | |
+| E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
+| F. Vercel config and podcast pages | in progress | Updated `vercel.json`; 107 generated episode pages; player redirect | |
 | G. Sitemap, robots, canonicals | not started | `build_sitemap.py`, new `sitemap.xml` | |
 | H. Analytics | not started | GA + Clarity check | |
 | I. Verify before merge | not started | Preview check report; merge | |
@@ -34,19 +34,19 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 
 ---
 
-## Current phase checklist: E. Rewrite links
+## Current phase checklist: F. Vercel config and podcast pages
 
-Task spec: `00-context.md` section 14.
+Task spec: `00-context.md` section 15.
 
-- [x] E1. Plan shown to Rohith and accepted
-- [x] E2. `tools/seo-real-urls/rewrite_links.py` written; dry run reviewed. Bare `#x` is only rewritten inside `href=` (the hash shim's JS map is left alone); `.md` files only under `.claude/skills/`; `images.json` skipped (not UTF-8, no links). No links flagged for review
-- [x] E3. 859 links rewritten in 157 files (source HTML, `api/signup.js`, generator templates, skills); generated pages rebuilt
-- [x] E4. Apex `https://tomoclub.org/...` links changed to `https://www.tomoclub.org/...` (Q3)
-- [x] E5. Generators updated: link templates in all 7 scripts; `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py` edit `pages/<route>.html` with root-absolute card URLs and run `build_pages.py`. Also fixed `add_article.py`'s grid marker, broken since commit `f4262c4` (2026-10-23, before this project)
-- [x] E6. Skills `add-article`, `add-blog`, `add-podcast` updated (files, sections, preview URLs, build step)
-- [x] E7. Each add-* script tested in a throwaway git worktree (podcast YouTube fetch stubbed): card lands in the right `pages/` file and position (article last, blog and podcast first), build runs, no `#` links emitted; worktree removed
-- [x] E8. `inventory.py --check` reports zero (excluding `archive/` and `sitemap.xml`); `build_pages.py --check` passes; 219 internal URLs on the 11 main pages all resolve locally (after the `/guides` toolkit fix below)
-- [x] E9. Summary given; phase set to `waiting for review`
+- [x] F1. Plan shown to Rohith and accepted
+- [x] F2. Episode page spec (content, title and description rules, JSON-LD) approved by Rohith (**no code before this**)
+- [x] F3. `build_podcast_pages.py` generates all 107 `podcast-<id>/index.html` from `podcasts_data.js` with the shared layout; `--check` mode. 107 unique titles and descriptions; valid JSON-LD; desktop and mobile screenshots checked (mobile hero and card padding fixed)
+- [x] F4. Podcast cards and all other internal links to `podcast-player.html?id=X` point to `/podcast-<id>`; `add_podcast_episode.py` and the add-podcast skill generate the episode page
+- [x] F5. Trailing slash settled: no trailing slash. 205 absolute and 103 relative folder links rewritten (relative `../x/` links were already broken on production because Vercel serves these pages without the slash); generator templates updated
+- [x] F6. `vercel.json`: `cleanUrls: true`, manual `rewrites` removed, 301 `/pd` to `/professional-development`, 301 `/podcast-player.html?id=X` to `/podcast-X`, 301 `/podcast-player.html` (no id) to `/podcast`
+- [x] F7. Local check: episode pages render (title, h1, video, meta); link crawl of all 199 deployable pages (6,273 internal links) finds no broken links except one missing image that predates the project; `build_pages.py --check`, `build_podcast_pages.py --check` and `inventory.py --check` pass
+- [ ] F8. Vercel preview (only after Rohith OKs pushing the branch): redirects, clean URLs and no-slash URLs verified with `curl`
+- [ ] F9. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -103,6 +103,20 @@ Result: `/` is home only (82 KB); router, `seoData` and `.page` CSS removed; has
 - [x] D6. Local check (puppeteer-core + local Chrome): all 11 pages render; scroll animations, FAQ accordion, article and podcast filters, download modal, theme toggle and mobile menu work; all 12 old `/#route` links land on their page; in-page `#pd` link navigates; `/#signup` stays on `/`; `--check` passes. Pilot and video modals have no trigger on any page, so they were not exercised. Mobile menu matches production
 - [x] D7. Summary given; phase set to `waiting for review`
 
+### E. Rewrite links (approved by Rohith, 2026-10-26)
+
+Result: 859 route links rewritten; add-* scripts and skills work on `pages/` + build; `/guides` toolkit downloads fixed. Commit `9914ddf`.
+
+- [x] E1. Plan shown to Rohith and accepted
+- [x] E2. `tools/seo-real-urls/rewrite_links.py` written; dry run reviewed. Bare `#x` is only rewritten inside `href=` (the hash shim's JS map is left alone); `.md` files only under `.claude/skills/`; `images.json` skipped (not UTF-8, no links). No links flagged for review
+- [x] E3. 859 links rewritten in 157 files (source HTML, `api/signup.js`, generator templates, skills); generated pages rebuilt
+- [x] E4. Apex `https://tomoclub.org/...` links changed to `https://www.tomoclub.org/...` (Q3)
+- [x] E5. Generators updated: link templates in all 7 scripts; `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py` edit `pages/<route>.html` with root-absolute card URLs and run `build_pages.py`. Also fixed `add_article.py`'s grid marker, broken since commit `f4262c4` (2026-10-23, before this project)
+- [x] E6. Skills `add-article`, `add-blog`, `add-podcast` updated (files, sections, preview URLs, build step)
+- [x] E7. Each add-* script tested in a throwaway git worktree (podcast YouTube fetch stubbed): card lands in the right `pages/` file and position (article last, blog and podcast first), build runs, no `#` links emitted; worktree removed
+- [x] E8. `inventory.py --check` reports zero (excluding `archive/` and `sitemap.xml`); `build_pages.py --check` passes; 219 internal URLs on the 11 main pages all resolve locally (after the `/guides` toolkit fix below)
+- [x] E9. Summary given; phase set to `waiting for review`
+
 ---
 
 ## Decision log
@@ -135,6 +149,14 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase E plan accepted | Rohith |
 | 2026-10-26 | Bug from Phase C fixed: the path converter turned `/guides` toolkit `data-file="SEL_new.pdf"` into `"/SEL_new.pdf"`, so `script.js` stopped adding `toolkits/` and downloads would 404. Now `data-file="/toolkits/SEL_new.pdf"` (all 4 guides). Found by the E8 link crawl | Claude Code |
 | 2026-10-26 | `inventory.py` no longer writes the baseline by default (`--write` needed), so `docs/seo-real-urls/baseline/inventory.md` stays the Phase A record | Claude Code |
+| 2026-10-26 | Phase E approved. Deleting `add_brad_article.py` / `add_shane_article.py` still open | Rohith |
+| 2026-10-26 | Q1 revised: the 68 existing `podcast-<id>/` pages are empty shells (blank title and h1, "January 01, 1970", 0:00). Phase F generates all 107 episode pages from `podcasts_data.js` with the shared layout, then redirects the player to them | Rohith |
+| 2026-10-26 | Trailing slash: none. Matches today's `trailingSlash: false` and the canonicals set in Phase C | Claude Code (in the Phase F plan) |
+| 2026-10-26 | Phase F plan accepted | Rohith |
+| 2026-10-26 | Episode page spec `03-episode-page-spec.md` approved | Rohith |
+| 2026-10-26 | Episode speakers stored as "Feat. Name" are shown as "Name" | Claude Code |
+| 2026-10-26 | E4 was incomplete: it only changed apex links that carried a route hash. 13 plain `https://tomoclub.org/...` links (in `build-with-us/` and 2 blog posts) changed to www in Phase F | Claude Code |
+| 2026-10-26 | `leaders-of-tomorrow/index.html` linked to `leaders-of-tomorrow.html`, which does not exist (banner button and breadcrumb JSON-LD); now `/leaders-of-tomorrow` | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -168,3 +190,8 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `00-context.md` | Added open items: missing `android-chrome-*.png` icons, unused pilot and video modals |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase D closed; Phase E checklist and task spec (§14) added |
 | 2026-10-26 | `00-context.md` | Updated §9 open items after Phase E |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase E closed; Phase F checklist and task spec (§15) added |
+| 2026-10-26 | `03-episode-page-spec.md` | Created (draft, waiting for approval) |
+| 2026-10-26 | `00-context.md` | Corrected thumbnail fact: all thumbnails match their own id |
+| 2026-10-26 | `03-episode-page-spec.md` | Status set to approved |
+| 2026-10-26 | `00-context.md` | Added open item: missing `blog pictures/` image |

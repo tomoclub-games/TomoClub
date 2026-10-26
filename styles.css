@@ -1975,3 +1975,111 @@ body.dark-theme .quote-card-navy p {
   border-radius: 12px !important;
   text-decoration: none;
 }
+
+/* --- Podcast episode pages (podcast-<id>/, built by build_podcast_pages.py) --- */
+.episode-hero {
+  padding-top: 160px;
+  padding-bottom: 4rem;
+}
+
+.episode-back {
+  margin-bottom: 2.5rem;
+}
+
+.episode-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--navy);
+  letter-spacing: -0.04em;
+}
+
+.episode-meta-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+}
+
+.episode-meta-unit {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.episode-meta-unit i {
+  width: 20px;
+  height: 20px;
+  color: var(--teal);
+}
+
+.episode-meta-unit strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.episode-player {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #000;
+  box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.3);
+}
+
+.episode-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.episode-description {
+  max-width: 820px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 32px;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+}
+
+.episode-description h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.episode-description p { margin-bottom: 1.25rem; line-height: 1.7; }
+.episode-description ul, .episode-description ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+.episode-description li { margin-bottom: 0.6rem; }
+.episode-description a { color: var(--teal); text-decoration: underline; }
+
+.episode-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.episode-more h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .episode-hero { padding-top: 140px; }
+  .episode-title { font-size: 2.25rem; }
+  .episode-meta-bar { padding: 1rem 1.25rem; }
+  .episode-player { border-radius: 16px; }
+  .episode-description { padding: 1.75rem; }
+}

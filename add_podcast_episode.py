@@ -7,14 +7,15 @@ Usage:
 What it does (all steps are duplicate-safe / idempotent -- safe to re-run):
     1. Fetches the real title + duration for JUST this one video from YouTube
        (does NOT re-fetch the whole back-catalog -- avoids 429 rate limits).
-    2. Adds the entry to podcasts_data.js (used by podcast-player.html).
+    2. Adds the entry to podcasts_data.js (the source for every podcast-<id>/ episode page).
     3. Adds/updates the entry in podcast_data.json (the metadata cache).
     4. Appends the URL to generate_html.py's `urls` list (historical record).
     5. Appends the tuple to update_js_metadata.py's `new_podcasts` list (historical record).
     6. Inserts a new card at the TOP of the #podcast-grid in pages/podcast.html, using
        the exact same template as the live cards (not the generic placeholder
        template that generate_html.py produces).
-    7. Runs build_pages.py so /podcast (podcast/index.html) is regenerated.
+    7. Runs build_pages.py so /podcast (podcast/index.html) is regenerated, and
+       build_podcast_pages.py so the new episode gets its page at /podcast-<id>.
 
 It deliberately does NOT run fetch_podcasts.py or generate_html.py's grid
 rebuild -- that pipeline re-fetches all ~100 videos (triggers YouTube rate
@@ -162,7 +163,7 @@ def update_index_html(vid, title, date_abbrev, duration, timestamp):
         print(f"  {path} already has a card for {vid}, skipping.")
         return
 
-    card = f'''                <a href="/podcast-player.html?id={vid}" class="glass-card podcast-card" data-timestamp="{timestamp}">
+    card = f'''                <a href="/podcast-{vid}" class="glass-card podcast-card" data-timestamp="{timestamp}">
                     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
                         <img src="https://img.youtube.com/vi/{vid}/hqdefault.jpg" alt="{title}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
@@ -226,6 +227,7 @@ def main():
 
     print("\nRebuilding pages...")
     subprocess.run([sys.executable, 'build_pages.py'], check=True)
+    subprocess.run([sys.executable, 'build_podcast_pages.py'], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

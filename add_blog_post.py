@@ -383,11 +383,11 @@ def update_index_html_card(slug, title, description, category, cover_local_name,
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
-    if f'href="/blog/{slug}/"' in content:
+    if f'href="/blog/{slug}"' in content:
         print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                    <a href="/blog/{slug}/" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                    <a href="/blog/{slug}" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
                         <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
                             <img loading="lazy" src="/blog/{slug}/{cover_local_name}" alt="{title}" style="width: 100%; height: 200px; object-fit: cover;">
                             <div style="padding: 2rem 2rem 2rem; display: flex; flex-direction: column; flex-grow: 1;">
