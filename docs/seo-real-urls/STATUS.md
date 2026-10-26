@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** K. Repo clean-up (runs before Phase J)
-- **Current step:** K7 (preview part)
-- **Waiting on:** Rohith: preview access (new bypass token or a shareable link)
-- **Next action:** crawl and redirect checks on the preview, especially the `/podcast-<id>` rewrite
+- **Current step:** K8
+- **Waiting on:** Rohith: create and merge the pull request for `repo-cleanup`
+- **Next action:** production smoke test; then revoke the new bypass token
 
 ---
 
@@ -45,7 +45,7 @@ Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). Phas
 - [x] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated (991 references in 200 files; `styles.css` and `script.js` cache busters bumped to `v=27`)
 - [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
 - [x] K6. One-off and retired scripts and files move to `archive/scripts/`; internal documents and source PDFs move to `docs/`; `scope and sequence/` PDF moves to `toolkits/`; unused files (`podcast-player.html`, `tomo_*_thumb.jpg`) deleted. 54 files to `archive/scripts/`; Apps Script sources to `docs/apps-script/`; `data/` kept off the site. Root now: `CLAUDE.md`, `favicon.ico`, `index.html`, `memory.md`, `robots.txt`, `sitemap.xml`, `vercel.json`
-- [ ] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`. **Local part done:** all `--check` modes pass; add-* scripts pass in a throwaway worktree (episode page in `podcast/episodes/<id>/`, sitemap lists `/podcast-<id>`); local crawl of 195 pages, 6,332 links: no broken links. **Preview part waiting** on access (bypass token was revoked)
+- [x] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`. **Local part done:** all `--check` modes pass; add-* scripts pass in a throwaway worktree (episode page in `podcast/episodes/<id>/`, sitemap lists `/podcast-<id>`); local crawl of 195 pages, 6,332 links: no broken links. **Preview** (new bypass token, kept in the same local file): 195 pages 200, 390 link targets 0 broken, all redirects land correctly incl. `/podcast/episodes/<id>`, `.html` pages, old asset paths and the player; assets load; archived and internal files 404
 - [ ] K8. Pull request (Rohith merges); production smoke test
 - [ ] K9. Summary given; phase set to `waiting for review`
 
