@@ -61,6 +61,9 @@ def redirect_sources():
 
 
 def url_path(rel):
+    m = re.match(r"podcast/episodes/([\w-]+)/index\.html$", rel)
+    if m:
+        return "/podcast-" + m.group(1)  # served at /podcast-<id> by a vercel.json rewrite
     path = "/" + rel
     path = path[: -len("index.html")] if path.endswith("/index.html") else path[: -len(".html")]
     return path.rstrip("/") or "/"

@@ -109,6 +109,17 @@
       "source": "/podcast-player",
       "destination": "/podcast",
       "statusCode": 301
+    },
+    {
+      "source": "/podcast/episodes/:id",
+      "destination": "/podcast-:id",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/podcast-:id",
+      "destination": "/podcast/episodes/:id"
     }
   ]
 }

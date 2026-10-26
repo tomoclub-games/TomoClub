@@ -1,4 +1,7 @@
-"""Build one page per podcast episode (podcast-<id>/index.html) from podcasts_data.js.
+"""Build one page per podcast episode from data/podcasts_data.js.
+
+Pages are written to podcast/episodes/<id>/index.html and served at /podcast-<id>
+(vercel.json rewrite; /podcast/episodes/<id> 301s to /podcast-<id>).
 
 Pages use the shared layout in _partials/ and the episode body in _partials/episode.html,
 rendered through build_pages.render(). See docs/seo-real-urls/03-episode-page-spec.md.
@@ -210,7 +213,7 @@ def build():
                   "description": description_block, "more": more}
         page = f"data/podcasts_data.js#{vid}"
         body = render("episode", page, values, blocks, "")
-        results.append((f"podcast-{vid}/index.html", render("layout", page, values, blocks, body)))
+        results.append((f"podcast/episodes/{vid}/index.html", render("layout", page, values, blocks, body)))
     return results
 
 

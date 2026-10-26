@@ -19,8 +19,8 @@ Adds one new podcast episode to the site using `scripts/add_podcast_episode.py`,
    This single call:
    - Extracts the video ID from the URL.
    - Fetches the real title + duration for **just that one video** from YouTube (not the whole back-catalog — fetching all ~100 videos at once triggers 429 rate limits).
-   - Adds the entry to `data/podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py scripts/build_podcast_pages.py`; never edit `podcast-<id>/index.html` by hand.
-   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py scripts/build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py scripts/build_podcast_pages.py`, which creates the episode page `podcast-<id>/index.html`. The card links to `/podcast-<id>`. The script then runs `py scripts/build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
+   - Adds the entry to `data/podcasts_data.js`, the single source for the episode pages. Fix a wrong title, speaker, date or description there, then run `py scripts/build_podcast_pages.py`; never edit `podcast/episodes/<id>/index.html` by hand.
+   - Inserts a new card at the **top** of the `#podcast-grid` in `pages/podcast.html`, using the same template as the live cards, then runs `py scripts/build_pages.py`, which regenerates `podcast/index.html` (never edit that file by hand: it is generated), and `py scripts/build_podcast_pages.py`, which creates the episode page `podcast/episodes/<id>/index.html` (served at `/podcast-<id>`). The card links to `/podcast-<id>`. The script then runs `py scripts/build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
    - All steps are duplicate-safe: re-running with the same URL is a no-op that reports "already has an entry, skipping" for each file.
 
 3. **Verify the diff is minimal and sane**:

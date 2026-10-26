@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** K. Repo clean-up (runs before Phase J)
-- **Current step:** K2
+- **Current step:** K3
 - **Waiting on:** nothing
-- **Next action:** move the episode folders to `podcast/episodes/<id>/`
+- **Next action:** move the four root pages into folders
 
 ---
 
@@ -40,7 +40,7 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). Phase I's checklist stays below until Rohith approves Phase I.
 
 - [x] K1. Plan shown to Rohith and accepted (revised: no URL changes, see decision log)
-- [ ] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated
+- [x] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated (rewrite and 301 to be verified on the preview in K7)
 - [ ] K3. Root pages move into folders: `parents/`, `contact-us/`, `privacy-policy/`, `terms-and-conditions/` (`index.html` each); URLs unchanged
 - [ ] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated
 - [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
