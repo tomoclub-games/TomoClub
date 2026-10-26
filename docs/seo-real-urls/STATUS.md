@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** G. Sitemap, robots, canonicals, deploy clean-up
-- **Current step:** G8 done; phase waiting for review
-- **Waiting on:** Rohith: review and approve Phase G
-- **Next action:** on approval, run `seo-next` to start Phase H (analytics)
+- **Current phase:** H. Analytics
+- **Current step:** H4
+- **Waiting on:** Vercel preview build
+- **Next action:** run the H4 analytics check on the preview
 
 ---
 
@@ -27,25 +27,23 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | D. Remove router | approved | Router-free `script.js`, hash shim | Rohith, 2026-10-26 |
 | E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
 | F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
-| G. Sitemap, robots, canonicals, deploy clean-up | waiting for review | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | |
-| H. Analytics | not started | GA + Clarity check | |
+| G. Sitemap, robots, canonicals, deploy clean-up | approved | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | Rohith, 2026-10-26 |
+| H. Analytics | in progress | GA + Clarity check | |
 | I. Verify before merge | not started | Preview check report; merge | |
 | J. After launch | not started | Search Console submission, monitoring notes | |
 
 ---
 
-## Current phase checklist: G. Sitemap, robots, canonicals, deploy clean-up
+## Current phase checklist: H. Analytics
 
-Task spec: `00-context.md` section 16.
+Task spec: `00-context.md` section 17.
 
-- [x] G1. Plan shown to Rohith and accepted (internal file list and orphan pages decided)
-- [x] G2. `.vercelignore` keeps internal files off the site: `docs/`, `tools/`, `.claude/`, `*.py`, `*.md`, `*.docx`, and the 8 internal root files; every file the site uses still deploys
-- [x] G3. Orphan pages `contact-form.html`, `schedule.html`, `waitlist-form.html` moved to `archive/` with 301 redirects (`/contact-form` and `/schedule` to `/contact-us`, `/waitlist-form` to `/parents`); `build-with-us/thank-you.html` marked `noindex, follow`
-- [x] G4. Self-referencing `www`, no-slash canonical and `og:url` on every indexable page: 75 pages updated (25 articles, 44 blog posts, `contact-us.html`, `privacy-policy.html`, `terms-and-conditions.html`, `build-with-us/index.html`, plus `og:url` on `parents.html` and `leaders-of-tomorrow/`); templates in `add_article.py`, `add_blog_post.py`, `generate_article_pages.py` emit them
-- [x] G5. `build_sitemap.py` writes `sitemap.xml` (194 URLs: 17 main and root pages, 25 articles, 44 blog posts plus `/blog`, 107 episodes; no `#`, no `noindex`, no-slash `www`, `lastmod` from git); the 3 add_* scripts run it; `--check` mode. Only the player redirect and the `noindex` thank-you page are left out
-- [x] G6. `robots.txt` checked: `Allow: /` and the sitemap line; no change needed
-- [x] G7. Preview `tomoclub-website-gpexthpsz` (commit `a431110`): all 194 sitemap URLs return 200 with canonical = sitemap URL and no `noindex`; 19 internal files return 404 (`docs/`, `tools/`, `.claude/`, `.py`, `.md`, the 8 root files, `articles_data.js`, `_partials/`, `pages/`); `/contact-form`, `/schedule`, `/waitlist-form`, `/pd` return 301 to the right page; site assets still load; thank-you page is `noindex`. Local link crawl clean (only the known missing image)
-- [x] G8. Summary given; phase set to `waiting for review`
+- [x] H1. Plan shown to Rohith and accepted
+- [x] H2. Coverage audit (2026-10-26): all 196 deployed pages load `analytics.js` exactly once; GA4 is configured once per page (123 pages have the inline GA tag and `analytics.js` skips its own; 73 get GA from `analytics.js`). Tracked sections (`data-track`) exist only on `build-with-us/` and its thank-you page
+- [x] H3. Build With Us form sends people to `/build-with-us/thank-you` directly (today `thank-you.html`, which costs a redirect hop)
+- [ ] H4. Preview check with headless Chrome on sample pages (`/`, a route page, an article, a blog post, an episode, `/build-with-us`, an old `/#pd` link): GA4 `page_view` hits carry the real URL, one per page load; Clarity, LinkedIn and Meta tags load; no console errors from analytics
+- [ ] H5. Rohith confirms in GA4 Realtime that page paths like `/ai-literacy` and `/podcast-<id>` appear while the preview is opened (optional; GA may filter preview hostnames)
+- [ ] H6. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -130,6 +128,19 @@ Result: 107 generated episode pages; clean, no-slash URLs; 301 redirects for `/p
 - [x] F8. Vercel preview, pushed with Rohith's OK and tested with Rohith's automation bypass token (kept in `C:\Users\rohit\.vercel-bypass`, never printed): 18 pages return 200; `/pd` 301 to `/professional-development`; `.html`, trailing-slash and `/index.html` URLs 308 to the clean URL; unknown URL 404; `/podcast-player.html?id=X` reaches `/podcast-X` in 2 hops (308 clean URL, then 301) with `?id=X` left on the URL. The episode canonical is clean, so Google consolidates to `/podcast-X`
 - [x] F9. Summary given; phase set to `waiting for review`
 
+### G. Sitemap, robots, canonicals, deploy clean-up (approved by Rohith, 2026-10-26)
+
+Result: 194-URL sitemap from `build_sitemap.py`; canonicals on every indexable page; internal files, orphan pages and source PDFs off the site; one-off scripts and `articles_data.js` retired; AI implementation post graphics restored. Commits `69098ae` to `5cc3a18`.
+
+- [x] G1. Plan shown to Rohith and accepted (internal file list and orphan pages decided)
+- [x] G2. `.vercelignore` keeps internal files off the site: `docs/`, `tools/`, `.claude/`, `*.py`, `*.md`, `*.docx`, and the 8 internal root files; every file the site uses still deploys
+- [x] G3. Orphan pages `contact-form.html`, `schedule.html`, `waitlist-form.html` moved to `archive/` with 301 redirects (`/contact-form` and `/schedule` to `/contact-us`, `/waitlist-form` to `/parents`); `build-with-us/thank-you.html` marked `noindex, follow`
+- [x] G4. Self-referencing `www`, no-slash canonical and `og:url` on every indexable page: 75 pages updated (25 articles, 44 blog posts, `contact-us.html`, `privacy-policy.html`, `terms-and-conditions.html`, `build-with-us/index.html`, plus `og:url` on `parents.html` and `leaders-of-tomorrow/`); templates in `add_article.py`, `add_blog_post.py`, `generate_article_pages.py` emit them
+- [x] G5. `build_sitemap.py` writes `sitemap.xml` (194 URLs: 17 main and root pages, 25 articles, 44 blog posts plus `/blog`, 107 episodes; no `#`, no `noindex`, no-slash `www`, `lastmod` from git); the 3 add_* scripts run it; `--check` mode. Only the player redirect and the `noindex` thank-you page are left out
+- [x] G6. `robots.txt` checked: `Allow: /` and the sitemap line; no change needed
+- [x] G7. Preview `tomoclub-website-gpexthpsz` (commit `a431110`): all 194 sitemap URLs return 200 with canonical = sitemap URL and no `noindex`; 19 internal files return 404 (`docs/`, `tools/`, `.claude/`, `.py`, `.md`, the 8 root files, `articles_data.js`, `_partials/`, `pages/`); `/contact-form`, `/schedule`, `/waitlist-form`, `/pd` return 301 to the right page; site assets still load; thank-you page is `noindex`. Local link crawl clean (only the known missing image)
+- [x] G8. Summary given; phase set to `waiting for review`
+
 ---
 
 ## Decision log
@@ -189,6 +200,8 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Article source documents deleted: `articles/documents/Brad Jhonshon.pdf`, `Dave_Eastin.pdf`, `Wade_Stanford.pdf` (git history keeps them) and the uncommitted `articles/AI Implementation In K12.pdf` (moved to the Windows Recycle Bin) | Rohith |
 | 2026-10-26 | Captions removed from the 4 post graphics: content must match the source document one-to-one, and the PDF has none | Rohith |
 | 2026-10-26 | Hide `educational hall/` and `policy and terms/` (3 unlinked source PDFs) via `.vercelignore`; they stay in the repo | Rohith |
+| 2026-10-26 | Phase G approved. Ebook PDF stays public at its direct URL (not gated) | Rohith |
+| 2026-10-26 | Phase H plan accepted | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -230,3 +243,4 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase F closed; Phase G checklist and task spec (§16) added |
 | 2026-10-26 | `00-context.md` | §16 updated with the confirmed file list, orphan archive and redirects |
 | 2026-10-26 | `00-context.md` | Added open item: `generate_article_pages.py` syntax error |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase G closed; Phase H checklist and task spec (§17) added |

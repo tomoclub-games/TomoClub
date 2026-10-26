@@ -781,7 +781,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
       // Content-Security-Policy (as on tomoclub.org) can block *after* the row is written.
       // So: if the browser is online and the POST was dispatched, go to the thank-you page either way.
       if(!navigator.onLine){done(false,'You appear to be offline. Please try again, or email avinash@tomoclub.org.');return;}
-      var go=function(){location.href='/build-with-us/thank-you.html';};
+      var go=function(){location.href='/build-with-us/thank-you';};
       fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(go,go);
     }else{
       var lines=['Name: '+data.name,'District/School: '+data.district,'Email: '+data.email,'','What is on my mind:',data.goal];
