@@ -220,6 +220,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `main` has no new commits since the branch was created (checked at the start of Phase I) | Claude Code |
 | 2026-10-26 | Phase I plan accepted | Rohith |
 | 2026-10-26 | Found: article pages are slow on mobile (production LCP ~22 s, ~3 MB, mostly third-party tag containers). Not caused by this project; logged in §9 | Claude Code |
+| 2026-10-26 | `build-with-us/`, its thank-you page and `parents.html`: internal links changed from `https://www.tomoclub.org/x` to `/x` (32 links), and `target="_blank"` removed from the 27 internal links on Build With Us. External links (Calendly, Forbes, mail, phone) still open a new tab. Found in Rohith's preview click-through | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
