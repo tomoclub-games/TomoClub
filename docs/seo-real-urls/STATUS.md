@@ -9,9 +9,9 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 ## Current position
 
 - **Current phase:** I. Verify before merge
-- **Current step:** I6
-- **Waiting on:** Rohith: approve the merge to `main` (production) and choose the merge method
-- **Next action:** merge, then production smoke test (I7)
+- **Current step:** I7 (last item: bypass token)
+- **Waiting on:** Rohith: revoke the Vercel "Protection Bypass for Automation" token
+- **Next action:** delete `C:\Users\rohit\.vercel-bypass`; then summary and Phase I review
 
 ---
 
@@ -43,8 +43,8 @@ Task spec: `00-context.md` section 18.
 - [x] I3. All 12 old `/#route` links land on their page and `/#signup` stays on `/`; all 8 `vercel.json` redirects land on their target
 - [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
 - [x] I5. Visual pass on the preview: Claude Code screenshots and interaction checks passed; Rohith's click-through found the Build With Us / Parents link and navbar issues and the theme flash, all fixed (commits `13511e1` to `fdd0234`); Rohith confirmed it looks good
-- [ ] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. **Waiting on Rohith's merge approval**
-- [ ] I7. Merge to `main` (production deploy) the way Rohith chooses; production smoke test (key URLs, redirects, sitemap); revoke the Vercel bypass token and delete `C:\Users\rohit\.vercel-bypass`
+- [x] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. Rohith approved the merge
+- [ ] I7. Merged via pull request #5 (merge commit `295e3a8`) by Rohith on 2026-10-26. Production checks passed: 195 pages 200, 390 link targets 0 broken, 8 redirects, all 194 sitemap URLs have canonical = URL and no `X-Robots-Tag`, internal files 404, apex and http redirect to `https://www`, trailing slash 308s to no slash, old `/#pd`, `/#podcast`, `/#about`, `/#ebook` land on their pages with one GA4 `page_view` each, `/#signup` stays on `/`. Lighthouse SEO 100 (`/`, `/ai-literacy`, an episode); mobile performance median `/` 74, `/ai-literacy` 85 (same method as the preview). **Remaining:** Rohith revokes the bypass token; the local token file is deleted
 - [ ] I8. Summary given; phase set to `waiting for review`
 
 ---
@@ -226,6 +226,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Found: on the homepage mobile menu, tapping a dropdown header (For schools, Resources) closes the whole menu (`script.js` closes it on every link tap). Not copied to Build With Us | Claude Code |
 | 2026-10-26 | Homepage mobile menu: tapping a dropdown header (For schools, Resources) no longer closes the menu (`script.js`, now `?v=26`) | Rohith |
 | 2026-10-26 | Theme flash fixed: every page applies the saved theme before first paint (inline script right after `<body>`; in `<head>` for the `html[data-theme]` pages). All pages now share one key, `theme`, so `/parents` and `/build-with-us` follow the choice made elsewhere (they used `tomo-theme`). Articles and blog posts now also follow the device's dark-mode setting when no choice is saved, like the rest of the site. Article and blog templates updated | Rohith |
+| 2026-10-26 | Merge to `main` approved; Rohith merged pull request #5 | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |

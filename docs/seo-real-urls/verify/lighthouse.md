@@ -41,3 +41,14 @@ Mobile runs: performance 73, 77, 70; LCP 5.9 s, 4.4 s, 4.8 s.
 Before this project, all of the first 10 pages were the same 5,215-element home page.
 
 **Article page:** `/articles/jeff-court-leadership` is slow on mobile. Production scores the same or worse (2 runs: performance 55, LCP 21.7 s), so this is not a regression. The article template loads about 3 MB, mostly third-party scripts (several Google tag containers). Logged as an open item.
+
+## Production after merge (2026-10-26)
+
+Same method (Lighthouse 12.6.0, cache cleared before each run), 3 runs each, mobile:
+
+| Page | Runs | Median | LCP median |
+|---|---|---|---|
+| `/` | 69, 74, 88 | 74 | 7.6 s |
+| `/ai-literacy` | 83, 85, 88 | 85 | 3.7 s |
+
+SEO is 100 on `/`, `/ai-literacy` and `/podcast-WH0IP_TGK4Q` (production sends no `X-Robots-Tag`). `/` varies a lot between runs; compare medians. Single CLI runs straight after the deploy, before Vercel's edge cache was warm, scored lower (65 and 58) and are not used.
