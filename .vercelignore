@@ -30,3 +30,7 @@ podcast_data.json
 patch_steps.txt
 podcast_html.txt
 newsletter_google_script.js
+
+# Source PDFs that no page links to (2026-10-26).
+educational hall/
+policy and terms/

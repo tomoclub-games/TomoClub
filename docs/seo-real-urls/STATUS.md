@@ -187,6 +187,8 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Missing image on `/blog/ai-implementation-in-k12-schools` fixed: the "AI Readiness Pyramid" extracted from the source PDF (`articles/AI Implementation In K12.pdf`, page 2), saved as `blog/ai-implementation-in-k12-schools/ai-readiness-pyramid.webp` (34 KB). The PDF itself is not committed | Rohith |
 | 2026-10-26 | All 4 graphics from the source PDF placed in `/blog/ai-implementation-in-k12-schools` at their PDF positions, with captions (add-blog image-block format) | Rohith |
 | 2026-10-26 | Article source documents deleted: `articles/documents/Brad Jhonshon.pdf`, `Dave_Eastin.pdf`, `Wade_Stanford.pdf` (git history keeps them) and the uncommitted `articles/AI Implementation In K12.pdf` (moved to the Windows Recycle Bin) | Rohith |
+| 2026-10-26 | Captions removed from the 4 post graphics: content must match the source document one-to-one, and the PDF has none | Rohith |
+| 2026-10-26 | Hide `educational hall/` and `policy and terms/` (3 unlinked source PDFs) via `.vercelignore`; they stay in the repo | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
