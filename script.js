@@ -23,10 +23,6 @@ const seoData = {
     title: 'FAQs | TomoClub AI Literacy and Future-Ready Skills Programs',
     description: 'Answers to the most common questions about TomoClub programs, pricing, implementation timelines, grade levels, teacher support, and funding options.'
   },
-  '#ebook': {
-    title: 'Leaders of Tomorrow | Free Ebook by 15 School Leaders | TomoClub',
-    description: 'Download the free Leaders of Tomorrow ebook — 15 real school leaders share what it takes to lead future-ready schools in an AI world. 400+ combined years. Free during launch week.'
-  },
   '#education-hall': {
     title: 'The Education Hall | TomoClub',
     description: 'Real Stories from Schools Rethinking Education. Explore fresh ideas, perspectives, and conversations on how education needs to evolve for today\'s learners.'
