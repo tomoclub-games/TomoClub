@@ -179,6 +179,12 @@ a.cert-chip:hover{transform:translateY(-3px)}
 .thumb .tag{position:absolute;left:16px;top:16px;background:rgba(15,23,42,.8);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.35rem .8rem;border-radius:999px;z-index:2}
 .prog-body{padding:2rem 2.25rem 2.25rem;display:flex;flex-direction:column;gap:1.25rem;flex:1}
 .prog-body .hook{font-size:1.15rem;color:var(--text-muted)}
+/* side by side: share rows (thumb, title, hook, skills, price) so both cards line up whatever the text wraps to */
+@media (min-width:881px){
+  .prog-grid{grid-template-rows:repeat(5,auto);row-gap:0}
+  .program-card{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+  .prog-body{display:grid;grid-row:2 / span 4;grid-template-rows:subgrid;row-gap:1.25rem;align-content:start}
+}
 .feat{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media (max-width:520px){.feat{grid-template-columns:1fr}}
 .feat li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;line-height:1.4}
@@ -282,6 +288,9 @@ a.cert-chip:hover{transform:translateY(-3px)}
 /* forms */
 .enroll-card{max-width:760px;margin-inline:auto}
 #start{scroll-margin-top:36px}
+/* nav-link targets: content lands ~7.5rem down, clear of the floating navbar. Programs/Pricing have no top padding, Trust/FAQ have --sec-y */
+#programs,#pricing{scroll-margin-top:7.5rem}
+#trust,#faq{scroll-margin-top:calc(7.5rem - var(--sec-y))}
 form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media (max-width:520px){form{grid-template-columns:1fr}}
 .full{grid-column:1/-1}
