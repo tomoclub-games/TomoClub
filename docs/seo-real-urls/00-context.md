@@ -114,7 +114,7 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 
 ## 8. Working agreement
 
-- Read `STATUS.md` at the start of every session.
+- Read `STATUS.md` at the start of every session. (Since 2026-10-26 there is no `CLAUDE.md`; these rules live here and in the `seo-checkpoint` / `seo-next` skills.)
 - After every completed step, run the `seo-checkpoint` skill (update STATUS.md, log decisions, update other docs if needed).
 - When Rohith approves a phase, run the `seo-next` skill. New task specs are added to this file as "Task spec: Phase X".
 - Never mark a phase as approved yourself.

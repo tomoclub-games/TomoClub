@@ -2083,3 +2083,9 @@ body.dark-theme .quote-card-navy p {
   .episode-player { border-radius: 16px; }
   .episode-description { padding: 1.75rem; }
 }
+
+/* Program hero clears the fixed navbar at every width (the navbar is taller around 1024px,
+   and the mobile "section { padding: 4rem 0 !important }" rule would otherwise win). */
+@media (max-width: 1200px) { .program-hero { padding-top: 150px; } }
+@media (max-width: 768px) { .program-hero { padding-top: 120px !important; } }
+@media (min-width: 993px) and (max-width: 1200px) { .hero { padding-top: 150px; } }

@@ -76,7 +76,7 @@
     <style>
         /* Hero styling to match dark theme background but with local overrides */
         .ebook-hero {
-            padding: 5rem 0 4rem;
+            padding: 120px 0 4rem; /* clears the fixed navbar, like .hero */
             background: var(--bg-main);
             color: var(--text-main);
             position: relative;
@@ -84,6 +84,7 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        @media (max-width: 768px) { .ebook-hero { padding-top: 120px !important; } }
         .ebook-hero::before {
             content: '';
             position: absolute;
