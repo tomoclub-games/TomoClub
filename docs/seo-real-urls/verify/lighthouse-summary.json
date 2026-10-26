@@ -1,0 +1,642 @@
+[
+  {
+    "formFactor": "mobile",
+    "path": "/",
+    "run": 1,
+    "perf": 73,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2558.8625000000006,
+    "lcp": 5914.4450000000015,
+    "tbt": 144.5,
+    "cls": 0,
+    "bytes": 1297080,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/",
+    "run": 2,
+    "perf": 77,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2709.4724,
+    "lcp": 4389.164500000001,
+    "tbt": 206.5,
+    "cls": 0,
+    "bytes": 1294028,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/",
+    "run": 3,
+    "perf": 70,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2863.5842,
+    "lcp": 4774.816200000001,
+    "tbt": 333,
+    "cls": 0,
+    "bytes": 1296344,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/ai-literacy",
+    "run": 1,
+    "perf": 86,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2712.4572500000004,
+    "lcp": 3435.1482,
+    "tbt": 137,
+    "cls": 0,
+    "bytes": 1884195,
+    "dom": 735,
+    "finalUrl": "/ai-literacy",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/future-ready",
+    "run": 1,
+    "perf": 93,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 1967.9247,
+    "lcp": 2930.2513,
+    "tbt": 124,
+    "cls": 0,
+    "bytes": 1895430,
+    "dom": 542,
+    "finalUrl": "/future-ready",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/professional-development",
+    "run": 1,
+    "perf": 85,
+    "a11y": 90,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2568.5197,
+    "lcp": 3564.0272999999997,
+    "tbt": 141.5,
+    "cls": 0,
+    "bytes": 1842030,
+    "dom": 698,
+    "finalUrl": "/professional-development",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/guides",
+    "run": 1,
+    "perf": 85,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2391.8858499999997,
+    "lcp": 3849.6628499999997,
+    "tbt": 62.5,
+    "cls": 0,
+    "bytes": 785257,
+    "dom": 353,
+    "finalUrl": "/guides",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/education-hall",
+    "run": 1,
+    "perf": 90,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 1921.4792999999997,
+    "lcp": 3178.8650500000003,
+    "tbt": 139.5,
+    "cls": 0.0008399212589386119,
+    "bytes": 1415476,
+    "dom": 572,
+    "finalUrl": "/education-hall",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/podcast",
+    "run": 1,
+    "perf": 74,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 1934.8105999999998,
+    "lcp": 7426.9272,
+    "tbt": 105.5,
+    "cls": 0.0009057261543690309,
+    "bytes": 946954,
+    "dom": 2136,
+    "finalUrl": "/podcast",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/results",
+    "run": 1,
+    "perf": 87,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2397.8642,
+    "lcp": 3557.0099,
+    "tbt": 77,
+    "cls": 0,
+    "bytes": 787687,
+    "dom": 491,
+    "finalUrl": "/results",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/faqs",
+    "run": 1,
+    "perf": 85,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2410.0749,
+    "lcp": 3718.8976000000002,
+    "tbt": 115.74167500000021,
+    "cls": 0,
+    "bytes": 788705,
+    "dom": 378,
+    "finalUrl": "/faqs",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/about",
+    "run": 1,
+    "perf": 83,
+    "a11y": 89,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2546.6502000000005,
+    "lcp": 3991.3129,
+    "tbt": 98.5,
+    "cls": 0,
+    "bytes": 1166575,
+    "dom": 735,
+    "finalUrl": "/about",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/blog",
+    "run": 1,
+    "perf": 76,
+    "a11y": 89,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 1923.4149999999997,
+    "lcp": 6395.103999999999,
+    "tbt": 80.5,
+    "cls": 0.0003295192752193521,
+    "bytes": 1607681,
+    "dom": 787,
+    "finalUrl": "/blog",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/articles/jeff-court-leadership",
+    "run": 1,
+    "perf": 56,
+    "a11y": 80,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 9884.9092,
+    "lcp": 10876.604199999998,
+    "tbt": 15,
+    "cls": 0.002005368581762341,
+    "bytes": 3081418,
+    "dom": 109,
+    "finalUrl": "/articles/jeff-court-leadership",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/blog/ai-implementation-in-k12-schools",
+    "run": 1,
+    "perf": 92,
+    "a11y": 92,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2528.08295,
+    "lcp": 2753.1254750000003,
+    "tbt": 83.11909999999989,
+    "cls": 0.008569721111997214,
+    "bytes": 658849,
+    "dom": 127,
+    "finalUrl": "/blog/ai-implementation-in-k12-schools",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "mobile",
+    "path": "/podcast-WH0IP_TGK4Q",
+    "run": 1,
+    "perf": 88,
+    "a11y": 94,
+    "bp": 75,
+    "seo": 69,
+    "fcp": 2398.8392,
+    "lcp": 3414.5603,
+    "tbt": 85.5,
+    "cls": 0.00006900319354061305,
+    "bytes": 1940128,
+    "dom": 344,
+    "finalUrl": "/podcast-WH0IP_TGK4Q",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/",
+    "run": 1,
+    "perf": 99,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 680.0117,
+    "lcp": 807.14645,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 5294461,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/",
+    "run": 2,
+    "perf": 99,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 596.4465,
+    "lcp": 745.7029,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 5292987,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/",
+    "run": 3,
+    "perf": 97,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 599.4216000000001,
+    "lcp": 1239.0956500000002,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 5274366,
+    "dom": 729,
+    "finalUrl": "/",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/ai-literacy",
+    "run": 1,
+    "perf": 100,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 672.783,
+    "lcp": 672.7830000000001,
+    "tbt": 0,
+    "cls": 0.0000504334121355398,
+    "bytes": 2003597,
+    "dom": 735,
+    "finalUrl": "/ai-literacy",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/future-ready",
+    "run": 1,
+    "perf": 98,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 645.1018,
+    "lcp": 1026.20185,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 2116317,
+    "dom": 542,
+    "finalUrl": "/future-ready",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/professional-development",
+    "run": 1,
+    "perf": 99,
+    "a11y": 90,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 816.5783999999999,
+    "lcp": 816.5783999999999,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 1972473,
+    "dom": 698,
+    "finalUrl": "/professional-development",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/guides",
+    "run": 1,
+    "perf": 99,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 605.4565,
+    "lcp": 905.7825,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 766079,
+    "dom": 353,
+    "finalUrl": "/guides",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/education-hall",
+    "run": 1,
+    "perf": 98,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 590.6998000000001,
+    "lcp": 1055.7475,
+    "tbt": 0,
+    "cls": 0.0001333505439541196,
+    "bytes": 1774423,
+    "dom": 572,
+    "finalUrl": "/education-hall",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/podcast",
+    "run": 1,
+    "perf": 97,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 600.6488999999999,
+    "lcp": 1297.5032,
+    "tbt": 0,
+    "cls": 0.002055989706461781,
+    "bytes": 1281438,
+    "dom": 2136,
+    "finalUrl": "/podcast",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/results",
+    "run": 1,
+    "perf": 99,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 637.4935000000002,
+    "lcp": 948.0950000000003,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 768996,
+    "dom": 491,
+    "finalUrl": "/results",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/faqs",
+    "run": 1,
+    "perf": 99,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 592.1416000000002,
+    "lcp": 895.6278,
+    "tbt": 0,
+    "cls": 0.001270911624784753,
+    "bytes": 768066,
+    "dom": 378,
+    "finalUrl": "/faqs",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/about",
+    "run": 1,
+    "perf": 99,
+    "a11y": 89,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 643.7584,
+    "lcp": 912.7769000000001,
+    "tbt": 0,
+    "cls": 0,
+    "bytes": 1148504,
+    "dom": 735,
+    "finalUrl": "/about",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/blog",
+    "run": 1,
+    "perf": 95,
+    "a11y": 89,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 812.8029000000001,
+    "lcp": 1461.5513,
+    "tbt": 0,
+    "cls": 0.0004092547719113913,
+    "bytes": 3624114,
+    "dom": 787,
+    "finalUrl": "/blog",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/articles/jeff-court-leadership",
+    "run": 1,
+    "perf": 99,
+    "a11y": 80,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 804.1332999999998,
+    "lcp": 804.1332999999998,
+    "tbt": 0,
+    "cls": 0.001453850509295742,
+    "bytes": 3064072,
+    "dom": 109,
+    "finalUrl": "/articles/jeff-court-leadership",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/blog/ai-implementation-in-k12-schools",
+    "run": 1,
+    "perf": 100,
+    "a11y": 92,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 522.5274,
+    "lcp": 660.4558999999999,
+    "tbt": 0,
+    "cls": 0.005207284278959811,
+    "bytes": 686690,
+    "dom": 127,
+    "finalUrl": "/blog/ai-implementation-in-k12-schools",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  },
+  {
+    "formFactor": "desktop",
+    "path": "/podcast-WH0IP_TGK4Q",
+    "run": 1,
+    "perf": 99,
+    "a11y": 94,
+    "bp": 74,
+    "seo": 69,
+    "fcp": 621.1454,
+    "lcp": 661.1453999999999,
+    "tbt": 0,
+    "cls": 0.00004459438753173979,
+    "bytes": 1981428,
+    "dom": 344,
+    "finalUrl": "/podcast-WH0IP_TGK4Q",
+    "runtimeError": null,
+    "seoFails": [
+      "is-crawlable"
+    ]
+  }
+]

@@ -138,6 +138,7 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 - Done 2026-10-26: missing image on `/blog/ai-implementation-in-k12-schools` restored from the source PDF.
 - `generate_html.py` and `patch_podcasts.py` still write old-style podcast cards into `index.html`. The add-podcast skill already says not to run them. Consider deleting them.
 - Done 2026-10-26: `generate_article_pages.py` retired; `add_article.py` no longer writes to it.
+- Article pages (`articles/<slug>/`) are slow on mobile: production LCP ~22 s, ~3 MB transferred, mostly third-party Google tag containers loaded by the old article template. Worth a separate performance pass.
 - Consider adding `docs/` to the Vercel `ignoreCommand` so doc-only commits skip deploys.
 
 ---

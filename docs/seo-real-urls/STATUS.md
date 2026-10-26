@@ -39,10 +39,10 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 Task spec: `00-context.md` section 18.
 
 - [x] I1. Plan shown to Rohith and accepted
-- [ ] I2. Full link crawl on the preview: every internal link on every deployed page resolves (after redirects) with no 404
-- [ ] I3. All 12 old `/#route` links and all `vercel.json` redirects land on the right page on the preview
-- [ ] I4. Lighthouse on the preview (mobile and desktop) for `/`, the 10 route pages, an article, a blog post and an episode; `/` run 3 times and compared (median) with the Phase A baseline
-- [ ] I5. Visual pass on the preview, desktop and mobile: navbar and dropdowns, mobile menu, theme toggle, forms render (home signup, `/contact-us` Tally, `/build-with-us`, toolkit download), podcast video embeds. Rohith clicks through the preview too
+- [x] I2. Preview `tomoclub-website-9cteh9t13`: 195 pages (sitemap + thank-you) all 200; 390 distinct internal link targets, 0 broken
+- [x] I3. All 12 old `/#route` links land on their page and `/#signup` stays on `/`; all 8 `vercel.json` redirects land on their target
+- [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
+- [ ] I5. Visual pass on the preview, desktop and mobile: navbar and dropdowns, mobile menu, theme toggle, forms render (home signup, `/contact-us` Tally, `/build-with-us`, toolkit download), podcast video embeds. Rohith clicks through the preview too. **Claude Code part done:** 18 desktop + 6 mobile screenshots look right; dropdown, theme toggle, mobile menu, Tally iframe, Build With Us form, toolkit modal, episode embed all pass; no page errors. **Waiting on Rohith's click-through**
 - [ ] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**)
 - [ ] I7. Merge to `main` (production deploy) the way Rohith chooses; production smoke test (key URLs, redirects, sitemap); revoke the Vercel bypass token and delete `C:\Users\rohit\.vercel-bypass`
 - [ ] I8. Summary given; phase set to `waiting for review`
@@ -219,6 +219,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase H approved; optional GA4 Realtime check skipped. Second GA4 property `G-TEEDDHTK84` question still open | Rohith |
 | 2026-10-26 | `main` has no new commits since the branch was created (checked at the start of Phase I) | Claude Code |
 | 2026-10-26 | Phase I plan accepted | Rohith |
+| 2026-10-26 | Found: article pages are slow on mobile (production LCP ~22 s, ~3 MB, mostly third-party tag containers). Not caused by this project; logged in §9 | Claude Code |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -262,3 +263,4 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `00-context.md` | Added open item: `generate_article_pages.py` syntax error |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase G closed; Phase H checklist and task spec (§17) added |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase H closed; Phase I checklist and task spec (§18) added |
+| 2026-10-26 | `verify/lighthouse.md`, `verify/lighthouse-summary.json` | Created |
