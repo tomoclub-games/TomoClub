@@ -21,16 +21,5 @@ tools/
 *.md
 *.docx
 
-# Internal root files that no page links to or loads (Phase G, 2026-10-26).
-Website Feedback.pdf
-Updated feedback.pdf
-TomoClub Content Management & GitHub Publishing Guide new.pdf
-images.json
-podcast_data.json
-patch_steps.txt
-podcast_html.txt
-newsletter_google_script.js
-
-# Source PDFs that no page links to (2026-10-26).
-educational hall/
-policy and terms/
+# Content data used only by the build scripts (data/podcasts_data.js).
+data/
