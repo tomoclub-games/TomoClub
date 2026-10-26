@@ -12,8 +12,8 @@ Notes:
     - --slug is optional; derived from --title if omitted.
     - --cover can be a URL (downloaded) or a local file path (copied).
     - --content-file should contain the raw HTML that goes inside
-      <div class="article-content">...</div> (the same format used in
-      articles_data.js: <h3>, <p>, <ul><li>, and centered <img> blocks).
+      <div class="article-content">...</div> (the same format the existing
+      article pages use: <h3>, <p>, <ul><li>, and centered <img> blocks).
       Alternatively pass the HTML directly with --content.
     - --alt sets the homepage card image alt text and og/twitter description;
       defaults to --title.
@@ -22,17 +22,15 @@ What it does (duplicate-safe / idempotent -- safe to re-run with the same slug):
     1. Creates articles/<slug>/ and renders its index.html from HTML_TEMPLATE below.
     2. Downloads the cover image (and any external images referenced in the
        content) into articles/images/, localizing paths in the content.
-    3. Adds an entry to articlesData in articles_data.js.
-    4. Appends a new card at the END of #articles-grid in pages/education-hall.html.
+    3. Appends a new card at the END of #articles-grid in pages/education-hall.html.
        This is deliberate, not arbitrary: script.js sorts the Education
        Hall grid by DOM position (data-timestamp = index in the DOM), and
        "Newest First" is the default sort -- so the newest article must be
        the LAST card in the DOM to display first on page load.
-    5. Runs build_pages.py so /education-hall (education-hall/index.html) is regenerated.
+    4. Runs build_pages.py so /education-hall (education-hall/index.html) is regenerated.
 """
 
 import argparse
-import json
 import os
 import re
 import subprocess
@@ -42,9 +40,8 @@ from pdf_image_utils import extract_pdf_images  # noqa: F401 -- re-exported for 
 
 
 def normalize_content(html: str) -> str:
-    """Collapse a multi-line content file into the single-line style used
-    throughout articles_data.js (whitespace between HTML tags is not
-    significant, so this is purely cosmetic/consistency)."""
+    """Collapse a multi-line content file into a single line (whitespace
+    between HTML tags is not significant, so this is purely cosmetic)."""
     lines = [line.strip() for line in html.splitlines()]
     return " ".join(line for line in lines if line)
 
@@ -346,30 +343,6 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 GRADIENTS = ['teal', 'gold', 'crimson', 'slate']
 
 
-def next_article_key(articles_data_js: str) -> str:
-    nums = [int(m) for m in re.findall(r'"article_(\d+)":', articles_data_js)]
-    return f"article_{(max(nums) + 1) if nums else 1}"
-
-
-def update_articles_data_js(art_key, content_html):
-    path = 'articles_data.js'
-    with open(path, encoding='utf-8') as f:
-        content = f.read()
-
-    if f'"{art_key}"' in content:
-        print(f"  articles_data.js already has {art_key}, skipping.")
-        return
-
-    # json.dumps produces a properly escaped, quoted string that is also
-    # valid as a JS string literal (handles embedded quotes/newlines/unicode).
-    escaped = json.dumps(content_html)
-    marker = "const articlesData = {\n"
-    idx = content.index(marker) + len(marker)
-    line = f'  "{art_key}": {escaped},\n'
-    content = content[:idx] + line + content[idx:]
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print(f"  Added {art_key} to articles_data.js")
 
 
 
@@ -481,12 +454,6 @@ def main():
     with open(f"{article_dir}/index.html", 'w', encoding='utf-8') as f:
         f.write(final_html)
     print(f"Rendered {article_dir}/index.html")
-
-    with open('articles_data.js', encoding='utf-8') as f:
-        art_key = next_article_key(f.read())
-    print(f"Article key: {art_key}")
-
-    update_articles_data_js(art_key, content_html)
 
     with open('pages/education-hall.html', encoding='utf-8') as f:
         existing_cards = len(re.findall(r'href="/articles/', f.read()))
