@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = navLinksContainer.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', () => {
+        // A dropdown header (For schools, Resources) opens its dropdown; keep the menu open.
+        if (link.nextElementSibling && link.nextElementSibling.classList.contains('dropdown')) return;
         navLinksContainer.classList.remove('active');
         if (menuIconOpen && menuIconClose) {
           menuIconOpen.style.display = 'block';

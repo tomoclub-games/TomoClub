@@ -299,6 +299,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script defer src="/analytics.js"></script>
 </head>
 <body>
+<script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>
     <nav>
         <div class="container nav-container">
             <a href="../../" class="logo">

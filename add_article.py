@@ -265,6 +265,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script defer src="/analytics.js"></script>
 </head>
 <body>
+<script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>
     <nav>
         <a href="/" class="logo">
             <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
