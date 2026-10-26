@@ -346,3 +346,41 @@ Progress, the current step, the decision log and open questions are in **`STATUS
 5. `robots.txt`: keep `Allow: /` and the sitemap line. Excluded files are no longer deployed, so they need no `Disallow` lines.
 6. Checks: push to the preview (**ask Rohith first**); every sitemap URL returns 200 and its canonical equals its sitemap URL; every indexable page is in the sitemap; the excluded internal files return 404; link crawl clean; all `--check` modes pass.
 7. Summary given; phase set to `waiting for review`.
+
+---
+
+## 17. Task spec: Phase H
+
+**Goal:** analytics keeps working after the move to real URLs, and every page view is recorded under its real path.
+
+**Inputs (checked 2026-10-26):** `analytics.js` loads GA4 (`G-FEGGQ2ZDMT`, only if the page has no GA tag), LinkedIn Insight, Microsoft Clarity, Leadsy and the Meta Pixel; sends `section_view` and `cta_click` for `[data-track]` sections and `lead_submitted` / Meta `Lead` on the Build With Us thank-you page (matched by `location.pathname`). All 196 deployed pages load it once. The hash router that used to swap sections without a page load is gone, so every route is now a real page load with its own `page_view`.
+
+**Steps:**
+
+1. Coverage audit (done during planning, see STATUS H2).
+2. Point the Build With Us form's redirect at `/build-with-us/thank-you` instead of `thank-you.html`.
+3. Preview check: headless Chrome with the bypass header loads sample pages and records network requests to `google-analytics.com/g/collect`, `clarity.ms`, `px.ads.linkedin.com` and `facebook.com/tr`. Pass when each page load sends one GA4 `page_view` whose `dl` is the page's real URL, the other tags load, and an old `/#pd` link produces a `page_view` for `/professional-development`.
+4. Optional: Rohith watches GA4 Realtime while the preview pages load.
+5. Summary given; phase set to `waiting for review`.
+
+---
+
+## 18. Task spec: Phase I
+
+**Goal:** prove on the Vercel preview that the branch is ready for production, then merge it with Rohith's approval.
+
+**Inputs:** branch `seo-real-urls` (latest preview built from it); Phase A baselines (`baseline/lighthouse.md`, Search Console export); `sitemap.xml`; `vercel.json`; the Vercel bypass token in `C:\Users\rohit\.vercel-bypass`.
+
+**Token rule:** the bypass token is only ever sent to the preview host. For browser-based checks, Chrome first gets Vercel's bypass cookie for the preview host (`x-vercel-set-bypass-cookie`), and Lighthouse runs with `--disable-storage-reset`, so no request to a third party carries the token.
+
+**Steps:**
+
+1. Full link crawl on the preview: fetch every deployed page, collect every internal `href`, `src` and `data-file`, and request each target once, following redirects. Pass: no 404.
+2. Old hash links and redirects: load `/#<route>` for all 12 routes in headless Chrome; request every `vercel.json` redirect source. Pass: each lands on its target.
+3. Lighthouse 12.6.0 (same version as the baseline), mobile and desktop: `/`, the 10 route pages, one article, one blog post, one episode. `/` gets 3 runs per form factor; report the median against the baseline. Save JSON and a summary to `docs/seo-real-urls/verify/lighthouse.md`. Note: the preview may differ from production in caching and CDN warm-up, so treat small differences as noise.
+4. Visual pass: desktop and mobile screenshots of the main pages; interactive checks of the navbar, dropdowns, mobile menu, theme toggle; forms render (iframes load) but are not submitted; podcast embeds load. Rohith clicks through the preview in a logged-in browser.
+5. Merge readiness: `git fetch`; if `main` moved, port its changes (content in `index.html` goes to `pages/`) and re-run the checks. All `--check` modes pass. **Rohith approves the merge.**
+6. Merge (production deploy): Rohith chooses between a GitHub pull request (Rohith merges in the browser) or a local `git merge --no-ff` pushed to `main` by Claude Code. After Vercel deploys: `curl` the key URLs, redirects, `sitemap.xml` and `robots.txt` on `https://www.tomoclub.org`. Then Rohith revokes the bypass token in Vercel, and the local token file is deleted.
+7. Summary given; phase set to `waiting for review`.
+
+**Rollback:** if production breaks after the merge, revert the merge commit on `main` (`git revert -m 1 <merge>`) and push; Vercel redeploys the previous site.

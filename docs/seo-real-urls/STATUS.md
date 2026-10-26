@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** H. Analytics
-- **Current step:** H5 (optional)
-- **Waiting on:** Rohith: do the optional GA4 Realtime check, or skip it; then review Phase H
-- **Next action:** on approval, run `seo-next` to start Phase I (verify before merge)
+- **Current phase:** I. Verify before merge
+- **Current step:** I2
+- **Waiting on:** nothing
+- **Next action:** run the I2-I5 checks on the preview
 
 ---
 
@@ -28,22 +28,24 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | E. Rewrite links | approved | Zero route `#` links; updated generators and skills | Rohith, 2026-10-26 |
 | F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
 | G. Sitemap, robots, canonicals, deploy clean-up | approved | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | Rohith, 2026-10-26 |
-| H. Analytics | in progress | GA + Clarity check | |
-| I. Verify before merge | not started | Preview check report; merge | |
+| H. Analytics | approved | GA + Clarity check | Rohith, 2026-10-26 |
+| I. Verify before merge | in progress | Preview check report; merge | |
 | J. After launch | not started | Search Console submission, monitoring notes | |
 
 ---
 
-## Current phase checklist: H. Analytics
+## Current phase checklist: I. Verify before merge
 
-Task spec: `00-context.md` section 17.
+Task spec: `00-context.md` section 18.
 
-- [x] H1. Plan shown to Rohith and accepted
-- [x] H2. Coverage audit (2026-10-26): all 196 deployed pages load `analytics.js` exactly once; GA4 is configured once per page (123 pages have the inline GA tag and `analytics.js` skips its own; 73 get GA from `analytics.js`). Tracked sections (`data-track`) exist only on `build-with-us/` and its thank-you page
-- [x] H3. Build With Us form sends people to `/build-with-us/thank-you` directly (today `thank-you.html`, which costs a redirect hop)
-- [x] H4. Preview `tomoclub-website-54iz8yty6` (commit `fab1d62`), headless Chrome, bypass token sent only to the preview host: on `/`, `/ai-literacy`, an article, a blog post, an episode, `/build-with-us` and `/#pd`, each load sends exactly one `page_view` to `G-FEGGQ2ZDMT` with the real URL; `/#pd` records only `/professional-development` (the shim redirects before GA fires); Clarity, LinkedIn and Meta fire on every page; no page errors. `section_view` (needs scrolling) not exercised
-- [ ] H5. Rohith confirms in GA4 Realtime that page paths like `/ai-literacy` and `/podcast-<id>` appear while the preview is opened (optional; GA may filter preview hostnames)
-- [ ] H6. Summary given; phase set to `waiting for review`
+- [x] I1. Plan shown to Rohith and accepted
+- [ ] I2. Full link crawl on the preview: every internal link on every deployed page resolves (after redirects) with no 404
+- [ ] I3. All 12 old `/#route` links and all `vercel.json` redirects land on the right page on the preview
+- [ ] I4. Lighthouse on the preview (mobile and desktop) for `/`, the 10 route pages, an article, a blog post and an episode; `/` run 3 times and compared (median) with the Phase A baseline
+- [ ] I5. Visual pass on the preview, desktop and mobile: navbar and dropdowns, mobile menu, theme toggle, forms render (home signup, `/contact-us` Tally, `/build-with-us`, toolkit download), podcast video embeds. Rohith clicks through the preview too
+- [ ] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**)
+- [ ] I7. Merge to `main` (production deploy) the way Rohith chooses; production smoke test (key URLs, redirects, sitemap); revoke the Vercel bypass token and delete `C:\Users\rohit\.vercel-bypass`
+- [ ] I8. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -141,6 +143,17 @@ Result: 194-URL sitemap from `build_sitemap.py`; canonicals on every indexable p
 - [x] G7. Preview `tomoclub-website-gpexthpsz` (commit `a431110`): all 194 sitemap URLs return 200 with canonical = sitemap URL and no `noindex`; 19 internal files return 404 (`docs/`, `tools/`, `.claude/`, `.py`, `.md`, the 8 root files, `articles_data.js`, `_partials/`, `pages/`); `/contact-form`, `/schedule`, `/waitlist-form`, `/pd` return 301 to the right page; site assets still load; thank-you page is `noindex`. Local link crawl clean (only the known missing image)
 - [x] G8. Summary given; phase set to `waiting for review`
 
+### H. Analytics (approved by Rohith, 2026-10-26)
+
+Result: every page view reaches GA4 under its real path, once per load; Clarity, LinkedIn and Meta fire; old `/#pd` links count as `/professional-development`. Commits `fab1d62`, plus STATUS.
+
+- [x] H1. Plan shown to Rohith and accepted
+- [x] H2. Coverage audit (2026-10-26): all 196 deployed pages load `analytics.js` exactly once; GA4 is configured once per page (123 pages have the inline GA tag and `analytics.js` skips its own; 73 get GA from `analytics.js`). Tracked sections (`data-track`) exist only on `build-with-us/` and its thank-you page
+- [x] H3. Build With Us form sends people to `/build-with-us/thank-you` directly (today `thank-you.html`, which costs a redirect hop)
+- [x] H4. Preview `tomoclub-website-54iz8yty6` (commit `fab1d62`), headless Chrome, bypass token sent only to the preview host: on `/`, `/ai-literacy`, an article, a blog post, an episode, `/build-with-us` and `/#pd`, each load sends exactly one `page_view` to `G-FEGGQ2ZDMT` with the real URL; `/#pd` records only `/professional-development` (the shim redirects before GA fires); Clarity, LinkedIn and Meta fire on every page; no page errors. `section_view` (needs scrolling) not exercised
+- [x] H5. Skipped by Rohith (optional). Rohith confirms in GA4 Realtime that page paths like `/ai-literacy` and `/podcast-<id>` appear while the preview is opened (optional; GA may filter preview hostnames)
+- [x] H6. Summary given; phase set to `waiting for review`
+
 ---
 
 ## Decision log
@@ -203,6 +216,9 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Phase G approved. Ebook PDF stays public at its direct URL (not gated) | Rohith |
 | 2026-10-26 | Phase H plan accepted | Rohith |
 | 2026-10-26 | Found: every page view is also sent to a second GA4 property, `G-TEEDDHTK84`, linked inside the Google tag settings for `G-FEGGQ2ZDMT` (not in site code). Production does the same today. Not a duplicate within one property; Rohith to confirm whether the second property is wanted | Claude Code |
+| 2026-10-26 | Phase H approved; optional GA4 Realtime check skipped. Second GA4 property `G-TEEDDHTK84` question still open | Rohith |
+| 2026-10-26 | `main` has no new commits since the branch was created (checked at the start of Phase I) | Claude Code |
+| 2026-10-26 | Phase I plan accepted | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -245,3 +261,4 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `00-context.md` | §16 updated with the confirmed file list, orphan archive and redirects |
 | 2026-10-26 | `00-context.md` | Added open item: `generate_article_pages.py` syntax error |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase G closed; Phase H checklist and task spec (§17) added |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase H closed; Phase I checklist and task spec (§18) added |
