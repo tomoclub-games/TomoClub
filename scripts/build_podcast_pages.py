@@ -4,8 +4,8 @@ Pages use the shared layout in _partials/ and the episode body in _partials/epis
 rendered through build_pages.render(). See docs/seo-real-urls/03-episode-page-spec.md.
 
 Usage (from the repo root):
-    py build_podcast_pages.py           # write every episode page
-    py build_podcast_pages.py --check   # exit 1 if any committed episode page differs from a fresh build
+    py scripts/build_podcast_pages.py           # write every episode page
+    py scripts/build_podcast_pages.py --check   # exit 1 if any committed episode page differs from a fresh build
 """
 import html
 import json
@@ -18,7 +18,7 @@ from html.parser import HTMLParser
 
 from build_pages import ROOT, BuildError, read, render
 
-DATA = os.path.join(ROOT, "podcasts_data.js")
+DATA = os.path.join(ROOT, "data", "podcasts_data.js")
 SITE = "https://www.tomoclub.org"
 GENERIC_SPEAKER = "TomoClub Guest"
 SERIES = "The Learning Shift"
@@ -193,7 +193,7 @@ def build():
         more = "".join(card(other) for other in [e for e in newest if e is not ep][:3])
 
         values = {
-            "source": "podcasts_data.js",
+            "source": "data/podcasts_data.js",
             "title": attr(page_title),
             "description": attr(meta),
             "keywords": attr(", ".join(["The Learning Shift", "TomoClub Podcast", "Education Podcast"]
@@ -208,7 +208,7 @@ def build():
         }
         blocks = {"head_jsonld": ld_block, "speaker": speaker_block,
                   "description": description_block, "more": more}
-        page = f"podcasts_data.js#{vid}"
+        page = f"data/podcasts_data.js#{vid}"
         body = render("episode", page, values, blocks, "")
         results.append((f"podcast-{vid}/index.html", render("layout", page, values, blocks, body)))
     return results
@@ -235,7 +235,7 @@ def main():
 
     if check:
         if stale:
-            print(f"{len(stale)} episode page(s) out of date; run py build_podcast_pages.py", file=sys.stderr)
+            print(f"{len(stale)} episode page(s) out of date; run py scripts/build_podcast_pages.py", file=sys.stderr)
             sys.exit(1)
         print(f"{len(results)} episode page(s) up to date")
     else:

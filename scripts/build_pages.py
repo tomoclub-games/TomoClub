@@ -4,14 +4,14 @@ Each page file starts with a front-matter comment (key: value lines, `output` re
 then optional named blocks, then the body. See docs/seo-real-urls/02-layout-spec.md.
 
 Usage (from the repo root):
-    py build_pages.py           # write every output file
-    py build_pages.py --check   # exit 1 if any committed output differs from a fresh build
+    py scripts/build_pages.py           # write every output file
+    py scripts/build_pages.py --check   # exit 1 if any committed output differs from a fresh build
 """
 import os
 import re
 import sys
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (this file is in scripts/)
 PARTIALS = os.path.join(ROOT, "_partials")
 PAGES = os.path.join(ROOT, "pages")
 
@@ -131,7 +131,7 @@ def main():
 
     if check:
         if stale:
-            print("Out of date (edit pages/ or _partials/, then run py build_pages.py):", file=sys.stderr)
+            print("Out of date (edit pages/ or _partials/, then run py scripts/build_pages.py):", file=sys.stderr)
             for output in stale:
                 print(f"  {output}", file=sys.stderr)
             sys.exit(1)

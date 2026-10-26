@@ -8,10 +8,10 @@ This is the single source of truth for progress. Claude Code reads it at the sta
 
 ## Current position
 
-- **Current phase:** I. Verify before merge
-- **Current step:** I7 (last item: bypass token)
-- **Waiting on:** Rohith: revoke the Vercel "Protection Bypass for Automation" token
-- **Next action:** delete `C:\Users\rohit\.vercel-bypass`; then summary and Phase I review
+- **Current phase:** K. Repo clean-up (runs before Phase J)
+- **Current step:** K2
+- **Waiting on:** nothing
+- **Next action:** move the episode folders to `podcast/episodes/<id>/`
 
 ---
 
@@ -29,12 +29,27 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
 | G. Sitemap, robots, canonicals, deploy clean-up | approved | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | Rohith, 2026-10-26 |
 | H. Analytics | approved | GA + Clarity check | Rohith, 2026-10-26 |
-| I. Verify before merge | in progress | Preview check report; merge | |
+| I. Verify before merge | waiting for review | Preview check report; merge | |
+| K. Repo clean-up | in progress | Tidy repo root; no public URL changes | |
 | J. After launch | not started | Search Console submission, monitoring notes | |
 
 ---
 
-## Current phase checklist: I. Verify before merge
+## Current phase checklist: K. Repo clean-up
+
+Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). Phase I's checklist stays below until Rohith approves Phase I.
+
+- [x] K1. Plan shown to Rohith and accepted (revised: no URL changes, see decision log)
+- [ ] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated
+- [ ] K3. Root pages move into folders: `parents/`, `contact-us/`, `privacy-policy/`, `terms-and-conditions/` (`index.html` each); URLs unchanged
+- [ ] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated
+- [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
+- [ ] K6. One-off and retired scripts and files move to `archive/scripts/`; internal documents and source PDFs move to `docs/`; `scope and sequence/` PDF moves to `toolkits/`; unused files (`podcast-player.html`, `tomo_*_thumb.jpg`) deleted
+- [ ] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`
+- [ ] K8. Pull request (Rohith merges); production smoke test
+- [ ] K9. Summary given; phase set to `waiting for review`
+
+## Phase I checklist (waiting for review)
 
 Task spec: `00-context.md` section 18.
 
@@ -44,8 +59,8 @@ Task spec: `00-context.md` section 18.
 - [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
 - [x] I5. Visual pass on the preview: Claude Code screenshots and interaction checks passed; Rohith's click-through found the Build With Us / Parents link and navbar issues and the theme flash, all fixed (commits `13511e1` to `fdd0234`); Rohith confirmed it looks good
 - [x] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. Rohith approved the merge
-- [ ] I7. Merged via pull request #5 (merge commit `295e3a8`) by Rohith on 2026-10-26. Production checks passed: 195 pages 200, 390 link targets 0 broken, 8 redirects, all 194 sitemap URLs have canonical = URL and no `X-Robots-Tag`, internal files 404, apex and http redirect to `https://www`, trailing slash 308s to no slash, old `/#pd`, `/#podcast`, `/#about`, `/#ebook` land on their pages with one GA4 `page_view` each, `/#signup` stays on `/`. Lighthouse SEO 100 (`/`, `/ai-literacy`, an episode); mobile performance median `/` 74, `/ai-literacy` 85 (same method as the preview). **Remaining:** Rohith revokes the bypass token; the local token file is deleted
-- [ ] I8. Summary given; phase set to `waiting for review`
+- [x] I7. Merged via pull request #5 (merge commit `295e3a8`) by Rohith on 2026-10-26. Production checks passed: 195 pages 200, 390 link targets 0 broken, 8 redirects, all 194 sitemap URLs have canonical = URL and no `X-Robots-Tag`, internal files 404, apex and http redirect to `https://www`, trailing slash 308s to no slash, old `/#pd`, `/#podcast`, `/#about`, `/#ebook` land on their pages with one GA4 `page_view` each, `/#signup` stays on `/`. Lighthouse SEO 100 (`/`, `/ai-literacy`, an episode); mobile performance median `/` 74, `/ai-literacy` 85 (same method as the preview). Bypass token revoked by Rohith; local token file deleted
+- [x] I8. Summary given; phase set to `waiting for review`
 
 ---
 
@@ -227,6 +242,10 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Homepage mobile menu: tapping a dropdown header (For schools, Resources) no longer closes the menu (`script.js`, now `?v=26`) | Rohith |
 | 2026-10-26 | Theme flash fixed: every page applies the saved theme before first paint (inline script right after `<body>`; in `<head>` for the `html[data-theme]` pages). All pages now share one key, `theme`, so `/parents` and `/build-with-us` follow the choice made elsewhere (they used `tomo-theme`). Articles and blog posts now also follow the device's dark-mode setting when no choice is saved, like the rest of the site. Article and blog templates updated | Rohith |
 | 2026-10-26 | Merge to `main` approved; Rohith merged pull request #5 | Rohith |
+| 2026-10-26 | Bypass token revoked by Rohith; local token file deleted | Rohith |
+| 2026-10-26 | STATUS update `5cba166` stays local on `main` (not pushed yet) | Rohith |
+| 2026-10-26 | New Phase K, repo clean-up, before Phase J. Podcast episodes move to `/podcast/<id>` with 301s from `/podcast-<id>` (replaces Q1's "keep `podcast-<id>`"); one-off scripts go to `archive/scripts/` (kept, not deleted); site assets move into `assets/` | Rohith |
+| 2026-10-26 | Revised: no public URL changes in Phase K. Podcast, article and blog links are already shared on socials. Episodes stay at `/podcast-<id>`; their folders move to `podcast/episodes/<id>/` and Vercel serves them at the old URL (rewrite), with a 301 from `/podcast/episodes/<id>` so there is one public address. Supersedes the `/podcast/<id>` decision above | Rohith |
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
@@ -271,3 +290,4 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase G closed; Phase H checklist and task spec (§17) added |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase H closed; Phase I checklist and task spec (§18) added |
 | 2026-10-26 | `verify/lighthouse.md`, `verify/lighthouse-summary.json` | Created |
+| 2026-10-26 | `STATUS.md`, `00-context.md` | Phase K checklist and task spec (§19) added |

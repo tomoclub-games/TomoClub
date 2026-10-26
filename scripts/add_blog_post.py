@@ -3,7 +3,7 @@ Add a new post to the TomoClub Blog (distinct from the Education Hall --
 see add_article.py for that).
 
 Usage:
-    python add_blog_post.py --title "Healthy Screen-Time Habits for Kids" \
+    python scripts/add_blog_post.py --title "Healthy Screen-Time Habits for Kids" \
         --slug "healthy-screen-time-habits-for-kids" \
         --category "Parenting" \
         --description "Meta description / lead paragraph text." \
@@ -413,6 +413,7 @@ def update_index_html_card(slug, title, description, category, cover_local_name,
 
 
 def main():
+    os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # repo root; this file is in scripts/
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--title', required=True)
     parser.add_argument('--slug', help='Defaults to a slugified version of --title')
@@ -511,8 +512,8 @@ def main():
     update_index_html_card(slug, args.title, args.description, args.category, cover_local_name, gradient, color)
 
     print("\nRebuilding pages...")
-    subprocess.run([sys.executable, 'build_pages.py'], check=True)
-    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_pages.py')], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_sitemap.py')], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

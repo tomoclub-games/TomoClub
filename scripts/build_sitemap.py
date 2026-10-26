@@ -6,8 +6,8 @@ no trailing slash (vercel.json: cleanUrls true, trailingSlash false). lastmod is
 the last git commit that touched the file, or today for uncommitted changes.
 
 Usage (from the repo root):
-    py build_sitemap.py           # write sitemap.xml
-    py build_sitemap.py --check   # exit 1 if sitemap.xml differs from a fresh build
+    py scripts/build_sitemap.py           # write sitemap.xml
+    py scripts/build_sitemap.py --check   # exit 1 if sitemap.xml differs from a fresh build
 """
 import fnmatch
 import json
@@ -18,7 +18,7 @@ import sys
 from datetime import date
 from pathlib import PurePath
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root (this file is in scripts/)
 SITE = "https://www.tomoclub.org"
 OUT = os.path.join(ROOT, "sitemap.xml")
 # Listed first, in this order; everything else follows alphabetically.
@@ -120,7 +120,7 @@ def main():
     if "--check" in sys.argv:
         current = read(OUT).replace("\r\n", "\n") if os.path.isfile(OUT) else ""
         if current != xml:
-            print("sitemap.xml is out of date; run py build_sitemap.py", file=sys.stderr)
+            print("sitemap.xml is out of date; run py scripts/build_sitemap.py", file=sys.stderr)
             sys.exit(1)
         print(f"sitemap.xml up to date ({count} URLs)")
         return

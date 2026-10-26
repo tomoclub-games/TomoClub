@@ -6,7 +6,7 @@ tools: Bash, Read, Edit, Grep
 
 # Add Education Hall Article
 
-Adds one new Education Hall article using `add_article.py` at the repo root, a hardened helper script built after the original guide's pipeline (`generate_article_pages.py`) was found to only track 8 of the ~19 articles actually live on the site — most had been added by hand directly into `articles/<slug>/`. Both that script and `articles_data.js` (the old pop-up text store) were retired on 2026-10-26; each article's text now lives only in `articles/<slug>/index.html`.
+Adds one new Education Hall article using `scripts/add_article.py`, a hardened helper script built after the original guide's pipeline (`generate_article_pages.py`) was found to only track 8 of the ~19 articles actually live on the site — most had been added by hand directly into `articles/<slug>/`. Both that script and `articles_data.js` (the old pop-up text store) were retired on 2026-10-26; each article's text now lives only in `articles/<slug>/index.html`.
 
 ## Content fidelity to the source document
 
@@ -41,7 +41,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
      - **When the source's own formatting conflicts with the precedent article's structural convention** (e.g. the precedent article numbers its section headers or an FAQ list, but the source document doesn't), prefer the source -- content fidelity to what the user gave you outranks matching a sibling article's stylistic choice. But flag the choice to the user rather than silently picking one, since it's a judgment call, not a rule.
    - **If the source is a PDF with embedded infographics/diagrams, extract them and embed them at the appropriate points instead of describing them in prose only.** Run the shared helper:
      ```bash
-     python pdf_image_utils.py path/to/source.pdf /path/to/scratch/dir
+     python scripts/pdf_image_utils.py path/to/source.pdf /path/to/scratch/dir
      ```
      This dumps every embedded image as `page<N>-img<i>.<ext>` with page numbers and dimensions (requires `pip install pymupdf` — install it if missing). **Review each one with the Read tool before using it** — not every embedded image is real content (some are logos, textures, or decorative elements). Rename the useful ones descriptively in the same directory, then reference them in your content HTML with a bare filename (e.g. `<img src="the-5-cs-of-screen-time.jpeg" .../>`) in one of the centered image blocks above. `add_article.py` resolves bare filenames against the directory `--content-file` lives in, so keep the content file and the chosen images in the same folder.
    - **If the source is a PDF, also extract its hyperlinks — don't let them get silently dropped.** PDFs (especially Google Docs exports) commonly carry hyperlinked citations, article references, and CTAs as link annotations that read as ordinary black text once flattened to plain text or a rendered image — easy to transcribe as prose and lose entirely. Pull them with PyMuPDF:
@@ -60,14 +60,14 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 2. **Write the content to a file** (e.g. `new_article_content.html` in the repo root, or the scratchpad directory), then run:
    ```bash
-   python add_article.py --title "How X Did Y" --date "July 6, 2026" --category "Leadership" \
+   python scripts/add_article.py --title "How X Did Y" --date "July 6, 2026" --category "Leadership" \
      --cover "https://example.com/cover.jpg" --content-file /path/to/content.html
    ```
    This single call:
    - Downloads the cover image (URL or copies a local file) into `articles/images/<slug>-cover.<ext>`.
    - Localizes any external `<img>` URLs found in the content into `articles/images/<slug>-img-N.ext`.
    - Renders `articles/<slug>/index.html` using the site's real article template.
-   - Appends a new card at the **end** of `#articles-grid` in `pages/education-hall.html`, then runs `py build_pages.py`, which regenerates `education-hall/index.html`. Never edit `education-hall/index.html` or `index.html` by hand: they are generated and the next build overwrites them. The script then runs `py build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
+   - Appends a new card at the **end** of `#articles-grid` in `pages/education-hall.html`, then runs `py scripts/build_pages.py`, which regenerates `education-hall/index.html`. Never edit `education-hall/index.html` or `index.html` by hand: they are generated and the next build overwrites them. The script then runs `py scripts/build_sitemap.py`, so the new page is added to `sitemap.xml`; commit `sitemap.xml` with the rest.
    - Includes the Substack newsletter embed section (before the footer) and the X.com footer link (`https://x.com/TomoClub_edu`) — every article page on the site has both as of July 2026, and `HTML_TEMPLATE` renders them by default.
 
 3. **Why "end of grid", not "top"**: unlike the podcast grid, `script.js` sorts Education Hall cards by DOM position (`data-timestamp` = index in the DOM at load time), and "Newest First" is the default selected sort option. So the newest article must be the *last* child in the DOM to display first on page load. `add_article.py` already does this correctly — don't move the insertion point to the top by analogy with the podcast skill.
@@ -76,7 +76,7 @@ Convert the source as close to 1:1 as possible -- don't let normal editorial ins
 
 5. **Set up a local preview and hand the user a link.** Check `netstat -ano | grep ":8000.*LISTENING"` for stray/duplicate processes first (kill any and start one fresh instance if needed), then give the user both links directly: `http://localhost:8000/education-hall` and `http://localhost:8000/articles/<slug>/` (mention they may need to hard-refresh).
 
-6. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/template/card as needed — re-run `add_article.py` is only safe if nothing was staged yet (see Troubleshooting for re-run hazards); for small tweaks after the fact, edit `articles/<slug>/index.html` and the card in `pages/education-hall.html` directly (then run `py build_pages.py`) instead of re-running the script.
+6. **Ask if the preview looks good or needs changes.** Don't move past this until the user confirms. Loop back to editing the content/template/card as needed — re-run `add_article.py` is only safe if nothing was staged yet (see Troubleshooting for re-run hazards); for small tweaks after the fact, edit `articles/<slug>/index.html` and the card in `pages/education-hall.html` directly (then run `py scripts/build_pages.py`) instead of re-running the script.
 
 7. **Once the user is satisfied, clean up.** Kill the local server process you started (`taskkill //F //PID <pid>` on Windows) and delete any scratch content file you wrote (e.g. `new_article_content.html` in the scratchpad dir). Also delete the staging source files: the source PDF/doc (e.g. `articles/documents/<Name>.pdf`) and the original uploaded cover image (e.g. `articles/images/<Name>.png`) — `add_article.py` already copied the cover into `articles/images/<slug>-cover.<ext>`, so the original upload is redundant. Don't delete the generated `articles/<slug>/` folder or the `-cover.*` file.
 

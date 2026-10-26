@@ -2,23 +2,18 @@
 Add a single new podcast episode to the TomoClub site.
 
 Usage:
-    python add_podcast_episode.py --url "https://youtu.be/VIDEO_ID?si=..." --speaker "Full Name" --date "Month DD, YYYY"
+    python scripts/add_podcast_episode.py --url "https://youtu.be/VIDEO_ID?si=..." --speaker "Full Name" --date "Month DD, YYYY"
 
 What it does (all steps are duplicate-safe / idempotent -- safe to re-run):
     1. Fetches the real title + duration for JUST this one video from YouTube
        (does NOT re-fetch the whole back-catalog -- avoids 429 rate limits).
-    2. Adds the entry to podcasts_data.js (the source for every podcast-<id>/ episode page).
-    3. Adds/updates the entry in podcast_data.json (the metadata cache).
-    4. Appends the URL to generate_html.py's `urls` list (historical record).
-    5. Appends the tuple to update_js_metadata.py's `new_podcasts` list (historical record).
-    6. Inserts a new card at the TOP of the #podcast-grid in pages/podcast.html, using
-       the exact same template as the live cards (not the generic placeholder
-       template that generate_html.py produces).
-    7. Runs build_pages.py so /podcast (podcast/index.html) is regenerated, and
-       build_podcast_pages.py so the new episode gets its page at /podcast-<id>.
+    2. Adds the entry to data/podcasts_data.js (the source for every episode page).
+    3. Inserts a new card at the TOP of the #podcast-grid in pages/podcast.html.
+    4. Runs scripts/build_pages.py (regenerates /podcast), scripts/build_podcast_pages.py
+       (writes the episode page, served at /podcast-<id>) and scripts/build_sitemap.py.
 
-It deliberately does NOT run fetch_podcasts.py or generate_html.py's grid
-rebuild -- that pipeline re-fetches all ~100 videos (triggers YouTube rate
+It deliberately does NOT use the old fetch_podcasts.py / generate_html.py pipeline
+(now in archive/scripts/) -- that pipeline re-fetches all ~100 videos (triggers YouTube rate
 limiting) and its naive regex-based grid replacement has been observed to
 duplicate the entire grid instead of cleanly replacing it. This script
 does targeted, minimal-diff text surgery instead.
@@ -27,6 +22,7 @@ does targeted, minimal-diff text surgery instead.
 import argparse
 import datetime
 import json
+import os
 import re
 import subprocess
 import sys
@@ -76,12 +72,12 @@ def fetch_video_metadata(vid: str, retries: int = 3) -> dict:
 
 
 def update_podcasts_data_js(vid, title, speaker, date_display, duration):
-    path = 'podcasts_data.js'
+    path = 'data/podcasts_data.js'
     with open(path, encoding='utf-8') as f:
         content = f.read()
 
     if re.search(r'"' + re.escape(vid) + r'":\s*\{', content):
-        print(f"  podcasts_data.js already has an entry for {vid}, skipping.")
+        print(f"  data/podcasts_data.js already has an entry for {vid}, skipping.")
         return
 
     entry = f'''  "{vid}": {{
@@ -98,60 +94,17 @@ def update_podcasts_data_js(vid, title, speaker, date_display, duration):
     content = content[:idx] + entry + content[idx:]
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"  Added {vid} to podcasts_data.js")
+    print(f"  Added {vid} to data/podcasts_data.js")
 
 
-def update_podcast_data_json(vid, title, date_str, duration):
-    path = 'podcast_data.json'
-    with open(path, encoding='utf-8') as f:
-        data = json.load(f)
-
-    data = [d for d in data if d['id'] != vid]
-    data.append({'id': vid, 'title': title, 'date_str': date_str, 'duration': duration})
-    data.sort(key=lambda x: x['date_str'], reverse=True)
-
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2)
-    print(f"  Updated podcast_data.json ({len(data)} total entries)")
 
 
-def update_generate_html_py(url, vid):
-    path = 'generate_html.py'
-    with open(path, encoding='utf-8') as f:
-        content = f.read()
-
-    if vid in content:
-        print(f"  generate_html.py already references {vid}, skipping.")
-        return content_unchanged(path)
-
-    marker = '"""'
-    end_idx = content.rindex(marker)
-    content = content[:end_idx] + url + '\n' + content[end_idx:]
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print("  Appended URL to generate_html.py")
 
 
 def content_unchanged(path):
     return None
 
 
-def update_js_metadata_py(vid, speaker, date_display):
-    path = 'update_js_metadata.py'
-    with open(path, encoding='utf-8') as f:
-        content = f.read()
-
-    if f'"{vid}"' in content:
-        print(f"  update_js_metadata.py already references {vid}, skipping.")
-        return
-
-    marker = "new_podcasts = [\n"
-    idx = content.index(marker) + len(marker)
-    line = f'    ("{vid}", "{speaker}", "{date_display}"),\n'
-    content = content[:idx] + line + content[idx:]
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    print("  Appended tuple to update_js_metadata.py")
 
 
 def update_index_html(vid, title, date_abbrev, duration, timestamp):
@@ -189,6 +142,7 @@ def update_index_html(vid, title, date_abbrev, duration, timestamp):
 
 
 def main():
+    os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # repo root; this file is in scripts/
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--url', required=True, help='YouTube URL, e.g. https://youtu.be/VIDEO_ID?si=...')
     parser.add_argument('--speaker', required=True, help='Guest/speaker name')
@@ -220,15 +174,12 @@ def main():
 
     print("\nUpdating files...")
     update_podcasts_data_js(vid, title, args.speaker, date_display_full, duration)
-    update_podcast_data_json(vid, title, meta['date_str'], duration)
-    update_generate_html_py(args.url, vid)
-    update_js_metadata_py(vid, args.speaker, date_display_full)
     update_index_html(vid, title, date_display_abbrev, duration, timestamp)
 
     print("\nRebuilding pages...")
-    subprocess.run([sys.executable, 'build_pages.py'], check=True)
-    subprocess.run([sys.executable, 'build_podcast_pages.py'], check=True)
-    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_pages.py')], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_podcast_pages.py')], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_sitemap.py')], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")

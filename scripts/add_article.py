@@ -2,7 +2,7 @@
 Add a new Education Hall article to the TomoClub site.
 
 Usage:
-    python add_article.py --title "How X Did Y" --slug "custom-slug-name" \
+    python scripts/add_article.py --title "How X Did Y" --slug "custom-slug-name" \
         --date "July 6, 2026" --category "Leadership" \
         --cover "https://example.com/cover.jpg" \
         --content-file path/to/content.html \
@@ -378,6 +378,7 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
 
 
 def main():
+    os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # repo root; this file is in scripts/
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--title', required=True)
     parser.add_argument('--slug', help='Defaults to a slugified version of --title')
@@ -462,8 +463,8 @@ def main():
     update_index_html_card(slug, args.title, alt, cover_local_name, gradient)
 
     print("\nRebuilding pages...")
-    subprocess.run([sys.executable, 'build_pages.py'], check=True)
-    subprocess.run([sys.executable, 'build_sitemap.py'], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_pages.py')], check=True)
+    subprocess.run([sys.executable, os.path.join('scripts', 'build_sitemap.py')], check=True)
 
     print("\nDone. Review with: git diff --stat")
     print("Then preview locally before committing.")
