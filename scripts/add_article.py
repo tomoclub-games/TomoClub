@@ -357,7 +357,7 @@ def update_index_html_card(slug, title, alt, cover_local_name, gradient):
         print(f"  {path} already has a card for {slug}, skipping.")
         return
 
-    card = f'''                <a href="/articles/{slug}" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;" target="_blank">
+    card = f'''                <a href="/articles/{slug}" class="glass-card" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; padding: 0; overflow: hidden;">
                     <div style="background: var(--card-grad-{gradient}); height: 100%; display: flex; flex-direction: column;">
                         <img src="/articles/images/{cover_local_name}" alt="{alt}" style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border-color);">
                         <div style="padding: 2rem; display: flex; flex-direction: column; flex-grow: 1;">
