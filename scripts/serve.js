@@ -44,7 +44,7 @@ function resolve(urlPath) {
   return null;
 }
 
-const port = Number(process.argv[2]) || 8000;
+const port = Number(process.env.PORT || process.argv[2]) || 8000;
 http
   .createServer((req, res) => {
     const file = resolve(req.url);
