@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cole Young">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Where the Sidewalk Ends, “Why Not Our Kids?” Begins. | TomoClub Education Hall">
+    <meta property="og:description" content="Cole Young">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/cole-young-leadership-cover.jpg">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/cole-young-leadership">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Where the Sidewalk Ends, “Why Not Our Kids?” Begins. | TomoClub Education Hall">
+    <meta name="twitter:description" content="Cole Young">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/cole-young-leadership-cover.jpg">
+
+    <title>Where the Sidewalk Ends, “Why Not Our Kids?” Begins. | TomoClub Education Hall</title>
+    <link rel="canonical" href="https://www.tomoclub.org/articles/cole-young-leadership">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover-portrait {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .article-cover-portrait .acp-bg {
+            position: absolute;
+            inset: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            object-fit: cover;
+            filter: blur(24px) brightness(0.8);
+        }
+
+        .article-cover-portrait .acp-fg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+    <script defer src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+    <nav>
+        <a href="/" class="logo">
+            <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="/education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">Leadership</span>
+                    <span class="article-date">October 29, 2026</span>
+                </div>
+                <h1 class="article-title">Where the Sidewalk Ends, “Why Not Our Kids?” Begins.</h1>
+                <div class="article-cover-portrait">
+                    <img src="../../articles/images/cole-young-leadership-cover.jpg" alt="" aria-hidden="true" class="acp-bg">
+                    <img src="../../articles/images/cole-young-leadership-cover.jpg" alt="Cole Young" class="acp-fg">
+                </div>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><strong>Extraordinary expectations. Remarkable results. We are Mohave Valley.</strong></p> <p><em>Education Hall Leadership Spotlight: Cole Young, Superintendent, Mohave Valley Elementary School District, Arizona</em></p> <p>In 2020, the Mohave Valley Elementary School District in Arizona had the kind of problem small districts lose sleep over. Families were leaving. Classrooms sat empty. Some of the district’s own employees were sending their kids to school somewhere else.</p> <p>The override that helped fund the district was about to expire. A 25% cut to teacher pay was looming. There was no strategic plan, no clear structure, and no shared answer to a simple question: what is this district for?</p> <p>That was the picture Cole Young walked into when he became superintendent, right in the middle of the pandemic.</p> <p>Five years later, more than 400 students have come back. A Harvard and Stanford study ranked the district first in Arizona and fourth in the country for student growth. A junior high program has won a state Golden Bell Award and ended up in a Verizon spotlight. An elementary school has been named one of America’s best.</p> <p>Ask Cole how that happened, and he will quickly steer the conversation away from himself. “I am only one part of a school district full of passionate, committed individuals,” he says. He describes his own job as keeping hold of the mission, the “why,” and helping people see how the wins connect. The work, he says, belongs to the teachers, bus drivers, custodians, principals, families and neighbors who decided to believe in it.</p> <p>So this is their story, with Cole as the guide.</p> <h3>The district nobody was choosing</h3> <p>It helps to start with how low things were, because it shows how much heart the turnaround took.</p> <p>When Cole arrived, enrollment was dropping and one elementary school sat shuttered. Staff members were quietly enrolling their own children elsewhere, which says a lot about how the district felt about itself. The community saw it that way too. One local stakeholder put it bluntly: “We were once considered irrelevant.”</p> <p>Cole came to the job with more than 35 years in education behind him. He had been a classroom teacher, an athletic director, an assistant principal, and the principal of Humboldt Elementary School, where a turnaround earned National Blue Ribbon recognition and a feature in Edutopia. He had run curriculum and instruction as an executive director, then taken charge of personnel, finance, facilities and transportation as an assistant superintendent. He didn’t expect to use every tool in that toolbox at Mohave Valley. He did.</p> <p>What he didn’t bring was a ready-made answer. He listened first. He studied the district. He asked what was working, where things broke down, and who still believed in the kids. The answer to that last question turned out to be the most important one. What the district truly had, Cole says, was heart: dedicated people who still believed in their students. “That was all the foundation we needed to begin.”</p> <h3>A pit stop, not a pause</h3> <p>Many districts spent the pandemic waiting. Mohave Valley decided to use it.</p> <p>“We viewed that moment as a pit stop,” Cole says, a time to refuel, repair and come back stronger.</p> <p>Teachers used the time to build curriculum guides and talk honestly about what strong instruction should look like in every classroom. The classified staff, the people who keep buildings running, took on facilities that had been ignored for years. Leaders chose to put every bit of energy and money they had left into making school worth coming back to, rather than only planning how to manage the logistics of reopening.</p> <p>The district also got state approval to bring in an online school for students who weren’t ready to return in person. Mohave Connections Academy is accredited, taught by local staff, and still connected to the district’s campuses. Online students can play sports, join student leadership, go to dances and compete in esports like any other Mohave Valley kid. It gave families another good option and kept them part of the community.</p> <h3>Deciding who they are</h3> <p>Before the programs and the test scores came a quieter job: figuring out what the district stood for.</p> <p>Staff and leaders wrote a shared mission and vision. They set their non-negotiables. And they did something that is easy to skip, which was naming their “Won’ts,” the things they would never let get in the way of student success. It was hard, slow work. It took time, trust and a lot of conversations.</p> <p>Out of it came a short motto that now shows up all over the district: Student Focused! Future Driven.</p> <p>Every school kept its own logo, identity and commitments, but each one is now tied back to the district and to the other schools. That matters more than it sounds. For a long time, each campus had been its own island, with its own strengths and its own way of doing things. Cole calls the change a move from “isolated excellence” to “comprehensive systems of excellence.” Put simply, a child should get strong teaching and quick help at any campus, in any classroom.</p> <h3>What changed inside the classrooms</h3> <p>In practice, that shift looks fairly ordinary, and that is the point. Teachers across the district work from the same core curriculum and the same expectations. They give shared assessments and sit down together to look at actual student work. In what the district calls Data Dives, they ask what the numbers say about each child and what to do next. When a student starts to struggle, someone notices earlier and steps in sooner.</p> <p>It also means a good idea no longer stays inside one teacher’s room. It can spread.</p> <p>Teachers were the ones driving this. They spent years unpacking state standards, building pacing guides and asking hard questions about whether what they taught lined up with what students would be expected to know. Teacher-leaders then guided the adoption of new core curriculum worth more than $1 million. Cole is careful to say the money was never meant to hand teachers a script. It was meant to back their work with resources that matched the rigor students would face.</p> <p>The first sign that it was working showed up in student growth. The Harvard-Stanford Education Recovery Scorecard looked at how much students gained in English and math from 2019 through 2022. It ranked Mohave Valley first in Arizona and fourth in the nation. State letter grades started to follow.</p> <p>“We were cracking the code when it came to student achievement,” Cole says. Just as important, the staff began to believe it.</p> <h3>What students can do now</h3> <p>Here is a small number that says a lot. In 2020, the junior high offered students a PE elective and a computer class.</p> <p>So the district did something simple. It asked students what they wanted.</p> <p>Today, junior high students can choose from esports, culinary arts, theater, band, chorus, art, drones, virtual reality, 3-D printing, desert ecology, CAD, graphic design, aeronautics, film and broadcasting, and a competitive sports academy. And Cole is quick to add that the district isn’t finished yet.</p> <p>The Innovation Lab came out of the same thinking. The team decided that rural kids shouldn’t have to wait for opportunities to find them. Kids in Mohave Valley deserved a chance to invent, build and create, and if bigger districts could offer it, why not here? The question became the district’s rallying cry: Why not our kids?</p> <p>The lab went on to win the ASBA Golden Bell Award for the best program in the state. Verizon featured the school as a national model and later picked the junior high as a Story of Interest in a national marketing campaign, with a commercial to match. Students have taken their projects all the way to the ASU Invention Convention national finals in Detroit. They have also won a few local bragging rights, including at the Slab-O-Rama BBQ culinary competition.</p> <p>And then the district did what rural communities do. It shared. Mohave Valley Elementary School District is the originator of the Arizona Rural Schools Innovation Network (ARSIN) and serves as the hub for rural schools across the nation. Schools from across the state have visited to see how it works. Each year the district hosts Rockets Over Mohave, where other schools come to compete in a friendly way. “We give away our best,” Cole says. “High tide raises all ships, and if one school benefits, no matter where it is, we all succeed.”</p> <h3>People worth bragging about</h3> <p>A rural zip code can make people assume the work can’t be special. Mohave Valley decided to push back by putting its own people in the spotlight.</p> <p>The list of recognition is long. A National Milken Award-winning teacher. An Arizona rural schools Teacher of the Year. A state Support Staff of the Year. A Bus Administrator of the Year. The Mojave Tribe’s Local School Administrator of the Year. A national bus fleet trailblazer. A state homeless liaison nominee. A finalist for local Educator of the Year. Behind each name is somebody who showed up every day, and the district made sure the community knew it.</p> <p>At Camp Mohave Elementary, success has started to look like a habit. The school ranks in the top 5% of Arizona schools on the state’s AASA exam, has earned three A grades, and is a top performer in Mohave County. It received one of only ten Future Shaper STEM Grants awarded across the state, was named an A+ School of Excellence, and won a 2025 America’s Best Schools award.</p> <p>Meanwhile, Mohave Valley Junior High has moved up from a D, with the Innovation Lab and a growing menu of electives giving students new reasons to love school.</p> <h3>Keeping good teachers</h3> <p>None of this lasts if teachers walk out the door. So the district got specific about why people stay.</p> <p>New teachers now get five full days of support before the rest of the staff returns. They go through a program called MVESD 101. Every school has a mentor with release time, meaning the mentor is actually freed up from other duties to help, instead of squeezing it in. The district also built a Stepless Compensation System to support teachers’ pay. Teacher retention has reached 90%.</p> <p>There is a bigger idea behind it. The district asked a plain question: why would someone choose to stay here? Then it built the answers one by one.</p> <h3>Buildings that match the teaching</h3> <p>The classrooms were getting better, but many of the buildings hadn’t caught up. Cole is clear that people judge a school by what they see, so the district repaired, replaced and rebuilt, with safety and pride as the goals.</p> <p>The district has won more than $14 million in competitive grants to help pay for that work and more. That elementary school that once sat shuttered is being turned into a state-of-the-art Transportation Center, with plans to eventually bring all district departments together on one campus.</p> <p>Every campus now has social workers, counselors, school safety officers and advanced security. The idea is a full-service school, where families feel supported and students feel safe, recognized and inspired. “This wasn’t just about building,” Cole says. “It was about belief.”</p> <h3>Showing up, again and again</h3> <p>The community needed to see it to believe it.</p> <p>Every six to seven weeks, Cole sends an update to a list of more than 150 local business and community leaders. He calls it “News You Can Use,” and it shares “the good, the bad, and the ugly.” He doesn’t polish it. He wants people to have the real picture, so they can answer questions accurately when neighbors ask.</p> <p>He has also taken seats on community boards and committees, the tables where decisions about children get made. He serves as Vice Chair of the Board of Trustees for Western Arizona Regional Medical Center, where he speaks up for the link between student wellness and health care. He was acting Chief Safety Officer and Vice Chair for the Boys and Girls Club of the Colorado River, and he chairs the executive board of the Bullhead Area Chamber of Commerce, tying schools to the local workforce. He is also involved with Mohave Community College and the Business and Government Affairs group.</p> <p>Those seats aren’t a side project. Cole says they are extensions of his work as superintendent, because “education thrives when the entire community wraps around its schools.”</p> <p>He also knows that Mohave County is politically active, and people there hold strong views about government spending and school choice. Some doubted that a small rural district could use money well or produce strong results. Cole didn’t try to talk them out of it with a press release. He sat across from them, heard the skepticism and answered hard questions about enrollment, spending and student performance. He admitted where the district still had to improve. A rehearsed or defensive answer, he knew, would have cost him their trust.</p> <p>It took patience. One campus tour didn’t erase years of assumptions. One strong result didn’t settle every concern. But over time, the conversation changed, because what the district did matched what it said. Cole didn’t ask anyone to ignore politics. He asked them to look at the students, look at the work, and judge the district by what was happening in its schools.</p> <p>That approach has opened doors well beyond Mohave Valley. Cole invites all decision makers, whether local or at the legislative level, to walk the campuses, meet students and hear where barriers remain. He keeps the legislators who represent the district informed. He has been invited to speak about rural education in Washington, D.C., to deliver the welcome speech at the Best Schools in America conference in La Jolla, California, to represent the district on opening day of the Arizona legislative session, and to present at the NCUST conference in San Diego.</p> <h3>The pressure outside the fence</h3> <p>The last year or two haven’t been easy, and Cole is honest about that.</p> <p>In his view, Arizona’s funding climate has kept moving money and students away from district schools. Universal education savings accounts send public dollars into private and home-based settings. Charter schools have grown in the area. When a student leaves, the funding goes with them, but most of the costs stay: special education, transportation, safe buildings and student support. New state mandates arrived while long-term funding stayed uncertain, and federal support was ending just as operating costs kept rising.</p> <p>Location made it harder. Districts just across the state lines in Nevada and California have offered teacher salaries approaching $100,000 a year, which Arizona funding can’t match. In a small rural district, one open position can disrupt an entire grade level.</p> <p>So the district had to protect its workforce, stay financially steady and keep the community’s confidence all at once. Cole’s approach was steady and unglamorous: tell the truth, invite people into the work, support employees, and keep students visible in every conversation. The district also went after competitive funding, so the end of federal grant dollars wouldn’t decide what students would lose.</p> <p>“Student Focused! Future Driven.” could have stayed a slogan on a wall. Instead, it had to guide hard decisions.</p> <h3>Not a one-man show</h3> <p>Cole is the first to say that a superintendent can’t be the system.</p> <p>Teachers led the district’s curriculum review and adoption. Principals were expected to build leadership in their own buildings. Support staff were included in setting the district’s direction. His job, as he describes it, was to set the expectation, make room for others to lead, and stay close enough to know when someone needed support or a course correction.</p> <p>He is also the kind of leader who asks for help. He calls mentors. He says he stands on the shoulders of giants. When the evidence points somewhere better, he changes his mind. Once a decision is grounded in what students need, though, he doesn’t back down. Adult comfort doesn’t get the final vote.</p> <p>He credits the Governing Board, too. Its four members have a combined 75 years of service, and they trusted the process and backed the plan for student success.</p> <p>After more than 35 years in public education, Cole knows he is closer to the end of his career than the beginning. So he thinks about what will still be here when he’s gone: stronger systems, teachers who choose to stay, and students who have opportunities that weren’t there before. When the time comes for this cowboy to ride away, he says, he wants to know the trail is wider for those behind him.</p> <h3>What Cole would tell a new superintendent</h3> <p>Asked for advice, Cole doesn’t offer a program or a shortcut. He offers a short list, learned the hard way:</p> <ul> <li><strong>Know who you are and who you serve.</strong> Everyone at your door will bring an agenda. Listen, but don’t let the loudest voice become your compass. Students are the compass.</li> <li><strong>Take the stairs. There is no elevator.</strong> Don’t chase recognition or the next program that comes along. Build something real. “Do not chase. Attract.”</li> <li><strong>Put people before programs.</strong> Culture doesn’t come from a slogan. It grows from the work people do together.</li> <li><strong>Don’t pretend to know everything.</strong> Call people who know more than you. Ask questions. Change your mind when the evidence tells you to.</li> <li><strong>Build something that can stand without you, and tell your community the truth.</strong></li> <li><strong>Sit at the tables where decisions about children are made.</strong> Never let a ZIP code decide what children deserve. Rural does not mean less.</li> <li><strong>Give your best work away.</strong> Share the lessons and the mistakes. If another district improves your idea, more students benefit.</li> <li><strong>Be the steward.</strong> Leave the people stronger and the system steadier than you found them.</li> </ul> <h3>Where the sidewalk begins</h3> <p>Mohave Valley calls itself the place “where the sidewalk ends.” It is a small rural community at the edge of things, and for a while, the district acted like it.</p> <p>Not anymore. In the district’s own words, the sidewalk doesn’t end here. It begins here.</p> <p>That is the story Cole wants told. It isn’t one leader’s career. It is a community of teachers, families and kids who decided they were worth betting on, and then did the work to prove it.</p> <p>Student Focused! Future Driven.</p> <h3>Why TomoClub Shares This Story</h3> <p>At TomoClub, we spend a lot of time thinking about what school leadership looks like beneath the official job titles. A district’s results rarely come from one program or one person. They come from the habits a community builds together: listening first, telling the truth, and deciding that every child in every building deserves the same strong start.</p> <p>Mohave Valley is a good example of that. It is a small rural district that chose to stop being a collection of separate schools and start working as one system. The teachers led the curriculum work. The staff stayed because they felt supported. The community came back because they could see what was happening. And the superintendent at the center of it keeps pointing away from himself, toward the people doing the work.</p> <p>That is why we wanted to share it. Rural districts are often told what they can’t do. This one asked a different question, “Why not our kids?”, and then built the systems to back up the answer.</p> <p>The Education Hall series exists to gather more accounts like this one, from the superintendents, principals and teams doing the work, so other leaders have something honest to learn from.</p> <p>Read the full Education Hall series, and if you are building a school where children learn to think, adapt, and lead, come talk to us. Book a call with us!</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem; justify-content: center;">
+                <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24" style="height: 24px;">
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
