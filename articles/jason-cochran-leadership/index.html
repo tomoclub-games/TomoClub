@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Jason Cochran">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Known by Name: How Dr. Jason Cochran Is Keeping Krum ISD Close-Knit While It Grows | TomoClub Education Hall">
+    <meta property="og:description" content="Dr. Jason Cochran">
+    <meta property="og:image" content="https://www.tomoclub.org/articles/images/jason-cochran-leadership-cover.png">
+    <meta property="og:url" content="https://www.tomoclub.org/articles/jason-cochran-leadership">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Known by Name: How Dr. Jason Cochran Is Keeping Krum ISD Close-Knit While It Grows | TomoClub Education Hall">
+    <meta name="twitter:description" content="Dr. Jason Cochran">
+    <meta name="twitter:image" content="https://www.tomoclub.org/articles/images/jason-cochran-leadership-cover.png">
+
+    <title>Known by Name: How Dr. Jason Cochran Is Keeping Krum ISD Close-Knit While It Grows | TomoClub Education Hall</title>
+    <link rel="canonical" href="https://www.tomoclub.org/articles/jason-cochran-leadership">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.css?v=21">
+    <style>
+        body {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .article-hero {
+            padding: 160px 0 80px;
+            background: var(--hero-glow-teal);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .article-category {
+            background: rgba(42, 180, 184, 0.1);
+            color: var(--teal);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            font-weight: 800;
+        }
+
+        .article-cover-portrait {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .article-cover-portrait .acp-bg {
+            position: absolute;
+            inset: -40px;
+            width: calc(100% + 80px);
+            height: calc(100% + 80px);
+            object-fit: cover;
+            filter: blur(24px) brightness(0.8);
+        }
+
+        .article-cover-portrait .acp-fg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 5rem auto;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .article-content h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--teal);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+        }
+
+        .article-content a:hover {
+            color: var(--navy);
+        }
+
+        .article-content ul {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+
+        .back-nav {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 3rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-item a:hover {
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        body.dark-theme {
+            --bg-main: #020617;
+            --text-main: #f1f5f9;
+            --border-color: rgba(255,255,255,0.1);
+        }
+    </style>
+    <script defer src="/assets/js/analytics.js"></script>
+</head>
+<body>
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
+    <nav>
+        <a href="/" class="logo">
+            <img src="../../assets/logo.webp" alt="TomoClub" width="130" height="20">
+        </a>
+        <div class="nav-links">
+            <div class="nav-item"><a href="/education-hall">Education Hall</a></div>
+            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+        </div>
+    </nav>
+
+    <article>
+        <div class="back-nav" style="margin-top: 140px; margin-bottom: -120px;">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+        <header class="article-hero">
+            <div class="container">
+                <div class="article-meta">
+                    <span class="article-category">School Leadership</span>
+                    <span class="article-date">November 3, 2026</span>
+                </div>
+                <h1 class="article-title" style="text-wrap: balance;">Known by Name: How Dr. Jason Cochran Is Keeping Krum ISD <span style="white-space: nowrap;">Close-Knit</span> While It Grows</h1>
+                <div class="article-cover-portrait">
+                    <img src="../../articles/images/jason-cochran-leadership-cover.png" alt="" aria-hidden="true" class="acp-bg">
+                    <img src="../../articles/images/jason-cochran-leadership-cover.png" alt="Known by Name: How Dr. Jason Cochran Is Keeping Krum ISD Close-Knit While It Grows" class="acp-fg">
+                </div>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>When Jason Cochran was in high school, his friends were lining up for jobs at restaurants and retail counters. He helped run after-school programs for elementary students and found he liked coming up with things they could look forward to. Lifeguarding and a recreation center came next, and each time the adults around him handed over a little more responsibility. He had been raised to respect people, work hard, and follow through, and that turned out to be enough to get noticed.</p> <p>He didn’t call it leadership then. Today he is Dr. Jason Cochran, superintendent of Krum ISD in Texas, with a previous superintendency at Eastland ISD behind him and a book of his own on the shelf. Krum is growing quickly, and his job is to make sure the district gets bigger without feeling that way.</p> <h3>Ready Before the Job Opened</h3> <p>Cochran finished his master’s in school administration early in his career, and his reason was practical. He didn’t want to hear about an opening one day and have to pass because the paperwork wasn’t done. When an assistant principal position came up, he was 25 and fully qualified.</p> <p>He doesn’t turn that into a formula, though. Preparation got him in the room, but he says timing, trust, and fit decided the rest. Every role since has been a different way of supporting students and the adults who work with them. What he enjoys most today is what he enjoyed in those after-school programs: watching a young person figure out what they might become.</p> <h3>“It Is the Community’s District”</h3> <p>Ask Cochran what Eastland and Krum taught him, and he gives one sentence: “It is the community’s district, and I have the privilege of serving it.”</p> <p>He has seen what happens when a district is built around one leader’s preferences. The results rarely last. The progress that holds up tends to come from superintendents who spend real time learning a place before deciding what it needs, then work with the board, staff, and families to build toward something everyone helped shape. Every district carries its own history and its own expectations, and he thinks people are owed a leader who respects both.</p> <p>That doesn’t make him soft on difficult calls. He makes them, explains his thinking, and keeps listening afterward. When someone disagrees with him, he wants them to know that the two of them still share the same responsibility to children. His test for any decision is short: “Is this good for kids?”</p> <h3>Growing Fast, Staying Familiar</h3> <p>Cochran started out in a district of roughly 35,000 students. His path later led to smaller communities, including his first superintendency in West Texas. He has worked in both kinds of places and knows what each does well. Big systems offer range. Small districts offer closeness. Krum asked him to hold onto both. The community was growing, and people wanted their schools to grow with it without losing what had made them move there in the first place. That meant planning years ahead, but he kept bringing the question back to one child at a time. Would students still feel known? Would families still feel connected? Would the schools still look like this town?</p> <p>He says it starts with trust. Voters approved bonds to build for the growth, and he treats that as a promise to spend every dollar carefully. Enrollment numbers, construction costs, and the financial picture all shift, so the plans get revisited. A new building is the visible part. The rest happens in the hallways and the front office: a leader people can reach, partnerships with the community, and regular conversations with families and staff.</p> <p>His picture of success is easy to see. A parent walks into a brand-new Krum ISD building and recognizes the place. “The building may be new, but the welcome, the relationships, and the commitment to children should feel familiar.”</p> <h3>More Than One Road Out of High School</h3> <p>The new facilities and expanded Career and Technical Education programs excite him for a simple reason. Somewhere in those classrooms, a student is going to find a future they hadn’t pictured.</p> <p>Cochran is clear that he doesn’t rank the paths. Students headed to college should get rigorous preparation. Students headed toward a trade or an industry credential should get the same seriousness. In his words, “Our obligation is to help every graduate leave with options.”</p> <p>He has helped build CTE centers in both Eastland and Krum, so he has watched what goes on inside them. Students try health science, agriculture, construction, food and nutrition, and floral design. They pick up practical skills and a bit of confidence along the way. For some, it sharpens their plans for college. For others, it points to a career they can’t wait to start. He counts both as wins.</p> <h3>Lunch With the Superintendent</h3> <p>Once a month, a group of Krum students from sixth through twelfth grade sit down to lunch with their superintendent. This is the Superintendent’s Student Leadership Cabinet, and membership rotates every year so more students get a turn.</p> <p>The lunches are practical. Students practice introducing themselves, making eye contact, interviewing, presenting an idea, and disagreeing without being disagreeable. They talk about how teams work and how to spot their own strengths while respecting someone else’s. Community members are invited to join, which Cochran describes as putting the leaders of today and the leaders of tomorrow at the same table.</p> <p>Part of every meeting is reserved for listening. He asks what’s going well, what needs attention, and what he should have on his radar. One year the feedback included praise for an outstanding substitute teacher and complaints about restrooms that were not working properly. He treats the two as equally useful. Students notice things that never make it into an administrative report, and he would rather hear about them from the source.</p> <p>“When we ask students to lead, we also need to show them that their voices have value.”</p> <h3>A House for Learning How to Live</h3> <p>For years, Krum shared its special education services with four other districts through a cooperative. As each district grew, Krum moved toward running its own programs. Cochran sees the change as a chance to build services around the specific students and families who live in the district.</p> <p>His aim is to meet each student where they are and help them reach the fullest, most independent life they can. One project in the works is a house-style learning facility for students with significant support needs. It would let them practice daily living in a realistic setting: cooking a meal, folding laundry, keeping up with household routines. For a student and their family, those ordinary tasks can represent a big step toward independence.</p> <p>He is careful not to define success too narrowly. “Success will look different for each child.” The work is to learn each student’s goals, expect real progress, and provide the teaching and support to get there.</p> <h3>Looking After the Whole Child</h3> <p>Cochran doesn’t treat well-being and academics as separate lists. A child walks into school carrying everything from home and everything from yesterday, and he believes students learn best when they feel connected and know that someone will notice if they’re struggling.</p> <p>At the middle school, the Communities In Schools partnership gives students a network of support during a tricky stretch of growing up, so they arrive at high school ready. Students have their own part in it too. Through Nobody Left Alone, a student-driven effort, young people look out for each other and help create a sense of belonging.</p> <p>Families sit at the center of all this. Schools know things about children that parents don’t, and parents know things schools don’t. When the two talk, problems tend to be caught early. Cochran admits there’s always room to improve on that front, and he keeps looking for new ways to bring families in.</p> <h3>The People Closest to the Work</h3> <p>When it comes to keeping good teachers and staff, Cochran begins with something basic. People need to know their voice matters. In a growing district, he can’t speak with every employee every day, but he can make sure every employee has a way to be heard.</p> <p>He is quick to say that being heard doesn’t mean getting a yes. It means a concern gets honest consideration and people understand why a decision was made. Take curriculum. The district can ask teachers to implement a program as designed and still give them a way to report what they’re seeing in the classroom. Sometimes that feedback leads to a better approach. Sometimes it leads to a clearer explanation of why the expectation exists.</p> <p>The same goes for transportation, maintenance, custodial staff, and every other department. “People closest to the work often see opportunities that others miss.”</p> <p>He also makes a point of recognition. In the Faculty Council, he asks staff to tell him about colleagues who deserve a shout-out. Listening to what employees appreciate in each other, he has found, is a good way to see the everyday work that keeps a school running.</p> <h3>One Phone Call</h3> <p>Asked about a moment that stands out from his time at Krum, Cochran skips the buildings and the bond elections. He tells a story about one student.</p> <p>The young man had planned on a baseball scholarship and college. Somewhere along the way he realized that wasn’t the life he wanted. He was a hard worker, and the adults at his part-time jobs kept giving him more responsibility. About two years after graduation, he and Cochran were still in touch, and he mentioned he wanted to be an electrician.</p> <p>Cochran picked up the phone and called an electrical company. He told them plainly that he couldn’t speak to the technical side of their work, but he could vouch for this young man’s character, work ethic, and potential. Within a week, the company hired him. He has been growing in the job ever since.</p> <p>“A relationship that begins in school can continue to open doors long after graduation.” Cochran says people across the district have stories like that, and he considers it one of the best things about Krum.</p> <h3>Trust Is Built by Following Through</h3> <p>Every group in a school community sees a different slice of the picture. Teachers know how a decision lands in a classroom. Parents know their own kids. Students know what a regular Tuesday feels like. Board members carry the community’s expectations, and local businesses can show students what comes after graduation.</p> <p>Cochran sees his role as bringing those views together and helping them turn into action. That matters most during growth, when choices about buildings, programs, and budgets will shape the community for years. His formula for trust is not complicated: listen, explain your decisions, say so when circumstances change, and do what you said you would do.</p> <p>When asked about progress he’s proud of, he points away from himself. It belongs to many people, he says, and it feels strongest when the community can see its own values reflected in its schools.</p> <h3>What He Wrote Down</h3> <p>Cochran hopes Krum ISD will be known as a place where students are known, challenged, supported, and ready for a meaningful future, and where relationships stay strong as opportunities expand.</p> <p>The same idea gave his book its title. For years he kept a journal about students and moments that taught him something about education, leadership, and people. He recently gathered those stories into <strong>Relationships Build the Legacy</strong>, and he says rereading them reminded him how much this work has given him.</p> <p>His advice to other leaders is to borrow the habit. Think back to the student who surprised you, the conversation that changed your mind, the colleague who showed you something you’d missed. Ask what you took from it and how it could change the way you serve. He says it matters most when the job starts to feel routine or the problems start piling up, because reconnecting with the people behind your purpose is how you keep going.</p> <p>“If the relationships we build help others become more confident, capable, and willing to serve, their influence will continue well beyond our time in a particular role.”</p> <p>If you lead a school, a district, or a classroom, you can read his story in his own words. Dr. Cochran calls the book a short, easy read and a reflective look at his purpose and his “why.”</p> <p><strong>Get your copy of Relationships Build the Legacy:</strong> <a href="https://a.co/d/02qq6dLF" target="_blank" rel="noopener noreferrer">https://a.co/d/02qq6dLF</a></p> <h3>Why TomoClub Shares This Story</h3> <p>At TomoClub, we think a lot about what school leadership looks like beneath the job title. The habits and values someone builds long before their first administrative role end up shaping the daily experience of thousands of children.</p> <p>Dr. Cochran is one answer to that. The teenager who ran after-school activities for younger kids became a superintendent who still checks his decisions against one question: is this good for kids? As Krum grows, the buildings will keep getting newer. His bet is that the relationships inside them are what the community will remember.</p> <p>The Education Hall series exists to collect accounts like his from the superintendents and principals doing this work, so other leaders have something honest to learn from.</p> <p>Read the full Education Hall series, and if you are building a school where children learn to think, adapt, and lead, come talk to us. Book a call with us!</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="/education-hall" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; font-weight: 700; border-radius: 12px; text-decoration: none;">
+                <i data-lucide="arrow-left"></i> View More
+            </a>
+        </div>
+    </article>
+
+    <!-- Substack Newsletter Section -->
+    <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
+        <div class="container">
+            <div class="glass-card" style="padding: 3rem 2rem; background: var(--card-grad-slate); border-radius: 24px; border: 1px solid var(--border-color); max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+                <span class="badge" style="margin-bottom: 1rem; background: rgba(42, 180, 184, 0.1); color: var(--teal); border: 1px solid rgba(42, 180, 184, 0.2);">Weekly Insights</span>
+                <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.5rem;">Join the TomoClub Newsletter</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; max-width: 480px;">Insights on K-12 education, AI literacy, and future-ready skills.</p>
+                <div style="width: 100%; max-width: 480px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
+                    <iframe src="https://tomoclub.substack.com/embed" width="480" height="320" style="border: 1px solid var(--border-color); background: white; border-radius: 12px;" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border-color);">
+        <div class="container text-center">
+            <div class="logo" style="margin-bottom: 2rem; justify-content: center;">
+                <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24" style="height: 24px;">
+            </div>
+            <div style="display: flex; gap: 2rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <a href="https://x.com/TomoClub_edu" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; text-decoration: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.134l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 TomoClub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+    </script>
+</body>
+</html>
