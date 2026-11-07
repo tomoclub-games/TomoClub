@@ -73,7 +73,7 @@
     },
     {
       "source": "/waitlist-form",
-      "destination": "/parents",
+      "destination": "/",
       "statusCode": 301
     },
     {
@@ -117,7 +117,27 @@
     },
     {
       "source": "/parents.html",
-      "destination": "/parents",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/parents",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/parents/life-skills",
+      "destination": "/life-skills",
+      "statusCode": 301
+    },
+    {
+      "source": "/parents/ai-lab",
+      "destination": "/ai-lab",
+      "statusCode": 301
+    },
+    {
+      "source": "/parents/both-programs",
+      "destination": "/both-programs",
       "statusCode": 301
     },
     {

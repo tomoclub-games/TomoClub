@@ -23,3 +23,6 @@ tools/
 
 # Content data used only by the build scripts (data/podcasts_data.js).
 data/
+
+# Parents-funnel setup files (Apps Script, spreadsheet), not part of the site.
+data-capture/
