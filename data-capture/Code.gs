@@ -462,7 +462,14 @@ function doPost(e) {
     lock.waitLock(20000);
     var body = JSON.parse(e.postData.contents || '{}');
     var rows = body.rows || [];
+    // A script created from the Sheet (Extensions > Apps Script) is bound to it. A standalone script
+    // (created at script.google.com) is not, so it opens the Sheet by the SHEET_ID Script Property.
     var ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (!ss) {
+      var sheetId = PropertiesService.getScriptProperties().getProperty('SHEET_ID');
+      if (!sheetId) throw new Error('Not bound to a Sheet: set the SHEET_ID Script Property');
+      ss = SpreadsheetApp.openById(sheetId);
+    }
     var grouped = {};
     var valid = [];
     rows.forEach(function (r) {
