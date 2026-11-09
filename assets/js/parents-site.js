@@ -4,7 +4,8 @@
    logClicksToSheet: also write every click/event to the "Events" tab (set false to send only form data). */
 window.TOMO_CONFIG = {
   sheetEndpoint: '',
-  logClicksToSheet: true
+  logClicksToSheet: true,
+  trialMinutes: 60 /* length of the free trial class, used for the Add to calendar link */
 };
 
 /* TomoClub parents site: shared behaviour (tracking, booking, enrolment, picker, FAQ). No dependencies. */
@@ -18,7 +19,7 @@ window.TOMO_CONFIG = {
   function esc(v) { return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
   /* ---------- config, visitor and session context ---------- */
-  var CONFIG = Object.assign({ sheetEndpoint: '', logClicksToSheet: true }, window.TOMO_CONFIG || {});
+  var CONFIG = Object.assign({ sheetEndpoint: '', logClicksToSheet: true, trialMinutes: 60 }, window.TOMO_CONFIG || {});
   function store(kind, key, val) { try { var st = kind === 'local' ? localStorage : sessionStorage; if (val === undefined) return st.getItem(key); st.setItem(key, val); } catch (e) { return null; } }
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   var VISITOR = store('local', 'tomo_vid') || (function () { var v = uid(); store('local', 'tomo_vid', v); return v; })();
@@ -260,20 +261,78 @@ window.TOMO_CONFIG = {
   var MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  /* ---------- program pages: free trial booking (details, then calendar) ---------- */
+  /* ---------- program pages: free trial booking (date and time first, then details; real times from Calendly) ---------- */
+  var BROWSER_TZ = (function () { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { return ''; } })();
+  function tzName(d) {
+    try { var parts = new Intl.DateTimeFormat('en-US', { timeZoneName: 'short' }).formatToParts(d || new Date()); for (var i = 0; i < parts.length; i++) if (parts[i].type === 'timeZoneName') return parts[i].value; } catch (e) {}
+    return 'your local time';
+  }
+  function slotTime(iso) { return new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); }
+  function dayKey(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  var BOOK_FAIL = 'Sorry, we could not complete the booking. Please try again, or email info@tomoclub.org and we will book it for you.';
+
   function initBooking(card) {
     var urlGrade = (location.search.match(/grade=([0-9-]+)/) || [])[1];
-    var S = { step: 1, name: '', email: '', phone: '', country: '', city: '', grade: '', program: card.getAttribute('data-default-program') || 'life_skills', month: 0, date: null, dateLabel: '', wd: null, slot: null, waOk: false };
+    var S = { step: 1, name: '', email: '', phone: '', country: '', city: '', grade: '', program: card.getAttribute('data-default-program') || 'life_skills', month: 0, date: null, dateLabel: '', slot: null, timeLabel: '', waOk: false, website: '', slots: null, load: 'loading', busy: false, leadSaved: false, error: '' };
     if (urlGrade) { var gmin = parseInt(urlGrade, 10); if (gmin >= 3 && gmin <= 12) S.grade = String(gmin); }
     function eff() { var g = Number(S.grade || 0); return S.program === 'ai_lab' && g && g < 6 ? 'life_skills' : S.program; }
     function detailsOk() { return !!(S.name.trim() && validEmail(S.email) && S.grade && S.country && S.city.trim()); }
+    function byDay() {
+      var m = {};
+      (S.slots || []).forEach(function (iso) { var k = dayKey(new Date(iso)); (m[k] = m[k] || []).push(iso); });
+      return m;
+    }
+    /* open times come live from Calendly through /api/slots; times already booked are simply not in the list */
+    function loadSlots() {
+      if (!S.slots) S.load = 'loading';
+      fetch('/api/slots', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
+        if (!j || !j.ok || !Array.isArray(j.slots)) throw new Error('bad response');
+        S.slots = j.slots; S.load = 'ok';
+        if (S.slot && S.slots.indexOf(S.slot) < 0) { S.slot = null; S.date = null; }
+        if (!S.date && S.slots.length) {
+          var today = new Date(), f = new Date(S.slots[0]);
+          S.month = Math.max(0, Math.min(1, (f.getFullYear() - today.getFullYear()) * 12 + f.getMonth() - today.getMonth()));
+        }
+        render();
+      }).catch(function () { S.load = S.slots ? 'ok' : 'error'; render(); });
+    }
+    function alertBox(msg) { return msg ? '<p role="alert" style="margin:0;background:#FFF1EC;color:#B23A20;border:1.5px solid #FFD4C7;border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600">' + esc(msg) + '</p>' : ''; }
     function render() {
-      var step2 = S.step === 2 && detailsOk();
-      var h = '<div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-weight:700;font-size:24px;letter-spacing:-0.01em">Book a free trial class</h2>' + dots(step2 ? 2 : 1, ['Your details', 'Date and time']) + '</div>';
+      var step2 = S.step === 2 && !!S.slot;
+      var h = '<div style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-weight:700;font-size:24px;letter-spacing:-0.01em">Book a free trial class</h2>' + dots(step2 ? 2 : 1, ['Date and time', 'Your details']) + '</div>';
       if (!step2) {
+        var days = byDay(), today = new Date(); today.setHours(0, 0, 0, 0);
+        var first = new Date(today.getFullYear(), today.getMonth() + S.month, 1);
+        var dim = new Date(first.getFullYear(), first.getMonth() + 1, 0).getDate(), lead = (first.getDay() + 6) % 7;
+        h += '<div style="display:flex;flex-direction:column;gap:14px">' + alertBox(S.error);
+        if (S.load === 'loading') {
+          h += '<p role="status" style="margin:0;font-size:15px;color:' + MUTED + '">Loading available times&hellip;</p>';
+        } else if (S.load === 'error') {
+          h += '<p role="alert" style="margin:0;font-size:15px;color:' + MUTED + '">We could not load the available times. Please try again, or email <a href="mailto:info@tomoclub.org">info@tomoclub.org</a> and we will book a time for you.</p><button type="button" data-retry style="' + BTN_BACK + '">Try again</button>';
+        } else if (!S.slots.length) {
+          h += '<p style="margin:0;font-size:15px;color:' + MUTED + '">There are no open times in the next 30 days. Email <a href="mailto:info@tomoclub.org">info@tomoclub.org</a> and we will arrange one for you.</p>';
+        } else {
+          var cells = '';
+          for (var k = 0; k < lead; k++) cells += '<span></span>';
+          for (var d = 1; d <= dim; d++) {
+            var dt = new Date(first.getFullYear(), first.getMonth(), d), key = dayKey(dt);
+            var avail = !!days[key], sel = S.date === key;
+            var st = sel ? 'background:#0B1230;color:#FFFFFF;border:1.5px solid #0B1230;font-weight:700' : (avail ? 'background:#FFF1EC;color:#B23A20;border:1.5px solid #FFD4C7;font-weight:700' : 'background:#FFFFFF;color:#A3ABC2;border:1.5px solid #FFFFFF');
+            var lbl = DOW[dt.getDay()] + ' ' + d + ' ' + MON[dt.getMonth()].slice(0, 3);
+            cells += '<button type="button" data-date="' + key + '" data-label="' + lbl + '" aria-pressed="' + sel + '" aria-label="' + lbl + (avail ? ', available' : ', unavailable') + '"' + (avail ? '' : ' disabled') + ' style="font:inherit;font-size:15px;height:40px;border-radius:12px;cursor:' + (avail ? 'pointer' : 'default') + ';' + st + '">' + d + '</button>';
+          }
+          var navBtn = function (dir, dis, sym, lab) { return '<button type="button" data-month="' + dir + '" aria-label="' + lab + '"' + (dis ? ' disabled' : '') + ' style="font:inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid #CDD3E1;background:#FFFFFF;cursor:pointer;font-size:18px;color:#0B1230">' + sym + '</button>'; };
+          var times = S.date ? (days[S.date] || []) : [];
+          h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px">' + navBtn(-1, S.month <= 0, '&lsaquo;', 'Previous month') + '<strong style="font-size:18px">' + MON[first.getMonth()] + ' ' + first.getFullYear() + '</strong>' + navBtn(1, S.month >= 1, '&rsaquo;', 'Next month') + '</div>' +
+            '<div role="grid" aria-label="Calendar" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center">' + ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(function (x) { return '<span style="font-size:12px;font-weight:600;color:' + MUTED + '">' + x + '</span>'; }).join('') + cells + '</div>' +
+            (S.date ? '<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;color:' + MUTED + '">Times on ' + esc(S.dateLabel) + ' (' + esc(tzName(new Date(times[0] || Date.now()))) + (BROWSER_TZ ? ', ' + esc(BROWSER_TZ.replace(/_/g, ' ')) : '') + ')</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px">' + times.map(function (iso) { return '<button type="button" data-slot="' + iso + '" aria-pressed="' + (S.slot === iso) + '" style="font:inherit;font-weight:600;min-height:44px;border-radius:12px;cursor:pointer;' + (S.slot === iso ? pillOn : pillOff) + '">' + slotTime(iso) + '</button>'; }).join('') + '</div></div>' : '<p style="margin:0;font-size:14px;color:' + MUTED + '">Pick a highlighted date to see available times.</p>') +
+            '<button type="button" data-next' + (S.slot ? '' : ' disabled') + ' style="' + BTN_MAIN + '">Next: your details</button><p style="margin:0;font-size:13px;color:' + MUTED + ';text-align:center">Free, with no obligation to continue. Times shown are live availability.</p>';
+        }
+        h += '</div>';
+      } else {
         var g = Number(S.grade || 0), p = eff(), aiOff = g && g < 6;
         var pb = function (k, label) { return '<button type="button" data-prog="' + k + '" aria-pressed="' + (p === k) + '"' + (k === 'ai_lab' && aiOff ? ' disabled' : '') + ' style="font:inherit;font-weight:600;min-height:48px;padding:10px 14px;border-radius:14px;cursor:pointer;' + (p === k ? pillOn : pillOff) + '">' + label + '</button>'; };
-        h += '<div style="display:flex;flex-direction:column;gap:14px"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px 14px">' +
+        h += '<div style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#F6F7FB;border-radius:14px;padding:12px 16px"><strong>' + esc(S.dateLabel + ', ' + S.timeLabel + ' ' + tzName(new Date(S.slot))) + '</strong><button type="button" data-back style="font:inherit;font-weight:600;background:none;border:0;color:' + TEAL + ';text-decoration:underline;cursor:pointer;padding:6px 0">Change time</button></div>' + alertBox(S.error) + '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px 14px">' +
           field('Parent&#39;s name', input('name', 'text', 'name', 'Your full name', S.name)) +
           field('Child&#39;s grade', select('grade', 'Select grade', [3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (x) { return [x, 'Grade ' + x]; }), S.grade)) +
           field('Email', input('email', 'email', 'email', 'For the class link', S.email)) +
@@ -282,75 +341,88 @@ window.TOMO_CONFIG = {
           field('City', input('city', 'text', 'address-level2', 'e.g. Bengaluru', S.city)) +
           '</div><fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"><legend class="lbl" style="padding:0;margin-bottom:8px">Program for the trial</legend><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">' + pb('life_skills', 'Tomo Life Skills') + pb('ai_lab', 'Tomo AI Lab') + '</div>' +
           (aiOff ? '<p style="margin:0;font-size:14px;color:' + MUTED + '">Tomo AI Lab starts at Grade 6' + (card.getAttribute('data-default-program') === 'ai_lab' ? ', so we&#39;ve picked Tomo Life Skills for Grades 3 to 5' : '') + '.</p>' : '') +
-          '</fieldset><button type="button" data-next' + (detailsOk() ? '' : ' disabled') + ' style="' + BTN_MAIN + '">Next: pick a date and time</button><p style="margin:0;font-size:13px;color:' + MUTED + ';text-align:center">Free, with no obligation to continue. <a href="https://www.tomoclub.org/privacy-policy">Privacy policy</a></p></div>';
-      } else {
-        var today = new Date(); today.setHours(0, 0, 0, 0);
-        var first = new Date(today.getFullYear(), today.getMonth() + S.month, 1);
-        var last = new Date(today.getTime() + 30 * 86400000);
-        var days = new Date(first.getFullYear(), first.getMonth() + 1, 0).getDate(), lead = (first.getDay() + 6) % 7;
-        var cells = '';
-        for (var k = 0; k < lead; k++) cells += '<span></span>';
-        for (var d = 1; d <= days; d++) {
-          var dt = new Date(first.getFullYear(), first.getMonth(), d), key = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + d;
-          var avail = dt > today && dt <= last && dt.getDay() !== 0, sel = S.date === key;
-          var st = sel ? 'background:#0B1230;color:#FFFFFF;border:1.5px solid #0B1230;font-weight:700' : (avail ? 'background:#FFF1EC;color:#B23A20;border:1.5px solid #FFD4C7;font-weight:700' : 'background:#FFFFFF;color:#A3ABC2;border:1.5px solid #FFFFFF');
-          var lbl = DOW[dt.getDay()] + ' ' + d + ' ' + MON[dt.getMonth()].slice(0, 3);
-          cells += '<button type="button" data-date="' + key + '" data-label="' + lbl + '" data-wd="' + dt.getDay() + '" aria-pressed="' + sel + '" aria-label="' + lbl + (avail ? ', available' : ', unavailable') + '"' + (avail ? '' : ' disabled') + ' style="font:inherit;font-size:15px;height:40px;border-radius:12px;cursor:pointer;' + st + '">' + d + '</button>';
-        }
-        var times = S.date ? (S.wd === 6 ? ['10:00 AM', '11:30 AM', '4:00 PM', '5:30 PM'] : ['5:00 PM', '6:00 PM', '7:00 PM']) : [];
-        var navBtn = function (dir, dis, sym, lab) { return '<button type="button" data-month="' + dir + '" aria-label="' + lab + '"' + (dis ? ' disabled' : '') + ' style="font:inherit;width:40px;height:40px;border-radius:50%;border:1.5px solid #CDD3E1;background:#FFFFFF;cursor:pointer;font-size:18px;color:#0B1230">' + sym + '</button>'; };
-        h += '<div style="display:flex;flex-direction:column;gap:14px"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px">' + navBtn(-1, S.month <= 0, '&lsaquo;', 'Previous month') + '<strong style="font-size:18px">' + MON[first.getMonth()] + ' ' + first.getFullYear() + '</strong>' + navBtn(1, S.month >= 1, '&rsaquo;', 'Next month') + '</div>' +
-          '<div role="grid" aria-label="Calendar" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center">' + ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(function (x) { return '<span style="font-size:12px;font-weight:600;color:' + MUTED + '">' + x + '</span>'; }).join('') + cells + '</div>' +
-          (S.date ? '<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;color:' + MUTED + '">Times on ' + esc(S.dateLabel) + ' (' + tzLabel(S.country) + ')</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px">' + times.map(function (t) { return '<button type="button" data-slot="' + t + '" aria-pressed="' + (S.slot === t) + '" style="font:inherit;font-weight:600;min-height:44px;border-radius:12px;cursor:pointer;' + (S.slot === t ? pillOn : pillOff) + '">' + t + '</button>'; }).join('') + '</div></div>' : '<p style="margin:0;font-size:14px;color:' + MUTED + '">Pick a highlighted date to see available times.</p>') +
-          '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="waOk"' + (S.waOk ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>Send class reminders to my WhatsApp.</span></label>' +
-          '<div style="display:flex;gap:10px"><button type="button" data-back style="' + BTN_BACK + '">Back</button><button type="button" data-book' + (S.date && S.slot ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + ';font-size:18px">Book free trial class now</button></div>' +
-          '<p style="margin:0;font-size:12px;color:' + MUTED + ';text-align:center">Live availability via Calendly. Your details are filled in for you.</p></div>';
+          '</fieldset><label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="waOk"' + (S.waOk ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>Send class reminders to my WhatsApp.</span></label>' +
+          '<div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off" value=""></label></div>' +
+          '<div style="display:flex;gap:10px"><button type="button" data-back style="' + BTN_BACK + '">Back</button><button type="button" data-book' + (detailsOk() && !S.busy ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + ';font-size:18px">' + (S.busy ? 'Booking&hellip;' : 'Book free trial class now') + '</button></div>' +
+          '<p style="margin:0;font-size:13px;color:' + MUTED + ';text-align:center">Free, with no obligation to continue. <a href="https://www.tomoclub.org/privacy-policy">Privacy policy</a></p></div>';
       }
       card.innerHTML = h;
     }
+    function syncBook() { var bb = card.querySelector('[data-book]'); if (bb) bb.disabled = !detailsOk() || S.busy; }
     card.addEventListener('input', function (e) {
       var n = e.target.name; if (!n || n === 'waOk') return;
       S[n] = e.target.value;
-      var nb = card.querySelector('[data-next]'); if (nb) nb.disabled = !detailsOk();
+      syncBook();
     });
     card.addEventListener('change', function (e) {
       var n = e.target.name;
       if (n === 'grade') { S.grade = e.target.value; track('grade_select', { cta_location: 'booking', grade: S.grade }); render(); }
-      else if (n === 'country') { S.country = e.target.value; track('country_select', { cta_location: 'booking', country: S.country }); var nb = card.querySelector('[data-next]'); if (nb) nb.disabled = !detailsOk(); }
+      else if (n === 'country') { S.country = e.target.value; track('country_select', { cta_location: 'booking', country: S.country }); syncBook(); }
       else if (n === 'waOk') { S.waOk = e.target.checked; track('whatsapp_reminder_toggle', { cta_location: 'booking', checked: S.waOk }); }
     });
     card.addEventListener('click', function (e) {
       var t = e.target.closest('button'); if (!t || t.disabled) return;
       if (t.hasAttribute('data-prog')) { S.program = t.getAttribute('data-prog'); track('program_change', { cta_location: 'booking', program: S.program }); render(); }
-      else if (t.hasAttribute('data-next')) { track('lead_submitted', { cta_location: 'booking', program: eff(), grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', { program: eff(), parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade }); S.step = 2; render(); }
-      else if (t.hasAttribute('data-back')) { track('booking_back', { cta_location: 'booking' }); S.step = 1; render(); }
+      else if (t.hasAttribute('data-next')) { track('slot_continue', { cta_location: 'booking', date: S.dateLabel, time: S.timeLabel }); S.step = 2; S.error = ''; render(); }
+      else if (t.hasAttribute('data-back')) { track('booking_back', { cta_location: 'booking' }); S.step = 1; S.error = ''; render(); }
+      else if (t.hasAttribute('data-retry')) { track('slots_retry', { cta_location: 'booking' }); loadSlots(); render(); }
       else if (t.hasAttribute('data-month')) { S.month = Math.max(0, Math.min(1, S.month + Number(t.getAttribute('data-month')))); track('month_change', { cta_location: 'booking' }); render(); }
-      else if (t.hasAttribute('data-date')) { S.date = t.getAttribute('data-date'); S.dateLabel = t.getAttribute('data-label'); S.wd = Number(t.getAttribute('data-wd')); S.slot = null; track('date_select', { cta_location: 'booking', date: S.dateLabel }); render(); }
-      else if (t.hasAttribute('data-slot')) { S.slot = t.getAttribute('data-slot'); track('slot_select', { cta_location: 'booking', date: S.dateLabel, time: S.slot }); render(); }
-      else if (t.hasAttribute('data-book')) {
-        var p = eff();
-        track('booking_submit', { cta_location: 'booking', program: p, grade: S.grade, date: S.dateLabel, time: S.slot, whatsapp_optin: S.waOk });
-        /* TODO (developer): create the booking via your Calendly/booking API here, passing name, email, phone, grade, country, city and program. */
-        saveRecord('Trial bookings', { program: p, parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, class_date: S.dateLabel, class_time: S.slot, time_zone: tzLabel(S.country), whatsapp_reminders: S.waOk ? 'yes' : 'no' });
-        track('booking_confirmed', { program: p, grade: S.grade, date: S.dateLabel, time: S.slot });
-        confirmBooking(p);
-      }
+      else if (t.hasAttribute('data-date')) { S.date = t.getAttribute('data-date'); S.dateLabel = t.getAttribute('data-label'); S.slot = null; S.error = ''; track('date_select', { cta_location: 'booking', date: S.dateLabel }); render(); }
+      else if (t.hasAttribute('data-slot')) { S.slot = t.getAttribute('data-slot'); S.timeLabel = slotTime(S.slot); S.error = ''; track('slot_select', { cta_location: 'booking', date: S.dateLabel, time: S.timeLabel }); render(); }
+      else if (t.hasAttribute('data-book')) { book(); }
     });
-    function confirmBooking(p) {
-      var pname = p === 'ai_lab' ? 'Tomo AI Lab' : 'Tomo Life Skills', first = S.name.trim().split(' ')[0];
+    /* the booking is created in Calendly first; the sheet row is written only if Calendly confirms it */
+    function book() {
+      if (S.busy || !S.slot || !detailsOk()) return;
+      var p = eff(), slot = S.slot, dateLabel = S.dateLabel, timeLabel = S.timeLabel;
+      S.busy = true; S.error = ''; render();
+      track('booking_submit', { cta_location: 'booking', program: p, grade: S.grade, date: dateLabel, time: timeLabel, whatsapp_optin: S.waOk });
+      var person = { program: p, parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade };
+      if (!S.leadSaved) { S.leadSaved = true; track('lead_submitted', { cta_location: 'booking', program: p, grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', person); }
+      var body = { start: slot, name: S.name.trim(), email: S.email.trim(), program: p, grade: S.grade, country: S.country, city: S.city.trim(), whatsapp: S.phone.trim(), timezone: BROWSER_TZ || 'UTC', website: S.website };
+      Object.keys(ATTR).forEach(function (k) { if (k.indexOf('utm_') === 0 && ATTR[k]) body[k] = ATTR[k]; });
+      fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().catch(function () { return null; }); })
+        .catch(function () { return null; })
+        .then(function (j) {
+          S.busy = false;
+          if (j && j.ok) {
+            saveRecord('Trial bookings', Object.assign({ class_date: dateLabel, class_time: timeLabel, time_zone: BROWSER_TZ || tzName(new Date(slot)), class_start_utc: slot, calendly_booking: j.invitee || '', whatsapp_reminders: S.waOk ? 'yes' : 'no' }, person));
+            track('booking_confirmed', { program: p, grade: S.grade, date: dateLabel, time: timeLabel });
+            S.slots = (S.slots || []).filter(function (x) { return x !== slot; });
+            confirmBooking(p, slot, dateLabel, timeLabel);
+          } else if (j && j.code === 'slot_taken') {
+            track('booking_failed', { cta_location: 'booking', reason: 'slot_taken' });
+            S.slots = (S.slots || []).filter(function (x) { return x !== slot; });
+            S.slot = null; S.date = null; S.step = 1; S.error = 'That time was just taken. Please pick another.';
+            loadSlots(); render();
+          } else {
+            track('booking_failed', { cta_location: 'booking', reason: j && j.code ? j.code : 'error' });
+            S.error = j && (j.code === 'invalid' || j.code === 'too_many') && j.error ? j.error : BOOK_FAIL;
+            render();
+          }
+        });
+    }
+    function confirmBooking(p, slot, dateLabel, timeLabel) {
+      var pname = p === 'ai_lab' ? 'Tomo AI Lab' : 'Tomo Life Skills', first = S.name.trim().split(' ')[0], email = S.email;
       var m = modal('<div role="dialog" aria-modal="true" aria-labelledby="done-title" style="width:min(480px,100%);background:#FFFFFF;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Outfit,system-ui,sans-serif;color:#0B1230">' +
         '<div style="background:#FFF4F0;padding:28px 24px 10px;display:flex;justify-content:center">' + CELEBRATE + '</div>' +
         '<div style="padding:22px 28px 28px;display:flex;flex-direction:column;gap:12px;text-align:center"><h2 id="done-title" style="margin:0;font-weight:700;font-size:28px">Your booking is confirmed!</h2>' +
         '<p style="margin:0;color:' + MUTED + '">' + esc(first ? first + ', your' : 'Your') + ' child&#39;s free ' + pname + ' class is booked.</p>' +
-        '<p style="margin:0;background:#F6F7FB;border-radius:14px;padding:12px 16px;font-weight:600">' + esc(S.dateLabel + ', ' + S.slot + ' ' + tzLabel(S.country)) + '</p>' +
-        '<p style="margin:0;font-size:15px;color:' + MUTED + '">We&#39;ve sent the class link to ' + esc(S.email) + '. Our team will also confirm on WhatsApp.</p>' +
+        '<p style="margin:0;background:#F6F7FB;border-radius:14px;padding:12px 16px;font-weight:600">' + esc(dateLabel + ', ' + timeLabel + ' ' + tzName(new Date(slot))) + '</p>' +
+        '<p style="margin:0;font-size:15px;color:' + MUTED + '">We&#39;ve sent the class link to ' + esc(email) + '. Our team will also confirm on WhatsApp.</p>' +
         '<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:6px"><button type="button" data-cal style="font:inherit;font-weight:700;background:#FFFFFF;color:#0B1230;border:2px solid #0B1230;border-radius:999px;padding:12px 20px;min-height:48px;cursor:pointer">Add to calendar</button><button type="button" data-done style="font:inherit;font-weight:700;background:#FFC83D;color:#0B1230;border:0;border-radius:999px;padding:12px 24px;min-height:48px;cursor:pointer">Done</button></div></div></div>', 70);
       m.el.addEventListener('click', function (e) {
-        if (e.target.closest('[data-cal]')) track('add_to_calendar', { cta_location: 'confirmation' });
-        if (e.target.closest('[data-done]')) { track('confirmation_close', { cta_location: 'confirmation' }); m.close(); S.step = 1; S.date = null; S.slot = null; render(); }
+        if (e.target.closest('[data-cal]')) {
+          track('add_to_calendar', { cta_location: 'confirmation' });
+          var st = new Date(slot), en = new Date(st.getTime() + (Number(CONFIG.trialMinutes) || 30) * 60000), fmt = function (d) { return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
+          window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(pname + ' free trial class (TomoClub)') + '&dates=' + fmt(st) + '/' + fmt(en) + '&details=' + encodeURIComponent('The class link is in the invitation email from Calendly.'), '_blank', 'noopener');
+        }
+        if (e.target.closest('[data-done]')) { track('confirmation_close', { cta_location: 'confirmation' }); m.close(); S.step = 1; S.date = null; S.slot = null; S.leadSaved = false; loadSlots(); render(); }
       });
     }
     render();
+    loadSlots();
   }
 
   /* ---------- both programs: enrolment and payment ---------- */

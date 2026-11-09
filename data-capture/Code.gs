@@ -7,7 +7,7 @@
  * 1. Create a new Google Sheet (or import TomoClub_Parents_Funnel_Data.xlsx into Google Sheets).
  * 2. Extensions > Apps Script. Delete the sample code and paste this whole file. Save.
  * 3. Deploy > New deployment > type "Web app". Execute as: Me. Who has access: Anyone. Deploy and authorise.
- * 4. Copy the Web app URL and paste it into parents/assets/config.js as sheetEndpoint.
+ * 4. Copy the Web app URL and paste it into assets/js/parents-site.js (the TOMO_CONFIG block at the top) as sheetEndpoint.
  * The sheet opens in Excel any time: File > Download > Microsoft Excel (.xlsx).
  */
 var HEADERS = {
@@ -189,6 +189,14 @@ var HEADERS = {
     [
       "landing_page",
       "Landing page"
+    ],
+    [
+      "class_start_utc",
+      "Class start (UTC)"
+    ],
+    [
+      "calendly_booking",
+      "Calendly booking"
     ]
   ],
   "Enrolments": [
