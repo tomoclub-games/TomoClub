@@ -1,5 +1,5 @@
 // Vercel serverless function: POST /api/signup
-// Handles the Leaders of Tomorrow forms (e-book requests and newsletter) and the toolkit download popup.
+// Handles the Leaders of Tomorrow e-book forms and the toolkit download popup.
 // Each submission is saved as one row in the shared Google Sheet through the Apps Script collector
 // (data-capture/Code.gs). Optional Brevo emails are sent too, only if BREVO_API_KEY is set.
 //
@@ -17,7 +17,6 @@ const ALLOWED_ORIGINS = [
 // Form type sent by the page -> tab in the Google Sheet.
 const TABS = {
   ebook_request: 'E-book requests',
-  newsletter: 'Newsletter',
   resource: 'Toolkit downloads',
 };
 

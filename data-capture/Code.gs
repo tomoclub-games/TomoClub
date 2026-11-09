@@ -2,7 +2,7 @@
  * TomoClub website: form data collector (one script, one sheet for all the site's forms).
  * Receives form submissions from the website and appends them to this spreadsheet, one tab per type:
  *   Parents site: Leads, Trial bookings, Enrolments (and Events, only if click logging is switched on)
- *   Leaders of Tomorrow and toolkits: E-book requests, Newsletter, Toolkit downloads
+ *   Leaders of Tomorrow and toolkits: E-book requests, Toolkit downloads
  * The Build With Us project form has its own separate script and is not part of this.
  * Tabs and their header rows are created automatically the first time a row arrives.
  * Also: "Failed bookings" (a trial booking that did not go through).
@@ -399,12 +399,6 @@ var HEADERS = {
     ["role", "Role"],
     ["source", "Form location"]
   ],
-  "Newsletter": [
-    ["timestamp", "Timestamp (UTC)"],
-    ["first_name", "First name"],
-    ["email", "Email"],
-    ["source", "Form location"]
-  ],
   "Toolkit downloads": [
     ["timestamp", "Timestamp (UTC)"],
     ["first_name", "First name"],
@@ -414,7 +408,7 @@ var HEADERS = {
   ]
 };
 
-// Where each visitor came from, added to the end of the three Leaders of Tomorrow / toolkit tabs.
+// Where each visitor came from, added to the end of the two Leaders of Tomorrow / toolkit tabs.
 var ATTRIBUTION_COLUMNS = [
   ["utm_source", "UTM source"],
   ["utm_medium", "UTM medium"],
@@ -426,7 +420,7 @@ var ATTRIBUTION_COLUMNS = [
   ["referrer", "Referrer"],
   ["landing_page", "Landing page"]
 ];
-["E-book requests", "Newsletter", "Toolkit downloads"].forEach(function (name) {
+["E-book requests", "Toolkit downloads"].forEach(function (name) {
   HEADERS[name] = HEADERS[name].concat(ATTRIBUTION_COLUMNS);
 });
 

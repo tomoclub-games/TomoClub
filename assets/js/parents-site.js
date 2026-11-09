@@ -3,7 +3,7 @@
    (data-capture/Code.gs), whose URL lives in the SHEET_WEBHOOK environment variable on Vercel, not here.
    Set it to '' and the site still works; data just isn't saved to the sheet.
    logClicksToSheet: also write every click/event to the "Events" tab. Off: clicks and page events go to
-   Google Analytics and Clarity (analytics.js); the sheet only gets form data (leads, bookings, newsletter). */
+   Google Analytics and Clarity (analytics.js); the sheet only gets form data (leads, bookings, enrolments). */
 window.TOMO_CONFIG = {
   sheetEndpoint: '/api/collect',
   logClicksToSheet: false,
@@ -113,8 +113,8 @@ window.TOMO_CONFIG = {
   }
 
   /* every link and button click is captured. Elements with data-event use that name; the rest are
-     recorded as link_click / button_click with their text and section. Booking, enrolment, picker and
-     newsletter components send their own specific events (marked data-self-tracked). */
+     recorded as link_click / button_click with their text and section. Booking, enrolment and picker
+     components send their own specific events (marked data-self-tracked). */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('a, button, [role=button]');
     if (el && !el.closest('[data-self-tracked]') && !el.hasAttribute('data-faq-tab')) {
@@ -139,9 +139,9 @@ window.TOMO_CONFIG = {
   /* first interaction with any form */
   var started = {};
   document.addEventListener('focusin', function (e) {
-    var f = e.target.closest('[data-booking], [data-enrol], [data-newsletter]');
+    var f = e.target.closest('[data-booking], [data-enrol]');
     if (!f || !/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
-    var k = f.hasAttribute('data-booking') ? 'trial_booking' : (f.hasAttribute('data-enrol') ? 'enrolment' : 'newsletter');
+    var k = f.hasAttribute('data-booking') ? 'trial_booking' : 'enrolment';
     if (!started[k]) { started[k] = true; track('form_start', { cta_location: k, form: k }); }
   });
   /* scroll depth and section views */
@@ -239,25 +239,6 @@ window.TOMO_CONFIG = {
       document.querySelectorAll('[data-faq-panel]').forEach(function (p) { p.style.display = p.getAttribute('data-faq-panel') === k ? 'block' : 'none'; });
     }
     tabs.forEach(function (t) { t.addEventListener('click', function () { track('faq_tab', { cta_location: 'faq', tab: t.getAttribute('data-faq-tab') }); select(t.getAttribute('data-faq-tab')); }); });
-  }
-
-  /* ---------- newsletter (footer) ---------- */
-  function initNewsletter() {
-    var f = document.querySelector('[data-newsletter]');
-    if (!f) return;
-    var email = f.querySelector('[name=email]'), nl = f.querySelector('[name=nl]'), wa = f.querySelector('[name=wa]'), phone = f.querySelector('[name=phone]'), btn = f.querySelector('button'), msg = f.querySelector('[data-sent]');
-    function valid() {
-      var okEmail = /\S+@\S+\.\S+/.test(email.value), okPhone = phone.value.replace(/\D/g, '').length >= 8;
-      phone.style.display = wa.checked ? 'block' : 'none';
-      btn.disabled = !(okEmail && nl.checked && (!wa.checked || okPhone));
-    }
-    f.addEventListener('input', valid); f.addEventListener('change', function (e) { valid(); if (e.target.type === 'checkbox') track('consent_toggle', { cta_location: 'footer', consent: e.target.name === 'nl' ? 'email' : 'whatsapp', checked: e.target.checked }); }); valid();
-    f.addEventListener('submit', function (e) {
-      e.preventDefault(); if (btn.disabled) return;
-      track('newsletter_signup', { cta_location: 'footer', channel: wa.checked ? 'email+whatsapp' : 'email' });
-      /* newsletter signups are not saved to the sheet for now (only the tracking event above is sent) */
-      msg.style.display = 'block';
-    });
   }
 
   /* ---------- shared form bits ---------- */
@@ -562,7 +543,7 @@ window.TOMO_CONFIG = {
   document.addEventListener('DOMContentLoaded', function () {
     track('tomo_page_view', { cta_location: 'page', title: document.title });
     initSectionViews();
-    initPicker(); initFaqTabs(); initNewsletter(); initNav();
+    initPicker(); initFaqTabs(); initNav();
     var b = document.querySelector('[data-booking]'); if (b) initBooking(b);
     var en = document.querySelector('[data-enrol]'); if (en) initEnrol(en);
   });
