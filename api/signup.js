@@ -1,48 +1,114 @@
+// Vercel serverless function: POST /api/signup
+// Handles the Leaders of Tomorrow forms (e-book requests and newsletter) and the toolkit download popup.
+// Each submission is saved as one row in the shared Google Sheet through the Apps Script collector
+// (data-capture/Code.gs). Optional Brevo emails are sent too, only if BREVO_API_KEY is set.
+//
+// Env vars:
+//   SHEET_WEBHOOK   the Apps Script Web app URL (ends in /exec)
+//   BREVO_API_KEY   optional; without it no emails are sent
+//   ADMIN_EMAIL     optional, where the admin notification goes (default info@tomoclub.org)
+
+const ALLOWED_ORIGINS = [
+  /^https:\/\/(www\.)?tomoclub\.org$/,
+  /^https:\/\/tomoclub-website[a-z0-9-]*\.vercel\.app$/,
+  /^http:\/\/localhost:\d+$/,
+];
+
+// Form type sent by the page -> tab in the Google Sheet.
+const TABS = {
+  ebook_request: 'E-book requests',
+  newsletter: 'Newsletter',
+  resource: 'Toolkit downloads',
+};
+
+// Attribution fields the pages send along with the form, and their maximum lengths.
+const ATTRIBUTION_FIELDS = {
+  utm_source: 120, utm_medium: 120, utm_campaign: 120, utm_content: 120, utm_term: 120,
+  gclid: 200, fbclid: 200, referrer: 300, landing_page: 300,
+};
+
+// Best-effort limit per warm server instance.
+const hits = new Map();
+function tooMany(ip) {
+  const now = Date.now();
+  const recent = (hits.get(ip) || []).filter((t) => now - t < 10 * 60 * 1000);
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 500) hits.clear();
+  return recent.length > 30;
+}
+
+const clean = (v, max) => String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, max);
+
+// Append one row to the Google Sheet through the Apps Script collector.
+async function saveToSheet(sheet, data) {
+  const url = process.env.SHEET_WEBHOOK;
+  if (!url) { console.error('SHEET_WEBHOOK env var is not set'); return false; }
+  try {
+    // Apps Script answers through a redirect, which fetch follows; the JSON body says whether it worked.
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ rows: [{ sheet, data }] }),
+      signal: AbortSignal.timeout(8000),
+    });
+    const j = await r.json().catch(() => null);
+    if (!r.ok || !j || j.ok !== true) { console.error('Apps Script rejected the row:', r.status, JSON.stringify(j)); return false; }
+    return true;
+  } catch (error) {
+    console.error('sheet write error:', error);
+    return false;
+  }
+}
+
 export default async function handler(req, res) {
-  // 1. Security: Enforce POST method
+  // 1. Security: enforce POST and the site's own origin
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+  if (!ALLOWED_ORIGINS.some((re) => re.test(req.headers.origin || ''))) {
+    return res.status(403).json({ error: 'Not allowed' });
+  }
 
-  // 2. Data Extraction & Basic Sanitization
-  // In a full production app, use a library like 'validator' or 'zod'
-  const { type, name, firstName, email, phone, message, toolkitName, source } = req.body;
-  
-  // Basic validation
-  const finalEmail = email || '';
-  const finalName = name || firstName || 'User';
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  if (tooMany(ip)) {
+    return res.status(429).json({ error: 'Too many requests' });
+  }
 
-  if (!finalEmail) {
+  // 2. Data extraction and basic sanitisation
+  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const type = clean(b.type, 30);
+  const tab = TABS[type];
+  if (!tab) {
+    return res.status(400).json({ error: 'Unknown form type' });
+  }
+
+  const finalEmail = clean(b.email, 200);
+  const firstName = clean(b.firstName || b.name, 120);
+  const finalName = firstName || 'User';
+  const phone = clean(b.phone, 40);
+  const message = clean(b.message, 1000);
+  const toolkitName = clean(b.toolkitName, 200);
+  const source = clean(b.source, 120);
+  const role = clean(b.role, 80);
+
+  if (!/^\S+@\S+\.\S+$/.test(finalEmail)) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
-  // 3. Secrets Management
-  // IMPORTANT: Move these to Vercel Project Settings > Environment Variables
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const NEWSLETTER_WEBHOOK = process.env.NEWSLETTER_WEBHOOK || 'https://script.google.com/macros/s/AKfycby88nsArmY2s_siury-sC0THaWzDfRmZTnYik0WUQnOd-hYRN1BiTypH8uK76AbHInUxw/exec';
-  const SIGNUP_WEBHOOK = process.env.SIGNUP_WEBHOOK || 'https://script.google.com/macros/s/AKfycbzz2VpoSdbCDsfGo4-3O6KnnjsEHUaMHuCCUN0KsQyBatGz_EMc-xdFC5FnvlKBWb40/exec';
-  const RESOURCE_WEBHOOK = process.env.RESOURCE_WEBHOOK || 'https://script.google.com/macros/s/AKfycbwFuKr-0GwdBfPylk7pmIhcbQX401Qye5t61ZsrjfbQ6TUToblKfX-l2bzv5DAFKuxc/exec';
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'info@tomoclub.org';
 
   try {
-    // 4. Determine which webhook to use
-    let targetWebhook = SIGNUP_WEBHOOK;
-    if (type === 'resource') {
-      targetWebhook = RESOURCE_WEBHOOK;
-    } else if (type === 'newsletter') {
-      targetWebhook = NEWSLETTER_WEBHOOK;
-    }
-    
-    // 5. Save to Google Sheets (Proxy request to avoid CORS issues and expose endpoint)
-    const googleSheetPromise = fetch(targetWebhook, {
-      method: 'POST',
-      body: new URLSearchParams({
-        ...req.body,
-        source: source || 'Vercel API Proxy'
-      })
-    }).catch(err => console.error('Data Logging Error:', err));
+    // 3. Save to Google Sheets (server side, so the Apps Script URL never appears in the page)
+    const row = { timestamp: new Date().toISOString(), first_name: firstName, email: finalEmail, source: source || 'Website' };
+    if (type === 'ebook_request') row.role = role;
+    if (type === 'resource') row.toolkit = toolkitName;
+    // Where the visitor came from (captured in the browser by assets/js/analytics.js)
+    Object.keys(ATTRIBUTION_FIELDS).forEach((k) => { row[k] = clean(b[k], ATTRIBUTION_FIELDS[k]); });
+    const sheetPromise = saveToSheet(tab, row);
 
-    // 6. Email Notifications (If Brevo key is present)
+    // 4. Email notifications (only if a Brevo key is present)
     let emailPromises = [];
     if (BREVO_API_KEY) {
       // Send Confirmation Email to User
@@ -97,9 +163,12 @@ export default async function handler(req, res) {
       }));
     }
 
-    // Wait for critical tasks
-    await Promise.all([...emailPromises, googleSheetPromise]);
-
+    // Wait for the critical tasks
+    const [saved] = await Promise.all([sheetPromise, ...emailPromises]);
+    if (!saved) {
+      // The pages ignore this status and still show their thank-you message and start the download.
+      return res.status(502).json({ error: 'Could not save' });
+    }
     return res.status(200).json({ success: true, message: 'Processed successfully' });
 
   } catch (error) {

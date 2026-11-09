@@ -1,10 +1,12 @@
 /* TomoClub site settings.
-   sheetEndpoint: paste the Web app URL of your Google Apps Script collector (set up with data-capture/Code.gs).
-   Leave it empty and the site still works; data just isn't saved to the sheet.
-   logClicksToSheet: also write every click/event to the "Events" tab (set false to send only form data). */
+   sheetEndpoint: where form rows are sent. /api/collect forwards them to the Google Apps Script collector
+   (data-capture/Code.gs), whose URL lives in the SHEET_WEBHOOK environment variable on Vercel, not here.
+   Set it to '' and the site still works; data just isn't saved to the sheet.
+   logClicksToSheet: also write every click/event to the "Events" tab. Off: clicks and page events go to
+   Google Analytics and Clarity (analytics.js); the sheet only gets form data (leads, bookings, newsletter). */
 window.TOMO_CONFIG = {
-  sheetEndpoint: '',
-  logClicksToSheet: true,
+  sheetEndpoint: '/api/collect',
+  logClicksToSheet: false,
   trialMinutes: 60 /* length of the free trial class, used for the Add to calendar link */
 };
 
@@ -19,7 +21,7 @@ window.TOMO_CONFIG = {
   function esc(v) { return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
   /* ---------- config, visitor and session context ---------- */
-  var CONFIG = Object.assign({ sheetEndpoint: '', logClicksToSheet: true, trialMinutes: 60 }, window.TOMO_CONFIG || {});
+  var CONFIG = Object.assign({ sheetEndpoint: '/api/collect', logClicksToSheet: false, trialMinutes: 60 }, window.TOMO_CONFIG || {});
   function store(kind, key, val) { try { var st = kind === 'local' ? localStorage : sessionStorage; if (val === undefined) return st.getItem(key); st.setItem(key, val); } catch (e) { return null; } }
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   var VISITOR = store('local', 'tomo_vid') || (function () { var v = uid(); store('local', 'tomo_vid', v); return v; })();
@@ -33,7 +35,7 @@ window.TOMO_CONFIG = {
     store('session', 'tomo_attr', JSON.stringify(a));
     return a;
   })();
-  function ctx() { return Object.assign({ timestamp: new Date().toISOString(), session_id: SESSION, visitor_id: VISITOR }, ATTR); }
+  function ctx() { return Object.assign({ timestamp: new Date().toISOString(), session_id: SESSION, visitor_id: VISITOR, language: document.documentElement.lang || 'en' }, ATTR); }
 
   /* ---------- sending rows to the sheet collector ---------- */
   var queue = [];
@@ -41,7 +43,7 @@ window.TOMO_CONFIG = {
     if (!CONFIG.sheetEndpoint || !rows.length) return;
     var body = JSON.stringify({ rows: rows });
     if (beacon && navigator.sendBeacon) { navigator.sendBeacon(CONFIG.sheetEndpoint, new Blob([body], { type: 'text/plain;charset=utf-8' })); return; }
-    try { fetch(CONFIG.sheetEndpoint, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body }); } catch (e) {}
+    try { fetch(CONFIG.sheetEndpoint, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body }).catch(function () {}); } catch (e) {}
   }
   function flush(beacon) { if (queue.length) { post(queue.splice(0, queue.length), beacon); } }
   setInterval(function () { flush(false); }, 4000);
@@ -57,6 +59,21 @@ window.TOMO_CONFIG = {
 
   /* ---------- tracking ---------- */
   var KNOWN = ['event', 'page', 'cta_location', 'label', 'program', 'grade'];
+  /* The booking funnel is sent to GA4 as real events. GA4 here runs on gtag.js (no Tag Manager), which
+     ignores plain objects pushed to dataLayer, so these go through gtag('event'). Only these four, with
+     no personal details; Clarity records clicks and scrolling on its own. */
+  var GA_EVENTS = { slot_select: 1, booking_submit: 1, booking_confirmed: 1, booking_failed: 1 };
+  function forwardToAnalytics(name, params) {
+    if (GA_EVENTS[name] && typeof window.gtag === 'function') {
+      var g = { tomo_page: PAGE };
+      ['program', 'grade', 'reason'].forEach(function (k) { if (params[k] !== undefined && params[k] !== '') g[k] = params[k]; });
+      if (params.date) g.class_date = params.date;
+      if (params.time) g.class_time = params.time;
+      window.gtag('event', name, g);
+    }
+    /* a confirmed free trial booking is a Meta "Schedule" event (the school forms use "Lead") */
+    if (name === 'booking_confirmed' && typeof window.fbq === 'function') window.fbq('track', 'Schedule', { content_name: params.program || '' });
+  }
   function track(name, params) {
     params = params || {};
     var payload = { event: name, page: PAGE, session_id: SESSION, visitor_id: VISITOR };
@@ -64,6 +81,7 @@ window.TOMO_CONFIG = {
     Object.keys(params).forEach(function (k) { if (params[k] !== undefined && params[k] !== null && params[k] !== '') payload[k] = params[k]; });
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+    forwardToAnalytics(name, params);
     if (DEBUG) showLog(payload);
     if (CONFIG.logClicksToSheet) {
       var details = {};
@@ -237,7 +255,7 @@ window.TOMO_CONFIG = {
     f.addEventListener('submit', function (e) {
       e.preventDefault(); if (btn.disabled) return;
       track('newsletter_signup', { cta_location: 'footer', channel: wa.checked ? 'email+whatsapp' : 'email' });
-      saveRecord('Newsletter', { email: email.value.trim(), email_consent: nl.checked ? 'yes' : 'no', whatsapp: wa.checked ? phone.value.trim() : '', whatsapp_consent: wa.checked ? 'yes' : 'no' });
+      /* newsletter signups are not saved to the sheet for now (only the tracking event above is sent) */
       msg.style.display = 'block';
     });
   }
@@ -379,7 +397,9 @@ window.TOMO_CONFIG = {
       track('booking_submit', { cta_location: 'booking', program: p, grade: S.grade, date: dateLabel, time: timeLabel, whatsapp_optin: S.waOk });
       var person = { program: p, parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade };
       if (!S.leadSaved) { S.leadSaved = true; track('lead_submitted', { cta_location: 'booking', program: p, grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', person); }
-      var body = { start: slot, name: S.name.trim(), email: S.email.trim(), program: p, grade: S.grade, country: S.country, city: S.city.trim(), whatsapp: S.phone.trim(), timezone: BROWSER_TZ || 'UTC', website: S.website };
+      /* the server books in Calendly, then writes the "Trial bookings" sheet row itself, so it needs the visitor context too */
+      var body = { start: slot, name: S.name.trim(), email: S.email.trim(), program: p, grade: S.grade, country: S.country, city: S.city.trim(), whatsapp: S.phone.trim(), timezone: BROWSER_TZ || 'UTC', website: S.website,
+        class_date: dateLabel, class_time: timeLabel, whatsapp_reminders: S.waOk ? 'yes' : 'no', context: Object.assign(ctx(), { page: PAGE }) };
       Object.keys(ATTR).forEach(function (k) { if (k.indexOf('utm_') === 0 && ATTR[k]) body[k] = ATTR[k]; });
       fetch('/api/book', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         .then(function (r) { return r.json().catch(function () { return null; }); })
@@ -387,7 +407,6 @@ window.TOMO_CONFIG = {
         .then(function (j) {
           S.busy = false;
           if (j && j.ok) {
-            saveRecord('Trial bookings', Object.assign({ class_date: dateLabel, class_time: timeLabel, time_zone: BROWSER_TZ || tzName(new Date(slot)), class_start_utc: slot, calendly_booking: j.invitee || '', whatsapp_reminders: S.waOk ? 'yes' : 'no' }, person));
             track('booking_confirmed', { program: p, grade: S.grade, date: dateLabel, time: timeLabel });
             S.slots = (S.slots || []).filter(function (x) { return x !== slot; });
             confirmBooking(p, slot, dateLabel, timeLabel);
@@ -481,7 +500,7 @@ window.TOMO_CONFIG = {
     });
     card.addEventListener('click', function (e) {
       var t = e.target.closest('button'); if (!t || t.disabled) return;
-      if (t.hasAttribute('data-next1')) { track('lead_submitted', { cta_location: 'enrol', program: 'bundle', grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', { program: 'bundle', parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade }); S.step = 2; render(); }
+      if (t.hasAttribute('data-next1')) { track('lead_submitted', { cta_location: 'enrol', program: 'bundle', grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', { program: 'bundle', currency: 'INR', parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade }); S.step = 2; render(); }
       else if (t.hasAttribute('data-next2')) { track('begin_checkout', { cta_location: 'enrol', program: 'bundle', ecommerce: ECOM }); S.step = 3; render(); }
       else if (t.hasAttribute('data-to')) { track('enrol_back', { cta_location: 'enrol' }); S.step = Number(t.getAttribute('data-to')); render(); }
       else if (t.hasAttribute('data-pick')) {
@@ -502,13 +521,13 @@ window.TOMO_CONFIG = {
         '<button type="button" data-paid style="font:inherit;font-weight:700;font-size:18px;background:#20B2B6;color:#FFFFFF;border:0;border-radius:999px;min-height:52px;cursor:pointer">Pay &#8377;4,999</button>' +
         '<button type="button" data-cancel style="font:inherit;font-weight:600;background:none;border:0;color:' + MUTED + ';cursor:pointer;text-decoration:underline">Cancel</button></div>', 60);
       m.el.addEventListener('click', function (e) {
-        if (e.target.closest('[data-cancel]')) { track('payment_cancelled', { cta_location: 'checkout' }); saveRecord('Enrolments', Object.assign({ status: 'payment_cancelled', transaction_id: '' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' })); m.close(); }
+        if (e.target.closest('[data-cancel]')) { track('payment_cancelled', { cta_location: 'checkout' }); saveRecord('Enrolments', Object.assign({ status: 'payment_cancelled', transaction_id: '', currency: 'INR' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' })); m.close(); }
         if (e.target.closest('[data-paid]')) { m.close(); done('demo-' + Date.now()); }
       });
     }
     function done(txn) {
       track('purchase', { transaction_id: txn, grade: S.grade, country: S.country, ecommerce: ECOM });
-      saveRecord('Enrolments', Object.assign({ status: 'paid', transaction_id: txn }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' }));
+      saveRecord('Enrolments', Object.assign({ status: 'paid', transaction_id: txn, currency: 'INR' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' }));
       track('payment_completed', { value: 4999, method: S.method });
       var first = S.name.trim().split(' ')[0];
       var m = modal('<div role="dialog" aria-modal="true" aria-labelledby="done-title" style="width:min(480px,100%);background:#FFFFFF;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Outfit,system-ui,sans-serif;color:#0B1230">' +

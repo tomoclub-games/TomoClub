@@ -6,6 +6,7 @@
 //   CALENDLY_TOKEN           personal access token (scopes: availability:read, scheduled_events:write, event_types:read)
 //   CALENDLY_EVENT_TYPE_URI  the trial class event type, e.g. https://api.calendly.com/event_types/XXXXXXXX
 //   CALENDLY_LOCATION_KIND   optional, e.g. google_conference. Set only if Calendly rejects bookings without it.
+//   SHEET_WEBHOOK            the Apps Script Web app URL; the "Trial bookings" row is written here after Calendly confirms.
 //
 // Booking answers: the event type's questions are read from Calendly, and an answer is sent for every
 // question whose name matches one of the ANSWERS below. Add or remove questions in the Calendly dashboard
@@ -82,6 +83,22 @@ function tooMany(ip) {
 
 const clean = (v, max) => String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, max);
 
+// Append rows to the Google Sheet through the Apps Script collector (data-capture/Code.gs).
+async function saveToSheet(rows) {
+  const url = process.env.SHEET_WEBHOOK;
+  if (!url) { console.error('SHEET_WEBHOOK env var is not set'); return false; }
+  try {
+    // Apps Script answers through a redirect, which fetch follows; the JSON body says whether it worked.
+    const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ rows }), signal: AbortSignal.timeout(8000) });
+    const j = await r.json().catch(() => null);
+    if (!r.ok || !j || j.ok !== true) { console.error('Apps Script rejected the row:', r.status, JSON.stringify(j)); return false; }
+    return true;
+  } catch (error) {
+    console.error('sheet write error:', error);
+    return false;
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ ok: false, error: 'Method not allowed' });
@@ -151,12 +168,35 @@ export default async function handler(req, res) {
   const answers = buildAnswers(await getQuestions(eventType, headers), { program, grade, whatsapp, country, city });
   if (answers.length) payload.questions_and_answers = answers;
 
+  // Fields shared by the "Trial bookings" row (success) and the "Failed bookings" row (failure).
+  const ctx = b.context && typeof b.context === 'object' ? b.context : {};
+  const c = (k, max) => clean(ctx[k], max || 300);
+  const detected = String(req.headers['x-vercel-ip-country'] || '').toUpperCase(); // set by Vercel, not by the browser
+  const rowBase = {
+    timestamp: new Date().toISOString(), page: c('page', 40), program, parent_name: name, email, whatsapp, country, city,
+    grade: String(grade), class_date: clean(b.class_date, 40), class_time: clean(b.class_time, 20), time_zone: timezone,
+    whatsapp_reminders: b.whatsapp_reminders === 'yes' ? 'yes' : 'no', session_id: c('session_id', 60), visitor_id: c('visitor_id', 60),
+    utm_source: c('utm_source', 120), utm_medium: c('utm_medium', 120), utm_campaign: c('utm_campaign', 120), utm_content: c('utm_content', 120),
+    utm_term: c('utm_term', 120), gclid: c('gclid'), fbclid: c('fbclid'), referrer: c('referrer'), landing_page: c('landing_page'),
+    class_start_utc: startIso, detected_country: /^[A-Z]{2}$/.test(detected) ? detected : '', language: c('language', 20), currency: '',
+  };
+  // A booking that did not go through is saved too, so the team can follow up (the sheet script alerts Slack).
+  async function saveFailure(reason) {
+    const saved = await saveToSheet([{ sheet: 'Failed bookings', data: { ...rowBase, reason } }]);
+    if (!saved) console.error('Failed booking could not be saved to the sheet:', reason);
+  }
+
   try {
     const upstream = await fetch('https://api.calendly.com/invitees', { method: 'POST', headers, body: JSON.stringify(payload) });
     const body = await upstream.json().catch(() => null);
 
     if (upstream.status === 201 && body && body.resource) {
-      return res.status(200).json({ ok: true, invitee: body.resource.uri || '', start: startIso });
+      const invitee = body.resource.uri || '';
+      // Calendly has confirmed, so write the "Trial bookings" row here (it survives a closed tab or ad blocker).
+      // A sheet problem never fails the booking: it is logged, and Calendly still holds the booking.
+      const saved = await saveToSheet([{ sheet: 'Trial bookings', data: { ...rowBase, calendly_booking: invitee } }]);
+      if (!saved) console.error('Booking confirmed in Calendly but the sheet row was not saved:', invitee);
+      return res.status(200).json({ ok: true, invitee, start: startIso, sheet: saved });
     }
 
     console.error('Calendly booking failed:', upstream.status, JSON.stringify(body));
@@ -171,12 +211,15 @@ export default async function handler(req, res) {
       });
       const live = await fetch(check, { headers }).then((r) => r.json()).catch(() => null);
       if (live && Array.isArray(live.collection) && !live.collection.some((s) => Date.parse(s.start_time) === startMs)) {
+        await saveFailure('slot_taken');
         return res.status(409).json({ ok: false, code: 'slot_taken', error: 'That time was just taken. Please pick another.' });
       }
     }
+    await saveFailure('booking_failed');
     return res.status(502).json({ ok: false, code: 'booking_failed', error: 'Could not complete the booking' });
   } catch (error) {
     console.error('book proxy error:', error);
+    await saveFailure('booking_failed');
     return res.status(502).json({ ok: false, code: 'booking_failed', error: 'Could not reach the booking service' });
   }
 }
