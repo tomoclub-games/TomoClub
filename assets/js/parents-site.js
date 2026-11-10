@@ -434,7 +434,10 @@ window.TOMO_CONFIG = {
     var ECOM = { currency: 'INR', value: 4999, items: [{ item_id: 'bundle', item_name: 'Tomo Life Skills + Tomo AI Lab', price: 4999, quantity: 1 }] };
     function ok1() { return !!(S.name.trim() && validEmail(S.email) && S.grade && S.country && S.city.trim()); }
     function ok2() { return !!(S.ls && S.ai); }
-    function canPay() { return ok1() && ok2() && S.method && S.terms; }
+    /* Payments are not live yet: the pay button stays disabled and reads "Coming soon". Set to true once a real
+       payment gateway replaces the demo window in pay(). */
+    var PAYMENTS_OPEN = false;
+    function canPay() { return PAYMENTS_OPEN && ok1() && ok2() && S.method && S.terms; }
     function startLabel() { var d = new Date(), add = (8 - d.getDay()) % 7 || 7, s = new Date(d.getFullYear(), d.getMonth(), d.getDate() + add); return s.getDate() + ' ' + MON[s.getMonth()].slice(0, 3); }
     function chips(list, key) { return list.map(function (t) { return '<button type="button" data-pick="' + key + '" data-val="' + t + '" aria-pressed="' + (S[key] === t) + '" style="font:inherit;font-weight:600;font-size:15px;min-height:44px;padding:8px 14px;border-radius:12px;cursor:pointer;' + (S[key] === t ? pillOn : pillOff) + '">' + t + '</button>'; }).join(''); }
     function render() {
@@ -464,7 +467,7 @@ window.TOMO_CONFIG = {
           '<div style="display:flex;flex-direction:column;gap:8px"><span class="lbl">Pay with</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">' + chips(['UPI', 'Card', 'Net banking'], 'method') + '</div></div>' +
           '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="terms"' + (S.terms ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>I agree to the <a href="https://www.tomoclub.org/terms-and-conditions">terms</a> and a monthly subscription of &#8377;4,999 that I can cancel any time.</span></label>' +
           '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="waOk"' + (S.waOk ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>Send class reminders to my WhatsApp.</span></label>' +
-          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">Pay &#8377;4,999 and enrol</button></div>' +
+          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">' + (PAYMENTS_OPEN ? 'Pay &#8377;4,999 and enrol' : 'Coming soon') + '</button></div>' +
           '<p style="margin:0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:' + MUTED + '">Secure payment. Your card details never touch our servers.</p></div>';
       }
       card.innerHTML = h;
@@ -490,7 +493,7 @@ window.TOMO_CONFIG = {
         else track('batch_select', { cta_location: 'enrol', program: k === 'ls' ? 'life_skills' : 'ai_lab', batch: S[k] });
         render();
       }
-      else if (t.hasAttribute('data-pay')) { track('add_payment_info', { cta_location: 'enrol', payment_type: S.method, ecommerce: ECOM }); track('payment_started', { cta_location: 'enrol', method: S.method, value: 4999 }); pay(); }
+      else if (t.hasAttribute('data-pay') && PAYMENTS_OPEN) { track('add_payment_info', { cta_location: 'enrol', payment_type: S.method, ecommerce: ECOM }); track('payment_started', { cta_location: 'enrol', method: S.method, value: 4999 }); pay(); }
     });
     function pay() {
       /* TODO (developer): replace this demo window with your payment gateway (for example a Razorpay subscription checkout).
