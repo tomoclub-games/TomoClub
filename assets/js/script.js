@@ -341,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const data = Object.fromEntries(formData.entries());
           data.type = 'resource';
           data.toolkitName = downloadModal.getAttribute('data-current-file'); // Re-ensure toolkit name
+          if (window.tomoAttribution) Object.assign(data, window.tomoAttribution()); // UTM, click IDs, referrer, landing page
 
           // Send to secure proxy
           await fetch('/api/signup', { 

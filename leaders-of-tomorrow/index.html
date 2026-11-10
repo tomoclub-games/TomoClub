@@ -911,30 +911,6 @@
         </div>
     </section>
 
-    <!-- SECTION 9: NEWSLETTER SIGNUP -->
-    <section style="padding: 6rem 0; background: var(--section-grad-slate); text-align: center;">
-        <div class="container animate-on-scroll">
-            <h2 style="font-size: 3.5rem; color: var(--navy); max-width: 800px; margin: 0 auto 2rem;">Stay updated with the latest in <span class="text-gradient">AI Literacy.</span></h2>
-            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 4rem;">Join our weekly newsletter for pedagogy tips, curated resources, and school leadership insights.</p>
-            
-            <div class="form-card" style="max-width: 600px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border-color); padding: 3rem; border-radius: 32px;">
-                <form class="ebook-form" id="bottom-form">
-                    <input type="text" name="firstName" placeholder="First Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="hidden" name="source" value="Ebook Bottom Newsletter">
-                    <button type="submit" class="btn-ebook" style="width: 100%;">
-                        Subscribe to Newsletter <i data-lucide="send"></i>
-                    </button>
-                    <p style="font-size: 0.85rem; color: #64748B; margin-top: 1rem;">Join 2,500+ educators turning AI literacy into a daily habit.</p>
-                </form>
-                <div id="bottom-success" style="display: none; text-align: center; padding: 1rem; color: var(--teal);">
-                    <i data-lucide="check-circle" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i>
-                    <h4>Welcome to the Community!</h4>
-                    <p>You're now subscribed to our weekly updates.</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Substack Newsletter Section -->
     <section class="newsletter-section" style="padding: 4rem 0; background: var(--bg-main); border-top: 1px solid var(--border-color); text-align: center;">
         <div class="container">
@@ -1111,8 +1087,7 @@
         }
 
         // Form Submission Logic
-        const forms = ['hero-form', 'mid-form', 'bottom-form'];
-        const GOOGLE_SHEET_WEBHOOK = 'https://script.google.com/macros/s/AKfycbwFuKr-0GwdBfPylk7pmIhcbQX401Qye5t61ZsrjfbQ6TUToblKfX-l2bzv5DAFKuxc/exec'; 
+        const forms = ['hero-form', 'mid-form'];
 
         forms.forEach(formId => {
             const form = document.getElementById(formId);
@@ -1131,7 +1106,8 @@
                     try {
                         // 1. Submit to Centralized API Proxy
                         const data = Object.fromEntries(formData.entries());
-                        data.type = (formId === 'bottom-form') ? 'newsletter' : 'ebook_request';
+                        data.type = 'ebook_request';
+                        if (window.tomoAttribution) Object.assign(data, window.tomoAttribution()); // UTM, click IDs, referrer, landing page
                         
                         await fetch('/api/signup', {
                             method: 'POST',
@@ -1167,17 +1143,15 @@
                         form.style.display = 'none';
                         successMsg.style.display = 'block';
                         
-                        // Trigger automatic download of the Ebook (Except for newsletter signups)
-                        if (formId !== 'bottom-form') {
-                            const ebookFileName = 'Leaders of Tomorrow 1 May Launch.pdf';
-                            const ebookFileUrl = `../Ebook/${encodeURIComponent(ebookFileName)}`;
-                            const downloadLink = document.createElement('a');
-                            downloadLink.href = ebookFileUrl;
-                            downloadLink.download = ebookFileName;
-                            document.body.appendChild(downloadLink);
-                            downloadLink.click();
-                            document.body.removeChild(downloadLink);
-                        }
+                        // Trigger automatic download of the Ebook
+                        const ebookFileName = 'Leaders of Tomorrow 1 May Launch.pdf';
+                        const ebookFileUrl = `../Ebook/${encodeURIComponent(ebookFileName)}`;
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = ebookFileUrl;
+                        downloadLink.download = ebookFileName;
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
 
                         // Scroll to success message
                         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });

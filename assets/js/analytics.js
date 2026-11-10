@@ -32,6 +32,24 @@
     META_PIXEL_ID: '1805331960518408'
   };
 
+  /* ── 0. Where the visitor came from ─────────────────────────────────────
+     UTM tags, ad click IDs, referrer and landing page, saved for the browser session on the first page
+     (first touch). Same storage key and shape as parents-site.js, so every form can attach them:
+     window.tomoAttribution() returns { utm_source, ..., gclid, fbclid, referrer, landing_page }. */
+  var ATTR = (function () {
+    try { var saved = sessionStorage.getItem('tomo_attr'); if (saved) return JSON.parse(saved); } catch (e) {}
+    var a = {};
+    try {
+      var q = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(function (k) { if (q.get(k)) a[k] = q.get(k); });
+    } catch (e) {}
+    a.referrer = document.referrer || '';
+    a.landing_page = location.pathname + location.search;
+    try { sessionStorage.setItem('tomo_attr', JSON.stringify(a)); } catch (e) {}
+    return a;
+  })();
+  window.tomoAttribution = function () { var o = {}; Object.keys(ATTR).forEach(function (k) { o[k] = ATTR[k]; }); return o; };
+
   function load(src, attrs) {
     var s = document.createElement('script');
     s.async = true; s.src = src;
