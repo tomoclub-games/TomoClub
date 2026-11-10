@@ -1,12 +1,10 @@
 // Vercel serverless function: POST /api/signup
 // Handles the Leaders of Tomorrow e-book forms and the toolkit download popup.
 // Each submission is saved as one row in the shared Google Sheet through the Apps Script collector
-// (data-capture/Code.gs). Optional Brevo emails are sent too, only if BREVO_API_KEY is set.
+// (data-capture/Code.gs). No emails are sent.
 //
 // Env vars:
 //   SHEET_WEBHOOK   the Apps Script Web app URL (ends in /exec)
-//   BREVO_API_KEY   optional; without it no emails are sent
-//   ADMIN_EMAIL     optional, where the admin notification goes (default info@tomoclub.org)
 
 const ALLOWED_ORIGINS = [
   /^https:\/\/(www\.)?tomoclub\.org$/,
@@ -84,9 +82,6 @@ export default async function handler(req, res) {
 
   const finalEmail = clean(b.email, 200);
   const firstName = clean(b.firstName || b.name, 120);
-  const finalName = firstName || 'User';
-  const phone = clean(b.phone, 40);
-  const message = clean(b.message, 1000);
   const toolkitName = clean(b.toolkitName, 200);
   const source = clean(b.source, 120);
   const role = clean(b.role, 80);
@@ -94,9 +89,6 @@ export default async function handler(req, res) {
   if (!/^\S+@\S+\.\S+$/.test(finalEmail)) {
     return res.status(400).json({ error: 'Email is required' });
   }
-
-  const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'info@tomoclub.org';
 
   try {
     // 3. Save to Google Sheets (server side, so the Apps Script URL never appears in the page)
@@ -107,63 +99,8 @@ export default async function handler(req, res) {
     Object.keys(ATTRIBUTION_FIELDS).forEach((k) => { row[k] = clean(b[k], ATTRIBUTION_FIELDS[k]); });
     const sheetPromise = saveToSheet(tab, row);
 
-    // 4. Email notifications (only if a Brevo key is present)
-    let emailPromises = [];
-    if (BREVO_API_KEY) {
-      // Send Confirmation Email to User
-      emailPromises.push(fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'api-key': BREVO_API_KEY,
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          sender: { name: 'TomoClub', email: 'info@tomoclub.org' },
-          to: [{ email: finalEmail, name: finalName }],
-          subject: (type === 'resource') ? `Your Guide: ${toolkitName}` : 'Thank you for your interest in TomoClub!',
-          htmlContent: `
-            <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-              <h2>Hi ${finalName},</h2>
-              <p>Thank you for reaching out to TomoClub! We've received your ${(type === 'resource') ? 'request for the ' + toolkitName : 'inquiry'} and our team will get back to you shortly.</p>
-              <p>In the meantime, feel free to explore our <a href="https://www.tomoclub.org/guides">Guides & Toolkits</a> or listen to our <a href="https://www.tomoclub.org/podcast">Podcast</a>.</p>
-              <br>
-              <p>Best regards,<br><strong>The TomoClub Team</strong></p>
-            </div>
-          `
-        })
-      }));
-
-      // Send Admin Notification Email
-      emailPromises.push(fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'api-key': BREVO_API_KEY,
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-          sender: { name: 'TomoClub System', email: 'info@tomoclub.org' },
-          to: [{ email: ADMIN_EMAIL, name: 'Admin' }],
-          subject: `New ${type || 'Signup'} from Website`,
-          htmlContent: `
-            <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
-              <h2>New Lead Details</h2>
-              <p><strong>Type:</strong> ${type || 'General'}</p>
-              <p><strong>Name:</strong> ${finalName}</p>
-              <p><strong>Email:</strong> ${finalEmail}</p>
-              ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-              ${toolkitName ? `<p><strong>Resource:</strong> ${toolkitName}</p>` : ''}
-              ${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
-              <p><strong>Source:</strong> ${source || 'Website'}</p>
-            </div>
-          `
-        })
-      }));
-    }
-
     // Wait for the critical tasks
-    const [saved] = await Promise.all([sheetPromise, ...emailPromises]);
+    const saved = await sheetPromise;
     if (!saved) {
       // The pages ignore this status and still show their thank-you message and start the download.
       return res.status(502).json({ error: 'Could not save' });
