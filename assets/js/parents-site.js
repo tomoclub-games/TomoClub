@@ -23,7 +23,8 @@ window.TOMO_CONFIG = {
   /* ---------- regional currency ----------
      Pages ship with INR prices (also what search engines see and what shows when the country is unknown).
      Elements marked data-price="one" | "one-was" | "both" are swapped to the visitor's currency once /api/geo
-     (Vercel's x-vercel-ip-country header) says where they are. India: INR. Euro countries: EUR. Everywhere else: USD.
+     (Vercel's x-vercel-ip-country header) says where they are, or from the device time zone if that fails.
+     India: INR. Euro countries: EUR. Everywhere else: USD.
      Prices below are the numbers shown to visitors; change them here and the whole site follows. */
   var PRICES = {
     INR: { one: 2999, oneWas: 7999, both: 4999 },
@@ -48,12 +49,25 @@ window.TOMO_CONFIG = {
     });
   }
   function setCurrency(cur) { if (PRICES[cur]) { CUR = cur; renderPrices(); } }
+  /* Fallback when /api/geo gives no country (lookup failed or unknown): guess from the device time zone.
+     Unknown, UTC or Etc/* zones say nothing about where someone is, so they stay on INR. */
+  var EURO_ZONES = ('Europe/Berlin Europe/Busingen Europe/Paris Europe/Madrid Africa/Ceuta Atlantic/Canary Europe/Rome Europe/Vatican Europe/San_Marino ' +
+    'Europe/Amsterdam Europe/Brussels Europe/Luxembourg Europe/Vienna Europe/Lisbon Atlantic/Madeira Atlantic/Azores Europe/Dublin Europe/Helsinki Europe/Mariehamn ' +
+    'Europe/Athens Europe/Malta Europe/Bratislava Europe/Ljubljana Europe/Zagreb Europe/Tallinn Europe/Riga Europe/Vilnius Europe/Sofia Asia/Nicosia Asia/Famagusta').split(' ');
+  function currencyFromTimezone(tz) {
+    tz = String(tz || '');
+    if (!/^[A-Za-z]+\/[A-Za-z_\/+-]+$/.test(tz) || /^Etc\//.test(tz)) return 'INR';
+    if (tz === 'Asia/Kolkata' || tz === 'Asia/Calcutta') return 'INR';
+    return EURO_ZONES.indexOf(tz) > -1 ? 'EUR' : 'USD';
+  }
   function initCurrency() {
     var saved = store('session', 'tomo_cur');
     if (saved) { setCurrency(saved); return; }
     fetch('/api/geo', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
-      var cur = currencyFor(j && j.country); store('session', 'tomo_cur', cur); setCurrency(cur);
-    }).catch(function () {});
+      var country = String((j && j.country) || '').toUpperCase();
+      if (/^[A-Z]{2}$/.test(country)) { var cur = currencyFor(country); store('session', 'tomo_cur', cur); setCurrency(cur); }
+      else setCurrency(currencyFromTimezone(BROWSER_TZ));
+    }).catch(function () { setCurrency(currencyFromTimezone(BROWSER_TZ)); });
   }
 
   /* ---------- config, visitor and session context ---------- */
