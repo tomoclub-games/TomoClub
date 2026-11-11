@@ -2,16 +2,16 @@
 
 This is the single source of truth for progress. Claude Code reads it at the start of every session and updates it after every completed step.
 
-**Last updated:** 2026-11-10 by Claude Code
+**Last updated:** 2026-11-11 by Claude Code
 
 ---
 
 ## Current position
 
-- **Current phase:** K. Repo clean-up (runs before Phase J)
-- **Current step:** K9
-- **Waiting on:** Rohith: approve Phase K
-- **Next action:** summary, then phase set to `waiting for review`
+- **Current phase:** J. After launch
+- **Current step:** J4
+- **Waiting on:** time (coverage check, J4)
+- **Next action:** Claude Code checks coverage against the baseline in 2 to 4 weeks
 
 ---
 
@@ -29,38 +29,40 @@ Status values: `not started` · `in progress` · `waiting for review` · `approv
 | F. Vercel config and podcast pages | approved | Updated `vercel.json`; 107 generated episode pages; player redirect | Rohith, 2026-10-26 |
 | G. Sitemap, robots, canonicals, deploy clean-up | approved | `build_sitemap.py`, new `sitemap.xml`, canonicals on every indexable page, `.vercelignore` allowlist | Rohith, 2026-10-26 |
 | H. Analytics | approved | GA + Clarity check | Rohith, 2026-10-26 |
-| I. Verify before merge | waiting for review | Preview check report; merge | |
-| K. Repo clean-up | in progress | Tidy repo root; no public URL changes | |
-| J. After launch | not started | Search Console submission, monitoring notes | |
+| I. Verify before merge | approved | Preview check report; merged as PR #5 | Rohith, 2026-11-11 |
+| K. Repo clean-up | approved | Tidy repo root; no public URL changes (PR #6, then PR #13) | Rohith, 2026-11-11 |
+| J. After launch | in progress | Search Console submission, monitoring notes | |
 
 ---
 
-## Current phase checklist: K. Repo clean-up
+## Current phase checklist: J. After launch
 
-Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). Phase I's checklist stays below until Rohith approves Phase I.
+Task spec: `00-context.md` section 9 and the phase table. Mostly done by Rohith in Search Console. Baseline to compare against: `baseline/search-console/`.
 
-- [x] K1. Plan shown to Rohith and accepted (revised: no URL changes, see decision log)
-- [x] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated (rewrite and 301 to be verified on the preview in K7)
-- [x] K3. Root pages move into folders: `parents/`, `contact-us/`, `privacy-policy/`, `terms-and-conditions/` (`index.html` each); URLs unchanged; old `/<name>.html` addresses 301 to `/<name>` (they used to work through `cleanUrls` while the files existed)
-- [x] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated (991 references in 200 files; `styles.css` and `script.js` cache busters bumped to `v=27`)
-- [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
-- [x] K6. One-off and retired scripts and files move to `archive/scripts/`; internal documents and source PDFs move to `docs/`; `scope and sequence/` PDF moves to `toolkits/`; unused files (`podcast-player.html`, `tomo_*_thumb.jpg`) deleted. 54 files to `archive/scripts/`; Apps Script sources to `docs/apps-script/`; `data/` kept off the site. Root now: `CLAUDE.md`, `favicon.ico`, `index.html`, `memory.md`, `robots.txt`, `sitemap.xml`, `vercel.json`
-- [x] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`. **Local part done:** all `--check` modes pass; add-* scripts pass in a throwaway worktree (episode page in `podcast/episodes/<id>/`, sitemap lists `/podcast-<id>`); local crawl of 195 pages, 6,332 links: no broken links. **Preview** (new bypass token, kept in the same local file): 195 pages 200, 390 link targets 0 broken, all redirects land correctly incl. `/podcast/episodes/<id>`, `.html` pages, old asset paths and the player; assets load; archived and internal files 404
-- [x] K8. Pull request #6 merged by Rohith; production live checks done (booking and site work); new bypass token revoked by Rohith, 2026-11-10
-- [ ] K9. Summary given; phase set to `waiting for review`
+- [x] J1. Sitemap `https://www.tomoclub.org/sitemap.xml` submitted in Search Console by Rohith on 2026-11-11 (domain property `tomoclub.org`, so the full URL is needed); accepted, 201 discovered pages
+- [x] J2. Indexing requested by Rohith on 2026-11-11 for the key pages. Of 8 priority pages checked, 6 were already indexed; `/schools` and `/guides` showed "Discovered – currently not indexed" (normal for new URLs) and were queued with Request indexing. `/ai-literacy` shows only an informational "Video isn't on a watch page" note
+- [x] J3. Not needed (Rohith, 2026-11-11): no external `/#...` links to update; old hash links keep working through the shim
+- [ ] J4. Watch coverage for 2 to 4 weeks against the baseline (check around 2026-11-25 and 2026-12-09); if indexed pages or clicks drop sharply, investigate before more changes
+- [x] J5. Removed from this plan by Rohith, 2026-11-11: the second GA4 property `G-TEEDDHTK84` becomes part of a separate "clean up the analytics plugins" task
+- [ ] J6. Summary given; phase set to `waiting for review`
 
-## Phase I checklist (waiting for review)
+## How to run the coverage check (J4)
 
-Task spec: `00-context.md` section 18.
+Checks are on **2026-11-25** and **2026-12-09** (in Rohith's calendar). Rohith says "coverage check" in a Claude Code session.
 
-- [x] I1. Plan shown to Rohith and accepted
-- [x] I2. Preview `tomoclub-website-9cteh9t13`: 195 pages (sitemap + thank-you) all 200; 390 distinct internal link targets, 0 broken
-- [x] I3. All 12 old `/#route` links land on their page and `/#signup` stays on `/`; all 8 `vercel.json` redirects land on their target
-- [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
-- [x] I5. Visual pass on the preview: Claude Code screenshots and interaction checks passed; Rohith's click-through found the Build With Us / Parents link and navbar issues and the theme flash, all fixed (commits `13511e1` to `fdd0234`); Rohith confirmed it looks good
-- [x] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. Rohith approved the merge
-- [x] I7. Merged via pull request #5 (merge commit `295e3a8`) by Rohith on 2026-10-26. Production checks passed: 195 pages 200, 390 link targets 0 broken, 8 redirects, all 194 sitemap URLs have canonical = URL and no `X-Robots-Tag`, internal files 404, apex and http redirect to `https://www`, trailing slash 308s to no slash, old `/#pd`, `/#podcast`, `/#about`, `/#ebook` land on their pages with one GA4 `page_view` each, `/#signup` stays on `/`. Lighthouse SEO 100 (`/`, `/ai-literacy`, an episode); mobile performance median `/` 74, `/ai-literacy` 85 (same method as the preview). Bypass token revoked by Rohith; local token file deleted
-- [x] I8. Summary given; phase set to `waiting for review`
+**Rohith exports from Search Console** (property `tomoclub.org`, a domain property):
+1. **Indexing, Pages:** note the Indexed and Not indexed counts and the date of the data, then export the "Why pages aren't indexed" table. Save to `baseline/search-console/indexing/` in a folder named for the check date (for example `2026-11-25/`).
+2. **Performance:** set the dates from the baseline end (2026-10-12) to the latest day, then export Pages and Queries (CSV). Save next to the Pages export.
+3. **Sitemaps:** note the status and discovered count for `https://www.tomoclub.org/sitemap.xml` (expected 201).
+4. Tell Claude Code anything odd shown on screen (for example emails or warnings from Google).
+
+**Claude Code compares with the baseline** (`baseline/search-console/SUMMARY.md`: 139 indexed, 462 not indexed, 545 clicks and 18,437 impressions over 80 days, top page `/` with 338 clicks):
+- Indexed pages count: should rise toward the 201 URLs in the sitemap; old 404 and redirect counts should shrink over time.
+- Clicks and impressions per day against the baseline period, especially for `/` and the top articles and blog posts (a daily rate, because the periods differ in length).
+- Pages with "Discovered" or "Crawled, currently not indexed": list them; spot-check three with `curl` for 200, a self-canonical and no `noindex`.
+- Red flag (the kill criteria in `00-context.md`): a large drop in indexed pages or clicks within 2 weeks means investigate before any further change and consider a rollback.
+
+Write the result as a short note in `verify/coverage-<date>.md` and add a line to the decision log. After the second check, write the J6 summary and ask Rohith to approve Phase J.
 
 ---
 
@@ -169,6 +171,36 @@ Result: every page view reaches GA4 under its real path, once per load; Clarity,
 - [x] H5. Skipped by Rohith (optional). Rohith confirms in GA4 Realtime that page paths like `/ai-literacy` and `/podcast-<id>` appear while the preview is opened (optional; GA may filter preview hostnames)
 - [x] H6. Summary given; phase set to `waiting for review`
 
+### I. Verify before merge (approved by Rohith, 2026-11-11)
+
+Result: merged as PR #5 (`295e3a8`); production checks passed (195 pages 200, 0 broken links, redirects and canonicals correct, Lighthouse SEO 100).
+
+Task spec: `00-context.md` section 18.
+
+- [x] I1. Plan shown to Rohith and accepted
+- [x] I2. Preview `tomoclub-website-9cteh9t13`: 195 pages (sitemap + thank-you) all 200; 390 distinct internal link targets, 0 broken
+- [x] I3. All 12 old `/#route` links land on their page and `/#signup` stays on `/`; all 8 `vercel.json` redirects land on their target
+- [x] I4. Lighthouse on the preview (`verify/lighthouse.md`): `/` mobile performance 63 to 73, LCP 11.4 s to 4.8 s, DOM 5,215 to 729; desktop 92 to 99. Route pages 74-93 mobile, 95-100 desktop. SEO 69 everywhere only because Vercel previews send `X-Robots-Tag: noindex`. Article page slow on mobile, same as production (not a regression)
+- [x] I5. Visual pass on the preview: Claude Code screenshots and interaction checks passed; Rohith's click-through found the Build With Us / Parents link and navbar issues and the theme flash, all fixed (commits `13511e1` to `fdd0234`); Rohith confirmed it looks good
+- [x] I6. Merge readiness: `main` unchanged since branching (or changes ported), all `--check` modes pass, Rohith approves the merge (**no merge before this**). **Checks done 2026-10-26** on preview `tomoclub-website-hzxlyvr5c` (commit `fdd0234`): 195 pages 200, 390 link targets 0 broken, 8 redirects pass, all `--check` modes pass, `main` has no new commits. Rohith approved the merge
+- [x] I7. Merged via pull request #5 (merge commit `295e3a8`) by Rohith on 2026-10-26. Production checks passed: 195 pages 200, 390 link targets 0 broken, 8 redirects, all 194 sitemap URLs have canonical = URL and no `X-Robots-Tag`, internal files 404, apex and http redirect to `https://www`, trailing slash 308s to no slash, old `/#pd`, `/#podcast`, `/#about`, `/#ebook` land on their pages with one GA4 `page_view` each, `/#signup` stays on `/`. Lighthouse SEO 100 (`/`, `/ai-literacy`, an episode); mobile performance median `/` 74, `/ai-literacy` 85 (same method as the preview). Bypass token revoked by Rohith; local token file deleted
+- [x] I8. Summary given; phase set to `waiting for review`
+
+### K. Repo clean-up (approved by Rohith, 2026-11-11)
+
+Result: repo root tidied with no public URL changes; merged as PR #6. Dead Brevo code and old files removed afterwards in PR #13.
+
+Task spec: `00-context.md` section 19. Branch `repo-cleanup` (from `main`). 
+- [x] K1. Plan shown to Rohith and accepted (revised: no URL changes, see decision log)
+- [x] K2. Podcast episode folders move from `podcast-<id>/` to `podcast/episodes/<id>/`; **URL stays `/podcast-<id>`** (Vercel rewrite); direct visits to `/podcast/episodes/<id>` 301 to `/podcast-<id>`; generator, sitemap builder and skill updated (rewrite and 301 to be verified on the preview in K7)
+- [x] K3. Root pages move into folders: `parents/`, `contact-us/`, `privacy-policy/`, `terms-and-conditions/` (`index.html` each); URLs unchanged; old `/<name>.html` addresses 301 to `/<name>` (they used to work through `cleanUrls` while the files existed)
+- [x] K4. Site assets move: `styles.css` and `script.js` and `analytics.js` to `assets/css/` and `assets/js/`; icons and `site.webmanifest` to `assets/icons/` (`favicon.ico` stays in the root); every reference updated (991 references in 200 files; `styles.css` and `script.js` cache busters bumped to `v=27`)
+- [x] K5. Scripts in use move to `scripts/` (`build_pages.py`, `build_podcast_pages.py`, `build_sitemap.py`, `add_article.py`, `add_blog_post.py`, `add_podcast_episode.py`, `pdf_image_utils.py`); `podcasts_data.js` to `data/`; skills, CLAUDE.md and docs updated; bookkeeping writes to retired files removed from `add_podcast_episode.py`
+- [x] K6. One-off and retired scripts and files move to `archive/scripts/`; internal documents and source PDFs move to `docs/`; `scope and sequence/` PDF moves to `toolkits/`; unused files (`podcast-player.html`, `tomo_*_thumb.jpg`) deleted. 54 files to `archive/scripts/`; Apps Script sources to `docs/apps-script/`; `data/` kept off the site. Root now: `CLAUDE.md`, `favicon.ico`, `index.html`, `memory.md`, `robots.txt`, `sitemap.xml`, `vercel.json`
+- [x] K7. Checks: all `--check` modes, add-* scripts in a throwaway worktree, full link crawl and redirects locally and on the preview, old `/podcast-<id>` and player URLs land on `/podcast/<id>`. **Local part done:** all `--check` modes pass; add-* scripts pass in a throwaway worktree (episode page in `podcast/episodes/<id>/`, sitemap lists `/podcast-<id>`); local crawl of 195 pages, 6,332 links: no broken links. **Preview** (new bypass token, kept in the same local file): 195 pages 200, 390 link targets 0 broken, all redirects land correctly incl. `/podcast/episodes/<id>`, `.html` pages, old asset paths and the player; assets load; archived and internal files 404
+- [x] K8. Pull request #6 merged by Rohith; production live checks done (booking and site work); new bypass token revoked by Rohith, 2026-11-10
+- [x] K9. Summary given; Rohith approved Phase K, 2026-11-11
+
 ---
 
 ## Decision log
@@ -252,6 +284,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | Nav "Educational Hall" link no longer opens in a new tab (`target="_blank"` removed) | Claude Code |
 | 2026-10-26 | Canonicals have no trailing slash (`https://www.tomoclub.org/ai-literacy`), matching `trailingSlash: false`; final style in Phase F | Claude Code |
 | 2026-10-26 | `build_pages.py` reads CRLF or LF input and always writes LF (Git on Windows checks out CRLF) | Claude Code |
+| 2026-11-11 | Phases I and K approved by Rohith; Phase J started (J1 to J6 added) | Rohith |
 
 ---
 
@@ -259,6 +292,7 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 
 | # | Question | Raised in | Status |
 |---|---|---|---|
+| 1 | Keep or remove the second GA4 property `G-TEEDDHTK84` (linked inside the Google tag settings for `G-FEGGQ2ZDMT`, not in site code)? | Phase H | moved out of this plan on 2026-11-11 to a separate analytics clean-up task |
 
 ---
 
@@ -294,3 +328,9 @@ Add one line for every decision. Newest at the bottom. Never delete a line; if a
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase H closed; Phase I checklist and task spec (§18) added |
 | 2026-10-26 | `verify/lighthouse.md`, `verify/lighthouse-summary.json` | Created |
 | 2026-10-26 | `STATUS.md`, `00-context.md` | Phase K checklist and task spec (§19) added |
+| 2026-11-11 | `STATUS.md` | Phases I and K closed and moved to Completed phases; Phase J checklist added |
+| 2026-11-11 | `STATUS.md` | J1 done: sitemap submitted, 201 pages discovered |
+| 2026-11-11 | `STATUS.md` | J2 done: indexing requested; 6 of 8 priority pages already indexed, `/schools` and `/guides` queued |
+| 2026-11-11 | `STATUS.md` | J3 marked not needed by Rohith |
+| 2026-11-11 | `STATUS.md` | J5 and the open GA4 question taken out of the plan; handled in a separate analytics clean-up task |
+| 2026-11-11 | `STATUS.md` | Added "How to run the coverage check (J4)" |
