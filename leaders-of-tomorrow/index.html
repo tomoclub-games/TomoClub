@@ -1115,30 +1115,6 @@
                             body: JSON.stringify(data)
                         });
                         
-                        // 2. Submit to Brevo (Automated Email Delivery)
-                        // NOTE: For security, it's recommended to move this to a serverless function
-                        const email = formData.get('email');
-                        const firstName = formData.get('firstName') || 'Reader';
-                        const BREVO_API_KEY = 'YOUR_BREVO_API_KEY'; // REPLACE WITH YOUR API KEY
-                        const BREVO_LIST_ID = 2; // REPLACE WITH YOUR BREVO LIST ID
-
-                        if (BREVO_API_KEY !== 'YOUR_BREVO_API_KEY') {
-                            await fetch('https://api.brevo.com/v3/contacts', {
-                                method: 'POST',
-                                headers: {
-                                    'accept': 'application/json',
-                                    'api-key': BREVO_API_KEY,
-                                    'content-type': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    email: email,
-                                    attributes: { FIRSTNAME: firstName },
-                                    listIds: [BREVO_LIST_ID],
-                                    updateEnabled: true
-                                })
-                            });
-                        }
-
                         // Show success
                         form.style.display = 'none';
                         successMsg.style.display = 'block';
