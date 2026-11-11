@@ -20,6 +20,42 @@ window.TOMO_CONFIG = {
 
   function esc(v) { return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
+  /* ---------- regional currency ----------
+     Pages ship with INR prices (also what search engines see and what shows when the country is unknown).
+     Elements marked data-price="one" | "one-was" | "both" are swapped to the visitor's currency once /api/geo
+     (Vercel's x-vercel-ip-country header) says where they are. India: INR. Euro countries: EUR. Everywhere else: USD.
+     Prices below are the numbers shown to visitors; change them here and the whole site follows. */
+  var PRICES = {
+    INR: { one: 2999, oneWas: 7999, both: 4999 },
+    USD: { one: 99, oneWas: 199, both: 165 },  /* both: placeholder estimate, to be confirmed */
+    EUR: { one: 89, oneWas: 179, both: 149 }   /* both: placeholder estimate, to be confirmed */
+  };
+  var EURO = 'AT BE BG HR CY EE FI FR DE GR IE IT LV LT LU MT NL PT SK SI ES'.split(' ');
+  var CUR = 'INR';
+  function currencyFor(country) {
+    country = String(country || '').toUpperCase();
+    if (!/^[A-Z]{2}$/.test(country)) return 'INR';
+    return country === 'IN' ? 'INR' : (EURO.indexOf(country) > -1 ? 'EUR' : 'USD');
+  }
+  function money(key) {
+    var n = PRICES[CUR][key], loc = CUR === 'INR' ? 'en-IN' : (CUR === 'EUR' ? 'en-IE' : 'en-US');
+    try { return new Intl.NumberFormat(loc, { style: 'currency', currency: CUR, maximumFractionDigits: 0 }).format(n); } catch (e) { return CUR + ' ' + n; }
+  }
+  function renderPrices() {
+    document.querySelectorAll('[data-price]').forEach(function (el) {
+      var k = el.getAttribute('data-price'); if (k === 'one-was') k = 'oneWas';
+      if (PRICES[CUR][k] != null) el.textContent = money(k);
+    });
+  }
+  function setCurrency(cur) { if (PRICES[cur]) { CUR = cur; renderPrices(); } }
+  function initCurrency() {
+    var saved = store('session', 'tomo_cur');
+    if (saved) { setCurrency(saved); return; }
+    fetch('/api/geo', { headers: { Accept: 'application/json' } }).then(function (r) { return r.json(); }).then(function (j) {
+      var cur = currencyFor(j && j.country); store('session', 'tomo_cur', cur); setCurrency(cur);
+    }).catch(function () {});
+  }
+
   /* ---------- config, visitor and session context ---------- */
   var CONFIG = Object.assign({ sheetEndpoint: '/api/collect', logClicksToSheet: false, trialMinutes: 60 }, window.TOMO_CONFIG || {});
   function store(kind, key, val) { try { var st = kind === 'local' ? localStorage : sessionStorage; if (val === undefined) return st.getItem(key); st.setItem(key, val); } catch (e) { return null; } }
@@ -442,7 +478,7 @@ window.TOMO_CONFIG = {
     function chips(list, key) { return list.map(function (t) { return '<button type="button" data-pick="' + key + '" data-val="' + t + '" aria-pressed="' + (S[key] === t) + '" style="font:inherit;font-weight:600;font-size:15px;min-height:44px;padding:8px 14px;border-radius:12px;cursor:pointer;' + (S[key] === t ? pillOn : pillOff) + '">' + t + '</button>'; }).join(''); }
     function render() {
       var step = S.step === 3 && ok1() && ok2() ? 3 : (S.step >= 2 && ok1() ? 2 : 1);
-      var h = '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div><h2 style="margin:0;font-weight:700;font-size:24px">Enrol in both programs</h2><p style="margin:2px 0 0;color:' + MUTED + ';font-size:15px"><strong style="color:#0B1230;font-size:18px">&#8377;4,999</strong> per month, taxes included</p></div><span style="background:#E3F6F6;color:' + TEAL + ';font-weight:700;font-size:13px;padding:5px 10px;border-radius:999px;white-space:nowrap">Cancel any time</span></div>' + dots(step, ['Details', 'Class times', 'Pay']);
+      var h = '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px"><div><h2 style="margin:0;font-weight:700;font-size:24px">Enrol in both programs</h2><p style="margin:2px 0 0;color:' + MUTED + ';font-size:15px"><strong style="color:#0B1230;font-size:18px">' + money('both') + '</strong> per month, taxes included</p></div><span style="background:#E3F6F6;color:' + TEAL + ';font-weight:700;font-size:13px;padding:5px 10px;border-radius:999px;white-space:nowrap">Cancel any time</span></div>' + dots(step, ['Details', 'Class times', 'Pay']);
       if (step === 1) {
         h += '<div style="display:flex;flex-direction:column;gap:12px"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px 14px">' +
           field('Parent&#39;s name', input('name', 'text', 'name', 'Your full name', S.name)) +
@@ -462,12 +498,12 @@ window.TOMO_CONFIG = {
         h += '<div style="display:flex;flex-direction:column;gap:14px"><div style="background:#F6F7FB;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px">' +
           '<div style="display:flex;justify-content:space-between;gap:12px"><span>Tomo Life Skills, ' + esc(S.ls) + '</span><span style="color:' + MUTED + '">4 classes</span></div>' +
           '<div style="display:flex;justify-content:space-between;gap:12px"><span>Tomo AI Lab, ' + esc(S.ai) + '</span><span style="color:' + MUTED + '">4 classes</span></div>' +
-          '<div style="display:flex;justify-content:space-between;gap:12px;border-top:1px solid #E3E6EF;padding-top:8px;margin-top:2px"><strong>Total per month</strong><strong>&#8377;4,999</strong></div>' +
+          '<div style="display:flex;justify-content:space-between;gap:12px;border-top:1px solid #E3E6EF;padding-top:8px;margin-top:2px"><strong>Total per month</strong><strong>' + money('both') + '</strong></div>' +
           '<span style="font-size:13px;color:' + MUTED + '">Taxes included. Billed monthly. Cancel any time; your plan runs to the end of the paid month.</span></div>' +
           '<div style="display:flex;flex-direction:column;gap:8px"><span class="lbl">Pay with</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">' + chips(['UPI', 'Card', 'Net banking'], 'method') + '</div></div>' +
-          '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="terms"' + (S.terms ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>I agree to the <a href="https://www.tomoclub.org/terms-and-conditions">terms</a> and a monthly subscription of &#8377;4,999 that I can cancel any time.</span></label>' +
+          '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="terms"' + (S.terms ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>I agree to the <a href="https://www.tomoclub.org/terms-and-conditions">terms</a> and a monthly subscription of ' + money('both') + ' that I can cancel any time.</span></label>' +
           '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="waOk"' + (S.waOk ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>Send class reminders to my WhatsApp.</span></label>' +
-          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">' + (PAYMENTS_OPEN ? 'Pay &#8377;4,999 and enrol' : 'Coming soon') + '</button></div>' +
+          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">' + (PAYMENTS_OPEN ? 'Pay ' + money('both') + ' and enrol' : 'Coming soon') + '</button></div>' +
           '<p style="margin:0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:' + MUTED + '">Secure payment. Your card details never touch our servers.</p></div>';
       }
       card.innerHTML = h;
@@ -500,9 +536,9 @@ window.TOMO_CONFIG = {
          On the gateway's success callback, call done(paymentId). */
       var m = modal('<div role="dialog" aria-modal="true" aria-labelledby="pay-title" style="width:min(420px,100%);background:#FFFFFF;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Outfit,system-ui,sans-serif;color:#0B1230">' +
         '<div style="display:flex;justify-content:space-between;align-items:center"><strong id="pay-title" style="font-size:20px">Complete payment</strong><span style="font-size:13px;color:' + MUTED + '">Demo checkout</span></div>' +
-        '<div style="background:#F6F7FB;border-radius:14px;padding:14px;display:flex;justify-content:space-between"><span>Both programs, monthly</span><strong>&#8377;4,999</strong></div>' +
+        '<div style="background:#F6F7FB;border-radius:14px;padding:14px;display:flex;justify-content:space-between"><span>Both programs, monthly</span><strong>' + money('both') + '</strong></div>' +
         '<p style="margin:0;color:' + MUTED + ';font-size:15px">Paying with ' + esc(S.method) + '. On the live site this is your payment provider&#39;s secure checkout.</p>' +
-        '<button type="button" data-paid style="font:inherit;font-weight:700;font-size:18px;background:#20B2B6;color:#FFFFFF;border:0;border-radius:999px;min-height:52px;cursor:pointer">Pay &#8377;4,999</button>' +
+        '<button type="button" data-paid style="font:inherit;font-weight:700;font-size:18px;background:#20B2B6;color:#FFFFFF;border:0;border-radius:999px;min-height:52px;cursor:pointer">Pay ' + money('both') + '</button>' +
         '<button type="button" data-cancel style="font:inherit;font-weight:600;background:none;border:0;color:' + MUTED + ';cursor:pointer;text-decoration:underline">Cancel</button></div>', 60);
       m.el.addEventListener('click', function (e) {
         if (e.target.closest('[data-cancel]')) { track('payment_cancelled', { cta_location: 'checkout' }); saveRecord('Enrolments', Object.assign({ status: 'payment_cancelled', transaction_id: '', currency: 'INR' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' })); m.close(); }
@@ -544,6 +580,7 @@ window.TOMO_CONFIG = {
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initCurrency();
     track('tomo_page_view', { cta_location: 'page', title: document.title });
     initSectionViews();
     initPicker(); initFaqTabs(); initNav();
