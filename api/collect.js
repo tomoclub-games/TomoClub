@@ -2,6 +2,8 @@
 // The parents site sends form rows here ({ rows: [{ sheet, data }] }) and this forwards them to the
 // Google Apps Script collector (data-capture/Code.gs), so the Apps Script URL stays out of the page source.
 // "Trial bookings" rows are not accepted from the browser: api/book.js writes those after Calendly confirms.
+// "Enrolments" rows are accepted only as payment_cancelled (the parent closed the checkout window): paid and
+// failed rows are written by api/verify.js and api/razorpay-webhook.js after Razorpay confirms.
 //
 // Env var:
 //   SHEET_WEBHOOK   the Apps Script Web app URL (ends in /exec)
@@ -62,10 +64,12 @@ export default async function handler(req, res) {
 
   const rows = input.slice(0, MAX_ROWS)
     .filter((r) => r && SHEETS.includes(r.sheet) && r.data && typeof r.data === 'object')
+    .filter((r) => r.sheet !== 'Enrolments' || r.data.status === 'payment_cancelled')
     .map((r) => {
       const data = {};
       Object.keys(r.data).slice(0, 40).forEach((k) => { data[String(k).slice(0, 40)] = cleanValue(r.data[k]); });
       data.detected_country = detectedCountry;
+      if (r.sheet === 'Enrolments') { data.transaction_id = ''; data.order_id = ''; } // never a payment from the browser
       return { sheet: r.sheet, data };
     });
   if (!rows.length) return res.status(400).json({ ok: false, error: 'No valid rows' });

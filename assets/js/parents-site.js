@@ -478,16 +478,16 @@ window.TOMO_CONFIG = {
   /* ---------- both programs: enrolment and payment ---------- */
   function initEnrol(card) {
     var urlGrade = (location.search.match(/grade=([0-9-]+)/) || [])[1];
-    var S = { step: 1, name: '', email: '', phone: '', country: '', city: '', grade: '', ls: null, ai: null, method: null, terms: false, waOk: false };
+    var S = { step: 1, name: '', email: '', phone: '', country: '', city: '', grade: '', ls: null, ai: null, terms: false, waOk: false, busy: false, err: '' };
     if (urlGrade) { var gm = parseInt(urlGrade, 10); if (gm >= 6 && gm <= 12) S.grade = String(gm); }
+    /* Batch times: api/order.js accepts only these, so change both together. */
     var LS = ['Mon 5:00 PM', 'Wed 6:00 PM', 'Sat 11:30 AM'], AI = ['Tue 6:00 PM', 'Thu 5:00 PM', 'Sat 4:00 PM'];
-    var ECOM = { currency: 'INR', value: 4999, items: [{ item_id: 'bundle', item_name: 'Tomo Life Skills + Tomo AI Lab', price: 4999, quantity: 1 }] };
+    function ecom() { var v = PRICES[CUR].both; return { currency: CUR, value: v, items: [{ item_id: 'bundle', item_name: 'Tomo Life Skills + Tomo AI Lab', price: v, quantity: 1 }] }; }
     function ok1() { return !!(S.name.trim() && validEmail(S.email) && S.grade && S.country && S.city.trim()); }
     function ok2() { return !!(S.ls && S.ai); }
-    /* Payments are not live yet: the pay button stays disabled and reads "Coming soon". Set to true once a real
-       payment gateway replaces the demo window in pay(). */
-    var PAYMENTS_OPEN = false;
-    function canPay() { return PAYMENTS_OPEN && ok1() && ok2() && S.method && S.terms; }
+    /* Payments go through Razorpay (api/order.js, api/verify.js). Set to false to switch the pay button back to "Coming soon". */
+    var PAYMENTS_OPEN = true;
+    function canPay() { return PAYMENTS_OPEN && ok1() && ok2() && S.terms && !S.busy; }
     function startLabel() { var d = new Date(), add = (8 - d.getDay()) % 7 || 7, s = new Date(d.getFullYear(), d.getMonth(), d.getDate() + add); return s.getDate() + ' ' + MON[s.getMonth()].slice(0, 3); }
     function chips(list, key) { return list.map(function (t) { return '<button type="button" data-pick="' + key + '" data-val="' + t + '" aria-pressed="' + (S[key] === t) + '" style="font:inherit;font-weight:600;font-size:15px;min-height:44px;padding:8px 14px;border-radius:12px;cursor:pointer;' + (S[key] === t ? pillOn : pillOff) + '">' + t + '</button>'; }).join(''); }
     function render() {
@@ -514,11 +514,11 @@ window.TOMO_CONFIG = {
           '<div style="display:flex;justify-content:space-between;gap:12px"><span>Tomo AI Lab, ' + esc(S.ai) + '</span><span style="color:' + MUTED + '">4 classes</span></div>' +
           '<div style="display:flex;justify-content:space-between;gap:12px;border-top:1px solid #E3E6EF;padding-top:8px;margin-top:2px"><strong>Total per month</strong><strong>' + money('both') + '</strong></div>' +
           '<span style="font-size:13px;color:' + MUTED + '">Taxes included. Billed monthly. Cancel any time; your plan runs to the end of the paid month.</span></div>' +
-          '<div style="display:flex;flex-direction:column;gap:8px"><span class="lbl">Pay with</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">' + chips(['UPI', 'Card', 'Net banking'], 'method') + '</div></div>' +
           '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="terms"' + (S.terms ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>I agree to the <a href="https://www.tomoclub.org/terms-and-conditions">terms</a> and a monthly subscription of ' + money('both') + ' that I can cancel any time.</span></label>' +
           '<label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer"><input type="checkbox" name="waOk"' + (S.waOk ? ' checked' : '') + ' style="width:18px;height:18px;margin:2px 0 0;accent-color:' + TEAL + ';flex-shrink:0"><span>Send class reminders to my WhatsApp.</span></label>' +
-          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">' + (PAYMENTS_OPEN ? 'Pay ' + money('both') + ' and enrol' : 'Coming soon') + '</button></div>' +
-          '<p style="margin:0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:' + MUTED + '">Secure payment. Your card details never touch our servers.</p></div>';
+          (S.err ? '<p role="alert" style="margin:0;background:#FFF1EC;border-radius:12px;padding:10px 12px;font-size:14px;color:#8A2A12">' + S.err + '</p>' : '') +
+          '<div style="display:flex;gap:10px"><button type="button" data-to="2" style="' + BTN_BACK + '">Back</button><button type="button" data-pay' + (canPay() ? '' : ' disabled') + ' style="flex:1;' + BTN_MAIN + '">' + (!PAYMENTS_OPEN ? 'Coming soon' : (S.busy ? 'Opening secure checkout&#8230;' : 'Pay ' + money('both') + ' and enrol')) + '</button></div>' +
+          '<p style="margin:0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:' + MUTED + '">Secure payment by Razorpay. Your card details never touch our servers.</p></div>';
       }
       card.innerHTML = h;
     }
@@ -534,35 +534,79 @@ window.TOMO_CONFIG = {
     });
     card.addEventListener('click', function (e) {
       var t = e.target.closest('button'); if (!t || t.disabled) return;
-      if (t.hasAttribute('data-next1')) { track('lead_submitted', { cta_location: 'enrol', program: 'bundle', grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', { program: 'bundle', currency: 'INR', parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade }); S.step = 2; render(); }
-      else if (t.hasAttribute('data-next2')) { track('begin_checkout', { cta_location: 'enrol', program: 'bundle', ecommerce: ECOM }); S.step = 3; render(); }
+      if (t.hasAttribute('data-next1')) { track('lead_submitted', { cta_location: 'enrol', program: 'bundle', grade: S.grade, country: S.country, city: S.city.trim() }); saveRecord('Leads', { program: 'bundle', currency: CUR, parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade }); S.step = 2; render(); }
+      else if (t.hasAttribute('data-next2')) { track('begin_checkout', { cta_location: 'enrol', program: 'bundle', ecommerce: ecom() }); S.step = 3; render(); }
       else if (t.hasAttribute('data-to')) { track('enrol_back', { cta_location: 'enrol' }); S.step = Number(t.getAttribute('data-to')); render(); }
       else if (t.hasAttribute('data-pick')) {
         var k = t.getAttribute('data-pick'); S[k] = t.getAttribute('data-val');
-        if (k === 'method') track('payment_method_select', { cta_location: 'enrol', method: S.method });
-        else track('batch_select', { cta_location: 'enrol', program: k === 'ls' ? 'life_skills' : 'ai_lab', batch: S[k] });
+        track('batch_select', { cta_location: 'enrol', program: k === 'ls' ? 'life_skills' : 'ai_lab', batch: S[k] });
         render();
       }
-      else if (t.hasAttribute('data-pay') && PAYMENTS_OPEN) { track('add_payment_info', { cta_location: 'enrol', payment_type: S.method, ecommerce: ECOM }); track('payment_started', { cta_location: 'enrol', method: S.method, value: 4999 }); pay(); }
+      else if (t.hasAttribute('data-pay') && PAYMENTS_OPEN) { track('add_payment_info', { cta_location: 'enrol', ecommerce: ecom() }); track('payment_started', { cta_location: 'enrol', currency: CUR, value: PRICES[CUR].both }); pay(); }
     });
-    function pay() {
-      /* TODO (developer): replace this demo window with your payment gateway (for example a Razorpay subscription checkout).
-         On the gateway's success callback, call done(paymentId). */
-      var m = modal('<div role="dialog" aria-modal="true" aria-labelledby="pay-title" style="width:min(420px,100%);background:#FFFFFF;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Outfit,system-ui,sans-serif;color:#0B1230">' +
-        '<div style="display:flex;justify-content:space-between;align-items:center"><strong id="pay-title" style="font-size:20px">Complete payment</strong><span style="font-size:13px;color:' + MUTED + '">Demo checkout</span></div>' +
-        '<div style="background:#F6F7FB;border-radius:14px;padding:14px;display:flex;justify-content:space-between"><span>Both programs, monthly</span><strong>' + money('both') + '</strong></div>' +
-        '<p style="margin:0;color:' + MUTED + ';font-size:15px">Paying with ' + esc(S.method) + '. On the live site this is your payment provider&#39;s secure checkout.</p>' +
-        '<button type="button" data-paid style="font:inherit;font-weight:700;font-size:18px;background:#20B2B6;color:#FFFFFF;border:0;border-radius:999px;min-height:52px;cursor:pointer">Pay ' + money('both') + '</button>' +
-        '<button type="button" data-cancel style="font:inherit;font-weight:600;background:none;border:0;color:' + MUTED + ';cursor:pointer;text-decoration:underline">Cancel</button></div>', 60);
-      m.el.addEventListener('click', function (e) {
-        if (e.target.closest('[data-cancel]')) { track('payment_cancelled', { cta_location: 'checkout' }); saveRecord('Enrolments', Object.assign({ status: 'payment_cancelled', transaction_id: '', currency: 'INR' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' })); m.close(); }
-        if (e.target.closest('[data-paid]')) { m.close(); done('demo-' + Date.now()); }
+    function details() { return { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, whatsapp_reminders: S.waOk ? 'yes' : 'no' }; }
+    function fail(msg) { S.busy = false; S.err = msg; render(); }
+    var HELP = 'If you need help, write to <a href="mailto:info@tomoclub.org">info@tomoclub.org</a>.';
+    function notConfirmed(paymentId) { return 'We could not confirm your payment on this page. If money left your account, please do not pay again: we will confirm by email within one working day (payment ID ' + esc(paymentId) + '). ' + HELP; }
+    /* Razorpay's checkout script is loaded only when a parent presses Pay. */
+    var rzpLoading = null;
+    function loadRazorpay() {
+      if (window.Razorpay) return Promise.resolve();
+      if (rzpLoading) return rzpLoading;
+      rzpLoading = new Promise(function (ok, no) {
+        var sc = document.createElement('script'); sc.src = 'https://checkout.razorpay.com/v1/checkout.js'; sc.async = true;
+        sc.onload = function () { ok(); }; sc.onerror = function () { rzpLoading = null; no(new Error('script')); };
+        document.head.appendChild(sc);
       });
+      return rzpLoading;
     }
-    function done(txn) {
-      track('purchase', { transaction_id: txn, grade: S.grade, country: S.country, ecommerce: ECOM });
-      saveRecord('Enrolments', Object.assign({ status: 'paid', transaction_id: txn, currency: 'INR' }, { parent_name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), country: S.country, city: S.city.trim(), grade: S.grade, life_skills_batch: S.ls, ai_lab_batch: S.ai, payment_method: S.method, amount_inr: 4999, whatsapp_reminders: S.waOk ? 'yes' : 'no' }));
-      track('payment_completed', { value: 4999, method: S.method });
+    function postJson(url, body) {
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); });
+    }
+    function pay() {
+      S.busy = true; S.err = ''; render();
+      var shown = CUR;
+      var order = Object.assign({ name: S.name.trim(), email: S.email.trim(), whatsapp: S.phone.trim(), terms: S.terms, currency: CUR, context: ctx() }, details());
+      Promise.all([loadRazorpay(), postJson('/api/order', order)])
+        .then(function (res) {
+          var o = res[1];
+          if (!o || !o.ok) { track('payment_error', { cta_location: 'enrol', reason: (o && o.code) || 'order_failed' }); return fail('We could not start the payment. Please try again in a moment. ' + HELP); }
+          /* The server prices by where the visitor is. If that differs from what the page showed, show the right price and ask again. */
+          if (o.currency !== shown && PRICES[o.currency]) { store('session', 'tomo_cur', o.currency); setCurrency(o.currency); return fail('The price for your location is ' + money('both') + ' a month. Press pay again to continue.'); }
+          var paid = false;
+          var rzp = new window.Razorpay({
+            key: o.key_id, order_id: o.order_id, amount: o.amount, currency: o.currency,
+            name: 'TomoClub', description: 'Tomo Life Skills + Tomo AI Lab, first month',
+            prefill: { name: S.name.trim(), email: S.email.trim(), contact: S.phone.trim() },
+            theme: { color: '#20B2B6' },
+            handler: function (r) { paid = true; confirmPayment(r); },
+            modal: { ondismiss: function () {
+              if (paid) return;
+              track('payment_cancelled', { cta_location: 'checkout' });
+              saveRecord('Enrolments', Object.assign({ status: 'payment_cancelled', currency: CUR, amount: PRICES[CUR].both, amount_inr: CUR === 'INR' ? PRICES.INR.both : '' }, details()));
+              S.busy = false; render();
+            } }
+          });
+          rzp.on('payment.failed', function (r) { track('payment_failed', { cta_location: 'checkout', reason: (r && r.error && r.error.reason) || '' }); });
+          rzp.open();
+        })
+        .catch(function () { track('payment_error', { cta_location: 'enrol', reason: 'network' }); fail('We could not reach the payment service. Please check your connection and try again. ' + HELP); });
+    }
+    function confirmPayment(r) {
+      postJson('/api/verify', { razorpay_order_id: r.razorpay_order_id, razorpay_payment_id: r.razorpay_payment_id, razorpay_signature: r.razorpay_signature })
+        .then(function (v) {
+          if (v && v.ok) { S.busy = false; S.err = ''; render(); done(v); return; }
+          track('payment_error', { cta_location: 'verify', reason: (v && v.code) || 'verify_failed' });
+          fail(notConfirmed(r.razorpay_payment_id));
+        })
+        .catch(function () { track('payment_error', { cta_location: 'verify', reason: 'network' }); fail(notConfirmed(r.razorpay_payment_id)); });
+    }
+    function done(v) {
+      /* The paid Enrolments row is written by the server (api/verify.js), not here. */
+      var e = ecom(); e.currency = v.currency; e.value = v.amount; e.items[0].price = v.amount;
+      track('purchase', { transaction_id: v.payment_id, grade: S.grade, country: S.country, ecommerce: e });
+      track('payment_completed', { value: v.amount, currency: v.currency, method: v.method });
       var first = S.name.trim().split(' ')[0];
       var m = modal('<div role="dialog" aria-modal="true" aria-labelledby="done-title" style="width:min(480px,100%);background:#FFFFFF;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Outfit,system-ui,sans-serif;color:#0B1230">' +
         '<div style="background:#F3F1FF;padding:26px 24px 8px;display:flex;justify-content:center">' + BADGE + '</div>' +
@@ -572,6 +616,10 @@ window.TOMO_CONFIG = {
         '<p style="margin:0;font-size:15px;color:' + MUTED + '">Your receipt and class links are on their way to ' + esc(S.email) + '.</p>' +
         '<button type="button" data-done style="font:inherit;font-weight:700;background:#FFC83D;color:#0B1230;border:0;border-radius:999px;padding:12px 24px;min-height:48px;cursor:pointer">Done</button></div></div>', 70);
       m.el.addEventListener('click', function (e) { if (e.target.closest('[data-done]')) { track('confirmation_close', { cta_location: 'confirmation' }); m.close(); } });
+      /* The popup above already holds this parent's details. Clear the form behind it, so a paid form is never left
+         on the pay step with an active button (another click would charge a second month). */
+      S.step = 1; S.name = ''; S.email = ''; S.phone = ''; S.country = ''; S.city = ''; S.grade = ''; S.ls = null; S.ai = null; S.terms = false; S.waOk = false; S.busy = false; S.err = '';
+      render();
     }
     render();
   }

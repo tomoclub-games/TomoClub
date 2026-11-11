@@ -435,6 +435,14 @@ var GEO_COLUMNS = [
   HEADERS[name] = HEADERS[name].concat(GEO_COLUMNS);
 });
 
+// Razorpay payments (added after the tab first existed, so they go at the end; getSheet_ adds the missing
+// header labels to an existing tab). Amount is in the Currency column's currency; Amount (INR) stays for INR rows.
+HEADERS["Enrolments"] = HEADERS["Enrolments"].concat([
+  ["amount", "Amount"],
+  ["order_id", "Razorpay order ID"],
+  ["failure_reason", "Failure reason"]
+]);
+
 // A parent filled in the booking form but the booking did not go through (time just taken, or an error).
 HEADERS["Failed bookings"] = [
   ["timestamp", "Timestamp (UTC)"],
@@ -474,12 +482,15 @@ function doPost(e) {
     var valid = [];
     rows.forEach(function (r) {
       if (!r || !HEADERS[r.sheet]) return;
-      (grouped[r.sheet] = grouped[r.sheet] || []).push(r.data || {});
+      r.data = r.data || {};
+      (grouped[r.sheet] = grouped[r.sheet] || []).push(r.data);
       valid.push(r);
     });
     Object.keys(grouped).forEach(function (name) {
       var sheet = getSheet_(ss, name);
       var keys = HEADERS[name].map(function (h) { return h[0]; });
+      if (name === 'Enrolments') grouped[name] = skipDuplicatePayments_(sheet, keys, grouped[name]);
+      if (!grouped[name].length) return;
       var values = grouped[name].map(function (d) {
         return keys.map(function (k) { var v = d[k]; return v === undefined || v === null ? '' : (typeof v === 'object' ? JSON.stringify(v) : v); });
       });
@@ -487,7 +498,8 @@ function doPost(e) {
       range.setNumberFormat('@'); // plain text: keeps "+91..." phone numbers intact and stops "=..." being run as a formula
       range.setValues(values);
     });
-    saved = valid; // only alert for rows that really were saved
+    // only alert for rows that really were saved (not skipped duplicates)
+    saved = valid.filter(function (r) { return (grouped[r.sheet] || []).indexOf(r.data) > -1; });
     result = { ok: true, saved: rows.length };
   } catch (err) {
     result = { ok: false, error: String(err) };
@@ -497,6 +509,26 @@ function doPost(e) {
   // Slack alerts go out after the rows are saved and the lock is released. A Slack problem never affects the save.
   saved.forEach(function (r) { notifySlack_(r.sheet, r.data || {}); });
   return json_(result);
+}
+
+// A payment is reported twice (by the page through api/verify.js and by Razorpay's webhook), and Razorpay
+// retries webhooks. Skip an Enrolments row whose transaction ID and status are already in the tab.
+function skipDuplicatePayments_(sheet, keys, list) {
+  var col = keys.indexOf('transaction_id'), stCol = keys.indexOf('status');
+  var seen = {};
+  var last = sheet.getLastRow();
+  if (last > 1) {
+    var ids = sheet.getRange(2, col + 1, last - 1, 1).getValues();
+    var sts = sheet.getRange(2, stCol + 1, last - 1, 1).getValues();
+    for (var i = 0; i < ids.length; i++) if (ids[i][0]) seen[ids[i][0] + '|' + sts[i][0]] = true;
+  }
+  return list.filter(function (d) {
+    if (!d.transaction_id) return true;
+    var k = d.transaction_id + '|' + (d.status || '');
+    if (seen[k]) return false;
+    seen[k] = true;
+    return true;
+  });
 }
 
 // ---------- Slack alerts ----------
@@ -531,7 +563,7 @@ function slackText_(sheetName, d) {
   if (sheetName === 'Enrolments' && d.status === 'paid') {
     return ':white_check_mark: *New enrolment*\n*Parent:* ' + e(d.parent_name) + '\n*Email:* ' + e(d.email) + '\n*WhatsApp:* ' + e(d.whatsapp) + '\n' +
       '*Country:* ' + e(d.country) + (d.detected_country ? ' (detected ' + e(d.detected_country) + ')' : '') + '\n*City:* ' + e(d.city) + '\n*Grade:* ' + e(d.grade) + '\n' +
-      '*Batches:* Life Skills ' + e(d.life_skills_batch) + ' / AI Lab ' + e(d.ai_lab_batch) + '\n*Payment:* ' + e(d.payment_method) + ', INR ' + e(d.amount_inr) +
+      '*Batches:* Life Skills ' + e(d.life_skills_batch) + ' / AI Lab ' + e(d.ai_lab_batch) + '\n*Payment:* ' + e(d.payment_method) + ', ' + e(d.currency || 'INR') + ' ' + e(d.amount !== undefined && d.amount !== '' ? d.amount : d.amount_inr) +
       ', transaction ' + e(d.transaction_id) + lang;
   }
   if (sheetName === 'Failed bookings') {
@@ -559,6 +591,11 @@ function getSheet_(ss, name) {
     sheet.appendRow(HEADERS[name].map(function (h) { return h[1]; }));
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, HEADERS[name].length).setFontWeight('bold');
+  } else if (sheet.getLastColumn() < HEADERS[name].length) {
+    // Columns added to HEADERS after the tab was created: write their labels at the end of the header row.
+    var from = sheet.getLastColumn() + 1;
+    var labels = HEADERS[name].slice(from - 1).map(function (h) { return h[1]; });
+    sheet.getRange(1, from, 1, labels.length).setValues([labels]).setFontWeight('bold');
   }
   return sheet;
 }
