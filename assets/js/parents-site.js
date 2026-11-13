@@ -1,11 +1,11 @@
 /* TomoClub site settings.
-   sheetEndpoint: where form rows are sent. /api/collect forwards them to the Google Apps Script collector
+   sheetEndpoint: where form rows are sent. /api/save forwards them to the Google Apps Script collector
    (data-capture/Code.gs), whose URL lives in the SHEET_WEBHOOK environment variable on Vercel, not here.
    Set it to '' and the site still works; data just isn't saved to the sheet.
    logClicksToSheet: also write every click/event to the "Events" tab. Off: clicks and page events go to
    Google Analytics and Clarity (analytics.js); the sheet only gets form data (leads, bookings, enrolments). */
 window.TOMO_CONFIG = {
-  sheetEndpoint: '/api/collect',
+  sheetEndpoint: '/api/save',
   logClicksToSheet: false,
   trialMinutes: 60 /* length of the free trial class, used for the Add to calendar link */
 };
@@ -71,7 +71,7 @@ window.TOMO_CONFIG = {
   }
 
   /* ---------- config, visitor and session context ---------- */
-  var CONFIG = Object.assign({ sheetEndpoint: '/api/collect', logClicksToSheet: false, trialMinutes: 60 }, window.TOMO_CONFIG || {});
+  var CONFIG = Object.assign({ sheetEndpoint: '/api/save', logClicksToSheet: false, trialMinutes: 60 }, window.TOMO_CONFIG || {});
   function store(kind, key, val) { try { var st = kind === 'local' ? localStorage : sessionStorage; if (val === undefined) return st.getItem(key); st.setItem(key, val); } catch (e) { return null; } }
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   var VISITOR = store('local', 'tomo_vid') || (function () { var v = uid(); store('local', 'tomo_vid', v); return v; })();

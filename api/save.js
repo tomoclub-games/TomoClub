@@ -1,4 +1,4 @@
-// Vercel serverless function: POST /api/collect
+// Vercel serverless function: POST /api/save
 // The parents site sends form rows here ({ rows: [{ sheet, data }] }) and this forwards them to the
 // Google Apps Script collector (data-capture/Code.gs), so the Apps Script URL stays out of the page source.
 // "Trial bookings" rows are not accepted from the browser: api/book.js writes those after Calendly confirms.
