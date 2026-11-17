@@ -565,7 +565,7 @@
                     
                     <div class="form-card" style="background: var(--surface); border-color: var(--border-color); color: var(--text-main);">
                         <h3 style="margin-bottom: 1.5rem; color: var(--navy);">Grab a copy of the ebook Free</h3>
-                        <form class="ebook-form" id="hero-form">
+                        <form class="ebook-form" id="hero-form" data-guard>
                             <input type="text" name="firstName" placeholder="First Name" required style="background: var(--surface); border: 1px solid var(--border-color); color: var(--text-main) !important;">
                             <input type="email" name="email" placeholder="Email Address" required style="background: var(--surface); border: 1px solid var(--border-color); color: var(--text-main) !important;">
                             <input type="hidden" name="source" value="Hero Section">
@@ -850,7 +850,7 @@
                     <div class="form-card" style="background: var(--surface); color: var(--text-main); border: 1px solid var(--border-color);">
                         <h3 style="margin-bottom: 1rem; color: var(--navy);">Download Your Copy</h3>
                         <p style="margin-bottom: 2rem; color: var(--text-muted);">Joining 1,000+ school leaders who have already requested their copy.</p>
-                        <form class="ebook-form" id="mid-form">
+                        <form class="ebook-form" id="mid-form" data-guard>
                             <input type="text" name="firstName" placeholder="First Name" required>
                             <input type="email" name="email" placeholder="Email Address" required>
                             <select name="role" required>
@@ -1107,6 +1107,7 @@
                         // 1. Submit to Centralized API Proxy
                         const data = Object.fromEntries(formData.entries());
                         data.type = 'ebook_request';
+                        if (window.tomoGuard) Object.assign(data, window.tomoGuard(form)); // spam checks: honeypot, time trap, Turnstile
                         if (window.tomoAttribution) Object.assign(data, window.tomoAttribution()); // UTM, click IDs, referrer, landing page
                         
                         await fetch('/api/signup', {
@@ -1168,6 +1169,7 @@
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
+<script src="/assets/js/form-guard.js" defer></script>
 </body>
 </html>
 
