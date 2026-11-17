@@ -1,16 +1,15 @@
 // Vercel serverless function: POST /api/signup
 // Handles the Leaders of Tomorrow e-book forms and the toolkit download popup.
-// Each submission is saved as one row in the shared Google Sheet through the Apps Script collector
-// (data-capture/Code.gs). No emails are sent.
+// Each submission is checked for spam (api/_lib/guard.js), saved as one row in the shared Google Sheet
+// through the Apps Script collector (data-capture/Code.gs), and added to the Instantly lead list when
+// INSTANTLY_API_KEY and INSTANTLY_LIST_ID are set. No emails are sent from here.
 //
 // Env vars:
-//   SHEET_WEBHOOK   the Apps Script Web app URL (ends in /exec)
+//   SHEET_WEBHOOK       the Apps Script Web app URL (ends in /exec)
+//   INSTANTLY_API_KEY   optional, Instantly API v2 key (leads:create)
+//   INSTANTLY_LIST_ID   optional, Instantly lead list id
 
-const ALLOWED_ORIGINS = [
-  /^https:\/\/(www\.)?tomoclub\.org$/,
-  /^https:\/\/tomoclub-website[a-z0-9-]*\.vercel\.app$/,
-  /^http:\/\/localhost:\d+$/,
-];
+import { clean, clientIp, originAllowed, tooMany, checkHuman, validEmail, saveToSheet, addToInstantly } from './_lib/guard.js';
 
 // Form type sent by the page -> tab in the Google Sheet.
 const TABS = {
@@ -24,56 +23,27 @@ const ATTRIBUTION_FIELDS = {
   gclid: 200, fbclid: 200, referrer: 300, landing_page: 300,
 };
 
-// Best-effort limit per warm server instance.
-const hits = new Map();
-function tooMany(ip) {
-  const now = Date.now();
-  const recent = (hits.get(ip) || []).filter((t) => now - t < 10 * 60 * 1000);
-  recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 500) hits.clear();
-  return recent.length > 30;
-}
-
-const clean = (v, max) => String(v == null ? '' : v).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, max);
-
-// Append one row to the Google Sheet through the Apps Script collector.
-async function saveToSheet(sheet, data) {
-  const url = process.env.SHEET_WEBHOOK;
-  if (!url) { console.error('SHEET_WEBHOOK env var is not set'); return false; }
-  try {
-    // Apps Script answers through a redirect, which fetch follows; the JSON body says whether it worked.
-    const r = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ rows: [{ sheet, data }] }),
-      signal: AbortSignal.timeout(8000),
-    });
-    const j = await r.json().catch(() => null);
-    if (!r.ok || !j || j.ok !== true) { console.error('Apps Script rejected the row:', r.status, JSON.stringify(j)); return false; }
-    return true;
-  } catch (error) {
-    console.error('sheet write error:', error);
-    return false;
-  }
-}
-
 export default async function handler(req, res) {
   // 1. Security: enforce POST and the site's own origin
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
-  if (!ALLOWED_ORIGINS.some((re) => re.test(req.headers.origin || ''))) {
+  if (!originAllowed(req)) {
     return res.status(403).json({ error: 'Not allowed' });
   }
 
-  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
-  if (tooMany(ip)) {
+  const ip = clientIp(req);
+  if (tooMany(ip, 30)) {
     return res.status(429).json({ error: 'Too many requests' });
   }
 
   // 2. Data extraction and basic sanitisation
   const b = req.body && typeof req.body === 'object' ? req.body : {};
+
+  // Spam checks (honeypot, time trap, optional Turnstile). Bots get a normal reply and nothing is saved.
+  const verdict = await checkHuman(b, ip);
+  if (verdict === 'silent-drop') return res.status(200).json({ success: true, message: 'Processed successfully' });
+  if (verdict === 'reject') return res.status(400).json({ error: 'Verification failed' });
   const type = clean(b.type, 30);
   const tab = TABS[type];
   if (!tab) {
@@ -86,7 +56,7 @@ export default async function handler(req, res) {
   const source = clean(b.source, 120);
   const role = clean(b.role, 80);
 
-  if (!/^\S+@\S+\.\S+$/.test(finalEmail)) {
+  if (!validEmail(finalEmail)) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
@@ -97,10 +67,14 @@ export default async function handler(req, res) {
     if (type === 'resource') row.toolkit = toolkitName;
     // Where the visitor came from (captured in the browser by assets/js/analytics.js)
     Object.keys(ATTRIBUTION_FIELDS).forEach((k) => { row[k] = clean(b[k], ATTRIBUTION_FIELDS[k]); });
-    const sheetPromise = saveToSheet(tab, row);
-
-    // Wait for the critical tasks
-    const saved = await sheetPromise;
+    // Save to the sheet and add the contact to the Instantly lead list at the same time.
+    const [saved] = await Promise.all([
+      saveToSheet(process.env.SHEET_WEBHOOK, tab, row),
+      addToInstantly({
+        email: finalEmail, name: firstName, role, form: type, page: source || 'website',
+        utm_source: row.utm_source, utm_medium: row.utm_medium, utm_campaign: row.utm_campaign,
+      }),
+    ]);
     if (!saved) {
       // The pages ignore this status and still show their thank-you message and start the download.
       return res.status(502).json({ error: 'Could not save' });
