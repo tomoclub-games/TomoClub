@@ -3,6 +3,7 @@
  * Receives form submissions from the website and appends them to this spreadsheet, one tab per type:
  *   Parents site: Leads, Trial bookings, Enrolments (and Events, only if click logging is switched on)
  *   Leaders of Tomorrow and toolkits: E-book requests, Toolkit downloads
+ *   B2B site: School leads (api/lead.js), Website events (api/event.js)
  * The Build With Us project form has its own separate script and is not part of this.
  * Tabs and their header rows are created automatically the first time a row arrives.
  * Also: "Failed bookings" (a trial booking that did not go through).
@@ -435,6 +436,36 @@ var GEO_COLUMNS = [
   HEADERS[name] = HEADERS[name].concat(GEO_COLUMNS);
 });
 
+// B2B: every lead from api/lead.js, and site interactions from api/event.js (Nov 2026).
+HEADERS["School leads"] = [
+  ["timestamp", "Timestamp (UTC)"],
+  ["type", "Type"],
+  ["name", "Name"],
+  ["email", "Email"],
+  ["email_type", "Work or personal email"],
+  ["organization", "School or district"],
+  ["role", "Role"],
+  ["state", "State"],
+  ["offer_interest", "Offer interest"],
+  ["message", "What they wrote"],
+  ["meeting_start", "Meeting start (UTC)"],
+  ["page", "Page"],
+  ["pages_viewed", "Pages viewed before"],
+  ["instantly_status", "Instantly status"]
+].concat(ATTRIBUTION_COLUMNS, [["li_fat_id", "LinkedIn click ID"]]);
+
+HEADERS["Website events"] = [
+  ["timestamp", "Timestamp (UTC)"],
+  ["visitor_id", "Visitor ID"],
+  ["email", "Email (known visitors only)"],
+  ["event", "Event"],
+  ["label", "Detail"],
+  ["page", "Page"],
+  ["utm_source", "UTM source"],
+  ["utm_campaign", "UTM campaign"],
+  ["landing_page", "Landing page"]
+];
+
 // A parent filled in the booking form but the booking did not go through (time just taken, or an error).
 HEADERS["Failed bookings"] = [
   ["timestamp", "Timestamp (UTC)"],
@@ -533,6 +564,14 @@ function slackText_(sheetName, d) {
       '*Country:* ' + e(d.country) + (d.detected_country ? ' (detected ' + e(d.detected_country) + ')' : '') + '\n*City:* ' + e(d.city) + '\n*Grade:* ' + e(d.grade) + '\n' +
       '*Batches:* Life Skills ' + e(d.life_skills_batch) + ' / AI Lab ' + e(d.ai_lab_batch) + '\n*Payment:* ' + e(d.payment_method) + ', INR ' + e(d.amount_inr) +
       ', transaction ' + e(d.transaction_id) + lang;
+  }
+  if (sheetName === 'School leads') {
+    var kind = { discovery_request: 'New school lead', call_booked: 'Discovery call booked', newsletter: 'Newsletter signup' }[d.type] || 'School lead';
+    return ':school: *' + kind + '*\n*Name:* ' + e(d.name) + '\n*Email:* ' + e(d.email) + ' (' + e(d.email_type) + ')\n' +
+      '*School or district:* ' + e(d.organization) + '\n*Role:* ' + e(d.role) + '\n*State:* ' + e(d.state) + '\n' +
+      (d.meeting_start ? '*Meeting:* ' + e(d.meeting_start) + ' UTC\n' : '') +
+      '*Interest:* ' + e(d.offer_interest) + '\n*In their words:* ' + e(d.message) + '\n*Page:* ' + e(d.page) +
+      ' | *Source:* ' + e(d.utm_source || d.referrer) + '\n*Instantly:* ' + e(d.instantly_status);
   }
   if (sheetName === 'Failed bookings') {
     var why = d.reason === 'slot_taken' ? 'that time was just taken' : 'a booking error';

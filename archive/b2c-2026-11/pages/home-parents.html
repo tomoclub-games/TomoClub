@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+// Old hash routes (/#pd, /#podcast, ...) now live at real URLs. Send visitors there.
+(function () {
+  var routes = {
+    '#home': '/', '#ai-literacy': '/ai-literacy', '#future-ready': '/future-ready',
+    '#pd': '/professional-development', '#guides': '/guides', '#education-hall': '/education-hall',
+    '#podcast': '/podcast', '#results': '/results', '#faqs': '/faqs', '#about': '/about',
+    '#blog': '/blog', '#ebook': '/leaders-of-tomorrow'
+  };
+  function go() {
+    var target = routes[location.hash];
+    var here = location.pathname.replace(/\/(index\.html)?$/, '') || '/';
+    if (target && target !== here) location.replace(target);
+  }
+  go();
+  window.addEventListener('hashchange', go);
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Skills and AI Classes for Kids | TomoClub</title>
+<meta name="description" content="Live online Life Skills (Grades 3-12) and AI (Grades 6-12) classes that help kids speak up, work in teams and think for themselves. Small groups, expert coaches. Book a free class.">
+<link rel="canonical" href="https://www.tomoclub.org/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Life Skills and AI Classes for Kids | TomoClub">
+<meta property="og:description" content="Live online Life Skills (Grades 3-12) and AI (Grades 6-12) classes that help kids speak up, work in teams and think for themselves. Small groups, expert coaches. Book a free class.">
+<meta property="og:url" content="https://www.tomoclub.org/">
+<meta property="og:image" content="https://www.tomoclub.org/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="manifest" href="/assets/icons/site.webmanifest">
+<meta name="theme-color" content="#2ab4b8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit}
+.navlinks{display:flex}
+.mcta{display:none}
+.navlinks{flex-shrink:0;font-size:14.4px!important}
+@media (max-width: 1200px){.navlinks{gap:14px!important}}
+.navtoggle{display:none;flex-shrink:0;width:44px;height:44px;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:transparent;color:#FFFFFF;cursor:pointer;padding:0}
+@media (max-width: 1040px){
+.mcta{display:flex}
+.navtoggle{display:inline-flex}
+.navlinks{display:none!important}
+.navlinks.open{display:flex!important;flex-direction:column;align-items:stretch!important;gap:0!important;left:0!important;right:0!important;top:100%!important;transform:none!important;white-space:normal!important;background:#0B1230;padding:6px 20px 18px;border-top:1px solid rgba(255,255,255,.1);max-height:calc(100vh - 72px);overflow:auto;font-size:17px!important}
+.navlinks.open a{display:block;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+.navlinks.open .dd{display:block}
+.navlinks.open .dd-menu{display:block;position:static;min-width:0;padding:0 0 0 16px}
+.navlinks.open .dd-menu::before{display:none}
+.navlinks.open .dd-menu a{padding:12px 4px;font-size:16px}
+}
+@media (max-width: 480px){header img{height:20px!important;width:auto!important}header > div > button:not(.navtoggle){font-size:13px!important;padding:6px 12px!important;white-space:normal!important;line-height:1.2!important;text-align:center;max-width:132px;min-width:0}header > div{gap:12px!important}}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;gap:16px;width:max-content;animation:tcMarquee 50s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes tcMarquee{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 8px))}}
+.logo-tile{display:flex;align-items:center;gap:12px;height:72px;padding:0 24px;background:#FFFFFF;border:1px solid #E3E6EF;border-radius:14px;white-space:nowrap;font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;color:#374151}
+.logo-img{display:block;height:44px;width:auto;max-width:170px;object-fit:contain}
+.logo-slot{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1.5px dashed #A3ABC2;border-radius:8px;font-size:9px;font-weight:700;color:#4A5372}
+@media (prefers-reduced-motion: reduce){.marquee-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}.marquee-track ul[aria-hidden]{display:none}}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+details[open] summary .pm{transform:rotate(45deg)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #20B2B6;outline-offset:3px}
+button[disabled]{opacity:.45;cursor:not-allowed}
+.dd{position:relative;display:inline-block}
+.dd-menu{display:none;position:absolute;top:100%;left:-14px;min-width:200px;padding:14px 0 8px;z-index:30}
+.dd-menu::before{content:"";position:absolute;inset:8px 0 0;background:#0B1230;border:1px solid rgba(255,255,255,.12);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{display:block}
+.dd-menu a{position:relative;display:block;padding:10px 20px;font-size:15px;color:#FFFFFF;text-decoration:none;white-space:nowrap}
+.dd-menu a:hover{background:rgba(255,255,255,.08)}
+.dd-menu a[aria-current]{color:#FFC83D}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "TomoClub", "url": "https://www.tomoclub.org", "logo": "https://www.tomoclub.org/assets/og-image.jpg", "sameAs": ["https://www.youtube.com/@tomoclubedu", "https://www.instagram.com/tomoclub_edu", "https://www.linkedin.com/company/tomoclub/"]}, {"@type": "WebSite", "name": "TomoClub for Parents", "url": "https://www.tomoclub.org/"}]}</script>
+<script defer src="/assets/js/analytics.js"></script>
+<script src="/assets/js/parents-site.js" defer></script>
+</head>
+<body data-page="home">
+<div style="font-family: 'Outfit', system-ui, sans-serif; color: #0B1230; background: #FFFFFF; font-size: 17px; line-height: 1.55">
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(11,18,48,0.96); color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 12px clamp(20px, 5vw, 56px); display: flex; align-items: center; justify-content: flex-start; gap: 20px">
+<a href="/" data-event="nav_click" data-location="nav_logo" aria-label="TomoClub home" style="display: inline-flex"><img src="/assets/logo.webp" alt="TomoClub" width="156" height="24" style="display: block"></a>
+<nav aria-label="Main" id="main-nav" class="navlinks" style="align-items: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; gap: 22px; font-size: 16px; font-weight: 500">
+<a href="/" aria-current="page" style="color: #FFC83D; text-decoration: none">Home</a>
+<span class="dd"><a href="/#programs" data-event="nav_click" data-location="nav" style="color: #FFFFFF; text-decoration: none" aria-haspopup="true">Programs <span aria-hidden="true" style="font-size: 11px">&#9662;</span></a><span class="dd-menu" role="menu"><a href="/life-skills" data-event="nav_click" data-location="nav_programs" data-program="life_skills" role="menuitem">Tomo Life Skills</a><a href="/ai-lab" data-event="nav_click" data-location="nav_programs" data-program="ai_lab" role="menuitem">Tomo AI Lab</a><a href="/both-programs" data-event="nav_click" data-location="nav_programs" data-program="bundle" role="menuitem">Both programs</a></span></span>
+<a href="/#how" data-event="nav_click" data-location="nav" style="color: #FFFFFF; text-decoration: none">How it works</a>
+<a href="/#outcomes" data-event="nav_click" data-location="nav" style="color: #FFFFFF; text-decoration: none">Results</a>
+<a href="/results" data-event="nav_click" data-location="nav_case_studies" style="color: #FFFFFF; text-decoration: none">Case studies</a>
+<a href="/#faq" data-event="nav_click" data-location="nav" style="color: #FFFFFF; text-decoration: none">FAQ</a>
+<a href="/schools" data-event="nav_click" data-location="nav" style="color: #FFFFFF; text-decoration: none">For schools</a>
+</nav>
+<button type="button" data-open-picker data-event="cta_click" data-location="nav" style="margin-left: auto; font: inherit; font-weight: 700; font-size: 15px; background: #FFC83D; color: #0B1230; border: 0; border-radius: 999px; padding: 10px 18px; min-height: 44px; cursor: pointer; white-space: nowrap">Book a free class</button>
+<button type="button" class="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" data-event="nav_menu_toggle" data-location="nav"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+</div>
+</header>
+<main>
+
+<section aria-labelledby="hero-title" style="background: #0B1230; color: #FFFFFF; background-image: radial-gradient(circle at 85% 20%, rgba(32,178,182,0.28), transparent 45%), radial-gradient(circle at 10% 90%, rgba(255,200,61,0.16), transparent 40%)">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 56px) clamp(56px, 7vw, 96px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(40px, 6vw, 72px); align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; align-self: flex-start; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 6px 14px; font-size: 15px; font-weight: 600">Live online classes for Grades 3 to 12</p>
+<h1 id="hero-title" style="margin: 0; font-weight: 700; font-size: clamp(40px, 5vw, 62px); line-height: 1.06; letter-spacing: -0.025em; text-wrap: balance">Raise a <span style="color: #FFC83D">confident thinker</span>, a thoughtful teammate and a creator with AI.</h1>
+<p style="margin: 0; font-size: clamp(18px, 1.6vw, 21px); color: #C9D0E6; max-width: 30em">Live small-group classes that build confidence, teamwork and AI skills, led by expert coaches.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px">
+<button type="button" data-open-picker data-event="cta_click" data-location="hero" style="font: inherit; font-weight: 700; font-size: 18px; background: #FFC83D; color: #0B1230; border: 0; border-radius: 999px; padding: 16px 30px; min-height: 54px; cursor: pointer; box-shadow: 0 0 0 6px rgba(255,200,61,0.22), 0 10px 24px rgba(255,200,61,0.25)">Book my child's free class</button>
+<a href="https://youtu.be/Sum2y_a2yY8" data-event="video_play" data-location="hero" style="display: inline-flex; align-items: center; gap: 10px; color: #FFFFFF; font-weight: 600; text-decoration: none; min-height: 44px">
+<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="rgba(255,255,255,0.12)" stroke="#FFFFFF" stroke-width="1.5"></circle><path d="M16.5 13.5v13l10-6.5z" fill="#FFFFFF"></path></svg>
+<span>Watch a class</span>
+</a>
+</div>
+<p style="margin: 0; font-size: 15px; color: #C9D0E6">Only 12 children per class</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 26px; padding: 8px">
+<div style="align-self: flex-end; width: min(420px, 100%); transform: rotate(1.5deg); background: #FFFFFF; color: #0B1230; border-radius: 22px; box-shadow: 8px 8px 0 #FF6F4F; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 4px">
+<a href="#programs" data-event="hero_card_click" data-location="hero_card" data-program="life_skills" style="font-weight: 700; font-size: 18px; color: #D9482B; text-decoration: none">Tomo Life Skills</a>
+<span style="font-size: 13px; font-weight: 600; background: #FFE8E1; color: #B23A20; padding: 4px 10px; border-radius: 999px">Grades 3 to 12</span>
+</div>
+<div style="aspect-ratio: 520 / 300; border-radius: 14px; overflow: hidden"><svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Illustration: three children sharing ideas and working together as a team" preserveAspectRatio="xMidYMid slice" style="display: block; width: 100%; height: 100%"><rect width="520" height="300" fill="#FFE8E1"></rect>
+<circle cx="440" cy="40" r="70" fill="#FFD4C7"></circle><circle cx="60" cy="270" r="60" fill="#FFD4C7"></circle>
+<path d="M90 208 q-2 -44 30 -46 q32 2 30 46z" fill="#3B2416"></path><path d="M68 300 q0 -49 52 -49 q52 0 52 49z" fill="#FF6F4F"></path><circle cx="120" cy="190" r="26" fill="#F2C3A0"></circle><path d="M94 188 a26 26 0 0 1 52 0 q-13 -12 -26 -8 q-13 -4 -26 8z" fill="#3B2416"></path><circle cx="112.5" cy="192" r="2.4" fill="#0B1230"></circle><circle cx="127.5" cy="192" r="2.4" fill="#0B1230"></circle><path d="M113 200 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path><path d="M208 300 q0 -49 52 -49 q52 0 52 49z" fill="#20B2B6"></path><circle cx="260" cy="196" r="26" fill="#8D5A3B"></circle><circle cx="246" cy="174" r="9" fill="#120C08"></circle><circle cx="255" cy="174" r="9" fill="#120C08"></circle><circle cx="265" cy="174" r="9" fill="#120C08"></circle><circle cx="274" cy="174" r="9" fill="#120C08"></circle><circle cx="252.5" cy="198" r="2.4" fill="#0B1230"></circle><circle cx="267.5" cy="198" r="2.4" fill="#0B1230"></circle><path d="M253 206 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path><path d="M348 300 q0 -49 52 -49 q52 0 52 49z" fill="#7B6CF6"></path><circle cx="400" cy="190" r="26" fill="#E9B48E"></circle><path d="M374 188 a26 26 0 0 1 52 0 q-13 -12 -26 -8 q-13 -4 -26 8z" fill="#5A3A1E"></path><circle cx="392.5" cy="192" r="2.4" fill="#0B1230"></circle><circle cx="407.5" cy="192" r="2.4" fill="#0B1230"></circle><path d="M393 200 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M36 34h150a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12H96l-16 16V88H36a12 12 0 0 1-12-12V46a12 12 0 0 1 12-12z" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.5"></path><text x="111" y="68" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Here's my plan</text>
+<path d="M192 100h136a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12h-52l-16 14v-14h-68a12 12 0 0 1-12-12v-30a12 12 0 0 1 12-12z" fill="#FFC83D" stroke="#0B1230" stroke-width="2.5"></path><text x="260" y="134" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Good point!</text>
+<path d="M340 34h146a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12h-32v16l-16-16h-98a12 12 0 0 1-12-12V46a12 12 0 0 1 12-12z" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.5"></path><text x="413" y="68" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Let's vote</text>
+</svg></div>
+<p style="margin: 0; padding: 0 4px; font-weight: 600; color: #4A5372">Speaking up, teamwork and collaboration</p>
+</div>
+<div style="align-self: flex-start; width: min(420px, 100%); transform: rotate(-1.5deg); background: #FFFFFF; color: #0B1230; border-radius: 22px; box-shadow: 8px 8px 0 #7B6CF6; padding: 18px 20px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px">
+<a href="#programs" data-event="hero_card_click" data-location="hero_card" data-program="ai_lab" style="font-weight: 700; font-size: 18px; color: #5B4BD6; text-decoration: none">Tomo AI Lab</a>
+<span style="font-size: 13px; font-weight: 600; background: #EEEBFF; color: #4B3BC4; padding: 4px 10px; border-radius: 999px">Grades 6 to 12</span>
+</div>
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #4A5372">AI answer</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.45"><span style="text-decoration: line-through; text-decoration-color: #FF6F4F; text-decoration-thickness: 3px">The Great Wall of China is the only thing built by people you can see from space.</span></p>
+<p style="margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 700; color: #5B4BD6"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#5B4BD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Not true. I checked two sources.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Credentials and partner schools" style="background: #F6F7FB; border-bottom: 1px solid #E3E6EF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 26px clamp(20px, 5vw, 56px) 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 40px">
+<a href="https://blockchain.stem.org/6e6c3b55-d452-4dd0-a726-7b76185b20a4" data-event="trust_click" data-location="credential_strip" style="display: flex; align-items: center; gap: 12px; text-decoration: none"><img src="/assets/parents/accredited.webp" alt="STEM.org Accredited badge" height="64" style="display: block; height: 64px; width: auto"><span style="font-size: 13px; color: #4A5372; line-height: 1.35"><strong style="display: block; color: #0B1230; font-size: 14px">STEM.org Accredited</strong>Verified program quality. View credential</span></a>
+<a href="https://blockchain.stem.org/62393e2c-7cc4-4603-aaab-b63d818a448a#acc.OhdVWtJx" data-event="trust_click" data-location="credential_strip" style="display: flex; align-items: center; gap: 12px; text-decoration: none"><img src="/assets/parents/bestinstem.webp" alt="Best in STEM distinction seal" height="64" style="display: block; height: 64px; width: auto"><span style="font-size: 13px; color: #4A5372; line-height: 1.35"><strong style="display: block; color: #0B1230; font-size: 14px">Best in STEM</strong>Top 5%, 95+ on the STEM.org rubric. View credential</span></a>
+<span style="display: flex; align-items: center; gap: 12px"><img src="/assets/certified-master-trainers.png" alt="STEM.org Certified Educational Instructor badge" height="64" style="display: block; height: 64px; width: auto"><span style="font-size: 13px; color: #4A5372; line-height: 1.35"><strong style="display: block; color: #0B1230; font-size: 14px">STEM.org Certified</strong>Master Trainers lead our classes</span></span>
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #4A5372"><strong style="font-size: 30px; color: #0B1230">10,000+</strong><span>students taught<br>in 12+ US states</span></span>
+</div>
+<div style="padding: 0 0 24px">
+<p style="margin: 0 0 12px; text-align: center; font-size: 13px; font-weight: 600; color: #4A5372">Trusted by schools and homeschool programs</p>
+<div class="marquee">
+<div class="marquee-track">
+<ul aria-label="Partner schools" style="margin: 0; padding: 0; list-style: none; display: flex; gap: 16px">
+<li class="logo-tile"><img src="/assets/parents/sl_waseca.webp" alt="Waseca Public Schools" class="logo-img"><span>Waseca Public Schools</span></li>
+<li class="logo-tile"><img src="/assets/parents/sl_a.webp" alt="Amity School District" class="logo-img"><span>Amity School District</span></li>
+<li class="logo-tile"><img src="/assets/logos/choice_charter.png" alt="Choice Charter School" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/logos/berean_baptist.png" alt="Berean Baptist Academy" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_dishchii.webp" alt="Dishchii'bikoh Community School" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_skymountain.webp" alt="Sky Mountain IEM Charter School" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_nyskool.webp" alt="NYsKOOL" class="logo-img"></li>
+</ul>
+<ul aria-hidden="true" style="margin: 0; padding: 0; list-style: none; display: flex; gap: 16px">
+<li class="logo-tile"><img src="/assets/parents/sl_waseca.webp" alt="" class="logo-img"><span>Waseca Public Schools</span></li>
+<li class="logo-tile"><img src="/assets/parents/sl_a.webp" alt="" class="logo-img"><span>Amity School District</span></li>
+<li class="logo-tile"><img src="/assets/logos/choice_charter.png" alt="" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/logos/berean_baptist.png" alt="" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_dishchii.webp" alt="" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_skymountain.webp" alt="" class="logo-img"></li>
+<li class="logo-tile"><img src="/assets/parents/sl_nyskool.webp" alt="" class="logo-img"></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="pain-title">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 10px"><h2 id="pain-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Your child is learning what to know.</h2><p style="margin: 0 auto; text-align: center; font-size: 19px; color: #4A5372; max-width: 640px">But are they learning how to think, speak and work with others?</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 18px">
+<div style="flex: 1 1 230px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start"><svg width="68" height="68" viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" rx="22" fill="#FFF4D6"></rect><circle cx="26" cy="36" r="8" fill="#FFFFFF" stroke="#B07A00" stroke-width="2.4"></circle><path d="M12 60c1.5-8 7-12.5 14-12.5S38.5 52 40 60" fill="#FFFFFF" stroke="#B07A00" stroke-width="2.4" stroke-linejoin="round"></path><path d="M38 12h20a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5h-9l-6 5v-5h-5a5 5 0 0 1-5-5V17a5 5 0 0 1 5-5z" fill="#FFFFFF" stroke="#B07A00" stroke-width="2.2" stroke-dasharray="3 3" stroke-linejoin="round"></path><circle cx="42" cy="22" r="2" fill="#B07A00"></circle><circle cx="48" cy="22" r="2" fill="#B07A00"></circle><circle cx="54" cy="22" r="2" fill="#B07A00"></circle></svg><p style="margin: 0; font-weight: 700; font-size: 20px; line-height: 1.25">Knows the answer. Stays silent.</p><p style="margin: 0; color: #4A5372; font-size: 16px">They have ideas but lack the confidence to share them.</p></div>
+<div style="flex: 1 1 230px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start"><svg width="68" height="68" viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" rx="22" fill="#FFE8E1"></rect><path d="M10 14h26a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5H22l-7 6v-6h-5a5 5 0 0 1-5-5V19a5 5 0 0 1 5-5z" fill="#FFFFFF" stroke="#D9482B" stroke-width="2.2" stroke-linejoin="round"></path><path d="M62 32H36a5 5 0 0 0-5 5v12a5 5 0 0 0 5 5h14l7 6v-6h5a5 5 0 0 0 5-5V37a5 5 0 0 0-5-5z" fill="#FFC2B3" stroke="#D9482B" stroke-width="2.2" stroke-linejoin="round"></path><path d="M17 25h16M40 43h16" stroke="#D9482B" stroke-width="2.4" stroke-linecap="round"></path><path d="M47 14l-4 6h5l-4 6" fill="none" stroke="#D9482B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg><p style="margin: 0; font-weight: 700; font-size: 20px; line-height: 1.25">Has trouble working in a team.</p><p style="margin: 0; color: #4A5372; font-size: 16px">Sharing ideas, listening and settling disagreements feel hard.</p></div>
+<div style="flex: 1 1 230px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start"><svg width="68" height="68" viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" rx="22" fill="#EEEBFF"></rect><rect x="10" y="14" width="40" height="34" rx="6" fill="#FFFFFF" stroke="#5B4BD6" stroke-width="2.4"></rect><path d="M24 24l2.4 6.4L33 33l-6.6 2.6L24 42l-2.4-6.4L15 33l6.6-2.6z" fill="#7B6CF6"></path><path d="M37 26h7M37 33h7" stroke="#5B4BD6" stroke-width="2.4" stroke-linecap="round"></path><path d="M44 42l16 6-7 2.5L50.5 58z" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.2" stroke-linejoin="round"></path></svg><p style="margin: 0; font-weight: 700; font-size: 20px; line-height: 1.25">Accepts AI answers without questioning them.</p><p style="margin: 0; color: #4A5372; font-size: 16px">They need to learn to question, check and think for themselves.</p></div>
+<div style="flex: 1 1 230px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start"><svg width="68" height="68" viewBox="0 0 72 72" aria-hidden="true"><rect width="72" height="72" rx="22" fill="#E3F6F6"></rect><path d="M12 58h14V46h12V34h12V22h10" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 58h14V46h12V34h12V22h10v36z" fill="#A8E3E5" fill-opacity="0.55"></path><path d="M54 22V8" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path><path d="M54 8h11l-3 4 3 4H54z" fill="#FFC83D" stroke="#0B1230" stroke-width="2" stroke-linejoin="round"></path><circle cx="19" cy="50" r="4" fill="#FFFFFF" stroke="#0B1230" stroke-width="2"></circle></svg><p style="margin: 0; font-weight: 700; font-size: 20px; line-height: 1.25">Gives up when the first try fails.</p><p style="margin: 0; color: #4A5372; font-size: 16px">Bouncing back and trying again is a skill that grows with practice.</p></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px; background: #0B1230; color: #FFFFFF; border-radius: 26px; padding: clamp(28px, 4vw, 48px); background-image: radial-gradient(circle at 100% 0%, rgba(32,178,182,0.35), transparent 55%)"><span style="font-size: 15px; font-weight: 600; color: #8EE3E5">The TomoClub difference</span><p style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(26px, 3vw, 38px); line-height: 1.2; letter-spacing: -0.01em; max-width: 860px; text-wrap: balance">Children don't just learn <em style="font-style: italic; color: #FFC83D">about</em> confidence, teamwork and AI. They <em style="font-style: italic; color: #FFC83D">practise</em> these skills through</p><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px"><li style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8EE3E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h11v7H9l-3 3v-3H4z"></path><path d="M15 10h5v6h-1.5v2.5L16 16h-4"></path></g></svg>Live discussions</li><li style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8EE3E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3"></circle><circle cx="16" cy="9" r="3"></circle><path d="M3 19c0-3 2.2-5 5-5s5 2 5 5M11 19c0-3 2.2-5 5-5s5 2 5 5"></path></g></svg>Collaborative challenges</li><li style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8EE3E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M4 12h16M12 4c2.5 2.5 2.5 13.5 0 16M12 4c-2.5 2.5-2.5 13.5 0 16"></path></g></svg>Real-world problems</li><li style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="#8EE3E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"></path></g></svg>Coach feedback</li></ul></div>
+</div>
+</section>
+
+<section id="programs" aria-labelledby="programs-title" style="background: #F6F7FB; scroll-margin-top: 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h2 id="programs-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Two programs. One confident, capable child.</h2><p style="margin: 0 auto; text-align: center; font-size: 19px; color: #4A5372; max-width: 640px">People skills help children work with the world. AI skills help them work with the future.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 28px">
+<article style="flex: 1 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(11,18,48,0.07)">
+<div style="position: relative; aspect-ratio: 520 / 300"><svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Illustration: three children sharing ideas and working together as a team" preserveAspectRatio="xMidYMid slice" style="display: block; width: 100%; height: 100%"><rect width="520" height="300" fill="#FFE8E1"></rect>
+<circle cx="440" cy="40" r="70" fill="#FFD4C7"></circle><circle cx="60" cy="270" r="60" fill="#FFD4C7"></circle>
+<path d="M90 208 q-2 -44 30 -46 q32 2 30 46z" fill="#3B2416"></path><path d="M68 300 q0 -49 52 -49 q52 0 52 49z" fill="#FF6F4F"></path><circle cx="120" cy="190" r="26" fill="#F2C3A0"></circle><path d="M94 188 a26 26 0 0 1 52 0 q-13 -12 -26 -8 q-13 -4 -26 8z" fill="#3B2416"></path><circle cx="112.5" cy="192" r="2.4" fill="#0B1230"></circle><circle cx="127.5" cy="192" r="2.4" fill="#0B1230"></circle><path d="M113 200 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path><path d="M208 300 q0 -49 52 -49 q52 0 52 49z" fill="#20B2B6"></path><circle cx="260" cy="196" r="26" fill="#8D5A3B"></circle><circle cx="246" cy="174" r="9" fill="#120C08"></circle><circle cx="255" cy="174" r="9" fill="#120C08"></circle><circle cx="265" cy="174" r="9" fill="#120C08"></circle><circle cx="274" cy="174" r="9" fill="#120C08"></circle><circle cx="252.5" cy="198" r="2.4" fill="#0B1230"></circle><circle cx="267.5" cy="198" r="2.4" fill="#0B1230"></circle><path d="M253 206 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path><path d="M348 300 q0 -49 52 -49 q52 0 52 49z" fill="#7B6CF6"></path><circle cx="400" cy="190" r="26" fill="#E9B48E"></circle><path d="M374 188 a26 26 0 0 1 52 0 q-13 -12 -26 -8 q-13 -4 -26 8z" fill="#5A3A1E"></path><circle cx="392.5" cy="192" r="2.4" fill="#0B1230"></circle><circle cx="407.5" cy="192" r="2.4" fill="#0B1230"></circle><path d="M393 200 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path>
+<path d="M36 34h150a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12H96l-16 16V88H36a12 12 0 0 1-12-12V46a12 12 0 0 1 12-12z" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.5"></path><text x="111" y="68" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Here's my plan</text>
+<path d="M192 100h136a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12h-52l-16 14v-14h-68a12 12 0 0 1-12-12v-30a12 12 0 0 1 12-12z" fill="#FFC83D" stroke="#0B1230" stroke-width="2.5"></path><text x="260" y="134" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Good point!</text>
+<path d="M340 34h146a12 12 0 0 1 12 12v30a12 12 0 0 1-12 12h-32v16l-16-16h-98a12 12 0 0 1-12-12V46a12 12 0 0 1 12-12z" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.5"></path><text x="413" y="68" text-anchor="middle" font-size="18" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">Let's vote</text>
+</svg><span style="position: absolute; top: 14px; left: 14px; background: #FFFFFF; color: #D9482B; font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px">Grades 3 to 12</span></div>
+<div style="padding: 26px 28px 28px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
+<div><h3 style="margin: 0; font-weight: 700; font-size: 28px; letter-spacing: -0.02em">Tomo Life Skills</h3><p style="margin: 4px 0 0; color: #D9482B; font-size: 19px; font-weight: 600">Become confident with people.</p></div>
+<p style="margin: 0; font-weight: 600; font-size: 15px; color: #4A5372">Your child learns to</p>
+<ul style="margin: -6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px">
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#D9482B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Express ideas confidently</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#D9482B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Listen and collaborate</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#D9482B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Work through disagreements</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#D9482B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Lead and contribute to a team</li>
+</ul>
+<p style="margin: 0; background: #FFE8E1; border-radius: 14px; padding: 12px 16px; font-size: 15px"><strong>Core outcome:</strong> Confidence, communication and collaboration.</p>
+<a href="/life-skills" data-event="program_select" data-location="program_card" data-program="life_skills" style="margin-top: auto; align-self: flex-start; font-weight: 700; font-size: 17px; background: #E2553A; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 24px; min-height: 48px; box-sizing: border-box; display: inline-flex; align-items: center">Explore Life Skills</a>
+</div>
+</article>
+<article style="flex: 1 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(11,18,48,0.07)">
+<div style="position: relative; aspect-ratio: 520 / 300"><svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Illustration: a child checking an AI chatbot answer and finding a mistake" preserveAspectRatio="xMidYMid slice" style="display: block; width: 100%; height: 100%"><rect width="520" height="300" fill="#EEEBFF"></rect>
+<circle cx="470" cy="260" r="80" fill="#DDD7FF"></circle><circle cx="40" cy="40" r="50" fill="#DDD7FF"></circle>
+<path d="M60 300 q0 -57 60 -57 q60 0 60 57z" fill="#7B6CF6"></path><circle cx="120" cy="196" r="30" fill="#C98E64"></circle><path d="M90 194 a30 30 0 0 1 60 0 q-15 -14 -30 -9 q-15 -4 -30 9z" fill="#1B1B1B"></path><circle cx="112.5" cy="198" r="2.4" fill="#0B1230"></circle><circle cx="127.5" cy="198" r="2.4" fill="#0B1230"></circle><path d="M113 206 q7 6 14 0" fill="none" stroke="#0B1230" stroke-width="2.4" stroke-linecap="round"></path>
+<rect x="220" y="40" width="270" height="170" rx="18" fill="#FFFFFF" stroke="#0B1230" stroke-width="2.5"></rect>
+<path d="M246 62l3.5 9.5 9.5 3.5-9.5 3.5-3.5 9.5-3.5-9.5-9.5-3.5 9.5-3.5z" fill="#7B6CF6"></path><text x="266" y="80" font-size="15" font-weight="800" fill="#0B1230" font-family="Outfit, sans-serif">AI answer</text>
+<rect x="240" y="100" width="220" height="10" rx="5" fill="#D8DCE8"></rect><rect x="240" y="120" width="190" height="10" rx="5" fill="#D8DCE8"></rect><rect x="240" y="140" width="205" height="10" rx="5" fill="#D8DCE8"></rect>
+<path d="M236 125h228" stroke="#FF6F4F" stroke-width="4" stroke-linecap="round"></path>
+<rect x="300" y="166" width="170" height="30" rx="15" fill="#20B2B6"></rect><path d="M314 181l5 5 9-10" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><text x="336" y="186" font-size="14" font-weight="800" fill="#FFFFFF" font-family="Outfit, sans-serif">Checked 2 sources</text>
+<circle cx="200" cy="232" r="26" fill="#FFFFFF" stroke="#0B1230" stroke-width="4"></circle><path d="M219 251l20 20" stroke="#0B1230" stroke-width="6" stroke-linecap="round"></path><text x="200" y="241" text-anchor="middle" font-size="26" font-weight="800" fill="#7B6CF6" font-family="Outfit, sans-serif">?</text>
+</svg><span style="position: absolute; top: 14px; left: 14px; background: #FFFFFF; color: #5B4BD6; font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px">Grades 6 to 12</span></div>
+<div style="padding: 26px 28px 28px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
+<div><h3 style="margin: 0; font-weight: 700; font-size: 28px; letter-spacing: -0.02em">Tomo AI Lab</h3><p style="margin: 4px 0 0; color: #5B4BD6; font-size: 19px; font-weight: 600">Become a thoughtful creator with AI.</p></div>
+<p style="margin: 0; font-weight: 600; font-size: 15px; color: #4A5372">Your child learns to</p>
+<ul style="margin: -6px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px">
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#5B4BD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Question AI-generated answers</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#5B4BD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Spot inaccurate information</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#5B4BD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Use AI safely and responsibly</li>
+<li style="display: flex; align-items: center; gap: 10px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#5B4BD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Create projects with AI tools</li>
+</ul>
+<p style="margin: 0; background: #EEEBFF; border-radius: 14px; padding: 12px 16px; font-size: 15px"><strong>Core outcome:</strong> Critical thinking, AI literacy and creativity.</p>
+<a href="/ai-lab" data-event="program_select" data-location="program_card" data-program="ai_lab" style="margin-top: auto; align-self: flex-start; font-weight: 700; font-size: 17px; background: #5B4BD6; color: #FFFFFF; text-decoration: none; border-radius: 999px; padding: 13px 24px; min-height: 48px; box-sizing: border-box; display: inline-flex; align-items: center">Explore AI Lab</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section id="pricing" aria-labelledby="pricing-title" style="scroll-margin-top: 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h2 id="pricing-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Choose the skills your child needs to grow</h2><p style="margin: 0 auto; text-align: center; font-size: 19px; color: #4A5372; max-width: 640px">Special launch prices for 2026. Only 12 seats per class, so batches fill fast.</p></div>
+<div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: stretch">
+<article style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; color: #0B1230; border: 1px solid #E3E6EF; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+
+<h3 style="margin: 0; font-weight: 700; font-size: 24px">Tomo Life Skills</h3>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: #FF6F4F; color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 5px 12px; border-radius: 999px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#FFFFFF"></path></svg>Special 2026 launch price</span><p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><strong style="font-size: 46px; font-weight: 800; letter-spacing: -0.02em" data-price="one">₹2,999</strong><span style="font-size: 20px; color: #4A5372"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Regular price </span><s data-price="one-was">₹7,999</s></span><span style="color: #4A5372">per month, taxes included</span></p></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px">
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Grades 3 to 12</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>4 live classes a month, 60 minutes each</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Groups of up to 12</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Communication and teamwork</li>
+</ul>
+<a href="/life-skills" data-event="program_select" data-location="pricing" data-program="life_skills" style="margin-top: auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; font-weight: 700; font-size: 17px; background: #FFFFFF; color: #0B1230; border: 2px solid #0B1230; border-radius: 999px; padding: 13px 24px; min-height: 50px;">Start with a free trial class</a>
+</article>
+<article style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; color: #0B1230; border: 1px solid #E3E6EF; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
+
+<h3 style="margin: 0; font-weight: 700; font-size: 24px">Tomo AI Lab</h3>
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: #FF6F4F; color: #FFFFFF; font-weight: 700; font-size: 13px; padding: 5px 12px; border-radius: 999px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="#FFFFFF"></path></svg>Special 2026 launch price</span><p style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px"><strong style="font-size: 46px; font-weight: 800; letter-spacing: -0.02em" data-price="one">₹2,999</strong><span style="font-size: 20px; color: #4A5372"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Regular price </span><s data-price="one-was">₹7,999</s></span><span style="color: #4A5372">per month, taxes included</span></p></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px">
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Grades 6 to 12</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>4 live classes a month, 60 minutes each</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Groups of up to 12</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#0E8A8E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>AI literacy and critical thinking</li>
+</ul>
+<a href="/ai-lab" data-event="program_select" data-location="pricing" data-program="ai_lab" style="margin-top: auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; font-weight: 700; font-size: 17px; background: #FFFFFF; color: #0B1230; border: 2px solid #0B1230; border-radius: 999px; padding: 13px 24px; min-height: 50px;">Start with a free trial class</a>
+</article>
+<article style="flex: 1 1 300px; min-width: 0; background: #0B1230; color: #FFFFFF; border: 1px solid #0B1230; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 20px 44px rgba(11,18,48,0.22)">
+<span style="align-self: flex-start; background: #FFC83D; color: #0B1230; font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 999px">Best value</span>
+<h3 style="margin: 0; font-weight: 700; font-size: 24px">Both programs</h3>
+<p style="margin: 0"><strong style="font-size: 46px; font-weight: 800; letter-spacing: -0.02em" data-price="both">₹4,999</strong><span style="color: #C9D0E6"> per month, taxes included</span></p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 9px">
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#FFC83D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Life Skills and AI Lab together</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#FFC83D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>8 live classes a month</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#FFC83D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Two complementary skill sets</li>
+<li style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#FFC83D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Grades 6 to 12</li>
+</ul>
+<a href="/both-programs" data-event="program_select" data-location="pricing" data-program="bundle" style="margin-top: auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; font-weight: 700; font-size: 17px; background: #FFC83D; color: #0B1230; border: 0; border-radius: 999px; padding: 13px 24px; min-height: 50px;">Enrol in both programs</a>
+</article>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="action-title" style="background: #F6F7FB">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h2 id="action-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Don't just take our word for it. See TomoClub in action.</h2></div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<button type="button" data-event="video_play" data-location="see_in_action" data-program="life_skills" aria-label="Play video: A Tomo Life Skills class" style="font: inherit; position: relative; aspect-ratio: 16 / 10; width: 100%; border: 0; border-radius: 22px; background: #0B1230; color: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; box-sizing: border-box; overflow: hidden; background-image: radial-gradient(circle at 30% 20%, #FF6F4F55, transparent 60%)">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#FF6F4F"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg>
+<span style="font-size: 13px; color: #C9D0E6">[Video: 30-60 sec, real class, captioned, with parent consent]</span>
+</button>
+<figcaption><strong style="font-size: 18px">A Tomo Life Skills class</strong><br><span style="color: #4A5372">Children sharing ideas and working as a team</span></figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<button type="button" data-event="video_play" data-location="see_in_action" data-program="ai_lab" aria-label="Play video: A Tomo AI Lab class" style="font: inherit; position: relative; aspect-ratio: 16 / 10; width: 100%; border: 0; border-radius: 22px; background: #0B1230; color: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; box-sizing: border-box; overflow: hidden; background-image: radial-gradient(circle at 30% 20%, #7B6CF655, transparent 60%)">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#7B6CF6"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg>
+<span style="font-size: 13px; color: #C9D0E6">[Video: 30-60 sec, real class, captioned, with parent consent]</span>
+</button>
+<figcaption><strong style="font-size: 18px">A Tomo AI Lab class</strong><br><span style="color: #4A5372">Children questioning and checking AI answers</span></figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<button type="button" data-event="video_play" data-location="see_in_action" data-program="coach" aria-label="Play video: A coach in action" style="font: inherit; position: relative; aspect-ratio: 16 / 10; width: 100%; border: 0; border-radius: 22px; background: #0B1230; color: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; box-sizing: border-box; overflow: hidden; background-image: radial-gradient(circle at 30% 20%, #20B2B655, transparent 60%)">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#20B2B6"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg>
+<span style="font-size: 13px; color: #C9D0E6">[Video: 30-60 sec, real class, captioned, with parent consent]</span>
+</button>
+<figcaption><strong style="font-size: 18px">A coach in action</strong><br><span style="color: #4A5372">How coaches guide, encourage and give feedback</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section id="how" aria-labelledby="how-title" style="scroll-margin-top: 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 40px; align-items: center">
+<h2 id="how-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Getting started is simple</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 32px; width: 100%">
+<li style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px"><span style="position: relative; display: inline-flex"><svg width="80" height="80" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#FFF4D6"></circle><g fill="none" stroke="#B07A00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="19" width="30" height="27" rx="5"></rect><path d="M17 27h30M24 15v7M40 15v7M26 37l4 4 8-8"></path></g></svg><span style="position: absolute; top: -6px; right: -6px; width: 28px; height: 28px; border-radius: 50%; background: #0B1230; color: #FFFFFF; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center">1</span></span><strong style="font-size: 20px; font-weight: 700">Choose a free trial class</strong><span style="color: #4A5372; font-size: 16px">Pick your child's grade, program and a time that suits you.</span></li>
+<li style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px"><span style="position: relative; display: inline-flex"><svg width="80" height="80" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#FFE8E1"></circle><g fill="none" stroke="#D9482B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="26" r="5"></circle><circle cx="40" cy="26" r="5"></circle><path d="M14 44c0-5.5 4.5-9 10-9s10 3.5 10 9M30 44c0-5.5 4.5-9 10-9s10 3.5 10 9"></path></g></svg><span style="position: absolute; top: -6px; right: -6px; width: 28px; height: 28px; border-radius: 50%; background: #0B1230; color: #FFFFFF; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center">2</span></span><strong style="font-size: 20px; font-weight: 700">Meet the coach and the group</strong><span style="color: #4A5372; font-size: 16px">A live session with a coach and up to 12 children.</span></li>
+<li style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px"><span style="position: relative; display: inline-flex"><svg width="80" height="80" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#EEEBFF"></circle><g fill="none" stroke="#5B4BD6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 42l-4 6M42 42l4 6"></path><rect x="16" y="16" width="32" height="26" rx="4"></rect><path d="M24 34l6-8 5 5 6-9"></path></g></svg><span style="position: absolute; top: -6px; right: -6px; width: 28px; height: 28px; border-radius: 50%; background: #0B1230; color: #FFFFFF; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center">3</span></span><strong style="font-size: 20px; font-weight: 700">Learn by doing</strong><span style="color: #4A5372; font-size: 16px">Activities, discussions and team challenges, not lectures.</span></li>
+<li style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px"><span style="position: relative; display: inline-flex"><svg width="80" height="80" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#E3F6F6"></circle><g fill="none" stroke="#0E8A8E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="15"></circle><path d="M25 32l5 5 10-10"></path></g></svg><span style="position: absolute; top: -6px; right: -6px; width: 28px; height: 28px; border-radius: 50%; background: #0B1230; color: #FFFFFF; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center">4</span></span><strong style="font-size: 20px; font-weight: 700">Decide if it's right for your child</strong><span style="color: #4A5372; font-size: 16px">No obligation to enrol after the free class.</span></li>
+</ol>
+<p style="margin: 0; font-weight: 600; font-size: 20px">Ready to experience it?</p>
+<button type="button" data-open-picker data-event="cta_click" data-location="how_it_works" style="font: inherit; font-weight: 700; font-size: 18px; background: #FFC83D; color: #0B1230; border: 0; border-radius: 999px; padding: 16px 30px; min-height: 54px; cursor: pointer; box-shadow: 0 0 0 6px rgba(255,200,61,0.22), 0 10px 24px rgba(255,200,61,0.25)">Book my child's free class</button>
+</div>
+</section>
+
+<section id="outcomes" aria-labelledby="results-title" style="background: #0B1230; color: #FFFFFF; scroll-margin-top: 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h2 id="results-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #FFFFFF; max-width: 760px; text-wrap: balance">Real skills. Measurable progress.</h2><p style="margin: 0 auto; text-align: center; font-size: 19px; color: #C9D0E6; max-width: 640px">Evidence from TomoClub's school programs.</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 22px">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 62px; font-weight: 800; line-height: 1; color: #FFC83D">80%</strong><span style="font-size: 19px; font-weight: 700">Reported growth</span><span style="color: #C9D0E6">In leadership, innovation and emotional intelligence</span></div>
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 62px; font-weight: 800; line-height: 1; color: #8EE3E5">100%</strong><span style="font-size: 19px; font-weight: 700">Parent interest</span><span style="color: #C9D0E6">Of surveyed parents wanted their child to continue</span></div>
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 62px; font-weight: 800; line-height: 1; color: #C9C1FF">87%</strong><span style="font-size: 19px; font-weight: 700">Assessment pass rate</span><span style="color: #C9D0E6">Grade 8 AI ethics and critical thinking</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-size: 13px; color: #9AA3C4">
+<span>Growth and parent survey: IEM Charter Schools, 117 students, 2023-24, first class vs last class on TomoClub's skills rubric. Pass rate: Amity School District, 2025-26. [Add survey sample size and assessment method]</span>
+<a href="/results" data-event="case_study_click" data-location="results" style="color: #FFFFFF; font-size: 15px; font-weight: 600; white-space: nowrap">Explore our school case studies</a>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="founders-title" style="background: #F6F7FB">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 40px">
+<h2 id="founders-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Serious credentials. Seriously fun classes.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 32px 56px; align-items: center">
+<div style="position: relative">
+<img src="/assets/parents/xprize.webp" alt="Avinash Bansal and Manik Mehta receiving the $1M Anu and Naveen Jain Women's Safety XPRIZE, June 2018" width="1200" height="544" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 24px; box-shadow: 0 18px 40px rgba(11,18,48,0.15)">
+<span style="position: absolute; bottom: 16px; right: 16px; background: #FFFFFF; color: #0B1230; font-weight: 700; font-size: 14px; padding: 7px 14px; border-radius: 999px; box-shadow: 0 6px 18px rgba(11,18,48,0.18)">As featured in Forbes</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); letter-spacing: -0.02em; line-height: 1.2">Built by founders who've done big things before</h3>
+<p style="margin: 0; color: #4A5372; font-size: 18px">Founders Avinash Bansal and Manik Mehta won the $1M Women's Safety XPRIZE in 2018 and presented at the United Nations. They then built and exited a consumer electronics company. TomoClub is what they chose to build next.</p>
+<a href="https://www.forbes.com/sites/denizcam/2018/06/07/safety-device-for-women-wins-1-million-xprize-launched-by-philanthropists-anu-and-naveen-jain/" data-event="press_click" data-location="founders" style="align-self: flex-start; font-weight: 700; color: #0E8A8E; text-decoration: underline; text-underline-offset: 4px; min-height: 44px; display: inline-flex; align-items: center">Read the Forbes story</a>
+<p style="margin: 8px 0 0; font-weight: 700; font-size: 18px">Six kinds of experts behind every class</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Psychologists</li>
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Education researchers</li>
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Game designers</li>
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Curriculum designers</li>
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Instructional designers</li>
+<li style="background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 15px">Software developers</li>
+</ul>
+<p style="margin: 8px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 14px; color: #4A5372"><strong style="color: #0B1230">Aligned to</strong><span style="font-weight: 700; letter-spacing: 0.02em">CASEL</span><span style="font-weight: 700">AI4K12</span><span style="font-weight: 700">UNESCO</span><span style="font-weight: 700">ISTE</span></p>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="voices-title">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 36px">
+<h2 id="voices-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">What parents notice at home</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 22px">
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<button type="button" data-event="video_play" data-location="testimonial" aria-label="Play parent video" style="font: inherit; aspect-ratio: 16 / 9; width: 100%; border: 0; background: #FFE8E1; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; color: #0B1230"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#FF6F4F"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg><span style="font-size: 13px; font-weight: 600">[Video story: confidence, 30-45 sec, with consent]</span></button>
+<div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<blockquote style="margin: 0; font-weight: 600; font-size: 19px; line-height: 1.4">“My child deals with things differently now. She is slower to anger and quicker to try to problem solve.”</blockquote>
+<p style="margin: 0; background: #FFE8E1; border-radius: 12px; padding: 10px 14px; font-size: 15px"><strong>What changed:</strong> Calmer, and quicker to solve problems</p>
+<figcaption style="margin-top: auto; font-size: 14px; color: #4A5372"><strong style="color: #0B1230">Parent of a Grade 6 student</strong><br>IEM Charter Schools, Tomo Life Skills school program</figcaption>
+</div>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<button type="button" data-event="video_play" data-location="testimonial" aria-label="Play parent video" style="font: inherit; aspect-ratio: 16 / 9; width: 100%; border: 0; background: #EEEBFF; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; color: #0B1230"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#7B6CF6"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg><span style="font-size: 13px; font-weight: 600">[Video story: critical thinking, 30-45 sec, with consent]</span></button>
+<div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<blockquote style="margin: 0; font-weight: 600; font-size: 19px; line-height: 1.4">“She will express her emotions more clearly, and find solutions a lot quicker than usual.”</blockquote>
+<p style="margin: 0; background: #EEEBFF; border-radius: 12px; padding: 10px 14px; font-size: 15px"><strong>What changed:</strong> Expresses feelings clearly, finds solutions faster</p>
+<figcaption style="margin-top: auto; font-size: 14px; color: #4A5372"><strong style="color: #0B1230">Parent</strong><br>IEM Charter Schools, Tomo Life Skills school program</figcaption>
+</div>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; background: #FFFFFF; border: 1px solid #E3E6EF; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+<button type="button" data-event="video_play" data-location="testimonial" aria-label="Play parent video" style="font: inherit; aspect-ratio: 16 / 9; width: 100%; border: 0; background: #E3F6F6; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; color: #0B1230"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#20B2B6"></circle><path d="M26 21v22l18-11z" fill="#FFFFFF"></path></svg><span style="font-size: 13px; font-weight: 600">[Video story: teamwork, 30-45 sec, with consent]</span></button>
+<div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<blockquote style="margin: 0; font-weight: 600; font-size: 19px; line-height: 1.4">“Peer interactions and conflict resolution significantly increased. Just a positive, non-stressful space.”</blockquote>
+<p style="margin: 0; background: #E3F6F6; border-radius: 12px; padding: 10px 14px; font-size: 15px"><strong>What changed:</strong> Gets along better with peers, resolves conflicts</p>
+<figcaption style="margin-top: auto; font-size: 14px; color: #4A5372"><strong style="color: #0B1230">Parent</strong><br>IEM Charter Schools, Tomo Life Skills school program</figcaption>
+</div>
+</figure>
+</div>
+</div>
+</section>
+
+
+
+
+<section id="faq" aria-labelledby="faq-title" style="background: #F6F7FB; scroll-margin-top: 72px">
+<div style="max-width: 860px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; gap: 26px">
+<h2 id="faq-title" style="margin: 0 auto; text-align: center; font-weight: 700; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -0.02em; color: #0B1230; max-width: 760px; text-wrap: balance">Questions parents ask before booking</h2>
+<div role="tablist" aria-label="FAQ topics" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px">
+<button type="button" role="tab" aria-selected="true" data-faq-tab="0" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #0B1230; color: #FFFFFF; border: 1.5px solid #0B1230">Learning</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="1" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Classes</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="2" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Teachers</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="3" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Safety</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="4" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Suitability</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="5" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Pricing</button>
+<button type="button" role="tab" aria-selected="false" data-faq-tab="6" style="font: inherit; font-weight: 600; font-size: 15px; padding: 9px 16px; min-height: 42px; border-radius: 999px; cursor: pointer; background: #FFFFFF; color: #0B1230; border: 1.5px solid #D5DAE6">Getting started</button>
+</div>
+<div style="background: #FFFFFF; border-radius: 22px; padding: 10px 24px 14px; border: 1px solid #E3E6EF">
+<div role="tabpanel" aria-label="Learning" style="display: block" data-faq-panel="0">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Learning</h3>
+<details data-question="What will my child learn?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What will my child learn?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">In Tomo Life Skills, children practise expressing ideas, listening, working through disagreements and leading a team. In Tomo AI Lab, they learn to question AI answers, spot inaccurate information, use AI safely and create projects with AI tools.</p>
+</details>
+<details data-question="How do you measure progress?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">How do you measure progress?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">[TBC: whether parents receive progress updates, how often and in what form]</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Classes" style="display: none" data-faq-panel="1">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Classes</h3>
+<details data-question="How many children are in a class?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">How many children are in a class?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Classes are small live groups of up to 12 children.</p>
+</details>
+<details data-question="How long is each class?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">How long is each class?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Each class is 60 minutes and runs once a week, so four classes a month per program.</p>
+</details>
+<details data-question="Are the groups mixed in age?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Are the groups mixed in age?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Yes. Children of different ages learn together, and older children often help younger ones. [TBC: age bands used for grouping]</p>
+</details>
+<details data-question="What times are available?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What times are available?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Several time slots are offered each week, so families can choose one that fits their routine. [TBC: time zones covered]</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Teachers" style="display: none" data-faq-panel="2">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Teachers</h3>
+<details data-question="Who teaches the classes?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Who teaches the classes?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Experienced coaches with at least five years of teaching.</p>
+</details>
+<details data-question="What are their qualifications?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What are their qualifications?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Our coaches are STEM.org Master Certified Trainers, Google for Education Certified and Teach for India Certified.</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Safety" style="display: none" data-faq-panel="3">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Safety</h3>
+<details data-question="How are children protected online?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">How are children protected online?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">An adult teacher supervises every small group for the whole class. We do not sell your child's data and we do not use it for advertising.</p>
+</details>
+<details data-question="Are sessions recorded?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Are sessions recorded?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Some sessions are recorded for internal quality review. Recordings are not shared publicly without parent consent.</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Suitability" style="display: none" data-faq-panel="4">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Suitability</h3>
+<details data-question="My child is shy and doesnt like speaking in groups. Is TomoClub suitable?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">My child is shy and doesn't like speaking in groups. Is TomoClub suitable?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Yes. Children work in small teams of 3 to 4 on live challenges, so every child gets a turn in a small, friendly group. [Add how coaches encourage quiet children without pressure]</p>
+</details>
+<details data-question="Does my child need prior AI knowledge?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Does my child need prior AI knowledge?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">[TBC: confirm no prior AI or coding knowledge is needed]</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Pricing" style="display: none" data-faq-panel="5">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Pricing</h3>
+<details data-question="What does the fee include?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What does the fee include?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Each program is <span data-price="one">₹2,999</span> a month (2026 offer; regular price <span data-price="one-was">₹7,999</span>) for four live 60-minute classes in a group of up to 12 with a coach. Both programs together are <span data-price="both">₹4,999</span> a month for eight classes.</p>
+</details>
+<details data-question="Can I cancel?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Can I cancel?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Yes, you can cancel at any time. Your subscription ends at the end of the billing cycle you have already paid for.</p>
+</details>
+<details data-question="Do I get a refund if I cancel mid-cycle?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">Do I get a refund if I cancel mid-cycle?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">No. Your subscription runs to the end of the billing cycle.</p>
+</details>
+</div>
+<div role="tabpanel" aria-label="Getting started" style="display: none" data-faq-panel="6">
+<h3 style="margin: 0 0 4px; font-weight: 700; font-size: 15px; color: #4A5372">Getting started</h3>
+<details data-question="How do I book?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">How do I book?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Tap Book my child's free class, choose your child's grade and program, then pick a time. Our team confirms your booking with you on WhatsApp.</p>
+</details>
+<details data-question="What happens in the trial?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What happens in the trial?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">Your child joins a live 60-minute class with a coach and a small group. It's free, and there is no obligation to continue.</p>
+</details>
+<details data-question="What do I need for a class?" style="border-bottom: 1px solid #E3E6EF; padding: 18px 4px">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: 19px">What do I need for a class?<span class="pm" aria-hidden="true" style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #F1F3F9; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; transition: transform .2s">+</span></summary>
+<p style="margin: 10px 0 0; color: #4A5372">A laptop, tablet or computer with a camera, microphone, keyboard, mouse and a stable internet connection. Our programs do not work on smartphones, by design.</p>
+</details>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="final-title" style="background: #0B1230; color: #FFFFFF; background-image: radial-gradient(circle at 50% 120%, rgba(255,200,61,0.28), transparent 55%)">
+<div style="max-width: 1160px; margin: 0 auto; padding: clamp(64px, 8vw, 104px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+<span style="background: rgba(255,200,61,0.16); color: #FFC83D; border: 1px solid rgba(255,200,61,0.4); border-radius: 999px; padding: 6px 14px; font-size: 15px; font-weight: 700">Free trial class</span>
+<h2 id="final-title" style="margin: 0; font-weight: 700; font-size: clamp(36px, 4.6vw, 56px); line-height: 1.08; letter-spacing: -0.025em; max-width: 780px; text-wrap: balance">See what your child can do with the right opportunities.</h2>
+<p style="margin: 0; font-size: 19px; color: #C9D0E6; max-width: 640px">Experience a live TomoClub class. Meet our coaches, explore the activities and discover how your child can grow.</p>
+<button type="button" data-open-picker data-event="cta_click" data-location="final" style="font: inherit; font-weight: 700; font-size: 20px; background: #FFC83D; color: #0B1230; border: 0; border-radius: 999px; padding: 16px 30px; min-height: 54px; cursor: pointer; box-shadow: 0 0 0 6px rgba(255,200,61,0.22), 0 10px 24px rgba(255,200,61,0.25)">Book a free trial class</button>
+</div>
+</section>
+</main>
+
+<footer style="background: #070C22; color: #C9D0E6; font-size: 15px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 52px clamp(20px, 5vw, 56px) 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 32px 48px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<img src="/assets/logo.webp" alt="TomoClub" width="156" height="24" style="display: block">
+<span>Raising thinkers, not followers.</span>
+</div>
+<nav aria-label="Footer" style="display: flex; flex-direction: column; gap: 8px">
+<strong style="color: #FFFFFF">Programs</strong>
+<a href="/life-skills" data-event="program_select" data-location="footer" data-program="life_skills" style="color: #C9D0E6">Tomo Life Skills</a>
+<a href="/ai-lab" data-event="program_select" data-location="footer" data-program="ai_lab" style="color: #C9D0E6">Tomo AI Lab</a>
+<a href="/schools" style="color: #C9D0E6">For schools</a>
+<a href="/privacy-policy" style="color: #C9D0E6">Safety and privacy</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<strong style="color: #FFFFFF">Contact us</strong>
+<a href="tel:+16505478082" data-event="call_click" data-location="footer" style="color: #C9D0E6">Call us: +1 650 547-8082</a>
+<a href="mailto:info@tomoclub.org" data-event="email_click" data-location="footer" style="color: #C9D0E6">info@tomoclub.org</a>
+<strong style="color: #FFFFFF; margin-top: 14px">Our location</strong>
+<span>4197 Tuller Road, Dublin,<br>Ohio 43017, USA</span>
+</div>
+</div>
+<div style="max-width: 1160px; margin: 0 auto; padding: 18px clamp(20px, 5vw, 56px) 96px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px">
+<span>© 2026 TomoClub</span>
+<span style="display: flex; gap: 18px; flex-wrap: wrap"><a href="https://www.tomoclub.org/privacy-policy" style="color: #C9D0E6">Privacy</a><a href="https://www.tomoclub.org/terms-and-conditions" style="color: #C9D0E6">Terms</a><a href="https://www.instagram.com/tomoclub_edu" style="color: #C9D0E6">Instagram</a><a href="https://www.youtube.com/@tomoclubedu" style="color: #C9D0E6">YouTube</a></span>
+</div>
+</footer>
+
+<div class="mcta" style="position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; justify-content: center">
+<button type="button" data-open-picker data-event="cta_click" data-location="mobile_bar" style="font: inherit; font-weight: 700; font-size: 18px; width: 100%; background: #FFC83D; color: #0B1230; border: 2px solid #0B1230; border-radius: 999px; min-height: 56px; cursor: pointer; box-shadow: 0 10px 30px rgba(11,18,48,0.3)">Book my child's free class</button>
+</div>
+
+
+
+
+</div>
+</body>
+</html>

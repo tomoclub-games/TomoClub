@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot.">
+    <meta name="description" content="Talk to TomoClub about your school or district. Book a 20-minute call or write to us; a co-founder replies within 24 hours.">
     <title>Contact Us | TomoClub</title>
     <link rel="canonical" href="https://www.tomoclub.org/contact-us">
     <meta property="og:url" content="https://www.tomoclub.org/contact-us">
@@ -24,7 +24,6 @@
     
     <link rel="stylesheet" href="/assets/css/styles.css?v=21">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script async src="https://tally.so/widgets/embed.js"></script>
 
     <style>
         .contact-container {
@@ -105,6 +104,7 @@
     <meta name="twitter:description" content="Contact TomoClub. Get in touch with our team for inquiries, support, or to request a pilot.">
     <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.jpg">
     <script defer src="/assets/js/analytics.js"></script>
+    <link rel="stylesheet" href="/assets/css/home.css?v=2">
 </head>
 <body>
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
@@ -124,23 +124,55 @@
     </nav>
 
     <div class="contact-container container">
-        <div class="contact-content">
+        <div class="contact-content" style="max-width: 760px; margin: 0 auto;">
             <div class="contact-header">
-                <h1>Contact Us</h1>
-                <p>Have a question or want to explore a pilot for your school? Fill out the form below and our team will get back to you within 24 hours.</p>
+                <h1>Talk to us</h1>
+                <p>Tell us what your school or district is trying to fix. A co-founder replies within 24 hours, with an honest answer about whether one of our programs fits, whether we should build something with you, or whether someone else is a better fit.</p>
             </div>
-            
-            <div class="form-iframe-wrapper">
-                <iframe
-                    id="tally-form"
-                    data-form-src="https://tally.so/embed/yPgo9X?transparentBackground=1&dynamicHeight=1"
-                    title="Contact Form"
-                    width="100%"
-                    frameborder="0"
-                    marginheight="0"
-                    marginwidth="0">
-                </iframe>
-            </div>
+            <form class="h-form" id="b2b-lead-form" data-lead-form data-form-name="contact_form" novalidate>
+                <h3>Talk to us in 20 minutes</h3>
+                <p>Pick a time that suits you, or write to us below.</p>
+                <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn h-btn-teal" style="width:100%" data-book-call data-event-label="contact_page">Book a 20-minute call <i data-lucide="calendar"></i></a>
+                <div class="h-or">or write to us</div>
+                <div class="row">
+                    <div class="h-field"><label for="cf-name">Your name</label><input id="cf-name" name="name" autocomplete="name" required></div>
+                    <div class="h-field"><label for="cf-email">Work email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+                </div>
+                <div class="row">
+                    <div class="h-field"><label for="cf-org">School or district</label><input id="cf-org" name="district" autocomplete="organization" required></div>
+                    <div class="h-field"><label for="cf-role">Your role</label>
+                        <select id="cf-role" name="role">
+                            <option value="">Choose one</option>
+                            <option>Superintendent</option>
+                            <option>Assistant or deputy superintendent</option>
+                            <option>Principal or head of school</option>
+                            <option>Curriculum or PD leader</option>
+                            <option>Technology or innovation leader</option>
+                            <option>Student services or special education</option>
+                            <option>Teacher or coach</option>
+                            <option>Board member</option>
+                            <option>Education partner or nonprofit</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="h-field"><label for="cf-state">State</label><input id="cf-state" name="state" autocomplete="address-level1"></div>
+                    <div class="h-field"><label for="cf-offer">Most interested in</label>
+                        <select id="cf-offer" name="offer_interest">
+                            <option value="">Not sure yet</option>
+                            <option>Build With Us</option>
+                            <option>AI PD for teachers</option>
+                            <option>AI Literacy for students</option>
+                            <option>Future-Ready Skills</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="h-field"><label for="cf-goal">What's on your mind?</label><textarea id="cf-goal" name="goal" placeholder="The goal, who it affects, what has been tried." required></textarea></div>
+                <button type="submit" class="btn btn-primary">Send it over <i data-lucide="send"></i></button>
+                <p class="fine">A person reads this, not an autoresponder. We never share your details. See our <a href="/privacy-policy">privacy policy</a>.</p>
+                <div class="h-form-status" role="status" aria-live="polite"></div>
+            </form>
         </div>
     </div>
 
@@ -165,7 +197,7 @@
                     <a href="/" class="logo footer-logo" style="text-decoration: none; font-size: 2rem;">
                         <img src="/assets/logo.webp" alt="TomoClub" width="156" height="24">
                     </a>
-                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">Educators, psychologists, game designers and engineers building AI literacy, future-ready skills, teacher training and custom tools with K-12 schools and districts.</p>
                     <div class="social-links">
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
@@ -249,21 +281,8 @@
             const newPath = window.location.pathname.replace('.html', '');
             window.history.replaceState(null, '', newPath + window.location.hash);
         }
-
-        // Pass query parameters to the form. The iframe uses a plain src (not data-tally-src) so
-        // Tally's embed.js sees dynamicHeight=1 and resizes the frame to the form: no inner scroll.
-        const tallyIframe = document.getElementById('tally-form');
-        const url = new URL(tallyIframe.dataset.formSrc);
-        const params = new URLSearchParams(window.location.search);
-        params.set('pageUrl', window.location.href);
-        for (const [key, value] of params.entries()) {
-            url.searchParams.set(key, value);
-        }
-        tallyIframe.src = url.toString();
-        const initTally = () => { if (window.Tally) Tally.loadEmbeds(); };
-        initTally();
-        window.addEventListener('load', initTally);
     </script>
+<script src="/assets/js/home.js?v=2" defer></script>
 </body>
 </html>
 

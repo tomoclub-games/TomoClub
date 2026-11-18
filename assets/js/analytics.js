@@ -16,7 +16,8 @@
  *   section_view   { section_name, engagement_ms }   when a section leaves the screen or the page is closed,
  *                                                     for any element with a data-track="name" attribute
  *   cta_click      { cta_text, cta_href }             for links/buttons inside data-track sections
- *   lead_submitted { form_id }                        when the Build With Us form is submitted
+ *   B2B interaction events (lead_submitted, book_call_click, ...) come from assets/js/b2b-events.js,
+ *   which this file loads at the end.
  *
  * Meta Pixel events (besides PageView on every page):
  *   Lead    { content_name }   Build With Us thank-you page, contact-page Tally form submit,
@@ -189,14 +190,9 @@
       });
     });
 
-    // Lead form submissions (Build With Us).
-    var form = document.getElementById('project-form');
-    if (form) {
-      form.addEventListener('submit', function () {
-        gtag('event', 'lead_submitted', { form_id: 'build-with-us' });
-        if (window.lintrk) window.lintrk('track', { conversion_id: null });
-        if (window.clarity) window.clarity('set', 'lead', 'submitted');
-      });
-    }
+    // Lead form submissions are tracked by assets/js/b2b-events.js (lead_submitted), after the server accepts them.
   });
+
+  /* ── 7. B2B interaction events, Calendly pop-up, form spam fields ────── */
+  load('/assets/js/b2b-events.js?v=1');
 })();
