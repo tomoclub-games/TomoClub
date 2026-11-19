@@ -57,18 +57,43 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/schools",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/life-skills",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-lab",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/both-programs",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/pd",
       "destination": "/professional-development",
       "statusCode": 301
     },
     {
+      "source": "/contact-us",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/contact-form",
-      "destination": "/contact-us",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/schedule",
-      "destination": "/contact-us",
+      "destination": "/",
       "statusCode": 301
     },
     {
@@ -127,22 +152,22 @@
     },
     {
       "source": "/parents/life-skills",
-      "destination": "/life-skills",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/parents/ai-lab",
-      "destination": "/ai-lab",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/parents/both-programs",
-      "destination": "/both-programs",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/contact-us.html",
-      "destination": "/contact-us",
+      "destination": "/",
       "statusCode": 301
     },
     {

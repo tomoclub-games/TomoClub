@@ -22,8 +22,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root 
 SITE = "https://www.tomoclub.org"
 OUT = os.path.join(ROOT, "sitemap.xml")
 # Listed first, in this order; everything else follows alphabetically.
-MAIN = ["/", "/ai-literacy", "/future-ready", "/professional-development", "/schools", "/life-skills", "/ai-lab", "/both-programs", "/guides",
-        "/education-hall", "/podcast", "/blog", "/results", "/about", "/faqs", "/contact-us",
+MAIN = ["/", "/ai-literacy", "/future-ready", "/professional-development", "/guides",
+        "/education-hall", "/podcast", "/blog", "/results", "/about", "/faqs",
         "/leaders-of-tomorrow"]
 
 
