@@ -5,9 +5,10 @@
  *   Leaders of Tomorrow and toolkits: E-book requests, Toolkit downloads
  * The Build With Us project form has its own separate script and is not part of this.
  * Tabs and their header rows are created automatically the first time a row arrives.
+ *   B2B site: School leads (api/lead.js: the home page form and Calendly bookings)
  * Also: "Failed bookings" (a trial booking that did not go through).
  *
- * Slack alerts (confirmed trial booking, paid enrolment, failed booking): add a script property named
+ * Slack alerts (new school lead, booked discovery call, confirmed trial booking, paid enrolment, failed booking): add a script property named
  * SLACK_WEBHOOK_URL (Project Settings > Script properties) with the Slack Incoming Webhook URL, then run
  * testSlack once from the editor to authorise and test it. No property, no alerts.
  *
@@ -455,6 +456,22 @@ HEADERS["Failed bookings"] = [
   ["visitor_id", "Visitor ID"]
 ].concat(ATTRIBUTION_COLUMNS, GEO_COLUMNS);
 
+// B2B: every lead from api/lead.js (home page form, Calendly bookings).
+HEADERS["School leads"] = [
+  ["timestamp", "Timestamp (UTC)"],
+  ["type", "Type"],
+  ["name", "Name"],
+  ["email", "Email"],
+  ["email_type", "Work or personal email"],
+  ["organization", "School or district"],
+  ["role", "Role"],
+  ["state", "State"],
+  ["offer_interest", "Offer interest"],
+  ["message", "What they wrote"],
+  ["meeting_start", "Meeting start (UTC)"],
+  ["page", "Page"]
+].concat(ATTRIBUTION_COLUMNS);
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
   var result, saved = [];
@@ -524,6 +541,14 @@ function slackText_(sheetName, d) {
     '*Grade:* ' + e(d.grade) + '\n*Program:* ' + e(programs[d.program] || d.program);
   var lang = '\n*Language / currency:* ' + e(d.language) + ' / ' + e(d.currency);
 
+  if (sheetName === 'School leads') {
+    var kind = { discovery_request: 'New school lead', call_booked: 'Discovery call booked' }[d.type] || 'School lead';
+    return ':school: *' + kind + '*\n*Name:* ' + e(d.name) + '\n*Email:* ' + e(d.email) + ' (' + e(d.email_type) + ')\n' +
+      '*School or district:* ' + e(d.organization) + '\n*Role:* ' + e(d.role) + '\n*State:* ' + e(d.state) + '\n' +
+      (d.meeting_start ? '*Meeting:* ' + e(d.meeting_start) + ' UTC\n' : '') +
+      '*Interest:* ' + e(d.offer_interest) + '\n*In their words:* ' + e(d.message) + '\n*Page:* ' + e(d.page) +
+      ' | *Source:* ' + e(d.utm_source || d.referrer);
+  }
   if (sheetName === 'Trial bookings') {
     return ':tada: *New free trial class booked*\n' + person + '\n' +
       '*Class:* ' + e(d.class_date) + ', ' + e(d.class_time) + ' (' + e(d.time_zone) + ')\n*Starts (UTC):* ' + e(d.class_start_utc) + lang;

@@ -169,21 +169,11 @@
     <meta name="twitter:description" content="The Learning Shift #15 joins The Learning Shift to talk about The Feedback That Sounds Right But Harms Teachers. A TomoClub podcast episode, May 25, 2026.">
     <meta name="twitter:image" content="https://img.youtube.com/vi/PQXAZxNlrZ4/maxresdefault.jpg">
     <script defer src="/assets/js/analytics.js"></script>
+    <script defer src="/assets/js/calendly.js"></script>
 </head>
 <body>
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
-    <!-- Announcement Banner -->
-    <div id="announcement-banner" class="announcement-banner">
-        <div class="banner-content">
-            <span class="banner-text"><strong>New Release:</strong> Leaders of Tomorrow E-Book going live May 1st!</span>
-            <a href="/leaders-of-tomorrow" class="banner-btn">See What's Inside <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-        <button id="close-banner" class="banner-close" aria-label="Close banner">
-            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
-        </button>
-    </div>
-
-    <!-- Navigation -->
+    <!-- Navigation (B2B, Nov 2026) -->
     <nav>
         <div class="container nav-container">
             <a href="/" class="logo" style="text-decoration: none;">
@@ -191,48 +181,49 @@
             </a>
             <div class="nav-links" id="nav-links">
                 <div class="nav-item">
-                    <a href="/schools">For schools <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <a href="/#what-we-do">What we do <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
-                        <a href="/ai-literacy">
-                            <strong>AI Literacy Curriculum</strong>
-                            <span style="display:block; font-size:0.8rem;">Grades 6–12</span>
-                        </a>
-                        <a href="/future-ready">
-                            <strong>Future-Ready Skills</strong>
-                            <span style="display:block; font-size:0.8rem;">Grades 3–12</span>
+                        <a href="/build-with-us">
+                            <strong>Build With Us</strong>
+                            <span style="display:block; font-size:0.8rem;">Custom tools and curriculum for your district</span>
                         </a>
                         <a href="/professional-development">
                             <strong>AI Fundamentals PD</strong>
-                            <span style="display:block; font-size:0.8rem;">For Teachers</span>
+                            <span style="display:block; font-size:0.8rem;">For teachers and leaders</span>
+                        </a>
+                        <a href="/ai-literacy">
+                            <strong>AI Literacy Curriculum</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 6 to 12</span>
+                        </a>
+                        <a href="/future-ready">
+                            <strong>Future-Ready Skills</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 3 to 12</span>
                         </a>
                     </div>
                 </div>
-                <div class="nav-item"><a href="/">For Parents</a></div>
-                <div class="nav-item"><a href="/about">About Us</a></div>
                 <div class="nav-item"><a href="/results">Results</a></div>
                 <div class="nav-item">
-                    <a href="#">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <a href="/blog">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
-                        <a href="/education-hall">Educational Hall</a>
                         <a href="/blog">Blog</a>
                         <a href="/podcast">Podcast: The Learning Shift</a>
-                        <a href="/guides">Guides & Toolkits</a>
-                        <a href="/leaders-of-tomorrow">Leaders of Tomorrow Ebook</a>
+                        <a href="/leaders-of-tomorrow">Leaders of Tomorrow ebook</a>
+                        <a href="/guides">Guides and toolkits</a>
+                        <a href="/education-hall">Education Hall</a>
                     </div>
                 </div>
-                <div class="nav-item"><a href="/build-with-us">Build With Us</a></div>
-                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item"><a href="/about">About</a></div>
                 <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
-                    <a href="/contact-us" class="btn btn-primary" style="width: 100%;">Contact Us</a>
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary" style="width: 100%;" data-book-call data-event-label="nav_mobile">Book a 20-minute call</a>
                 </div>
             </div>
-            
+
             <div class="nav-actions">
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
                     <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                 </button>
-                <a href="/contact-us" class="btn btn-primary desktop-only">Contact Us</a>
+                <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary desktop-only" data-book-call data-event-label="nav">Book a 20-minute call</a>
                 <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i data-lucide="menu" id="menu-icon-open"></i>
                     <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
@@ -286,22 +277,19 @@
     </div>
     </main>
 
-    <!-- Global CTA (appears on all pages) -->
-    <section style="padding: 6rem 0;">
-
+    <!-- Global CTA (appears on all built pages) -->
+    <section style="padding: 6rem 0;" data-track="global_cta">
         <div class="container">
             <div class="glass-card" style="text-align: center; padding: 5rem 2rem; background: #0F172A; color: white; border-radius: 32px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);">
-                <h2 style="margin-bottom: 1.5rem; color: white; font-size: 2.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">See what a future-ready school looks like in <span class="highlight-teal" style="color: white; z-index: 1;">your district.</span></h2>
-                <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">The fastest way to know if TomoClub is the right fit is a real conversation. We will learn about your school, share what has worked for districts like yours, and design a pilot that fits your context and budget.</p>
-                <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.15rem; color: #94A3B8; font-weight: 500;">No pressure. No one-size-fits-all pitch.</p>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-                    <a href="/contact-us" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Contact Us <i data-lucide="arrow-right"></i></a>
-                    <a href="/faqs" style="color: var(--teal); text-decoration: none; font-weight: 500;">Already have questions? Browse our FAQs &rarr;</a>
+                <h2 style="margin-bottom: 1.5rem; color: white; font-size: 2.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Start with the problem, <span class="highlight-teal" style="color: white; z-index: 1;">not a product.</span></h2>
+                <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">Tell us what your school or district is trying to fix. In 20 minutes we will tell you honestly whether one of our programs fits, whether we should build something with you, or whether someone else is a better fit.</p>
+                <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem; color: #94A3B8; font-weight: 500;">Every project is scoped after that first call. No cost, no obligation.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem;">
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;" data-book-call data-event-label="global_cta">Book a 20-minute call <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -310,7 +298,7 @@
                     <a href="/" class="logo footer-logo" style="text-decoration: none;">
                         <img src="/assets/logo.webp" alt="TomoClub" width="156" height="24">
                     </a>
-                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">Educators, psychologists, game designers and engineers building AI literacy, future-ready skills, teacher training and custom tools with K-12 schools and districts.</p>
                     <div class="social-links">
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
@@ -346,11 +334,14 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Programs</h4>
+                    <h4>What we do</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li><a href="/ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
-                        <li><a href="/future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/build-with-us" style="font-size: 0.9rem;">Build With Us</a></li>
                         <li><a href="/professional-development" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                        <li><a href="/ai-literacy" style="font-size: 0.9rem;">AI Literacy (Grades 6 to 12)</a></li>
+                        <li><a href="/future-ready" style="font-size: 0.9rem;">Future-Ready Skills (Grades 3 to 12)</a></li>
+                        <li><a href="/results" style="font-size: 0.9rem;">Results and case studies</a></li>
+                        <li><a href="/about" style="font-size: 0.9rem;">About us</a></li>
                     </ul>
                 </div>
             </div>
@@ -358,7 +349,6 @@
                 <p>&copy; 2026 TomoClub. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
-                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
                     <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
                 </div>
             </div>
@@ -368,7 +358,7 @@
     <!-- Download Modal has been moved to its own page -->
 
     <!-- Contextual Floating CTA -->
-    <a href="/contact-us" id="floating-cta" class="btn btn-primary floating-cta">Contact Us <i data-lucide="arrow-right"></i></a>
+    <a href="https://calendly.com/avinashtomo/tomoclub-call" id="floating-cta" class="btn btn-primary floating-cta" data-book-call data-event-label="floating">Book a 20-minute call <i data-lucide="arrow-right"></i></a>
 
     <!-- Video Modal -->
     <div id="video-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; align-items: center; justify-content: center; flex-direction: column;">

@@ -155,21 +155,11 @@
     <meta name="twitter:description" content="Practical, customized AI PD for K–12 educators. Builds teacher confidence with AI tools, classroom ethics, and academic integrity. Hands-on and ready to apply the next day.">
     <meta name="twitter:image" content="https://www.tomoclub.org/assets/og-image.jpg">
     <script defer src="/assets/js/analytics.js"></script>
+    <script defer src="/assets/js/calendly.js"></script>
 </head>
 <body>
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
-    <!-- Announcement Banner -->
-    <div id="announcement-banner" class="announcement-banner">
-        <div class="banner-content">
-            <span class="banner-text"><strong>New Release:</strong> Leaders of Tomorrow E-Book going live May 1st!</span>
-            <a href="/leaders-of-tomorrow" class="banner-btn">See What's Inside <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
-        </div>
-        <button id="close-banner" class="banner-close" aria-label="Close banner">
-            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
-        </button>
-    </div>
-
-    <!-- Navigation -->
+    <!-- Navigation (B2B, Nov 2026) -->
     <nav>
         <div class="container nav-container">
             <a href="/" class="logo" style="text-decoration: none;">
@@ -177,48 +167,49 @@
             </a>
             <div class="nav-links" id="nav-links">
                 <div class="nav-item">
-                    <a href="/schools">For schools <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <a href="/#what-we-do">What we do <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
-                        <a href="/ai-literacy">
-                            <strong>AI Literacy Curriculum</strong>
-                            <span style="display:block; font-size:0.8rem;">Grades 6–12</span>
-                        </a>
-                        <a href="/future-ready">
-                            <strong>Future-Ready Skills</strong>
-                            <span style="display:block; font-size:0.8rem;">Grades 3–12</span>
+                        <a href="/build-with-us">
+                            <strong>Build With Us</strong>
+                            <span style="display:block; font-size:0.8rem;">Custom tools and curriculum for your district</span>
                         </a>
                         <a href="/professional-development">
                             <strong>AI Fundamentals PD</strong>
-                            <span style="display:block; font-size:0.8rem;">For Teachers</span>
+                            <span style="display:block; font-size:0.8rem;">For teachers and leaders</span>
+                        </a>
+                        <a href="/ai-literacy">
+                            <strong>AI Literacy Curriculum</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 6 to 12</span>
+                        </a>
+                        <a href="/future-ready">
+                            <strong>Future-Ready Skills</strong>
+                            <span style="display:block; font-size:0.8rem;">Grades 3 to 12</span>
                         </a>
                     </div>
                 </div>
-                <div class="nav-item"><a href="/">For Parents</a></div>
-                <div class="nav-item"><a href="/about">About Us</a></div>
                 <div class="nav-item"><a href="/results">Results</a></div>
                 <div class="nav-item">
-                    <a href="#">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
+                    <a href="/blog">Resources <i data-lucide="chevron-down" style="width: 16px;"></i></a>
                     <div class="dropdown">
-                        <a href="/education-hall">Educational Hall</a>
                         <a href="/blog">Blog</a>
                         <a href="/podcast">Podcast: The Learning Shift</a>
-                        <a href="/guides">Guides & Toolkits</a>
-                        <a href="/leaders-of-tomorrow">Leaders of Tomorrow Ebook</a>
+                        <a href="/leaders-of-tomorrow">Leaders of Tomorrow ebook</a>
+                        <a href="/guides">Guides and toolkits</a>
+                        <a href="/education-hall">Education Hall</a>
                     </div>
                 </div>
-                <div class="nav-item"><a href="/build-with-us">Build With Us</a></div>
-                <!-- Mobile Only Pilot Button -->
+                <div class="nav-item"><a href="/about">About</a></div>
                 <div class="nav-item mobile-only" style="margin-top: 1rem; width: 100%;">
-                    <a href="/contact-us" class="btn btn-primary" style="width: 100%;">Contact Us</a>
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary" style="width: 100%;" data-book-call data-event-label="nav_mobile">Book a 20-minute call</a>
                 </div>
             </div>
-            
+
             <div class="nav-actions">
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" style="background: var(--surface); border: 1px solid var(--border-color); cursor: pointer; color: var(--navy); display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; transition: var(--transition);">
                     <i data-lucide="moon" class="theme-icon-moon" style="width: 18px; height: 18px;"></i>
                     <i data-lucide="sun" class="theme-icon-sun" style="width: 18px; height: 18px; display: none;"></i>
                 </button>
-                <a href="/contact-us" class="btn btn-primary desktop-only">Contact Us</a>
+                <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary desktop-only" data-book-call data-event-label="nav">Book a 20-minute call</a>
                 <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
                     <i data-lucide="menu" id="menu-icon-open"></i>
                     <i data-lucide="x" id="menu-icon-close" style="display: none;"></i>
@@ -261,7 +252,7 @@
                         </div>
                         
                         <div style="margin-top: 3rem;">
-                            <a href="/contact-us" class="btn btn-primary"><i data-lucide="calendar" style="margin-right: 0.5rem;"></i> Book a PD Session</a>
+                            <a href="https://calendly.com/avinashtomo/tomoclub-call" data-book-call data-event-label="page_cta" class="btn btn-primary"><i data-lucide="calendar" style="margin-right: 0.5rem;"></i> Book a PD Session</a>
                         </div>
                     </div>
                     <div class="hero-image-container animate-on-scroll" style="transition-delay: 0.2s;">
@@ -283,7 +274,7 @@
                     <div class="glass-card" style="padding: 2rem; background: var(--card-grad-crimson);">
                         <i data-lucide="help-circle" style="color: var(--crimson); width: 28px; height: 28px; margin-bottom: 1rem;"></i>
                         <h4 style="color: var(--crimson); margin-bottom: 0.5rem;">Under-supported, not behind</h4>
-                        <p style="margin: 0; font-size: 1rem;">The question is not whether teachers can learn to use AI effectively — they absolutely can. It's about support.</p>
+                        <p style="margin: 0; font-size: 1rem;">The question is not whether teachers can learn to use AI effectively: they absolutely can. It's about support.</p>
                     </div>
                     <div class="glass-card" style="padding: 2rem; background: var(--card-grad-slate);">
                         <i data-lucide="message-circle" style="color: var(--teal); width: 28px; height: 28px; margin-bottom: 1rem;"></i>
@@ -454,7 +445,7 @@
                                             </span>
                                         </td>
                                         <td style="padding: 2.5rem 2rem; font-weight: 600; color: var(--navy);">Smart Workflows & Time Savings</td>
-                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn smart prompting to create lesson plans, quizzes, and differentiated content. Automates tasks to save 8+ hours per week.</td>
+                                        <td style="padding: 2.5rem 2rem; color: var(--text-muted); line-height: 1.6;">Educators learn smart prompting to create lesson plans, quizzes, and differentiated content. Cuts the time spent on routine prep each week.</td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid var(--border-color);">
                                         <td style="padding: 2.5rem 2rem;">
@@ -486,7 +477,7 @@
                     <div class="text-center" style="margin-bottom: 3.5rem;">
                         <span class="badge" style="background: rgba(42, 180, 184, 0.08); color: var(--teal); border-color: rgba(42, 180, 184, 0.15);">The Next Level</span>
                         <h2 style="font-size: 3.5rem; margin-top: 1rem;">Level 2: AI PD <span class="text-gradient">Advanced.</span></h2>
-                        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; margin-bottom: 3rem;">Level 2 equips your staff to move from AI awareness to AI authorship — building real tools, workflows, and confidence. Every module is hands-on, school-relevant, and immediately actionable. No coding background required.</p>
+                        <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; margin-bottom: 3rem;">Level 2 equips your staff to move from AI awareness to AI authorship: building real tools, workflows, and confidence. Every module is hands-on, school-relevant, and immediately actionable. No coding background required.</p>
                     </div>
 
                     <div class="grid-2" style="gap: 2.5rem; max-width: 1100px; margin: 0 auto;">
@@ -503,12 +494,12 @@
                                 <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">AI for Deep Research & Sense-Making</h3>
                                 <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Research vs search — how AI synthesises while Google retrieves</li>
-                                        <li>NotebookLM advanced — multi-doc querying across curriculum & standards</li>
+                                        <li style="margin-bottom: 0.75rem;">Research vs search: how AI synthesises while Google retrieves</li>
+                                        <li>NotebookLM advanced: multi-doc querying across curriculum & standards</li>
                                     </ul>
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Gemini Deep Research — multi-step synthesis with report output</li>
-                                        <li>Trust & verification — when to follow, when to challenge AI outputs</li>
+                                        <li style="margin-bottom: 0.75rem;">Gemini Deep Research: multi-step synthesis with report output</li>
+                                        <li>Trust & verification: when to follow, when to challenge AI outputs</li>
                                     </ul>
                                 </div>
                             </div>
@@ -531,12 +522,12 @@
                                 <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Understanding & Building AI Agents</h3>
                                 <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">What agents actually are — beyond chatbots: memory, tools, autonomous action</li>
-                                        <li>Agent anatomy — trigger &rarr; perceive &rarr; decide &rarr; act &rarr; loop</li>
+                                        <li style="margin-bottom: 0.75rem;">What agents actually are: beyond chatbots: memory, tools, autonomous action</li>
+                                        <li>Agent anatomy: trigger &rarr; perceive &rarr; decide &rarr; act &rarr; loop</li>
                                     </ul>
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Gemini in Sheets — sidebar AI, formula generation, plain-English analysis</li>
-                                        <li>Ethics of autonomy — what agents should never decide alone</li>
+                                        <li style="margin-bottom: 0.75rem;">Gemini in Sheets: sidebar AI, formula generation, plain-English analysis</li>
+                                        <li>Ethics of autonomy: what agents should never decide alone</li>
                                     </ul>
                                 </div>
                             </div>
@@ -559,12 +550,12 @@
                                 <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Designing AI Workflows</h3>
                                 <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Workflow vs agent — one task vs a chain of connected tasks</li>
-                                        <li>Chaining LLMs — output of prompt 1 becomes input of prompt 2</li>
+                                        <li style="margin-bottom: 0.75rem;">Workflow vs agent: one task vs a chain of connected tasks</li>
+                                        <li>Chaining LLMs: output of prompt 1 becomes input of prompt 2</li>
                                     </ul>
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Branching logic — if/else decisions inside a pipeline</li>
-                                        <li>Human-in-the-loop checkpoints — designing for trust, not speed</li>
+                                        <li style="margin-bottom: 0.75rem;">Branching logic: if/else decisions inside a pipeline</li>
+                                        <li>Human-in-the-loop checkpoints: designing for trust, not speed</li>
                                     </ul>
                                 </div>
                             </div>
@@ -587,11 +578,11 @@
                                 <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem; text-align: left;">Building Apps Without Code</h3>
                                 <div class="grid-2" style="gap: 1.5rem; margin-bottom: 2rem; text-align: left;">
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">What makes a good teacher-built app — one job, zero training needed</li>
-                                        <li>Bolt.new — describe your app in plain English, get a prototype in minutes</li>
+                                        <li style="margin-bottom: 0.75rem;">What makes a good teacher-built app: one job, zero training needed</li>
+                                        <li>Bolt.new: describe your app in plain English, get a prototype in minutes</li>
                                     </ul>
                                     <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-                                        <li style="margin-bottom: 0.75rem;">Glide — turn a Google Sheet into a mobile app, free for educators</li>
+                                        <li style="margin-bottom: 0.75rem;">Glide: turn a Google Sheet into a mobile app, free for educators</li>
                                         <li>Connecting S5-S8: knowledge base + agent + workflow = app backend</li>
                                     </ul>
                                 </div>
@@ -715,7 +706,7 @@
                     </div>
                 </div>
                 <div class="text-center" style="margin-top: 4rem;">
-                    <a href="/contact-us" class="btn btn-primary">Book a PD Session <i data-lucide="arrow-right"></i></a>
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" data-book-call data-event-label="page_cta" class="btn btn-primary">Book a PD Session <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -735,22 +726,19 @@
         </section>
     </div>
 
-    <!-- Global CTA (appears on all pages) -->
-    <section style="padding: 6rem 0;">
-
+    <!-- Global CTA (appears on all built pages) -->
+    <section style="padding: 6rem 0;" data-track="global_cta">
         <div class="container">
             <div class="glass-card" style="text-align: center; padding: 5rem 2rem; background: #0F172A; color: white; border-radius: 32px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);">
-                <h2 style="margin-bottom: 1.5rem; color: white; font-size: 2.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">See what a future-ready school looks like in <span class="highlight-teal" style="color: white; z-index: 1;">your district.</span></h2>
-                <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">The fastest way to know if TomoClub is the right fit is a real conversation. We will learn about your school, share what has worked for districts like yours, and design a pilot that fits your context and budget.</p>
-                <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.15rem; color: #94A3B8; font-weight: 500;">No pressure. No one-size-fits-all pitch.</p>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-                    <a href="/contact-us" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;">Contact Us <i data-lucide="arrow-right"></i></a>
-                    <a href="/faqs" style="color: var(--teal); text-decoration: none; font-weight: 500;">Already have questions? Browse our FAQs &rarr;</a>
+                <h2 style="margin-bottom: 1.5rem; color: white; font-size: 2.8rem; max-width: 800px; margin-left: auto; margin-right: auto;">Start with the problem, <span class="highlight-teal" style="color: white; z-index: 1;">not a product.</span></h2>
+                <p style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #94A3B8; line-height: 1.6;">Tell us what your school or district is trying to fix. In 20 minutes we will tell you honestly whether one of our programs fits, whether we should build something with you, or whether someone else is a better fit.</p>
+                <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem; color: #94A3B8; font-weight: 500;">Every project is scoped after that first call. No cost, no obligation.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem;">
+                    <a href="https://calendly.com/avinashtomo/tomoclub-call" class="btn btn-primary" style="background: var(--teal); border: none; color: white; padding: 1rem 2rem; font-size: 1.1rem;" data-book-call data-event-label="global_cta">Book a 20-minute call <i data-lucide="arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -759,7 +747,7 @@
                     <a href="/" class="logo footer-logo" style="text-decoration: none;">
                         <img src="/assets/logo.webp" alt="TomoClub" width="156" height="24">
                     </a>
-                    <p style="font-size: 0.875rem; margin-top: 1rem;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                    <p style="font-size: 0.875rem; margin-top: 1rem;">Educators, psychologists, game designers and engineers building AI literacy, future-ready skills, teacher training and custom tools with K-12 schools and districts.</p>
                     <div class="social-links">
                         <a href="https://www.youtube.com/@tomoclubedu" target="_blank" rel="noopener noreferrer" title="YouTube"><i data-lucide="youtube"></i></a>
                         <a href="https://www.instagram.com/tomoclub_edu" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram"></i></a>
@@ -795,11 +783,14 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Programs</h4>
+                    <h4>What we do</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li><a href="/ai-literacy" style="font-size: 0.9rem;">AI Literacy (6-12)</a></li>
-                        <li><a href="/future-ready" style="font-size: 0.9rem;">Future-Ready Skills (3-12)</a></li>
+                        <li><a href="/build-with-us" style="font-size: 0.9rem;">Build With Us</a></li>
                         <li><a href="/professional-development" style="font-size: 0.9rem;">AI Fundamentals PD</a></li>
+                        <li><a href="/ai-literacy" style="font-size: 0.9rem;">AI Literacy (Grades 6 to 12)</a></li>
+                        <li><a href="/future-ready" style="font-size: 0.9rem;">Future-Ready Skills (Grades 3 to 12)</a></li>
+                        <li><a href="/results" style="font-size: 0.9rem;">Results and case studies</a></li>
+                        <li><a href="/about" style="font-size: 0.9rem;">About us</a></li>
                     </ul>
                 </div>
             </div>
@@ -807,7 +798,6 @@
                 <p>&copy; 2026 TomoClub. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="/privacy-policy" style="font-size: 0.85rem; color: var(--text-light);">Privacy Policy</a>
-                    <a href="/contact-us" style="font-size: 0.85rem; color: var(--teal); font-weight: 700;">Contact Us</a>
                     <a href="/terms-and-conditions" style="font-size: 0.85rem; color: var(--text-light);">Terms and Conditions</a>
                 </div>
             </div>
@@ -817,7 +807,7 @@
     <!-- Download Modal has been moved to its own page -->
 
     <!-- Contextual Floating CTA -->
-    <a href="/contact-us" id="floating-cta" class="btn btn-primary floating-cta">Contact Us <i data-lucide="arrow-right"></i></a>
+    <a href="https://calendly.com/avinashtomo/tomoclub-call" id="floating-cta" class="btn btn-primary floating-cta" data-book-call data-event-label="floating">Book a 20-minute call <i data-lucide="arrow-right"></i></a>
 
     <!-- Video Modal -->
     <div id="video-modal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; align-items: center; justify-content: center; flex-direction: column;">

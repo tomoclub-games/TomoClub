@@ -297,6 +297,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="https://www.tomoclub.org/blog/{slug}/{cover_local_name}">
     <script defer src="/assets/js/analytics.js"></script>
+    <script defer src="/assets/js/calendly.js"></script>
 </head>
 <body>
 <script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>
@@ -307,7 +308,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </a>
         <div class="nav-links">
             <div class="nav-item"><a href="/blog">Blog</a></div>
-            <div class="nav-item"><a href="../../#signup" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Request a Pilot</a></div>
+            <div class="nav-item"><a href="https://calendly.com/avinashtomo/tomoclub-call" data-book-call data-event-label="page_nav" class="btn btn-primary" style="padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.85rem;">Book a 20-minute call</a></div>
         </div>
         </div>
     </nav>
@@ -346,7 +347,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 <a href="../../" class="logo footer-logo" style="margin-bottom: 0;">
                     <img src="../../assets/logo.webp" alt="TomoClub" width="156" height="24">
                 </a>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">The K–12 implementation partner for AI literacy and human skills. Building future-ready schools alongside you.</p>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Educators, psychologists, game designers and engineers building AI literacy, future-ready skills, teacher training and custom tools with K-12 schools and districts.</p>
                 <div style="display: flex; gap: 2rem; margin-top: 1rem;">
                     <a href="/blog" style="color: var(--text-muted); font-weight: 600;">Blog</a>
                     <a href="/professional-development" style="color: var(--text-muted); font-weight: 600;">Professional Development</a>

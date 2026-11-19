@@ -43,6 +43,7 @@ Task spec: `00-context.md` section 9 and the phase table. Mostly done by Rohith 
 - [x] J2. Indexing requested by Rohith on 2026-11-11 for the key pages. Of 8 priority pages checked, 6 were already indexed; `/schools` and `/guides` showed "Discovered – currently not indexed" (normal for new URLs) and were queued with Request indexing. `/ai-literacy` shows only an informational "Video isn't on a watch page" note
 - [x] J3. Not needed (Rohith, 2026-11-11): no external `/#...` links to update; old hash links keep working through the shim
 - [ ] J4. Watch coverage for 2 to 4 weeks against the baseline (check around 2026-11-25 and 2026-12-09); if indexed pages or clicks drop sharply, investigate before more changes
+  - Note for the 2026-11-25 check: on 2026-11-18 the B2B homepage replaced the parents site on `/` (branch `b2b-homepage`, not yet merged). `/schools`, `/ai-lab`, `/life-skills`, `/both-programs` and `/parents/*` now 301 to `/`; expect changes in indexed pages and in `/` clicks.
 - [x] J5. Removed from this plan by Rohith, 2026-11-11: the second GA4 property `G-TEEDDHTK84` becomes part of a separate "clean up the analytics plugins" task
 - [ ] J6. Summary given; phase set to `waiting for review`
 
