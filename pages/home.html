@@ -527,7 +527,8 @@ partial_cta: empty
                     </div>
                 </div>
                 <div class="h-field"><label for="lf-goal">What's on your mind?</label><textarea id="lf-goal" name="goal" placeholder="The goal, who it affects, what has been tried." required></textarea></div>
-                <button type="submit" class="btn btn-primary" disabled>Send it over <i data-lucide="send"></i></button>
+                <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave this empty<input name="hp_company_website" tabindex="-1" autocomplete="off"></label></div>
+                <button type="submit" class="btn btn-primary">Send it over <i data-lucide="send"></i></button>
                 <p class="fine">A person reads this, not an autoresponder. We never share your details. See our <a href="/privacy-policy">privacy policy</a>.</p>
                 <div class="h-form-status" role="status" aria-live="polite"></div>
             </form>

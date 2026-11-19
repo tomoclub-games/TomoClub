@@ -297,6 +297,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:description" content="{description}">
     <meta name="twitter:image" content="https://www.tomoclub.org/blog/{slug}/{cover_local_name}">
     <script defer src="/assets/js/analytics.js"></script>
+    <script defer src="/assets/js/calendly.js"></script>
 </head>
 <body>
 <script>try{{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}}catch(e){{}}</script>

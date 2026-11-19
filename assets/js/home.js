@@ -89,15 +89,43 @@
   window.addEventListener('resize', function () { setStatic(); onScroll(); });
   onScroll();
 
-  /* Lead form (not wired up yet) */
+  /* Lead form -> /api/lead (Sheet row + Slack alert) */
   var form = document.getElementById('b2b-lead-form');
   if (form) {
+    var status = form.querySelector('.h-form-status');
     var offerSel = form.querySelector('[name=offer_interest]');
+    var loadedAt = Date.now();
     // Offer buttons elsewhere on the page can preselect the interest.
     document.querySelectorAll('[data-interest]').forEach(function (a) {
       a.addEventListener('click', function () { if (offerSel) offerSel.value = a.getAttribute('data-interest'); });
     });
-    // No submit action yet: stop Enter from reloading the page with the form data in the URL.
-    form.addEventListener('submit', function (ev) { ev.preventDefault(); });
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (!form.reportValidity()) return;
+      var btn = form.querySelector('button[type=submit]');
+      var original = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      status.className = 'h-form-status'; status.textContent = '';
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      data.type = 'discovery_request';
+      data.page = location.pathname;
+      data.form_loaded_at = loadedAt;
+      if (window.tomoAttribution) { var a = window.tomoAttribution(); for (var k in a) data[k] = a[k]; }
+      fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j && j.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok) throw new Error((res.j && res.j.error) || 'Something went wrong');
+          form.querySelectorAll('.h-field, .row, button[type=submit], .fine').forEach(function (el) { el.style.display = 'none'; });
+          status.className = 'h-form-status ok';
+          status.innerHTML = '<strong>Thank you' + (res.j.name ? ', ' + String(res.j.name).replace(/[<>&"]/g, '') : '') + '.</strong> A co-founder will read this and reply within 24 hours. ' +
+            'If a call is easier, <a href="https://calendly.com/avinashtomo/tomoclub-call" data-book-call>pick a 20-minute slot</a>.';
+        })
+        .catch(function (e) {
+          btn.disabled = false; btn.innerHTML = original;
+          status.className = 'h-form-status err';
+          status.innerHTML = 'That did not go through (' + String(e.message).replace(/[<>&"]/g, '') + '). Please try again, or email <a href="mailto:avinash@tomoclub.org">avinash@tomoclub.org</a>.';
+        });
+    });
   }
 })();
