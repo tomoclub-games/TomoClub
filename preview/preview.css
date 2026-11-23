@@ -1,0 +1,21 @@
+/* Preview-only additions on top of the app's own styles.css */
+.preview-banner { background: #fff8e1; border-bottom: 1px solid #f5d77a; color: var(--navy); font-size: .92rem; }
+.preview-banner .wrap { padding: .75rem 0; }
+.preview-banner p { margin: 0; }
+.preview-banner details { margin-top: .4rem; }
+.preview-banner summary { cursor: pointer; font-weight: 600; color: var(--teal-dark); }
+.preview-table { overflow-x: auto; margin-top: .6rem; }
+.preview-table table { border-collapse: collapse; width: 100%; background: #fff; font-size: .88rem; }
+.preview-table th, .preview-table td { text-align: left; vertical-align: top; padding: .5rem .65rem; border: 1px solid var(--border); }
+.preview-table th { background: #f8fafc; font-weight: 600; }
+.saved-districts { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: .9rem; }
+.preview-leads { padding: 2rem 0 0; }
+.preview-leads .btn { margin-right: .4rem; }
+.src-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, .55); display: grid; place-items: center; padding: 1rem; z-index: 50; }
+.src-dialog { width: min(760px, 100%); max-height: 85vh; display: grid; grid-template-rows: auto auto 1fr; gap: .4rem; }
+.src-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.src-head h3 { margin: 0; }
+.src-body { overflow-y: auto; white-space: pre-wrap; font-size: .92rem; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+.src-body h4 { margin: .8em 0 .3em; font-size: .85rem; color: var(--teal-dark); white-space: normal; }
+.src-body h4:first-child { margin-top: 0; }
+@media (max-width: 600px) { .preview-table th, .preview-table td { min-width: 9rem; } }

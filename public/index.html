@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI School District Parent &amp; Policy Assistant | TomoClub Build With Us</title>
+  <meta name="description" content="A working TomoClub prototype: enter a US school district website and ask questions that are answered only from the district's own pages and documents, with sources.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/" aria-label="TomoClub District Assistant home">
+        <img src="/logo.webp" alt="TomoClub" width="130" height="20">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-sub">Build With Us</span>
+      </a>
+      <span class="pill">Working prototype</span>
+      <a class="btn btn-small btn-gold" href="#request">Request a Demo</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Start -->
+    <section id="start" class="hero">
+      <div class="wrap narrow">
+        <p class="eyebrow">AI School District Parent &amp; Policy Assistant</p>
+        <h1>Answers for families and staff, straight from your district's own documents</h1>
+        <p class="lead">Enter a US school district website. The assistant reads its public pages and PDFs, such as handbooks, calendars, attendance and enrollment information, then answers questions with a link to the exact source.</p>
+
+        <form id="url-form" class="url-form" novalidate>
+          <label for="district-url" class="sr-only">District website address</label>
+          <input id="district-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.yourdistrict.org" required>
+          <button class="btn btn-primary" type="submit">Build the assistant</button>
+        </form>
+        <p id="url-error" class="form-error" role="alert" hidden></p>
+        <p class="hint">Reads up to 40 public pages and 15 PDFs. Takes about 2 to 4 minutes. Pages that need a sign-in, or that the district's robots.txt asks tools not to read, are left alone.</p>
+        <p class="hint"><button type="button" class="linklike" id="show-upload-only">No website handy? Start with PDFs instead</button></p>
+
+        <form id="upload-only-form" class="card upload-only" hidden>
+          <h2 class="h3">Start with your own PDFs</h2>
+          <label>District name<input name="name" type="text" maxlength="120" required></label>
+          <label>PDF files (up to 5, 25 MB each)<input name="files" type="file" accept="application/pdf,.pdf" multiple required></label>
+          <button class="btn btn-primary" type="submit">Upload and build</button>
+          <p class="form-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Processing -->
+    <section id="processing" class="wrap narrow" hidden>
+      <div class="card processing-card" aria-live="polite">
+        <h2 class="h3" id="proc-title">Reading the district website</h2>
+        <div class="progress" aria-hidden="true"><span></span></div>
+        <p id="proc-message">Starting</p>
+        <p class="muted small" id="proc-url"></p>
+        <dl class="counts">
+          <div><dt>Pages read</dt><dd id="proc-pages">0</dd></div>
+          <div><dt>PDFs read</dt><dd id="proc-pdfs">0</dd></div>
+          <div><dt>Could not read</dt><dd id="proc-failed">0</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 3. District workspace -->
+    <section id="workspace" class="wrap" hidden>
+      <div class="district-head">
+        <div>
+          <p class="eyebrow">District assistant</p>
+          <h2 id="district-name"></h2>
+          <p class="muted" id="district-meta"></p>
+        </div>
+        <div class="head-actions">
+          <button class="btn btn-secondary btn-small" id="new-district" type="button">Try another district</button>
+        </div>
+      </div>
+
+      <div class="categories" id="categories" aria-label="Information found"></div>
+
+      <div class="grid">
+        <div class="card chat-card">
+          <div class="chat-log" id="chat-log" aria-live="polite"></div>
+          <div class="suggestions" id="suggestions"></div>
+          <form id="ask-form" class="ask-form">
+            <label for="question" class="sr-only">Ask a question</label>
+            <textarea id="question" rows="2" maxlength="500" placeholder="Ask about calendars, attendance, enrollment, buses, policies..." required></textarea>
+            <button class="btn btn-primary" type="submit">Ask</button>
+          </form>
+          <p class="muted small">Answers come only from this district's public website and uploaded documents, and may be out of date. Always check the linked source. Please do not type student names or personal information.</p>
+        </div>
+
+        <aside class="card sources-card" aria-labelledby="sources-title">
+          <h3 id="sources-title">Sources used for answers</h3>
+          <div class="tabs" role="tablist">
+            <button role="tab" aria-selected="true" data-tab="read" id="tab-read">Read</button>
+            <button role="tab" aria-selected="false" data-tab="notread" id="tab-notread">Not read</button>
+          </div>
+          <ul class="source-list" id="source-list"></ul>
+          <form id="upload-form" class="upload-form">
+            <label class="small">Add a PDF the site did not have (up to 5)
+              <input type="file" name="files" accept="application/pdf,.pdf" multiple>
+            </label>
+            <button class="btn btn-secondary btn-small" type="submit">Upload</button>
+            <p class="small upload-result" role="status"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 4. Lead generation -->
+    <section id="request" class="request">
+      <div class="wrap request-grid">
+        <div>
+          <h2>Want an AI Assistant Customized for Your School District?</h2>
+          <p>This is a demonstration of how AI can make district information easier for families and staff to access. TomoClub can help build a customized solution based on your district's specific needs.</p>
+          <ul class="checks">
+            <li>Start with a 20-minute conversation about the problem</li>
+            <li>See a working prototype with your own district information</li>
+            <li>Scoped to your district after the discovery call</li>
+          </ul>
+        </div>
+        <form id="lead-form" class="card lead-form" novalidate>
+          <label>Full Name<input name="fullName" autocomplete="name" maxlength="120" required></label>
+          <label>Work Email<input name="workEmail" type="email" autocomplete="email" maxlength="200" required></label>
+          <label>Job Title<input name="jobTitle" autocomplete="organization-title" maxlength="120" required></label>
+          <label>School District<input name="district" autocomplete="organization" maxlength="200" required></label>
+          <label>What problem would you like to solve?<textarea name="problem" rows="4" maxlength="3000" required></textarea></label>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website_url" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn btn-gold" type="submit">Request a Demo</button>
+          <p class="form-error" role="alert" hidden></p>
+          <p class="muted small">We use these details only to reply to your request.</p>
+        </form>
+        <div id="lead-thanks" class="card thanks" hidden>
+          <h3>Thank you. We have your request.</h3>
+          <p>A TomoClub co-founder will reply by email to set up a 20-minute conversation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>A TomoClub Build With Us prototype. It reads only public district web pages and documents and is not affiliated with or endorsed by any district shown. Answers can be incomplete or out of date: check the linked source or contact the district.</p>
+      <p><a href="https://tomoclub.org" rel="noopener">tomoclub.org</a></p>
+    </div>
+  </footer>
+</body>
+</html>

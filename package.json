@@ -1,0 +1,21 @@
+{
+  "name": "tomoclub-district-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI School District Parent & Policy Assistant: a TomoClub Build With Us prototype",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "test": "node --disable-warning=ExperimentalWarning test/e2e.test.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "express": "^4.22.3",
+    "multer": "^2.5.0",
+    "robots-parser": "^3.1.1",
+    "unpdf": "^1.9.1"
+  }
+}

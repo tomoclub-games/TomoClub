@@ -1,0 +1,22 @@
+# Render blueprint: one small web service with a 1 GB disk for the database.
+services:
+  - type: web
+    name: tomoclub-district-assistant
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: IP_HASH_SALT
+        generateValue: true
+      - key: TRUST_PROXY
+        value: "true"
+      - key: DATA_DIR
+        value: /data
