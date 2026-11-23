@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TomoClub lead dashboard</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Internal page: no analytics, no tracking scripts, never indexed. Data comes from /api/admin (signed-in only). */
+:root{--navy:#0F172A;--teal:#2AB4B8;--teal-d:#1C8C90;--gold:#FDC62D;--crimson:#B34158;--bg:#F6F8FB;--card:#fff;--ink:#0F172A;--muted:#526173;--line:#E2E8F0;--soft:#EEF6F7}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Outfit,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--teal-d)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(14px,3vw,28px)}
+header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:5}
+header .wrap{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-weight:700;font-size:1.1rem;letter-spacing:-.01em}.brand span{color:var(--gold)}
+.controls{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.controls select,.controls input{background:#1E293B;border:1px solid #334155;border-radius:10px;padding:.45rem .6rem;color:#fff;min-height:40px}
+.btn{border:0;border-radius:999px;padding:.55rem 1rem;min-height:40px;font-weight:600;background:var(--teal);color:#fff}
+.btn.ghost{background:transparent;border:1px solid #475569;color:#E2E8F0}
+.btn.light{background:#fff;color:var(--navy);border:1px solid var(--line)}
+main{padding:22px 0 60px}
+h1{font-size:clamp(1.5rem,3vw,2rem);margin:.2rem 0 .2rem;line-height:1.1}
+h2{font-size:1.15rem;margin:0 0 .8rem}
+.sub{color:var(--muted);margin:0 0 1.2rem}
+.grid{display:grid;gap:14px}
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.kpi .n{font-size:2rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .l{color:var(--muted);font-size:.88rem}
+.kpi.hl{background:var(--navy);color:#fff;border-color:var(--navy)}.kpi.hl .l{color:#CBD5E1}
+.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr))}
+.three{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.chart{position:relative;height:220px;margin-top:6px}
+.chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tip{position:absolute;pointer-events:none;background:var(--navy);color:#fff;font-size:.82rem;padding:.45rem .6rem;border-radius:10px;white-space:nowrap;transform:translate(-50%,-110%);display:none;z-index:2}
+.rows{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) auto;gap:10px;align-items:center;font-size:.92rem}
+.row .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{height:12px;background:var(--soft);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--teal);border-radius:0 6px 6px 0}
+.row .v{font-variant-numeric:tabular-nums;text-align:right;color:var(--muted);white-space:nowrap}
+.row .v b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:.45rem .9rem;min-height:40px;font-weight:600}
+.tab[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab .c{opacity:.7;font-weight:500;margin-left:.3rem}
+.toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.8rem}
+.toolbar input,.toolbar select{border:1px solid var(--line);border-radius:10px;padding:.45rem .6rem;min-height:40px;background:#fff}
+.lead-name{font-weight:600}
+.muted{color:var(--muted)}.small{font-size:.82rem}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;padding:.15rem .5rem;border-radius:999px;background:var(--soft);color:var(--teal-d);white-space:nowrap}
+.pill.p{background:#FFF7DB;color:#7A5600}
+td select{border:1px solid var(--line);border-radius:8px;padding:.3rem .4rem;min-height:36px;background:#fff;max-width:150px}
+td textarea{width:100%;min-width:140px;border:1px solid var(--line);border-radius:8px;padding:.3rem .4rem;min-height:36px;resize:vertical}
+.saved{color:var(--teal-d);font-size:.78rem}
+.err{color:var(--crimson)}
+.login{max-width:380px;margin:12vh auto;padding:28px}
+.login input{width:100%;border:1px solid var(--line);border-radius:12px;padding:.75rem .9rem;min-height:46px;margin:.6rem 0 1rem;font-size:16px}
+.login .btn{width:100%;min-height:46px}
+.note{font-size:.85rem;color:var(--muted);margin-top:.6rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+@media (max-width:700px){
+  .stack thead{display:none}.stack tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}
+  .stack td{border:0;padding:3px 0;display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:.5rem}
+  .stack td::before{content:attr(data-l);color:var(--muted);font-size:.8rem}
+  .row{grid-template-columns:minmax(0,1fr) auto}.row .bar{grid-column:1/-1;order:3}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="t-login">
+  <form class="card login" id="login">
+    <div class="brand" style="color:var(--navy)">Tomo<span style="color:var(--crimson)">Club</span> lead dashboard</div>
+    <p class="muted small" style="margin:.4rem 0 0">Internal. Team members only.</p>
+    <label for="pw" style="display:block;margin-top:1rem;font-weight:600">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="btn" type="submit">Sign in</button>
+    <p class="err small" id="login-err" role="alert"></p>
+  </form>
+</template>
+<template id="t-dash">
+  <header><div class="wrap">
+    <div class="brand">TomoClub <span>leads</span></div>
+    <div class="controls">
+      <label class="sr" for="range" style="position:absolute;left:-9999px">Date range</label>
+      <select id="range"><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last 12 months</option></select>
+      <input id="me" placeholder="Your name" title="Saved with status changes" aria-label="Your name, saved with status changes" style="width:11em">
+      <button class="btn ghost" id="refresh">Refresh</button>
+      <button class="btn ghost" id="logout">Sign out</button>
+    </div>
+  </div></header>
+  <main class="wrap">
+    <h1 id="title">Last 30 days</h1>
+    <p class="sub" id="sub">Loading...</p>
+    <section class="grid kpis" id="kpis" aria-label="Key numbers"></section>
+
+    <section class="grid two" style="margin-top:14px">
+      <div class="card"><h2>Visitors per day</h2><div class="chart" id="trend"><svg role="img" aria-label="Visitors per day"></svg><div class="tip"></div></div>
+        <details class="note"><summary>Table view</summary><div class="scroll"><table id="trend-table"></table></div></details></div>
+      <div class="card"><h2>Conversion</h2><div class="rows" id="conv"></div>
+        <p class="note">Visitors come from this site's own first-party count (one random ID per browser). Google Analytics 4 holds the full picture, including demographics and returning users.</p></div>
+    </section>
+
+    <section class="grid three" style="margin-top:14px">
+      <div class="card"><h2>Traffic sources</h2><div class="scroll"><table id="sources"></table></div></div>
+      <div class="card"><h2>Buttons clicked</h2><div class="rows" id="ctas"></div></div>
+      <div class="card"><h2>Devices</h2><div class="rows" id="devices"></div><h2 style="margin-top:1.2rem">Top pages</h2><div class="rows" id="pages"></div></div>
+    </section>
+
+    <section class="card" style="margin-top:14px"><h2>Forms</h2><div class="scroll"><table id="forms"></table></div>
+      <p class="note">View: the form was on screen. Started: something was typed. Sent: the server saved it. Left unfinished: started but not sent. Contact saved: the visitor ticked "save my details" before leaving.</p></section>
+
+    <section class="card" style="margin-top:14px" id="leads">
+      <h2>Leads</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" id="tab-c" aria-selected="true">Completed <span class="c" id="cnt-c"></span></button>
+        <button class="tab" role="tab" id="tab-p" aria-selected="false">Incomplete (consented) <span class="c" id="cnt-p"></span></button>
+      </div>
+      <div class="toolbar">
+        <input id="q" type="search" placeholder="Search name, email, school" aria-label="Search leads">
+        <select id="fs" aria-label="Filter by status"><option value="">All statuses</option></select>
+        <select id="fk" aria-label="Filter by type"><option value="">All types</option></select>
+        <button class="btn light" id="csv">Export CSV</button>
+      </div>
+      <div class="scroll"><table class="stack" id="lead-table"></table></div>
+      <p class="note" id="lead-note"></p>
+    </section>
+  </main>
+</template>
+<script>
+{
+const app = document.getElementById('app');
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = (n) => Number(n || 0).toLocaleString('en-US');
+const when = (iso) => { if (!iso) return ''; const d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); };
+const store = { get: (k) => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
+let data = null, tab = 'completed';
+
+async function api(action, opts = {}) {
+  const url = '/api/admin?action=' + action + (opts.query || '');
+  const r = await fetch(url, { method: opts.body ? 'POST' : 'GET', headers: opts.body ? { 'Content-Type': 'application/json' } : {}, body: opts.body ? JSON.stringify(opts.body) : undefined, credentials: 'same-origin' });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 401 && action !== 'login') { showLogin(); throw new Error('signed out'); }
+  if (!r.ok || !j.ok) throw new Error(j.error || 'Request failed (' + r.status + ')');
+  return j;
+}
+
+function showLogin() {
+  app.innerHTML = $('#t-login').innerHTML;
+  $('#login').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    $('#login-err').textContent = '';
+    try { await api('login', { body: { password: $('#pw').value } }); showDash(); }
+    catch (err) { $('#login-err').textContent = err.message; }
+  });
+  $('#pw').focus();
+}
+
+function showDash() {
+  app.innerHTML = $('#t-dash').innerHTML;
+  $('#me').value = store.get('tc_admin_me');
+  $('#me').addEventListener('change', () => store.set('tc_admin_me', $('#me').value.trim()));
+  $('#range').value = store.get('tc_admin_range') || '30';
+  $('#range').addEventListener('change', () => { store.set('tc_admin_range', $('#range').value); load(); });
+  $('#refresh').addEventListener('click', load);
+  $('#logout').addEventListener('click', async () => { await api('logout', { body: {} }).catch(() => {}); showLogin(); });
+  $('#tab-c').addEventListener('click', () => setTab('completed'));
+  $('#tab-p').addEventListener('click', () => setTab('partial'));
+  ['#q', '#fs', '#fk'].forEach((s) => $(s).addEventListener('input', renderLeads));
+  $('#csv').addEventListener('click', exportCsv);
+  load();
+}
+
+async function load() {
+  const days = Number($('#range').value || 30);
+  const to = new Date(); const from = new Date(Date.now() - (days - 1) * 864e5);
+  const iso = (d) => d.toISOString().slice(0, 10);
+  $('#sub').textContent = 'Loading...';
+  try {
+    data = await api('data', { query: '&from=' + iso(from) + '&to=' + iso(to) });
+    $('#title').textContent = $('#range').selectedOptions[0].textContent;
+    $('#sub').textContent = data.range.from + ' to ' + data.range.to + ' (UTC). Updated ' + when(data.generated_at) + '.';
+    render();
+  } catch (e) { if (e.message !== 'signed out') $('#sub').innerHTML = '<span class="err">' + esc(e.message) + '</span>'; }
+}
+
+function render() {
+  const k = data.kpis;
+  const tiles = [
+    ['Visitors', k.visitors, true], ['Page views', k.page_views], ['Button clicks', k.cta_clicks], ['Forms sent', k.form_submissions],
+    ['Forms left unfinished', k.form_abandons], ['Completed leads', k.completed_leads, true], ['Incomplete leads (consented)', k.partial_leads], ['Meetings booked', k.meetings_booked],
+  ];
+  $('#kpis').innerHTML = tiles.map(([l, n, hl]) => `<div class="card kpi${hl ? ' hl' : ''}"><div class="n">${fmt(n)}</div><div class="l">${esc(l)}</div></div>`).join('');
+  const conv = [
+    ['Visitor to lead', k.visitor_to_lead_pct, `${fmt(k.completed_leads)} of ${fmt(k.visitors)} visitors`],
+    ['Form completion', k.form_completion_pct, `${fmt(k.form_submissions)} sent of ${fmt(k.form_starts)} started`],
+    ['Visitor to booked meeting', k.visitor_to_meeting_pct, `${fmt(k.meetings_booked)} bookings`],
+    ['Unfinished forms with contact saved', k.abandon_saved_pct, `${fmt(k.partial_leads)} of ${fmt(k.form_abandons)} unfinished`],
+  ];
+  $('#conv').innerHTML = conv.map(([l, p, d]) => `<div class="row"><span class="name" title="${esc(l)}">${esc(l)}</span><span class="bar"><i style="width:${Math.min(100, p)}%"></i></span><span class="v"><b>${p}%</b> <span class="small">${esc(d)}</span></span></div>`).join('');
+  drawTrend();
+  $('#sources').innerHTML = '<thead><tr><th>Source</th><th class="num">Visitors</th><th class="num">Leads</th><th class="num">Lead rate</th></tr></thead><tbody>' +
+    (data.sources.length ? data.sources.map((s) => `<tr><td>${esc(s.name)}</td><td class="num">${fmt(s.visitors)}</td><td class="num">${fmt(s.leads)}</td><td class="num">${s.lead_rate_pct}%</td></tr>`).join('') : '<tr><td colspan="4" class="muted">No visits yet in this range.</td></tr>') + '</tbody>';
+  bars('#ctas', data.ctas.map((c) => [c.name, c.clicks]), 'No clicks yet.');
+  bars('#devices', data.devices.map((d) => [d.name, d.visitors]), 'No visits yet.');
+  bars('#pages', data.pages.map((p) => [p.name, p.views]), 'No page views yet.');
+  $('#forms').innerHTML = '<thead><tr><th>Form</th><th class="num">Views</th><th class="num">Started</th><th class="num">Sent</th><th class="num">Left unfinished</th><th class="num">Contact saved</th><th class="num">Completion</th></tr></thead><tbody>' +
+    (data.forms.length ? data.forms.map((f) => `<tr><td>${esc(FORM_NAMES[f.name] || f.name)}</td><td class="num">${fmt(f.views)}</td><td class="num">${fmt(f.starts)}</td><td class="num">${fmt(f.submissions)}</td><td class="num">${fmt(f.abandons)}</td><td class="num">${fmt(f.partial_saved)}</td><td class="num">${f.completion_pct}%</td></tr>`).join('') : '<tr><td colspan="7" class="muted">No form activity yet.</td></tr>') + '</tbody>';
+  const fs = $('#fs'); fs.innerHTML = '<option value="">All statuses</option>' + data.statuses.map((s) => `<option>${esc(s)}</option>`).join('');
+  $('#cnt-c').textContent = data.leads.completed.length; $('#cnt-p').textContent = data.leads.partial.length;
+  renderLeads();
+}
+const FORM_NAMES = { home_discovery: 'Home page: tell us your problem', build_with_us: 'Build With Us', ebook_hero: 'Ebook (top of page)', ebook_mid: 'Ebook (middle of page)', guide_download: 'Guide download' };
+
+function bars(sel, list, empty) {
+  const max = Math.max(1, ...list.map((x) => x[1]));
+  $(sel).innerHTML = list.length ? list.slice(0, 12).map(([n, v]) => `<div class="row"><span class="name" title="${esc(n)}">${esc(n)}</span><span class="bar"><i style="width:${(v / max) * 100}%"></i></span><span class="v"><b>${fmt(v)}</b></span></div>`).join('') : `<p class="muted small">${esc(empty)}</p>`;
+}
+
+function drawTrend() {
+  const box = $('#trend'), svg = box.querySelector('svg'), tip = box.querySelector('.tip');
+  const s = data.series;
+  const draw = () => {
+    const W = box.clientWidth, H = box.clientHeight, padL = 34, padB = 22, padT = 8;
+    const max = Math.max(1, ...s.map((d) => d.visitors));
+    const step = (W - padL) / Math.max(1, s.length), bw = Math.max(2, Math.min(28, step - 2));
+    const y = (v) => padT + (H - padT - padB) * (1 - v / max);
+    const ticks = [0, Math.ceil(max / 2), max];
+    let out = ticks.map((t) => `<line x1="${padL}" x2="${W}" y1="${y(t)}" y2="${y(t)}" stroke="#E2E8F0"/><text x="${padL - 6}" y="${y(t) + 4}" font-size="11" text-anchor="end" fill="#526173">${t}</text>`).join('');
+    const every = Math.ceil(s.length / Math.max(2, Math.floor(W / 70)));
+    s.forEach((d, i) => {
+      const x = padL + i * step + (step - bw) / 2, h = Math.max(0, H - padB - y(d.visitors));
+      const r = Math.min(4, bw / 2);
+      out += h > 0 ? `<path d="M${x},${H - padB} v${-(h - r)} q0,${-r} ${r},${-r} h${bw - 2 * r} q${r},0 ${r},${r} v${h - r} z" fill="#2AB4B8"/>` : '';
+      out += `<rect data-i="${i}" x="${padL + i * step}" y="${padT}" width="${step}" height="${H - padT - padB}" fill="transparent"/>`;
+      if (i % every === 0 && W > 360) out += `<text x="${x + bw / 2}" y="${H - 6}" font-size="11" text-anchor="middle" fill="#526173">${d.date.slice(5)}</text>`;
+    });
+    svg.innerHTML = out;
+  };
+  draw();
+  new ResizeObserver(draw).observe(box);
+  svg.onmousemove = (e) => {
+    const i = e.target.getAttribute && e.target.getAttribute('data-i'); if (i == null) { tip.style.display = 'none'; return; }
+    const d = s[i], b = box.getBoundingClientRect();
+    tip.innerHTML = `<b>${d.date}</b><br>${fmt(d.visitors)} visitors · ${fmt(d.page_views)} page views<br>${fmt(d.leads)} leads · ${fmt(d.partial)} incomplete`;
+    tip.style.left = (e.clientX - b.left) + 'px'; tip.style.top = (e.clientY - b.top) + 'px'; tip.style.display = 'block';
+  };
+  svg.onmouseleave = () => { tip.style.display = 'none'; };
+  $('#trend-table').innerHTML = '<thead><tr><th>Date</th><th class="num">Visitors</th><th class="num">Page views</th><th class="num">Leads</th><th class="num">Incomplete</th></tr></thead><tbody>' +
+    s.map((d) => `<tr><td>${d.date}</td><td class="num">${d.visitors}</td><td class="num">${d.page_views}</td><td class="num">${d.leads}</td><td class="num">${d.partial}</td></tr>`).join('') + '</tbody>';
+}
+
+function setTab(t) {
+  tab = t;
+  $('#tab-c').setAttribute('aria-selected', t === 'completed'); $('#tab-p').setAttribute('aria-selected', t === 'partial');
+  renderLeads();
+}
+function currentLeads() {
+  const q = $('#q').value.trim().toLowerCase(), st = $('#fs').value, kind = $('#fk').value;
+  return (data.leads[tab] || []).filter((l) => (!st || l.status === st) && (!kind || l.kind === kind) &&
+    (!q || [l.name, l.email, l.organization, l.phone, l.role].join(' ').toLowerCase().includes(q)));
+}
+function renderLeads() {
+  if (!data) return;
+  const kinds = [...new Set((data.leads[tab] || []).map((l) => l.kind))];
+  const fk = $('#fk'), keep = fk.value; fk.innerHTML = '<option value="">All types</option>' + kinds.map((k) => `<option>${esc(k)}</option>`).join(''); fk.value = kinds.includes(keep) ? keep : '';
+  const list = currentLeads();
+  const partial = tab === 'partial';
+  const head = partial
+    ? ['Contact', 'School or district', 'Phone', 'Form', 'Saved', 'Source', 'Status', 'Note']
+    : ['Contact', 'School or district', 'Phone', 'Type', 'Received', 'Source', 'Status', 'Note'];
+  const rows = list.map((l) => {
+    const typeCell = partial ? `<span class="pill p">${esc(FORM_NAMES[l.form] || l.form || 'Form')}</span>` : `<span class="pill">${esc(l.kind)}</span>${l.meeting_start ? `<div class="small muted">Meeting ${esc(when(l.meeting_start))}</div>` : ''}${l.interest ? `<div class="small muted">${esc(l.interest)}</div>` : ''}`;
+    const time = partial ? when(l.last_updated || l.received_at) + (l.notified_at ? '<div class="small muted">Team alerted</div>' : '') : when(l.received_at);
+    return `<tr data-id="${esc(l.lead_id)}">
+      <td data-l="Contact"><div class="lead-name">${esc(l.name || '(no name)')}</div>${l.email ? `<a href="mailto:${esc(l.email)}">${esc(l.email)}</a>` : ''}${l.role ? `<div class="small muted">${esc(l.role)}</div>` : ''}${l.message ? `<details class="small"><summary>What they wrote</summary>${esc(l.message)}</details>` : ''}</td>
+      <td data-l="School">${esc(l.organization)}${l.state ? `<div class="small muted">${esc(l.state)}</div>` : ''}</td>
+      <td data-l="Phone">${l.phone ? `<a href="tel:${esc(l.phone)}">${esc(l.phone)}</a>` : ''}</td>
+      <td data-l="${partial ? 'Form' : 'Type'}">${typeCell}</td>
+      <td data-l="${partial ? 'Saved' : 'Received'}" class="small">${time}</td>
+      <td data-l="Source" class="small">${esc(l.source)}${l.marketing_consent === 'yes' ? '<div class="small muted">Agreed to emails</div>' : ''}</td>
+      <td data-l="Status"><select aria-label="Follow-up status">${data.statuses.map((s) => `<option${s === l.status ? ' selected' : ''}>${esc(s)}</option>`).join('')}</select><div class="saved"></div></td>
+      <td data-l="Note"><textarea rows="1" aria-label="Note">${esc(l.note)}</textarea>${l.status_by ? `<div class="small muted">${esc(l.status_by)}, ${esc(when(l.status_updated_at))}</div>` : ''}</td>
+    </tr>`;
+  }).join('');
+  $('#lead-table').innerHTML = `<thead><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="8" class="muted">${partial ? 'No consented incomplete leads in this range.' : 'No completed leads in this range.'}</td></tr>`}</tbody>`;
+  $('#lead-note').textContent = partial
+    ? 'Only visitors who ticked "Save my details if I don\'t finish" appear here. Leads that later sent the form move to Completed automatically.'
+    : 'Includes the home page and Build With Us forms, booked calls, and ebook or guide downloads.';
+  $('#lead-table').querySelectorAll('tr[data-id]').forEach((tr) => {
+    const save = async () => {
+      const out = tr.querySelector('.saved'); out.textContent = 'Saving...'; out.classList.remove('err');
+      const id = tr.getAttribute('data-id');
+      const body = { lead_id: id, status: tr.querySelector('select').value, note: tr.querySelector('textarea').value, by: $('#me').value.trim() };
+      try {
+        await api('status', { body });
+        const lead = data.leads[tab].find((l) => l.lead_id === id);
+        Object.assign(lead, { status: body.status, note: body.note, status_by: body.by, status_updated_at: new Date().toISOString() });
+        out.textContent = 'Saved';
+      } catch (e) { out.textContent = e.message; out.classList.add('err'); }
+    };
+    tr.querySelector('select').addEventListener('change', save);
+    tr.querySelector('textarea').addEventListener('change', save);
+  });
+}
+
+function exportCsv() {
+  const list = currentLeads();
+  const cols = tab === 'partial'
+    ? ['lead_id', 'name', 'email', 'phone', 'organization', 'role', 'form', 'page', 'received_at', 'last_updated', 'notified_at', 'source', 'marketing_consent', 'status', 'note', 'status_by', 'status_updated_at']
+    : ['lead_id', 'kind', 'name', 'email', 'phone', 'organization', 'role', 'state', 'interest', 'message', 'meeting_start', 'received_at', 'page', 'source', 'marketing_consent', 'status', 'note', 'status_by', 'status_updated_at'];
+  // Cells that start with = + - @ are prefixed so spreadsheets never run them as formulas.
+  const cell = (v) => { let s = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return '"' + s.replace(/"/g, '""') + '"'; };
+  const csv = [cols.join(',')].concat(list.map((l) => cols.map((c) => cell(l[c])).join(','))).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = `tomoclub-${tab === 'partial' ? 'incomplete' : 'completed'}-leads-${data.range.from}-to-${data.range.to}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+api('session').then(showDash).catch((e) => { if (e.message !== 'signed out') showLogin(); });
+}
+</script>
+</body>
+</html>

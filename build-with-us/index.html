@@ -412,6 +412,7 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 </style>
     <script defer src="/assets/js/analytics.js"></script>
     <script defer src="/assets/js/calendly.js"></script>
+    <script defer src="/assets/js/tc-forms.js"></script>
 </head>
 <body>
 
@@ -877,10 +878,12 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
 
   // ── Leads → Google Sheet ───────────────────────────────────────────────
   // Sheet: https://docs.google.com/spreadsheets/d/1r2GdkJKA1lxnWiE_m3GiGvZwmTuAV7rV6jPuAOXqxT4
-  // Deploy site/leads-webapp.gs as a Web App (Execute as: me · Access: anyone)
-  // and paste the /exec URL here. Until then, submissions open a pre-filled email.
+  // Submissions go to /api/lead (Nov 2026): saved to the "School leads" tab of the main form Sheet, with spam checks,
+  // one team alert per submission, and Instantly only when the visitor ticked the marketing box. If that request
+  // fails, the old Apps Script endpoint below still receives the form, as before.
   var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbyGlm2ilFpQAtfNRVcJhPFaiwOHmc0UqKZSu01vctDfSK-efmJjBJSVZ35jRqwNpbI/exec';
   var form=document.getElementById('project-form'),status=document.getElementById('form-status');
+  var loadedAt=Date.now();
   form.addEventListener('submit',function(ev){
     ev.preventDefault();
     var req=['f-name','f-org','f-email','f-goal'],missing=req.filter(function(id){return !document.getElementById(id).value.trim();});
@@ -894,15 +897,22 @@ footer{border-top:1px solid var(--border-color);padding:5rem 0 3rem;margin-top:2
     var btnEl=form.querySelector('button[type=submit]');btnEl.disabled=true;
     function done(ok,msg){status.className='form-status '+(ok?'ok':'err');if(ok){status.innerHTML=msg;form.reset();form.querySelector('.form-grid').hidden=true;form.querySelector('.form-foot').hidden=true;status.scrollIntoView({behavior:'smooth',block:'center'});}else{status.textContent=msg;}btnEl.disabled=false;}
     var thanks='<strong>Thank you for sharing your story.</strong><br>Our team will send an initial project outline to '+email+' within 24 hours. If we need anything else to get it right, we\'ll ask for a short call.<br><br>If you\'d rather get on a call right away, pick a slot that suits you:<br><a class="btn btn-primary" style="margin-top:.9rem" href="https://calendly.com/avinashtomo/tomoclub-call" target="_blank" rel="noopener">Book 20 minutes with Avinash <span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>';
-    if(SHEET_ENDPOINT){
-      // Apps Script web apps accept form-encoded POSTs; no-cors means we can't read the reply, but the row is written.
-      // The Apps Script answers with a redirect to googleusercontent.com, which a strict
-      // Content-Security-Policy (as on tomoclub.org) can block *after* the row is written.
-      // So: if the browser is online and the POST was dispatched, go to the thank-you page either way.
-      if(!navigator.onLine){done(false,'You appear to be offline. Please try again, or email avinash@tomoclub.org.');return;}
-      var go=function(){location.href='/build-with-us/thank-you';};
-      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(go,go);
-    }else{
+    if(!navigator.onLine){done(false,'You appear to be offline. Please try again, or email avinash@tomoclub.org.');return;}
+    var go=function(){location.href='/build-with-us/thank-you';};
+    var api={};for(var k in data)api[k]=data[k];
+    api.type='build_with_us';api.page='/build-with-us';api.offer_interest='Build With Us';api.form_loaded_at=api.form_loaded_at||loadedAt;
+    if(window.tomoAttribution){var at=window.tomoAttribution();for(var a in at)api[a]=at[a];}
+    fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(api)})
+      .then(function(r){return r.json().then(function(j){return r.ok&&j&&j.ok;});})
+      .then(function(ok){if(ok)return go();throw new Error('api');})
+      .catch(function(){
+        if(SHEET_ENDPOINT){
+          // Apps Script web apps accept form-encoded POSTs; no-cors means we can't read the reply, but the row is written.
+          fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}).then(go,go);
+        }else{mailFallback();}
+      });
+    function mailFallback(){
+
       var lines=['Name: '+data.name,'District/School: '+data.district,'Email: '+data.email,'','What is on my mind:',data.goal];
       var href='mailto:avinash@tomoclub.org?subject='+encodeURIComponent('What our school needs: '+data.district)+'&body='+encodeURIComponent(lines.join('\n'));
       var opened=null;try{opened=window.open(href,'_blank','noopener');}catch(e){}

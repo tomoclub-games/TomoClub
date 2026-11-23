@@ -44,7 +44,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-FEGGQ2ZDMT');
+      gtag('config', 'G-FEGGQ2ZDMT', { page_location: location.href.replace(/([?&](?:email|e|mail|name|first_name|last_name|fname|lname|phone|tel|mobile)=)[^&#]*/gi, '$1redacted') });
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
@@ -135,3 +135,4 @@
     <meta name="twitter:image" content="{{social_image}}">
     <script defer src="/assets/js/analytics.js"></script>
     <script defer src="/assets/js/calendly.js"></script>
+    <script defer src="/assets/js/tc-forms.js"></script>

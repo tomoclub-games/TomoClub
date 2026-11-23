@@ -79,7 +79,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-FEGGQ2ZDMT');
+      gtag('config', 'G-FEGGQ2ZDMT', { page_location: location.href.replace(/([?&](?:email|e|mail|name|first_name|last_name|fname|lname|phone|tel|mobile)=)[^&#]*/gi, '$1redacted') });
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
@@ -170,6 +170,7 @@
     <meta name="twitter:image" content="https://img.youtube.com/vi/_S_0MgSbzcA/maxresdefault.jpg">
     <script defer src="/assets/js/analytics.js"></script>
     <script defer src="/assets/js/calendly.js"></script>
+    <script defer src="/assets/js/tc-forms.js"></script>
 </head>
 <body>
 <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.body.classList.add('dark-theme')}catch(e){}</script>
@@ -409,7 +410,7 @@
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
                     Get My Guide <i data-lucide="arrow-right"></i>
                 </button>
-                <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">By downloading, you agree to receive future updates from TomoClub.</p>
+                <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem;">Your download starts right away. We only send you emails if you tick the box above.</p>
             </form>
 
             <div id="download-success-msg" style="display: none;">

@@ -16,7 +16,7 @@
  *   section_view   { section_name, engagement_ms }   when a section leaves the screen or the page is closed,
  *                                                     for any element with a data-track="name" attribute
  *   cta_click      { cta_text, cta_href }             for links/buttons inside data-track sections
- *   lead_submitted { form_id }                        when the Build With Us form is submitted
+ *   Form, button and booking events (generate_lead, book_call_scheduled, ...) come from assets/js/tc-forms.js.
  *
  * Meta Pixel events (besides PageView on every page):
  *   Lead    { content_name }   Build With Us thank-you page, contact-page Tally form submit,
@@ -43,8 +43,10 @@
       var q = new URLSearchParams(location.search);
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(function (k) { if (q.get(k)) a[k] = q.get(k); });
     } catch (e) {}
-    a.referrer = document.referrer || '';
-    a.landing_page = location.pathname + location.search;
+    // Query values that could carry a person's details are never kept (they would reach the forms' Sheet rows).
+    var redact = function (u) { return String(u || '').replace(/([?&](?:email|e|mail|name|first_name|last_name|fname|lname|phone|tel|mobile)=)[^&#]*/gi, '$1redacted'); };
+    a.referrer = redact(document.referrer || '');
+    a.landing_page = redact(location.pathname + location.search);
     try { sessionStorage.setItem('tomo_attr', JSON.stringify(a)); } catch (e) {}
     return a;
   })();
@@ -66,7 +68,8 @@
   if (CONFIG.GA4 && !document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
     load('https://www.googletagmanager.com/gtag/js?id=' + CONFIG.GA4);
     gtag('js', new Date());
-    gtag('config', CONFIG.GA4);
+    // Never send personal details to GA4: values of email/name/phone query parameters are replaced.
+    gtag('config', CONFIG.GA4, { page_location: location.href.replace(/([?&](?:email|e|mail|name|first_name|last_name|fname|lname|phone|tel|mobile)=)[^&#]*/gi, '$1redacted') });
   }
 
   /* ── 2. LinkedIn Insight Tag ─────────────────────────────────────────── */
@@ -189,14 +192,6 @@
       });
     });
 
-    // Lead form submissions (Build With Us).
-    var form = document.getElementById('project-form');
-    if (form) {
-      form.addEventListener('submit', function () {
-        gtag('event', 'lead_submitted', { form_id: 'build-with-us' });
-        if (window.lintrk) window.lintrk('track', { conversion_id: null });
-        if (window.clarity) window.clarity('set', 'lead', 'submitted');
-      });
-    }
+    // Form steps, confirmed submissions (generate_lead) and bookings are tracked by assets/js/tc-forms.js.
   });
 })();
