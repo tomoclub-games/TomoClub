@@ -46,11 +46,10 @@ npm test
 
 It needs one always-on Node server with a small persistent disk, because reading a website takes 2 to 4 minutes and the database is a file. Vercel serverless functions are not a good fit for that.
 
-**Render (blueprint included):**
-1. Put this folder in a GitHub repository (for example `tomoclub-games/district-assistant`).
-2. Render: New > Blueprint > pick the repository. It reads `render.yaml` (Docker, 1 GB disk at `/data`).
-3. Set `ANTHROPIC_API_KEY` and `ADMIN_PASSWORD` when asked.
-4. Optional: add a custom domain such as `assistant.tomoclub.org`.
+**Render (blueprint included):** the app lives on the `district-assistant` branch of `tomoclub-games/TomoClub` (Vercel deployments are turned off for this branch in `vercel.json`).
+1. Render: New > Blueprint > connect GitHub > pick `tomoclub-games/TomoClub`, branch `district-assistant`. It reads `render.yaml` (Docker, Starter instance, 1 GB disk at `/data`).
+2. Paste `ANTHROPIC_API_KEY` and choose an `ADMIN_PASSWORD` when asked, then Apply.
+3. Test on the `onrender.com` link. Then Settings > Custom Domains > add `assistant.tomoclub.org`, and in Cloudflare add a CNAME `assistant` pointing to the `onrender.com` host, proxy off (DNS only).
 
 **Railway or Fly.io:** deploy the Dockerfile, attach a volume at `/data`, set the same variables.
 

@@ -4,6 +4,8 @@ services:
     name: tomoclub-district-assistant
     runtime: docker
     plan: starter
+    branch: district-assistant
+    autoDeploy: true
     healthCheckPath: /api/health
     disk:
       name: data
