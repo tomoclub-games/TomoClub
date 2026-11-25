@@ -10,8 +10,8 @@
 //                      with the scheduled_events:read scope). Nothing the browser says about the invitee is trusted.
 
 import {
-  originAllowed, clientIp, tooMany, spamReason, clean, isEmail, emailType, attribution,
-  saveToSheet, readBody,
+  originAllowed, clientIp, tooMany, spamReason, clean, isEmail, isThrowaway, emailType, attribution,
+  submissionId, saveToSheet, readBody,
 } from './_lead-core.js';
 
 const ROLES = ['Superintendent', 'Assistant or deputy superintendent', 'Principal or head of school',
@@ -56,7 +56,9 @@ export default async function handler(req, res) {
   if (type === 'call_booked') {
     const inv = await calendlyInvitee(clean(b.invitee_uri, 300));
     if (!inv || !isEmail(inv.email)) return res.status(400).json({ ok: false, error: 'Booking not found' });
-    lead = { name: inv.name, email: inv.email, org: '', role: '', message: inv.answers, meeting_start: inv.start };
+    lead = { name: inv.name, email: inv.email, org: '', role: '', message: inv.answers, meeting_start: inv.start,
+      // The Calendly invitee ID, so a booking reported twice is saved once.
+      submission_id: clean(b.invitee_uri, 300).split('/').pop().replace(/[^\w-]/g, '').slice(0, 64) };
   } else {
     const reason = spamReason(b);
     if (reason) {
@@ -73,6 +75,7 @@ export default async function handler(req, res) {
       message: clean(b.goal || b.message, 3000),
     };
     if (!isEmail(lead.email)) return res.status(400).json({ ok: false, error: 'A valid email is required' });
+    if (isThrowaway(lead.email)) return res.status(400).json({ ok: false, error: 'Please use a permanent email address' });
     if (!lead.name || !lead.org) return res.status(400).json({ ok: false, error: 'Name and school or district are required' });
   }
 
@@ -90,6 +93,7 @@ export default async function handler(req, res) {
     meeting_start: lead.meeting_start || '',
     page: clean(b.page, 120),
     ...attribution(b),
+    submission_id: lead.submission_id || submissionId(b),
   };
 
   if (!(await saveToSheet([{ sheet: 'School leads', data: row }]))) {

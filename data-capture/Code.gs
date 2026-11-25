@@ -4,7 +4,9 @@
  *   Parents site: Leads, Trial bookings, Enrolments (and Events, only if click logging is switched on)
  *   Leaders of Tomorrow and toolkits: E-book requests, Toolkit downloads
  * The Build With Us project form has its own separate script and is not part of this.
- * Tabs and their header rows are created automatically the first time a row arrives.
+ * Tabs and their header rows are created automatically the first time a row arrives. When a new column is added to
+ * HEADERS (always at the end), its title is written into the existing tab's header row the next time a row arrives.
+ * Duplicates: a row whose submission_id was already saved in the last 6 hours is skipped (no row, no Slack alert).
  *   B2B site: School leads (api/lead.js: the home page form and Calendly bookings)
  * Also: "Failed bookings" (a trial booking that did not go through).
  *
@@ -422,7 +424,7 @@ var ATTRIBUTION_COLUMNS = [
   ["landing_page", "Landing page"]
 ];
 ["E-book requests", "Toolkit downloads"].forEach(function (name) {
-  HEADERS[name] = HEADERS[name].concat(ATTRIBUTION_COLUMNS);
+  HEADERS[name] = HEADERS[name].concat(ATTRIBUTION_COLUMNS, [["submission_id", "Submission ID"]]);
 });
 
 // Added to the end of the three parents tabs: the visitor's country by IP (set by the server, not the browser),
@@ -470,7 +472,12 @@ HEADERS["School leads"] = [
   ["message", "What they wrote"],
   ["meeting_start", "Meeting start (UTC)"],
   ["page", "Page"]
-].concat(ATTRIBUTION_COLUMNS);
+].concat(ATTRIBUTION_COLUMNS, [
+  ["submission_id", "Submission ID"],
+  ["follow_up_status", "Follow-up status"] // left blank by the website; for the team to fill in
+]);
+
+var DUPLICATE_WINDOW_SECONDS = 6 * 60 * 60; // the longest CacheService allows
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -487,10 +494,16 @@ function doPost(e) {
       if (!sheetId) throw new Error('Not bound to a Sheet: set the SHEET_ID Script Property');
       ss = SpreadsheetApp.openById(sheetId);
     }
+    var cache = CacheService.getScriptCache();
     var grouped = {};
     var valid = [];
+    var seenNow = {};
+    var skipped = 0;
     rows.forEach(function (r) {
       if (!r || !HEADERS[r.sheet]) return;
+      var key = duplicateKey_(r);
+      if (key && (seenNow[key] || cache.get(key))) { skipped++; return; }
+      if (key) seenNow[key] = true;
       (grouped[r.sheet] = grouped[r.sheet] || []).push(r.data || {});
       valid.push(r);
     });
@@ -504,8 +517,12 @@ function doPost(e) {
       range.setNumberFormat('@'); // plain text: keeps "+91..." phone numbers intact and stops "=..." being run as a formula
       range.setValues(values);
     });
+    // Remember the IDs only once their rows are saved, so a failed save can be sent again.
+    var remember = {};
+    valid.forEach(function (r) { var key = duplicateKey_(r); if (key) remember[key] = '1'; });
+    if (Object.keys(remember).length) cache.putAll(remember, DUPLICATE_WINDOW_SECONDS);
     saved = valid; // only alert for rows that really were saved
-    result = { ok: true, saved: rows.length };
+    result = { ok: true, saved: valid.length, duplicates: skipped };
   } catch (err) {
     result = { ok: false, error: String(err) };
   } finally {
@@ -577,14 +594,32 @@ function testSlack() {
 
 function doGet() { return json_({ ok: true, message: 'TomoClub collector is running' }); }
 
+// Key for the duplicate check: tab + submission_id. Rows without an ID are never treated as duplicates.
+function duplicateKey_(r) {
+  var id = String((r.data && r.data.submission_id) || '').replace(/[^\w-]/g, '').slice(0, 64);
+  return id ? 'sid:' + r.sheet + ':' + id : '';
+}
+
 function getSheet_(ss, name) {
   var sheet = ss.getSheetByName(name);
   if (!sheet) sheet = ss.insertSheet(name);
+  var titles = HEADERS[name].map(function (h) { return h[1]; });
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADERS[name].map(function (h) { return h[1]; }));
+    sheet.appendRow(titles);
     sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, HEADERS[name].length).setFontWeight('bold');
+    sheet.getRange(1, 1, 1, titles.length).setFontWeight('bold');
+    return sheet;
   }
+  // An existing tab: write the titles of columns added since it was created into their empty header cells.
+  // A cell that already holds a different title is left alone (someone may have added their own column there).
+  var current = sheet.getRange(1, 1, 1, titles.length).getValues()[0];
+  titles.forEach(function (t, i) {
+    if (current[i] === '' || current[i] === null) {
+      sheet.getRange(1, i + 1).setValue(t).setFontWeight('bold');
+    } else if (String(current[i]) !== t) {
+      console.warn('Header mismatch in "' + name + '" column ' + (i + 1) + ': has "' + current[i] + '", expected "' + t + '"');
+    }
+  });
   return sheet;
 }
 
