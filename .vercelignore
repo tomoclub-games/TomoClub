@@ -21,6 +21,9 @@ tools/
 *.md
 *.docx
 
+# Automated tests (npm test).
+tests/
+
 # Content data used only by the build scripts (data/podcasts_data.js).
 data/
 
