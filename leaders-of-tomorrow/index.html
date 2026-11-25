@@ -560,6 +560,7 @@
                             <input type="text" name="firstName" placeholder="First Name" required style="background: var(--surface); border: 1px solid var(--border-color); color: var(--text-main) !important;">
                             <input type="email" name="email" placeholder="Email Address" required style="background: var(--surface); border: 1px solid var(--border-color); color: var(--text-main) !important;">
                             <input type="hidden" name="source" value="Hero Section">
+                            <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave this empty<input name="hp_company_website" tabindex="-1" autocomplete="off"></label></div>
                             <button type="submit" class="btn-ebook">
                                 Get the Ebook <i data-lucide="arrow-right"></i>
                             </button>
@@ -855,6 +856,7 @@
                                 <option value="Other">Other</option>
                             </select>
                             <input type="hidden" name="source" value="Mid-Page Section">
+                            <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave this empty<input name="hp_company_website" tabindex="-1" autocomplete="off"></label></div>
                             <button type="submit" class="btn-ebook">
                                 Get the Ebook <i data-lucide="arrow-right"></i>
                             </button>
@@ -1084,6 +1086,8 @@
             const successMsg = document.getElementById(formId.replace('-form', '-success'));
             
             if (form) {
+                const loadedAt = Date.now();
+                const submissionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const formData = new FormData(form);
@@ -1097,6 +1101,8 @@
                         // 1. Submit to Centralized API Proxy
                         const data = Object.fromEntries(formData.entries());
                         data.type = 'ebook_request';
+                        data.form_loaded_at = loadedAt;
+                        data.submission_id = submissionId;
                         if (window.tomoAttribution) Object.assign(data, window.tomoAttribution()); // UTM, click IDs, referrer, landing page
                         
                         await fetch('/api/signup', {
@@ -1109,6 +1115,8 @@
                         form.style.display = 'none';
                         successMsg.style.display = 'block';
                         
+                        if (window.tomoTrack) window.tomoTrack('resource_download', { resource_name: 'Leaders of Tomorrow ebook' });
+
                         // Trigger automatic download of the Ebook
                         const ebookFileName = 'Leaders of Tomorrow 1 May Launch.pdf';
                         const ebookFileUrl = `../Ebook/${encodeURIComponent(ebookFileName)}`;

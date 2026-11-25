@@ -95,6 +95,7 @@
     var status = form.querySelector('.h-form-status');
     var offerSel = form.querySelector('[name=offer_interest]');
     var loadedAt = Date.now();
+    var submissionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
     // Offer buttons elsewhere on the page can preselect the interest.
     document.querySelectorAll('[data-interest]').forEach(function (a) {
       a.addEventListener('click', function () { if (offerSel) offerSel.value = a.getAttribute('data-interest'); });
@@ -111,11 +112,14 @@
       data.type = 'discovery_request';
       data.page = location.pathname;
       data.form_loaded_at = loadedAt;
+      data.submission_id = submissionId;
       if (window.tomoAttribution) { var a = window.tomoAttribution(); for (var k in a) data[k] = a[k]; }
       fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
         .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j && j.ok, j: j }; }); })
         .then(function (res) {
           if (!res.ok) throw new Error((res.j && res.j.error) || 'Something went wrong');
+          if (window.tomoTrack) window.tomoTrack('generate_lead', { form_name: 'home_discovery_form' });
+          if (window.tomoTrackLead) window.tomoTrackLead('home');
           form.querySelectorAll('.h-field, .row, button[type=submit], .fine').forEach(function (el) { el.style.display = 'none'; });
           status.className = 'h-form-status ok';
           status.innerHTML = '<strong>Thank you' + (res.j.name ? ', ' + String(res.j.name).replace(/[<>&"]/g, '') : '') + '.</strong> A co-founder will read this and reply within 24 hours. ' +

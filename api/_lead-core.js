@@ -1,4 +1,4 @@
-// Shared helpers for api/lead.js. Files whose names start with "_" are not deployed as their own Vercel functions.
+// Shared helpers for api/lead.js and api/signup.js. Files whose names start with "_" are not deployed as their own Vercel functions.
 //
 // Env vars (Vercel > Settings > Environment Variables):
 //   SHEET_WEBHOOK   Apps Script Web app URL (data-capture/Code.gs). Every lead is saved here; Code.gs posts the Slack alert.
@@ -21,6 +21,13 @@ export const isEmail = (v) => /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,}$/i.test(v 
 
 const FREE_MAIL = /@(gmail|yahoo|hotmail|outlook|live|aol|icloud|me|proton(mail)?|gmx|mail|yandex|zoho)\./i;
 export const emailType = (email) => (FREE_MAIL.test(email) ? 'personal' : 'work');
+
+// Disposable inboxes that bots and drive-by sign-ups use.
+const THROWAWAY = /@(?:[^@]*\.)?(mailinator|guerrillamail|10minutemail|temp-?mail|yopmail|trashmail|sharklasers)\.[a-z.]+$/i;
+export const isThrowaway = (email) => THROWAWAY.test(email || '');
+
+// One ID per form fill, made in the browser. Code.gs uses it to drop a second copy of the same submission.
+export const submissionId = (b) => String((b && b.submission_id) || '').replace(/[^\w-]/g, '').slice(0, 64);
 
 export function originAllowed(req) {
   return ALLOWED_ORIGINS.some((re) => re.test(req.headers.origin || ''));
@@ -49,7 +56,7 @@ export function spamReason(b) {
   if (clean(b.hp_company_website)) return 'honeypot';
   const loaded = Number(b.form_loaded_at);
   if (loaded && Date.now() - loaded < 3000) return 'too_fast';
-  const text = [b.goal, b.message, b.name].map((x) => clean(x, 3000)).join(' ');
+  const text = [b.goal, b.message, b.name, b.firstName].map((x) => clean(x, 3000)).join(' ');
   if ((text.match(/https?:\/\//gi) || []).length > 2) return 'links';
   return '';
 }
