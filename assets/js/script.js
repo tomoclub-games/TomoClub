@@ -241,6 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Store filename for download
         downloadModal.setAttribute('data-current-file', fileName);
         
+        downloadModal.setAttribute('data-loaded-at', String(Date.now()));
+        downloadModal.setAttribute('data-submission-id', (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2));
         downloadModal.classList.add('active');
         if (toolkitForm) toolkitForm.style.display = 'block';
         if (successMsg) successMsg.style.display = 'none';
@@ -274,6 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const data = Object.fromEntries(formData.entries());
           data.type = 'resource';
           data.toolkitName = downloadModal.getAttribute('data-current-file'); // Re-ensure toolkit name
+          data.form_loaded_at = Number(downloadModal.getAttribute('data-loaded-at')) || '';
+          data.submission_id = downloadModal.getAttribute('data-submission-id') || '';
           if (window.tomoAttribution) Object.assign(data, window.tomoAttribution()); // UTM, click IDs, referrer, landing page
 
           // Send to secure proxy
@@ -295,6 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
             manualDownloadLink.setAttribute('download', fileName);
           }
           
+          if (window.tomoTrack) window.tomoTrack('resource_download', { resource_name: (modalTitle && modalTitle.textContent) || fileName });
+
           // Trigger automatic download
           const link = document.createElement('a');
           link.href = downloadUrl;
