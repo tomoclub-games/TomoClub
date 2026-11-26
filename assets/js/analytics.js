@@ -23,7 +23,7 @@
  *   Lead     { content_name }  Build With Us thank-you page, contact-page Tally form submit,
  *                              or a page calling window.tomoTrackLead(name) after its own form succeeds
  *   Contact  { content_name }  click on any WhatsApp link
- *   Schedule                   a booking completed in the Calendly pop-up
+ *   Schedule                   a call booked in the booking pop-up (or its Calendly fallback)
  */
 (function () {
   var CONFIG = {
@@ -211,8 +211,8 @@
      Events (mark the starred ones as key events in GA4):
        cta_click            { section_name, cta_name, cta_text, cta_href }  buttons outside data-track sections
                             (inside them, section 6 sends cta_click, now with cta_name too)
-       book_call_click      { cta_location }   any "Book a call" link: Calendly pop-up or new tab
-       book_call_scheduled* {}                 a Calendly pop-up booking was completed
+       book_call_click      { cta_location }   any "Book a call" link: booking pop-up or new tab
+       book_call_scheduled* {}                 a call was booked (booking pop-up, or the Calendly fallback)
        faq_open             { question }
        contact_click        { method }         email, phone or WhatsApp link
        form_view            { form_name }      a form came on screen (or its pop-up opened)
@@ -286,7 +286,12 @@
     }
   }, true);
 
-  // A booking completed in the Calendly pop-up (assets/js/calendly.js saves it; this only counts it).
+  // A call booked in the booking pop-up (assets/js/calendly.js books and saves it; this only counts it).
+  window.addEventListener('tomo:call-booked', function () {
+    track('book_call_scheduled', {});
+    metaTrack('Schedule');
+  });
+  // A booking completed in the Calendly pop-up, the fallback when our pop-up cannot load times.
   window.addEventListener('message', function (ev) {
     if (ev.origin !== 'https://calendly.com' || !ev.data || ev.data.event !== 'calendly.event_scheduled') return;
     track('book_call_scheduled', {});

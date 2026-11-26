@@ -14,6 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { fakeCalendly, calendly } from './fake-calendly.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -22,7 +23,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 process.env.SHEET_WEBHOOK = 'https://sheet.test/exec';
 const sheetRows = [];
 const realFetch = globalThis.fetch;
+process.env.CALENDLY_TOKEN = 'test-token';
 globalThis.fetch = async (url, o) => {
+  const c = fakeCalendly(url, o);
+  if (c) return c;
   if (url !== process.env.SHEET_WEBHOOK) return realFetch(url, o);
   sheetRows.push(...JSON.parse(o.body).rows);
   return { ok: true, json: async () => ({ ok: true }) };
@@ -30,6 +34,7 @@ globalThis.fetch = async (url, o) => {
 const API = {
   '/api/lead': (await import('../api/lead.js')).default,
   '/api/signup': (await import('../api/signup.js')).default,
+  '/api/call': (await import('../api/call.js')).default,
 };
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp',
@@ -52,7 +57,7 @@ const server = http.createServer(async (req, res) => {
     try { body = JSON.parse(raw); } catch (e) { /* empty */ }
     const out = { code: 200 };
     await route({ method: req.method, headers: req.headers, body },
-      { status(c) { out.code = c; return this; }, json(j) { res.writeHead(out.code, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(j)); return this; } });
+      { setHeader() {}, status(c) { out.code = c; return this; }, json(j) { res.writeHead(out.code, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(j)); return this; } });
     return;
   }
   const file = resolveFile(req.url);
@@ -208,6 +213,10 @@ test('home: book-a-call, FAQ, form steps and the lead', async () => {
   assert.equal(count(since(n), 'book_call_click', (p) => p.cta_location === 'hero'), 1, 'book_call_click hero');
   assert.equal(count(since(n), 'cta_click'), 1, 'one cta_click, not two');
   assert.equal(since(n, 'cta_click')[0][1].cta_name, 'Book a call');
+  assert.equal(await js(`!!document.querySelector('.tcb-overlay .tcb-box')`), true, 'booking pop-up opens');
+  await js(`document.querySelector('.tcb-close').click()`);
+  await sleep(300);
+  assert.equal(await js(`!!document.querySelector('.tcb-overlay')`), false, 'booking pop-up closes');
 
   n = mark();
   await js(`document.querySelector('.h-faq summary').scrollIntoView(); document.querySelector('.h-faq summary').click()`);
@@ -376,6 +385,58 @@ test('/build-with-us: new-tab call links and the form flow are unchanged; events
   n = mark();
   await go('/build-with-us/thank-you');
   assert.equal(count(since(n), 'generate_lead'), 0, 'a reload does not count the lead again');
+});
+
+test('booking pop-up: times are ready on open, pick a time, details, booked in Calendly, row saved', async () => {
+  calendly.reset();
+  await go('/', 2500); // the open times are fetched quietly after load
+  assert.ok(calendly.seen.some((u) => u.includes('available_times')), 'times fetched before any click');
+  const n = mark();
+  await js(`document.querySelector('[data-book-call][data-event-label="nav"]').click()`);
+  await sleep(150);
+  assert.equal(await js(`document.querySelectorAll('.tcb-time').length`), 2, 'first open day and its times show at once');
+  assert.match(await js(`document.querySelector('.tcb-tz').textContent`), /^Times in /);
+  assert.equal(await js(`document.querySelector('[data-next]').disabled`), true);
+  await js(`document.querySelector('.tcb-time').click()`);
+  await js(`document.querySelector('[data-next]').click()`);
+  await sleep(100);
+  assert.equal(await js(`document.querySelector('[data-book]').disabled`), true, 'book button waits for the details');
+  await type('.tcb-box input[name=name]', NAME);
+  await type('.tcb-box input[name=email]', EMAIL);
+  await js(`document.querySelector('[data-guests]').click()`);
+  await type('.tcb-box input[name=guests]', 'second.person@district-example.org');
+  await type('.tcb-box textarea[name=reason]', 'AI training for our teachers');
+  assert.equal(await js(`document.querySelector('[data-book]').disabled`), false);
+  await js(`document.querySelector('[data-book]').click()`);
+  await sleep(800);
+  assert.match(await js(`document.querySelector('.tcb-done h2').textContent`), /booked/);
+  assert.equal(calendly.bookings.length, 1);
+  assert.equal(calendly.bookings[0].invitee.email, EMAIL);
+  assert.deepEqual(calendly.bookings[0].event_guests, ['second.person@district-example.org']);
+  const row = sheetRows.find((r) => r.sheet === 'School leads' && r.data.type === 'call_booked' && r.data.email === EMAIL);
+  assert.ok(row, 'call_booked row saved');
+  assert.equal(row.data.page, '/');
+  assert.equal(count(since(n), 'form_view', (p) => p.form_name === 'book_call'), 1);
+  assert.equal(count(since(n), 'form_start', (p) => p.form_name === 'book_call'), 1);
+  assert.equal(count(since(n), 'book_call_scheduled'), 1);
+  await js(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); document.querySelector('.tcb-box').dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }))`);
+  await sleep(300);
+  assert.equal(await js(`!!document.querySelector('.tcb-overlay')`), false, 'Escape closes it');
+});
+
+test('booking pop-up: when times cannot load, the Calendly page is offered', async () => {
+  calendly.reset();
+  calendly.down = true;
+  try {
+    await go('/', 2500);
+    await js(`document.querySelector('[data-book-call][data-event-label="hero"]').click()`);
+    await sleep(500);
+    assert.equal(await js(`!!document.querySelector('.tcb-box [data-calendly]')`), true, 'Calendly fallback offered');
+    assert.equal(await js(`!!document.querySelector('.tcb-box [data-retry]')`), true, 'try again offered');
+  } finally {
+    calendly.down = false;
+  }
+  await js(`document.querySelector('.tcb-close').click()`);
 });
 
 test('no personal data in any event; nothing reached outside services; no script errors', () => {

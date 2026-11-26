@@ -7,7 +7,7 @@
  * Tabs and their header rows are created automatically the first time a row arrives. When a new column is added to
  * HEADERS (always at the end), its title is written into the existing tab's header row the next time a row arrives.
  * Duplicates: a row whose submission_id was already saved in the last 6 hours is skipped (no row, no Slack alert).
- *   B2B site: School leads (api/lead.js: the home page form and Calendly bookings)
+ *   B2B site: School leads (api/lead.js: the home page form; api/call.js: calls booked, or failed, in the booking pop-up)
  * Also: "Failed bookings" (a trial booking that did not go through).
  *
  * Slack alerts (new school lead, booked discovery call, confirmed trial booking, paid enrolment, failed booking): add a script property named
@@ -559,7 +559,8 @@ function slackText_(sheetName, d) {
   var lang = '\n*Language / currency:* ' + e(d.language) + ' / ' + e(d.currency);
 
   if (sheetName === 'School leads') {
-    var kind = { discovery_request: 'New school lead', call_booked: 'Discovery call booked' }[d.type] || 'School lead';
+    var kind = { discovery_request: 'New school lead', call_booked: 'Discovery call booked',
+      call_failed: 'Call booking FAILED: please follow up by email' }[d.type] || 'School lead';
     return ':school: *' + kind + '*\n*Name:* ' + e(d.name) + '\n*Email:* ' + e(d.email) + ' (' + e(d.email_type) + ')\n' +
       '*School or district:* ' + e(d.organization) + '\n*Role:* ' + e(d.role) + '\n*State:* ' + e(d.state) + '\n' +
       (d.meeting_start ? '*Meeting:* ' + e(d.meeting_start) + ' UTC\n' : '') +
