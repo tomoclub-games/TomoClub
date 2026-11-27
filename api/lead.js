@@ -11,7 +11,7 @@
 
 import {
   originAllowed, clientIp, tooMany, spamReason, clean, isEmail, isThrowaway, emailType, attribution,
-  submissionId, saveToSheet, readBody,
+  submissionId, saveToSheet, readBody, addToInstantly,
 } from './_lead-core.js';
 
 const ROLES = ['Superintendent', 'Assistant or deputy superintendent', 'Principal or head of school',
@@ -96,7 +96,15 @@ export default async function handler(req, res) {
     submission_id: lead.submission_id || submissionId(b),
   };
 
-  if (!(await saveToSheet([{ sheet: 'School leads', data: row }]))) {
+  // Save to the Sheet and add to Instantly at the same time. Only the Sheet decides success.
+  const [saved] = await Promise.all([
+    saveToSheet([{ sheet: 'School leads', data: row }]),
+    addToInstantly(type === 'call_booked' ? 'INSTANTLY_LIST_BOOKED_CALLS' : 'INSTANTLY_LIST_HOME_FORM', {
+      name: lead.name, email: lead.email, company: lead.org,
+      custom: { role: lead.role, state: lead.state, message: lead.message, meeting_start: lead.meeting_start, page: row.page, source: row.utm_source || row.referrer },
+    }),
+  ]);
+  if (!saved) {
     return res.status(502).json({ ok: false, error: 'Could not save. Please email avinash@tomoclub.org.' });
   }
   return res.status(200).json({ ok: true, name: lead.name.split(/\s+/)[0] });

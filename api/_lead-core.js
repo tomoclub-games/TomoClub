@@ -1,7 +1,14 @@
-// Shared helpers for api/lead.js and api/signup.js. Files whose names start with "_" are not deployed as their own Vercel functions.
+// Shared helpers for api/lead.js, api/signup.js and api/call.js. Files whose names start with "_" are not deployed as their own Vercel functions.
 //
 // Env vars (Vercel > Settings > Environment Variables):
 //   SHEET_WEBHOOK   Apps Script Web app URL (data-capture/Code.gs). Every lead is saved here; Code.gs posts the Slack alert.
+//   INSTANTLY_API_KEY             Instantly API v2 key with the leads:create scope (key name: tomoclub-website-vercel).
+//   INSTANTLY_LIST_HOME_FORM      Instantly list for the home page form.
+//   INSTANTLY_LIST_BOOKED_CALLS   Instantly list for booked calls (booking pop-up and Calendly fallback).
+//   INSTANTLY_LIST_EBOOK          Instantly list for e-book requests.
+//   INSTANTLY_LIST_TOOLKITS       Instantly list for toolkit downloads.
+// Every real lead is added to its form's Instantly list. A list does not send emails by itself.
+// Nothing is sent to Instantly when the key or the form's list ID is missing.
 
 export const ALLOWED_ORIGINS = [
   /^https:\/\/(www\.)?tomoclub\.org$/,
@@ -84,6 +91,44 @@ export async function saveToSheet(rows) {
   } catch (error) {
     console.error('sheet write error:', error);
     return false;
+  }
+}
+
+// Add one contact to an Instantly list. `list` is the env var name, e.g. 'INSTANTLY_LIST_HOME_FORM'.
+// Returns 'added', 'already_there', 'not_configured' or 'failed'. Never throws: a form must not fail because of Instantly.
+export async function addToInstantly(list, lead) {
+  const key = process.env.INSTANTLY_API_KEY;
+  const listId = String(process.env[list] || '').trim();
+  if (!key || !/^[0-9a-f-]{36}$/i.test(listId)) return 'not_configured';
+  if (!isEmail(lead.email)) return 'failed';
+  const [first, ...rest] = clean(lead.name, 120).split(/\s+/);
+  const custom = {};
+  Object.entries(lead.custom || {}).forEach(([k, v]) => { const s = clean(v, 500); if (s) custom[k] = s; });
+  try {
+    const r = await fetch('https://api.instantly.ai/api/v2/leads/add', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        list_id: listId,
+        // false lets one person be in several lists (e.g. downloaded a toolkit, then booked a call): true skips anyone
+        // already in ANY list. Instantly still adds the same person to the same list only once (checked 27 Nov 2026).
+        skip_if_in_list: false,
+        leads: [{
+          email: lead.email.toLowerCase(),
+          first_name: first || null,
+          last_name: rest.join(' ') || null,
+          company_name: clean(lead.company, 160) || null,
+          custom_variables: custom,
+        }],
+      }),
+      signal: AbortSignal.timeout(8000),
+    });
+    const j = await r.json().catch(() => null);
+    if (!r.ok || !j) { console.error('Instantly add failed:', list, r.status, JSON.stringify(j)); return 'failed'; }
+    return Number(j.leads_uploaded) > 0 ? 'added' : 'already_there';
+  } catch (error) {
+    console.error('Instantly request error:', list, error && error.message);
+    return 'failed';
   }
 }
 

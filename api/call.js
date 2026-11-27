@@ -4,10 +4,11 @@
 // Calendly sends the invite, the meeting link and the reminder emails, exactly as a booking on the Calendly page.
 // A confirmed booking is saved as a "call_booked" row in the "School leads" tab (Code.gs posts the Slack alert).
 // A booking that fails for any reason other than "time just taken" is saved as "call_failed", so the team can follow up.
+// A confirmed booking is also added to the Instantly "booked calls" list (failed bookings are not).
 //
-// Env vars: CALENDLY_TOKEN (see _calendly.js) and SHEET_WEBHOOK (see _lead-core.js).
+// Env vars: CALENDLY_TOKEN (see _calendly.js), SHEET_WEBHOOK and the INSTANTLY_* settings (see _lead-core.js).
 
-import { originAllowed, clientIp, tooMany, spamReason, clean, isEmail, isThrowaway, emailType, attribution, saveToSheet, readBody } from './_lead-core.js';
+import { originAllowed, clientIp, tooMany, spamReason, clean, isEmail, isThrowaway, emailType, attribution, saveToSheet, readBody, addToInstantly } from './_lead-core.js';
 import { callEventType, availableTimes, createInvitee, locationFor, buildAnswers } from './_calendly.js';
 
 const DAYS = 28;
@@ -90,7 +91,13 @@ async function book(req, res, token) {
     const up = await createInvitee(token, payload);
     if (up.status === 201 && up.body && up.body.resource) {
       const invitee = String(up.body.resource.uri || '');
-      const saved = await saveToSheet([{ sheet: 'School leads', data: row('call_booked', said, { submission_id: invitee.split('/').pop().replace(/[^\w-]/g, '').slice(0, 64) }) }]);
+      const booked = row('call_booked', said, { submission_id: invitee.split('/').pop().replace(/[^\w-]/g, '').slice(0, 64) });
+      const [saved] = await Promise.all([
+        saveToSheet([{ sheet: 'School leads', data: booked }]),
+        addToInstantly('INSTANTLY_LIST_BOOKED_CALLS', {
+          name, email, custom: { message: said, meeting_start: startIso, page: booked.page, source: booked.utm_source || booked.referrer },
+        }),
+      ]);
       if (!saved) console.error('Call booked in Calendly but the sheet row was not saved:', invitee);
       return res.status(200).json({ ok: true, start: startIso });
     }

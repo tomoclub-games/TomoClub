@@ -129,7 +129,7 @@ The existing Build With Us pieces stay: `lead_submitted` on submit (it also fire
 - [ ] Are the project status labels right: New Mexico and Pennsylvania (In development), Florida and Cedars (Prototype)? (B)
 - [ ] Is the anonymised Massachusetts example OK? (B)
 - [ ] Can the site say "Two districts used our prototypes in grant applications" and "Approved on Utah Fits All (two programs)"? (B)
-- [ ] Newsletter: keep the Substack embed, or replace it with a signup that feeds Instantly? (B)
+- [x] Newsletter: keep the Substack embed as it is (Rohith, 26 Nov). Feeding Substack signups to Instantly moved to "Later". (B)
 - [ ] Three parent-focused blog posts (phone bans, screen time, AI skills for children): keep them for search traffic, or archive them? (B)
 - [ ] TAICY page (dates passed): keep, update or archive? (B)
 - [ ] Real classroom photos (with consent) to replace the AI-generated hero images on the program pages. (B)
@@ -145,16 +145,22 @@ The existing Build With Us pieces stay: `lead_submitted` on submit (it also fire
 
 ## 3. Later (not this sprint)
 
-- [ ] **Instantly.** Decide who goes in: only people who tick an opt-in box (17, safer on consent) or every email (15). Then:
-  - create the lists and campaigns, and write the emails before turning the campaigns on;
-  - add the routing to `/api/lead` and `/api/signup`;
-  - add `INSTANTLY_API_KEY` and the routing settings in Vercel;
-  - update the privacy policy.
-  - Also decide whether the Substack signup should feed Instantly (section E).
+- [ ] **Instantly.** Decided by Rohith on 26 Nov:
+  - **Who goes in:** everyone who submits a form, with no opt-in box (for now).
+  - **Which forms:** the home page form, booked calls (our pop-up and the Calendly fallback), e-book requests and toolkit downloads. Not Build With Us.
+  - **Where they go:** one Instantly list per form, so each source can get its own emails later. Lists do not send anything by themselves; contacts are moved into a campaign by hand.
+
+  Steps:
+  1. [x] Rohith: created the API v2 key `tomoclub-website-vercel` (scope `leads:create`) and four lists (27 Nov).
+  2. [x] Claude Code: `addToInstantly` in `api/_lead-core.js`, called from `api/lead.js`, `api/call.js` and `api/signup.js` at the same time as the Sheet save. An Instantly failure never blocks a form. Tests in `tests/instantly.test.mjs`. Checked against the real lists on 27 Nov with `website-test@tomoclub.org` (delete it from the four lists). No `instantly_status` Sheet column: Instantly shows who is in each list.
+     - Instantly finding: `skip_if_in_list: true` skips anyone already in *any* list, so the code sends `false`. Instantly still never adds the same person to the same list twice.
+  3. [x] Privacy policy: Instantly added to the service providers in section 5.1, "Last Updated" set to November 27, 2026. Section 2.2 already covers marketing emails. Every Instantly email must have an unsubscribe link.
+  4. Add `INSTANTLY_API_KEY`, `INSTANTLY_LIST_HOME_FORM`, `INSTANTLY_LIST_BOOKED_CALLS`, `INSTANTLY_LIST_EBOOK` and `INSTANTLY_LIST_TOOLKITS` in Vercel (Production and Preview), then deploy.
+- [ ] **Substack signups into Instantly.** Later: the newsletter keeps its Substack embed for now (Rohith, 26 Nov).
 - [ ] **Unfinished-form leads** with a consent box. Revisit if GA4's `form_abandon` numbers are high. (17)
 - [ ] **An `/admin` dashboard.** Revisit if the team finds GA4 and the Sheet are not enough. (17)
 - [ ] **Email alerts** in addition to Slack. (17)
-- [ ] **Booking calendar on the site,** replacing the Calendly pop-up: our own slot picker and form, with the booking made on the server. The `CALENDLY_TOKEN` already has the scopes (25 Nov). Reuse `archive/b2c-2026-11/api/slots.js` and `book.js`, and point `CALENDLY_EVENT_TYPE_URI` at the B2B "book a call" event. Needs a paid Calendly plan.
+- [x] **Booking calendar on the site,** replacing the Calendly pop-up: our own slot picker and form, with the booking made on the server. Done in PR #19 (merged 26 Nov): `/api/call` finds the event from `CALENDLY_TOKEN` by its `/tomoclub-call` link, so `CALENDLY_EVENT_TYPE_URI` is not needed. The Calendly pop-up stays as a fallback when times cannot load.
 - [ ] **Cloudflare Turnstile,** an optional bot check that shows a small widget on forms. Moved here by Rohith on 24 Nov, because so far spam has only hit the Build With Us form. (15, B)
 - [ ] **The Build With Us form flow, only if Rohith decides to revisit it.** Known issues:
   - its Apps Script address is visible in the page source and gets bot submissions;
