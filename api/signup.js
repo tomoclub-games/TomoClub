@@ -5,7 +5,7 @@
 
 import {
   originAllowed, clientIp, tooMany, spamReason, clean, isEmail, isThrowaway, attribution,
-  submissionId, saveToSheet, readBody,
+  submissionId, saveToSheet, readBody, addToInstantly,
 } from './_lead-core.js';
 
 // Form type sent by the page -> tab in the Google Sheet.
@@ -44,6 +44,14 @@ export default async function handler(req, res) {
   if (type === 'resource') row.toolkit = clean(b.toolkitName, 200);
   Object.assign(row, attribution(b), { submission_id: submissionId(b) });
 
-  if (!(await saveToSheet([{ sheet: tab, data: row }]))) return res.status(502).json({ error: 'Could not save' });
+  // Save to the Sheet and add to Instantly at the same time. Only the Sheet decides success.
+  const [saved] = await Promise.all([
+    saveToSheet([{ sheet: tab, data: row }]),
+    addToInstantly(type === 'resource' ? 'INSTANTLY_LIST_TOOLKITS' : 'INSTANTLY_LIST_EBOOK', {
+      name: row.first_name, email,
+      custom: { role: row.role, toolkit: row.toolkit, source: row.utm_source || row.referrer },
+    }),
+  ]);
+  if (!saved) return res.status(502).json({ error: 'Could not save' });
   return res.status(200).json({ success: true });
 }

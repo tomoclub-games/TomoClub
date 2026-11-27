@@ -11,7 +11,7 @@
   var MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  var S = { slots: null, minutes: 20, load: 'idle', fetchedAt: 0, step: 1, month: 0, date: null, slot: null,
+  var S = { slots: null, load: 'idle', fetchedAt: 0, step: 1, month: 0, date: null, slot: null,
     name: '', email: '', reason: '', guests: '', showGuests: false, hp: '', busy: false, error: '', started: false,
     done: false, sid: '' };
   var overlay = null, box = null, lastFocus = null, pending = null, isOpen = false;
@@ -40,7 +40,7 @@
       .then(function (r) { return r.json(); })
       .then(function (j) {
         if (!j || !j.ok || !Array.isArray(j.slots)) throw new Error('bad response');
-        S.slots = j.slots; S.minutes = j.minutes || 20; S.fetchedAt = Date.now(); S.load = 'ok';
+        S.slots = j.slots; S.fetchedAt = Date.now(); S.load = 'ok';
         if (S.slot && S.slots.indexOf(S.slot) < 0) { S.slot = null; if (S.step === 2) S.step = 1; }
       })
       .catch(function () { S.load = S.slots ? 'ok' : 'error'; })
@@ -169,7 +169,7 @@
       box.innerHTML = h;
       return;
     }
-    h += '<div class="tcb-head"><h2 id="tcb-title">Book a ' + esc(S.minutes) + '-minute call</h2><p>Pick a time that suits you. You will get a calendar invite with the video link.</p></div>';
+    h += '<div class="tcb-head"><h2 id="tcb-title">Book a 20-minute call</h2><p>Pick a time that suits you. You will get a calendar invite with the video link.</p></div>';
     if (S.step === 2 && S.slot) {
       h += '<div class="tcb-form"><div class="tcb-pick"><strong>' + esc(dateLabel(S.slot) + ', ' + timeLabel(S.slot) + ' ' + tzShort(new Date(S.slot))) + '</strong><button type="button" class="tcb-link" data-back>Change time</button></div>' +
         (S.error ? '<p class="tcb-err" role="alert">' + S.error + '</p>' : '') +
